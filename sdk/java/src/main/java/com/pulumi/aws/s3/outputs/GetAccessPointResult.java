@@ -50,11 +50,6 @@ public final class GetAccessPointResult {
      * 
      */
     private Map<String,String> endpoints;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String name;
     /**
      * @return Indicates whether the access point allows access from the public Internet.
@@ -131,13 +126,6 @@ public final class GetAccessPointResult {
     public Map<String,String> endpoints() {
         return this.endpoints;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String name() {
         return this.name;
     }
@@ -190,7 +178,6 @@ public final class GetAccessPointResult {
         private String dataSourceId;
         private String dataSourceType;
         private Map<String,String> endpoints;
-        private String id;
         private String name;
         private String networkOrigin;
         private List<GetAccessPointPublicAccessBlockConfiguration> publicAccessBlockConfigurations;
@@ -208,7 +195,6 @@ public final class GetAccessPointResult {
     	      this.dataSourceId = defaults.dataSourceId;
     	      this.dataSourceType = defaults.dataSourceType;
     	      this.endpoints = defaults.endpoints;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkOrigin = defaults.networkOrigin;
     	      this.publicAccessBlockConfigurations = defaults.publicAccessBlockConfigurations;
@@ -282,14 +268,6 @@ public final class GetAccessPointResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetAccessPointResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetAccessPointResult", "name");
@@ -353,7 +331,6 @@ public final class GetAccessPointResult {
             _resultValue.dataSourceId = dataSourceId;
             _resultValue.dataSourceType = dataSourceType;
             _resultValue.endpoints = endpoints;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.networkOrigin = networkOrigin;
             _resultValue.publicAccessBlockConfigurations = publicAccessBlockConfigurations;

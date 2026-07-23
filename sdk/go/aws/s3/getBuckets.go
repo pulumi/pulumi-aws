@@ -93,12 +93,10 @@ type GetBucketsResult struct {
 	// Bucket region.
 	BucketRegion *string `pulumi:"bucketRegion"`
 	// List of bucket objects:
-	Buckets []GetBucketsBucket `pulumi:"buckets"`
-	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
-	MaxBuckets *int    `pulumi:"maxBuckets"`
-	Prefix     *string `pulumi:"prefix"`
-	Region     string  `pulumi:"region"`
+	Buckets    []GetBucketsBucket `pulumi:"buckets"`
+	MaxBuckets *int               `pulumi:"maxBuckets"`
+	Prefix     *string            `pulumi:"prefix"`
+	Region     string             `pulumi:"region"`
 }
 
 func GetBucketsOutput(ctx *pulumi.Context, args GetBucketsOutputArgs, opts ...pulumi.InvokeOption) GetBucketsResultOutput {
@@ -149,11 +147,6 @@ func (o GetBucketsResultOutput) BucketRegion() pulumi.StringPtrOutput {
 // List of bucket objects:
 func (o GetBucketsResultOutput) Buckets() GetBucketsBucketArrayOutput {
 	return o.ApplyT(func(v GetBucketsResult) []GetBucketsBucket { return v.Buckets }).(GetBucketsBucketArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetBucketsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetBucketsResultOutput) MaxBuckets() pulumi.IntPtrOutput {

@@ -63,8 +63,6 @@ type LookupDatabaseResult struct {
 	Arn string `pulumi:"arn"`
 	// Creation time of database.
 	CreatedTime string `pulumi:"createdTime"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The ARN of the KMS key used to encrypt the data stored in the database.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last time database was updated.
@@ -118,11 +116,6 @@ func (o LookupDatabaseResultOutput) Arn() pulumi.StringOutput {
 // Creation time of database.
 func (o LookupDatabaseResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.CreatedTime }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupDatabaseResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The ARN of the KMS key used to encrypt the data stored in the database.

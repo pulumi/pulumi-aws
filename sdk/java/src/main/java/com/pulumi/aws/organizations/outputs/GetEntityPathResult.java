@@ -16,11 +16,6 @@ public final class GetEntityPathResult {
      * 
      */
     private String entityPath;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
 
     private GetEntityPathResult() {}
     public String entityId() {
@@ -32,13 +27,6 @@ public final class GetEntityPathResult {
      */
     public String entityPath() {
         return this.entityPath;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
 
     public static Builder builder() {
@@ -52,13 +40,11 @@ public final class GetEntityPathResult {
     public static final class Builder {
         private String entityId;
         private String entityPath;
-        private String id;
         public Builder() {}
         public Builder(GetEntityPathResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entityId = defaults.entityId;
     	      this.entityPath = defaults.entityPath;
-    	      this.id = defaults.id;
         }
 
         @CustomType.Setter
@@ -77,19 +63,10 @@ public final class GetEntityPathResult {
             this.entityPath = entityPath;
             return this;
         }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetEntityPathResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         public GetEntityPathResult build() {
             final var _resultValue = new GetEntityPathResult();
             _resultValue.entityId = entityId;
             _resultValue.entityPath = entityPath;
-            _resultValue.id = id;
             return _resultValue;
         }
     }

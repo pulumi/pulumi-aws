@@ -233,10 +233,6 @@ namespace Pulumi.Aws.S3Control
         /// Type of the data source that the access point is attached to.
         /// </summary>
         public readonly string? DataSourceType;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -251,8 +247,6 @@ namespace Pulumi.Aws.S3Control
 
             string? dataSourceType,
 
-            string id,
-
             string region)
         {
             AccessPoints = accessPoints;
@@ -260,7 +254,6 @@ namespace Pulumi.Aws.S3Control
             Bucket = bucket;
             DataSourceId = dataSourceId;
             DataSourceType = dataSourceType;
-            Id = id;
             Region = region;
         }
     }

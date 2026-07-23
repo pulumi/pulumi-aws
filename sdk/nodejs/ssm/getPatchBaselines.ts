@@ -79,10 +79,6 @@ export interface GetPatchBaselinesResult {
     readonly baselineIdentities: outputs.ssm.GetPatchBaselinesBaselineIdentity[];
     readonly defaultBaselines?: boolean;
     readonly filters?: outputs.ssm.GetPatchBaselinesFilter[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

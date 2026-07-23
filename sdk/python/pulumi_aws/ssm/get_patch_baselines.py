@@ -28,7 +28,7 @@ class GetPatchBaselinesResult:
     """
     A collection of values returned by getPatchBaselines.
     """
-    def __init__(__self__, baseline_identities=None, default_baselines=None, filters=None, id=None, region=None):
+    def __init__(__self__, baseline_identities=None, default_baselines=None, filters=None, region=None):
         if baseline_identities and not isinstance(baseline_identities, list):
             raise TypeError("Expected argument 'baseline_identities' to be a list")
         pulumi.set(__self__, "baseline_identities", baseline_identities)
@@ -38,9 +38,6 @@ class GetPatchBaselinesResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -65,14 +62,6 @@ class GetPatchBaselinesResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -86,7 +75,6 @@ class AwaitableGetPatchBaselinesResult(GetPatchBaselinesResult):
             baseline_identities=self.baseline_identities,
             default_baselines=self.default_baselines,
             filters=self.filters,
-            id=self.id,
             region=self.region)
 
 
@@ -142,7 +130,6 @@ def get_patch_baselines(default_baselines: Optional[_builtins.bool] = None,
         baseline_identities=pulumi.get(__ret__, 'baseline_identities'),
         default_baselines=pulumi.get(__ret__, 'default_baselines'),
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_patch_baselines_output(default_baselines: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                filters: pulumi.Input[Optional[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
@@ -195,5 +182,4 @@ def get_patch_baselines_output(default_baselines: pulumi.Input[Optional[Optional
         baseline_identities=pulumi.get(__response__, 'baseline_identities'),
         default_baselines=pulumi.get(__response__, 'default_baselines'),
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

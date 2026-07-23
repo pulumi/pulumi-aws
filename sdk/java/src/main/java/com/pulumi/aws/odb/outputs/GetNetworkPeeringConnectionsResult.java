@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkPeeringConnectionsResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The list of ODB peering connections. A summary of an ODB peering connection.
      * 
      */
@@ -25,13 +20,6 @@ public final class GetNetworkPeeringConnectionsResult {
     private String region;
 
     private GetNetworkPeeringConnectionsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return The list of ODB peering connections. A summary of an ODB peering connection.
      * 
@@ -52,25 +40,15 @@ public final class GetNetworkPeeringConnectionsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
         private String region;
         public Builder() {}
         public Builder(GetNetworkPeeringConnectionsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.odbPeeringConnections = defaults.odbPeeringConnections;
     	      this.region = defaults.region;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetNetworkPeeringConnectionsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder odbPeeringConnections(List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections) {
             if (odbPeeringConnections == null) {
@@ -92,7 +70,6 @@ public final class GetNetworkPeeringConnectionsResult {
         }
         public GetNetworkPeeringConnectionsResult build() {
             final var _resultValue = new GetNetworkPeeringConnectionsResult();
-            _resultValue.id = id;
             _resultValue.odbPeeringConnections = odbPeeringConnections;
             _resultValue.region = region;
             return _resultValue;

@@ -197,10 +197,6 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetLifecyclePolicyDocumentResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The above arguments serialized as a standard JSON policy document.
         /// </summary>
         public readonly string Json;
@@ -208,13 +204,10 @@ namespace Pulumi.Aws.Ecr
 
         [OutputConstructor]
         private GetLifecyclePolicyDocumentResult(
-            string id,
-
             string json,
 
             ImmutableArray<Outputs.GetLifecyclePolicyDocumentRuleResult> rules)
         {
-            Id = id;
             Json = json;
             Rules = rules;
         }

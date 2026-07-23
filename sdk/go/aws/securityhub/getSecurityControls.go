@@ -60,8 +60,6 @@ type GetSecurityControlsArgs struct {
 
 // A collection of values returned by getSecurityControls.
 type GetSecurityControlsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 	// List of controls. See below for details.
 	SecurityControlDefinitions []GetSecurityControlsSecurityControlDefinition `pulumi:"securityControlDefinitions"`
@@ -102,11 +100,6 @@ func (o GetSecurityControlsResultOutput) ToGetSecurityControlsResultOutput() Get
 
 func (o GetSecurityControlsResultOutput) ToGetSecurityControlsResultOutputWithContext(ctx context.Context) GetSecurityControlsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetSecurityControlsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityControlsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetSecurityControlsResultOutput) Region() pulumi.StringOutput {

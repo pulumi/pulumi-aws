@@ -77,8 +77,6 @@ type GetLifecyclePolicyDocumentArgs struct {
 
 // A collection of values returned by getLifecyclePolicyDocument.
 type GetLifecyclePolicyDocumentResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The above arguments serialized as a standard JSON policy document.
 	Json  string                           `pulumi:"json"`
 	Rules []GetLifecyclePolicyDocumentRule `pulumi:"rules"`
@@ -115,11 +113,6 @@ func (o GetLifecyclePolicyDocumentResultOutput) ToGetLifecyclePolicyDocumentResu
 
 func (o GetLifecyclePolicyDocumentResultOutput) ToGetLifecyclePolicyDocumentResultOutputWithContext(ctx context.Context) GetLifecyclePolicyDocumentResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetLifecyclePolicyDocumentResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLifecyclePolicyDocumentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The above arguments serialized as a standard JSON policy document.

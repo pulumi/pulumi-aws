@@ -77,10 +77,6 @@ export interface GetManagedRuleGroupResult {
      */
     readonly consumedLabels: outputs.wafv2.GetManagedRuleGroupConsumedLabel[];
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
      */
     readonly labelNamespace: string;

@@ -139,10 +139,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
         /// List of Route53 health checks associated with the plan. Each health check contains:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoute53HealthChecksHealthCheckResult> HealthChecks;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string PlanArn;
         /// <summary>
         /// Region for the health check.
@@ -153,14 +149,11 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private GetRoute53HealthChecksResult(
             ImmutableArray<Outputs.GetRoute53HealthChecksHealthCheckResult> healthChecks,
 
-            string id,
-
             string planArn,
 
             string region)
         {
             HealthChecks = healthChecks;
-            Id = id;
             PlanArn = planArn;
             Region = region;
         }

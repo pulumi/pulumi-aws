@@ -60,8 +60,6 @@ type GetSlackWorkspaceArgs struct {
 
 // A collection of values returned by getSlackWorkspace.
 type GetSlackWorkspaceResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 	// ID of the Slack Workspace assigned by AWS Chatbot.
 	SlackTeamId   string `pulumi:"slackTeamId"`
@@ -102,11 +100,6 @@ func (o GetSlackWorkspaceResultOutput) ToGetSlackWorkspaceResultOutput() GetSlac
 
 func (o GetSlackWorkspaceResultOutput) ToGetSlackWorkspaceResultOutputWithContext(ctx context.Context) GetSlackWorkspaceResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetSlackWorkspaceResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSlackWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetSlackWorkspaceResultOutput) Region() pulumi.StringOutput {

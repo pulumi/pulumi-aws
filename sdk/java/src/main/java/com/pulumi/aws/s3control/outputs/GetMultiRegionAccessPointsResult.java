@@ -21,11 +21,6 @@ public final class GetMultiRegionAccessPointsResult {
     private List<GetMultiRegionAccessPointsAccessPoint> accessPoints;
     private @Nullable String accountId;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Name of the Region.
      * 
      */
@@ -41,13 +36,6 @@ public final class GetMultiRegionAccessPointsResult {
     }
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Name of the Region.
@@ -68,14 +56,12 @@ public final class GetMultiRegionAccessPointsResult {
     public static final class Builder {
         private List<GetMultiRegionAccessPointsAccessPoint> accessPoints;
         private @Nullable String accountId;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetMultiRegionAccessPointsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPoints = defaults.accessPoints;
     	      this.accountId = defaults.accountId;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -97,14 +83,6 @@ public final class GetMultiRegionAccessPointsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetMultiRegionAccessPointsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetMultiRegionAccessPointsResult", "region");
@@ -116,7 +94,6 @@ public final class GetMultiRegionAccessPointsResult {
             final var _resultValue = new GetMultiRegionAccessPointsResult();
             _resultValue.accessPoints = accessPoints;
             _resultValue.accountId = accountId;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

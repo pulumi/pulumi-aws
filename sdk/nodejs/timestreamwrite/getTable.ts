@@ -68,10 +68,6 @@ export interface GetTableResult {
      */
     readonly databaseName: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Last time table was updated.
      */
     readonly lastUpdatedTime: string;

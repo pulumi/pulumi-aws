@@ -51,10 +51,6 @@ export interface GetRegionsArgs {
  */
 export interface GetRegionsResult {
     readonly accountId: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly regionOptStatusContains: string[];
     /**
      * The regions for a given account

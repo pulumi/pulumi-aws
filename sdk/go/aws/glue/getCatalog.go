@@ -78,9 +78,7 @@ type LookupCatalogResult struct {
 	Description string `pulumi:"description"`
 	// Federated catalog configuration. See `federatedCatalog` below.
 	FederatedCatalogs []GetCatalogFederatedCatalog `pulumi:"federatedCatalogs"`
-	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Name              string                       `pulumi:"name"`
 	// Map of key-value pairs that define parameters and properties of the catalog.
 	Parameters map[string]string `pulumi:"parameters"`
 	Region     string            `pulumi:"region"`
@@ -177,11 +175,6 @@ func (o LookupCatalogResultOutput) Description() pulumi.StringOutput {
 // Federated catalog configuration. See `federatedCatalog` below.
 func (o LookupCatalogResultOutput) FederatedCatalogs() GetCatalogFederatedCatalogArrayOutput {
 	return o.ApplyT(func(v LookupCatalogResult) []GetCatalogFederatedCatalog { return v.FederatedCatalogs }).(GetCatalogFederatedCatalogArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupCatalogResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCatalogResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupCatalogResultOutput) Name() pulumi.StringOutput {

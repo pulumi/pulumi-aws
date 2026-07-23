@@ -27,13 +27,10 @@ class GetGroupsResult:
     """
     A collection of values returned by getGroups.
     """
-    def __init__(__self__, groups=None, id=None, identity_store_id=None, region=None):
+    def __init__(__self__, groups=None, identity_store_id=None, region=None):
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if identity_store_id and not isinstance(identity_store_id, str):
             raise TypeError("Expected argument 'identity_store_id' to be a str")
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -48,14 +45,6 @@ class GetGroupsResult:
         List of Identity Store Groups
         """
         return pulumi.get(self, "groups")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
@@ -75,7 +64,6 @@ class AwaitableGetGroupsResult(GetGroupsResult):
             yield self
         return GetGroupsResult(
             groups=self.groups,
-            id=self.id,
             identity_store_id=self.identity_store_id,
             region=self.region)
 
@@ -110,7 +98,6 @@ def get_groups(identity_store_id: Optional[_builtins.str] = None,
 
     return AwaitableGetGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
-        id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         region=pulumi.get(__ret__, 'region'))
 def get_groups_output(identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -142,6 +129,5 @@ def get_groups_output(identity_store_id: pulumi.Input[Optional[_builtins.str]] =
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
     return __ret__.apply(lambda __response__: GetGroupsResult(
         groups=pulumi.get(__response__, 'groups'),
-        id=pulumi.get(__response__, 'id'),
         identity_store_id=pulumi.get(__response__, 'identity_store_id'),
         region=pulumi.get(__response__, 'region')))

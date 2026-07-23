@@ -52,10 +52,6 @@ export interface GetDatabaseResult {
      */
     readonly createdTime: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The ARN of the KMS key used to encrypt the data stored in the database.
      */
     readonly kmsKeyId: string;

@@ -43,10 +43,6 @@ export interface GetRequiredTagsArgs {
  * A collection of values returned by getRequiredTags.
  */
 export interface GetRequiredTagsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * List of required tag configurations. See `requiredTags` below.

@@ -147,10 +147,6 @@ namespace Pulumi.Aws.SavingsPlans
         /// </summary>
         public readonly string End;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The ID of the offering.
         /// </summary>
         public readonly string OfferingId;
@@ -212,8 +208,6 @@ namespace Pulumi.Aws.SavingsPlans
 
             string end,
 
-            string id,
-
             string offeringId,
 
             string paymentOption,
@@ -251,7 +245,6 @@ namespace Pulumi.Aws.SavingsPlans
             Description = description;
             Ec2InstanceFamily = ec2InstanceFamily;
             End = end;
-            Id = id;
             OfferingId = offeringId;
             PaymentOption = paymentOption;
             ProductTypes = productTypes;

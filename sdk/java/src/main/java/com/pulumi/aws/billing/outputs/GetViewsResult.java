@@ -19,11 +19,6 @@ public final class GetViewsResult {
      * 
      */
     private List<GetViewsBillingView> billingViews;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
 
     private GetViewsResult() {}
     public List<String> billingViewTypes() {
@@ -35,13 +30,6 @@ public final class GetViewsResult {
      */
     public List<GetViewsBillingView> billingViews() {
         return this.billingViews;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
 
     public static Builder builder() {
@@ -55,13 +43,11 @@ public final class GetViewsResult {
     public static final class Builder {
         private @Nullable List<String> billingViewTypes;
         private List<GetViewsBillingView> billingViews;
-        private String id;
         public Builder() {}
         public Builder(GetViewsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingViewTypes = defaults.billingViewTypes;
     	      this.billingViews = defaults.billingViews;
-    	      this.id = defaults.id;
         }
 
         @CustomType.Setter
@@ -84,19 +70,10 @@ public final class GetViewsResult {
         public Builder billingViews(GetViewsBillingView... billingViews) {
             return billingViews(List.of(billingViews));
         }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetViewsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         public GetViewsResult build() {
             final var _resultValue = new GetViewsResult();
             _resultValue.billingViewTypes = billingViewTypes;
             _resultValue.billingViews = billingViews;
-            _resultValue.id = id;
             return _resultValue;
         }
     }

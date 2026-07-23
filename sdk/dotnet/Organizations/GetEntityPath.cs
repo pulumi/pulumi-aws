@@ -122,22 +122,15 @@ namespace Pulumi.Aws.Organizations
         /// Entity path.
         /// </summary>
         public readonly string EntityPath;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetEntityPathResult(
             string entityId,
 
-            string entityPath,
-
-            string id)
+            string entityPath)
         {
             EntityId = entityId;
             EntityPath = entityPath;
-            Id = id;
         }
     }
 }

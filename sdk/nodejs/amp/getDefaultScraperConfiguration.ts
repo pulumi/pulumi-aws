@@ -42,10 +42,6 @@ export interface GetDefaultScraperConfigurationResult {
      * The configuration file.
      */
     readonly configuration: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

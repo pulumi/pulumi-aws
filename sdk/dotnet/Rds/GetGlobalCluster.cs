@@ -167,10 +167,6 @@ namespace Pulumi.Aws.Rds
         /// Version of the database engine for this Global Cluster.
         /// </summary>
         public readonly string EngineVersion;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Identifier;
         /// <summary>
         /// Set of objects containing Global Cluster members.
@@ -206,8 +202,6 @@ namespace Pulumi.Aws.Rds
 
             string engineVersion,
 
-            string id,
-
             string identifier,
 
             ImmutableArray<Outputs.GetGlobalClusterMemberResult> members,
@@ -227,7 +221,6 @@ namespace Pulumi.Aws.Rds
             Engine = engine;
             EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
-            Id = id;
             Identifier = identifier;
             Members = members;
             Region = region;

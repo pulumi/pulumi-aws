@@ -64,10 +64,8 @@ type GetRolePolicyAttachmentsArgs struct {
 type GetRolePolicyAttachmentsResult struct {
 	// List of attached managed policies. See below.
 	AttachedPolicies []GetRolePolicyAttachmentsAttachedPolicy `pulumi:"attachedPolicies"`
-	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
-	PathPrefix *string `pulumi:"pathPrefix"`
-	RoleName   string  `pulumi:"roleName"`
+	PathPrefix       *string                                  `pulumi:"pathPrefix"`
+	RoleName         string                                   `pulumi:"roleName"`
 }
 
 func GetRolePolicyAttachmentsOutput(ctx *pulumi.Context, args GetRolePolicyAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetRolePolicyAttachmentsResultOutput {
@@ -113,11 +111,6 @@ func (o GetRolePolicyAttachmentsResultOutput) AttachedPolicies() GetRolePolicyAt
 	return o.ApplyT(func(v GetRolePolicyAttachmentsResult) []GetRolePolicyAttachmentsAttachedPolicy {
 		return v.AttachedPolicies
 	}).(GetRolePolicyAttachmentsAttachedPolicyArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRolePolicyAttachmentsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRolePolicyAttachmentsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetRolePolicyAttachmentsResultOutput) PathPrefix() pulumi.StringPtrOutput {

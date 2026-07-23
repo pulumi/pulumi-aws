@@ -60,9 +60,7 @@ type GetRegionsArgs struct {
 
 // A collection of values returned by getRegions.
 type GetRegionsResult struct {
-	AccountId string `pulumi:"accountId"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                      string   `pulumi:"id"`
+	AccountId               string   `pulumi:"accountId"`
 	RegionOptStatusContains []string `pulumi:"regionOptStatusContains"`
 	// The regions for a given account
 	Regions []GetRegionsRegion `pulumi:"regions"`
@@ -106,11 +104,6 @@ func (o GetRegionsResultOutput) ToGetRegionsResultOutputWithContext(ctx context.
 
 func (o GetRegionsResultOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionsResult) string { return v.AccountId }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRegionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRegionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetRegionsResultOutput) RegionOptStatusContains() pulumi.StringArrayOutput {

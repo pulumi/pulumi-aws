@@ -42,11 +42,6 @@ public final class GetCoreNetworkResult {
      */
     private String globalNetworkId;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Network function groups associated with the core network. See `networkFunctionGroups` Attribute Reference for details.
      * 
      */
@@ -107,13 +102,6 @@ public final class GetCoreNetworkResult {
         return this.globalNetworkId;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return Network function groups associated with the core network. See `networkFunctionGroups` Attribute Reference for details.
      * 
      */
@@ -157,7 +145,6 @@ public final class GetCoreNetworkResult {
         private String description;
         private List<GetCoreNetworkEdge> edges;
         private String globalNetworkId;
-        private String id;
         private List<GetCoreNetworkNetworkFunctionGroup> networkFunctionGroups;
         private List<GetCoreNetworkSegment> segments;
         private String state;
@@ -171,7 +158,6 @@ public final class GetCoreNetworkResult {
     	      this.description = defaults.description;
     	      this.edges = defaults.edges;
     	      this.globalNetworkId = defaults.globalNetworkId;
-    	      this.id = defaults.id;
     	      this.networkFunctionGroups = defaults.networkFunctionGroups;
     	      this.segments = defaults.segments;
     	      this.state = defaults.state;
@@ -230,14 +216,6 @@ public final class GetCoreNetworkResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetCoreNetworkResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder networkFunctionGroups(List<GetCoreNetworkNetworkFunctionGroup> networkFunctionGroups) {
             if (networkFunctionGroups == null) {
               throw new MissingRequiredPropertyException("GetCoreNetworkResult", "networkFunctionGroups");
@@ -283,7 +261,6 @@ public final class GetCoreNetworkResult {
             _resultValue.description = description;
             _resultValue.edges = edges;
             _resultValue.globalNetworkId = globalNetworkId;
-            _resultValue.id = id;
             _resultValue.networkFunctionGroups = networkFunctionGroups;
             _resultValue.segments = segments;
             _resultValue.state = state;

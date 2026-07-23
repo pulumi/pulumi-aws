@@ -27,16 +27,13 @@ class GetBucketNotificationResult:
     """
     A collection of values returned by getBucketNotification.
     """
-    def __init__(__self__, bucket=None, eventbridge=None, id=None, lambda_functions=None, queues=None, region=None, topics=None):
+    def __init__(__self__, bucket=None, eventbridge=None, lambda_functions=None, queues=None, region=None, topics=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
         if eventbridge and not isinstance(eventbridge, bool):
             raise TypeError("Expected argument 'eventbridge' to be a bool")
         pulumi.set(__self__, "eventbridge", eventbridge)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if lambda_functions and not isinstance(lambda_functions, list):
             raise TypeError("Expected argument 'lambda_functions' to be a list")
         pulumi.set(__self__, "lambda_functions", lambda_functions)
@@ -62,14 +59,6 @@ class GetBucketNotificationResult:
         Whether Amazon EventBridge notifications are enabled on this bucket.
         """
         return pulumi.get(self, "eventbridge")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunctions")
@@ -109,7 +98,6 @@ class AwaitableGetBucketNotificationResult(GetBucketNotificationResult):
         return GetBucketNotificationResult(
             bucket=self.bucket,
             eventbridge=self.eventbridge,
-            id=self.id,
             lambda_functions=self.lambda_functions,
             queues=self.queues,
             region=self.region,
@@ -227,7 +215,6 @@ def get_bucket_notification(bucket: Optional[_builtins.str] = None,
     return AwaitableGetBucketNotificationResult(
         bucket=pulumi.get(__ret__, 'bucket'),
         eventbridge=pulumi.get(__ret__, 'eventbridge'),
-        id=pulumi.get(__ret__, 'id'),
         lambda_functions=pulumi.get(__ret__, 'lambda_functions'),
         queues=pulumi.get(__ret__, 'queues'),
         region=pulumi.get(__ret__, 'region'),
@@ -342,7 +329,6 @@ def get_bucket_notification_output(bucket: pulumi.Input[Optional[_builtins.str]]
     return __ret__.apply(lambda __response__: GetBucketNotificationResult(
         bucket=pulumi.get(__response__, 'bucket'),
         eventbridge=pulumi.get(__response__, 'eventbridge'),
-        id=pulumi.get(__response__, 'id'),
         lambda_functions=pulumi.get(__response__, 'lambda_functions'),
         queues=pulumi.get(__response__, 'queues'),
         region=pulumi.get(__response__, 'region'),

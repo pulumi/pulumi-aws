@@ -28,16 +28,13 @@ class GetAgentAgentVersionsResult:
     """
     A collection of values returned by getAgentAgentVersions.
     """
-    def __init__(__self__, agent_id=None, agent_version_summaries=None, id=None, region=None):
+    def __init__(__self__, agent_id=None, agent_version_summaries=None, region=None):
         if agent_id and not isinstance(agent_id, str):
             raise TypeError("Expected argument 'agent_id' to be a str")
         pulumi.set(__self__, "agent_id", agent_id)
         if agent_version_summaries and not isinstance(agent_version_summaries, list):
             raise TypeError("Expected argument 'agent_version_summaries' to be a list")
         pulumi.set(__self__, "agent_version_summaries", agent_version_summaries)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -57,14 +54,6 @@ class GetAgentAgentVersionsResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -77,7 +66,6 @@ class AwaitableGetAgentAgentVersionsResult(GetAgentAgentVersionsResult):
         return GetAgentAgentVersionsResult(
             agent_id=self.agent_id,
             agent_version_summaries=self.agent_version_summaries,
-            id=self.id,
             region=self.region)
 
 
@@ -114,7 +102,6 @@ def get_agent_agent_versions(agent_id: Optional[_builtins.str] = None,
     return AwaitableGetAgentAgentVersionsResult(
         agent_id=pulumi.get(__ret__, 'agent_id'),
         agent_version_summaries=pulumi.get(__ret__, 'agent_version_summaries'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     agent_version_summaries: pulumi.Input[Optional[Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]]]] = None,
@@ -148,5 +135,4 @@ def get_agent_agent_versions_output(agent_id: pulumi.Input[Optional[_builtins.st
     return __ret__.apply(lambda __response__: GetAgentAgentVersionsResult(
         agent_id=pulumi.get(__response__, 'agent_id'),
         agent_version_summaries=pulumi.get(__response__, 'agent_version_summaries'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

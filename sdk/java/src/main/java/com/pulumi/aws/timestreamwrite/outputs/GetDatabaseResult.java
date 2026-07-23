@@ -22,11 +22,6 @@ public final class GetDatabaseResult {
      */
     private String createdTime;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The ARN of the KMS key used to encrypt the data stored in the database.
      * 
      */
@@ -58,13 +53,6 @@ public final class GetDatabaseResult {
      */
     public String createdTime() {
         return this.createdTime;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return The ARN of the KMS key used to encrypt the data stored in the database.
@@ -105,7 +93,6 @@ public final class GetDatabaseResult {
     public static final class Builder {
         private String arn;
         private String createdTime;
-        private String id;
         private String kmsKeyId;
         private String lastUpdatedTime;
         private String name;
@@ -116,7 +103,6 @@ public final class GetDatabaseResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.createdTime = defaults.createdTime;
-    	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.name = defaults.name;
@@ -138,14 +124,6 @@ public final class GetDatabaseResult {
               throw new MissingRequiredPropertyException("GetDatabaseResult", "createdTime");
             }
             this.createdTime = createdTime;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDatabaseResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -192,7 +170,6 @@ public final class GetDatabaseResult {
             final var _resultValue = new GetDatabaseResult();
             _resultValue.arn = arn;
             _resultValue.createdTime = createdTime;
-            _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.name = name;

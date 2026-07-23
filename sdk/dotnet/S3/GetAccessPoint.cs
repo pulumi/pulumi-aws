@@ -170,10 +170,6 @@ namespace Pulumi.Aws.S3
         /// VPC endpoint for the access point.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Endpoints;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// Indicates whether the access point allows access from the public Internet.
@@ -211,8 +207,6 @@ namespace Pulumi.Aws.S3
 
             ImmutableDictionary<string, string> endpoints,
 
-            string id,
-
             string name,
 
             string networkOrigin,
@@ -233,7 +227,6 @@ namespace Pulumi.Aws.S3
             DataSourceId = dataSourceId;
             DataSourceType = dataSourceType;
             Endpoints = endpoints;
-            Id = id;
             Name = name;
             NetworkOrigin = networkOrigin;
             PublicAccessBlockConfigurations = publicAccessBlockConfigurations;

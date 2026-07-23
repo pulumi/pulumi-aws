@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion, current]).then(([current, currentGetPartition, currentGetRegion, current1]) => aws.iam.getPolicyDocument({
+ * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion]).then(([current, currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],

@@ -212,10 +212,6 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
         /// </summary>
         public readonly string ImageBuilderName;
@@ -268,8 +264,6 @@ namespace Pulumi.Aws.AppStream
 
             string displayName,
 
-            string id,
-
             string imageBuilderName,
 
             bool imageBuilderSupported,
@@ -301,7 +295,6 @@ namespace Pulumi.Aws.AppStream
             CreatedTime = createdTime;
             Description = description;
             DisplayName = displayName;
-            Id = id;
             ImageBuilderName = imageBuilderName;
             ImageBuilderSupported = imageBuilderSupported;
             ImagePermissions = imagePermissions;

@@ -53,10 +53,6 @@ export interface GetEndpointAssociationsResult {
      * Associations for the VPC Endpoint. Association blocks are documented below.
      */
     readonly associations: outputs.vpc.GetEndpointAssociationsAssociation[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     readonly vpcEndpointId: string;
 }

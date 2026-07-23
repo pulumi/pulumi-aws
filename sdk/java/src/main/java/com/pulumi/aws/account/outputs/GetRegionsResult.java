@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetRegionsResult {
     private String accountId;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private List<String> regionOptStatusContains;
     /**
      * @return The regions for a given account
@@ -28,13 +23,6 @@ public final class GetRegionsResult {
     private GetRegionsResult() {}
     public String accountId() {
         return this.accountId;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public List<String> regionOptStatusContains() {
         return this.regionOptStatusContains;
@@ -57,14 +45,12 @@ public final class GetRegionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String accountId;
-        private String id;
         private List<String> regionOptStatusContains;
         private List<GetRegionsRegion> regions;
         public Builder() {}
         public Builder(GetRegionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
-    	      this.id = defaults.id;
     	      this.regionOptStatusContains = defaults.regionOptStatusContains;
     	      this.regions = defaults.regions;
         }
@@ -75,14 +61,6 @@ public final class GetRegionsResult {
               throw new MissingRequiredPropertyException("GetRegionsResult", "accountId");
             }
             this.accountId = accountId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRegionsResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -110,7 +88,6 @@ public final class GetRegionsResult {
         public GetRegionsResult build() {
             final var _resultValue = new GetRegionsResult();
             _resultValue.accountId = accountId;
-            _resultValue.id = id;
             _resultValue.regionOptStatusContains = regionOptStatusContains;
             _resultValue.regions = regions;
             return _resultValue;

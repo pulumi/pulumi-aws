@@ -264,10 +264,6 @@ namespace Pulumi.Aws.Ssm
         public readonly ImmutableArray<Outputs.GetPatchBaselinesBaselineIdentityResult> BaselineIdentities;
         public readonly bool? DefaultBaselines;
         public readonly ImmutableArray<Outputs.GetPatchBaselinesFilterResult> Filters;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -278,14 +274,11 @@ namespace Pulumi.Aws.Ssm
 
             ImmutableArray<Outputs.GetPatchBaselinesFilterResult> filters,
 
-            string id,
-
             string region)
         {
             BaselineIdentities = baselineIdentities;
             DefaultBaselines = defaultBaselines;
             Filters = filters;
-            Id = id;
             Region = region;
         }
     }

@@ -48,11 +48,6 @@ public final class GetVpnConnectionResult {
      */
     private String gatewayAssociationState;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
      * 
      */
@@ -147,13 +142,6 @@ public final class GetVpnConnectionResult {
         return this.gatewayAssociationState;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
      * 
      */
@@ -239,7 +227,6 @@ public final class GetVpnConnectionResult {
         private String customerGatewayId;
         private @Nullable List<GetVpnConnectionFilter> filters;
         private String gatewayAssociationState;
-        private String id;
         private String preSharedKeyArn;
         private String region;
         private List<GetVpnConnectionRoute> routes;
@@ -261,7 +248,6 @@ public final class GetVpnConnectionResult {
     	      this.customerGatewayId = defaults.customerGatewayId;
     	      this.filters = defaults.filters;
     	      this.gatewayAssociationState = defaults.gatewayAssociationState;
-    	      this.id = defaults.id;
     	      this.preSharedKeyArn = defaults.preSharedKeyArn;
     	      this.region = defaults.region;
     	      this.routes = defaults.routes;
@@ -330,14 +316,6 @@ public final class GetVpnConnectionResult {
               throw new MissingRequiredPropertyException("GetVpnConnectionResult", "gatewayAssociationState");
             }
             this.gatewayAssociationState = gatewayAssociationState;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetVpnConnectionResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -443,7 +421,6 @@ public final class GetVpnConnectionResult {
             _resultValue.customerGatewayId = customerGatewayId;
             _resultValue.filters = filters;
             _resultValue.gatewayAssociationState = gatewayAssociationState;
-            _resultValue.id = id;
             _resultValue.preSharedKeyArn = preSharedKeyArn;
             _resultValue.region = region;
             _resultValue.routes = routes;

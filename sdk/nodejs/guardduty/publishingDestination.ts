@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const kmsPol = Promise.all([currentGetRegion, current, currentGetRegion, current, current]).then(([currentGetRegion, current, currentGetRegion1, current1, current2]) => aws.iam.getPolicyDocument({
+ * const kmsPol = Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             sid: "Allow GuardDuty to encrypt findings",
@@ -55,10 +55,10 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow all users to modify/delete key (test only)",
  *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentGetRegion1.region}:${current1.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [`arn:aws:iam::${current2.accountId}:root`],
+ *                 identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *             }],
  *         },
  *     ],

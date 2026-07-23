@@ -49,10 +49,6 @@ export interface GetCloudExadataInfrastructuresResult {
      * List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
      */
     readonly cloudExadataInfrastructures: outputs.odb.GetCloudExadataInfrastructuresCloudExadataInfrastructure[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

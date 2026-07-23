@@ -27,10 +27,7 @@ class GetModelAgreementOffersResult:
     """
     A collection of values returned by getModelAgreementOffers.
     """
-    def __init__(__self__, id=None, model_id=None, offer_type=None, offers=None, region=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, model_id=None, offer_type=None, offers=None, region=None):
         if model_id and not isinstance(model_id, str):
             raise TypeError("Expected argument 'model_id' to be a str")
         pulumi.set(__self__, "model_id", model_id)
@@ -43,14 +40,6 @@ class GetModelAgreementOffersResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="modelId")
@@ -82,7 +71,6 @@ class AwaitableGetModelAgreementOffersResult(GetModelAgreementOffersResult):
         if False:
             yield self
         return GetModelAgreementOffersResult(
-            id=self.id,
             model_id=self.model_id,
             offer_type=self.offer_type,
             offers=self.offers,
@@ -122,7 +110,6 @@ def get_model_agreement_offers(model_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers', __args__, opts=opts, typ=GetModelAgreementOffersResult).value
 
     return AwaitableGetModelAgreementOffersResult(
-        id=pulumi.get(__ret__, 'id'),
         model_id=pulumi.get(__ret__, 'model_id'),
         offer_type=pulumi.get(__ret__, 'offer_type'),
         offers=pulumi.get(__ret__, 'offers'),
@@ -159,7 +146,6 @@ def get_model_agreement_offers_output(model_id: pulumi.Input[Optional[_builtins.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers', __args__, opts=opts, typ=GetModelAgreementOffersResult)
     return __ret__.apply(lambda __response__: GetModelAgreementOffersResult(
-        id=pulumi.get(__response__, 'id'),
         model_id=pulumi.get(__response__, 'model_id'),
         offer_type=pulumi.get(__response__, 'offer_type'),
         offers=pulumi.get(__response__, 'offers'),

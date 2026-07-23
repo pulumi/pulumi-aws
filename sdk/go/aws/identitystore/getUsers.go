@@ -65,8 +65,6 @@ type GetUsersArgs struct {
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// Region of the address.
 	Region string `pulumi:"region"`
@@ -108,11 +106,6 @@ func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
 
 func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetUsersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetUsersResultOutput) IdentityStoreId() pulumi.StringOutput {

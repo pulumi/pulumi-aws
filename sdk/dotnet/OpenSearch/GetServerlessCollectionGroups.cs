@@ -118,22 +118,15 @@ namespace Pulumi.Aws.OpenSearch
         /// List of collection group summary objects. See `CollectionGroupSummaries` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerlessCollectionGroupsCollectionGroupSummaryResult> CollectionGroupSummaries;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetServerlessCollectionGroupsResult(
             ImmutableArray<Outputs.GetServerlessCollectionGroupsCollectionGroupSummaryResult> collectionGroupSummaries,
 
-            string id,
-
             string region)
         {
             CollectionGroupSummaries = collectionGroupSummaries;
-            Id = id;
             Region = region;
         }
     }

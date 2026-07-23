@@ -49,10 +49,6 @@ export interface GetCloudVmClustersResult {
      * List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
      */
     readonly cloudVmClusters: outputs.odb.GetCloudVmClustersCloudVmCluster[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

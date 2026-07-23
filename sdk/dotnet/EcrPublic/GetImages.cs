@@ -219,10 +219,6 @@ namespace Pulumi.Aws.EcrPublic
     [OutputType]
     public sealed class GetImagesResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<Outputs.GetImagesImageIdResult> ImageIds;
         /// <summary>
         /// List of images returned. Each image contains:
@@ -240,8 +236,6 @@ namespace Pulumi.Aws.EcrPublic
 
         [OutputConstructor]
         private GetImagesResult(
-            string id,
-
             ImmutableArray<Outputs.GetImagesImageIdResult> imageIds,
 
             ImmutableArray<Outputs.GetImagesImageResult> images,
@@ -252,7 +246,6 @@ namespace Pulumi.Aws.EcrPublic
 
             string repositoryName)
         {
-            Id = id;
             ImageIds = imageIds;
             Images = images;
             Region = region;

@@ -19,11 +19,6 @@ public final class GetRolePolicyAttachmentsResult {
      * 
      */
     private List<GetRolePolicyAttachmentsAttachedPolicy> attachedPolicies;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable String pathPrefix;
     private String roleName;
 
@@ -34,13 +29,6 @@ public final class GetRolePolicyAttachmentsResult {
      */
     public List<GetRolePolicyAttachmentsAttachedPolicy> attachedPolicies() {
         return this.attachedPolicies;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
@@ -59,14 +47,12 @@ public final class GetRolePolicyAttachmentsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetRolePolicyAttachmentsAttachedPolicy> attachedPolicies;
-        private String id;
         private @Nullable String pathPrefix;
         private String roleName;
         public Builder() {}
         public Builder(GetRolePolicyAttachmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attachedPolicies = defaults.attachedPolicies;
-    	      this.id = defaults.id;
     	      this.pathPrefix = defaults.pathPrefix;
     	      this.roleName = defaults.roleName;
         }
@@ -81,14 +67,6 @@ public final class GetRolePolicyAttachmentsResult {
         }
         public Builder attachedPolicies(GetRolePolicyAttachmentsAttachedPolicy... attachedPolicies) {
             return attachedPolicies(List.of(attachedPolicies));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRolePolicyAttachmentsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
@@ -107,7 +85,6 @@ public final class GetRolePolicyAttachmentsResult {
         public GetRolePolicyAttachmentsResult build() {
             final var _resultValue = new GetRolePolicyAttachmentsResult();
             _resultValue.attachedPolicies = attachedPolicies;
-            _resultValue.id = id;
             _resultValue.pathPrefix = pathPrefix;
             _resultValue.roleName = roleName;
             return _resultValue;

@@ -124,22 +124,15 @@ namespace Pulumi.Aws.Odb
         /// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudVmClustersCloudVmClusterResult> CloudVmClusters;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetCloudVmClustersResult(
             ImmutableArray<Outputs.GetCloudVmClustersCloudVmClusterResult> cloudVmClusters,
 
-            string id,
-
             string region)
         {
             CloudVmClusters = cloudVmClusters;
-            Id = id;
             Region = region;
         }
     }

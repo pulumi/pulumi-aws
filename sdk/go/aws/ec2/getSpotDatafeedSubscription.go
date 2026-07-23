@@ -58,8 +58,6 @@ type LookupSpotDatafeedSubscriptionArgs struct {
 type LookupSpotDatafeedSubscriptionResult struct {
 	// The name of the Amazon S3 bucket where the spot instance data feed is located.
 	Bucket string `pulumi:"bucket"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The prefix for the data feed files.
 	Prefix string `pulumi:"prefix"`
 	Region string `pulumi:"region"`
@@ -102,11 +100,6 @@ func (o LookupSpotDatafeedSubscriptionResultOutput) ToLookupSpotDatafeedSubscrip
 // The name of the Amazon S3 bucket where the spot instance data feed is located.
 func (o LookupSpotDatafeedSubscriptionResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Bucket }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupSpotDatafeedSubscriptionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSpotDatafeedSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The prefix for the data feed files.

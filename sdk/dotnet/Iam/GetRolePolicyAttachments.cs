@@ -143,10 +143,6 @@ namespace Pulumi.Aws.Iam
         /// List of attached managed policies. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRolePolicyAttachmentsAttachedPolicyResult> AttachedPolicies;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string? PathPrefix;
         public readonly string RoleName;
 
@@ -154,14 +150,11 @@ namespace Pulumi.Aws.Iam
         private GetRolePolicyAttachmentsResult(
             ImmutableArray<Outputs.GetRolePolicyAttachmentsAttachedPolicyResult> attachedPolicies,
 
-            string id,
-
             string? pathPrefix,
 
             string roleName)
         {
             AttachedPolicies = attachedPolicies;
-            Id = id;
             PathPrefix = pathPrefix;
             RoleName = roleName;
         }

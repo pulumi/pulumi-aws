@@ -54,10 +54,6 @@ export interface GetEventBusesResult {
      * This list of event buses.
      */
     readonly eventBuses: outputs.cloudwatch.GetEventBusesEventBus[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly namePrefix?: string;
     readonly region: string;
 }

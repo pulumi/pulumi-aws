@@ -145,10 +145,6 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         public readonly string GlobalNetworkId;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Network function groups associated with the core network. See `NetworkFunctionGroups` Attribute Reference for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCoreNetworkNetworkFunctionGroupResult> NetworkFunctionGroups;
@@ -179,8 +175,6 @@ namespace Pulumi.Aws.NetworkManager
 
             string globalNetworkId,
 
-            string id,
-
             ImmutableArray<Outputs.GetCoreNetworkNetworkFunctionGroupResult> networkFunctionGroups,
 
             ImmutableArray<Outputs.GetCoreNetworkSegmentResult> segments,
@@ -195,7 +189,6 @@ namespace Pulumi.Aws.NetworkManager
             Description = description;
             Edges = edges;
             GlobalNetworkId = globalNetworkId;
-            Id = id;
             NetworkFunctionGroups = networkFunctionGroups;
             Segments = segments;
             State = state;

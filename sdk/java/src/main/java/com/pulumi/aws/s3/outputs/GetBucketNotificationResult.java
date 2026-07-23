@@ -22,11 +22,6 @@ public final class GetBucketNotificationResult {
      */
     private Boolean eventbridge;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of Lambda function notification configurations. See `lambdaFunction` below.
      * 
      */
@@ -53,13 +48,6 @@ public final class GetBucketNotificationResult {
      */
     public Boolean eventbridge() {
         return this.eventbridge;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return List of Lambda function notification configurations. See `lambdaFunction` below.
@@ -97,7 +85,6 @@ public final class GetBucketNotificationResult {
     public static final class Builder {
         private String bucket;
         private Boolean eventbridge;
-        private String id;
         private List<GetBucketNotificationLambdaFunction> lambdaFunctions;
         private List<GetBucketNotificationQueue> queues;
         private String region;
@@ -107,7 +94,6 @@ public final class GetBucketNotificationResult {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.eventbridge = defaults.eventbridge;
-    	      this.id = defaults.id;
     	      this.lambdaFunctions = defaults.lambdaFunctions;
     	      this.queues = defaults.queues;
     	      this.region = defaults.region;
@@ -128,14 +114,6 @@ public final class GetBucketNotificationResult {
               throw new MissingRequiredPropertyException("GetBucketNotificationResult", "eventbridge");
             }
             this.eventbridge = eventbridge;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetBucketNotificationResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -183,7 +161,6 @@ public final class GetBucketNotificationResult {
             final var _resultValue = new GetBucketNotificationResult();
             _resultValue.bucket = bucket;
             _resultValue.eventbridge = eventbridge;
-            _resultValue.id = id;
             _resultValue.lambdaFunctions = lambdaFunctions;
             _resultValue.queues = queues;
             _resultValue.region = region;

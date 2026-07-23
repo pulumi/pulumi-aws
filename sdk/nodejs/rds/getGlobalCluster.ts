@@ -79,10 +79,6 @@ export interface GetGlobalClusterResult {
      * Version of the database engine for this Global Cluster.
      */
     readonly engineVersion: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly identifier: string;
     /**
      * Set of objects containing Global Cluster members.

@@ -55,10 +55,6 @@ export interface GetDbSystemShapesResult {
      * The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
      */
     readonly dbSystemShapes: outputs.odb.GetDbSystemShapesDbSystemShape[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

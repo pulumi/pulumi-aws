@@ -151,10 +151,6 @@ namespace Pulumi.Aws.BedrockFoundation
     [OutputType]
     public sealed class GetModelAgreementOffersResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string ModelId;
         public readonly string? OfferType;
         /// <summary>
@@ -165,8 +161,6 @@ namespace Pulumi.Aws.BedrockFoundation
 
         [OutputConstructor]
         private GetModelAgreementOffersResult(
-            string id,
-
             string modelId,
 
             string? offerType,
@@ -175,7 +169,6 @@ namespace Pulumi.Aws.BedrockFoundation
 
             string region)
         {
-            Id = id;
             ModelId = modelId;
             OfferType = offerType;
             Offers = offers;

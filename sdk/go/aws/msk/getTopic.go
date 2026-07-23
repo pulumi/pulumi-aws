@@ -66,9 +66,7 @@ type LookupTopicResult struct {
 	ClusterArn string `pulumi:"clusterArn"`
 	// Aggregated Kafka configuration in JSON format for the topic.
 	Configs string `pulumi:"configs"`
-	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Name    string `pulumi:"name"`
 	// Number of partitions for the topic.
 	PartitionCount int    `pulumi:"partitionCount"`
 	Region         string `pulumi:"region"`
@@ -126,11 +124,6 @@ func (o LookupTopicResultOutput) ClusterArn() pulumi.StringOutput {
 // Aggregated Kafka configuration in JSON format for the topic.
 func (o LookupTopicResultOutput) Configs() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Configs }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {

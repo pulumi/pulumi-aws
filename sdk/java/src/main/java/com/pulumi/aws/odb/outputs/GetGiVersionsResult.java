@@ -19,11 +19,6 @@ public final class GetGiVersionsResult {
      * 
      */
     private List<GetGiVersionsGiVersion> giVersions;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     private @Nullable String shape;
 
@@ -34,13 +29,6 @@ public final class GetGiVersionsResult {
      */
     public List<GetGiVersionsGiVersion> giVersions() {
         return this.giVersions;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -59,14 +47,12 @@ public final class GetGiVersionsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetGiVersionsGiVersion> giVersions;
-        private String id;
         private String region;
         private @Nullable String shape;
         public Builder() {}
         public Builder(GetGiVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.giVersions = defaults.giVersions;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.shape = defaults.shape;
         }
@@ -81,14 +67,6 @@ public final class GetGiVersionsResult {
         }
         public Builder giVersions(GetGiVersionsGiVersion... giVersions) {
             return giVersions(List.of(giVersions));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetGiVersionsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
@@ -107,7 +85,6 @@ public final class GetGiVersionsResult {
         public GetGiVersionsResult build() {
             final var _resultValue = new GetGiVersionsResult();
             _resultValue.giVersions = giVersions;
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.shape = shape;
             return _resultValue;

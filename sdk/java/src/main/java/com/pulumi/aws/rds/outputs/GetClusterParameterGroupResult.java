@@ -25,11 +25,6 @@ public final class GetClusterParameterGroupResult {
      * 
      */
     private String family;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String name;
     private String region;
 
@@ -55,13 +50,6 @@ public final class GetClusterParameterGroupResult {
     public String family() {
         return this.family;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String name() {
         return this.name;
     }
@@ -81,7 +69,6 @@ public final class GetClusterParameterGroupResult {
         private String arn;
         private String description;
         private String family;
-        private String id;
         private String name;
         private String region;
         public Builder() {}
@@ -90,7 +77,6 @@ public final class GetClusterParameterGroupResult {
     	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.family = defaults.family;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
         }
@@ -120,14 +106,6 @@ public final class GetClusterParameterGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetClusterParameterGroupResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetClusterParameterGroupResult", "name");
@@ -148,7 +126,6 @@ public final class GetClusterParameterGroupResult {
             _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.family = family;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.region = region;
             return _resultValue;

@@ -28,13 +28,10 @@ class GetVpcIpamsResult:
     """
     A collection of values returned by getVpcIpams.
     """
-    def __init__(__self__, filters=None, id=None, ipam_ids=None, ipams=None, region=None):
+    def __init__(__self__, filters=None, ipam_ids=None, ipams=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if ipam_ids and not isinstance(ipam_ids, list):
             raise TypeError("Expected argument 'ipam_ids' to be a list")
         pulumi.set(__self__, "ipam_ids", ipam_ids)
@@ -49,14 +46,6 @@ class GetVpcIpamsResult:
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetVpcIpamsFilterResult']]:
         return pulumi.get(self, "filters")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="ipamIds")
@@ -84,7 +73,6 @@ class AwaitableGetVpcIpamsResult(GetVpcIpamsResult):
             yield self
         return GetVpcIpamsResult(
             filters=self.filters,
-            id=self.id,
             ipam_ids=self.ipam_ids,
             ipams=self.ipams,
             region=self.region)
@@ -148,7 +136,6 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
 
     return AwaitableGetVpcIpamsResult(
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'),
         ipam_ids=pulumi.get(__ret__, 'ipam_ids'),
         ipams=pulumi.get(__ret__, 'ipams'),
         region=pulumi.get(__ret__, 'region'))
@@ -209,7 +196,6 @@ def get_vpc_ipams_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpams:getVpcIpams', __args__, opts=opts, typ=GetVpcIpamsResult)
     return __ret__.apply(lambda __response__: GetVpcIpamsResult(
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
         ipam_ids=pulumi.get(__response__, 'ipam_ids'),
         ipams=pulumi.get(__response__, 'ipams'),
         region=pulumi.get(__response__, 'region')))

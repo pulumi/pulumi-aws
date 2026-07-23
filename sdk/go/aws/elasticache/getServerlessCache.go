@@ -74,8 +74,6 @@ type LookupServerlessCacheResult struct {
 	Engine string `pulumi:"engine"`
 	// The name and version number of the engine the serverless cache is compatible with.
 	FullEngineVersion string `pulumi:"fullEngineVersion"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// ARN of the customer managed key for encrypting the data at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// The version number of the engine the serverless cache is compatible with.
@@ -170,11 +168,6 @@ func (o LookupServerlessCacheResultOutput) Engine() pulumi.StringOutput {
 // The name and version number of the engine the serverless cache is compatible with.
 func (o LookupServerlessCacheResultOutput) FullEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.FullEngineVersion }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupServerlessCacheResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // ARN of the customer managed key for encrypting the data at rest.

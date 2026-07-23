@@ -68,8 +68,6 @@ type GetServiceLinkVirtualInterfacesArgs struct {
 // A collection of values returned by getServiceLinkVirtualInterfaces.
 type GetServiceLinkVirtualInterfacesResult struct {
 	Filters []GetServiceLinkVirtualInterfacesFilter `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of EC2 Service Link Virtual Interface identifiers.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
@@ -118,11 +116,6 @@ func (o GetServiceLinkVirtualInterfacesResultOutput) Filters() GetServiceLinkVir
 	return o.ApplyT(func(v GetServiceLinkVirtualInterfacesResult) []GetServiceLinkVirtualInterfacesFilter {
 		return v.Filters
 	}).(GetServiceLinkVirtualInterfacesFilterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetServiceLinkVirtualInterfacesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceLinkVirtualInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of EC2 Service Link Virtual Interface identifiers.

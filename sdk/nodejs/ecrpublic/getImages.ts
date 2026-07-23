@@ -64,10 +64,6 @@ export interface GetImagesArgs {
  * A collection of values returned by getImages.
  */
 export interface GetImagesResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly imageIds?: outputs.ecrpublic.GetImagesImageId[];
     /**
      * List of images returned. Each image contains:

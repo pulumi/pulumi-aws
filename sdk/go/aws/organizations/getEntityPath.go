@@ -59,8 +59,6 @@ type GetEntityPathResult struct {
 	EntityId string `pulumi:"entityId"`
 	// Entity path.
 	EntityPath string `pulumi:"entityPath"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 }
 
 func GetEntityPathOutput(ctx *pulumi.Context, args GetEntityPathOutputArgs, opts ...pulumi.InvokeOption) GetEntityPathResultOutput {
@@ -104,11 +102,6 @@ func (o GetEntityPathResultOutput) EntityId() pulumi.StringOutput {
 // Entity path.
 func (o GetEntityPathResultOutput) EntityPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEntityPathResult) string { return v.EntityPath }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetEntityPathResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEntityPathResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func init() {

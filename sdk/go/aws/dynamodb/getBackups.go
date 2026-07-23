@@ -70,9 +70,7 @@ type GetBackupsResult struct {
 	BackupSummaries []GetBackupsBackupSummary `pulumi:"backupSummaries"`
 	// BackupType: `USER`, `SYSTEM`, `AWS_BACKUP`.
 	BackupType *string `pulumi:"backupType"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region     string  `pulumi:"region"`
 	// Name of the table.
 	TableName           *string `pulumi:"tableName"`
 	TimeRangeLowerBound *string `pulumi:"timeRangeLowerBound"`
@@ -129,11 +127,6 @@ func (o GetBackupsResultOutput) BackupSummaries() GetBackupsBackupSummaryArrayOu
 // BackupType: `USER`, `SYSTEM`, `AWS_BACKUP`.
 func (o GetBackupsResultOutput) BackupType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBackupsResult) *string { return v.BackupType }).(pulumi.StringPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetBackupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBackupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetBackupsResultOutput) Region() pulumi.StringOutput {

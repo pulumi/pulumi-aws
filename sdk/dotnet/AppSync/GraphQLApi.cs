@@ -269,7 +269,7 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             Allow = null,
     ///         },
-    ///         Rules = new[]
+    ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.WebAclRuleArgs
     ///             {

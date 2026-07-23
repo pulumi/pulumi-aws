@@ -66,8 +66,6 @@ type LookupSavingsPlanResult struct {
 	Ec2InstanceFamily string `pulumi:"ec2InstanceFamily"`
 	// The end time of the Savings Plan.
 	End string `pulumi:"end"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The ID of the offering.
 	//
 	// Deprecated: offering_id is deprecated. Use savingsPlanOfferingId instead.
@@ -155,11 +153,6 @@ func (o LookupSavingsPlanResultOutput) Ec2InstanceFamily() pulumi.StringOutput {
 // The end time of the Savings Plan.
 func (o LookupSavingsPlanResultOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSavingsPlanResult) string { return v.End }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupSavingsPlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSavingsPlanResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The ID of the offering.

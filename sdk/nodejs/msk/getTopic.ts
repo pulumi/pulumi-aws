@@ -59,10 +59,6 @@ export interface GetTopicResult {
      * Aggregated Kafka configuration in JSON format for the topic.
      */
     readonly configs: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly name: string;
     /**
      * Number of partitions for the topic.

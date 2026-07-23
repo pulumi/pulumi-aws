@@ -139,10 +139,6 @@ namespace Pulumi.Aws.CloudWatch
         /// This list of event buses.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEventBusesEventBusResult> EventBuses;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string? NamePrefix;
         public readonly string Region;
 
@@ -150,14 +146,11 @@ namespace Pulumi.Aws.CloudWatch
         private GetEventBusesResult(
             ImmutableArray<Outputs.GetEventBusesEventBusResult> eventBuses,
 
-            string id,
-
             string? namePrefix,
 
             string region)
         {
             EventBuses = eventBuses;
-            Id = id;
             NamePrefix = namePrefix;
             Region = region;
         }

@@ -72,8 +72,6 @@ type GetManagedRuleGroupResult struct {
 	Capacity int `pulumi:"capacity"`
 	// Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
 	ConsumedLabels []GetManagedRuleGroupConsumedLabel `pulumi:"consumedLabels"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
 	LabelNamespace string `pulumi:"labelNamespace"`
 	// Name of the rule.
@@ -143,11 +141,6 @@ func (o GetManagedRuleGroupResultOutput) Capacity() pulumi.IntOutput {
 // Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
 func (o GetManagedRuleGroupResultOutput) ConsumedLabels() GetManagedRuleGroupConsumedLabelArrayOutput {
 	return o.ApplyT(func(v GetManagedRuleGroupResult) []GetManagedRuleGroupConsumedLabel { return v.ConsumedLabels }).(GetManagedRuleGroupConsumedLabelArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetManagedRuleGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetManagedRuleGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.

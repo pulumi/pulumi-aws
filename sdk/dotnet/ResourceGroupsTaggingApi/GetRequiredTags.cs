@@ -114,10 +114,6 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
     [OutputType]
     public sealed class GetRequiredTagsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// List of required tag configurations. See `RequiredTags` below.
@@ -126,13 +122,10 @@ namespace Pulumi.Aws.ResourceGroupsTaggingApi
 
         [OutputConstructor]
         private GetRequiredTagsResult(
-            string id,
-
             string region,
 
             ImmutableArray<Outputs.GetRequiredTagsRequiredTagResult> requiredTags)
         {
-            Id = id;
             Region = region;
             RequiredTags = requiredTags;
         }

@@ -27,16 +27,13 @@ class GetMultiRegionAccessPointsResult:
     """
     A collection of values returned by getMultiRegionAccessPoints.
     """
-    def __init__(__self__, access_points=None, account_id=None, id=None, region=None):
+    def __init__(__self__, access_points=None, account_id=None, region=None):
         if access_points and not isinstance(access_points, list):
             raise TypeError("Expected argument 'access_points' to be a list")
         pulumi.set(__self__, "access_points", access_points)
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -56,14 +53,6 @@ class GetMultiRegionAccessPointsResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         """
         Name of the Region.
@@ -79,7 +68,6 @@ class AwaitableGetMultiRegionAccessPointsResult(GetMultiRegionAccessPointsResult
         return GetMultiRegionAccessPointsResult(
             access_points=self.access_points,
             account_id=self.account_id,
-            id=self.id,
             region=self.region)
 
 
@@ -113,7 +101,6 @@ def get_multi_region_access_points(account_id: Optional[_builtins.str] = None,
     return AwaitableGetMultiRegionAccessPointsResult(
         access_points=pulumi.get(__ret__, 'access_points'),
         account_id=pulumi.get(__ret__, 'account_id'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_multi_region_access_points_output(account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -144,5 +131,4 @@ def get_multi_region_access_points_output(account_id: pulumi.Input[Optional[Opti
     return __ret__.apply(lambda __response__: GetMultiRegionAccessPointsResult(
         access_points=pulumi.get(__response__, 'access_points'),
         account_id=pulumi.get(__response__, 'account_id'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

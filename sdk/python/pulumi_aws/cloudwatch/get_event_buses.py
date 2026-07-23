@@ -27,13 +27,10 @@ class GetEventBusesResult:
     """
     A collection of values returned by getEventBuses.
     """
-    def __init__(__self__, event_buses=None, id=None, name_prefix=None, region=None):
+    def __init__(__self__, event_buses=None, name_prefix=None, region=None):
         if event_buses and not isinstance(event_buses, list):
             raise TypeError("Expected argument 'event_buses' to be a list")
         pulumi.set(__self__, "event_buses", event_buses)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name_prefix and not isinstance(name_prefix, str):
             raise TypeError("Expected argument 'name_prefix' to be a str")
         pulumi.set(__self__, "name_prefix", name_prefix)
@@ -48,14 +45,6 @@ class GetEventBusesResult:
         This list of event buses.
         """
         return pulumi.get(self, "event_buses")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="namePrefix")
@@ -75,7 +64,6 @@ class AwaitableGetEventBusesResult(GetEventBusesResult):
             yield self
         return GetEventBusesResult(
             event_buses=self.event_buses,
-            id=self.id,
             name_prefix=self.name_prefix,
             region=self.region)
 
@@ -109,7 +97,6 @@ def get_event_buses(name_prefix: Optional[_builtins.str] = None,
 
     return AwaitableGetEventBusesResult(
         event_buses=pulumi.get(__ret__, 'event_buses'),
-        id=pulumi.get(__ret__, 'id'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         region=pulumi.get(__ret__, 'region'))
 def get_event_buses_output(name_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -140,6 +127,5 @@ def get_event_buses_output(name_prefix: pulumi.Input[Optional[Optional[_builtins
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBuses:getEventBuses', __args__, opts=opts, typ=GetEventBusesResult)
     return __ret__.apply(lambda __response__: GetEventBusesResult(
         event_buses=pulumi.get(__response__, 'event_buses'),
-        id=pulumi.get(__response__, 'id'),
         name_prefix=pulumi.get(__response__, 'name_prefix'),
         region=pulumi.get(__response__, 'region')))

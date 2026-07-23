@@ -133,9 +133,7 @@ type GetVpcIpamsArgs struct {
 // A collection of values returned by getVpcIpams.
 type GetVpcIpamsResult struct {
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id      string   `pulumi:"id"`
-	IpamIds []string `pulumi:"ipamIds"`
+	IpamIds []string            `pulumi:"ipamIds"`
 	// List of IPAM resources matching the provided arguments.
 	Ipams  []GetVpcIpamsIpam `pulumi:"ipams"`
 	Region string            `pulumi:"region"`
@@ -183,11 +181,6 @@ func (o GetVpcIpamsResultOutput) ToGetVpcIpamsResultOutputWithContext(ctx contex
 
 func (o GetVpcIpamsResultOutput) Filters() GetVpcIpamsFilterArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsResult) []GetVpcIpamsFilter { return v.Filters }).(GetVpcIpamsFilterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetVpcIpamsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIpamsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetVpcIpamsResultOutput) IpamIds() pulumi.StringArrayOutput {

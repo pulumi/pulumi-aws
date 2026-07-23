@@ -116,12 +116,10 @@ type LookupListenerRuleResult struct {
 	Arn string `pulumi:"arn"`
 	// Set of conditions associated with the rule.
 	// Detailed below.
-	Conditions []GetListenerRuleCondition `pulumi:"conditions"`
-	// The provider-assigned unique ID for this managed resource.
-	Id          string `pulumi:"id"`
-	ListenerArn string `pulumi:"listenerArn"`
-	Priority    int    `pulumi:"priority"`
-	Region      string `pulumi:"region"`
+	Conditions  []GetListenerRuleCondition `pulumi:"conditions"`
+	ListenerArn string                     `pulumi:"listenerArn"`
+	Priority    int                        `pulumi:"priority"`
+	Region      string                     `pulumi:"region"`
 	// Tags assigned to the Listener Rule.
 	Tags map[string]string `pulumi:"tags"`
 	// Block for transform to apply to requests that match this rule. Detailed below.
@@ -194,11 +192,6 @@ func (o LookupListenerRuleResultOutput) Arn() pulumi.StringOutput {
 // Detailed below.
 func (o LookupListenerRuleResultOutput) Conditions() GetListenerRuleConditionArrayOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) []GetListenerRuleCondition { return v.Conditions }).(GetListenerRuleConditionArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupListenerRuleResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupListenerRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupListenerRuleResultOutput) ListenerArn() pulumi.StringOutput {

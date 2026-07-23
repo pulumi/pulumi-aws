@@ -61,8 +61,6 @@ type GetBucketReplicationConfigurationArgs struct {
 // A collection of values returned by getBucketReplicationConfiguration.
 type GetBucketReplicationConfigurationResult struct {
 	Bucket string `pulumi:"bucket"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 	// The ARN of the IAM role that Amazon S3 assumes when replicating objects.
 	Role string `pulumi:"role"`
@@ -108,11 +106,6 @@ func (o GetBucketReplicationConfigurationResultOutput) ToGetBucketReplicationCon
 
 func (o GetBucketReplicationConfigurationResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationResult) string { return v.Bucket }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetBucketReplicationConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetBucketReplicationConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetBucketReplicationConfigurationResultOutput) Region() pulumi.StringOutput {

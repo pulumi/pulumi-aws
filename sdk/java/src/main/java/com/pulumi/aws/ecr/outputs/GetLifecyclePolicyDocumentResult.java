@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetLifecyclePolicyDocumentResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The above arguments serialized as a standard JSON policy document.
      * 
      */
@@ -25,13 +20,6 @@ public final class GetLifecyclePolicyDocumentResult {
     private List<GetLifecyclePolicyDocumentRule> rules;
 
     private GetLifecyclePolicyDocumentResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return The above arguments serialized as a standard JSON policy document.
      * 
@@ -52,25 +40,15 @@ public final class GetLifecyclePolicyDocumentResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String json;
         private List<GetLifecyclePolicyDocumentRule> rules;
         public Builder() {}
         public Builder(GetLifecyclePolicyDocumentResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.json = defaults.json;
     	      this.rules = defaults.rules;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder json(String json) {
             if (json == null) {
@@ -92,7 +70,6 @@ public final class GetLifecyclePolicyDocumentResult {
         }
         public GetLifecyclePolicyDocumentResult build() {
             final var _resultValue = new GetLifecyclePolicyDocumentResult();
-            _resultValue.id = id;
             _resultValue.json = json;
             _resultValue.rules = rules;
             return _resultValue;

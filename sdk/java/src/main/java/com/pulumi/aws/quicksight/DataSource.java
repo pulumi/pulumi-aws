@@ -164,10 +164,9 @@ import javax.annotation.Nullable;
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
  *             .name("example")
  *             .description("Policy to allow QuickSight access to S3 bucket")
- *             .policy(Output.tuple(example.arn(), exampleBucketObjectv2.key(), example.arn()).applyValue(values -> {
- *                 var exampleArn = values.t1;
+ *             .policy(Output.tuple(example.arn(), exampleBucketObjectv2.key()).applyValue(values -> {
+ *                 var arn = values.t1;
  *                 var key = values.t2;
- *                 var exampleArn1 = values.t3;
  *                 return serializeJson(
  *                     jsonObject(
  *                         jsonProperty("Version", "2012-10-17"),
@@ -175,12 +174,12 @@ import javax.annotation.Nullable;
  *                             jsonObject(
  *                                 jsonProperty("Action", jsonArray("s3:GetObject")),
  *                                 jsonProperty("Effect", "Allow"),
- *                                 jsonProperty("Resource", String.format("%s/%s", exampleArn,key))
+ *                                 jsonProperty("Resource", String.format("%s/%s", arn,key))
  *                             ), 
  *                             jsonObject(
  *                                 jsonProperty("Action", jsonArray("s3:ListBucket")),
  *                                 jsonProperty("Effect", "Allow"),
- *                                 jsonProperty("Resource", exampleArn1)
+ *                                 jsonProperty("Resource", arn)
  *                             )
  *                         ))
  *                     ));

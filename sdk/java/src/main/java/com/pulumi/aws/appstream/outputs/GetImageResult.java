@@ -53,11 +53,6 @@ public final class GetImageResult {
      */
     private String displayName;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      * 
      */
@@ -153,13 +148,6 @@ public final class GetImageResult {
         return this.displayName;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      * 
      */
@@ -244,7 +232,6 @@ public final class GetImageResult {
         private String createdTime;
         private String description;
         private String displayName;
-        private String id;
         private String imageBuilderName;
         private Boolean imageBuilderSupported;
         private List<GetImageImagePermission> imagePermissions;
@@ -267,7 +254,6 @@ public final class GetImageResult {
     	      this.createdTime = defaults.createdTime;
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
-    	      this.id = defaults.id;
     	      this.imageBuilderName = defaults.imageBuilderName;
     	      this.imageBuilderSupported = defaults.imageBuilderSupported;
     	      this.imagePermissions = defaults.imagePermissions;
@@ -339,14 +325,6 @@ public final class GetImageResult {
               throw new MissingRequiredPropertyException("GetImageResult", "displayName");
             }
             this.displayName = displayName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetImageResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -454,7 +432,6 @@ public final class GetImageResult {
             _resultValue.createdTime = createdTime;
             _resultValue.description = description;
             _resultValue.displayName = displayName;
-            _resultValue.id = id;
             _resultValue.imageBuilderName = imageBuilderName;
             _resultValue.imageBuilderSupported = imageBuilderSupported;
             _resultValue.imagePermissions = imagePermissions;

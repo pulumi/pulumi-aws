@@ -82,10 +82,6 @@ export interface GetCapacityBlockOfferingResult {
      */
     readonly currencyCode: string;
     readonly endDateRange: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly instanceCount: number;
     readonly instanceType: string;
     readonly region: string;

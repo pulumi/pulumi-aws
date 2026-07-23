@@ -19,11 +19,6 @@ public final class GetEventBusesResult {
      * 
      */
     private List<GetEventBusesEventBus> eventBuses;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable String namePrefix;
     private String region;
 
@@ -34,13 +29,6 @@ public final class GetEventBusesResult {
      */
     public List<GetEventBusesEventBus> eventBuses() {
         return this.eventBuses;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public Optional<String> namePrefix() {
         return Optional.ofNullable(this.namePrefix);
@@ -59,14 +47,12 @@ public final class GetEventBusesResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetEventBusesEventBus> eventBuses;
-        private String id;
         private @Nullable String namePrefix;
         private String region;
         public Builder() {}
         public Builder(GetEventBusesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventBuses = defaults.eventBuses;
-    	      this.id = defaults.id;
     	      this.namePrefix = defaults.namePrefix;
     	      this.region = defaults.region;
         }
@@ -81,14 +67,6 @@ public final class GetEventBusesResult {
         }
         public Builder eventBuses(GetEventBusesEventBus... eventBuses) {
             return eventBuses(List.of(eventBuses));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetEventBusesResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
@@ -107,7 +85,6 @@ public final class GetEventBusesResult {
         public GetEventBusesResult build() {
             final var _resultValue = new GetEventBusesResult();
             _resultValue.eventBuses = eventBuses;
-            _resultValue.id = id;
             _resultValue.namePrefix = namePrefix;
             _resultValue.region = region;
             return _resultValue;

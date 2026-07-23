@@ -136,10 +136,6 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetContributorManagedInsightRulesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Managed rules that are available for the specified Amazon Web Services resource. See `ManagedRules reference` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleResult> ManagedRules;
@@ -151,15 +147,12 @@ namespace Pulumi.Aws.CloudWatch
 
         [OutputConstructor]
         private GetContributorManagedInsightRulesResult(
-            string id,
-
             ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleResult> managedRules,
 
             string region,
 
             string resourceArn)
         {
-            Id = id;
             ManagedRules = managedRules;
             Region = region;
             ResourceArn = resourceArn;

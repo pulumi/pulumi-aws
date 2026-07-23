@@ -103,10 +103,6 @@ export interface GetOfferingsResult {
     readonly descriptions?: string[];
     readonly durations?: number[];
     readonly filters?: outputs.savingsplans.GetOfferingsFilter[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly offeringIds?: string[];
     /**
      * List of Savings Plans Offerings. See `offerings` Attribute Reference.

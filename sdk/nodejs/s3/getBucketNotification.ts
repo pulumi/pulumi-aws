@@ -144,10 +144,6 @@ export interface GetBucketNotificationResult {
      */
     readonly eventbridge: boolean;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of Lambda function notification configurations. See `lambdaFunction` below.
      */
     readonly lambdaFunctions: outputs.s3.GetBucketNotificationLambdaFunction[];

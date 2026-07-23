@@ -27,13 +27,10 @@ class GetServerlessCollectionGroupsResult:
     """
     A collection of values returned by getServerlessCollectionGroups.
     """
-    def __init__(__self__, collection_group_summaries=None, id=None, region=None):
+    def __init__(__self__, collection_group_summaries=None, region=None):
         if collection_group_summaries and not isinstance(collection_group_summaries, list):
             raise TypeError("Expected argument 'collection_group_summaries' to be a list")
         pulumi.set(__self__, "collection_group_summaries", collection_group_summaries)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -48,14 +45,6 @@ class GetServerlessCollectionGroupsResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -67,7 +56,6 @@ class AwaitableGetServerlessCollectionGroupsResult(GetServerlessCollectionGroups
             yield self
         return GetServerlessCollectionGroupsResult(
             collection_group_summaries=self.collection_group_summaries,
-            id=self.id,
             region=self.region)
 
 
@@ -97,7 +85,6 @@ def get_serverless_collection_groups(region: Optional[_builtins.str] = None,
 
     return AwaitableGetServerlessCollectionGroupsResult(
         collection_group_summaries=pulumi.get(__ret__, 'collection_group_summaries'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_serverless_collection_groups_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionGroupsResult]:
@@ -124,5 +111,4 @@ def get_serverless_collection_groups_output(region: pulumi.Input[Optional[Option
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessCollectionGroups:getServerlessCollectionGroups', __args__, opts=opts, typ=GetServerlessCollectionGroupsResult)
     return __ret__.apply(lambda __response__: GetServerlessCollectionGroupsResult(
         collection_group_summaries=pulumi.get(__response__, 'collection_group_summaries'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

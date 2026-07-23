@@ -90,10 +90,6 @@ export interface GetSecretVersionsResult {
      * @deprecated arn is deprecated. Use secretArn instead.
      */
     readonly arn: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly includeDeprecated?: boolean;
     /**
      * (**Deprecated**) Name of the secret.

@@ -28,10 +28,7 @@ class GetImagesResult:
     """
     A collection of values returned by getImages.
     """
-    def __init__(__self__, id=None, image_ids=None, images=None, region=None, registry_id=None, repository_name=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, image_ids=None, images=None, region=None, registry_id=None, repository_name=None):
         if image_ids and not isinstance(image_ids, list):
             raise TypeError("Expected argument 'image_ids' to be a list")
         pulumi.set(__self__, "image_ids", image_ids)
@@ -47,14 +44,6 @@ class GetImagesResult:
         if repository_name and not isinstance(repository_name, str):
             raise TypeError("Expected argument 'repository_name' to be a str")
         pulumi.set(__self__, "repository_name", repository_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="imageIds")
@@ -97,7 +86,6 @@ class AwaitableGetImagesResult(GetImagesResult):
         if False:
             yield self
         return GetImagesResult(
-            id=self.id,
             image_ids=self.image_ids,
             images=self.images,
             region=self.region,
@@ -140,7 +128,6 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
     __ret__ = pulumi.runtime.invoke('aws:ecrpublic/getImages:getImages', __args__, opts=opts, typ=GetImagesResult).value
 
     return AwaitableGetImagesResult(
-        id=pulumi.get(__ret__, 'id'),
         image_ids=pulumi.get(__ret__, 'image_ids'),
         images=pulumi.get(__ret__, 'images'),
         region=pulumi.get(__ret__, 'region'),
@@ -180,7 +167,6 @@ def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecrpublic/getImages:getImages', __args__, opts=opts, typ=GetImagesResult)
     return __ret__.apply(lambda __response__: GetImagesResult(
-        id=pulumi.get(__response__, 'id'),
         image_ids=pulumi.get(__response__, 'image_ids'),
         images=pulumi.get(__response__, 'images'),
         region=pulumi.get(__response__, 'region'),

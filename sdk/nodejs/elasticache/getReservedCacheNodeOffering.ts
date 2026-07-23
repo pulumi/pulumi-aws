@@ -76,10 +76,6 @@ export interface GetReservedCacheNodeOfferingResult {
      */
     readonly fixedPrice: number;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Unique identifier for the reservation.
      */
     readonly offeringId: string;

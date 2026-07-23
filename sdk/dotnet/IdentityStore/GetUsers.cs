@@ -141,10 +141,6 @@ namespace Pulumi.Aws.IdentityStore
     [OutputType]
     public sealed class GetUsersResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string IdentityStoreId;
         /// <summary>
         /// Region of the address.
@@ -157,15 +153,12 @@ namespace Pulumi.Aws.IdentityStore
 
         [OutputConstructor]
         private GetUsersResult(
-            string id,
-
             string identityStoreId,
 
             string region,
 
             ImmutableArray<Outputs.GetUsersUserResult> users)
         {
-            Id = id;
             IdentityStoreId = identityStoreId;
             Region = region;
             Users = users;

@@ -85,10 +85,6 @@ export interface GetCatalogResult {
      * Federated catalog configuration. See `federatedCatalog` below.
      */
     readonly federatedCatalogs: outputs.glue.GetCatalogFederatedCatalog[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly name: string;
     /**
      * Map of key-value pairs that define parameters and properties of the catalog.

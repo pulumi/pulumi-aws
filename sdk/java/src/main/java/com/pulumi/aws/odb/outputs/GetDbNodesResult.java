@@ -18,11 +18,6 @@ public final class GetDbNodesResult {
      * 
      */
     private List<GetDbNodesDbNode> dbNodes;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetDbNodesResult() {}
@@ -35,13 +30,6 @@ public final class GetDbNodesResult {
      */
     public List<GetDbNodesDbNode> dbNodes() {
         return this.dbNodes;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -58,14 +46,12 @@ public final class GetDbNodesResult {
     public static final class Builder {
         private String cloudVmClusterId;
         private List<GetDbNodesDbNode> dbNodes;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetDbNodesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudVmClusterId = defaults.cloudVmClusterId;
     	      this.dbNodes = defaults.dbNodes;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -89,14 +75,6 @@ public final class GetDbNodesResult {
             return dbNodes(List.of(dbNodes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDbNodesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetDbNodesResult", "region");
@@ -108,7 +86,6 @@ public final class GetDbNodesResult {
             final var _resultValue = new GetDbNodesResult();
             _resultValue.cloudVmClusterId = cloudVmClusterId;
             _resultValue.dbNodes = dbNodes;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

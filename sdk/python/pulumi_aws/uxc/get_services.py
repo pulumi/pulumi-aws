@@ -26,21 +26,10 @@ class GetServicesResult:
     """
     A collection of values returned by getServices.
     """
-    def __init__(__self__, id=None, services=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, services=None):
         if services and not isinstance(services, list):
             raise TypeError("Expected argument 'services' to be a list")
         pulumi.set(__self__, "services", services)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -57,7 +46,6 @@ class AwaitableGetServicesResult(GetServicesResult):
         if False:
             yield self
         return GetServicesResult(
-            id=self.id,
             services=self.services)
 
 
@@ -94,7 +82,6 @@ def get_services(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSer
     __ret__ = pulumi.runtime.invoke('aws:uxc/getServices:getServices', __args__, opts=opts, typ=GetServicesResult).value
 
     return AwaitableGetServicesResult(
-        id=pulumi.get(__ret__, 'id'),
         services=pulumi.get(__ret__, 'services'))
 def get_services_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServicesResult]:
     """
@@ -128,5 +115,4 @@ def get_services_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invoke
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:uxc/getServices:getServices', __args__, opts=opts, typ=GetServicesResult)
     return __ret__.apply(lambda __response__: GetServicesResult(
-        id=pulumi.get(__response__, 'id'),
         services=pulumi.get(__response__, 'services')))

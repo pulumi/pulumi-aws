@@ -30,7 +30,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, category=None, core_network_arn=None, core_network_attachment_arn=None, customer_gateway_configuration=None, customer_gateway_id=None, filters=None, gateway_association_state=None, id=None, pre_shared_key_arn=None, region=None, routes=None, state=None, tags=None, transit_gateway_id=None, type=None, vgw_telemetries=None, vpn_concentrator_id=None, vpn_connection_id=None, vpn_gateway_id=None):
+    def __init__(__self__, category=None, core_network_arn=None, core_network_attachment_arn=None, customer_gateway_configuration=None, customer_gateway_id=None, filters=None, gateway_association_state=None, pre_shared_key_arn=None, region=None, routes=None, state=None, tags=None, transit_gateway_id=None, type=None, vgw_telemetries=None, vpn_concentrator_id=None, vpn_connection_id=None, vpn_gateway_id=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -52,9 +52,6 @@ class GetConnectionResult:
         if gateway_association_state and not isinstance(gateway_association_state, str):
             raise TypeError("Expected argument 'gateway_association_state' to be a str")
         pulumi.set(__self__, "gateway_association_state", gateway_association_state)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if pre_shared_key_arn and not isinstance(pre_shared_key_arn, str):
             raise TypeError("Expected argument 'pre_shared_key_arn' to be a str")
         pulumi.set(__self__, "pre_shared_key_arn", pre_shared_key_arn)
@@ -141,14 +138,6 @@ class GetConnectionResult:
         Current state of the gateway association.
         """
         return pulumi.get(self, "gateway_association_state")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="preSharedKeyArn")
@@ -246,7 +235,6 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             customer_gateway_id=self.customer_gateway_id,
             filters=self.filters,
             gateway_association_state=self.gateway_association_state,
-            id=self.id,
             pre_shared_key_arn=self.pre_shared_key_arn,
             region=self.region,
             routes=self.routes,
@@ -313,7 +301,6 @@ def get_connection(filters: Optional[Sequence[Union['GetConnectionFilterArgs', '
         customer_gateway_id=pulumi.get(__ret__, 'customer_gateway_id'),
         filters=pulumi.get(__ret__, 'filters'),
         gateway_association_state=pulumi.get(__ret__, 'gateway_association_state'),
-        id=pulumi.get(__ret__, 'id'),
         pre_shared_key_arn=pulumi.get(__ret__, 'pre_shared_key_arn'),
         region=pulumi.get(__ret__, 'region'),
         routes=pulumi.get(__ret__, 'routes'),
@@ -377,7 +364,6 @@ def get_connection_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
         customer_gateway_id=pulumi.get(__response__, 'customer_gateway_id'),
         filters=pulumi.get(__response__, 'filters'),
         gateway_association_state=pulumi.get(__response__, 'gateway_association_state'),
-        id=pulumi.get(__response__, 'id'),
         pre_shared_key_arn=pulumi.get(__response__, 'pre_shared_key_arn'),
         region=pulumi.get(__response__, 'region'),
         routes=pulumi.get(__response__, 'routes'),

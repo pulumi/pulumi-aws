@@ -66,8 +66,6 @@ type LookupBucketObjectLockConfigurationArgs struct {
 type LookupBucketObjectLockConfigurationResult struct {
 	Bucket              string  `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Indicates whether this bucket has an Object Lock configuration enabled.
 	ObjectLockEnabled string `pulumi:"objectLockEnabled"`
 	Region            string `pulumi:"region"`
@@ -121,11 +119,6 @@ func (o LookupBucketObjectLockConfigurationResultOutput) Bucket() pulumi.StringO
 
 func (o LookupBucketObjectLockConfigurationResultOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketObjectLockConfigurationResult) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupBucketObjectLockConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBucketObjectLockConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled.

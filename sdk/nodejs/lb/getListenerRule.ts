@@ -111,10 +111,6 @@ export interface GetListenerRuleResult {
      * Detailed below.
      */
     readonly conditions?: outputs.lb.GetListenerRuleCondition[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly listenerArn: string;
     readonly priority: number;
     readonly region: string;

@@ -27,16 +27,13 @@ class GetViewsResult:
     """
     A collection of values returned by getViews.
     """
-    def __init__(__self__, billing_view_types=None, billing_views=None, id=None):
+    def __init__(__self__, billing_view_types=None, billing_views=None):
         if billing_view_types and not isinstance(billing_view_types, list):
             raise TypeError("Expected argument 'billing_view_types' to be a list")
         pulumi.set(__self__, "billing_view_types", billing_view_types)
         if billing_views and not isinstance(billing_views, list):
             raise TypeError("Expected argument 'billing_views' to be a list")
         pulumi.set(__self__, "billing_views", billing_views)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter(name="billingViewTypes")
@@ -51,14 +48,6 @@ class GetViewsResult:
         """
         return pulumi.get(self, "billing_views")
 
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
 
 class AwaitableGetViewsResult(GetViewsResult):
     # pylint: disable=using-constant-test
@@ -67,8 +56,7 @@ class AwaitableGetViewsResult(GetViewsResult):
             yield self
         return GetViewsResult(
             billing_view_types=self.billing_view_types,
-            billing_views=self.billing_views,
-            id=self.id)
+            billing_views=self.billing_views)
 
 
 def get_views(billing_view_types: Optional[Sequence[_builtins.str]] = None,
@@ -107,8 +95,7 @@ def get_views(billing_view_types: Optional[Sequence[_builtins.str]] = None,
 
     return AwaitableGetViewsResult(
         billing_view_types=pulumi.get(__ret__, 'billing_view_types'),
-        billing_views=pulumi.get(__ret__, 'billing_views'),
-        id=pulumi.get(__ret__, 'id'))
+        billing_views=pulumi.get(__ret__, 'billing_views'))
 def get_views_output(billing_view_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
@@ -144,5 +131,4 @@ def get_views_output(billing_view_types: pulumi.Input[Optional[Optional[Sequence
     __ret__ = pulumi.runtime.invoke_output('aws:billing/getViews:getViews', __args__, opts=opts, typ=GetViewsResult)
     return __ret__.apply(lambda __response__: GetViewsResult(
         billing_view_types=pulumi.get(__response__, 'billing_view_types'),
-        billing_views=pulumi.get(__response__, 'billing_views'),
-        id=pulumi.get(__response__, 'id')))
+        billing_views=pulumi.get(__response__, 'billing_views')))

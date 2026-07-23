@@ -28,24 +28,13 @@ class GetLifecyclePolicyDocumentResult:
     """
     A collection of values returned by getLifecyclePolicyDocument.
     """
-    def __init__(__self__, id=None, json=None, rules=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, json=None, rules=None):
         if json and not isinstance(json, str):
             raise TypeError("Expected argument 'json' to be a str")
         pulumi.set(__self__, "json", json)
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -67,7 +56,6 @@ class AwaitableGetLifecyclePolicyDocumentResult(GetLifecyclePolicyDocumentResult
         if False:
             yield self
         return GetLifecyclePolicyDocumentResult(
-            id=self.id,
             json=self.json,
             rules=self.rules)
 
@@ -106,7 +94,6 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePo
     __ret__ = pulumi.runtime.invoke('aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument', __args__, opts=opts, typ=GetLifecyclePolicyDocumentResult).value
 
     return AwaitableGetLifecyclePolicyDocumentResult(
-        id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
         rules=pulumi.get(__ret__, 'rules'))
 def get_lifecycle_policy_document_output(rules: pulumi.Input[Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]] = None,
@@ -142,6 +129,5 @@ def get_lifecycle_policy_document_output(rules: pulumi.Input[Optional[Sequence[U
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument', __args__, opts=opts, typ=GetLifecyclePolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetLifecyclePolicyDocumentResult(
-        id=pulumi.get(__response__, 'id'),
         json=pulumi.get(__response__, 'json'),
         rules=pulumi.get(__response__, 'rules')))

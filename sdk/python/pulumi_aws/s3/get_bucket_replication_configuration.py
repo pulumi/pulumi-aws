@@ -27,13 +27,10 @@ class GetBucketReplicationConfigurationResult:
     """
     A collection of values returned by getBucketReplicationConfiguration.
     """
-    def __init__(__self__, bucket=None, id=None, region=None, role=None, rules=None):
+    def __init__(__self__, bucket=None, region=None, role=None, rules=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -48,14 +45,6 @@ class GetBucketReplicationConfigurationResult:
     @pulumi.getter
     def bucket(self) -> _builtins.str:
         return pulumi.get(self, "bucket")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -86,7 +75,6 @@ class AwaitableGetBucketReplicationConfigurationResult(GetBucketReplicationConfi
             yield self
         return GetBucketReplicationConfigurationResult(
             bucket=self.bucket,
-            id=self.id,
             region=self.region,
             role=self.role,
             rules=self.rules)
@@ -121,7 +109,6 @@ def get_bucket_replication_configuration(bucket: Optional[_builtins.str] = None,
 
     return AwaitableGetBucketReplicationConfigurationResult(
         bucket=pulumi.get(__ret__, 'bucket'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         role=pulumi.get(__ret__, 'role'),
         rules=pulumi.get(__ret__, 'rules'))
@@ -153,7 +140,6 @@ def get_bucket_replication_configuration_output(bucket: pulumi.Input[Optional[_b
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration', __args__, opts=opts, typ=GetBucketReplicationConfigurationResult)
     return __ret__.apply(lambda __response__: GetBucketReplicationConfigurationResult(
         bucket=pulumi.get(__response__, 'bucket'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         role=pulumi.get(__response__, 'role'),
         rules=pulumi.get(__response__, 'rules')))

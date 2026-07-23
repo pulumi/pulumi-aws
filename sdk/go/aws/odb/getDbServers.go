@@ -67,9 +67,7 @@ type GetDbServersResult struct {
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
 	// the list of DB servers along with their properties.
 	DbServers []GetDbServersDbServer `pulumi:"dbServers"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region    string                 `pulumi:"region"`
 }
 
 func GetDbServersOutput(ctx *pulumi.Context, args GetDbServersOutputArgs, opts ...pulumi.InvokeOption) GetDbServersResultOutput {
@@ -117,11 +115,6 @@ func (o GetDbServersResultOutput) CloudExadataInfrastructureId() pulumi.StringOu
 // the list of DB servers along with their properties.
 func (o GetDbServersResultOutput) DbServers() GetDbServersDbServerArrayOutput {
 	return o.ApplyT(func(v GetDbServersResult) []GetDbServersDbServer { return v.DbServers }).(GetDbServersDbServerArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetDbServersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDbServersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetDbServersResultOutput) Region() pulumi.StringOutput {

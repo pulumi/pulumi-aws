@@ -27,24 +27,13 @@ class GetRequiredTagsResult:
     """
     A collection of values returned by getRequiredTags.
     """
-    def __init__(__self__, id=None, region=None, required_tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, region=None, required_tags=None):
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
         if required_tags and not isinstance(required_tags, list):
             raise TypeError("Expected argument 'required_tags' to be a list")
         pulumi.set(__self__, "required_tags", required_tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -66,7 +55,6 @@ class AwaitableGetRequiredTagsResult(GetRequiredTagsResult):
         if False:
             yield self
         return GetRequiredTagsResult(
-            id=self.id,
             region=self.region,
             required_tags=self.required_tags)
 
@@ -96,7 +84,6 @@ def get_required_tags(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags', __args__, opts=opts, typ=GetRequiredTagsResult).value
 
     return AwaitableGetRequiredTagsResult(
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         required_tags=pulumi.get(__ret__, 'required_tags'))
 def get_required_tags_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -123,6 +110,5 @@ def get_required_tags_output(region: pulumi.Input[Optional[Optional[_builtins.st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags', __args__, opts=opts, typ=GetRequiredTagsResult)
     return __ret__.apply(lambda __response__: GetRequiredTagsResult(
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         required_tags=pulumi.get(__response__, 'required_tags')))

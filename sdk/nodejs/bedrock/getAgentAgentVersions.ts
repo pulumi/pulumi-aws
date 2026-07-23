@@ -59,10 +59,6 @@ export interface GetAgentAgentVersionsResult {
      * List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
      */
     readonly agentVersionSummaries?: outputs.bedrock.GetAgentAgentVersionsAgentVersionSummary[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

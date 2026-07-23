@@ -56,8 +56,6 @@ type GetEnabledStandardsArgs struct {
 
 // A collection of values returned by getEnabledStandards.
 type GetEnabledStandardsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id                        string   `pulumi:"id"`
 	Region                    string   `pulumi:"region"`
 	StandardsSubscriptionArns []string `pulumi:"standardsSubscriptionArns"`
 	// List of controls that apply to the specified standard. See below for details.
@@ -98,11 +96,6 @@ func (o GetEnabledStandardsResultOutput) ToGetEnabledStandardsResultOutput() Get
 
 func (o GetEnabledStandardsResultOutput) ToGetEnabledStandardsResultOutputWithContext(ctx context.Context) GetEnabledStandardsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetEnabledStandardsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEnabledStandardsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetEnabledStandardsResultOutput) Region() pulumi.StringOutput {

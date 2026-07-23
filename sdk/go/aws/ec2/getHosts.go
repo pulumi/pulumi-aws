@@ -114,8 +114,6 @@ type GetHostsArgs struct {
 // A collection of values returned by getHosts.
 type GetHostsResult struct {
 	Filters []GetHostsFilter `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of EC2 Dedicated Host identifiers.
 	Ids        []string          `pulumi:"ids"`
 	OutpostArn *string           `pulumi:"outpostArn"`
@@ -165,11 +163,6 @@ func (o GetHostsResultOutput) ToGetHostsResultOutputWithContext(ctx context.Cont
 
 func (o GetHostsResultOutput) Filters() GetHostsFilterArrayOutput {
 	return o.ApplyT(func(v GetHostsResult) []GetHostsFilter { return v.Filters }).(GetHostsFilterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetHostsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetHostsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of EC2 Dedicated Host identifiers.

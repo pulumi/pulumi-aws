@@ -74,10 +74,6 @@ export interface GetGroupMembershipsResult {
      */
     readonly groupMemberships: outputs.identitystore.GetGroupMembershipsGroupMembership[];
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Identity store identifier.
      */
     readonly identityStoreId: string;

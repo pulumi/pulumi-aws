@@ -28,13 +28,10 @@ class GetFilesFileSystemsResult:
     """
     A collection of values returned by getFilesFileSystems.
     """
-    def __init__(__self__, file_systems=None, id=None, region=None):
+    def __init__(__self__, file_systems=None, region=None):
         if file_systems and not isinstance(file_systems, list):
             raise TypeError("Expected argument 'file_systems' to be a list")
         pulumi.set(__self__, "file_systems", file_systems)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -49,14 +46,6 @@ class GetFilesFileSystemsResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -68,7 +57,6 @@ class AwaitableGetFilesFileSystemsResult(GetFilesFileSystemsResult):
             yield self
         return GetFilesFileSystemsResult(
             file_systems=self.file_systems,
-            id=self.id,
             region=self.region)
 
 
@@ -99,7 +87,6 @@ def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSy
 
     return AwaitableGetFilesFileSystemsResult(
         file_systems=pulumi.get(__ret__, 'file_systems'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']]]]] = None,
                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -127,5 +114,4 @@ def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[S
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getFilesFileSystems:getFilesFileSystems', __args__, opts=opts, typ=GetFilesFileSystemsResult)
     return __ret__.apply(lambda __response__: GetFilesFileSystemsResult(
         file_systems=pulumi.get(__response__, 'file_systems'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

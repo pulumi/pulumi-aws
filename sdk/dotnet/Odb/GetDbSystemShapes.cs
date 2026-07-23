@@ -137,10 +137,6 @@ namespace Pulumi.Aws.Odb
         /// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> DbSystemShapes;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -149,13 +145,10 @@ namespace Pulumi.Aws.Odb
 
             ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> dbSystemShapes,
 
-            string id,
-
             string region)
         {
             AvailabilityZoneId = availabilityZoneId;
             DbSystemShapes = dbSystemShapes;
-            Id = id;
             Region = region;
         }
     }

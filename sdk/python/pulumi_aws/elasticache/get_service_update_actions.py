@@ -27,13 +27,10 @@ class GetServiceUpdateActionsResult:
     """
     A collection of values returned by getServiceUpdateActions.
     """
-    def __init__(__self__, cache_cluster_id=None, id=None, region=None, replication_group_id=None, service_update_statuses=None, update_actions=None):
+    def __init__(__self__, cache_cluster_id=None, region=None, replication_group_id=None, service_update_statuses=None, update_actions=None):
         if cache_cluster_id and not isinstance(cache_cluster_id, str):
             raise TypeError("Expected argument 'cache_cluster_id' to be a str")
         pulumi.set(__self__, "cache_cluster_id", cache_cluster_id)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -54,14 +51,6 @@ class GetServiceUpdateActionsResult:
         ID of Cache Cluster this update action applies to.
         """
         return pulumi.get(self, "cache_cluster_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -100,7 +89,6 @@ class AwaitableGetServiceUpdateActionsResult(GetServiceUpdateActionsResult):
             yield self
         return GetServiceUpdateActionsResult(
             cache_cluster_id=self.cache_cluster_id,
-            id=self.id,
             region=self.region,
             replication_group_id=self.replication_group_id,
             service_update_statuses=self.service_update_statuses,
@@ -147,7 +135,6 @@ def get_service_update_actions(cache_cluster_id: Optional[_builtins.str] = None,
 
     return AwaitableGetServiceUpdateActionsResult(
         cache_cluster_id=pulumi.get(__ret__, 'cache_cluster_id'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
         service_update_statuses=pulumi.get(__ret__, 'service_update_statuses'),
@@ -191,7 +178,6 @@ def get_service_update_actions_output(cache_cluster_id: pulumi.Input[Optional[Op
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getServiceUpdateActions:getServiceUpdateActions', __args__, opts=opts, typ=GetServiceUpdateActionsResult)
     return __ret__.apply(lambda __response__: GetServiceUpdateActionsResult(
         cache_cluster_id=pulumi.get(__response__, 'cache_cluster_id'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         replication_group_id=pulumi.get(__response__, 'replication_group_id'),
         service_update_statuses=pulumi.get(__response__, 'service_update_statuses'),

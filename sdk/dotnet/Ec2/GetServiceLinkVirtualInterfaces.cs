@@ -197,10 +197,6 @@ namespace Pulumi.Aws.Ec2
     {
         public readonly ImmutableArray<Outputs.GetServiceLinkVirtualInterfacesFilterResult> Filters;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of EC2 Service Link Virtual Interface identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
@@ -211,8 +207,6 @@ namespace Pulumi.Aws.Ec2
         private GetServiceLinkVirtualInterfacesResult(
             ImmutableArray<Outputs.GetServiceLinkVirtualInterfacesFilterResult> filters,
 
-            string id,
-
             ImmutableArray<string> ids,
 
             string region,
@@ -220,7 +214,6 @@ namespace Pulumi.Aws.Ec2
             ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
-            Id = id;
             Ids = ids;
             Region = region;
             Tags = tags;

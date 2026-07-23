@@ -72,10 +72,6 @@ export interface GetPrimaryContactResult {
      */
     readonly fullName: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The phone number of the primary contact information.
      */
     readonly phoneNumber: string;

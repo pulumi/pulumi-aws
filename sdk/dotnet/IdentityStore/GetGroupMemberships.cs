@@ -204,10 +204,6 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMembershipsGroupMembershipResult> GroupMemberships;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Identity store identifier.
         /// </summary>
         public readonly string IdentityStoreId;
@@ -219,15 +215,12 @@ namespace Pulumi.Aws.IdentityStore
 
             ImmutableArray<Outputs.GetGroupMembershipsGroupMembershipResult> groupMemberships,
 
-            string id,
-
             string identityStoreId,
 
             string region)
         {
             GroupId = groupId;
             GroupMemberships = groupMemberships;
-            Id = id;
             IdentityStoreId = identityStoreId;
             Region = region;
         }

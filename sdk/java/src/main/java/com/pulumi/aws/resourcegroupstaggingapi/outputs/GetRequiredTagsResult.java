@@ -12,11 +12,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRequiredTagsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return List of required tag configurations. See `requiredTags` below.
@@ -25,13 +20,6 @@ public final class GetRequiredTagsResult {
     private List<GetRequiredTagsRequiredTag> requiredTags;
 
     private GetRequiredTagsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String region() {
         return this.region;
     }
@@ -52,25 +40,15 @@ public final class GetRequiredTagsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String region;
         private List<GetRequiredTagsRequiredTag> requiredTags;
         public Builder() {}
         public Builder(GetRequiredTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.requiredTags = defaults.requiredTags;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRequiredTagsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -92,7 +70,6 @@ public final class GetRequiredTagsResult {
         }
         public GetRequiredTagsResult build() {
             final var _resultValue = new GetRequiredTagsResult();
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.requiredTags = requiredTags;
             return _resultValue;

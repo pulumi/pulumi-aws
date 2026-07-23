@@ -80,10 +80,6 @@ export interface GetServerlessCacheResult {
      */
     readonly fullEngineVersion: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * ARN of the customer managed key for encrypting the data at rest.
      */
     readonly kmsKeyId: string;

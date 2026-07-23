@@ -91,8 +91,6 @@ func GetServices(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetServices
 
 // A collection of values returned by getServices.
 type GetServicesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of AWS service identifiers available in UXC.
 	Services []string `pulumi:"services"`
 }
@@ -117,11 +115,6 @@ func (o GetServicesResultOutput) ToGetServicesResultOutput() GetServicesResultOu
 
 func (o GetServicesResultOutput) ToGetServicesResultOutputWithContext(ctx context.Context) GetServicesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetServicesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServicesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of AWS service identifiers available in UXC.

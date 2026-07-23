@@ -91,10 +91,6 @@ namespace Pulumi.Aws.Odb
         /// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGiVersionsGiVersionResult> GiVersions;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         public readonly string? Shape;
 
@@ -102,14 +98,11 @@ namespace Pulumi.Aws.Odb
         private GetGiVersionsResult(
             ImmutableArray<Outputs.GetGiVersionsGiVersionResult> giVersions,
 
-            string id,
-
             string region,
 
             string? shape)
         {
             GiVersions = giVersions;
-            Id = id;
             Region = region;
             Shape = shape;
         }

@@ -58,9 +58,7 @@ type GetClustersArgs struct {
 type GetClustersResult struct {
 	// List of ECS cluster ARNs associated with the account.
 	ClusterArns []string `pulumi:"clusterArns"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region      string   `pulumi:"region"`
 }
 
 func GetClustersOutput(ctx *pulumi.Context, args GetClustersOutputArgs, opts ...pulumi.InvokeOption) GetClustersResultOutput {
@@ -100,11 +98,6 @@ func (o GetClustersResultOutput) ToGetClustersResultOutputWithContext(ctx contex
 // List of ECS cluster ARNs associated with the account.
 func (o GetClustersResultOutput) ClusterArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClustersResult) []string { return v.ClusterArns }).(pulumi.StringArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetClustersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClustersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetClustersResultOutput) Region() pulumi.StringOutput {

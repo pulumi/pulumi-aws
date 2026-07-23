@@ -20,11 +20,6 @@ public final class GetOfferingsResult {
     private @Nullable List<String> descriptions;
     private @Nullable List<Integer> durations;
     private @Nullable List<GetOfferingsFilter> filters;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable List<String> offeringIds;
     /**
      * @return List of Savings Plans Offerings. See `offerings` Attribute Reference.
@@ -50,13 +45,6 @@ public final class GetOfferingsResult {
     }
     public List<GetOfferingsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public List<String> offeringIds() {
         return this.offeringIds == null ? List.of() : this.offeringIds;
@@ -100,7 +88,6 @@ public final class GetOfferingsResult {
         private @Nullable List<String> descriptions;
         private @Nullable List<Integer> durations;
         private @Nullable List<GetOfferingsFilter> filters;
-        private String id;
         private @Nullable List<String> offeringIds;
         private List<GetOfferingsOffering> offerings;
         private @Nullable List<String> operations;
@@ -116,7 +103,6 @@ public final class GetOfferingsResult {
     	      this.descriptions = defaults.descriptions;
     	      this.durations = defaults.durations;
     	      this.filters = defaults.filters;
-    	      this.id = defaults.id;
     	      this.offeringIds = defaults.offeringIds;
     	      this.offerings = defaults.offerings;
     	      this.operations = defaults.operations;
@@ -162,14 +148,6 @@ public final class GetOfferingsResult {
         }
         public Builder filters(GetOfferingsFilter... filters) {
             return filters(List.of(filters));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetOfferingsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder offeringIds(@Nullable List<String> offeringIds) {
@@ -248,7 +226,6 @@ public final class GetOfferingsResult {
             _resultValue.descriptions = descriptions;
             _resultValue.durations = durations;
             _resultValue.filters = filters;
-            _resultValue.id = id;
             _resultValue.offeringIds = offeringIds;
             _resultValue.offerings = offerings;
             _resultValue.operations = operations;

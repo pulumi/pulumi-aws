@@ -99,10 +99,6 @@ export interface GetConnectionResult {
      */
     readonly gatewayAssociationState: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
      */
     readonly preSharedKeyArn: string;

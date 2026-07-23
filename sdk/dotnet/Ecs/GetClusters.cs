@@ -118,22 +118,15 @@ namespace Pulumi.Aws.Ecs
         /// List of ECS cluster ARNs associated with the account.
         /// </summary>
         public readonly ImmutableArray<string> ClusterArns;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetClustersResult(
             ImmutableArray<string> clusterArns,
 
-            string id,
-
             string region)
         {
             ClusterArns = clusterArns;
-            Id = id;
             Region = region;
         }
     }

@@ -27,13 +27,10 @@ class GetCloudExadataInfrastructuresResult:
     """
     A collection of values returned by getCloudExadataInfrastructures.
     """
-    def __init__(__self__, cloud_exadata_infrastructures=None, id=None, region=None):
+    def __init__(__self__, cloud_exadata_infrastructures=None, region=None):
         if cloud_exadata_infrastructures and not isinstance(cloud_exadata_infrastructures, list):
             raise TypeError("Expected argument 'cloud_exadata_infrastructures' to be a list")
         pulumi.set(__self__, "cloud_exadata_infrastructures", cloud_exadata_infrastructures)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -48,14 +45,6 @@ class GetCloudExadataInfrastructuresResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -67,7 +56,6 @@ class AwaitableGetCloudExadataInfrastructuresResult(GetCloudExadataInfrastructur
             yield self
         return GetCloudExadataInfrastructuresResult(
             cloud_exadata_infrastructures=self.cloud_exadata_infrastructures,
-            id=self.id,
             region=self.region)
 
 
@@ -99,7 +87,6 @@ def get_cloud_exadata_infrastructures(region: Optional[_builtins.str] = None,
 
     return AwaitableGetCloudExadataInfrastructuresResult(
         cloud_exadata_infrastructures=pulumi.get(__ret__, 'cloud_exadata_infrastructures'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_cloud_exadata_infrastructures_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudExadataInfrastructuresResult]:
@@ -128,5 +115,4 @@ def get_cloud_exadata_infrastructures_output(region: pulumi.Input[Optional[Optio
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getCloudExadataInfrastructures:getCloudExadataInfrastructures', __args__, opts=opts, typ=GetCloudExadataInfrastructuresResult)
     return __ret__.apply(lambda __response__: GetCloudExadataInfrastructuresResult(
         cloud_exadata_infrastructures=pulumi.get(__response__, 'cloud_exadata_infrastructures'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

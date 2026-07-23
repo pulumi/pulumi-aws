@@ -145,10 +145,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
         /// </summary>
         public readonly string ExecutionRole;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Name of the plan.
         /// </summary>
         public readonly string Name;
@@ -194,8 +190,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
 
             string executionRole,
 
-            string id,
-
             string name,
 
             string owner,
@@ -219,7 +213,6 @@ namespace Pulumi.Aws.ArcRegionSwitch
             Arn = arn;
             Description = description;
             ExecutionRole = executionRole;
-            Id = id;
             Name = name;
             Owner = owner;
             PrimaryRegion = primaryRegion;

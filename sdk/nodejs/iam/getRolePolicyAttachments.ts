@@ -55,10 +55,6 @@ export interface GetRolePolicyAttachmentsResult {
      * List of attached managed policies. See below.
      */
     readonly attachedPolicies: outputs.iam.GetRolePolicyAttachmentsAttachedPolicy[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly pathPrefix?: string;
     readonly roleName: string;
 }

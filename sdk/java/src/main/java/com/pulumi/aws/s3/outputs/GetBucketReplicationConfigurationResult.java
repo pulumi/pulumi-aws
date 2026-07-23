@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketReplicationConfigurationResult {
     private String bucket;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return The ARN of the IAM role that Amazon S3 assumes when replicating objects.
@@ -33,13 +28,6 @@ public final class GetBucketReplicationConfigurationResult {
     private GetBucketReplicationConfigurationResult() {}
     public String bucket() {
         return this.bucket;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -69,7 +57,6 @@ public final class GetBucketReplicationConfigurationResult {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
-        private String id;
         private String region;
         private String role;
         private List<GetBucketReplicationConfigurationRule> rules;
@@ -77,7 +64,6 @@ public final class GetBucketReplicationConfigurationResult {
         public Builder(GetBucketReplicationConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.role = defaults.role;
     	      this.rules = defaults.rules;
@@ -89,14 +75,6 @@ public final class GetBucketReplicationConfigurationResult {
               throw new MissingRequiredPropertyException("GetBucketReplicationConfigurationResult", "bucket");
             }
             this.bucket = bucket;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetBucketReplicationConfigurationResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -129,7 +107,6 @@ public final class GetBucketReplicationConfigurationResult {
         public GetBucketReplicationConfigurationResult build() {
             final var _resultValue = new GetBucketReplicationConfigurationResult();
             _resultValue.bucket = bucket;
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.role = role;
             _resultValue.rules = rules;

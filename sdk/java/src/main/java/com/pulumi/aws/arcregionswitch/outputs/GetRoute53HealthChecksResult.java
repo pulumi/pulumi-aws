@@ -17,11 +17,6 @@ public final class GetRoute53HealthChecksResult {
      * 
      */
     private List<GetRoute53HealthChecksHealthCheck> healthChecks;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String planArn;
     /**
      * @return Region for the health check.
@@ -40,13 +35,6 @@ public final class GetRoute53HealthChecksResult {
      */
     public List<GetRoute53HealthChecksHealthCheck> healthChecks() {
         return this.healthChecks;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String planArn() {
         return this.planArn;
@@ -73,14 +61,12 @@ public final class GetRoute53HealthChecksResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetRoute53HealthChecksHealthCheck> healthChecks;
-        private String id;
         private String planArn;
         private String region;
         public Builder() {}
         public Builder(GetRoute53HealthChecksResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.healthChecks = defaults.healthChecks;
-    	      this.id = defaults.id;
     	      this.planArn = defaults.planArn;
     	      this.region = defaults.region;
         }
@@ -95,14 +81,6 @@ public final class GetRoute53HealthChecksResult {
         }
         public Builder healthChecks(GetRoute53HealthChecksHealthCheck... healthChecks) {
             return healthChecks(List.of(healthChecks));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRoute53HealthChecksResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder planArn(String planArn) {
@@ -123,7 +101,6 @@ public final class GetRoute53HealthChecksResult {
         public GetRoute53HealthChecksResult build() {
             final var _resultValue = new GetRoute53HealthChecksResult();
             _resultValue.healthChecks = healthChecks;
-            _resultValue.id = id;
             _resultValue.planArn = planArn;
             _resultValue.region = region;
             return _resultValue;

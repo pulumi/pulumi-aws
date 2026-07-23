@@ -27,10 +27,7 @@ class GetContributorManagedInsightRulesResult:
     """
     A collection of values returned by getContributorManagedInsightRules.
     """
-    def __init__(__self__, id=None, managed_rules=None, region=None, resource_arn=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, managed_rules=None, region=None, resource_arn=None):
         if managed_rules and not isinstance(managed_rules, list):
             raise TypeError("Expected argument 'managed_rules' to be a list")
         pulumi.set(__self__, "managed_rules", managed_rules)
@@ -40,14 +37,6 @@ class GetContributorManagedInsightRulesResult:
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="managedRules")
@@ -77,7 +66,6 @@ class AwaitableGetContributorManagedInsightRulesResult(GetContributorManagedInsi
         if False:
             yield self
         return GetContributorManagedInsightRulesResult(
-            id=self.id,
             managed_rules=self.managed_rules,
             region=self.region,
             resource_arn=self.resource_arn)
@@ -111,7 +99,6 @@ def get_contributor_managed_insight_rules(region: Optional[_builtins.str] = None
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules', __args__, opts=opts, typ=GetContributorManagedInsightRulesResult).value
 
     return AwaitableGetContributorManagedInsightRulesResult(
-        id=pulumi.get(__ret__, 'id'),
         managed_rules=pulumi.get(__ret__, 'managed_rules'),
         region=pulumi.get(__ret__, 'region'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
@@ -142,7 +129,6 @@ def get_contributor_managed_insight_rules_output(region: pulumi.Input[Optional[O
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules', __args__, opts=opts, typ=GetContributorManagedInsightRulesResult)
     return __ret__.apply(lambda __response__: GetContributorManagedInsightRulesResult(
-        id=pulumi.get(__response__, 'id'),
         managed_rules=pulumi.get(__response__, 'managed_rules'),
         region=pulumi.get(__response__, 'region'),
         resource_arn=pulumi.get(__response__, 'resource_arn')))

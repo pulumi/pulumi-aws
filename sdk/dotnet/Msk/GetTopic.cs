@@ -153,10 +153,6 @@ namespace Pulumi.Aws.Msk
         /// Aggregated Kafka configuration in JSON format for the topic.
         /// </summary>
         public readonly string Configs;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// Number of partitions for the topic.
@@ -176,8 +172,6 @@ namespace Pulumi.Aws.Msk
 
             string configs,
 
-            string id,
-
             string name,
 
             int partitionCount,
@@ -189,7 +183,6 @@ namespace Pulumi.Aws.Msk
             Arn = arn;
             ClusterArn = clusterArn;
             Configs = configs;
-            Id = id;
             Name = name;
             PartitionCount = partitionCount;
             Region = region;

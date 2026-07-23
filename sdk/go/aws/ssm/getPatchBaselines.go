@@ -103,9 +103,7 @@ type GetPatchBaselinesResult struct {
 	BaselineIdentities []GetPatchBaselinesBaselineIdentity `pulumi:"baselineIdentities"`
 	DefaultBaselines   *bool                               `pulumi:"defaultBaselines"`
 	Filters            []GetPatchBaselinesFilter           `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region             string                              `pulumi:"region"`
 }
 
 func GetPatchBaselinesOutput(ctx *pulumi.Context, args GetPatchBaselinesOutputArgs, opts ...pulumi.InvokeOption) GetPatchBaselinesResultOutput {
@@ -157,11 +155,6 @@ func (o GetPatchBaselinesResultOutput) DefaultBaselines() pulumi.BoolPtrOutput {
 
 func (o GetPatchBaselinesResultOutput) Filters() GetPatchBaselinesFilterArrayOutput {
 	return o.ApplyT(func(v GetPatchBaselinesResult) []GetPatchBaselinesFilter { return v.Filters }).(GetPatchBaselinesFilterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetPatchBaselinesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPatchBaselinesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetPatchBaselinesResultOutput) Region() pulumi.StringOutput {

@@ -67,9 +67,7 @@ type GetDbNodesResult struct {
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
 	// The list of DB nodes along with their properties.
 	DbNodes []GetDbNodesDbNode `pulumi:"dbNodes"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region  string             `pulumi:"region"`
 }
 
 func GetDbNodesOutput(ctx *pulumi.Context, args GetDbNodesOutputArgs, opts ...pulumi.InvokeOption) GetDbNodesResultOutput {
@@ -117,11 +115,6 @@ func (o GetDbNodesResultOutput) CloudVmClusterId() pulumi.StringOutput {
 // The list of DB nodes along with their properties.
 func (o GetDbNodesResultOutput) DbNodes() GetDbNodesDbNodeArrayOutput {
 	return o.ApplyT(func(v GetDbNodesResult) []GetDbNodesDbNode { return v.DbNodes }).(GetDbNodesDbNodeArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetDbNodesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDbNodesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetDbNodesResultOutput) Region() pulumi.StringOutput {

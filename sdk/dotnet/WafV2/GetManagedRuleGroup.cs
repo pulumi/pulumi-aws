@@ -184,10 +184,6 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupConsumedLabelResult> ConsumedLabels;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
         /// </summary>
         public readonly string LabelNamespace;
@@ -216,8 +212,6 @@ namespace Pulumi.Aws.WafV2
 
             ImmutableArray<Outputs.GetManagedRuleGroupConsumedLabelResult> consumedLabels,
 
-            string id,
-
             string labelNamespace,
 
             string name,
@@ -237,7 +231,6 @@ namespace Pulumi.Aws.WafV2
             AvailableLabels = availableLabels;
             Capacity = capacity;
             ConsumedLabels = consumedLabels;
-            Id = id;
             LabelNamespace = labelNamespace;
             Name = name;
             Region = region;

@@ -60,8 +60,6 @@ type GetContributorManagedInsightRulesArgs struct {
 
 // A collection of values returned by getContributorManagedInsightRules.
 type GetContributorManagedInsightRulesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
 	ManagedRules []GetContributorManagedInsightRulesManagedRule `pulumi:"managedRules"`
 	Region       string                                         `pulumi:"region"`
@@ -103,11 +101,6 @@ func (o GetContributorManagedInsightRulesResultOutput) ToGetContributorManagedIn
 
 func (o GetContributorManagedInsightRulesResultOutput) ToGetContributorManagedInsightRulesResultOutputWithContext(ctx context.Context) GetContributorManagedInsightRulesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetContributorManagedInsightRulesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetContributorManagedInsightRulesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.

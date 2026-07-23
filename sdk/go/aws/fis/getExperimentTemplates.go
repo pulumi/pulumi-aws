@@ -110,8 +110,6 @@ type GetExperimentTemplatesArgs struct {
 
 // A collection of values returned by getExperimentTemplates.
 type GetExperimentTemplatesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of all the experiment template ids found.
 	Ids    []string          `pulumi:"ids"`
 	Region string            `pulumi:"region"`
@@ -153,11 +151,6 @@ func (o GetExperimentTemplatesResultOutput) ToGetExperimentTemplatesResultOutput
 
 func (o GetExperimentTemplatesResultOutput) ToGetExperimentTemplatesResultOutputWithContext(ctx context.Context) GetExperimentTemplatesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetExperimentTemplatesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetExperimentTemplatesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of all the experiment template ids found.

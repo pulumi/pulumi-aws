@@ -86,10 +86,6 @@ export interface GetVpcIpamsArgs {
  */
 export interface GetVpcIpamsResult {
     readonly filters?: outputs.ec2.GetVpcIpamsFilter[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly ipamIds?: string[];
     /**
      * List of IPAM resources matching the provided arguments.

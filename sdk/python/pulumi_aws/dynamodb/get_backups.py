@@ -27,16 +27,13 @@ class GetBackupsResult:
     """
     A collection of values returned by getBackups.
     """
-    def __init__(__self__, backup_summaries=None, backup_type=None, id=None, region=None, table_name=None, time_range_lower_bound=None, time_range_upper_bound=None):
+    def __init__(__self__, backup_summaries=None, backup_type=None, region=None, table_name=None, time_range_lower_bound=None, time_range_upper_bound=None):
         if backup_summaries and not isinstance(backup_summaries, list):
             raise TypeError("Expected argument 'backup_summaries' to be a list")
         pulumi.set(__self__, "backup_summaries", backup_summaries)
         if backup_type and not isinstance(backup_type, str):
             raise TypeError("Expected argument 'backup_type' to be a str")
         pulumi.set(__self__, "backup_type", backup_type)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -65,14 +62,6 @@ class GetBackupsResult:
         BackupType: `USER`, `SYSTEM`, `AWS_BACKUP`.
         """
         return pulumi.get(self, "backup_type")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -106,7 +95,6 @@ class AwaitableGetBackupsResult(GetBackupsResult):
         return GetBackupsResult(
             backup_summaries=self.backup_summaries,
             backup_type=self.backup_type,
-            id=self.id,
             region=self.region,
             table_name=self.table_name,
             time_range_lower_bound=self.time_range_lower_bound,
@@ -152,7 +140,6 @@ def get_backups(backup_type: Optional[_builtins.str] = None,
     return AwaitableGetBackupsResult(
         backup_summaries=pulumi.get(__ret__, 'backup_summaries'),
         backup_type=pulumi.get(__ret__, 'backup_type'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         table_name=pulumi.get(__ret__, 'table_name'),
         time_range_lower_bound=pulumi.get(__ret__, 'time_range_lower_bound'),
@@ -195,7 +182,6 @@ def get_backups_output(backup_type: pulumi.Input[Optional[Optional[_builtins.str
     return __ret__.apply(lambda __response__: GetBackupsResult(
         backup_summaries=pulumi.get(__response__, 'backup_summaries'),
         backup_type=pulumi.get(__response__, 'backup_type'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         table_name=pulumi.get(__response__, 'table_name'),
         time_range_lower_bound=pulumi.get(__response__, 'time_range_lower_bound'),

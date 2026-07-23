@@ -410,7 +410,7 @@ namespace Pulumi.Aws.WafV2
     ///         {
     ///             AndStatement = new Aws.WafV2.Inputs.WebAclRuleStatementAndStatementArgs
     ///             {
-    ///                 Statements = new[]
+    ///                 Statements = 
     ///                 {
     ///                     new Aws.WafV2.Inputs.WebAclRuleStatementArgs
     ///                     {
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.WafV2
     ///         {
     ///             OrStatement = new Aws.WafV2.Inputs.WebAclRuleStatementOrStatementArgs
     ///             {
-    ///                 Statements = new[]
+    ///                 Statements = 
     ///                 {
     ///                     new Aws.WafV2.Inputs.WebAclRuleStatementArgs
     ///                     {

@@ -121,10 +121,6 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworkPeeringConnectionsResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The list of ODB peering connections. A summary of an ODB peering connection.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult> OdbPeeringConnections;
@@ -132,13 +128,10 @@ namespace Pulumi.Aws.Odb
 
         [OutputConstructor]
         private GetNetworkPeeringConnectionsResult(
-            string id,
-
             ImmutableArray<Outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult> odbPeeringConnections,
 
             string region)
         {
-            Id = id;
             OdbPeeringConnections = odbPeeringConnections;
             Region = region;
         }

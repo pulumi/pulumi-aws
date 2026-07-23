@@ -147,29 +147,25 @@ import javax.annotation.Nullable;
  *         var firehoseRolePolicy = new RolePolicy("firehoseRolePolicy", RolePolicyArgs.builder()
  *             .name("firehose-policy")
  *             .role(firehose.id())
- *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
- *                 var exampleBucketArn = values.t1;
- *                 var exampleBucketArn1 = values.t2;
- *                 return serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Action", jsonArray(
- *                                 "s3:AbortMultipartUpload", 
- *                                 "s3:GetBucketLocation", 
- *                                 "s3:GetObject", 
- *                                 "s3:ListBucket", 
- *                                 "s3:ListBucketMultipartUploads", 
- *                                 "s3:PutObject"
- *                             )),
- *                             jsonProperty("Resource", jsonArray(
- *                                 exampleBucketArn, 
- *                                 String.format("%s/*", exampleBucketArn1)
- *                             ))
- *                         )))
- *                     ));
- *             }))
+ *             .policy(exampleBucket.arn().applyValue(_arn -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray(
+ *                             "s3:AbortMultipartUpload", 
+ *                             "s3:GetBucketLocation", 
+ *                             "s3:GetObject", 
+ *                             "s3:ListBucket", 
+ *                             "s3:ListBucketMultipartUploads", 
+ *                             "s3:PutObject"
+ *                         )),
+ *                         jsonProperty("Resource", jsonArray(
+ *                             _arn, 
+ *                             String.format("%s/*", _arn)
+ *                         ))
+ *                     )))
+ *                 ))))
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()

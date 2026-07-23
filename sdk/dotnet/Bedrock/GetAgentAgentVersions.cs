@@ -164,10 +164,6 @@ namespace Pulumi.Aws.Bedrock
         /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryResult> AgentVersionSummaries;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -176,13 +172,10 @@ namespace Pulumi.Aws.Bedrock
 
             ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryResult> agentVersionSummaries,
 
-            string id,
-
             string region)
         {
             AgentId = agentId;
             AgentVersionSummaries = agentVersionSummaries;
-            Id = id;
             Region = region;
         }
     }

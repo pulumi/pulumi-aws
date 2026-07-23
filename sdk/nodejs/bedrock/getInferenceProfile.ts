@@ -59,10 +59,6 @@ export interface GetInferenceProfileResult {
      */
     readonly description: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The Amazon Resource Name (ARN) of the inference profile.
      */
     readonly inferenceProfileArn: string;

@@ -46,10 +46,6 @@ export interface GetSlackWorkspaceArgs {
  * A collection of values returned by getSlackWorkspace.
  */
 export interface GetSlackWorkspaceResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * ID of the Slack Workspace assigned by AWS Chatbot.

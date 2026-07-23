@@ -27,24 +27,13 @@ class GetProfilesProfilesResult:
     """
     A collection of values returned by getProfilesProfiles.
     """
-    def __init__(__self__, id=None, profiles=None, region=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, profiles=None, region=None):
         if profiles and not isinstance(profiles, list):
             raise TypeError("Expected argument 'profiles' to be a list")
         pulumi.set(__self__, "profiles", profiles)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -66,7 +55,6 @@ class AwaitableGetProfilesProfilesResult(GetProfilesProfilesResult):
         if False:
             yield self
         return GetProfilesProfilesResult(
-            id=self.id,
             profiles=self.profiles,
             region=self.region)
 
@@ -96,7 +84,6 @@ def get_profiles_profiles(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getProfilesProfiles:getProfilesProfiles', __args__, opts=opts, typ=GetProfilesProfilesResult).value
 
     return AwaitableGetProfilesProfilesResult(
-        id=pulumi.get(__ret__, 'id'),
         profiles=pulumi.get(__ret__, 'profiles'),
         region=pulumi.get(__ret__, 'region'))
 def get_profiles_profiles_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -123,6 +110,5 @@ def get_profiles_profiles_output(region: pulumi.Input[Optional[Optional[_builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getProfilesProfiles:getProfilesProfiles', __args__, opts=opts, typ=GetProfilesProfilesResult)
     return __ret__.apply(lambda __response__: GetProfilesProfilesResult(
-        id=pulumi.get(__response__, 'id'),
         profiles=pulumi.get(__response__, 'profiles'),
         region=pulumi.get(__response__, 'region')))
