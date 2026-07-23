@@ -19,13 +19,13 @@ Migrate all `examples/*` tests from `github.com/pulumi/pulumi/pkg/v3/testing/int
 - Eliminate integration-package usage, not the entire `pulumi/pkg/v3` module dependency.
 - Use `pulumitest`'s isolated local file backend. The migrated examples do not need to preserve the old harness's potential use of the Pulumi Service in credentialed CI.
 - Upgrade `examples` to `providertest` v0.7, matching `provider/go.mod` and gaining the newer error-returning operations and cleanup behavior.
-- Use stacked PRs so each migration pattern can be reviewed independently.
+- Use one PR with focused commits so each migration pattern can be reviewed independently.
 - Keep unusual lifecycle cases explicit instead of recreating the full `ProgramTestOptions` API.
 - Avoid unrelated renames, fixture edits, assertion changes, formatting churn, or parallelization during the migration.
 
 ## Review Structure
 
-Use a stack of independently buildable PRs:
+Use one PR with independently reviewable commits:
 
 1. **Foundation and simple smoke tests**
    - Upgrade `providertest`.
@@ -38,7 +38,7 @@ Use a stack of independently buildable PRs:
 4. **YAML edits and final cleanup**
    - Preserve additive edit and per-step validation behavior, then remove the remaining integration imports and integration-only helpers.
 
-Within each PR, use focused commits and include a compact parity table showing preview, update, round-trip, no-op, refresh, edits, and validation behavior for each migrated test.
+Keep each migration pattern in a focused commit so reviewers can compare preview, update, round-trip, no-op, refresh, edit, and validation behavior with the lifecycle it replaces.
 
 ## Tradeoffs, Limitations, and Non-Goals
 
@@ -49,4 +49,4 @@ Within each PR, use focused commits and include a compact parity table showing p
 
 ## Current Status
 
-Investigation and review strategy are complete. Implementation begins with the foundation stack branch. No pull requests should be submitted until the local stack has been reviewed.
+Implementation and local review are complete. The migration is organized as focused commits on a single branch for one pull request.
