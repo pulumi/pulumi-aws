@@ -103,10 +103,8 @@ type GetClusterVersionsResult struct {
 	ClusterVersions       []GetClusterVersionsClusterVersion `pulumi:"clusterVersions"`
 	ClusterVersionsOnlies []string                           `pulumi:"clusterVersionsOnlies"`
 	DefaultOnly           *bool                              `pulumi:"defaultOnly"`
-	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	IncludeAll *bool  `pulumi:"includeAll"`
-	Region     string `pulumi:"region"`
+	IncludeAll            *bool                              `pulumi:"includeAll"`
+	Region                string                             `pulumi:"region"`
 	// Status of the EKS cluster version.
 	VersionStatus *string `pulumi:"versionStatus"`
 }
@@ -172,11 +170,6 @@ func (o GetClusterVersionsResultOutput) ClusterVersionsOnlies() pulumi.StringArr
 
 func (o GetClusterVersionsResultOutput) DefaultOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) *bool { return v.DefaultOnly }).(pulumi.BoolPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetClusterVersionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetClusterVersionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetClusterVersionsResultOutput) IncludeAll() pulumi.BoolPtrOutput {

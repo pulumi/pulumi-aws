@@ -203,10 +203,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CurrencyCode;
         public readonly string EndDateRange;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly int InstanceCount;
         public readonly string InstanceType;
         public readonly string Region;
@@ -232,8 +228,6 @@ namespace Pulumi.Aws.Ec2
 
             string endDateRange,
 
-            string id,
-
             int instanceCount,
 
             string instanceType,
@@ -251,7 +245,6 @@ namespace Pulumi.Aws.Ec2
             CapacityDurationHours = capacityDurationHours;
             CurrencyCode = currencyCode;
             EndDateRange = endDateRange;
-            Id = id;
             InstanceCount = instanceCount;
             InstanceType = instanceType;
             Region = region;

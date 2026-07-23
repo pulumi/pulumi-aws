@@ -156,10 +156,6 @@ namespace Pulumi.Aws.ElastiCache
     [OutputType]
     public sealed class GetServiceUpdatesResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// Set of Service Updates. Each element has the following attributes:
@@ -172,15 +168,12 @@ namespace Pulumi.Aws.ElastiCache
 
         [OutputConstructor]
         private GetServiceUpdatesResult(
-            string id,
-
             string region,
 
             ImmutableArray<Outputs.GetServiceUpdatesServiceUpdateResult> serviceUpdates,
 
             ImmutableArray<string> statuses)
         {
-            Id = id;
             Region = region;
             ServiceUpdates = serviceUpdates;
             Statuses = statuses;

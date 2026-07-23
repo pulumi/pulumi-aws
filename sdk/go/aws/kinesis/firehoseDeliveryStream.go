@@ -629,9 +629,7 @@ import (
 //			firehose_opensearch, err := iam.NewRolePolicy(ctx, "firehose-opensearch", &iam.RolePolicyArgs{
 //				Name: pulumi.String("opensearch"),
 //				Role: pulumi.Any(firehose.Id),
-//				Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					testClusterArn := _args[0].(string)
-//					testClusterArn1 := _args[1].(string)
+//				Policy: testCluster.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf(`{
 //	  \"Version\": \"2012-10-17\",
 //	  \"Statement\": [
@@ -664,7 +662,7 @@ import (
 //	  ]
 //	}
 //
-// `, testClusterArn, testClusterArn1), nil
+// `, arn, arn), nil
 //
 //				}).(pulumi.StringOutput),
 //			})

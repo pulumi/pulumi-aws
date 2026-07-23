@@ -115,10 +115,6 @@ namespace Pulumi.Aws.Route53
     public sealed class GetProfilesProfilesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of Profiles.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProfilesProfilesProfileResult> Profiles;
@@ -126,13 +122,10 @@ namespace Pulumi.Aws.Route53
 
         [OutputConstructor]
         private GetProfilesProfilesResult(
-            string id,
-
             ImmutableArray<Outputs.GetProfilesProfilesProfileResult> profiles,
 
             string region)
         {
-            Id = id;
             Profiles = profiles;
             Region = region;
         }

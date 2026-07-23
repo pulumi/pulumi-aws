@@ -26,13 +26,10 @@ class GetUseCaseForModelAccessResult:
     """
     A collection of values returned by getUseCaseForModelAccess.
     """
-    def __init__(__self__, form_data=None, id=None):
+    def __init__(__self__, form_data=None):
         if form_data and not isinstance(form_data, str):
             raise TypeError("Expected argument 'form_data' to be a str")
         pulumi.set(__self__, "form_data", form_data)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter(name="formData")
@@ -42,14 +39,6 @@ class GetUseCaseForModelAccessResult:
         """
         return pulumi.get(self, "form_data")
 
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
 
 class AwaitableGetUseCaseForModelAccessResult(GetUseCaseForModelAccessResult):
     # pylint: disable=using-constant-test
@@ -57,8 +46,7 @@ class AwaitableGetUseCaseForModelAccessResult(GetUseCaseForModelAccessResult):
         if False:
             yield self
         return GetUseCaseForModelAccessResult(
-            form_data=self.form_data,
-            id=self.id)
+            form_data=self.form_data)
 
 
 def get_use_case_for_model_access(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUseCaseForModelAccessResult:
@@ -81,8 +69,7 @@ def get_use_case_for_model_access(opts: Optional[pulumi.InvokeOptions] = None) -
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess', __args__, opts=opts, typ=GetUseCaseForModelAccessResult).value
 
     return AwaitableGetUseCaseForModelAccessResult(
-        form_data=pulumi.get(__ret__, 'form_data'),
-        id=pulumi.get(__ret__, 'id'))
+        form_data=pulumi.get(__ret__, 'form_data'))
 def get_use_case_for_model_access_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUseCaseForModelAccessResult]:
     """
     Provides details about an AWS Bedrock Use Case For Model Access.
@@ -102,5 +89,4 @@ def get_use_case_for_model_access_output(opts: Optional[Union[pulumi.InvokeOptio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess', __args__, opts=opts, typ=GetUseCaseForModelAccessResult)
     return __ret__.apply(lambda __response__: GetUseCaseForModelAccessResult(
-        form_data=pulumi.get(__response__, 'form_data'),
-        id=pulumi.get(__response__, 'id')))
+        form_data=pulumi.get(__response__, 'form_data')))

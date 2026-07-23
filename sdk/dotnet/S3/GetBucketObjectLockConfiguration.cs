@@ -154,10 +154,6 @@ namespace Pulumi.Aws.S3
         public readonly string Bucket;
         public readonly string? ExpectedBucketOwner;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled.
         /// </summary>
         public readonly string ObjectLockEnabled;
@@ -173,8 +169,6 @@ namespace Pulumi.Aws.S3
 
             string? expectedBucketOwner,
 
-            string id,
-
             string objectLockEnabled,
 
             string region,
@@ -183,7 +177,6 @@ namespace Pulumi.Aws.S3
         {
             Bucket = bucket;
             ExpectedBucketOwner = expectedBucketOwner;
-            Id = id;
             ObjectLockEnabled = objectLockEnabled;
             Region = region;
             Rules = rules;

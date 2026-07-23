@@ -26,21 +26,10 @@ class GetOutboundWebIdentityFederationResult:
     """
     A collection of values returned by getOutboundWebIdentityFederation.
     """
-    def __init__(__self__, id=None, issuer_identifier=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, issuer_identifier=None):
         if issuer_identifier and not isinstance(issuer_identifier, str):
             raise TypeError("Expected argument 'issuer_identifier' to be a str")
         pulumi.set(__self__, "issuer_identifier", issuer_identifier)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="issuerIdentifier")
@@ -57,7 +46,6 @@ class AwaitableGetOutboundWebIdentityFederationResult(GetOutboundWebIdentityFede
         if False:
             yield self
         return GetOutboundWebIdentityFederationResult(
-            id=self.id,
             issuer_identifier=self.issuer_identifier)
 
 
@@ -79,7 +67,6 @@ def get_outbound_web_identity_federation(opts: Optional[pulumi.InvokeOptions] = 
     __ret__ = pulumi.runtime.invoke('aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation', __args__, opts=opts, typ=GetOutboundWebIdentityFederationResult).value
 
     return AwaitableGetOutboundWebIdentityFederationResult(
-        id=pulumi.get(__ret__, 'id'),
         issuer_identifier=pulumi.get(__ret__, 'issuer_identifier'))
 def get_outbound_web_identity_federation_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundWebIdentityFederationResult]:
     """
@@ -98,5 +85,4 @@ def get_outbound_web_identity_federation_output(opts: Optional[Union[pulumi.Invo
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getOutboundWebIdentityFederation:getOutboundWebIdentityFederation', __args__, opts=opts, typ=GetOutboundWebIdentityFederationResult)
     return __ret__.apply(lambda __response__: GetOutboundWebIdentityFederationResult(
-        id=pulumi.get(__response__, 'id'),
         issuer_identifier=pulumi.get(__response__, 'issuer_identifier')))

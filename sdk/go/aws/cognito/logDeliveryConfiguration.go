@@ -131,10 +131,8 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "firehose", &iam.RolePolicyArgs{
 //				Name: pulumi.String("firehose-policy"),
 //				Role: firehose.ID(),
-//				Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleBucketArn := _args[0].(string)
-//					exampleBucketArn1 := _args[1].(string)
-//					var _zero string
+//				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
 //						"Statement": []map[string]interface{}{
@@ -149,8 +147,8 @@ import (
 //									"s3:PutObject",
 //								},
 //								"Resource": []string{
-//									exampleBucketArn,
-//									fmt.Sprintf("%v/*", exampleBucketArn1),
+//									arn,
+//									fmt.Sprintf("%v/*", arn),
 //								},
 //							},
 //						},
@@ -159,7 +157,7 @@ import (
 //						return _zero, err
 //					}
 //					json1 := string(tmpJSON1)
-//					return json1, nil
+//					return pulumi.String(json1), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

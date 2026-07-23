@@ -25,11 +25,6 @@ public final class GetSecretVersionsResult {
      */
     @Deprecated /* arn is deprecated. Use secretArn instead. */
     private String arn;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable Boolean includeDeprecated;
     /**
      * @return (**Deprecated**) Name of the secret.
@@ -71,13 +66,6 @@ public final class GetSecretVersionsResult {
     @Deprecated /* arn is deprecated. Use secretArn instead. */
     public String arn() {
         return this.arn;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
@@ -132,7 +120,6 @@ public final class GetSecretVersionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String id;
         private @Nullable Boolean includeDeprecated;
         private String name;
         private String region;
@@ -144,7 +131,6 @@ public final class GetSecretVersionsResult {
         public Builder(GetSecretVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
-    	      this.id = defaults.id;
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
@@ -160,14 +146,6 @@ public final class GetSecretVersionsResult {
               throw new MissingRequiredPropertyException("GetSecretVersionsResult", "arn");
             }
             this.arn = arn;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSecretVersionsResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -230,7 +208,6 @@ public final class GetSecretVersionsResult {
         public GetSecretVersionsResult build() {
             final var _resultValue = new GetSecretVersionsResult();
             _resultValue.arn = arn;
-            _resultValue.id = id;
             _resultValue.includeDeprecated = includeDeprecated;
             _resultValue.name = name;
             _resultValue.region = region;

@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworksResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of odb networks returns basic information about odb networks.
      * 
      */
@@ -25,13 +20,6 @@ public final class GetNetworksResult {
     private String region;
 
     private GetNetworksResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of odb networks returns basic information about odb networks.
      * 
@@ -52,25 +40,15 @@ public final class GetNetworksResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetNetworksOdbNetwork> odbNetworks;
         private String region;
         public Builder() {}
         public Builder(GetNetworksResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.odbNetworks = defaults.odbNetworks;
     	      this.region = defaults.region;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetNetworksResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder odbNetworks(List<GetNetworksOdbNetwork> odbNetworks) {
             if (odbNetworks == null) {
@@ -92,7 +70,6 @@ public final class GetNetworksResult {
         }
         public GetNetworksResult build() {
             final var _resultValue = new GetNetworksResult();
-            _resultValue.id = id;
             _resultValue.odbNetworks = odbNetworks;
             _resultValue.region = region;
             return _resultValue;

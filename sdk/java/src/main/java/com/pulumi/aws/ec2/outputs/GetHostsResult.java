@@ -17,11 +17,6 @@ import javax.annotation.Nullable;
 public final class GetHostsResult {
     private @Nullable List<GetHostsFilter> filters;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of EC2 Dedicated Host identifiers.
      * 
      */
@@ -33,13 +28,6 @@ public final class GetHostsResult {
     private GetHostsResult() {}
     public List<GetHostsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return List of EC2 Dedicated Host identifiers.
@@ -68,7 +56,6 @@ public final class GetHostsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetHostsFilter> filters;
-        private String id;
         private List<String> ids;
         private @Nullable String outpostArn;
         private String region;
@@ -77,7 +64,6 @@ public final class GetHostsResult {
         public Builder(GetHostsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
-    	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.outpostArn = defaults.outpostArn;
     	      this.region = defaults.region;
@@ -92,14 +78,6 @@ public final class GetHostsResult {
         }
         public Builder filters(GetHostsFilter... filters) {
             return filters(List.of(filters));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetHostsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
@@ -135,7 +113,6 @@ public final class GetHostsResult {
         public GetHostsResult build() {
             final var _resultValue = new GetHostsResult();
             _resultValue.filters = filters;
-            _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.outpostArn = outpostArn;
             _resultValue.region = region;

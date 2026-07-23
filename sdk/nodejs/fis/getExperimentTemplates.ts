@@ -77,10 +77,6 @@ export interface GetExperimentTemplatesArgs {
  */
 export interface GetExperimentTemplatesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of all the experiment template ids found.
      */
     readonly ids: string[];

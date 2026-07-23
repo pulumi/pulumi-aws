@@ -233,22 +233,15 @@ namespace Pulumi.Aws.Billing
         /// List of billing view objects with the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetViewsBillingViewResult> BillingViews;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
         private GetViewsResult(
             ImmutableArray<string> billingViewTypes,
 
-            ImmutableArray<Outputs.GetViewsBillingViewResult> billingViews,
-
-            string id)
+            ImmutableArray<Outputs.GetViewsBillingViewResult> billingViews)
         {
             BillingViewTypes = billingViewTypes;
             BillingViews = billingViews;
-            Id = id;
         }
     }
 }

@@ -353,10 +353,6 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcIpamsResult
     {
         public readonly ImmutableArray<Outputs.GetVpcIpamsFilterResult> Filters;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<string> IpamIds;
         /// <summary>
         /// List of IPAM resources matching the provided arguments.
@@ -368,8 +364,6 @@ namespace Pulumi.Aws.Ec2
         private GetVpcIpamsResult(
             ImmutableArray<Outputs.GetVpcIpamsFilterResult> filters,
 
-            string id,
-
             ImmutableArray<string> ipamIds,
 
             ImmutableArray<Outputs.GetVpcIpamsIpamResult> ipams,
@@ -377,7 +371,6 @@ namespace Pulumi.Aws.Ec2
             string region)
         {
             Filters = filters;
-            Id = id;
             IpamIds = ipamIds;
             Ipams = ipams;
             Region = region;

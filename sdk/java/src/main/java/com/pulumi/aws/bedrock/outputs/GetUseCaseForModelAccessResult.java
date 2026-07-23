@@ -15,11 +15,6 @@ public final class GetUseCaseForModelAccessResult {
      * 
      */
     private String formData;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
 
     private GetUseCaseForModelAccessResult() {}
     /**
@@ -28,13 +23,6 @@ public final class GetUseCaseForModelAccessResult {
      */
     public String formData() {
         return this.formData;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
 
     public static Builder builder() {
@@ -47,12 +35,10 @@ public final class GetUseCaseForModelAccessResult {
     @CustomType.Builder
     public static final class Builder {
         private String formData;
-        private String id;
         public Builder() {}
         public Builder(GetUseCaseForModelAccessResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.formData = defaults.formData;
-    	      this.id = defaults.id;
         }
 
         @CustomType.Setter
@@ -63,18 +49,9 @@ public final class GetUseCaseForModelAccessResult {
             this.formData = formData;
             return this;
         }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetUseCaseForModelAccessResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         public GetUseCaseForModelAccessResult build() {
             final var _resultValue = new GetUseCaseForModelAccessResult();
             _resultValue.formData = formData;
-            _resultValue.id = id;
             return _resultValue;
         }
     }

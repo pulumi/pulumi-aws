@@ -69,8 +69,6 @@ type LookupCoreNetworkResult struct {
 	Edges []GetCoreNetworkEdge `pulumi:"edges"`
 	// ID of the global network that the core network is a part of.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Network function groups associated with the core network. See `networkFunctionGroups` Attribute Reference for details.
 	NetworkFunctionGroups []GetCoreNetworkNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
 	// Segments associated with the network function group. See `network_function_groups.segments` Attribute Reference for details.
@@ -142,11 +140,6 @@ func (o LookupCoreNetworkResultOutput) Edges() GetCoreNetworkEdgeArrayOutput {
 // ID of the global network that the core network is a part of.
 func (o LookupCoreNetworkResultOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCoreNetworkResult) string { return v.GlobalNetworkId }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupCoreNetworkResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupCoreNetworkResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Network function groups associated with the core network. See `networkFunctionGroups` Attribute Reference for details.

@@ -24,11 +24,6 @@ public final class GetBackupsResult {
      * 
      */
     private @Nullable String backupType;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return Name of the table.
@@ -52,13 +47,6 @@ public final class GetBackupsResult {
      */
     public Optional<String> backupType() {
         return Optional.ofNullable(this.backupType);
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -88,7 +76,6 @@ public final class GetBackupsResult {
     public static final class Builder {
         private List<GetBackupsBackupSummary> backupSummaries;
         private @Nullable String backupType;
-        private String id;
         private String region;
         private @Nullable String tableName;
         private @Nullable String timeRangeLowerBound;
@@ -98,7 +85,6 @@ public final class GetBackupsResult {
     	      Objects.requireNonNull(defaults);
     	      this.backupSummaries = defaults.backupSummaries;
     	      this.backupType = defaults.backupType;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.tableName = defaults.tableName;
     	      this.timeRangeLowerBound = defaults.timeRangeLowerBound;
@@ -120,14 +106,6 @@ public final class GetBackupsResult {
         public Builder backupType(@Nullable String backupType) {
 
             this.backupType = backupType;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetBackupsResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -160,7 +138,6 @@ public final class GetBackupsResult {
             final var _resultValue = new GetBackupsResult();
             _resultValue.backupSummaries = backupSummaries;
             _resultValue.backupType = backupType;
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.tableName = tableName;
             _resultValue.timeRangeLowerBound = timeRangeLowerBound;

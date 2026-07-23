@@ -489,10 +489,6 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly bool Eventbridge;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of Lambda function notification configurations. See `LambdaFunction` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketNotificationLambdaFunctionResult> LambdaFunctions;
@@ -512,8 +508,6 @@ namespace Pulumi.Aws.S3
 
             bool eventbridge,
 
-            string id,
-
             ImmutableArray<Outputs.GetBucketNotificationLambdaFunctionResult> lambdaFunctions,
 
             ImmutableArray<Outputs.GetBucketNotificationQueueResult> queues,
@@ -524,7 +518,6 @@ namespace Pulumi.Aws.S3
         {
             Bucket = bucket;
             Eventbridge = eventbridge;
-            Id = id;
             LambdaFunctions = lambdaFunctions;
             Queues = queues;
             Region = region;

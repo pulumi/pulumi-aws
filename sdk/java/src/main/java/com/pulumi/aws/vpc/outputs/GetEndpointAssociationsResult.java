@@ -17,11 +17,6 @@ public final class GetEndpointAssociationsResult {
      * 
      */
     private List<GetEndpointAssociationsAssociation> associations;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     private String vpcEndpointId;
 
@@ -32,13 +27,6 @@ public final class GetEndpointAssociationsResult {
      */
     public List<GetEndpointAssociationsAssociation> associations() {
         return this.associations;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -57,14 +45,12 @@ public final class GetEndpointAssociationsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetEndpointAssociationsAssociation> associations;
-        private String id;
         private String region;
         private String vpcEndpointId;
         public Builder() {}
         public Builder(GetEndpointAssociationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associations = defaults.associations;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
         }
@@ -79,14 +65,6 @@ public final class GetEndpointAssociationsResult {
         }
         public Builder associations(GetEndpointAssociationsAssociation... associations) {
             return associations(List.of(associations));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetEndpointAssociationsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder region(String region) {
@@ -107,7 +85,6 @@ public final class GetEndpointAssociationsResult {
         public GetEndpointAssociationsResult build() {
             final var _resultValue = new GetEndpointAssociationsResult();
             _resultValue.associations = associations;
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.vpcEndpointId = vpcEndpointId;
             return _resultValue;

@@ -218,10 +218,6 @@ namespace Pulumi.Aws.S3
         /// List of bucket objects:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBucketsBucketResult> Buckets;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly int? MaxBuckets;
         public readonly string? Prefix;
         public readonly string Region;
@@ -232,8 +228,6 @@ namespace Pulumi.Aws.S3
 
             ImmutableArray<Outputs.GetBucketsBucketResult> buckets,
 
-            string id,
-
             int? maxBuckets,
 
             string? prefix,
@@ -242,7 +236,6 @@ namespace Pulumi.Aws.S3
         {
             BucketRegion = bucketRegion;
             Buckets = buckets;
-            Id = id;
             MaxBuckets = maxBuckets;
             Prefix = prefix;
             Region = region;

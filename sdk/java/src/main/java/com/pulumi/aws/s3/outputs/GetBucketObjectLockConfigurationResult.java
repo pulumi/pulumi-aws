@@ -17,11 +17,6 @@ public final class GetBucketObjectLockConfigurationResult {
     private String bucket;
     private @Nullable String expectedBucketOwner;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Indicates whether this bucket has an Object Lock configuration enabled.
      * 
      */
@@ -39,13 +34,6 @@ public final class GetBucketObjectLockConfigurationResult {
     }
     public Optional<String> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Indicates whether this bucket has an Object Lock configuration enabled.
@@ -76,7 +64,6 @@ public final class GetBucketObjectLockConfigurationResult {
     public static final class Builder {
         private String bucket;
         private @Nullable String expectedBucketOwner;
-        private String id;
         private String objectLockEnabled;
         private String region;
         private List<GetBucketObjectLockConfigurationRule> rules;
@@ -85,7 +72,6 @@ public final class GetBucketObjectLockConfigurationResult {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
     	      this.expectedBucketOwner = defaults.expectedBucketOwner;
-    	      this.id = defaults.id;
     	      this.objectLockEnabled = defaults.objectLockEnabled;
     	      this.region = defaults.region;
     	      this.rules = defaults.rules;
@@ -103,14 +89,6 @@ public final class GetBucketObjectLockConfigurationResult {
         public Builder expectedBucketOwner(@Nullable String expectedBucketOwner) {
 
             this.expectedBucketOwner = expectedBucketOwner;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetBucketObjectLockConfigurationResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -144,7 +122,6 @@ public final class GetBucketObjectLockConfigurationResult {
             final var _resultValue = new GetBucketObjectLockConfigurationResult();
             _resultValue.bucket = bucket;
             _resultValue.expectedBucketOwner = expectedBucketOwner;
-            _resultValue.id = id;
             _resultValue.objectLockEnabled = objectLockEnabled;
             _resultValue.region = region;
             _resultValue.rules = rules;

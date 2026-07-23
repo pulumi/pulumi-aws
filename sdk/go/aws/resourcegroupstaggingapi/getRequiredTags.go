@@ -56,8 +56,6 @@ type GetRequiredTagsArgs struct {
 
 // A collection of values returned by getRequiredTags.
 type GetRequiredTagsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 	// List of required tag configurations. See `requiredTags` below.
 	RequiredTags []GetRequiredTagsRequiredTag `pulumi:"requiredTags"`
@@ -95,11 +93,6 @@ func (o GetRequiredTagsResultOutput) ToGetRequiredTagsResultOutput() GetRequired
 
 func (o GetRequiredTagsResultOutput) ToGetRequiredTagsResultOutputWithContext(ctx context.Context) GetRequiredTagsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRequiredTagsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRequiredTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetRequiredTagsResultOutput) Region() pulumi.StringOutput {

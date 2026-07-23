@@ -66,11 +66,9 @@ type GetGroupsArgs struct {
 // A collection of values returned by getGroups.
 type GetGroupsResult struct {
 	// List of Identity Store Groups
-	Groups []GetGroupsGroup `pulumi:"groups"`
-	// The provider-assigned unique ID for this managed resource.
-	Id              string `pulumi:"id"`
-	IdentityStoreId string `pulumi:"identityStoreId"`
-	Region          string `pulumi:"region"`
+	Groups          []GetGroupsGroup `pulumi:"groups"`
+	IdentityStoreId string           `pulumi:"identityStoreId"`
+	Region          string           `pulumi:"region"`
 }
 
 func GetGroupsOutput(ctx *pulumi.Context, args GetGroupsOutputArgs, opts ...pulumi.InvokeOption) GetGroupsResultOutput {
@@ -112,11 +110,6 @@ func (o GetGroupsResultOutput) ToGetGroupsResultOutputWithContext(ctx context.Co
 // List of Identity Store Groups
 func (o GetGroupsResultOutput) Groups() GetGroupsGroupArrayOutput {
 	return o.ApplyT(func(v GetGroupsResult) []GetGroupsGroup { return v.Groups }).(GetGroupsGroupArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetGroupsResultOutput) IdentityStoreId() pulumi.StringOutput {

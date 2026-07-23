@@ -127,10 +127,6 @@ namespace Pulumi.Aws.DynamoDB
     public sealed class GetTablesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// A list of all the DynamoDB table names found.
         /// </summary>
         public readonly ImmutableArray<string> Names;
@@ -138,13 +134,10 @@ namespace Pulumi.Aws.DynamoDB
 
         [OutputConstructor]
         private GetTablesResult(
-            string id,
-
             ImmutableArray<string> names,
 
             string region)
         {
-            Id = id;
             Names = names;
             Region = region;
         }

@@ -26,24 +26,13 @@ class GetTablesResult:
     """
     A collection of values returned by getTables.
     """
-    def __init__(__self__, id=None, names=None, region=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, names=None, region=None):
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -65,7 +54,6 @@ class AwaitableGetTablesResult(GetTablesResult):
         if False:
             yield self
         return GetTablesResult(
-            id=self.id,
             names=self.names,
             region=self.region)
 
@@ -96,7 +84,6 @@ def get_tables(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTables:getTables', __args__, opts=opts, typ=GetTablesResult).value
 
     return AwaitableGetTablesResult(
-        id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
 def get_tables_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -124,6 +111,5 @@ def get_tables_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTables:getTables', __args__, opts=opts, typ=GetTablesResult)
     return __ret__.apply(lambda __response__: GetTablesResult(
-        id=pulumi.get(__response__, 'id'),
         names=pulumi.get(__response__, 'names'),
         region=pulumi.get(__response__, 'region')))

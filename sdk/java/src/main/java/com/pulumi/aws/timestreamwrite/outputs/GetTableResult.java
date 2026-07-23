@@ -30,11 +30,6 @@ public final class GetTableResult {
      */
     private String databaseName;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Last time table was updated.
      * 
      */
@@ -87,13 +82,6 @@ public final class GetTableResult {
      */
     public String databaseName() {
         return this.databaseName;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Last time table was updated.
@@ -153,7 +141,6 @@ public final class GetTableResult {
         private String arn;
         private String creationTime;
         private String databaseName;
-        private String id;
         private String lastUpdatedTime;
         private List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties;
         private String name;
@@ -167,7 +154,6 @@ public final class GetTableResult {
     	      this.arn = defaults.arn;
     	      this.creationTime = defaults.creationTime;
     	      this.databaseName = defaults.databaseName;
-    	      this.id = defaults.id;
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.magneticStoreWriteProperties = defaults.magneticStoreWriteProperties;
     	      this.name = defaults.name;
@@ -199,14 +185,6 @@ public final class GetTableResult {
               throw new MissingRequiredPropertyException("GetTableResult", "databaseName");
             }
             this.databaseName = databaseName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetTableResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -279,7 +257,6 @@ public final class GetTableResult {
             _resultValue.arn = arn;
             _resultValue.creationTime = creationTime;
             _resultValue.databaseName = databaseName;
-            _resultValue.id = id;
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.magneticStoreWriteProperties = magneticStoreWriteProperties;
             _resultValue.name = name;

@@ -23,11 +23,6 @@ public final class GetInferenceProfileResult {
      */
     private String description;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The Amazon Resource Name (ARN) of the inference profile.
      * 
      */
@@ -74,13 +69,6 @@ public final class GetInferenceProfileResult {
      */
     public String description() {
         return this.description;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return The Amazon Resource Name (ARN) of the inference profile.
@@ -142,7 +130,6 @@ public final class GetInferenceProfileResult {
     public static final class Builder {
         private String createdAt;
         private String description;
-        private String id;
         private String inferenceProfileArn;
         private String inferenceProfileId;
         private String inferenceProfileName;
@@ -156,7 +143,6 @@ public final class GetInferenceProfileResult {
     	      Objects.requireNonNull(defaults);
     	      this.createdAt = defaults.createdAt;
     	      this.description = defaults.description;
-    	      this.id = defaults.id;
     	      this.inferenceProfileArn = defaults.inferenceProfileArn;
     	      this.inferenceProfileId = defaults.inferenceProfileId;
     	      this.inferenceProfileName = defaults.inferenceProfileName;
@@ -181,14 +167,6 @@ public final class GetInferenceProfileResult {
               throw new MissingRequiredPropertyException("GetInferenceProfileResult", "description");
             }
             this.description = description;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetInferenceProfileResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -262,7 +240,6 @@ public final class GetInferenceProfileResult {
             final var _resultValue = new GetInferenceProfileResult();
             _resultValue.createdAt = createdAt;
             _resultValue.description = description;
-            _resultValue.id = id;
             _resultValue.inferenceProfileArn = inferenceProfileArn;
             _resultValue.inferenceProfileId = inferenceProfileId;
             _resultValue.inferenceProfileName = inferenceProfileName;

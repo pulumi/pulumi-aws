@@ -20,11 +20,6 @@ public final class GetRegistryResult {
      * 
      */
     private String description;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String name;
     private String region;
 
@@ -42,13 +37,6 @@ public final class GetRegistryResult {
      */
     public String description() {
         return this.description;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String name() {
         return this.name;
@@ -68,7 +56,6 @@ public final class GetRegistryResult {
     public static final class Builder {
         private String arn;
         private String description;
-        private String id;
         private String name;
         private String region;
         public Builder() {}
@@ -76,7 +63,6 @@ public final class GetRegistryResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.description = defaults.description;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
         }
@@ -95,14 +81,6 @@ public final class GetRegistryResult {
               throw new MissingRequiredPropertyException("GetRegistryResult", "description");
             }
             this.description = description;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRegistryResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -125,7 +103,6 @@ public final class GetRegistryResult {
             final var _resultValue = new GetRegistryResult();
             _resultValue.arn = arn;
             _resultValue.description = description;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.region = region;
             return _resultValue;

@@ -42,10 +42,6 @@ export function getServices(opts?: pulumi.InvokeOptions): Promise<GetServicesRes
  */
 export interface GetServicesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of AWS service identifiers available in UXC.
      */
     readonly services: string[];

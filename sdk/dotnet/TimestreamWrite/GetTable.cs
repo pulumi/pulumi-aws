@@ -163,10 +163,6 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Last time table was updated.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -200,8 +196,6 @@ namespace Pulumi.Aws.TimestreamWrite
 
             string databaseName,
 
-            string id,
-
             string lastUpdatedTime,
 
             ImmutableArray<Outputs.GetTableMagneticStoreWritePropertyResult> magneticStoreWriteProperties,
@@ -219,7 +213,6 @@ namespace Pulumi.Aws.TimestreamWrite
             Arn = arn;
             CreationTime = creationTime;
             DatabaseName = databaseName;
-            Id = id;
             LastUpdatedTime = lastUpdatedTime;
             MagneticStoreWriteProperties = magneticStoreWriteProperties;
             Name = name;

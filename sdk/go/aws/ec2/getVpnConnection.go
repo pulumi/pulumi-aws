@@ -110,8 +110,6 @@ type LookupVpnConnectionResult struct {
 	Filters           []GetVpnConnectionFilter `pulumi:"filters"`
 	// Current state of the gateway association.
 	GatewayAssociationState string `pulumi:"gatewayAssociationState"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
 	PreSharedKeyArn string `pulumi:"preSharedKeyArn"`
 	Region          string `pulumi:"region"`
@@ -204,11 +202,6 @@ func (o LookupVpnConnectionResultOutput) Filters() GetVpnConnectionFilterArrayOu
 // Current state of the gateway association.
 func (o LookupVpnConnectionResultOutput) GatewayAssociationState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.GatewayAssociationState }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupVpnConnectionResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupVpnConnectionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.

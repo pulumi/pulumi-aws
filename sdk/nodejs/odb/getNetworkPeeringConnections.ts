@@ -46,10 +46,6 @@ export interface GetNetworkPeeringConnectionsArgs {
  */
 export interface GetNetworkPeeringConnectionsResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The list of ODB peering connections. A summary of an ODB peering connection.
      */
     readonly odbPeeringConnections: outputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnection[];

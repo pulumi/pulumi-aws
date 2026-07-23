@@ -49,10 +49,6 @@ export interface GetCloudAutonomousVmClustersResult {
      * List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
      */
     readonly cloudAutonomousVmClusters: outputs.odb.GetCloudAutonomousVmClustersCloudAutonomousVmCluster[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

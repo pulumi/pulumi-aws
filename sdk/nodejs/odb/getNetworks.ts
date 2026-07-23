@@ -44,10 +44,6 @@ export interface GetNetworksArgs {
  */
 export interface GetNetworksResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of odb networks returns basic information about odb networks.
      */
     readonly odbNetworks: outputs.odb.GetNetworksOdbNetwork[];

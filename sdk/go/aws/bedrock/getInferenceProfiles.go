@@ -84,8 +84,6 @@ type GetInferenceProfilesArgs struct {
 
 // A collection of values returned by getInferenceProfiles.
 type GetInferenceProfilesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of inference profile summary objects. See `inferenceProfileSummaries`.
 	InferenceProfileSummaries []GetInferenceProfilesInferenceProfileSummary `pulumi:"inferenceProfileSummaries"`
 	Region                    string                                        `pulumi:"region"`
@@ -127,11 +125,6 @@ func (o GetInferenceProfilesResultOutput) ToGetInferenceProfilesResultOutput() G
 
 func (o GetInferenceProfilesResultOutput) ToGetInferenceProfilesResultOutputWithContext(ctx context.Context) GetInferenceProfilesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetInferenceProfilesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetInferenceProfilesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of inference profile summary objects. See `inferenceProfileSummaries`.

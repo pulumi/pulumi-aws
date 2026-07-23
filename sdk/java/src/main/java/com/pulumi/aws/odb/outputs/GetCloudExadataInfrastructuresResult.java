@@ -17,11 +17,6 @@ public final class GetCloudExadataInfrastructuresResult {
      * 
      */
     private List<GetCloudExadataInfrastructuresCloudExadataInfrastructure> cloudExadataInfrastructures;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetCloudExadataInfrastructuresResult() {}
@@ -31,13 +26,6 @@ public final class GetCloudExadataInfrastructuresResult {
      */
     public List<GetCloudExadataInfrastructuresCloudExadataInfrastructure> cloudExadataInfrastructures() {
         return this.cloudExadataInfrastructures;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -53,13 +41,11 @@ public final class GetCloudExadataInfrastructuresResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetCloudExadataInfrastructuresCloudExadataInfrastructure> cloudExadataInfrastructures;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetCloudExadataInfrastructuresResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudExadataInfrastructures = defaults.cloudExadataInfrastructures;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -75,14 +61,6 @@ public final class GetCloudExadataInfrastructuresResult {
             return cloudExadataInfrastructures(List.of(cloudExadataInfrastructures));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetCloudExadataInfrastructuresResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetCloudExadataInfrastructuresResult", "region");
@@ -93,7 +71,6 @@ public final class GetCloudExadataInfrastructuresResult {
         public GetCloudExadataInfrastructuresResult build() {
             final var _resultValue = new GetCloudExadataInfrastructuresResult();
             _resultValue.cloudExadataInfrastructures = cloudExadataInfrastructures;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

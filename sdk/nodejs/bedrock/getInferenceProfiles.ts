@@ -60,10 +60,6 @@ export interface GetInferenceProfilesArgs {
  */
 export interface GetInferenceProfilesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of inference profile summary objects. See `inferenceProfileSummaries`.
      */
     readonly inferenceProfileSummaries: outputs.bedrock.GetInferenceProfilesInferenceProfileSummary[];

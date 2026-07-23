@@ -29,7 +29,7 @@ namespace Pulumi.Aws.WafV2
     ///         Name = "example-rule",
     ///         Scope = "REGIONAL",
     ///         Capacity = 2,
-    ///         Rules = new[]
+    ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.WafV2
     ///         Description = "An rule group containing all statements",
     ///         Scope = "REGIONAL",
     ///         Capacity = 500,
-    ///         Rules = new[]
+    ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.WafV2
     ///                 {
     ///                     NotStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementArgs
     ///                     {
-    ///                         Statements = new[]
+    ///                         Statements = 
     ///                         {
     ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                             {
     ///                                 AndStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementAndStatementArgs
     ///                                 {
-    ///                                     Statements = new[]
+    ///                                     Statements = 
     ///                                     {
     ///                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                                         {
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.WafV2
     ///                 {
     ///                     OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
     ///                     {
-    ///                         Statements = new[]
+    ///                         Statements = 
     ///                         {
     ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                             {
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.WafV2
     ///                 {
     ///                     OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
     ///                     {
-    ///                         Statements = new[]
+    ///                         Statements = 
     ///                         {
     ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
     ///                             {

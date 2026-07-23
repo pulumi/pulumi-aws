@@ -112,22 +112,15 @@ namespace Pulumi.Aws.Amp
         /// The configuration file.
         /// </summary>
         public readonly string Configuration;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetDefaultScraperConfigurationResult(
             string configuration,
 
-            string id,
-
             string region)
         {
             Configuration = configuration;
-            Id = id;
             Region = region;
         }
     }

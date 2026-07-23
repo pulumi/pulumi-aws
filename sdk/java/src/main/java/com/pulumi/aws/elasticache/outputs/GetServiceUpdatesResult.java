@@ -13,11 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetServiceUpdatesResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return Set of Service Updates. Each element has the following attributes:
@@ -31,13 +26,6 @@ public final class GetServiceUpdatesResult {
     private @Nullable List<String> statuses;
 
     private GetServiceUpdatesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String region() {
         return this.region;
     }
@@ -65,27 +53,17 @@ public final class GetServiceUpdatesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String region;
         private List<GetServiceUpdatesServiceUpdate> serviceUpdates;
         private @Nullable List<String> statuses;
         public Builder() {}
         public Builder(GetServiceUpdatesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.serviceUpdates = defaults.serviceUpdates;
     	      this.statuses = defaults.statuses;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServiceUpdatesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -116,7 +94,6 @@ public final class GetServiceUpdatesResult {
         }
         public GetServiceUpdatesResult build() {
             final var _resultValue = new GetServiceUpdatesResult();
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.serviceUpdates = serviceUpdates;
             _resultValue.statuses = statuses;

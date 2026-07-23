@@ -71,8 +71,6 @@ type LookupPrimaryContactResult struct {
 	DistrictOrCounty string `pulumi:"districtOrCounty"`
 	// The full name of the primary contact address.
 	FullName string `pulumi:"fullName"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The phone number of the primary contact information.
 	PhoneNumber string `pulumi:"phoneNumber"`
 	// The postal code of the primary contact address.
@@ -159,11 +157,6 @@ func (o LookupPrimaryContactResultOutput) DistrictOrCounty() pulumi.StringOutput
 // The full name of the primary contact address.
 func (o LookupPrimaryContactResultOutput) FullName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.FullName }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupPrimaryContactResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPrimaryContactResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The phone number of the primary contact information.

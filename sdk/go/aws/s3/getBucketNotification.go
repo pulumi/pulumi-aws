@@ -177,8 +177,6 @@ type LookupBucketNotificationResult struct {
 	Bucket string `pulumi:"bucket"`
 	// Whether Amazon EventBridge notifications are enabled on this bucket.
 	Eventbridge bool `pulumi:"eventbridge"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of Lambda function notification configurations. See `lambdaFunction` below.
 	LambdaFunctions []GetBucketNotificationLambdaFunction `pulumi:"lambdaFunctions"`
 	// List of SQS queue notification configurations. See `queue` below.
@@ -231,11 +229,6 @@ func (o LookupBucketNotificationResultOutput) Bucket() pulumi.StringOutput {
 // Whether Amazon EventBridge notifications are enabled on this bucket.
 func (o LookupBucketNotificationResultOutput) Eventbridge() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBucketNotificationResult) bool { return v.Eventbridge }).(pulumi.BoolOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupBucketNotificationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupBucketNotificationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of Lambda function notification configurations. See `lambdaFunction` below.

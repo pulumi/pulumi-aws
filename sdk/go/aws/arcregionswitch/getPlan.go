@@ -67,8 +67,6 @@ type LookupPlanResult struct {
 	Description string `pulumi:"description"`
 	// Execution role ARN for the plan.
 	ExecutionRole string `pulumi:"executionRole"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Name of the plan.
 	Name string `pulumi:"name"`
 	// Owner of the plan.
@@ -141,11 +139,6 @@ func (o LookupPlanResultOutput) Description() pulumi.StringOutput {
 // Execution role ARN for the plan.
 func (o LookupPlanResultOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.ExecutionRole }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Name of the plan.

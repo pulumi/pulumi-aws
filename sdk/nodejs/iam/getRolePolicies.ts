@@ -40,10 +40,6 @@ export interface GetRolePoliciesArgs {
  */
 export interface GetRolePoliciesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Set of inline policy names associated with the role.
      */
     readonly policyNames: string[];

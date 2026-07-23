@@ -33,11 +33,6 @@ public final class GetManagedRuleGroupResult {
      */
     private List<GetManagedRuleGroupConsumedLabel> consumedLabels;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
      * 
      */
@@ -83,13 +78,6 @@ public final class GetManagedRuleGroupResult {
      */
     public List<GetManagedRuleGroupConsumedLabel> consumedLabels() {
         return this.consumedLabels;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Label namespace prefix for this rule group. All labels added by rules in this rule group have this prefix.
@@ -144,7 +132,6 @@ public final class GetManagedRuleGroupResult {
         private List<GetManagedRuleGroupAvailableLabel> availableLabels;
         private Integer capacity;
         private List<GetManagedRuleGroupConsumedLabel> consumedLabels;
-        private String id;
         private String labelNamespace;
         private String name;
         private String region;
@@ -159,7 +146,6 @@ public final class GetManagedRuleGroupResult {
     	      this.availableLabels = defaults.availableLabels;
     	      this.capacity = defaults.capacity;
     	      this.consumedLabels = defaults.consumedLabels;
-    	      this.id = defaults.id;
     	      this.labelNamespace = defaults.labelNamespace;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
@@ -199,14 +185,6 @@ public final class GetManagedRuleGroupResult {
         }
         public Builder consumedLabels(GetManagedRuleGroupConsumedLabel... consumedLabels) {
             return consumedLabels(List.of(consumedLabels));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetManagedRuleGroupResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder labelNamespace(String labelNamespace) {
@@ -278,7 +256,6 @@ public final class GetManagedRuleGroupResult {
             _resultValue.availableLabels = availableLabels;
             _resultValue.capacity = capacity;
             _resultValue.consumedLabels = consumedLabels;
-            _resultValue.id = id;
             _resultValue.labelNamespace = labelNamespace;
             _resultValue.name = name;
             _resultValue.region = region;

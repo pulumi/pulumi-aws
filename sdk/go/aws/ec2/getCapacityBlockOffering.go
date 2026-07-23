@@ -76,10 +76,8 @@ type GetCapacityBlockOfferingResult struct {
 	CapacityBlockOfferingId string `pulumi:"capacityBlockOfferingId"`
 	CapacityDurationHours   int    `pulumi:"capacityDurationHours"`
 	// The currency of the payment for the Capacity Block.
-	CurrencyCode string `pulumi:"currencyCode"`
-	EndDateRange string `pulumi:"endDateRange"`
-	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
+	CurrencyCode   string `pulumi:"currencyCode"`
+	EndDateRange   string `pulumi:"endDateRange"`
 	InstanceCount  int    `pulumi:"instanceCount"`
 	InstanceType   string `pulumi:"instanceType"`
 	Region         string `pulumi:"region"`
@@ -155,11 +153,6 @@ func (o GetCapacityBlockOfferingResultOutput) CurrencyCode() pulumi.StringOutput
 
 func (o GetCapacityBlockOfferingResultOutput) EndDateRange() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.EndDateRange }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetCapacityBlockOfferingResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCapacityBlockOfferingResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetCapacityBlockOfferingResultOutput) InstanceCount() pulumi.IntOutput {

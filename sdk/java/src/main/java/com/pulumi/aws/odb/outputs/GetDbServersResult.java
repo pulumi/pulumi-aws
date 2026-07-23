@@ -18,11 +18,6 @@ public final class GetDbServersResult {
      * 
      */
     private List<GetDbServersDbServer> dbServers;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetDbServersResult() {}
@@ -35,13 +30,6 @@ public final class GetDbServersResult {
      */
     public List<GetDbServersDbServer> dbServers() {
         return this.dbServers;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -58,14 +46,12 @@ public final class GetDbServersResult {
     public static final class Builder {
         private String cloudExadataInfrastructureId;
         private List<GetDbServersDbServer> dbServers;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetDbServersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudExadataInfrastructureId = defaults.cloudExadataInfrastructureId;
     	      this.dbServers = defaults.dbServers;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -89,14 +75,6 @@ public final class GetDbServersResult {
             return dbServers(List.of(dbServers));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDbServersResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetDbServersResult", "region");
@@ -108,7 +86,6 @@ public final class GetDbServersResult {
             final var _resultValue = new GetDbServersResult();
             _resultValue.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             _resultValue.dbServers = dbServers;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

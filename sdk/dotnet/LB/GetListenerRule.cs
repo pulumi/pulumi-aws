@@ -327,10 +327,6 @@ namespace Pulumi.Aws.LB
         /// Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetListenerRuleConditionResult> Conditions;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string ListenerArn;
         public readonly int Priority;
         public readonly string Region;
@@ -351,8 +347,6 @@ namespace Pulumi.Aws.LB
 
             ImmutableArray<Outputs.GetListenerRuleConditionResult> conditions,
 
-            string id,
-
             string listenerArn,
 
             int priority,
@@ -366,7 +360,6 @@ namespace Pulumi.Aws.LB
             Actions = actions;
             Arn = arn;
             Conditions = conditions;
-            Id = id;
             ListenerArn = listenerArn;
             Priority = priority;
             Region = region;

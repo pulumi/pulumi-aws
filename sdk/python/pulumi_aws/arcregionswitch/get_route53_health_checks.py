@@ -27,13 +27,10 @@ class GetRoute53HealthChecksResult:
     """
     A collection of values returned by getRoute53HealthChecks.
     """
-    def __init__(__self__, health_checks=None, id=None, plan_arn=None, region=None):
+    def __init__(__self__, health_checks=None, plan_arn=None, region=None):
         if health_checks and not isinstance(health_checks, list):
             raise TypeError("Expected argument 'health_checks' to be a list")
         pulumi.set(__self__, "health_checks", health_checks)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if plan_arn and not isinstance(plan_arn, str):
             raise TypeError("Expected argument 'plan_arn' to be a str")
         pulumi.set(__self__, "plan_arn", plan_arn)
@@ -48,14 +45,6 @@ class GetRoute53HealthChecksResult:
         List of Route53 health checks associated with the plan. Each health check contains:
         """
         return pulumi.get(self, "health_checks")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="planArn")
@@ -79,7 +68,6 @@ class AwaitableGetRoute53HealthChecksResult(GetRoute53HealthChecksResult):
             yield self
         return GetRoute53HealthChecksResult(
             health_checks=self.health_checks,
-            id=self.id,
             plan_arn=self.plan_arn,
             region=self.region)
 
@@ -113,7 +101,6 @@ def get_route53_health_checks(plan_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRoute53HealthChecksResult(
         health_checks=pulumi.get(__ret__, 'health_checks'),
-        id=pulumi.get(__ret__, 'id'),
         plan_arn=pulumi.get(__ret__, 'plan_arn'),
         region=pulumi.get(__ret__, 'region'))
 def get_route53_health_checks_output(plan_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -144,6 +131,5 @@ def get_route53_health_checks_output(plan_arn: pulumi.Input[Optional[_builtins.s
     __ret__ = pulumi.runtime.invoke_output('aws:arcregionswitch/getRoute53HealthChecks:getRoute53HealthChecks', __args__, opts=opts, typ=GetRoute53HealthChecksResult)
     return __ret__.apply(lambda __response__: GetRoute53HealthChecksResult(
         health_checks=pulumi.get(__response__, 'health_checks'),
-        id=pulumi.get(__response__, 'id'),
         plan_arn=pulumi.get(__response__, 'plan_arn'),
         region=pulumi.get(__response__, 'region')))

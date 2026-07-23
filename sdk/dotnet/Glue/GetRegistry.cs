@@ -143,10 +143,6 @@ namespace Pulumi.Aws.Glue
         /// A description of the registry.
         /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Name;
         public readonly string Region;
 
@@ -156,15 +152,12 @@ namespace Pulumi.Aws.Glue
 
             string description,
 
-            string id,
-
             string name,
 
             string region)
         {
             Arn = arn;
             Description = description;
-            Id = id;
             Name = name;
             Region = region;
         }

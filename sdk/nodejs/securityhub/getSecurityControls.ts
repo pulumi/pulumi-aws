@@ -65,10 +65,6 @@ export interface GetSecurityControlsArgs {
  * A collection of values returned by getSecurityControls.
  */
 export interface GetSecurityControlsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * List of controls. See below for details.

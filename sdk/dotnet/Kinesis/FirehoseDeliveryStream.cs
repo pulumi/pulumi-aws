@@ -615,11 +615,7 @@ namespace Pulumi.Aws.Kinesis
     ///     {
     ///         Name = "opensearch",
     ///         Role = firehose.Id,
-    ///         Policy = Output.Tuple(testCluster.Arn, testCluster.Arn).Apply(values =&gt;
-    ///         {
-    ///             var testClusterArn = values.Item1;
-    ///             var testClusterArn1 = values.Item2;
-    ///             return @$"{{
+    ///         Policy = testCluster.Arn.Apply(arn =&gt; @$"{{
     ///   \""Version\"": \""2012-10-17\"",
     ///   \""Statement\"": [
     ///     {{
@@ -628,8 +624,8 @@ namespace Pulumi.Aws.Kinesis
     ///         \""es:*\""
     ///       ],
     ///       \""Resource\"": [
-    ///         \""{testClusterArn}\"",
-    ///         \""{testClusterArn1}/*\""
+    ///         \""{arn}\"",
+    ///         \""{arn}/*\""
     ///       ]
     ///         }},
     ///         {{
@@ -650,8 +646,7 @@ namespace Pulumi.Aws.Kinesis
     ///         }}
     ///   ]
     /// }}
-    /// ";
-    ///         }),
+    /// "),
     ///     });
     /// 
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()

@@ -75,9 +75,7 @@ type LookupAccessPointResult struct {
 	DataSourceType string `pulumi:"dataSourceType"`
 	// VPC endpoint for the access point.
 	Endpoints map[string]string `pulumi:"endpoints"`
-	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Name      string            `pulumi:"name"`
 	// Indicates whether the access point allows access from the public Internet.
 	NetworkOrigin string `pulumi:"networkOrigin"`
 	// `PublicAccessBlock` configuration for the access point.
@@ -164,11 +162,6 @@ func (o LookupAccessPointResultOutput) DataSourceType() pulumi.StringOutput {
 // VPC endpoint for the access point.
 func (o LookupAccessPointResultOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) map[string]string { return v.Endpoints }).(pulumi.StringMapOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupAccessPointResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupAccessPointResultOutput) Name() pulumi.StringOutput {

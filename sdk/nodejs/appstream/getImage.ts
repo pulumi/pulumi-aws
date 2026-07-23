@@ -99,10 +99,6 @@ export interface GetImageResult {
      */
     readonly displayName: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      */
     readonly imageBuilderName: string;

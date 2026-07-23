@@ -69,10 +69,6 @@ export interface GetServiceUpdateActionsResult {
      * ID of Cache Cluster this update action applies to.
      */
     readonly cacheClusterId?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * ID of Replication Group this update action applies to.

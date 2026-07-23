@@ -27,7 +27,7 @@ class GetClusterVersionsResult:
     """
     A collection of values returned by getClusterVersions.
     """
-    def __init__(__self__, cluster_type=None, cluster_versions=None, cluster_versions_onlies=None, default_only=None, id=None, include_all=None, region=None, version_status=None):
+    def __init__(__self__, cluster_type=None, cluster_versions=None, cluster_versions_onlies=None, default_only=None, include_all=None, region=None, version_status=None):
         if cluster_type and not isinstance(cluster_type, str):
             raise TypeError("Expected argument 'cluster_type' to be a str")
         pulumi.set(__self__, "cluster_type", cluster_type)
@@ -40,9 +40,6 @@ class GetClusterVersionsResult:
         if default_only and not isinstance(default_only, bool):
             raise TypeError("Expected argument 'default_only' to be a bool")
         pulumi.set(__self__, "default_only", default_only)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if include_all and not isinstance(include_all, bool):
             raise TypeError("Expected argument 'include_all' to be a bool")
         pulumi.set(__self__, "include_all", include_all)
@@ -80,14 +77,6 @@ class GetClusterVersionsResult:
         return pulumi.get(self, "default_only")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="includeAll")
     def include_all(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "include_all")
@@ -116,7 +105,6 @@ class AwaitableGetClusterVersionsResult(GetClusterVersionsResult):
             cluster_versions=self.cluster_versions,
             cluster_versions_onlies=self.cluster_versions_onlies,
             default_only=self.default_only,
-            id=self.id,
             include_all=self.include_all,
             region=self.region,
             version_status=self.version_status)
@@ -188,7 +176,6 @@ def get_cluster_versions(cluster_type: Optional[_builtins.str] = None,
         cluster_versions=pulumi.get(__ret__, 'cluster_versions'),
         cluster_versions_onlies=pulumi.get(__ret__, 'cluster_versions_onlies'),
         default_only=pulumi.get(__ret__, 'default_only'),
-        id=pulumi.get(__ret__, 'id'),
         include_all=pulumi.get(__ret__, 'include_all'),
         region=pulumi.get(__ret__, 'region'),
         version_status=pulumi.get(__ret__, 'version_status'))
@@ -257,7 +244,6 @@ def get_cluster_versions_output(cluster_type: pulumi.Input[Optional[Optional[_bu
         cluster_versions=pulumi.get(__response__, 'cluster_versions'),
         cluster_versions_onlies=pulumi.get(__response__, 'cluster_versions_onlies'),
         default_only=pulumi.get(__response__, 'default_only'),
-        id=pulumi.get(__response__, 'id'),
         include_all=pulumi.get(__response__, 'include_all'),
         region=pulumi.get(__response__, 'region'),
         version_status=pulumi.get(__response__, 'version_status')))

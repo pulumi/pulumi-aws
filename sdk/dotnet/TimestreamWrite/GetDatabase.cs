@@ -138,10 +138,6 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The ARN of the KMS key used to encrypt the data stored in the database.
         /// </summary>
         public readonly string KmsKeyId;
@@ -162,8 +158,6 @@ namespace Pulumi.Aws.TimestreamWrite
 
             string createdTime,
 
-            string id,
-
             string kmsKeyId,
 
             string lastUpdatedTime,
@@ -176,7 +170,6 @@ namespace Pulumi.Aws.TimestreamWrite
         {
             Arn = arn;
             CreatedTime = createdTime;
-            Id = id;
             KmsKeyId = kmsKeyId;
             LastUpdatedTime = lastUpdatedTime;
             Name = name;

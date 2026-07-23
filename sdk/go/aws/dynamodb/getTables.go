@@ -57,8 +57,6 @@ type GetTablesArgs struct {
 
 // A collection of values returned by getTables.
 type GetTablesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// A list of all the DynamoDB table names found.
 	Names  []string `pulumi:"names"`
 	Region string   `pulumi:"region"`
@@ -96,11 +94,6 @@ func (o GetTablesResultOutput) ToGetTablesResultOutput() GetTablesResultOutput {
 
 func (o GetTablesResultOutput) ToGetTablesResultOutputWithContext(ctx context.Context) GetTablesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetTablesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // A list of all the DynamoDB table names found.

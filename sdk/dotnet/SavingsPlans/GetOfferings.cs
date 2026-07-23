@@ -400,10 +400,6 @@ namespace Pulumi.Aws.SavingsPlans
         public readonly ImmutableArray<string> Descriptions;
         public readonly ImmutableArray<int> Durations;
         public readonly ImmutableArray<Outputs.GetOfferingsFilterResult> Filters;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<string> OfferingIds;
         /// <summary>
         /// List of Savings Plans Offerings. See `Offerings` Attribute Reference.
@@ -426,8 +422,6 @@ namespace Pulumi.Aws.SavingsPlans
 
             ImmutableArray<Outputs.GetOfferingsFilterResult> filters,
 
-            string id,
-
             ImmutableArray<string> offeringIds,
 
             ImmutableArray<Outputs.GetOfferingsOfferingResult> offerings,
@@ -448,7 +442,6 @@ namespace Pulumi.Aws.SavingsPlans
             Descriptions = descriptions;
             Durations = durations;
             Filters = filters;
-            Id = id;
             OfferingIds = offeringIds;
             Offerings = offerings;
             Operations = operations;

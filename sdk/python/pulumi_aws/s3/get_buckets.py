@@ -27,16 +27,13 @@ class GetBucketsResult:
     """
     A collection of values returned by getBuckets.
     """
-    def __init__(__self__, bucket_region=None, buckets=None, id=None, max_buckets=None, prefix=None, region=None):
+    def __init__(__self__, bucket_region=None, buckets=None, max_buckets=None, prefix=None, region=None):
         if bucket_region and not isinstance(bucket_region, str):
             raise TypeError("Expected argument 'bucket_region' to be a str")
         pulumi.set(__self__, "bucket_region", bucket_region)
         if buckets and not isinstance(buckets, list):
             raise TypeError("Expected argument 'buckets' to be a list")
         pulumi.set(__self__, "buckets", buckets)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if max_buckets and not isinstance(max_buckets, int):
             raise TypeError("Expected argument 'max_buckets' to be a int")
         pulumi.set(__self__, "max_buckets", max_buckets)
@@ -64,14 +61,6 @@ class GetBucketsResult:
         return pulumi.get(self, "buckets")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="maxBuckets")
     def max_buckets(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "max_buckets")
@@ -95,7 +84,6 @@ class AwaitableGetBucketsResult(GetBucketsResult):
         return GetBucketsResult(
             bucket_region=self.bucket_region,
             buckets=self.buckets,
-            id=self.id,
             max_buckets=self.max_buckets,
             prefix=self.prefix,
             region=self.region)
@@ -148,7 +136,6 @@ def get_buckets(bucket_region: Optional[_builtins.str] = None,
     return AwaitableGetBucketsResult(
         bucket_region=pulumi.get(__ret__, 'bucket_region'),
         buckets=pulumi.get(__ret__, 'buckets'),
-        id=pulumi.get(__ret__, 'id'),
         max_buckets=pulumi.get(__ret__, 'max_buckets'),
         prefix=pulumi.get(__ret__, 'prefix'),
         region=pulumi.get(__ret__, 'region'))
@@ -198,7 +185,6 @@ def get_buckets_output(bucket_region: pulumi.Input[Optional[Optional[_builtins.s
     return __ret__.apply(lambda __response__: GetBucketsResult(
         bucket_region=pulumi.get(__response__, 'bucket_region'),
         buckets=pulumi.get(__response__, 'buckets'),
-        id=pulumi.get(__response__, 'id'),
         max_buckets=pulumi.get(__response__, 'max_buckets'),
         prefix=pulumi.get(__response__, 'prefix'),
         region=pulumi.get(__response__, 'region')))

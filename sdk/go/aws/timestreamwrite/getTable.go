@@ -69,8 +69,6 @@ type LookupTableResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Name of database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Last time table was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Object containing the following attributes to desribe magnetic store writes.
@@ -137,11 +135,6 @@ func (o LookupTableResultOutput) CreationTime() pulumi.StringOutput {
 // Name of database.
 func (o LookupTableResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupTableResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTableResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Last time table was updated.

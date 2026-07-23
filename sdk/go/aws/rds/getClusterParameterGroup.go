@@ -64,8 +64,6 @@ type LookupClusterParameterGroupResult struct {
 	Description string `pulumi:"description"`
 	// Family of the cluster parameter group.
 	Family string `pulumi:"family"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
 }
@@ -119,11 +117,6 @@ func (o LookupClusterParameterGroupResultOutput) Description() pulumi.StringOutp
 // Family of the cluster parameter group.
 func (o LookupClusterParameterGroupResultOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Family }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupClusterParameterGroupResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterParameterGroupResultOutput) Name() pulumi.StringOutput {

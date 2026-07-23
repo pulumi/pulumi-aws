@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRecordsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable String nameRegex;
     /**
      * @return The resource records sets.
@@ -28,13 +23,6 @@ public final class GetRecordsResult {
     private String zoneId;
 
     private GetRecordsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
@@ -58,27 +46,17 @@ public final class GetRecordsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private @Nullable String nameRegex;
         private List<GetRecordsResourceRecordSet> resourceRecordSets;
         private String zoneId;
         public Builder() {}
         public Builder(GetRecordsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.nameRegex = defaults.nameRegex;
     	      this.resourceRecordSets = defaults.resourceRecordSets;
     	      this.zoneId = defaults.zoneId;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRecordsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
 
@@ -106,7 +84,6 @@ public final class GetRecordsResult {
         }
         public GetRecordsResult build() {
             final var _resultValue = new GetRecordsResult();
-            _resultValue.id = id;
             _resultValue.nameRegex = nameRegex;
             _resultValue.resourceRecordSets = resourceRecordSets;
             _resultValue.zoneId = zoneId;

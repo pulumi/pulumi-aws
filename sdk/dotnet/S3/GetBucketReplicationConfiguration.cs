@@ -136,10 +136,6 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketReplicationConfigurationResult
     {
         public readonly string Bucket;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// The ARN of the IAM role that Amazon S3 assumes when replicating objects.
@@ -154,8 +150,6 @@ namespace Pulumi.Aws.S3
         private GetBucketReplicationConfigurationResult(
             string bucket,
 
-            string id,
-
             string region,
 
             string role,
@@ -163,7 +157,6 @@ namespace Pulumi.Aws.S3
             ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleResult> rules)
         {
             Bucket = bucket;
-            Id = id;
             Region = region;
             Role = role;
             Rules = rules;

@@ -60,9 +60,7 @@ type GetCloudAutonomousVmClustersArgs struct {
 type GetCloudAutonomousVmClustersResult struct {
 	// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
 	CloudAutonomousVmClusters []GetCloudAutonomousVmClustersCloudAutonomousVmCluster `pulumi:"cloudAutonomousVmClusters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region                    string                                                 `pulumi:"region"`
 }
 
 func GetCloudAutonomousVmClustersOutput(ctx *pulumi.Context, args GetCloudAutonomousVmClustersOutputArgs, opts ...pulumi.InvokeOption) GetCloudAutonomousVmClustersResultOutput {
@@ -104,11 +102,6 @@ func (o GetCloudAutonomousVmClustersResultOutput) CloudAutonomousVmClusters() Ge
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersResult) []GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
 		return v.CloudAutonomousVmClusters
 	}).(GetCloudAutonomousVmClustersCloudAutonomousVmClusterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetCloudAutonomousVmClustersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudAutonomousVmClustersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetCloudAutonomousVmClustersResultOutput) Region() pulumi.StringOutput {

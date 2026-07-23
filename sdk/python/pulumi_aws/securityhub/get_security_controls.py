@@ -27,10 +27,7 @@ class GetSecurityControlsResult:
     """
     A collection of values returned by getSecurityControls.
     """
-    def __init__(__self__, id=None, region=None, security_control_definitions=None, standards_arn=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, region=None, security_control_definitions=None, standards_arn=None):
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -40,14 +37,6 @@ class GetSecurityControlsResult:
         if standards_arn and not isinstance(standards_arn, str):
             raise TypeError("Expected argument 'standards_arn' to be a str")
         pulumi.set(__self__, "standards_arn", standards_arn)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -74,7 +63,6 @@ class AwaitableGetSecurityControlsResult(GetSecurityControlsResult):
         if False:
             yield self
         return GetSecurityControlsResult(
-            id=self.id,
             region=self.region,
             security_control_definitions=self.security_control_definitions,
             standards_arn=self.standards_arn)
@@ -123,7 +111,6 @@ def get_security_controls(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:securityhub/getSecurityControls:getSecurityControls', __args__, opts=opts, typ=GetSecurityControlsResult).value
 
     return AwaitableGetSecurityControlsResult(
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         security_control_definitions=pulumi.get(__ret__, 'security_control_definitions'),
         standards_arn=pulumi.get(__ret__, 'standards_arn'))
@@ -169,7 +156,6 @@ def get_security_controls_output(region: pulumi.Input[Optional[Optional[_builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:securityhub/getSecurityControls:getSecurityControls', __args__, opts=opts, typ=GetSecurityControlsResult)
     return __ret__.apply(lambda __response__: GetSecurityControlsResult(
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         security_control_definitions=pulumi.get(__response__, 'security_control_definitions'),
         standards_arn=pulumi.get(__response__, 'standards_arn')))

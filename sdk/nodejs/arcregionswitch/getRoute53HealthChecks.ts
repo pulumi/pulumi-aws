@@ -55,10 +55,6 @@ export interface GetRoute53HealthChecksResult {
      * List of Route53 health checks associated with the plan. Each health check contains:
      */
     readonly healthChecks: outputs.arcregionswitch.GetRoute53HealthChecksHealthCheck[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly planArn: string;
     /**
      * Region for the health check.

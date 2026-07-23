@@ -56,10 +56,6 @@ export interface GetModelAgreementOffersArgs {
  * A collection of values returned by getModelAgreementOffers.
  */
 export interface GetModelAgreementOffersResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly modelId: string;
     readonly offerType?: string;
     /**

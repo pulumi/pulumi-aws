@@ -19,11 +19,6 @@ public final class GetAgentAgentVersionsResult {
      * 
      */
     private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetAgentAgentVersionsResult() {}
@@ -36,13 +31,6 @@ public final class GetAgentAgentVersionsResult {
      */
     public List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries() {
         return this.agentVersionSummaries == null ? List.of() : this.agentVersionSummaries;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -59,14 +47,12 @@ public final class GetAgentAgentVersionsResult {
     public static final class Builder {
         private String agentId;
         private @Nullable List<GetAgentAgentVersionsAgentVersionSummary> agentVersionSummaries;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetAgentAgentVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agentId = defaults.agentId;
     	      this.agentVersionSummaries = defaults.agentVersionSummaries;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -88,14 +74,6 @@ public final class GetAgentAgentVersionsResult {
             return agentVersionSummaries(List.of(agentVersionSummaries));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetAgentAgentVersionsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetAgentAgentVersionsResult", "region");
@@ -107,7 +85,6 @@ public final class GetAgentAgentVersionsResult {
             final var _resultValue = new GetAgentAgentVersionsResult();
             _resultValue.agentId = agentId;
             _resultValue.agentVersionSummaries = agentVersionSummaries;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

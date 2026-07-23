@@ -91,10 +91,6 @@ export interface GetAccessPointsResult {
      * Type of the data source that the access point is attached to.
      */
     readonly dataSourceType?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

@@ -38,8 +38,6 @@ type GetImagesArgs struct {
 
 // A collection of values returned by getImages.
 type GetImagesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id       string             `pulumi:"id"`
 	ImageIds []GetImagesImageId `pulumi:"imageIds"`
 	// List of images returned. Each image contains:
 	Images []GetImagesImage `pulumi:"images"`
@@ -88,11 +86,6 @@ func (o GetImagesResultOutput) ToGetImagesResultOutput() GetImagesResultOutput {
 
 func (o GetImagesResultOutput) ToGetImagesResultOutputWithContext(ctx context.Context) GetImagesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetImagesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImagesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetImagesResultOutput) ImageIds() GetImagesImageIdArrayOutput {

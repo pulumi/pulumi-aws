@@ -139,10 +139,6 @@ namespace Pulumi.Aws.Vpc
         /// Associations for the VPC Endpoint. Association blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetEndpointAssociationsAssociationResult> Associations;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         public readonly string VpcEndpointId;
 
@@ -150,14 +146,11 @@ namespace Pulumi.Aws.Vpc
         private GetEndpointAssociationsResult(
             ImmutableArray<Outputs.GetEndpointAssociationsAssociationResult> associations,
 
-            string id,
-
             string region,
 
             string vpcEndpointId)
         {
             Associations = associations;
-            Id = id;
             Region = region;
             VpcEndpointId = vpcEndpointId;
         }

@@ -285,10 +285,6 @@ namespace Pulumi.Aws.SecretsManager
         /// Use `SecretArn` instead.
         /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly bool? IncludeDeprecated;
         /// <summary>
         /// (**Deprecated**) Name of the secret.
@@ -314,8 +310,6 @@ namespace Pulumi.Aws.SecretsManager
         private GetSecretVersionsResult(
             string arn,
 
-            string id,
-
             bool? includeDeprecated,
 
             string name,
@@ -331,7 +325,6 @@ namespace Pulumi.Aws.SecretsManager
             ImmutableArray<Outputs.GetSecretVersionsVersionResult> versions)
         {
             Arn = arn;
-            Id = id;
             IncludeDeprecated = includeDeprecated;
             Name = name;
             Region = region;

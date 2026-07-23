@@ -13,11 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEnabledStandardsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     private @Nullable List<String> standardsSubscriptionArns;
     /**
@@ -27,13 +22,6 @@ public final class GetEnabledStandardsResult {
     private List<GetEnabledStandardsStandardsSubscription> standardsSubscriptions;
 
     private GetEnabledStandardsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String region() {
         return this.region;
     }
@@ -57,27 +45,17 @@ public final class GetEnabledStandardsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String region;
         private @Nullable List<String> standardsSubscriptionArns;
         private List<GetEnabledStandardsStandardsSubscription> standardsSubscriptions;
         public Builder() {}
         public Builder(GetEnabledStandardsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.standardsSubscriptionArns = defaults.standardsSubscriptionArns;
     	      this.standardsSubscriptions = defaults.standardsSubscriptions;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetEnabledStandardsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -108,7 +86,6 @@ public final class GetEnabledStandardsResult {
         }
         public GetEnabledStandardsResult build() {
             final var _resultValue = new GetEnabledStandardsResult();
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.standardsSubscriptionArns = standardsSubscriptionArns;
             _resultValue.standardsSubscriptions = standardsSubscriptions;

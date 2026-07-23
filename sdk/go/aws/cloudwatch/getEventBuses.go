@@ -62,10 +62,8 @@ type GetEventBusesArgs struct {
 type GetEventBusesResult struct {
 	// This list of event buses.
 	EventBuses []GetEventBusesEventBus `pulumi:"eventBuses"`
-	// The provider-assigned unique ID for this managed resource.
-	Id         string  `pulumi:"id"`
-	NamePrefix *string `pulumi:"namePrefix"`
-	Region     string  `pulumi:"region"`
+	NamePrefix *string                 `pulumi:"namePrefix"`
+	Region     string                  `pulumi:"region"`
 }
 
 func GetEventBusesOutput(ctx *pulumi.Context, args GetEventBusesOutputArgs, opts ...pulumi.InvokeOption) GetEventBusesResultOutput {
@@ -107,11 +105,6 @@ func (o GetEventBusesResultOutput) ToGetEventBusesResultOutputWithContext(ctx co
 // This list of event buses.
 func (o GetEventBusesResultOutput) EventBuses() GetEventBusesEventBusArrayOutput {
 	return o.ApplyT(func(v GetEventBusesResult) []GetEventBusesEventBus { return v.EventBuses }).(GetEventBusesEventBusArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetEventBusesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEventBusesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetEventBusesResultOutput) NamePrefix() pulumi.StringPtrOutput {

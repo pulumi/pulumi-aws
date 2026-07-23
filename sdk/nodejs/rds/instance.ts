@@ -156,9 +156,9 @@ import * as utilities from "../utilities";
  *     engine: "db2-se",
  * });
  * // Lookup the available instance classes for the engine in the region being operated in
- * const example = Promise.all([_default, _default]).then(([_default, _default1]) => aws.rds.getOrderableDbInstance({
+ * const example = _default.then(_default => aws.rds.getOrderableDbInstance({
  *     engine: _default.engine,
- *     engineVersion: _default1.version,
+ *     engineVersion: _default.version,
  *     licenseModel: "bring-your-own-license",
  *     storageType: "gp3",
  *     preferredInstanceClasses: [

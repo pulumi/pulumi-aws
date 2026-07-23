@@ -27,10 +27,7 @@ class GetServiceUpdatesResult:
     """
     A collection of values returned by getServiceUpdates.
     """
-    def __init__(__self__, id=None, region=None, service_updates=None, statuses=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, region=None, service_updates=None, statuses=None):
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -40,14 +37,6 @@ class GetServiceUpdatesResult:
         if statuses and not isinstance(statuses, list):
             raise TypeError("Expected argument 'statuses' to be a list")
         pulumi.set(__self__, "statuses", statuses)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -77,7 +66,6 @@ class AwaitableGetServiceUpdatesResult(GetServiceUpdatesResult):
         if False:
             yield self
         return GetServiceUpdatesResult(
-            id=self.id,
             region=self.region,
             service_updates=self.service_updates,
             statuses=self.statuses)
@@ -111,7 +99,6 @@ def get_service_updates(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getServiceUpdates:getServiceUpdates', __args__, opts=opts, typ=GetServiceUpdatesResult).value
 
     return AwaitableGetServiceUpdatesResult(
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         service_updates=pulumi.get(__ret__, 'service_updates'),
         statuses=pulumi.get(__ret__, 'statuses'))
@@ -142,7 +129,6 @@ def get_service_updates_output(region: pulumi.Input[Optional[Optional[_builtins.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getServiceUpdates:getServiceUpdates', __args__, opts=opts, typ=GetServiceUpdatesResult)
     return __ret__.apply(lambda __response__: GetServiceUpdatesResult(
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         service_updates=pulumi.get(__response__, 'service_updates'),
         statuses=pulumi.get(__response__, 'statuses')))

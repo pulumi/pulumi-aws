@@ -27,16 +27,13 @@ class GetInferenceProfileResult:
     """
     A collection of values returned by getInferenceProfile.
     """
-    def __init__(__self__, created_at=None, description=None, id=None, inference_profile_arn=None, inference_profile_id=None, inference_profile_name=None, models=None, region=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, inference_profile_arn=None, inference_profile_id=None, inference_profile_name=None, models=None, region=None, status=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if inference_profile_arn and not isinstance(inference_profile_arn, str):
             raise TypeError("Expected argument 'inference_profile_arn' to be a str")
         pulumi.set(__self__, "inference_profile_arn", inference_profile_arn)
@@ -77,14 +74,6 @@ class GetInferenceProfileResult:
         The description of the inference profile.
         """
         return pulumi.get(self, "description")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileArn")
@@ -153,7 +142,6 @@ class AwaitableGetInferenceProfileResult(GetInferenceProfileResult):
         return GetInferenceProfileResult(
             created_at=self.created_at,
             description=self.description,
-            id=self.id,
             inference_profile_arn=self.inference_profile_arn,
             inference_profile_id=self.inference_profile_id,
             inference_profile_name=self.inference_profile_name,
@@ -195,7 +183,6 @@ def get_inference_profile(inference_profile_id: Optional[_builtins.str] = None,
     return AwaitableGetInferenceProfileResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         inference_profile_arn=pulumi.get(__ret__, 'inference_profile_arn'),
         inference_profile_id=pulumi.get(__ret__, 'inference_profile_id'),
         inference_profile_name=pulumi.get(__ret__, 'inference_profile_name'),
@@ -234,7 +221,6 @@ def get_inference_profile_output(inference_profile_id: pulumi.Input[Optional[_bu
     return __ret__.apply(lambda __response__: GetInferenceProfileResult(
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         inference_profile_arn=pulumi.get(__response__, 'inference_profile_arn'),
         inference_profile_id=pulumi.get(__response__, 'inference_profile_id'),
         inference_profile_name=pulumi.get(__response__, 'inference_profile_name'),

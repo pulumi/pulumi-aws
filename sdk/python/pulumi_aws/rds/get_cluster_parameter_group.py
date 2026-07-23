@@ -26,7 +26,7 @@ class GetClusterParameterGroupResult:
     """
     A collection of values returned by getClusterParameterGroup.
     """
-    def __init__(__self__, arn=None, description=None, family=None, id=None, name=None, region=None):
+    def __init__(__self__, arn=None, description=None, family=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,6 @@ class GetClusterParameterGroupResult:
         if family and not isinstance(family, str):
             raise TypeError("Expected argument 'family' to be a str")
         pulumi.set(__self__, "family", family)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -72,14 +69,6 @@ class GetClusterParameterGroupResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
 
@@ -98,7 +87,6 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
             arn=self.arn,
             description=self.description,
             family=self.family,
-            id=self.id,
             name=self.name,
             region=self.region)
 
@@ -132,7 +120,6 @@ def get_cluster_parameter_group(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         family=pulumi.get(__ret__, 'family'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
 def get_cluster_parameter_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -163,6 +150,5 @@ def get_cluster_parameter_group_output(name: pulumi.Input[Optional[_builtins.str
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         family=pulumi.get(__response__, 'family'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region')))

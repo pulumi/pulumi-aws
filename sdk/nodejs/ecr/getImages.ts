@@ -55,10 +55,6 @@ export interface GetImagesArgs {
  */
 export interface GetImagesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of image objects containing image digest and tags. Each object has the following attributes:
      */
     readonly imageIds: outputs.ecr.GetImagesImageId[];

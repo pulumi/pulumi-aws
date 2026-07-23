@@ -26,24 +26,13 @@ class GetRolePoliciesResult:
     """
     A collection of values returned by getRolePolicies.
     """
-    def __init__(__self__, id=None, policy_names=None, role_name=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, policy_names=None, role_name=None):
         if policy_names and not isinstance(policy_names, list):
             raise TypeError("Expected argument 'policy_names' to be a list")
         pulumi.set(__self__, "policy_names", policy_names)
         if role_name and not isinstance(role_name, str):
             raise TypeError("Expected argument 'role_name' to be a str")
         pulumi.set(__self__, "role_name", role_name)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="policyNames")
@@ -65,7 +54,6 @@ class AwaitableGetRolePoliciesResult(GetRolePoliciesResult):
         if False:
             yield self
         return GetRolePoliciesResult(
-            id=self.id,
             policy_names=self.policy_names,
             role_name=self.role_name)
 
@@ -93,7 +81,6 @@ def get_role_policies(role_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getRolePolicies:getRolePolicies', __args__, opts=opts, typ=GetRolePoliciesResult).value
 
     return AwaitableGetRolePoliciesResult(
-        id=pulumi.get(__ret__, 'id'),
         policy_names=pulumi.get(__ret__, 'policy_names'),
         role_name=pulumi.get(__ret__, 'role_name'))
 def get_role_policies_output(role_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -118,6 +105,5 @@ def get_role_policies_output(role_name: pulumi.Input[Optional[_builtins.str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getRolePolicies:getRolePolicies', __args__, opts=opts, typ=GetRolePoliciesResult)
     return __ret__.apply(lambda __response__: GetRolePoliciesResult(
-        id=pulumi.get(__response__, 'id'),
         policy_names=pulumi.get(__response__, 'policy_names'),
         role_name=pulumi.get(__response__, 'role_name')))

@@ -58,10 +58,6 @@ export interface GetSavingsPlanResult {
      */
     readonly end: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The ID of the offering.
      *
      * @deprecated offering_id is deprecated. Use savingsPlanOfferingId instead.

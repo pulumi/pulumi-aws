@@ -62,11 +62,6 @@ public final class GetCatalogResult {
      * 
      */
     private List<GetCatalogFederatedCatalog> federatedCatalogs;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String name;
     /**
      * @return Map of key-value pairs that define parameters and properties of the catalog.
@@ -154,13 +149,6 @@ public final class GetCatalogResult {
     public List<GetCatalogFederatedCatalog> federatedCatalogs() {
         return this.federatedCatalogs;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String name() {
         return this.name;
     }
@@ -214,7 +202,6 @@ public final class GetCatalogResult {
         private String createTime;
         private String description;
         private List<GetCatalogFederatedCatalog> federatedCatalogs;
-        private String id;
         private String name;
         private Map<String,String> parameters;
         private String region;
@@ -233,7 +220,6 @@ public final class GetCatalogResult {
     	      this.createTime = defaults.createTime;
     	      this.description = defaults.description;
     	      this.federatedCatalogs = defaults.federatedCatalogs;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
     	      this.region = defaults.region;
@@ -327,14 +313,6 @@ public final class GetCatalogResult {
             return federatedCatalogs(List.of(federatedCatalogs));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetCatalogResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetCatalogResult", "name");
@@ -396,7 +374,6 @@ public final class GetCatalogResult {
             _resultValue.createTime = createTime;
             _resultValue.description = description;
             _resultValue.federatedCatalogs = federatedCatalogs;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.parameters = parameters;
             _resultValue.region = region;

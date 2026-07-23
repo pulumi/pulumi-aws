@@ -32,10 +32,6 @@ export interface GetUseCaseForModelAccessResult {
      * Form data as JSON from the Anthropic first time user request.
      */
     readonly formData: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
 /**
  * Provides details about an AWS Bedrock Use Case For Model Access.

@@ -38,10 +38,8 @@ type GetGiVersionsArgs struct {
 type GetGiVersionsResult struct {
 	// Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
 	GiVersions []GetGiVersionsGiVersion `pulumi:"giVersions"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Region string  `pulumi:"region"`
-	Shape  *string `pulumi:"shape"`
+	Region     string                   `pulumi:"region"`
+	Shape      *string                  `pulumi:"shape"`
 }
 
 func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts ...pulumi.InvokeOption) GetGiVersionsResultOutput {
@@ -83,11 +81,6 @@ func (o GetGiVersionsResultOutput) ToGetGiVersionsResultOutputWithContext(ctx co
 // Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
 func (o GetGiVersionsResultOutput) GiVersions() GetGiVersionsGiVersionArrayOutput {
 	return o.ApplyT(func(v GetGiVersionsResult) []GetGiVersionsGiVersion { return v.GiVersions }).(GetGiVersionsGiVersionArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetGiVersionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGiVersionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetGiVersionsResultOutput) Region() pulumi.StringOutput {

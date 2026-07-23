@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion, current]).then(([current, currentGetPartition, currentGetRegion, current1]) => aws.iam.getPolicyDocument({
+ * const exampleAgentTrust = Promise.all([current, currentGetPartition, currentGetRegion]).then(([current, currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         principals: [{
@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
  *     }],
  * }));
- * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion, currentGetRegion, current, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, currentGetRegion1, current, currentGetRegion2, current1]) => aws.iam.getPolicyDocument({
+ * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             actions: ["bedrock:InvokeModel"],
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  *                 "bedrock:InvokeAgent",
  *             ],
  *             resources: [
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion1.region}:${current.accountId}:agent/*`,
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion2.region}:${current1.accountId}:agent-alias/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion.region}:${current.accountId}:agent-alias/*`,
  *             ],
  *         },
  *     ],

@@ -16,11 +16,6 @@ public final class GetClustersResult {
      * 
      */
     private List<String> clusterArns;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetClustersResult() {}
@@ -30,13 +25,6 @@ public final class GetClustersResult {
      */
     public List<String> clusterArns() {
         return this.clusterArns;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -52,13 +40,11 @@ public final class GetClustersResult {
     @CustomType.Builder
     public static final class Builder {
         private List<String> clusterArns;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetClustersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterArns = defaults.clusterArns;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -74,14 +60,6 @@ public final class GetClustersResult {
             return clusterArns(List.of(clusterArns));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetClustersResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetClustersResult", "region");
@@ -92,7 +70,6 @@ public final class GetClustersResult {
         public GetClustersResult build() {
             final var _resultValue = new GetClustersResult();
             _resultValue.clusterArns = clusterArns;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

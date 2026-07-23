@@ -119,10 +119,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The prefix for the data feed files.
         /// </summary>
         public readonly string Prefix;
@@ -132,14 +128,11 @@ namespace Pulumi.Aws.Ec2
         private GetSpotDatafeedSubscriptionResult(
             string bucket,
 
-            string id,
-
             string prefix,
 
             string region)
         {
             Bucket = bucket;
-            Id = id;
             Prefix = prefix;
             Region = region;
         }

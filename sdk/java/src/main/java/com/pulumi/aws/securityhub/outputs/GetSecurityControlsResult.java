@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecurityControlsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return List of controls. See below for details.
@@ -28,13 +23,6 @@ public final class GetSecurityControlsResult {
     private @Nullable String standardsArn;
 
     private GetSecurityControlsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String region() {
         return this.region;
     }
@@ -58,27 +46,17 @@ public final class GetSecurityControlsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String region;
         private List<GetSecurityControlsSecurityControlDefinition> securityControlDefinitions;
         private @Nullable String standardsArn;
         public Builder() {}
         public Builder(GetSecurityControlsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.securityControlDefinitions = defaults.securityControlDefinitions;
     	      this.standardsArn = defaults.standardsArn;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSecurityControlsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
@@ -106,7 +84,6 @@ public final class GetSecurityControlsResult {
         }
         public GetSecurityControlsResult build() {
             final var _resultValue = new GetSecurityControlsResult();
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.securityControlDefinitions = securityControlDefinitions;
             _resultValue.standardsArn = standardsArn;

@@ -18,11 +18,6 @@ public final class GetFilesFileSystemsResult {
      * 
      */
     private @Nullable List<GetFilesFileSystemsFileSystem> fileSystems;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetFilesFileSystemsResult() {}
@@ -32,13 +27,6 @@ public final class GetFilesFileSystemsResult {
      */
     public List<GetFilesFileSystemsFileSystem> fileSystems() {
         return this.fileSystems == null ? List.of() : this.fileSystems;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -54,13 +42,11 @@ public final class GetFilesFileSystemsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetFilesFileSystemsFileSystem> fileSystems;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetFilesFileSystemsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileSystems = defaults.fileSystems;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -74,14 +60,6 @@ public final class GetFilesFileSystemsResult {
             return fileSystems(List.of(fileSystems));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetFilesFileSystemsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetFilesFileSystemsResult", "region");
@@ -92,7 +70,6 @@ public final class GetFilesFileSystemsResult {
         public GetFilesFileSystemsResult build() {
             final var _resultValue = new GetFilesFileSystemsResult();
             _resultValue.fileSystems = fileSystems;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

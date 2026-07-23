@@ -26,7 +26,7 @@ class GetCapacityBlockOfferingResult:
     """
     A collection of values returned by getCapacityBlockOffering.
     """
-    def __init__(__self__, availability_zone=None, capacity_block_offering_id=None, capacity_duration_hours=None, currency_code=None, end_date_range=None, id=None, instance_count=None, instance_type=None, region=None, start_date_range=None, tenancy=None, upfront_fee=None):
+    def __init__(__self__, availability_zone=None, capacity_block_offering_id=None, capacity_duration_hours=None, currency_code=None, end_date_range=None, instance_count=None, instance_type=None, region=None, start_date_range=None, tenancy=None, upfront_fee=None):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -42,9 +42,6 @@ class GetCapacityBlockOfferingResult:
         if end_date_range and not isinstance(end_date_range, str):
             raise TypeError("Expected argument 'end_date_range' to be a str")
         pulumi.set(__self__, "end_date_range", end_date_range)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if instance_count and not isinstance(instance_count, int):
             raise TypeError("Expected argument 'instance_count' to be a int")
         pulumi.set(__self__, "instance_count", instance_count)
@@ -99,14 +96,6 @@ class GetCapacityBlockOfferingResult:
         return pulumi.get(self, "end_date_range")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> _builtins.int:
         return pulumi.get(self, "instance_count")
@@ -154,7 +143,6 @@ class AwaitableGetCapacityBlockOfferingResult(GetCapacityBlockOfferingResult):
             capacity_duration_hours=self.capacity_duration_hours,
             currency_code=self.currency_code,
             end_date_range=self.end_date_range,
-            id=self.id,
             instance_count=self.instance_count,
             instance_type=self.instance_type,
             region=self.region,
@@ -210,7 +198,6 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[_builtins.int]
         capacity_duration_hours=pulumi.get(__ret__, 'capacity_duration_hours'),
         currency_code=pulumi.get(__ret__, 'currency_code'),
         end_date_range=pulumi.get(__ret__, 'end_date_range'),
-        id=pulumi.get(__ret__, 'id'),
         instance_count=pulumi.get(__ret__, 'instance_count'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         region=pulumi.get(__ret__, 'region'),
@@ -263,7 +250,6 @@ def get_capacity_block_offering_output(capacity_duration_hours: pulumi.Input[Opt
         capacity_duration_hours=pulumi.get(__response__, 'capacity_duration_hours'),
         currency_code=pulumi.get(__response__, 'currency_code'),
         end_date_range=pulumi.get(__response__, 'end_date_range'),
-        id=pulumi.get(__response__, 'id'),
         instance_count=pulumi.get(__response__, 'instance_count'),
         instance_type=pulumi.get(__response__, 'instance_type'),
         region=pulumi.get(__response__, 'region'),

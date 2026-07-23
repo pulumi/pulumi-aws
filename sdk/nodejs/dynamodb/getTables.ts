@@ -42,10 +42,6 @@ export interface GetTablesArgs {
  */
 export interface GetTablesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * A list of all the DynamoDB table names found.
      */
     readonly names: string[];

@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetModelAgreementOffersResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String modelId;
     private @Nullable String offerType;
     /**
@@ -29,13 +24,6 @@ public final class GetModelAgreementOffersResult {
     private String region;
 
     private GetModelAgreementOffersResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String modelId() {
         return this.modelId;
     }
@@ -62,7 +50,6 @@ public final class GetModelAgreementOffersResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String modelId;
         private @Nullable String offerType;
         private List<GetModelAgreementOffersOffer> offers;
@@ -70,21 +57,12 @@ public final class GetModelAgreementOffersResult {
         public Builder() {}
         public Builder(GetModelAgreementOffersResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.modelId = defaults.modelId;
     	      this.offerType = defaults.offerType;
     	      this.offers = defaults.offers;
     	      this.region = defaults.region;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetModelAgreementOffersResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder modelId(String modelId) {
             if (modelId == null) {
@@ -120,7 +98,6 @@ public final class GetModelAgreementOffersResult {
         }
         public GetModelAgreementOffersResult build() {
             final var _resultValue = new GetModelAgreementOffersResult();
-            _resultValue.id = id;
             _resultValue.modelId = modelId;
             _resultValue.offerType = offerType;
             _resultValue.offers = offers;

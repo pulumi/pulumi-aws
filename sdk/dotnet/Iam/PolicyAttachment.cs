@@ -101,15 +101,15 @@ namespace Pulumi.Aws.Iam
     ///     var example_attach = new Aws.Iam.PolicyAttachment("example-attach", new()
     ///     {
     ///         Name = "example-attachment",
-    ///         Users = new[]
+    ///         Users = 
     ///         {
     ///             user.Name,
     ///         },
-    ///         Roles = new[]
+    ///         Roles = 
     ///         {
     ///             role.Name,
     ///         },
-    ///         Groups = new[]
+    ///         Groups = 
     ///         {
     ///             @group.Name,
     ///         },

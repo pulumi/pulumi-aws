@@ -52,8 +52,6 @@ func LookupUseCaseForModelAccess(ctx *pulumi.Context, opts ...pulumi.InvokeOptio
 type LookupUseCaseForModelAccessResult struct {
 	// Form data as JSON from the Anthropic first time user request.
 	FormData string `pulumi:"formData"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 }
 
 func LookupUseCaseForModelAccessOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupUseCaseForModelAccessResultOutput {
@@ -81,11 +79,6 @@ func (o LookupUseCaseForModelAccessResultOutput) ToLookupUseCaseForModelAccessRe
 // Form data as JSON from the Anthropic first time user request.
 func (o LookupUseCaseForModelAccessResultOutput) FormData() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUseCaseForModelAccessResult) string { return v.FormData }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupUseCaseForModelAccessResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupUseCaseForModelAccessResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func init() {

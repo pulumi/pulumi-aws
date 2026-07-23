@@ -26,7 +26,7 @@ class GetPrimaryContactResult:
     """
     A collection of values returned by getPrimaryContact.
     """
-    def __init__(__self__, account_id=None, address_line1=None, address_line2=None, address_line3=None, city=None, company_name=None, country_code=None, district_or_county=None, full_name=None, id=None, phone_number=None, postal_code=None, state_or_region=None, website_url=None):
+    def __init__(__self__, account_id=None, address_line1=None, address_line2=None, address_line3=None, city=None, company_name=None, country_code=None, district_or_county=None, full_name=None, phone_number=None, postal_code=None, state_or_region=None, website_url=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -54,9 +54,6 @@ class GetPrimaryContactResult:
         if full_name and not isinstance(full_name, str):
             raise TypeError("Expected argument 'full_name' to be a str")
         pulumi.set(__self__, "full_name", full_name)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if phone_number and not isinstance(phone_number, str):
             raise TypeError("Expected argument 'phone_number' to be a str")
         pulumi.set(__self__, "phone_number", phone_number)
@@ -140,14 +137,6 @@ class GetPrimaryContactResult:
         return pulumi.get(self, "full_name")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="phoneNumber")
     def phone_number(self) -> _builtins.str:
         """
@@ -195,7 +184,6 @@ class AwaitableGetPrimaryContactResult(GetPrimaryContactResult):
             country_code=self.country_code,
             district_or_county=self.district_or_county,
             full_name=self.full_name,
-            id=self.id,
             phone_number=self.phone_number,
             postal_code=self.postal_code,
             state_or_region=self.state_or_region,
@@ -234,7 +222,6 @@ def get_primary_contact(account_id: Optional[_builtins.str] = None,
         country_code=pulumi.get(__ret__, 'country_code'),
         district_or_county=pulumi.get(__ret__, 'district_or_county'),
         full_name=pulumi.get(__ret__, 'full_name'),
-        id=pulumi.get(__ret__, 'id'),
         phone_number=pulumi.get(__ret__, 'phone_number'),
         postal_code=pulumi.get(__ret__, 'postal_code'),
         state_or_region=pulumi.get(__ret__, 'state_or_region'),
@@ -270,7 +257,6 @@ def get_primary_contact_output(account_id: pulumi.Input[Optional[Optional[_built
         country_code=pulumi.get(__response__, 'country_code'),
         district_or_county=pulumi.get(__response__, 'district_or_county'),
         full_name=pulumi.get(__response__, 'full_name'),
-        id=pulumi.get(__response__, 'id'),
         phone_number=pulumi.get(__response__, 'phone_number'),
         postal_code=pulumi.get(__response__, 'postal_code'),
         state_or_region=pulumi.get(__response__, 'state_or_region'),

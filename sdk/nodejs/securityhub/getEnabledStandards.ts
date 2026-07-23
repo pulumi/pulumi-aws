@@ -46,10 +46,6 @@ export interface GetEnabledStandardsArgs {
  * A collection of values returned by getEnabledStandards.
  */
 export interface GetEnabledStandardsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     readonly standardsSubscriptionArns?: string[];
     /**

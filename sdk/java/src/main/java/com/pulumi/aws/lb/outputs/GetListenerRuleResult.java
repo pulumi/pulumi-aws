@@ -34,11 +34,6 @@ public final class GetListenerRuleResult {
      * 
      */
     private @Nullable List<GetListenerRuleCondition> conditions;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String listenerArn;
     private Integer priority;
     private String region;
@@ -77,13 +72,6 @@ public final class GetListenerRuleResult {
     public List<GetListenerRuleCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String listenerArn() {
         return this.listenerArn;
     }
@@ -120,7 +108,6 @@ public final class GetListenerRuleResult {
         private @Nullable List<GetListenerRuleAction> actions;
         private String arn;
         private @Nullable List<GetListenerRuleCondition> conditions;
-        private String id;
         private String listenerArn;
         private Integer priority;
         private String region;
@@ -132,7 +119,6 @@ public final class GetListenerRuleResult {
     	      this.actions = defaults.actions;
     	      this.arn = defaults.arn;
     	      this.conditions = defaults.conditions;
-    	      this.id = defaults.id;
     	      this.listenerArn = defaults.listenerArn;
     	      this.priority = defaults.priority;
     	      this.region = defaults.region;
@@ -165,14 +151,6 @@ public final class GetListenerRuleResult {
         }
         public Builder conditions(GetListenerRuleCondition... conditions) {
             return conditions(List.of(conditions));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetListenerRuleResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder listenerArn(String listenerArn) {
@@ -220,7 +198,6 @@ public final class GetListenerRuleResult {
             _resultValue.actions = actions;
             _resultValue.arn = arn;
             _resultValue.conditions = conditions;
-            _resultValue.id = id;
             _resultValue.listenerArn = listenerArn;
             _resultValue.priority = priority;
             _resultValue.region = region;

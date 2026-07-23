@@ -132,10 +132,6 @@ namespace Pulumi.Aws.S3Control
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointsAccessPointResult> AccessPoints;
         public readonly string? AccountId;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Name of the Region.
         /// </summary>
         public readonly string Region;
@@ -146,13 +142,10 @@ namespace Pulumi.Aws.S3Control
 
             string? accountId,
 
-            string id,
-
             string region)
         {
             AccessPoints = accessPoints;
             AccountId = accountId;
-            Id = id;
             Region = region;
         }
     }

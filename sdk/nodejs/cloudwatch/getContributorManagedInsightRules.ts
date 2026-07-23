@@ -50,10 +50,6 @@ export interface GetContributorManagedInsightRulesArgs {
  */
 export interface GetContributorManagedInsightRulesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      */
     readonly managedRules: outputs.cloudwatch.GetContributorManagedInsightRulesManagedRule[];

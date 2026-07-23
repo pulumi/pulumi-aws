@@ -58,10 +58,6 @@ export interface GetDbServersResult {
      * the list of DB servers along with their properties.
      */
     readonly dbServers: outputs.odb.GetDbServersDbServer[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

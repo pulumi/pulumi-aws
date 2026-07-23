@@ -27,7 +27,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, applications=None, appstream_agent_version=None, arn=None, base_image_arn=None, created_time=None, description=None, display_name=None, id=None, image_builder_name=None, image_builder_supported=None, image_permissions=None, most_recent=None, name=None, name_regex=None, platform=None, public_base_image_released_date=None, region=None, state=None, state_change_reasons=None, type=None):
+    def __init__(__self__, applications=None, appstream_agent_version=None, arn=None, base_image_arn=None, created_time=None, description=None, display_name=None, image_builder_name=None, image_builder_supported=None, image_permissions=None, most_recent=None, name=None, name_regex=None, platform=None, public_base_image_released_date=None, region=None, state=None, state_change_reasons=None, type=None):
         if applications and not isinstance(applications, list):
             raise TypeError("Expected argument 'applications' to be a list")
         pulumi.set(__self__, "applications", applications)
@@ -49,9 +49,6 @@ class GetImageResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if image_builder_name and not isinstance(image_builder_name, str):
             raise TypeError("Expected argument 'image_builder_name' to be a str")
         pulumi.set(__self__, "image_builder_name", image_builder_name)
@@ -144,14 +141,6 @@ class GetImageResult:
         Image name to display.
         """
         return pulumi.get(self, "display_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="imageBuilderName")
@@ -251,7 +240,6 @@ class AwaitableGetImageResult(GetImageResult):
             created_time=self.created_time,
             description=self.description,
             display_name=self.display_name,
-            id=self.id,
             image_builder_name=self.image_builder_name,
             image_builder_supported=self.image_builder_supported,
             image_permissions=self.image_permissions,
@@ -313,7 +301,6 @@ def get_image(arn: Optional[_builtins.str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
-        id=pulumi.get(__ret__, 'id'),
         image_builder_name=pulumi.get(__ret__, 'image_builder_name'),
         image_builder_supported=pulumi.get(__ret__, 'image_builder_supported'),
         image_permissions=pulumi.get(__ret__, 'image_permissions'),
@@ -372,7 +359,6 @@ def get_image_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
-        id=pulumi.get(__response__, 'id'),
         image_builder_name=pulumi.get(__response__, 'image_builder_name'),
         image_builder_supported=pulumi.get(__response__, 'image_builder_supported'),
         image_permissions=pulumi.get(__response__, 'image_permissions'),

@@ -28,7 +28,7 @@ class GetListenerRuleResult:
     """
     A collection of values returned by getListenerRule.
     """
-    def __init__(__self__, actions=None, arn=None, conditions=None, id=None, listener_arn=None, priority=None, region=None, tags=None, transforms=None):
+    def __init__(__self__, actions=None, arn=None, conditions=None, listener_arn=None, priority=None, region=None, tags=None, transforms=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -38,9 +38,6 @@ class GetListenerRuleResult:
         if conditions and not isinstance(conditions, list):
             raise TypeError("Expected argument 'conditions' to be a list")
         pulumi.set(__self__, "conditions", conditions)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if listener_arn and not isinstance(listener_arn, str):
             raise TypeError("Expected argument 'listener_arn' to be a str")
         pulumi.set(__self__, "listener_arn", listener_arn)
@@ -84,14 +81,6 @@ class GetListenerRuleResult:
         return pulumi.get(self, "conditions")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> _builtins.str:
         return pulumi.get(self, "listener_arn")
@@ -132,7 +121,6 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
             actions=self.actions,
             arn=self.arn,
             conditions=self.conditions,
-            id=self.id,
             listener_arn=self.listener_arn,
             priority=self.priority,
             region=self.region,
@@ -206,7 +194,6 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
         actions=pulumi.get(__ret__, 'actions'),
         arn=pulumi.get(__ret__, 'arn'),
         conditions=pulumi.get(__ret__, 'conditions'),
-        id=pulumi.get(__ret__, 'id'),
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
         priority=pulumi.get(__ret__, 'priority'),
         region=pulumi.get(__ret__, 'region'),
@@ -277,7 +264,6 @@ def get_listener_rule_output(actions: pulumi.Input[Optional[Optional[Sequence[Un
         actions=pulumi.get(__response__, 'actions'),
         arn=pulumi.get(__response__, 'arn'),
         conditions=pulumi.get(__response__, 'conditions'),
-        id=pulumi.get(__response__, 'id'),
         listener_arn=pulumi.get(__response__, 'listener_arn'),
         priority=pulumi.get(__response__, 'priority'),
         region=pulumi.get(__response__, 'region'),

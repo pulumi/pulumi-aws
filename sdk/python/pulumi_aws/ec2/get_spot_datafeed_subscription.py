@@ -26,13 +26,10 @@ class GetSpotDatafeedSubscriptionResult:
     """
     A collection of values returned by getSpotDatafeedSubscription.
     """
-    def __init__(__self__, bucket=None, id=None, prefix=None, region=None):
+    def __init__(__self__, bucket=None, prefix=None, region=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
@@ -47,14 +44,6 @@ class GetSpotDatafeedSubscriptionResult:
         The name of the Amazon S3 bucket where the spot instance data feed is located.
         """
         return pulumi.get(self, "bucket")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -77,7 +66,6 @@ class AwaitableGetSpotDatafeedSubscriptionResult(GetSpotDatafeedSubscriptionResu
             yield self
         return GetSpotDatafeedSubscriptionResult(
             bucket=self.bucket,
-            id=self.id,
             prefix=self.prefix,
             region=self.region)
 
@@ -108,7 +96,6 @@ def get_spot_datafeed_subscription(region: Optional[_builtins.str] = None,
 
     return AwaitableGetSpotDatafeedSubscriptionResult(
         bucket=pulumi.get(__ret__, 'bucket'),
-        id=pulumi.get(__ret__, 'id'),
         prefix=pulumi.get(__ret__, 'prefix'),
         region=pulumi.get(__ret__, 'region'))
 def get_spot_datafeed_subscription_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -136,6 +123,5 @@ def get_spot_datafeed_subscription_output(region: pulumi.Input[Optional[Optional
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription', __args__, opts=opts, typ=GetSpotDatafeedSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSpotDatafeedSubscriptionResult(
         bucket=pulumi.get(__response__, 'bucket'),
-        id=pulumi.get(__response__, 'id'),
         prefix=pulumi.get(__response__, 'prefix'),
         region=pulumi.get(__response__, 'region')))

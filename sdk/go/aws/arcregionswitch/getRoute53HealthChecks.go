@@ -64,9 +64,7 @@ type GetRoute53HealthChecksArgs struct {
 type GetRoute53HealthChecksResult struct {
 	// List of Route53 health checks associated with the plan. Each health check contains:
 	HealthChecks []GetRoute53HealthChecksHealthCheck `pulumi:"healthChecks"`
-	// The provider-assigned unique ID for this managed resource.
-	Id      string `pulumi:"id"`
-	PlanArn string `pulumi:"planArn"`
+	PlanArn      string                              `pulumi:"planArn"`
 	// Region for the health check.
 	//
 	// Deprecated: This attribute will be removed in a future version of the provider.
@@ -114,11 +112,6 @@ func (o GetRoute53HealthChecksResultOutput) ToGetRoute53HealthChecksResultOutput
 // List of Route53 health checks associated with the plan. Each health check contains:
 func (o GetRoute53HealthChecksResultOutput) HealthChecks() GetRoute53HealthChecksHealthCheckArrayOutput {
 	return o.ApplyT(func(v GetRoute53HealthChecksResult) []GetRoute53HealthChecksHealthCheck { return v.HealthChecks }).(GetRoute53HealthChecksHealthCheckArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRoute53HealthChecksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRoute53HealthChecksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetRoute53HealthChecksResultOutput) PlanArn() pulumi.StringOutput {

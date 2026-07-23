@@ -56,11 +56,6 @@ public final class GetServerlessCacheResult {
      */
     private String fullEngineVersion;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return ARN of the customer managed key for encrypting the data at rest.
      * 
      */
@@ -161,13 +156,6 @@ public final class GetServerlessCacheResult {
         return this.fullEngineVersion;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return ARN of the customer managed key for encrypting the data at rest.
      * 
      */
@@ -247,7 +235,6 @@ public final class GetServerlessCacheResult {
         private GetServerlessCacheEndpoint endpoint;
         private String engine;
         private String fullEngineVersion;
-        private String id;
         private String kmsKeyId;
         private String majorEngineVersion;
         private String name;
@@ -269,7 +256,6 @@ public final class GetServerlessCacheResult {
     	      this.endpoint = defaults.endpoint;
     	      this.engine = defaults.engine;
     	      this.fullEngineVersion = defaults.fullEngineVersion;
-    	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.majorEngineVersion = defaults.majorEngineVersion;
     	      this.name = defaults.name;
@@ -344,14 +330,6 @@ public final class GetServerlessCacheResult {
               throw new MissingRequiredPropertyException("GetServerlessCacheResult", "fullEngineVersion");
             }
             this.fullEngineVersion = fullEngineVersion;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServerlessCacheResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -450,7 +428,6 @@ public final class GetServerlessCacheResult {
             _resultValue.endpoint = endpoint;
             _resultValue.engine = engine;
             _resultValue.fullEngineVersion = fullEngineVersion;
-            _resultValue.id = id;
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.majorEngineVersion = majorEngineVersion;
             _resultValue.name = name;

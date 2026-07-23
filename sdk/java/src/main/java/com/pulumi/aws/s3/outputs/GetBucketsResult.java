@@ -25,11 +25,6 @@ public final class GetBucketsResult {
      * 
      */
     private List<GetBucketsBucket> buckets;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable Integer maxBuckets;
     private @Nullable String prefix;
     private String region;
@@ -48,13 +43,6 @@ public final class GetBucketsResult {
      */
     public List<GetBucketsBucket> buckets() {
         return this.buckets;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public Optional<Integer> maxBuckets() {
         return Optional.ofNullable(this.maxBuckets);
@@ -77,7 +65,6 @@ public final class GetBucketsResult {
     public static final class Builder {
         private @Nullable String bucketRegion;
         private List<GetBucketsBucket> buckets;
-        private String id;
         private @Nullable Integer maxBuckets;
         private @Nullable String prefix;
         private String region;
@@ -86,7 +73,6 @@ public final class GetBucketsResult {
     	      Objects.requireNonNull(defaults);
     	      this.bucketRegion = defaults.bucketRegion;
     	      this.buckets = defaults.buckets;
-    	      this.id = defaults.id;
     	      this.maxBuckets = defaults.maxBuckets;
     	      this.prefix = defaults.prefix;
     	      this.region = defaults.region;
@@ -108,14 +94,6 @@ public final class GetBucketsResult {
         }
         public Builder buckets(GetBucketsBucket... buckets) {
             return buckets(List.of(buckets));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetBucketsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder maxBuckets(@Nullable Integer maxBuckets) {
@@ -141,7 +119,6 @@ public final class GetBucketsResult {
             final var _resultValue = new GetBucketsResult();
             _resultValue.bucketRegion = bucketRegion;
             _resultValue.buckets = buckets;
-            _resultValue.id = id;
             _resultValue.maxBuckets = maxBuckets;
             _resultValue.prefix = prefix;
             _resultValue.region = region;

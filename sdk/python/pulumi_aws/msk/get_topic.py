@@ -26,7 +26,7 @@ class GetTopicResult:
     """
     A collection of values returned by getTopic.
     """
-    def __init__(__self__, arn=None, cluster_arn=None, configs=None, id=None, name=None, partition_count=None, region=None, replication_factor=None):
+    def __init__(__self__, arn=None, cluster_arn=None, configs=None, name=None, partition_count=None, region=None, replication_factor=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,6 @@ class GetTopicResult:
         if configs and not isinstance(configs, str):
             raise TypeError("Expected argument 'configs' to be a str")
         pulumi.set(__self__, "configs", configs)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -72,14 +69,6 @@ class GetTopicResult:
         Aggregated Kafka configuration in JSON format for the topic.
         """
         return pulumi.get(self, "configs")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -117,7 +106,6 @@ class AwaitableGetTopicResult(GetTopicResult):
             arn=self.arn,
             cluster_arn=self.cluster_arn,
             configs=self.configs,
-            id=self.id,
             name=self.name,
             partition_count=self.partition_count,
             region=self.region,
@@ -157,7 +145,6 @@ def get_topic(cluster_arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         configs=pulumi.get(__ret__, 'configs'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         partition_count=pulumi.get(__ret__, 'partition_count'),
         region=pulumi.get(__ret__, 'region'),
@@ -194,7 +181,6 @@ def get_topic_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
         configs=pulumi.get(__response__, 'configs'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         partition_count=pulumi.get(__response__, 'partition_count'),
         region=pulumi.get(__response__, 'region'),

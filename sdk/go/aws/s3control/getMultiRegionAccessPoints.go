@@ -61,8 +61,6 @@ type GetMultiRegionAccessPointsResult struct {
 	// List of multi-region access points. See `accessPoints` below.
 	AccessPoints []GetMultiRegionAccessPointsAccessPoint `pulumi:"accessPoints"`
 	AccountId    *string                                 `pulumi:"accountId"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Name of the Region.
 	Region string `pulumi:"region"`
 }
@@ -112,11 +110,6 @@ func (o GetMultiRegionAccessPointsResultOutput) AccessPoints() GetMultiRegionAcc
 
 func (o GetMultiRegionAccessPointsResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetMultiRegionAccessPointsResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetMultiRegionAccessPointsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetMultiRegionAccessPointsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Name of the Region.

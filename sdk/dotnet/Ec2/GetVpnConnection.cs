@@ -293,10 +293,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string GatewayAssociationState;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// (ARN) of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection.
         /// </summary>
         public readonly string PreSharedKeyArn;
@@ -351,8 +347,6 @@ namespace Pulumi.Aws.Ec2
 
             string gatewayAssociationState,
 
-            string id,
-
             string preSharedKeyArn,
 
             string region,
@@ -382,7 +376,6 @@ namespace Pulumi.Aws.Ec2
             CustomerGatewayId = customerGatewayId;
             Filters = filters;
             GatewayAssociationState = gatewayAssociationState;
-            Id = id;
             PreSharedKeyArn = preSharedKeyArn;
             Region = region;
             Routes = routes;

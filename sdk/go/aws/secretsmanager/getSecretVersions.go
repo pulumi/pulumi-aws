@@ -122,9 +122,7 @@ type GetSecretVersionsResult struct {
 	// Use `secretArn` instead.
 	//
 	// Deprecated: arn is deprecated. Use secretArn instead.
-	Arn string `pulumi:"arn"`
-	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
+	Arn               string `pulumi:"arn"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	// (**Deprecated**) Name of the secret.
 	// Use `secretName` instead.
@@ -187,11 +185,6 @@ func (o GetSecretVersionsResultOutput) ToGetSecretVersionsResultOutputWithContex
 // Deprecated: arn is deprecated. Use secretArn instead.
 func (o GetSecretVersionsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Arn }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetSecretVersionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetSecretVersionsResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {

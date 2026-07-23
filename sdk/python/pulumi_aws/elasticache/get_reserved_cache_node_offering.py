@@ -26,7 +26,7 @@ class GetReservedCacheNodeOfferingResult:
     """
     A collection of values returned by getReservedCacheNodeOffering.
     """
-    def __init__(__self__, cache_node_type=None, duration=None, fixed_price=None, id=None, offering_id=None, offering_type=None, product_description=None, region=None):
+    def __init__(__self__, cache_node_type=None, duration=None, fixed_price=None, offering_id=None, offering_type=None, product_description=None, region=None):
         if cache_node_type and not isinstance(cache_node_type, str):
             raise TypeError("Expected argument 'cache_node_type' to be a str")
         pulumi.set(__self__, "cache_node_type", cache_node_type)
@@ -36,9 +36,6 @@ class GetReservedCacheNodeOfferingResult:
         if fixed_price and not isinstance(fixed_price, float):
             raise TypeError("Expected argument 'fixed_price' to be a float")
         pulumi.set(__self__, "fixed_price", fixed_price)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if offering_id and not isinstance(offering_id, str):
             raise TypeError("Expected argument 'offering_id' to be a str")
         pulumi.set(__self__, "offering_id", offering_id)
@@ -69,14 +66,6 @@ class GetReservedCacheNodeOfferingResult:
         Fixed price charged for this reserved cache node.
         """
         return pulumi.get(self, "fixed_price")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
@@ -111,7 +100,6 @@ class AwaitableGetReservedCacheNodeOfferingResult(GetReservedCacheNodeOfferingRe
             cache_node_type=self.cache_node_type,
             duration=self.duration,
             fixed_price=self.fixed_price,
-            id=self.id,
             offering_id=self.offering_id,
             offering_type=self.offering_type,
             product_description=self.product_description,
@@ -166,7 +154,6 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[_builtins.str] = 
         cache_node_type=pulumi.get(__ret__, 'cache_node_type'),
         duration=pulumi.get(__ret__, 'duration'),
         fixed_price=pulumi.get(__ret__, 'fixed_price'),
-        id=pulumi.get(__ret__, 'id'),
         offering_id=pulumi.get(__ret__, 'offering_id'),
         offering_type=pulumi.get(__ret__, 'offering_type'),
         product_description=pulumi.get(__ret__, 'product_description'),
@@ -218,7 +205,6 @@ def get_reserved_cache_node_offering_output(cache_node_type: pulumi.Input[Option
         cache_node_type=pulumi.get(__response__, 'cache_node_type'),
         duration=pulumi.get(__response__, 'duration'),
         fixed_price=pulumi.get(__response__, 'fixed_price'),
-        id=pulumi.get(__response__, 'id'),
         offering_id=pulumi.get(__response__, 'offering_id'),
         offering_type=pulumi.get(__response__, 'offering_type'),
         product_description=pulumi.get(__response__, 'product_description'),

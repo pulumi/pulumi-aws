@@ -27,24 +27,13 @@ class GetNetworksResult:
     """
     A collection of values returned by getNetworks.
     """
-    def __init__(__self__, id=None, odb_networks=None, region=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, odb_networks=None, region=None):
         if odb_networks and not isinstance(odb_networks, list):
             raise TypeError("Expected argument 'odb_networks' to be a list")
         pulumi.set(__self__, "odb_networks", odb_networks)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="odbNetworks")
@@ -66,7 +55,6 @@ class AwaitableGetNetworksResult(GetNetworksResult):
         if False:
             yield self
         return GetNetworksResult(
-            id=self.id,
             odb_networks=self.odb_networks,
             region=self.region)
 
@@ -96,7 +84,6 @@ def get_networks(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:odb/getNetworks:getNetworks', __args__, opts=opts, typ=GetNetworksResult).value
 
     return AwaitableGetNetworksResult(
-        id=pulumi.get(__ret__, 'id'),
         odb_networks=pulumi.get(__ret__, 'odb_networks'),
         region=pulumi.get(__ret__, 'region'))
 def get_networks_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -123,6 +110,5 @@ def get_networks_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getNetworks:getNetworks', __args__, opts=opts, typ=GetNetworksResult)
     return __ret__.apply(lambda __response__: GetNetworksResult(
-        id=pulumi.get(__response__, 'id'),
         odb_networks=pulumi.get(__response__, 'odb_networks'),
         region=pulumi.get(__response__, 'region')))

@@ -115,10 +115,6 @@ namespace Pulumi.Aws.Odb
     public sealed class GetNetworksResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of odb networks returns basic information about odb networks.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworksOdbNetworkResult> OdbNetworks;
@@ -126,13 +122,10 @@ namespace Pulumi.Aws.Odb
 
         [OutputConstructor]
         private GetNetworksResult(
-            string id,
-
             ImmutableArray<Outputs.GetNetworksOdbNetworkResult> odbNetworks,
 
             string region)
         {
-            Id = id;
             OdbNetworks = odbNetworks;
             Region = region;
         }

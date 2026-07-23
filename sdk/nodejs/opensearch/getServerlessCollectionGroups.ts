@@ -47,10 +47,6 @@ export interface GetServerlessCollectionGroupsResult {
      * List of collection group summary objects. See `collectionGroupSummaries` below for details.
      */
     readonly collectionGroupSummaries: outputs.opensearch.GetServerlessCollectionGroupsCollectionGroupSummary[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

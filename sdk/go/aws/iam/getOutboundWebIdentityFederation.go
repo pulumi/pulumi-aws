@@ -48,8 +48,6 @@ func LookupOutboundWebIdentityFederation(ctx *pulumi.Context, opts ...pulumi.Inv
 
 // A collection of values returned by getOutboundWebIdentityFederation.
 type LookupOutboundWebIdentityFederationResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
 	IssuerIdentifier string `pulumi:"issuerIdentifier"`
 }
@@ -74,11 +72,6 @@ func (o LookupOutboundWebIdentityFederationResultOutput) ToLookupOutboundWebIden
 
 func (o LookupOutboundWebIdentityFederationResultOutput) ToLookupOutboundWebIdentityFederationResultOutputWithContext(ctx context.Context) LookupOutboundWebIdentityFederationResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupOutboundWebIdentityFederationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupOutboundWebIdentityFederationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.

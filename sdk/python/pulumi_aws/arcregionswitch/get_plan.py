@@ -26,7 +26,7 @@ class GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
-    def __init__(__self__, arn=None, description=None, execution_role=None, id=None, name=None, owner=None, primary_region=None, recovery_approach=None, recovery_time_objective_minutes=None, region=None, regions=None, tags=None, updated_at=None, version=None):
+    def __init__(__self__, arn=None, description=None, execution_role=None, name=None, owner=None, primary_region=None, recovery_approach=None, recovery_time_objective_minutes=None, region=None, regions=None, tags=None, updated_at=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,9 +36,6 @@ class GetPlanResult:
         if execution_role and not isinstance(execution_role, str):
             raise TypeError("Expected argument 'execution_role' to be a str")
         pulumi.set(__self__, "execution_role", execution_role)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -90,14 +87,6 @@ class GetPlanResult:
         Execution role ARN for the plan.
         """
         return pulumi.get(self, "execution_role")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -187,7 +176,6 @@ class AwaitableGetPlanResult(GetPlanResult):
             arn=self.arn,
             description=self.description,
             execution_role=self.execution_role,
-            id=self.id,
             name=self.name,
             owner=self.owner,
             primary_region=self.primary_region,
@@ -231,7 +219,6 @@ def get_plan(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         execution_role=pulumi.get(__ret__, 'execution_role'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'),
         primary_region=pulumi.get(__ret__, 'primary_region'),
@@ -272,7 +259,6 @@ def get_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         execution_role=pulumi.get(__response__, 'execution_role'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner=pulumi.get(__response__, 'owner'),
         primary_region=pulumi.get(__response__, 'primary_region'),

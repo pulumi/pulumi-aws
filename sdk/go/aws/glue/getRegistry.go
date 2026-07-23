@@ -64,10 +64,8 @@ type LookupRegistryResult struct {
 	Arn string `pulumi:"arn"`
 	// A description of the registry.
 	Description string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Name   string `pulumi:"name"`
-	Region string `pulumi:"region"`
+	Name        string `pulumi:"name"`
+	Region      string `pulumi:"region"`
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
@@ -114,11 +112,6 @@ func (o LookupRegistryResultOutput) Arn() pulumi.StringOutput {
 // A description of the registry.
 func (o LookupRegistryResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupRegistryResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupRegistryResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {

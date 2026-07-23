@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     destination: "redshift",
  *     redshiftConfiguration: {
  *         roleArn: firehoseRole.arn,
- *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
  *         username: "exampleuser",
  *         password: "Exampl3Pass",
  *         dataTableName: "example-table",
@@ -252,7 +252,7 @@ export interface GetClusterResult {
  *     destination: "redshift",
  *     redshiftConfiguration: {
  *         roleArn: firehoseRole.arn,
- *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
+ *         clusterJdbcurl: example.then(example => `jdbc:redshift://${example.endpoint}/${example.databaseName}`),
  *         username: "exampleuser",
  *         password: "Exampl3Pass",
  *         dataTableName: "example-table",

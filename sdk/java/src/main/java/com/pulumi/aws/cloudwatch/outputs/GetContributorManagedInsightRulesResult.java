@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetContributorManagedInsightRulesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      * 
      */
@@ -30,13 +25,6 @@ public final class GetContributorManagedInsightRulesResult {
     private String resourceArn;
 
     private GetContributorManagedInsightRulesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return Managed rules that are available for the specified Amazon Web Services resource. See `managedRules reference` below for details.
      * 
@@ -64,27 +52,17 @@ public final class GetContributorManagedInsightRulesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetContributorManagedInsightRulesManagedRule> managedRules;
         private String region;
         private String resourceArn;
         public Builder() {}
         public Builder(GetContributorManagedInsightRulesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.managedRules = defaults.managedRules;
     	      this.region = defaults.region;
     	      this.resourceArn = defaults.resourceArn;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetContributorManagedInsightRulesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder managedRules(List<GetContributorManagedInsightRulesManagedRule> managedRules) {
             if (managedRules == null) {
@@ -114,7 +92,6 @@ public final class GetContributorManagedInsightRulesResult {
         }
         public GetContributorManagedInsightRulesResult build() {
             final var _resultValue = new GetContributorManagedInsightRulesResult();
-            _resultValue.id = id;
             _resultValue.managedRules = managedRules;
             _resultValue.region = region;
             _resultValue.resourceArn = resourceArn;

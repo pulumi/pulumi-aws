@@ -44,10 +44,6 @@ export interface GetProfilesProfilesArgs {
  */
 export interface GetProfilesProfilesResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of Profiles.
      */
     readonly profiles: outputs.route53.GetProfilesProfilesProfile[];

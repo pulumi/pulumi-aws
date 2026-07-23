@@ -68,8 +68,6 @@ type LookupInferenceProfileResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// The description of the inference profile.
 	Description string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The Amazon Resource Name (ARN) of the inference profile.
 	InferenceProfileArn string `pulumi:"inferenceProfileArn"`
 	InferenceProfileId  string `pulumi:"inferenceProfileId"`
@@ -130,11 +128,6 @@ func (o LookupInferenceProfileResultOutput) CreatedAt() pulumi.StringOutput {
 // The description of the inference profile.
 func (o LookupInferenceProfileResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Description }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupInferenceProfileResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupInferenceProfileResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the inference profile.

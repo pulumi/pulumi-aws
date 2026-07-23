@@ -181,10 +181,6 @@ namespace Pulumi.Aws.Bedrock
     public sealed class GetInferenceProfilesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of inference profile summary objects. See `InferenceProfileSummaries`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> InferenceProfileSummaries;
@@ -196,15 +192,12 @@ namespace Pulumi.Aws.Bedrock
 
         [OutputConstructor]
         private GetInferenceProfilesResult(
-            string id,
-
             ImmutableArray<Outputs.GetInferenceProfilesInferenceProfileSummaryResult> inferenceProfileSummaries,
 
             string region,
 
             string? type)
         {
-            Id = id;
             InferenceProfileSummaries = inferenceProfileSummaries;
             Region = region;
             Type = type;

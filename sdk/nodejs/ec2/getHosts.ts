@@ -88,10 +88,6 @@ export interface GetHostsArgs {
 export interface GetHostsResult {
     readonly filters?: outputs.ec2.GetHostsFilter[];
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of EC2 Dedicated Host identifiers.
      */
     readonly ids: string[];

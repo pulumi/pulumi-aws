@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Odb
         /// the list of DB servers along with their properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbServersDbServerResult> DbServers;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -162,13 +158,10 @@ namespace Pulumi.Aws.Odb
 
             ImmutableArray<Outputs.GetDbServersDbServerResult> dbServers,
 
-            string id,
-
             string region)
         {
             CloudExadataInfrastructureId = cloudExadataInfrastructureId;
             DbServers = dbServers;
-            Id = id;
             Region = region;
         }
     }

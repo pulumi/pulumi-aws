@@ -25,11 +25,6 @@ public final class GetPlanResult {
      */
     private String executionRole;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Name of the plan.
      * 
      */
@@ -99,13 +94,6 @@ public final class GetPlanResult {
      */
     public String executionRole() {
         return this.executionRole;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Name of the plan.
@@ -192,7 +180,6 @@ public final class GetPlanResult {
         private String arn;
         private String description;
         private String executionRole;
-        private String id;
         private String name;
         private String owner;
         private String primaryRegion;
@@ -209,7 +196,6 @@ public final class GetPlanResult {
     	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.executionRole = defaults.executionRole;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.primaryRegion = defaults.primaryRegion;
@@ -244,14 +230,6 @@ public final class GetPlanResult {
               throw new MissingRequiredPropertyException("GetPlanResult", "executionRole");
             }
             this.executionRole = executionRole;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetPlanResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -342,7 +320,6 @@ public final class GetPlanResult {
             _resultValue.arn = arn;
             _resultValue.description = description;
             _resultValue.executionRole = executionRole;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.primaryRegion = primaryRegion;

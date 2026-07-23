@@ -102,10 +102,6 @@ export interface GetClusterVersionsResult {
     readonly clusterVersions: outputs.eks.GetClusterVersionsClusterVersion[];
     readonly clusterVersionsOnlies?: string[];
     readonly defaultOnly?: boolean;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly includeAll?: boolean;
     readonly region: string;
     /**

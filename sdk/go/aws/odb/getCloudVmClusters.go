@@ -60,9 +60,7 @@ type GetCloudVmClustersArgs struct {
 type GetCloudVmClustersResult struct {
 	// List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
 	CloudVmClusters []GetCloudVmClustersCloudVmCluster `pulumi:"cloudVmClusters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region          string                             `pulumi:"region"`
 }
 
 func GetCloudVmClustersOutput(ctx *pulumi.Context, args GetCloudVmClustersOutputArgs, opts ...pulumi.InvokeOption) GetCloudVmClustersResultOutput {
@@ -102,11 +100,6 @@ func (o GetCloudVmClustersResultOutput) ToGetCloudVmClustersResultOutputWithCont
 // List of Cloud VM Clusters. It returns only basic information about the cloud VM clusters.
 func (o GetCloudVmClustersResultOutput) CloudVmClusters() GetCloudVmClustersCloudVmClusterArrayOutput {
 	return o.ApplyT(func(v GetCloudVmClustersResult) []GetCloudVmClustersCloudVmCluster { return v.CloudVmClusters }).(GetCloudVmClustersCloudVmClusterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetCloudVmClustersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudVmClustersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetCloudVmClustersResultOutput) Region() pulumi.StringOutput {

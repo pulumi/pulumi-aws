@@ -16,11 +16,6 @@ public final class GetSpotDatafeedSubscriptionResult {
      */
     private String bucket;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The prefix for the data feed files.
      * 
      */
@@ -34,13 +29,6 @@ public final class GetSpotDatafeedSubscriptionResult {
      */
     public String bucket() {
         return this.bucket;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return The prefix for the data feed files.
@@ -63,14 +51,12 @@ public final class GetSpotDatafeedSubscriptionResult {
     @CustomType.Builder
     public static final class Builder {
         private String bucket;
-        private String id;
         private String prefix;
         private String region;
         public Builder() {}
         public Builder(GetSpotDatafeedSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucket = defaults.bucket;
-    	      this.id = defaults.id;
     	      this.prefix = defaults.prefix;
     	      this.region = defaults.region;
         }
@@ -81,14 +67,6 @@ public final class GetSpotDatafeedSubscriptionResult {
               throw new MissingRequiredPropertyException("GetSpotDatafeedSubscriptionResult", "bucket");
             }
             this.bucket = bucket;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSpotDatafeedSubscriptionResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -110,7 +88,6 @@ public final class GetSpotDatafeedSubscriptionResult {
         public GetSpotDatafeedSubscriptionResult build() {
             final var _resultValue = new GetSpotDatafeedSubscriptionResult();
             _resultValue.bucket = bucket;
-            _resultValue.id = id;
             _resultValue.prefix = prefix;
             _resultValue.region = region;
             return _resultValue;

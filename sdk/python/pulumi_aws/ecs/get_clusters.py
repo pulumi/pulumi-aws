@@ -26,13 +26,10 @@ class GetClustersResult:
     """
     A collection of values returned by getClusters.
     """
-    def __init__(__self__, cluster_arns=None, id=None, region=None):
+    def __init__(__self__, cluster_arns=None, region=None):
         if cluster_arns and not isinstance(cluster_arns, list):
             raise TypeError("Expected argument 'cluster_arns' to be a list")
         pulumi.set(__self__, "cluster_arns", cluster_arns)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -47,14 +44,6 @@ class GetClustersResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -66,7 +55,6 @@ class AwaitableGetClustersResult(GetClustersResult):
             yield self
         return GetClustersResult(
             cluster_arns=self.cluster_arns,
-            id=self.id,
             region=self.region)
 
 
@@ -96,7 +84,6 @@ def get_clusters(region: Optional[_builtins.str] = None,
 
     return AwaitableGetClustersResult(
         cluster_arns=pulumi.get(__ret__, 'cluster_arns'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
@@ -123,5 +110,4 @@ def get_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] 
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult)
     return __ret__.apply(lambda __response__: GetClustersResult(
         cluster_arns=pulumi.get(__response__, 'cluster_arns'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

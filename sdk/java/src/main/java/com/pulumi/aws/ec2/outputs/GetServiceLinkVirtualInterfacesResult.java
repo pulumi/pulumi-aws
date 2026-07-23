@@ -16,11 +16,6 @@ import javax.annotation.Nullable;
 public final class GetServiceLinkVirtualInterfacesResult {
     private @Nullable List<GetServiceLinkVirtualInterfacesFilter> filters;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of EC2 Service Link Virtual Interface identifiers.
      * 
      */
@@ -31,13 +26,6 @@ public final class GetServiceLinkVirtualInterfacesResult {
     private GetServiceLinkVirtualInterfacesResult() {}
     public List<GetServiceLinkVirtualInterfacesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return List of EC2 Service Link Virtual Interface identifiers.
@@ -63,7 +51,6 @@ public final class GetServiceLinkVirtualInterfacesResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetServiceLinkVirtualInterfacesFilter> filters;
-        private String id;
         private List<String> ids;
         private String region;
         private @Nullable Map<String,String> tags;
@@ -71,7 +58,6 @@ public final class GetServiceLinkVirtualInterfacesResult {
         public Builder(GetServiceLinkVirtualInterfacesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
-    	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.region = defaults.region;
     	      this.tags = defaults.tags;
@@ -85,14 +71,6 @@ public final class GetServiceLinkVirtualInterfacesResult {
         }
         public Builder filters(GetServiceLinkVirtualInterfacesFilter... filters) {
             return filters(List.of(filters));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServiceLinkVirtualInterfacesResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
@@ -122,7 +100,6 @@ public final class GetServiceLinkVirtualInterfacesResult {
         public GetServiceLinkVirtualInterfacesResult build() {
             final var _resultValue = new GetServiceLinkVirtualInterfacesResult();
             _resultValue.filters = filters;
-            _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.region = region;
             _resultValue.tags = tags;

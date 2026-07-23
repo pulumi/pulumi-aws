@@ -124,22 +124,15 @@ namespace Pulumi.Aws.Odb
         /// List of Cloud Autonomous VM Clusters. The list going to contain basic information about the cloud autonomous VM clusters.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult> CloudAutonomousVmClusters;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetCloudAutonomousVmClustersResult(
             ImmutableArray<Outputs.GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult> cloudAutonomousVmClusters,
 
-            string id,
-
             string region)
         {
             CloudAutonomousVmClusters = cloudAutonomousVmClusters;
-            Id = id;
             Region = region;
         }
     }

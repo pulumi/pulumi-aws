@@ -199,10 +199,6 @@ namespace Pulumi.Aws.ElastiCache
         /// ID of Cache Cluster this update action applies to.
         /// </summary>
         public readonly string? CacheClusterId;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// ID of Replication Group this update action applies to.
@@ -221,8 +217,6 @@ namespace Pulumi.Aws.ElastiCache
         private GetServiceUpdateActionsResult(
             string? cacheClusterId,
 
-            string id,
-
             string region,
 
             string? replicationGroupId,
@@ -232,7 +226,6 @@ namespace Pulumi.Aws.ElastiCache
             ImmutableArray<Outputs.GetServiceUpdateActionsUpdateActionResult> updateActions)
         {
             CacheClusterId = cacheClusterId;
-            Id = id;
             Region = region;
             ReplicationGroupId = replicationGroupId;
             ServiceUpdateStatuses = serviceUpdateStatuses;

@@ -28,11 +28,6 @@ public final class GetCapacityBlockOfferingResult {
      */
     private String currencyCode;
     private String endDateRange;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private Integer instanceCount;
     private String instanceType;
     private String region;
@@ -76,13 +71,6 @@ public final class GetCapacityBlockOfferingResult {
     public String endDateRange() {
         return this.endDateRange;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public Integer instanceCount() {
         return this.instanceCount;
     }
@@ -124,7 +112,6 @@ public final class GetCapacityBlockOfferingResult {
         private Integer capacityDurationHours;
         private String currencyCode;
         private String endDateRange;
-        private String id;
         private Integer instanceCount;
         private String instanceType;
         private String region;
@@ -139,7 +126,6 @@ public final class GetCapacityBlockOfferingResult {
     	      this.capacityDurationHours = defaults.capacityDurationHours;
     	      this.currencyCode = defaults.currencyCode;
     	      this.endDateRange = defaults.endDateRange;
-    	      this.id = defaults.id;
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
     	      this.region = defaults.region;
@@ -186,14 +172,6 @@ public final class GetCapacityBlockOfferingResult {
               throw new MissingRequiredPropertyException("GetCapacityBlockOfferingResult", "endDateRange");
             }
             this.endDateRange = endDateRange;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetCapacityBlockOfferingResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -251,7 +229,6 @@ public final class GetCapacityBlockOfferingResult {
             _resultValue.capacityDurationHours = capacityDurationHours;
             _resultValue.currencyCode = currencyCode;
             _resultValue.endDateRange = endDateRange;
-            _resultValue.id = id;
             _resultValue.instanceCount = instanceCount;
             _resultValue.instanceType = instanceType;
             _resultValue.region = region;
