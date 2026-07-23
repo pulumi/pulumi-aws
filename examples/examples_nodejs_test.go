@@ -823,18 +823,13 @@ func TestAccConfigureClusterAddons(t *testing.T) {
 
 // also test the release verification test so it will also fail in CI
 func TestReleaseVerification(t *testing.T) {
-	region := getEnvRegion(t)
-	test := integration.ProgramTestOptions{
-		Dir: filepath.Join(getCwd(t), "release-verification"),
-		Dependencies: []string{
-			"@pulumi/aws",
-		},
-		Config: map[string]string{
-			"aws:region": region,
-		},
-	}
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "release-verification"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
+
+	runExampleLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 func createLambdaArchive(size int64) (string, error) {

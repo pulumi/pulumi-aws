@@ -10,7 +10,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -73,6 +78,39 @@ func randomString(length int) string {
 		b[i] = letterRunes[rand.Intn(len(letterRunes))]
 	}
 	return string(b)
+}
+
+type exampleLifecycleOptions struct {
+	skipRefresh bool
+	validate    func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
+}
+
+// runExampleLifecycle preserves the standard checks previously provided implicitly by
+// integration.ProgramTest. Tests with materially different lifecycles should call pulumitest directly.
+func runExampleLifecycle(
+	t *testing.T,
+	test *pulumitest.PulumiTest,
+	opts exampleLifecycleOptions,
+) auto.UpResult {
+	t.Helper()
+
+	test.Preview(t, optpreview.Diff())
+	test.Up(t)
+
+	state := test.ExportStack(t)
+	test.ImportStack(t, state)
+
+	test.Preview(t, optpreview.Diff(), optpreview.ExpectNoChanges())
+	result := test.Up(t, optup.ExpectNoChanges())
+
+	if opts.validate != nil {
+		opts.validate(t, test, result)
+	}
+	if !opts.skipRefresh {
+		test.Refresh(t, optrefresh.ExpectNoChanges())
+	}
+
+	return result
 }
 
 // A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been

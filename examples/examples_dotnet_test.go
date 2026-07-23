@@ -8,30 +8,18 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 )
 
 // Keep the .NET release-verification example covered in normal CI.
 func TestReleaseVerificationCs(t *testing.T) {
-	test := getCSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			RunUpdateTest: false,
-			Dir:           filepath.Join(getCwd(t), "webserver-cs"),
-		})
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "webserver-cs"),
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.DotNetReference("Pulumi.Aws", filepath.Join(getCwd(t), "..", "sdk", "dotnet")),
+	)
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
 
-	integration.ProgramTest(t, &test)
-}
-
-func getCSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	csharpBase := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region": envRegion,
-		},
-		Dependencies: []string{
-			"Pulumi.Aws",
-		},
-	}
-
-	return csharpBase
+	runExampleLifecycle(t, test, exampleLifecycleOptions{})
 }
