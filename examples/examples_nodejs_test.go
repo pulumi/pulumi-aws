@@ -13,6 +13,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
 	"testing"
@@ -29,7 +30,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/assertup"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
@@ -38,15 +39,54 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func newJSExampleTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {
+	t.Helper()
+	baseOpts := []opttest.Option{
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, append(baseOpts, opts...)...)
+	setJSBaseConfig(t, test)
+	return test
+}
+
+func newJSSDKUpdateTest(t *testing.T, dir string, opts ...opttest.Option) *pulumitest.PulumiTest {
+	t.Helper()
+	baseOpts := []opttest.Option{
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.RequireYarnLinks(false),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, append(baseOpts, opts...)...)
+	setJSBaseConfig(t, test)
+	return test
+}
+
+func setJSBaseConfig(t *testing.T, test *pulumitest.PulumiTest) {
+	t.Helper()
+	test.SetConfig(t, "aws:region", "INVALID_REGION")
+	test.SetConfig(t, "aws:envRegion", getEnvRegion(t))
+}
+
+func runNodeSDKUpdateLifecycle(
+	t *testing.T,
+	test *pulumitest.PulumiTest,
+	opts exampleLifecycleOptions,
+) {
+	t.Helper()
+	runExampleLifecycle(t, test, opts)
+
+	cmd := exec.Command("yarn", "link", "@pulumi/aws")
+	cmd.Dir = test.WorkingDir()
+	out, err := cmd.CombinedOutput()
+	require.NoErrorf(t, err, "failed to link local Node.js SDK\n%s", out)
+
+	runExampleLifecycle(t, test, opts)
+}
+
 /* see https://github.com/pulumi/pulumi-aws/issues/1264
 func TestAccDedicatedHosts(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "dedicated-hosts"),
-			RunUpdateTest: false,
-		})
-
-	integration.ProgramTest(t, &test)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "dedicated-hosts"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{})
 }
 */
 
@@ -54,30 +94,30 @@ func TestAccExpress(t *testing.T) {
 	// This example is reused to further validate that provisioned CallbackFunctions in Node are working at runtime
 	// as expected, in particular their default runtime is not deprecated and they can utilize modern APIs like
 	// fetch().
-	validate := func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-		lambdaRuntime := stack.Outputs["lambdaRuntime"].(string)
+	validate := func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
+		lambdaRuntime := result.Outputs["lambdaRuntime"].Value.(string)
 		t.Logf("Picked the following runtime by default: %v", lambdaRuntime)
 		assert.Equal(t, "nodejs22.x", lambdaRuntime)
 
-		lambdaARN := stack.Outputs["lambdaARN"].(string)
+		lambdaARN := result.Outputs["lambdaARN"].Value.(string)
 
 		// Invoke a given Lambda function using Go SDK v2
 		sess := getAwsSession(t)
 		lambdaClient := lambda.New(sess)
-		result, err := lambdaClient.Invoke(&lambda.InvokeInput{
+		invokeResult, err := lambdaClient.Invoke(&lambda.InvokeInput{
 			FunctionName: aws.String(lambdaARN),
 			Payload:      []byte("{}"),
 		})
 		require.NoError(t, err)
 
-		t.Logf("Raw payload returned by the Lambda: %s", result.Payload)
+		t.Logf("Raw payload returned by the Lambda: %s", invokeResult.Payload)
 
 		type data struct {
 			StatusCode int    `json:"statusCode"`
 			Body       string `json:"body"`
 		}
 		var payload data
-		err = json.Unmarshal(result.Payload, &payload)
+		err = json.Unmarshal(invokeResult.Payload, &payload)
 		require.NoError(t, err)
 
 		require.Equal(t, 200, payload.StatusCode)
@@ -94,54 +134,49 @@ func TestAccExpress(t *testing.T) {
 		assert.Contains(t, response.Message, "Hello, world!")
 		assert.Equal(t, 200, response.FetchStatus)
 	}
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:                    filepath.Join(getCwd(t), "express"),
-			ExtraRuntimeValidation: validate,
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "express"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		skipRefresh: true,
+		validate:    validate,
+	})
 }
 
 func TestAccBucket(t *testing.T) {
 	t.Skip("temporarily disabled, see https://github.com/pulumi/pulumi-aws/issues/6272")
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "bucket"),
-			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
-				bucketName, ok := info.Outputs["bucketName"].(string)
-				assert.True(t, ok)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "bucket"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		skipRefresh: true,
+		validate: func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
+			bucketName, ok := result.Outputs["bucketName"].Value.(string)
+			assert.True(t, ok)
 
-				sess := getAwsSession(t)
-				s3client := s3.New(sess)
-				_, err := s3client.PutObject(&s3.PutObjectInput{
-					Bucket: aws.String(bucketName),
-					Key:    aws.String("foo.txt"),
-					Body:   bytes.NewReader([]byte("Hello, world!")),
-				})
-				assert.NoError(t, err)
+			sess := getAwsSession(t)
+			s3client := s3.New(sess)
+			_, err := s3client.PutObject(&s3.PutObjectInput{
+				Bucket: aws.String(bucketName),
+				Key:    aws.String("foo.txt"),
+				Body:   bytes.NewReader([]byte("Hello, world!")),
+			})
+			assert.NoError(t, err)
 
-				// Wait for the new object to be written
-				time.Sleep(5 * time.Second)
+			// Wait for the new object to be written
+			time.Sleep(5 * time.Second)
 
-				getOut, err := s3client.GetObject(&s3.GetObjectInput{
-					Bucket: aws.String(bucketName),
-					Key:    aws.String("lastPutFile.json"),
-				})
-				assert.NoError(t, err)
-				body, err := io.ReadAll(getOut.Body)
-				assert.NoError(t, err)
+			getOut, err := s3client.GetObject(&s3.GetObjectInput{
+				Bucket: aws.String(bucketName),
+				Key:    aws.String("lastPutFile.json"),
+			})
+			assert.NoError(t, err)
+			body, err := io.ReadAll(getOut.Body)
+			assert.NoError(t, err)
 
-				var data map[string]interface{}
-				err = json.Unmarshal(body, &data)
-				assert.NoError(t, err)
+			var data map[string]interface{}
+			err = json.Unmarshal(body, &data)
+			assert.NoError(t, err)
 
-				assert.Equal(t, "foo.txt", data["key"].(string))
-			},
-		})
-
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+			assert.Equal(t, "foo.txt", data["key"].(string))
+		},
+	})
 }
 
 func TestAccCloudWatchWithOIDC(t *testing.T) {
@@ -160,131 +195,102 @@ func TestAccCloudWatchWithOIDC(t *testing.T) {
 	creds, err := cfg.Credentials.Retrieve(ctx)
 	require.NoError(t, err)
 
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "cloudwatch"),
-			RunUpdateTest: true,
-			// Override ambient credentials to use our OIDC role.
-			Env: []string{
-				"AWS_ACCESS_KEY_ID=" + creds.AccessKeyID,
-				"AWS_SECRET_ACCESS_KEY=" + creds.SecretAccessKey,
-				"AWS_SESSION_TOKEN=" + creds.SessionToken,
-				"AWS_REGION=" + os.Getenv("AWS_REGION"),
-			},
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := newJSSDKUpdateTest(t, filepath.Join(getCwd(t), "cloudwatch"),
+		// Override ambient credentials to use our OIDC role.
+		opttest.Env("AWS_ACCESS_KEY_ID", creds.AccessKeyID),
+		opttest.Env("AWS_SECRET_ACCESS_KEY", creds.SecretAccessKey),
+		opttest.Env("AWS_SESSION_TOKEN", creds.SessionToken),
+		opttest.Env("AWS_REGION", os.Getenv("AWS_REGION")),
+	)
+	runNodeSDKUpdateLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 func TestAccCloudWatchOIDCManual(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "cloudwatchOidcManual"),
+		// Unset any ambient credentials.
+		opttest.Env("AWS_ACCESS_KEY_ID", ""),
+		opttest.Env("AWS_SECRET_ACCESS_KEY", ""),
+		opttest.Env("AWS_SESSION_TOKEN", ""),
+		opttest.Env("AWS_REGION", os.Getenv("AWS_REGION")),
+	)
 
-			// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
-			SkipRefresh:              true,
-			AllowEmptyPreviewChanges: true,
-			AllowEmptyUpdateChanges:  true,
-			// Unset any ambient credentials.
-			Env: []string{
-				`AWS_ACCESS_KEY_ID=`,
-				`AWS_SECRET_ACCESS_KEY=`,
-				`AWS_SESSION_TOKEN=`,
-				`AWS_REGION=` + os.Getenv("AWS_REGION"),
-			},
-		})
-
-	integration.ProgramTest(t, &test)
+	// TODO[pulumi/pulumi-aws#3193] multiple issues with refreshing and updating cleanly.
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		skipRefresh:              true,
+		allowEmptyPreviewChanges: true,
+		allowEmptyUpdateChanges:  true,
+	})
 }
 
 func TestAccSecretCapture(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "secretcapture"),
-			RunUpdateTest: true,
-			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
-				byts, err := json.Marshal(info.Deployment)
-				assert.NoError(t, err)
-				assert.NotContains(t, "s3cr3t", string(byts))
-			},
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := newJSSDKUpdateTest(t, filepath.Join(getCwd(t), "secretcapture"))
+	runNodeSDKUpdateLifecycle(t, test, exampleLifecycleOptions{
+		skipRefresh: true,
+		validate: func(t *testing.T, test *pulumitest.PulumiTest, _ auto.UpResult) {
+			state := test.ExportStack(t)
+			byts, err := json.Marshal(state.Deployment)
+			assert.NoError(t, err)
+			assert.NotContains(t, "s3cr3t", string(byts))
+		},
+	})
 }
 
 func TestAccCallbackFunction(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "callbackfunction"),
-			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
-				sess := getAwsSession(t)
-				lambdaClient := lambda.New(sess)
-				arns := info.Outputs["arns"].([]interface{})
-				results := make(chan bool, len(arns))
-				for i := range arns {
-					functionArn := arns[i].(string)
-					go func() {
-						defer func() { results <- true }()
-						res, err := lambdaClient.Invoke(&lambda.InvokeInput{
-							FunctionName: aws.String(functionArn),
-							Payload:      []byte("{}"),
-						})
-						assert.NoError(t, err)
-						assert.Nil(t, res.FunctionError)
-						var payload struct {
-							Success bool `json:"success"`
-						}
-						err = json.Unmarshal(res.Payload, &payload)
-						assert.NoError(t, err)
-						assert.True(t, payload.Success)
-					}()
-				}
-				for range arns {
-					<-results
-				}
-			},
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "callbackfunction"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		skipRefresh: true,
+		validate: func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
+			sess := getAwsSession(t)
+			lambdaClient := lambda.New(sess)
+			arns := result.Outputs["arns"].Value.([]interface{})
+			results := make(chan bool, len(arns))
+			for i := range arns {
+				functionArn := arns[i].(string)
+				go func() {
+					defer func() { results <- true }()
+					res, err := lambdaClient.Invoke(&lambda.InvokeInput{
+						FunctionName: aws.String(functionArn),
+						Payload:      []byte("{}"),
+					})
+					assert.NoError(t, err)
+					assert.Nil(t, res.FunctionError)
+					var payload struct {
+						Success bool `json:"success"`
+					}
+					err = json.Unmarshal(res.Payload, &payload)
+					assert.NoError(t, err)
+					assert.True(t, payload.Success)
+				}()
+			}
+			for range arns {
+				<-results
+			}
+		},
+	})
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
 	// TODO[pulumi/pulumi-awsx#1612]
 	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
-		})
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "lambda-container-image"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 func TestRegress1423Ts(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "regress-1423"),
-		})
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "regress-1423"))
 	// TODO[pulumi/pulumi-aws#3361] similarly to upstream this currently has a non-empty refresh
-	test.SkipRefresh = true
-	test.Quick = false
-	integration.ProgramTest(t, &test)
+	runExampleLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 // Regress passing unknowns into an explicit provider configuration, see pulumi/pulumi-aws#2818
 func TestRegress2818(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "regress-2818"),
-		})
-	// These settings run pulumi preview, as the example is incomplete for running pulumi up.
-	test.Quick = false
-	test.SkipRefresh = true
-	test.SkipUpdate = true
-	test.SkipExportImport = true
-	test.SkipEmptyPreviewUpdate = true
-	// Disable envRegion mangling
-	test.Config = nil
-	integration.ProgramTest(t, &test)
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "regress-2818"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+
+	// This example is incomplete, so only preview it without the base envRegion configuration.
+	test.Preview(t, optpreview.Diff())
 }
 
 func TestGlobalResourcesUseSeparateRegionArgument(t *testing.T) {
@@ -297,21 +303,6 @@ func TestGlobalResourcesUseSeparateRegionArgument(t *testing.T) {
 
 	// only preview is needed to verify this
 	test.Preview(t)
-}
-
-func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	baseJS := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region":    "INVALID_REGION",
-			"aws:envRegion": envRegion,
-		},
-		Dependencies: []string{
-			"@pulumi/aws",
-		},
-	}
-
-	return baseJS
 }
 
 func getAwsSession(t *testing.T) *session.Session {
@@ -477,17 +468,14 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 }
 
 func TestAccEcrImage(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "ecr-image"),
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				repoDigest, ok := stack.Outputs["digest"].(string)
-				assert.True(t, ok, "expected digest output to be set")
-				assert.NotEmpty(t, repoDigest)
-			},
-		})
-
-	integration.ProgramTest(t, &test)
+	test := newJSExampleTest(t, filepath.Join(getCwd(t), "ecr-image"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		validate: func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
+			repoDigest, ok := result.Outputs["digest"].Value.(string)
+			assert.True(t, ok, "expected digest output to be set")
+			assert.NotEmpty(t, repoDigest)
+		},
+	})
 }
 
 func TestLambdaLayerNewUpgrade(t *testing.T) {
@@ -656,18 +644,17 @@ func TestParallelLambdaCreation(t *testing.T) {
 	defer os.Remove(tempFile)
 
 	maxDuration(5*time.Minute, t, func(t *testing.T) {
-		test := getJSBaseOptions(t).
-			With(integration.ProgramTestOptions{
-				Dir: filepath.Join("test-programs", "parallel-lambdas"),
-				Config: map[string]string{
-					"lambda:archivePath": tempFile,
-				},
-				// Lambdas have diffs on every update (source code hash)
-				AllowEmptyPreviewChanges: true,
-				SkipRefresh:              true,
-			})
+		test := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parallel-lambdas"),
+			opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+			opttest.YarnLink("@pulumi/aws"),
+		)
+		test.SetConfig(t, "lambda:archivePath", tempFile)
 
-		integration.ProgramTest(t, &test)
+		// Lambdas have diffs on every update (source code hash).
+		runExampleLifecycle(t, test, exampleLifecycleOptions{
+			skipRefresh:             true,
+			allowEmptyPreviewChanges: true,
+		})
 	})
 }
 
@@ -790,35 +777,26 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 
 func TestAccProviderRoleChaining(t *testing.T) {
 	skipIfShort(t)
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "provider-role-chaining"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
 	region := getEnvRegion(t)
-	test := integration.ProgramTestOptions{
-		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
-		Dependencies: []string{
-			"@pulumi/aws",
-		},
-		Config: map[string]string{
-			"aws-native:region": region,
-			"aws:region":        region,
-		},
-	}
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test.SetConfig(t, "aws-native:region", region)
+	test.SetConfig(t, "aws:region", region)
+
+	runExampleLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 func TestAccConfigureClusterAddons(t *testing.T) {
 	skipIfShort(t)
-	region := getEnvRegion(t)
-	test := integration.ProgramTestOptions{
-		Dir: filepath.Join(getCwd(t), "eks-remove-addons"),
-		Dependencies: []string{
-			"@pulumi/aws",
-		},
-		Config: map[string]string{
-			"aws:region": region,
-		},
-	}
-	skipRefresh(&test)
-	integration.ProgramTest(t, &test)
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "eks-remove-addons"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
+
+	runExampleLifecycle(t, test, exampleLifecycleOptions{skipRefresh: true})
 }
 
 // also test the release verification test so it will also fail in CI

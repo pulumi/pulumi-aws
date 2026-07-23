@@ -81,8 +81,10 @@ func randomString(length int) string {
 }
 
 type exampleLifecycleOptions struct {
-	skipRefresh bool
-	validate    func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
+	skipRefresh             bool
+	allowEmptyPreviewChanges bool
+	allowEmptyUpdateChanges  bool
+	validate                func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
 }
 
 // runExampleLifecycle preserves the standard checks previously provided implicitly by
@@ -100,8 +102,17 @@ func runExampleLifecycle(
 	state := test.ExportStack(t)
 	test.ImportStack(t, state)
 
-	test.Preview(t, optpreview.Diff(), optpreview.ExpectNoChanges())
-	result := test.Up(t, optup.ExpectNoChanges())
+	previewOpts := []optpreview.Option{optpreview.Diff()}
+	if !opts.allowEmptyPreviewChanges {
+		previewOpts = append(previewOpts, optpreview.ExpectNoChanges())
+	}
+	test.Preview(t, previewOpts...)
+
+	upOpts := []optup.Option{}
+	if !opts.allowEmptyUpdateChanges {
+		upOpts = append(upOpts, optup.ExpectNoChanges())
+	}
+	result := test.Up(t, upOpts...)
 
 	if opts.validate != nil {
 		opts.validate(t, test, result)
@@ -111,14 +122,4 @@ func runExampleLifecycle(
 	}
 
 	return result
-}
-
-// A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
-// done yet but the common causes are listed here:
-//
-// TODO[pulumi/pulumi-aws#2246] specifically affects overlays such as bucket.onObjectCreated; may be worked around
-// TODO[pulumi/pulumi#6235]
-// TODO[pulumi/pulumi-terraform-bridge#1595]
-func skipRefresh(opts *integration.ProgramTestOptions) {
-	opts.SkipRefresh = true
 }
