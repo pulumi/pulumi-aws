@@ -52,6 +52,7 @@ jobs:
           - docdb
           - redshiftserverless
           - cognitoidp
+          - rds
         include:
           - service: sqs
             tests: TestAccSQSQueue
@@ -61,6 +62,8 @@ jobs:
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless
             tests: TestAccRedshiftServerlessNamespace_basic
+          - service: rds
+            tests: TestAccRDSCluster_storageTypeUpdateNonAurora
           - service: cognitoidp
             tests: 'TestAccCognitoIDPIdentityProvider_(defaultProviderDetails|samlDefaultProviderDetails)'
           # TODO[pulumi/pulumi-aws#5388] route53resolver tests flaky
