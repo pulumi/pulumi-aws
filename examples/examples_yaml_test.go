@@ -30,7 +30,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"sort"
-	"strconv"
 	"strings"
 	"testing"
 
@@ -39,7 +38,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/stretchr/testify/assert"
@@ -882,21 +881,6 @@ func TestAssumeRoleSessionTags(t *testing.T) {
 	assert.NotEmpty(t, result.Outputs["bucketArn"].Value.(string))
 }
 
-func getYamlBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	config := map[string]string{}
-	_, usingProfiles := os.LookupEnv("AWS_PROFILE")
-	if !usingProfiles {
-		envRegion := getEnvRegion(t)
-		config = map[string]string{
-			"aws:region": envRegion,
-		}
-	}
-	// Do not use baseOptions here for now as those disable refresh checking. Be extra conservative.
-	return integration.ProgramTestOptions{
-		Config: config,
-	}
-}
-
 type tagsType struct {
 	name, token string
 
@@ -1069,36 +1053,35 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 		v, ok := val.(map[string]interface{})
 		return ok && len(v) == 0
 	}
-	editDirs := make([]integration.EditDir, 0, len(steps))
-	for i, step := range steps {
-		step := step
-		editDirs = append(editDirs,
-			integration.EditDir{
-				Dir:      filepath.Join(dir, "step"+strconv.Itoa(i)),
-				Additive: true,
-				ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
-					stackOutputBucketTags := stackInfo.Outputs["actual"]
-					// legacy returns nil initially, but sdkv2 returns
-					// an empty map initially.
-					if isNil(step.expected) && isNil(stackOutputBucketTags) {
-						return
-					}
-					assert.Equal(t, step.expected, stackOutputBucketTags,
-						"Unexpected stack output for step %d: %s", i, step.purpose)
-				},
-			})
+	validate := func(t *testing.T, result auto.UpResult, i int, step tagsStep) {
+		stackOutputBucketTags := result.Outputs["actual"].Value
+		// legacy returns nil initially, but sdkv2 returns
+		// an empty map initially.
+		if isNil(step.expected) && isNil(stackOutputBucketTags) {
+			return
+		}
+		assert.Equal(t, step.expected, stackOutputBucketTags,
+			"Unexpected stack output for step %d: %s", i, step.purpose)
 	}
 
-	integration.ProgramTest(t, &integration.ProgramTestOptions{
-		Dir:                    dir,
-		ExtraRuntimeValidation: editDirs[0].ExtraRuntimeValidation,
-		EditDirs:               editDirs[1:],
-		// see https://github.com/pulumi/pulumi-aws/issues/4080
-		ExpectRefreshChanges: true,
-		Config:               map[string]string{"aws:region": getEnvRegion(t)},
-		Quick:                true,
-		DestroyOnCleanup:     true,
-	})
+	region := getEnvRegion(t)
+	test := pulumitest.NewPulumiTest(t, dir,
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	test.SetConfig(t, "aws:region", region)
+
+	result := test.Up(t)
+	validate(t, result, 0, steps[0])
+
+	// Refresh changes are expected; see https://github.com/pulumi/pulumi-aws/issues/4080.
+	test.Refresh(t)
+
+	for i, step := range steps[1:] {
+		stepNumber := i + 1
+		test.UpdateSource(t, filepath.Join(dir, fmt.Sprintf("step%d", stepNumber)))
+		result = test.Up(t)
+		validate(t, result, stepNumber, step)
+	}
 }
 
 func generateTagsTests(t *testing.T, types []tagsType, steps []tagsStep) {
