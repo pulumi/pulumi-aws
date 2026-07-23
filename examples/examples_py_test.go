@@ -19,68 +19,77 @@ import (
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/workspace"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func TestAccPolicyDocument(t *testing.T) {
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "iam-policy-document", "py"),
-		})
+func newPythonExampleTest(t *testing.T, dir string) *pulumitest.PulumiTest {
+	t.Helper()
+	region := getEnvRegion(t)
+	cwd := getCwd(t)
+	test := pulumitest.NewPulumiTest(t, dir,
+		opttest.SkipInstall(),
+		opttest.SkipStackCreate(),
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+	)
+	projectPath := filepath.Join(test.WorkingDir(), workspace.ProjectFile+".yaml")
+	project, err := workspace.LoadProject(projectPath)
+	require.NoError(t, err)
+	project.Runtime.SetOption("virtualenv", "venv")
+	require.NoError(t, project.Save(projectPath))
+	setupPythonVenv(t, test.WorkingDir(), filepath.Join(cwd, "..", "sdk", "python", "bin"))
+	test.NewStack(t, "test")
+	test.SetConfig(t, "aws:region", region)
+	return test
+}
 
-	integration.ProgramTest(t, &test)
+func TestAccPolicyDocument(t *testing.T) {
+	test := newPythonExampleTest(t, filepath.Join(getCwd(t), "iam-policy-document", "py"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{})
 }
 
 func TestAccWebserverPy(t *testing.T) {
 	for _, dir := range []string{"webserver-py", "webserver-py-old"} {
 		t.Run(dir, func(t *testing.T) {
-			test := getPythonBaseOptions(t).
-				With(integration.ProgramTestOptions{
-					Dir: filepath.Join(getCwd(t), dir),
-				})
-
-			integration.ProgramTest(t, &test)
+			test := newPythonExampleTest(t, filepath.Join(getCwd(t), dir))
+			runExampleLifecycle(t, test, exampleLifecycleOptions{})
 		})
 	}
 }
 
 func TestRegress4031(t *testing.T) {
 	iamClient := configureIAMClient(t)
-	test := getPythonBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "regress-4031"),
-			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-				roleName := stack.Outputs["roleName"].(string)
-				rolePolicies, err := iamClient.ListRolePolicies(context.TODO(), &iamsdk.ListRolePoliciesInput{
-					RoleName: &roleName,
-				})
-
-				assert.NoError(t, err, "failed to get policies of role %s", roleName)
-				// Should have two inline policies called "bucket1" and "bucket2"
-				assert.Contains(t, rolePolicies.PolicyNames, "bucket1")
-				assert.Contains(t, rolePolicies.PolicyNames, "bucket2")
-			},
-			EditDirs: []integration.EditDir{
-				{
-					Dir:      filepath.Join(getCwd(t), "regress-4031", "step1"),
-					Additive: true,
-					ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-						roleName := stack.Outputs["roleName"].(string)
-						rolePolicies, err := iamClient.ListRolePolicies(context.TODO(), &iamsdk.ListRolePoliciesInput{
-							RoleName: &roleName,
-						})
-
-						assert.NoError(t, err, "failed to get policies of role %s", roleName)
-						assert.Empty(t, rolePolicies.PolicyNames)
-					},
-				},
-			},
+	validatePolicies := func(t *testing.T, result auto.UpResult, expectedPolicies ...string) {
+		roleName := result.Outputs["roleName"].Value.(string)
+		rolePolicies, err := iamClient.ListRolePolicies(context.TODO(), &iamsdk.ListRolePoliciesInput{
+			RoleName: &roleName,
 		})
 
-	integration.ProgramTest(t, &test)
+		assert.NoError(t, err, "failed to get policies of role %s", roleName)
+		if len(expectedPolicies) == 0 {
+			assert.Empty(t, rolePolicies.PolicyNames)
+			return
+		}
+		for _, policy := range expectedPolicies {
+			assert.Contains(t, rolePolicies.PolicyNames, policy)
+		}
+	}
+
+	test := newPythonExampleTest(t, filepath.Join(getCwd(t), "regress-4031"))
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		// The initial program should have two inline policies.
+		validate: func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
+			validatePolicies(t, result, "bucket1", "bucket2")
+		},
+	})
+
+	test.UpdateSource(t, filepath.Join(getCwd(t), "regress-4031", "step1"))
+	test.Preview(t, optpreview.Diff())
+	result := test.Up(t)
+	validatePolicies(t, result)
 }
 
 func TestRegress3196(t *testing.T) {
@@ -89,14 +98,9 @@ func TestRegress3196(t *testing.T) {
 		return
 	}
 	maxDuration(6*time.Minute, t, func(t *testing.T) {
-		test := getPythonBaseOptions(t).
-			With(integration.ProgramTestOptions{
-				Quick:         true,
-				SkipRefresh:   true,
-				Dir:           filepath.Join("test-programs", "regress-3196"),
-				ExpectFailure: true,
-			})
-		integration.ProgramTest(t, &test)
+		test := newPythonExampleTest(t, filepath.Join(getCwd(t), "test-programs", "regress-3196"))
+		_, err := test.UpErr(t)
+		require.Error(t, err, "expected update to fail")
 	})
 }
 
@@ -106,7 +110,7 @@ func TestRegress2534(t *testing.T) {
 	cwd := getCwd(t)
 	// We need explicit control over Python setup here because this test exercises
 	// `pulumi import` end-to-end against the local provider and local SDK rather
-	// than the older integration.ProgramTest harness used by most Python examples.
+	// than the standard lifecycle used by the ordinary Python examples.
 	ptest := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "test-programs", "regress-2534"),
 		opttest.SkipInstall(),
 		opttest.SkipStackCreate(),
@@ -216,21 +220,6 @@ func TestRegress4457(t *testing.T) {
 	previewResult := ptest.Preview(t, optpreview.ExpectNoChanges())
 	t.Logf("%s", previewResult.StdOut)
 	t.Logf("%s", previewResult.StdErr)
-}
-
-func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	t.Helper()
-	envRegion := getEnvRegion(t)
-	pythonBase := integration.ProgramTestOptions{
-		Config: map[string]string{
-			"aws:region": envRegion,
-		},
-		Dependencies: []string{
-			filepath.Join("..", "sdk", "python", "bin"),
-		},
-	}
-
-	return pythonBase
 }
 
 func configureIAMClient(t *testing.T) *iamsdk.Client {
