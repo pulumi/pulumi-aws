@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetServiceLinkVirtualInterfaceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetServiceLinkVirtualInterfaceFilterInput is an input type that accepts GetServiceLinkVirtualInterfaceFilterArgs and GetServiceLinkVirtualInterfaceFilterOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfaceFilterInput` via:
+//
+//	GetServiceLinkVirtualInterfaceFilterArgs{...}
+type GetServiceLinkVirtualInterfaceFilterInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput
+	ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(context.Context) GetServiceLinkVirtualInterfaceFilterOutput
+}
+
+type GetServiceLinkVirtualInterfaceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetServiceLinkVirtualInterfaceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArgs) ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput {
+	return i.ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArgs) ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfaceFilterOutput)
+}
+
+// GetServiceLinkVirtualInterfaceFilterArrayInput is an input type that accepts GetServiceLinkVirtualInterfaceFilterArray and GetServiceLinkVirtualInterfaceFilterArrayOutput values.
+// You can construct a concrete instance of `GetServiceLinkVirtualInterfaceFilterArrayInput` via:
+//
+//	GetServiceLinkVirtualInterfaceFilterArray{ GetServiceLinkVirtualInterfaceFilterArgs{...} }
+type GetServiceLinkVirtualInterfaceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput
+	ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput
+}
+
+type GetServiceLinkVirtualInterfaceFilterArray []GetServiceLinkVirtualInterfaceFilterInput
+
+func (GetServiceLinkVirtualInterfaceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArray) ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return i.ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceLinkVirtualInterfaceFilterArray) ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceLinkVirtualInterfaceFilterArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfaceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfaceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterOutput) ToGetServiceLinkVirtualInterfaceFilterOutput() GetServiceLinkVirtualInterfaceFilterOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterOutput) ToGetServiceLinkVirtualInterfaceFilterOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetServiceLinkVirtualInterfaceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfaceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetServiceLinkVirtualInterfaceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetServiceLinkVirtualInterfaceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetServiceLinkVirtualInterfaceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceLinkVirtualInterfaceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceLinkVirtualInterfaceFilter)(nil)).Elem()
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) ToGetServiceLinkVirtualInterfaceFilterArrayOutput() GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) ToGetServiceLinkVirtualInterfaceFilterArrayOutputWithContext(ctx context.Context) GetServiceLinkVirtualInterfaceFilterArrayOutput {
+	return o
+}
+
+func (o GetServiceLinkVirtualInterfaceFilterArrayOutput) Index(i pulumi.IntInput) GetServiceLinkVirtualInterfaceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceLinkVirtualInterfaceFilter {
+		return vs[0].([]GetServiceLinkVirtualInterfaceFilter)[vs[1].(int)]
+	}).(GetServiceLinkVirtualInterfaceFilterOutput)
+}
+
 type GetServiceLinkVirtualInterfacesFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -3842,6 +3948,8 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterArrayInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfacesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilterArrayInput)(nil)).Elem(), GetServiceLinkVirtualInterfacesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterInput)(nil)).Elem(), GetSpotPriceFilterArgs{})
@@ -3908,6 +4016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterOutput{})
+	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfacesFilterOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfacesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSpotPriceFilterOutput{})

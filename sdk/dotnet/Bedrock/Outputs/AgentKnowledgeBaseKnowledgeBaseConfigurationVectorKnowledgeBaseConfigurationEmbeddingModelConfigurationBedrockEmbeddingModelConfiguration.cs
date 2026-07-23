@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration
     {
         /// <summary>
+        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio? Audio;
+        /// <summary>
         /// Dimension details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
         public readonly int? Dimensions;
@@ -21,15 +25,25 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
         /// </summary>
         public readonly string? EmbeddingDataType;
+        /// <summary>
+        /// Configuration for processing video content in multimodal knowledge bases. See `Video` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo? Video;
 
         [OutputConstructor]
         private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration(
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio? audio,
+
             int? dimensions,
 
-            string? embeddingDataType)
+            string? embeddingDataType,
+
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo? video)
         {
+            Audio = audio;
             Dimensions = dimensions;
             EmbeddingDataType = embeddingDataType;
+            Video = video;
         }
     }
 }

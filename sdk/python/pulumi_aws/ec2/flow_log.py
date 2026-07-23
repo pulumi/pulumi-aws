@@ -32,6 +32,7 @@ class FlowLogArgs:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -53,6 +54,7 @@ class FlowLogArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
@@ -83,6 +85,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "regional_nat_gateway_id", regional_nat_gateway_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if tag_field_specifications is not None:
+            pulumi.set(__self__, "tag_field_specifications", tag_field_specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if traffic_type is not None:
@@ -229,6 +233,18 @@ class FlowLogArgs:
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagFieldSpecifications")
+    def tag_field_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]:
+        """
+        Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
+        """
+        return pulumi.get(self, "tag_field_specifications")
+
+    @tag_field_specifications.setter
+    def tag_field_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]):
+        pulumi.set(self, "tag_field_specifications", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -306,6 +322,7 @@ class _FlowLogState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -329,6 +346,7 @@ class _FlowLogState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
@@ -362,6 +380,8 @@ class _FlowLogState:
             pulumi.set(__self__, "regional_nat_gateway_id", regional_nat_gateway_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if tag_field_specifications is not None:
+            pulumi.set(__self__, "tag_field_specifications", tag_field_specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -522,6 +542,18 @@ class _FlowLogState:
         pulumi.set(self, "subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="tagFieldSpecifications")
+    def tag_field_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]:
+        """
+        Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
+        """
+        return pulumi.get(self, "tag_field_specifications")
+
+    @tag_field_specifications.setter
+    def tag_field_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]):
+        pulumi.set(self, "tag_field_specifications", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -613,6 +645,7 @@ class FlowLog(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -819,6 +852,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
@@ -1044,6 +1078,7 @@ class FlowLog(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1069,6 +1104,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["regional_nat_gateway_id"] = regional_nat_gateway_id
             __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["tag_field_specifications"] = tag_field_specifications
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_type"] = traffic_type
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
@@ -1098,6 +1134,7 @@ class FlowLog(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1125,6 +1162,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
@@ -1150,6 +1188,7 @@ class FlowLog(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["regional_nat_gateway_id"] = regional_nat_gateway_id
         __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["tag_field_specifications"] = tag_field_specifications
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["traffic_type"] = traffic_type
@@ -1255,6 +1294,14 @@ class FlowLog(pulumi.CustomResource):
         Subnet ID to attach to.
         """
         return pulumi.get(self, "subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tagFieldSpecifications")
+    def tag_field_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.FlowLogTagFieldSpecification']]]:
+        """
+        Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
+        """
+        return pulumi.get(self, "tag_field_specifications")
 
     @_builtins.property
     @pulumi.getter

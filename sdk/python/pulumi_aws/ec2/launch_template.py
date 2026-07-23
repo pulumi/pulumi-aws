@@ -69,7 +69,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplateCreditSpecificationArgs'] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
-        :param pulumi.Input[_builtins.str] description: Description of the launch template.
+        :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -252,7 +252,7 @@ class LaunchTemplateArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the launch template.
+        Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         """
         return pulumi.get(self, "description")
 
@@ -704,7 +704,7 @@ class _LaunchTemplateState:
         :param pulumi.Input['LaunchTemplateCreditSpecificationArgs'] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
-        :param pulumi.Input[_builtins.str] description: Description of the launch template.
+        :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -907,7 +907,7 @@ class _LaunchTemplateState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the launch template.
+        Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         """
         return pulumi.get(self, "description")
 
@@ -1397,7 +1397,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
-        :param pulumi.Input[_builtins.str] description: Description of the launch template.
+        :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -1627,7 +1627,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplateCreditSpecificationArgs', 'LaunchTemplateCreditSpecificationArgsDict']] credit_specification: Customize the credit specification of the instance. See Credit
                Specification below for more details.
         :param pulumi.Input[_builtins.int] default_version: Default Version of the launch template.
-        :param pulumi.Input[_builtins.str] description: Description of the launch template.
+        :param pulumi.Input[_builtins.str] description: Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         :param pulumi.Input[_builtins.bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         :param pulumi.Input[_builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
@@ -1770,7 +1770,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Description of the launch template.
+        Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         """
         return pulumi.get(self, "description")
 

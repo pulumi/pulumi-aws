@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.opensearch;
 
+import com.pulumi.aws.opensearch.inputs.ServerlessSecurityConfigIamFederationOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.ServerlessSecurityConfigIamIdentityCenterOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessSecurityConfigSamlOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -30,6 +32,36 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+     * 
+     */
+    @Import(name="iamFederationOptions")
+    private @Nullable Output<ServerlessSecurityConfigIamFederationOptionsArgs> iamFederationOptions;
+
+    /**
+     * @return Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+     * 
+     */
+    public Optional<Output<ServerlessSecurityConfigIamFederationOptionsArgs>> iamFederationOptions() {
+        return Optional.ofNullable(this.iamFederationOptions);
+    }
+
+    /**
+     * Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+     * 
+     */
+    @Import(name="iamIdentityCenterOptions")
+    private @Nullable Output<ServerlessSecurityConfigIamIdentityCenterOptionsArgs> iamIdentityCenterOptions;
+
+    /**
+     * @return Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+     * 
+     */
+    public Optional<Output<ServerlessSecurityConfigIamIdentityCenterOptionsArgs>> iamIdentityCenterOptions() {
+        return Optional.ofNullable(this.iamIdentityCenterOptions);
     }
 
     /**
@@ -63,14 +95,14 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Configuration block for SAML options.
+     * Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
      * 
      */
     @Import(name="samlOptions")
     private @Nullable Output<ServerlessSecurityConfigSamlOptionsArgs> samlOptions;
 
     /**
-     * @return Configuration block for SAML options.
+     * @return Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
      * 
      */
     public Optional<Output<ServerlessSecurityConfigSamlOptionsArgs>> samlOptions() {
@@ -78,7 +110,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Type of configuration. Must be `saml`.
+     * Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
      * 
      * The following arguments are optional:
      * 
@@ -87,7 +119,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
     private Output<String> type;
 
     /**
-     * @return Type of configuration. Must be `saml`.
+     * @return Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
      * 
      * The following arguments are optional:
      * 
@@ -100,6 +132,8 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
 
     private ServerlessSecurityConfigArgs(ServerlessSecurityConfigArgs $) {
         this.description = $.description;
+        this.iamFederationOptions = $.iamFederationOptions;
+        this.iamIdentityCenterOptions = $.iamIdentityCenterOptions;
         this.name = $.name;
         this.region = $.region;
         this.samlOptions = $.samlOptions;
@@ -146,6 +180,48 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param iamFederationOptions Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamFederationOptions(@Nullable Output<ServerlessSecurityConfigIamFederationOptionsArgs> iamFederationOptions) {
+            $.iamFederationOptions = iamFederationOptions;
+            return this;
+        }
+
+        /**
+         * @param iamFederationOptions Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamFederationOptions(ServerlessSecurityConfigIamFederationOptionsArgs iamFederationOptions) {
+            return iamFederationOptions(Output.of(iamFederationOptions));
+        }
+
+        /**
+         * @param iamIdentityCenterOptions Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterOptions(@Nullable Output<ServerlessSecurityConfigIamIdentityCenterOptionsArgs> iamIdentityCenterOptions) {
+            $.iamIdentityCenterOptions = iamIdentityCenterOptions;
+            return this;
+        }
+
+        /**
+         * @param iamIdentityCenterOptions Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterOptions(ServerlessSecurityConfigIamIdentityCenterOptionsArgs iamIdentityCenterOptions) {
+            return iamIdentityCenterOptions(Output.of(iamIdentityCenterOptions));
+        }
+
+        /**
          * @param name Name of the policy.
          * 
          * @return builder
@@ -188,7 +264,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param samlOptions Configuration block for SAML options.
+         * @param samlOptions Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -199,7 +275,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param samlOptions Configuration block for SAML options.
+         * @param samlOptions Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -209,7 +285,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Type of configuration. Must be `saml`.
+         * @param type Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
          * 
          * The following arguments are optional:
          * 
@@ -222,7 +298,7 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Type of configuration. Must be `saml`.
+         * @param type Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
          * 
          * The following arguments are optional:
          * 

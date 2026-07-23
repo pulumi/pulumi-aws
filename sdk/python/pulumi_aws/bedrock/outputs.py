@@ -43,6 +43,12 @@ __all__ = [
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter',
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilter',
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration',
     'AgentDataSourceDataSourceConfigurationS3Configuration',
     'AgentDataSourceDataSourceConfigurationSalesforceConfiguration',
     'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfiguration',
@@ -139,6 +145,14 @@ __all__ = [
     'AgentFlowTimeouts',
     'AgentKnowledgeBaseKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration',
@@ -157,6 +171,10 @@ __all__ = [
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfiguration',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocation',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3Location',
@@ -1465,6 +1483,8 @@ class AgentDataSourceDataSourceConfiguration(dict):
         suggest = None
         if key == "confluenceConfiguration":
             suggest = "confluence_configuration"
+        elif key == "managedKnowledgeBaseConnectorConfiguration":
+            suggest = "managed_knowledge_base_connector_configuration"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
         elif key == "salesforceConfiguration":
@@ -1488,13 +1508,15 @@ class AgentDataSourceDataSourceConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  confluence_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration'] = None,
+                 managed_knowledge_base_connector_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration'] = None,
                  s3_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationS3Configuration'] = None,
                  salesforce_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration'] = None,
                  share_point_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration'] = None,
                  web_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationWebConfiguration'] = None):
         """
-        :param _builtins.str type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        :param _builtins.str type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         :param 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs' confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs' managed_knowledge_base_connector_configuration: Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs' s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs' salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
         :param 'AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs' share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
@@ -1503,6 +1525,8 @@ class AgentDataSourceDataSourceConfiguration(dict):
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if managed_knowledge_base_connector_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_connector_configuration", managed_knowledge_base_connector_configuration)
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
         if salesforce_configuration is not None:
@@ -1516,7 +1540,7 @@ class AgentDataSourceDataSourceConfiguration(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         """
         return pulumi.get(self, "type")
 
@@ -1527,6 +1551,14 @@ class AgentDataSourceDataSourceConfiguration(dict):
         Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
         """
         return pulumi.get(self, "confluence_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
+    def managed_knowledge_base_connector_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration']:
+        """
+        Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
+        """
+        return pulumi.get(self, "managed_knowledge_base_connector_configuration")
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
@@ -1834,6 +1866,288 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
         The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\\s]*$`.
         """
         return pulumi.get(self, "host_url")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorParameters":
+            suggest = "connector_parameters"
+        elif key == "deletionProtectionConfiguration":
+            suggest = "deletion_protection_configuration"
+        elif key == "mediaExtractionConfiguration":
+            suggest = "media_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_parameters: Optional[_builtins.str] = None,
+                 deletion_protection_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration'] = None,
+                 media_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration'] = None):
+        """
+        :param _builtins.str connector_parameters: JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs' deletion_protection_configuration: Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs' media_extraction_configuration: Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        """
+        if connector_parameters is not None:
+            pulumi.set(__self__, "connector_parameters", connector_parameters)
+        if deletion_protection_configuration is not None:
+            pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
+        if media_extraction_configuration is not None:
+            pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorParameters")
+    def connector_parameters(self) -> Optional[_builtins.str]:
+        """
+        JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
+        """
+        return pulumi.get(self, "connector_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionConfiguration")
+    def deletion_protection_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration']:
+        """
+        Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+        """
+        return pulumi.get(self, "deletion_protection_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration']:
+        """
+        Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "media_extraction_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionProtectionStatus":
+            suggest = "deletion_protection_status"
+        elif key == "deletionProtectionThreshold":
+            suggest = "deletion_protection_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_protection_status: _builtins.str,
+                 deletion_protection_threshold: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str deletion_protection_status: Enable or disable deletion protection for the connector. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.int deletion_protection_threshold: Maximum percentage of documents that a sync job can delete from your index.
+        """
+        pulumi.set(__self__, "deletion_protection_status", deletion_protection_status)
+        if deletion_protection_threshold is not None:
+            pulumi.set(__self__, "deletion_protection_threshold", deletion_protection_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionStatus")
+    def deletion_protection_status(self) -> _builtins.str:
+        """
+        Enable or disable deletion protection for the connector. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "deletion_protection_status")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionThreshold")
+    def deletion_protection_threshold(self) -> Optional[_builtins.int]:
+        """
+        Maximum percentage of documents that a sync job can delete from your index.
+        """
+        return pulumi.get(self, "deletion_protection_threshold")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionConfiguration":
+            suggest = "audio_extraction_configuration"
+        elif key == "imageExtractionConfiguration":
+            suggest = "image_extraction_configuration"
+        elif key == "videoExtractionConfiguration":
+            suggest = "video_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration'] = None,
+                 image_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration'] = None,
+                 video_extraction_configuration: Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration'] = None):
+        """
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs' audio_extraction_configuration: Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs' image_extraction_configuration: Configuration for extracting image content. See `image_extraction_configuration` block for details.
+        :param 'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs' video_extraction_configuration: Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration']:
+        """
+        Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration']:
+        """
+        Configuration for extracting image content. See `image_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> Optional['outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration']:
+        """
+        Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "video_extraction_configuration")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioExtractionStatus":
+            suggest = "audio_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_extraction_status: _builtins.str):
+        """
+        :param _builtins.str audio_extraction_status: Whether audio extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> _builtins.str:
+        """
+        Whether audio extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "audio_extraction_status")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageExtractionStatus":
+            suggest = "image_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_extraction_status: _builtins.str):
+        """
+        :param _builtins.str image_extraction_status: Whether image extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> _builtins.str:
+        """
+        Whether image extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "image_extraction_status")
+
+
+@pulumi.output_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "videoExtractionStatus":
+            suggest = "video_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 video_extraction_status: _builtins.str):
+        """
+        :param _builtins.str video_extraction_status: Whether video extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> _builtins.str:
+        """
+        Whether video extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "video_extraction_status")
 
 
 @pulumi.output_type
@@ -2771,15 +3085,19 @@ class AgentDataSourceServerSideEncryptionConfiguration(dict):
 class AgentDataSourceTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
-                 delete: Optional[_builtins.str] = None):
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
         """
         :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @_builtins.property
     @pulumi.getter
@@ -2796,6 +3114,14 @@ class AgentDataSourceTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
@@ -5740,6 +6066,8 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
         suggest = None
         if key == "kendraKnowledgeBaseConfiguration":
             suggest = "kendra_knowledge_base_configuration"
+        elif key == "managedKnowledgeBaseConfiguration":
+            suggest = "managed_knowledge_base_configuration"
         elif key == "sqlKnowledgeBaseConfiguration":
             suggest = "sql_knowledge_base_configuration"
         elif key == "vectorKnowledgeBaseConfiguration":
@@ -5759,17 +6087,21 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     def __init__(__self__, *,
                  type: _builtins.str,
                  kendra_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration'] = None,
+                 managed_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration'] = None,
                  sql_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration'] = None,
                  vector_knowledge_base_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration'] = None):
         """
-        :param _builtins.str type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        :param _builtins.str type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs' managed_knowledge_base_configuration: Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs' sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
         :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs' vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if managed_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_configuration", managed_knowledge_base_configuration)
         if sql_knowledge_base_configuration is not None:
             pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
@@ -5779,7 +6111,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         """
         return pulumi.get(self, "type")
 
@@ -5790,6 +6122,14 @@ class AgentKnowledgeBaseKnowledgeBaseConfiguration(dict):
         Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
         """
         return pulumi.get(self, "kendra_knowledge_base_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConfiguration")
+    def managed_knowledge_base_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration']:
+        """
+        Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
+        """
+        return pulumi.get(self, "managed_knowledge_base_configuration")
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
@@ -5841,6 +6181,372 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurati
         ARN of the Amazon Kendra index.
         """
         return pulumi.get(self, "kendra_index_arn")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "embeddingModelArn":
+            suggest = "embedding_model_arn"
+        elif key == "embeddingModelConfiguration":
+            suggest = "embedding_model_configuration"
+        elif key == "embeddingModelType":
+            suggest = "embedding_model_type"
+        elif key == "serverSideEncryptionConfiguration":
+            suggest = "server_side_encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 embedding_model_arn: Optional[_builtins.str] = None,
+                 embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration'] = None,
+                 embedding_model_type: Optional[_builtins.str] = None,
+                 server_side_encryption_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration'] = None):
+        """
+        :param _builtins.str embedding_model_arn: ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs' embedding_model_configuration: Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        :param _builtins.str embedding_model_type: Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs' server_side_encryption_configuration: Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        """
+        if embedding_model_arn is not None:
+            pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if embedding_model_type is not None:
+            pulumi.set(__self__, "embedding_model_type", embedding_model_type)
+        if server_side_encryption_configuration is not None:
+            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelArn")
+    def embedding_model_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
+        """
+        return pulumi.get(self, "embedding_model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration']:
+        """
+        Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelType")
+    def embedding_model_type(self) -> Optional[_builtins.str]:
+        """
+        Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
+        """
+        return pulumi.get(self, "embedding_model_type")
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionConfiguration")
+    def server_side_encryption_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration']:
+        """
+        Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        """
+        return pulumi.get(self, "server_side_encryption_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bedrockEmbeddingModelConfiguration":
+            suggest = "bedrock_embedding_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bedrock_embedding_model_configuration: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration'] = None):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs' bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        if bedrock_embedding_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
+    def bedrock_embedding_model_configuration(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration']:
+        """
+        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "embeddingDataType":
+            suggest = "embedding_data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio'] = None,
+                 dimensions: Optional[_builtins.int] = None,
+                 embedding_data_type: Optional[_builtins.str] = None,
+                 video: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo'] = None):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        :param _builtins.int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
+        :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if embedding_data_type is not None:
+            pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio']:
+        """
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        """
+        return pulumi.get(self, "audio")
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[_builtins.int]:
+        """
+        Dimension details for the vector configuration used on the Bedrock embeddings model.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingDataType")
+    def embedding_data_type(self) -> Optional[_builtins.str]:
+        """
+        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        """
+        return pulumi.get(self, "embedding_data_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo']:
+        """
+        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        return pulumi.get(self, "video")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration'):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration':
+        """
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        :param _builtins.int fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration'):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration':
+        """
+        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        :param _builtins.int fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str kms_key_arn: ARN of the KMS key used to encrypt the managed knowledge base.
+               
+               > **NOTE:** `storage_configuration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the KMS key used to encrypt the managed knowledge base.
+
+        > **NOTE:** `storage_configuration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
@@ -6708,16 +7414,32 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 audio: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio'] = None,
                  dimensions: Optional[_builtins.int] = None,
-                 embedding_data_type: Optional[_builtins.str] = None):
+                 embedding_data_type: Optional[_builtins.str] = None,
+                 video: Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo'] = None):
         """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs' audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
         :param _builtins.int dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
         :param _builtins.str embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs' video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
             pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio']:
+        """
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        """
+        return pulumi.get(self, "audio")
 
     @_builtins.property
     @pulumi.getter
@@ -6734,6 +7456,154 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
         Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
         """
         return pulumi.get(self, "embedding_data_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> Optional['outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo']:
+        """
+        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        return pulumi.get(self, "video")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration'):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration':
+        """
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        :param _builtins.int fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration'):
+        """
+        :param 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs' segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration':
+        """
+        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        :param _builtins.int fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
 
 
 @pulumi.output_type

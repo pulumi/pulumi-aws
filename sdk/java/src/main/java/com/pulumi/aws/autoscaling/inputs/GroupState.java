@@ -8,6 +8,7 @@ import com.pulumi.aws.autoscaling.enums.MetricsGranularity;
 import com.pulumi.aws.autoscaling.inputs.GroupAvailabilityZoneDistributionArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupCapacityReservationSpecificationArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInitialLifecycleHookArgs;
+import com.pulumi.aws.autoscaling.inputs.GroupInstanceLifecyclePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceMaintenancePolicyArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
 import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
@@ -308,6 +309,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<GroupInitialLifecycleHookArgs>>> initialLifecycleHooks() {
         return Optional.ofNullable(this.initialLifecycleHooks);
+    }
+
+    /**
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * 
+     */
+    @Import(name="instanceLifecyclePolicy")
+    private @Nullable Output<GroupInstanceLifecyclePolicyArgs> instanceLifecyclePolicy;
+
+    /**
+     * @return If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * 
+     */
+    public Optional<Output<GroupInstanceLifecyclePolicyArgs>> instanceLifecyclePolicy() {
+        return Optional.ofNullable(this.instanceLifecyclePolicy);
     }
 
     /**
@@ -794,6 +810,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         this.healthCheckType = $.healthCheckType;
         this.ignoreFailedScalingActivities = $.ignoreFailedScalingActivities;
         this.initialLifecycleHooks = $.initialLifecycleHooks;
+        this.instanceLifecyclePolicy = $.instanceLifecyclePolicy;
         this.instanceMaintenancePolicy = $.instanceMaintenancePolicy;
         this.instanceRefresh = $.instanceRefresh;
         this.launchConfiguration = $.launchConfiguration;
@@ -1257,6 +1274,27 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder initialLifecycleHooks(GroupInitialLifecycleHookArgs... initialLifecycleHooks) {
             return initialLifecycleHooks(List.of(initialLifecycleHooks));
+        }
+
+        /**
+         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecyclePolicy(@Nullable Output<GroupInstanceLifecyclePolicyArgs> instanceLifecyclePolicy) {
+            $.instanceLifecyclePolicy = instanceLifecyclePolicy;
+            return this;
+        }
+
+        /**
+         * @param instanceLifecyclePolicy If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecyclePolicy(GroupInstanceLifecyclePolicyArgs instanceLifecyclePolicy) {
+            return instanceLifecyclePolicy(Output.of(instanceLifecyclePolicy));
         }
 
         /**

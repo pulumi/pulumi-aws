@@ -1132,6 +1132,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    mailmanager: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     managedgrafana: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1834,6 +1838,7 @@ class ProviderEndpointArgs:
                  logs: pulumi.Input[Optional[_builtins.str]] = None,
                  m2: pulumi.Input[Optional[_builtins.str]] = None,
                  macie2: pulumi.Input[Optional[_builtins.str]] = None,
+                 mailmanager: pulumi.Input[Optional[_builtins.str]] = None,
                  managedgrafana: pulumi.Input[Optional[_builtins.str]] = None,
                  mediaconnect: pulumi.Input[Optional[_builtins.str]] = None,
                  mediaconvert: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2149,6 +2154,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] logs: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] m2: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] macie2: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] mailmanager: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] managedgrafana: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] mediaconnect: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] mediaconvert: Use this to override the default service endpoint URL
@@ -2650,6 +2656,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "m2", m2)
         if macie2 is not None:
             pulumi.set(__self__, "macie2", macie2)
+        if mailmanager is not None:
+            pulumi.set(__self__, "mailmanager", mailmanager)
         if managedgrafana is not None:
             pulumi.set(__self__, "managedgrafana", managedgrafana)
         if mediaconnect is not None:
@@ -5138,6 +5146,18 @@ class ProviderEndpointArgs:
     @macie2.setter
     def macie2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "macie2", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mailmanager(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mailmanager")
+
+    @mailmanager.setter
+    def mailmanager(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mailmanager", value)
 
     @_builtins.property
     @pulumi.getter

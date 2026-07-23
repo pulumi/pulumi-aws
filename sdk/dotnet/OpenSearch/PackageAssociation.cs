@@ -53,6 +53,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import `aws.opensearch.PackageAssociation` using `DOMAIN_NAME,PACKAGE_ID`. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:opensearch/packageAssociation:PackageAssociation example example-domain,F123456789
+    /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/packageAssociation:PackageAssociation")]
     public partial class PackageAssociation : global::Pulumi.CustomResource

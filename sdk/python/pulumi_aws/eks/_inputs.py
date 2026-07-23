@@ -99,6 +99,8 @@ __all__ = [
     'NodeGroupTaintArgsDict',
     'NodeGroupUpdateConfigArgs',
     'NodeGroupUpdateConfigArgsDict',
+    'NodeGroupWarmPoolConfigArgs',
+    'NodeGroupWarmPoolConfigArgsDict',
 ]
 
 class AccessPolicyAssociationAccessScopeArgsDict(TypedDict):
@@ -2495,5 +2497,94 @@ class NodeGroupUpdateConfigArgs:
     @update_strategy.setter
     def update_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update_strategy", value)
+
+
+class NodeGroupWarmPoolConfigArgsDict(TypedDict):
+    max_group_prepared_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+    """
+    min_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Minimum number of instances to maintain in the warm pool. Defaults to `0`.
+    """
+    pool_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
+    """
+    reuse_on_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class NodeGroupWarmPoolConfigArgs:
+    def __init__(__self__, *,
+                 max_group_prepared_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 reuse_on_scale_in: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_group_prepared_capacity: Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+        :param pulumi.Input[_builtins.int] min_size: Minimum number of instances to maintain in the warm pool. Defaults to `0`.
+        :param pulumi.Input[_builtins.str] pool_state: Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
+        :param pulumi.Input[_builtins.bool] reuse_on_scale_in: Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+        """
+        if max_group_prepared_capacity is not None:
+            pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
+        if min_size is not None:
+            pulumi.set(__self__, "min_size", min_size)
+        if pool_state is not None:
+            pulumi.set(__self__, "pool_state", pool_state)
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @_builtins.property
+    @pulumi.getter(name="maxGroupPreparedCapacity")
+    def max_group_prepared_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of instances that are allowed to be in the warm pool combined with the Auto Scaling Group. Use `-1` to specify an unlimited capacity.
+        """
+        return pulumi.get(self, "max_group_prepared_capacity")
+
+    @max_group_prepared_capacity.setter
+    def max_group_prepared_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_group_prepared_capacity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Minimum number of instances to maintain in the warm pool. Defaults to `0`.
+        """
+        return pulumi.get(self, "min_size")
+
+    @min_size.setter
+    def min_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="poolState")
+    def pool_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance state to transition warm pool instances to. Valid values: `STOPPED`, `RUNNING`, `HIBERNATED`. Defaults to `STOPPED`.
+        """
+        return pulumi.get(self, "pool_state")
+
+    @pool_state.setter
+    def pool_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pool_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
+        """
+        return pulumi.get(self, "reuse_on_scale_in")
+
+    @reuse_on_scale_in.setter
+    def reuse_on_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "reuse_on_scale_in", value)
 
 

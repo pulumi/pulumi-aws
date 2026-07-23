@@ -10,6 +10,7 @@ import com.pulumi.aws.autoscaling.inputs.GroupState;
 import com.pulumi.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
 import com.pulumi.aws.autoscaling.outputs.GroupCapacityReservationSpecification;
 import com.pulumi.aws.autoscaling.outputs.GroupInitialLifecycleHook;
+import com.pulumi.aws.autoscaling.outputs.GroupInstanceLifecyclePolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceMaintenancePolicy;
 import com.pulumi.aws.autoscaling.outputs.GroupInstanceRefresh;
 import com.pulumi.aws.autoscaling.outputs.GroupLaunchTemplate;
@@ -985,6 +986,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<GroupInitialLifecycleHook>>> initialLifecycleHooks() {
         return Codegen.optional(this.initialLifecycleHooks);
+    }
+    /**
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * 
+     */
+    @Export(name="instanceLifecyclePolicy", refs={GroupInstanceLifecyclePolicy.class}, tree="[0]")
+    private Output<GroupInstanceLifecyclePolicy> instanceLifecyclePolicy;
+
+    /**
+     * @return If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     * 
+     */
+    public Output<GroupInstanceLifecyclePolicy> instanceLifecyclePolicy() {
+        return this.instanceLifecyclePolicy;
     }
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.

@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> DefaultVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? DefaultVersion { get; set; }
 
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -659,7 +659,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? DefaultVersion { get; set; }
 
         /// <summary>
-        /// Description of the launch template.
+        /// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

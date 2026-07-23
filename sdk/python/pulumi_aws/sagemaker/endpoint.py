@@ -242,21 +242,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Provides a SageMaker AI Endpoint resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        e = aws.sagemaker.Endpoint("e",
-            name="my-endpoint",
-            endpoint_config_name=ec["name"],
-            tags={
-                "Name": "foo",
-            })
-        ```
+        > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `name_prefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 
         ## Import
 
@@ -284,21 +270,7 @@ class Endpoint(pulumi.CustomResource):
         """
         Provides a SageMaker AI Endpoint resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        e = aws.sagemaker.Endpoint("e",
-            name="my-endpoint",
-            endpoint_config_name=ec["name"],
-            tags={
-                "Name": "foo",
-            })
-        ```
+        > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `name_prefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 
         ## Import
 

@@ -12,6 +12,18 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
     public sealed class TableMetadataIcebergGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         /// <summary>
         /// Schema configuration for the Iceberg table.
         /// See `Schema` below.

@@ -143,6 +143,16 @@ import * as utilities from "../utilities";
  *                 bedrockEmbeddingModelConfiguration: {
  *                     dimensions: 1024,
  *                     embeddingDataType: "FLOAT32",
+ *                     audio: {
+ *                         segmentationConfiguration: {
+ *                             fixedLengthDuration: 60,
+ *                         },
+ *                     },
+ *                     video: {
+ *                         segmentationConfiguration: {
+ *                             fixedLengthDuration: 60,
+ *                         },
+ *                     },
  *                 },
  *             },
  *             supplementalDataStorageConfiguration: {
@@ -204,6 +214,48 @@ import * as utilities from "../utilities";
  *         type: "S3_VECTORS",
  *         s3VectorsConfiguration: {
  *             indexArn: exampleVectorsIndex.indexArn,
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Managed Knowledge Base
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example-managed-kb",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         type: "MANAGED",
+ *         managedKnowledgeBaseConfiguration: {
+ *             embeddingModelType: "MANAGED",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Managed Knowledge Base with Custom Embedding Model
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentKnowledgeBase("example", {
+ *     name: "example-managed-multilingual-kb",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     knowledgeBaseConfiguration: {
+ *         type: "MANAGED",
+ *         managedKnowledgeBaseConfiguration: {
+ *             embeddingModelType: "CUSTOM",
+ *             embeddingModelArn: "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
+ *             embeddingModelConfiguration: {
+ *                 bedrockEmbeddingModelConfiguration: {
+ *                     dimensions: 1024,
+ *                 },
+ *             },
  *         },
  *     },
  * });

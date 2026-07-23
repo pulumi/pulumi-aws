@@ -75,6 +75,14 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## Import
+ * 
+ * Using `pulumi import`, import `aws.opensearch.PackageAssociation` using `DOMAIN_NAME,PACKAGE_ID`. For example:
+ * 
+ * ```sh
+ * $ pulumi import aws:opensearch/packageAssociation:PackageAssociation example example-domain,F123456789
+ * ```
+ * 
  */
 @ResourceType(type="aws:opensearch/packageAssociation:PackageAssociation")
 public class PackageAssociation extends com.pulumi.resources.CustomResource {

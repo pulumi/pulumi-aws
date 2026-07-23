@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs;
 import com.pulumi.core.Output;
@@ -35,6 +36,21 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
+     * Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * 
+     */
+    @Import(name="managedKnowledgeBaseConfiguration")
+    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs> managedKnowledgeBaseConfiguration;
+
+    /**
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * 
+     */
+    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs>> managedKnowledgeBaseConfiguration() {
+        return Optional.ofNullable(this.managedKnowledgeBaseConfiguration);
+    }
+
+    /**
      * Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
      * 
      */
@@ -50,14 +66,14 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
     }
 
     /**
-     * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+     * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
      * 
      */
     public Output<String> type() {
@@ -83,6 +99,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationArgs(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs $) {
         this.kendraKnowledgeBaseConfiguration = $.kendraKnowledgeBaseConfiguration;
+        this.managedKnowledgeBaseConfiguration = $.managedKnowledgeBaseConfiguration;
         this.sqlKnowledgeBaseConfiguration = $.sqlKnowledgeBaseConfiguration;
         this.type = $.type;
         this.vectorKnowledgeBaseConfiguration = $.vectorKnowledgeBaseConfiguration;
@@ -128,6 +145,27 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
+         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedKnowledgeBaseConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs> managedKnowledgeBaseConfiguration) {
+            $.managedKnowledgeBaseConfiguration = managedKnowledgeBaseConfiguration;
+            return this;
+        }
+
+        /**
+         * @param managedKnowledgeBaseConfiguration Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs managedKnowledgeBaseConfiguration) {
+            return managedKnowledgeBaseConfiguration(Output.of(managedKnowledgeBaseConfiguration));
+        }
+
+        /**
          * @param sqlKnowledgeBaseConfiguration Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
          * 
          * @return builder
@@ -149,7 +187,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
          * 
          * @return builder
          * 
@@ -160,7 +198,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs extends com.
         }
 
         /**
-         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+         * @param type Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
          * 
          * @return builder
          * 

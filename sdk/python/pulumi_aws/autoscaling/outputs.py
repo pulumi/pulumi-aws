@@ -21,6 +21,8 @@ __all__ = [
     'GroupCapacityReservationSpecification',
     'GroupCapacityReservationSpecificationCapacityReservationTarget',
     'GroupInitialLifecycleHook',
+    'GroupInstanceLifecyclePolicy',
+    'GroupInstanceLifecyclePolicyRetentionTriggers',
     'GroupInstanceMaintenancePolicy',
     'GroupInstanceRefresh',
     'GroupInstanceRefreshPreferences',
@@ -328,6 +330,78 @@ class GroupInitialLifecycleHook(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
+class GroupInstanceLifecyclePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionTriggers":
+            suggest = "retention_triggers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupInstanceLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupInstanceLifecyclePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupInstanceLifecyclePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_triggers: Optional['outputs.GroupInstanceLifecyclePolicyRetentionTriggers'] = None):
+        """
+        :param 'GroupInstanceLifecyclePolicyRetentionTriggersArgs' retention_triggers: Conditions that trigger instance retention behavior. Defined below.
+        """
+        if retention_triggers is not None:
+            pulumi.set(__self__, "retention_triggers", retention_triggers)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTriggers")
+    def retention_triggers(self) -> Optional['outputs.GroupInstanceLifecyclePolicyRetentionTriggers']:
+        """
+        Conditions that trigger instance retention behavior. Defined below.
+        """
+        return pulumi.get(self, "retention_triggers")
+
+
+@pulumi.output_type
+class GroupInstanceLifecyclePolicyRetentionTriggers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "terminateHookAbandon":
+            suggest = "terminate_hook_abandon"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupInstanceLifecyclePolicyRetentionTriggers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupInstanceLifecyclePolicyRetentionTriggers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupInstanceLifecyclePolicyRetentionTriggers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 terminate_hook_abandon: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str terminate_hook_abandon: Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+        """
+        if terminate_hook_abandon is not None:
+            pulumi.set(__self__, "terminate_hook_abandon", terminate_hook_abandon)
+
+    @_builtins.property
+    @pulumi.getter(name="terminateHookAbandon")
+    def terminate_hook_abandon(self) -> Optional[_builtins.str]:
+        """
+        Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+        """
+        return pulumi.get(self, "terminate_hook_abandon")
 
 
 @pulumi.output_type

@@ -537,12 +537,16 @@ class TableMetadata(dict):
 @pulumi.output_type
 class TableMetadataIceberg(dict):
     def __init__(__self__, *,
-                 schema: 'outputs.TableMetadataIcebergSchema'):
+                 schema: 'outputs.TableMetadataIcebergSchema',
+                 properties: Optional[Mapping[str, _builtins.str]] = None):
         """
         :param 'TableMetadataIcebergSchemaArgs' schema: Schema configuration for the Iceberg table.
                See `schema` below.
+        :param Mapping[str, _builtins.str] properties: Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
         """
         pulumi.set(__self__, "schema", schema)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter
@@ -552,6 +556,14 @@ class TableMetadataIceberg(dict):
         See `schema` below.
         """
         return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

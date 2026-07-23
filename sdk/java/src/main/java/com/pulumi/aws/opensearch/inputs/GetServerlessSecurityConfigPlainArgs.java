@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigIamFederationOption;
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigIamIdentityCenterOption;
 import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOption;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,14 +20,44 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
     public static final GetServerlessSecurityConfigPlainArgs Empty = new GetServerlessSecurityConfigPlainArgs();
 
     /**
-     * The unique identifier of the security configuration.
+     * IAM Federation options for the security configuration.
+     * 
+     */
+    @Import(name="iamFederationOptions")
+    private @Nullable List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions;
+
+    /**
+     * @return IAM Federation options for the security configuration.
+     * 
+     */
+    public Optional<List<GetServerlessSecurityConfigIamFederationOption>> iamFederationOptions() {
+        return Optional.ofNullable(this.iamFederationOptions);
+    }
+
+    /**
+     * IAM Identity Center options for the security configuration.
+     * 
+     */
+    @Import(name="iamIdentityCenterOptions")
+    private @Nullable List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions;
+
+    /**
+     * @return IAM Identity Center options for the security configuration.
+     * 
+     */
+    public Optional<List<GetServerlessSecurityConfigIamIdentityCenterOption>> iamIdentityCenterOptions() {
+        return Optional.ofNullable(this.iamIdentityCenterOptions);
+    }
+
+    /**
+     * Unique identifier of the security configuration.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The unique identifier of the security configuration.
+     * @return Unique identifier of the security configuration.
      * 
      */
     public String id() {
@@ -65,6 +97,8 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
     private GetServerlessSecurityConfigPlainArgs() {}
 
     private GetServerlessSecurityConfigPlainArgs(GetServerlessSecurityConfigPlainArgs $) {
+        this.iamFederationOptions = $.iamFederationOptions;
+        this.iamIdentityCenterOptions = $.iamIdentityCenterOptions;
         this.id = $.id;
         this.region = $.region;
         this.samlOptions = $.samlOptions;
@@ -89,7 +123,49 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The unique identifier of the security configuration.
+         * @param iamFederationOptions IAM Federation options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamFederationOptions(@Nullable List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions) {
+            $.iamFederationOptions = iamFederationOptions;
+            return this;
+        }
+
+        /**
+         * @param iamFederationOptions IAM Federation options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamFederationOptions(GetServerlessSecurityConfigIamFederationOption... iamFederationOptions) {
+            return iamFederationOptions(List.of(iamFederationOptions));
+        }
+
+        /**
+         * @param iamIdentityCenterOptions IAM Identity Center options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterOptions(@Nullable List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions) {
+            $.iamIdentityCenterOptions = iamIdentityCenterOptions;
+            return this;
+        }
+
+        /**
+         * @param iamIdentityCenterOptions IAM Identity Center options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterOptions(GetServerlessSecurityConfigIamIdentityCenterOption... iamIdentityCenterOptions) {
+            return iamIdentityCenterOptions(List.of(iamIdentityCenterOptions));
+        }
+
+        /**
+         * @param id Unique identifier of the security configuration.
          * 
          * @return builder
          * 

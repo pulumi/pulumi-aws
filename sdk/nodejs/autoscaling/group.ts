@@ -575,6 +575,10 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly initialLifecycleHooks: pulumi.Output<outputs.autoscaling.GroupInitialLifecycleHook[] | undefined>;
     /**
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     */
+    declare public readonly instanceLifecyclePolicy: pulumi.Output<outputs.autoscaling.GroupInstanceLifecyclePolicy>;
+    /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      */
     declare public readonly instanceMaintenancePolicy: pulumi.Output<outputs.autoscaling.GroupInstanceMaintenancePolicy | undefined>;
@@ -739,6 +743,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["healthCheckType"] = state?.healthCheckType;
             resourceInputs["ignoreFailedScalingActivities"] = state?.ignoreFailedScalingActivities;
             resourceInputs["initialLifecycleHooks"] = state?.initialLifecycleHooks;
+            resourceInputs["instanceLifecyclePolicy"] = state?.instanceLifecyclePolicy;
             resourceInputs["instanceMaintenancePolicy"] = state?.instanceMaintenancePolicy;
             resourceInputs["instanceRefresh"] = state?.instanceRefresh;
             resourceInputs["launchConfiguration"] = state?.launchConfiguration;
@@ -791,6 +796,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["healthCheckType"] = args?.healthCheckType;
             resourceInputs["ignoreFailedScalingActivities"] = args?.ignoreFailedScalingActivities;
             resourceInputs["initialLifecycleHooks"] = args?.initialLifecycleHooks;
+            resourceInputs["instanceLifecyclePolicy"] = args?.instanceLifecyclePolicy;
             resourceInputs["instanceMaintenancePolicy"] = args?.instanceMaintenancePolicy;
             resourceInputs["instanceRefresh"] = args?.instanceRefresh;
             resourceInputs["launchConfiguration"] = args?.launchConfiguration;
@@ -910,6 +916,10 @@ export interface GroupState {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     initialLifecycleHooks?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupInitialLifecycleHook>[] | undefined>;
+    /**
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     */
+    instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.GroupInstanceLifecyclePolicy | undefined>;
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      */
@@ -1126,6 +1136,10 @@ export interface GroupArgs {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      */
     initialLifecycleHooks?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupInitialLifecycleHook>[] | undefined>;
+    /**
+     * If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+     */
+    instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.GroupInstanceLifecyclePolicy | undefined>;
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      */

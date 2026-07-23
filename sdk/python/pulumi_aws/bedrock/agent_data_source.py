@@ -376,6 +376,81 @@ class AgentDataSource(pulumi.CustomResource):
             })
         ```
 
+        ### Managed Knowledge Base Connector - S3
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentDataSource("example",
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="example-s3-managed",
+            data_source_configuration={
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+                "managed_knowledge_base_connector_configuration": {
+                    "connector_parameters": json.dumps({
+                        "type": "S3",
+                        "version": "1",
+                        "connectionConfiguration": {
+                            "bucketName": "my-documents-bucket",
+                            "bucketOwnerAccountId": "123456789012",
+                        },
+                        "aclEnabled": False,
+                        "filterConfiguration": {
+                            "maxFileSizeInMegaBytes": "500",
+                        },
+                    }),
+                    "media_extraction_configuration": {
+                        "image_extraction_configuration": {
+                            "image_extraction_status": "ENABLED",
+                        },
+                    },
+                },
+            },
+            vector_ingestion_configuration={
+                "parsing_configuration": {
+                    "parsing_strategy": "SMART_PARSING",
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base Connector - SharePoint
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        sharepoint = aws.bedrock.AgentDataSource("sharepoint",
+            knowledge_base_id=example["id"],
+            name="example-sharepoint",
+            data_source_configuration={
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+                "managed_knowledge_base_connector_configuration": {
+                    "connector_parameters": json.dumps({
+                        "type": "SHAREPOINT",
+                        "version": "1",
+                        "connectionConfiguration": {
+                            "tenantId": "your-entra-tenant-id",
+                            "authType": "ENTRA_ID_APP_ONLY",
+                            "secretArn": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
+                            "certificateS3Path": {
+                                "s3BucketName": "my-certs-bucket",
+                                "s3KeyName": "certs/sharepoint-cert.crt",
+                            },
+                        },
+                        "dataEntityConfiguration": {
+                            "type": "DOCUMENT",
+                            "crawlFiles": "true",
+                            "crawlPages": "true",
+                            "siteUrls": ["https://company.sharepoint.com/sites/MySite"],
+                        },
+                    }),
+                },
+            })
+        ```
+
         ### Multimodal Parsing
 
         ```python
@@ -458,6 +533,81 @@ class AgentDataSource(pulumi.CustomResource):
                 "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": "arn:aws:s3:::example-bucket",
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base Connector - S3
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentDataSource("example",
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="example-s3-managed",
+            data_source_configuration={
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+                "managed_knowledge_base_connector_configuration": {
+                    "connector_parameters": json.dumps({
+                        "type": "S3",
+                        "version": "1",
+                        "connectionConfiguration": {
+                            "bucketName": "my-documents-bucket",
+                            "bucketOwnerAccountId": "123456789012",
+                        },
+                        "aclEnabled": False,
+                        "filterConfiguration": {
+                            "maxFileSizeInMegaBytes": "500",
+                        },
+                    }),
+                    "media_extraction_configuration": {
+                        "image_extraction_configuration": {
+                            "image_extraction_status": "ENABLED",
+                        },
+                    },
+                },
+            },
+            vector_ingestion_configuration={
+                "parsing_configuration": {
+                    "parsing_strategy": "SMART_PARSING",
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base Connector - SharePoint
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        sharepoint = aws.bedrock.AgentDataSource("sharepoint",
+            knowledge_base_id=example["id"],
+            name="example-sharepoint",
+            data_source_configuration={
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+                "managed_knowledge_base_connector_configuration": {
+                    "connector_parameters": json.dumps({
+                        "type": "SHAREPOINT",
+                        "version": "1",
+                        "connectionConfiguration": {
+                            "tenantId": "your-entra-tenant-id",
+                            "authType": "ENTRA_ID_APP_ONLY",
+                            "secretArn": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
+                            "certificateS3Path": {
+                                "s3BucketName": "my-certs-bucket",
+                                "s3KeyName": "certs/sharepoint-cert.crt",
+                            },
+                        },
+                        "dataEntityConfiguration": {
+                            "type": "DOCUMENT",
+                            "crawlFiles": "true",
+                            "crawlPages": "true",
+                            "siteUrls": ["https://company.sharepoint.com/sites/MySite"],
+                        },
+                    }),
                 },
             })
         ```

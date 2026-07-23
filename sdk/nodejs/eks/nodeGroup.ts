@@ -258,6 +258,10 @@ export class NodeGroup extends pulumi.CustomResource {
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
     declare public readonly version: pulumi.Output<string>;
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     */
+    declare public readonly warmPoolConfig: pulumi.Output<outputs.eks.NodeGroupWarmPoolConfig | undefined>;
 
     /**
      * Create a NodeGroup resource with the given unique name, arguments, and options.
@@ -297,6 +301,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["taints"] = state?.taints;
             resourceInputs["updateConfig"] = state?.updateConfig;
             resourceInputs["version"] = state?.version;
+            resourceInputs["warmPoolConfig"] = state?.warmPoolConfig;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
             if (args?.clusterName === undefined && !opts.urn) {
@@ -332,6 +337,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["taints"] = args?.taints;
             resourceInputs["updateConfig"] = args?.updateConfig;
             resourceInputs["version"] = args?.version;
+            resourceInputs["warmPoolConfig"] = args?.warmPoolConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -448,6 +454,10 @@ export interface NodeGroupState {
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
     version?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     */
+    warmPoolConfig?: pulumi.Input<inputs.eks.NodeGroupWarmPoolConfig | undefined>;
 }
 
 /**
@@ -540,4 +550,8 @@ export interface NodeGroupArgs {
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      */
     version?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     */
+    warmPoolConfig?: pulumi.Input<inputs.eks.NodeGroupWarmPoolConfig | undefined>;
 }

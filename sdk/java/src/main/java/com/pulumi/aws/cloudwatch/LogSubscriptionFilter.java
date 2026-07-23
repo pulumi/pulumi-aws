@@ -123,14 +123,14 @@ public class LogSubscriptionFilter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.distribution);
     }
     /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      * 
      */
     @Export(name="emitSystemFields", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> emitSystemFields;
 
     /**
-     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      * 
      */
     public Output<Optional<List<String>>> emitSystemFields() {

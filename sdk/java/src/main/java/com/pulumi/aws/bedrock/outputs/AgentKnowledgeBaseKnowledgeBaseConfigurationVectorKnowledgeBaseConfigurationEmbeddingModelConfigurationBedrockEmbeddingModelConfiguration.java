@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration {
     /**
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio audio;
+    /**
      * @return Dimension details for the vector configuration used on the Bedrock embeddings model.
      * 
      */
@@ -22,8 +29,20 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * 
      */
     private @Nullable String embeddingDataType;
+    /**
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo video;
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration() {}
+    /**
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio> audio() {
+        return Optional.ofNullable(this.audio);
+    }
     /**
      * @return Dimension details for the vector configuration used on the Bedrock embeddings model.
      * 
@@ -38,6 +57,13 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     public Optional<String> embeddingDataType() {
         return Optional.ofNullable(this.embeddingDataType);
     }
+    /**
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo> video() {
+        return Optional.ofNullable(this.video);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -48,15 +74,25 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio audio;
         private @Nullable Integer dimensions;
         private @Nullable String embeddingDataType;
+        private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo video;
         public Builder() {}
         public Builder(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.audio = defaults.audio;
     	      this.dimensions = defaults.dimensions;
     	      this.embeddingDataType = defaults.embeddingDataType;
+    	      this.video = defaults.video;
         }
 
+        @CustomType.Setter
+        public Builder audio(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudio audio) {
+
+            this.audio = audio;
+            return this;
+        }
         @CustomType.Setter
         public Builder dimensions(@Nullable Integer dimensions) {
 
@@ -69,10 +105,18 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
             this.embeddingDataType = embeddingDataType;
             return this;
         }
+        @CustomType.Setter
+        public Builder video(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideo video) {
+
+            this.video = video;
+            return this;
+        }
         public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration build() {
             final var _resultValue = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration();
+            _resultValue.audio = audio;
             _resultValue.dimensions = dimensions;
             _resultValue.embeddingDataType = embeddingDataType;
+            _resultValue.video = video;
             return _resultValue;
         }
     }

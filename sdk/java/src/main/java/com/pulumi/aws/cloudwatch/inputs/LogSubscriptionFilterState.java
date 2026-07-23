@@ -63,14 +63,14 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      * 
      */
     @Import(name="emitSystemFields")
     private @Nullable Output<List<String>> emitSystemFields;
 
     /**
-     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * @return List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      * 
      */
     public Optional<Output<List<String>>> emitSystemFields() {
@@ -248,7 +248,7 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class LogSubscriptionFilterState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+         * @param emitSystemFields List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `&#34;{@literal @}aws.account&#34;`, `&#34;{@literal @}aws.region&#34;`, `&#34;{@literal @}source.log&#34;`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
          * 
          * @return builder
          * 

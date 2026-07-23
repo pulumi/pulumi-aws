@@ -14,37 +14,7 @@ import (
 
 // Provides a SageMaker AI Endpoint resource.
 //
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpoint(ctx, "e", &sagemaker.EndpointArgs{
-//				Name:               pulumi.String("my-endpoint"),
-//				EndpointConfigName: pulumi.Any(ec.Name),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `namePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 //
 // ## Import
 //

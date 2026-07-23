@@ -134,6 +134,10 @@ export interface GetNodeGroupResult {
      * Kubernetes version.
      */
     readonly version: string;
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings.
+     */
+    readonly warmPoolConfigs: outputs.eks.GetNodeGroupWarmPoolConfig[];
 }
 /**
  * Retrieve information about an EKS Node Group.

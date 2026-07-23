@@ -60,6 +60,8 @@ type GetBootstrapBrokersArgs struct {
 type GetBootstrapBrokersResult struct {
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
 	BootstrapBrokers string `pulumi:"bootstrapBrokers"`
+	// One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+	BootstrapBrokersIpv6 string `pulumi:"bootstrapBrokersIpv6"`
 	// One or more DNS names (or IP addresses) and SASL IAM port pairs.
 	BootstrapBrokersPublicSaslIam string `pulumi:"bootstrapBrokersPublicSaslIam"`
 	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
@@ -68,10 +70,16 @@ type GetBootstrapBrokersResult struct {
 	BootstrapBrokersPublicTls string `pulumi:"bootstrapBrokersPublicTls"`
 	// One or more DNS names (or IP addresses) and SASL IAM port pairs.
 	BootstrapBrokersSaslIam string `pulumi:"bootstrapBrokersSaslIam"`
+	// One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+	BootstrapBrokersSaslIamIpv6 string `pulumi:"bootstrapBrokersSaslIamIpv6"`
 	// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
 	BootstrapBrokersSaslScram string `pulumi:"bootstrapBrokersSaslScram"`
+	// One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+	BootstrapBrokersSaslScramIpv6 string `pulumi:"bootstrapBrokersSaslScramIpv6"`
 	// One or more DNS names (or IP addresses) and TLS port pairs.
 	BootstrapBrokersTls string `pulumi:"bootstrapBrokersTls"`
+	// One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+	BootstrapBrokersTlsIpv6 string `pulumi:"bootstrapBrokersTlsIpv6"`
 	// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
 	BootstrapBrokersVpcConnectivitySaslIam string `pulumi:"bootstrapBrokersVpcConnectivitySaslIam"`
 	// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity.
@@ -125,6 +133,11 @@ func (o GetBootstrapBrokersResultOutput) BootstrapBrokers() pulumi.StringOutput 
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokers }).(pulumi.StringOutput)
 }
 
+// One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+func (o GetBootstrapBrokersResultOutput) BootstrapBrokersIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersIpv6 }).(pulumi.StringOutput)
+}
+
 // One or more DNS names (or IP addresses) and SASL IAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersPublicSaslIam() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersPublicSaslIam }).(pulumi.StringOutput)
@@ -145,14 +158,29 @@ func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslIam() pulumi.String
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslIam }).(pulumi.StringOutput)
 }
 
+// One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslIamIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslIamIpv6 }).(pulumi.StringOutput)
+}
+
 // One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslScram() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslScram }).(pulumi.StringOutput)
 }
 
+// One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+func (o GetBootstrapBrokersResultOutput) BootstrapBrokersSaslScramIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersSaslScramIpv6 }).(pulumi.StringOutput)
+}
+
 // One or more DNS names (or IP addresses) and TLS port pairs.
 func (o GetBootstrapBrokersResultOutput) BootstrapBrokersTls() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersTls }).(pulumi.StringOutput)
+}
+
+// One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+func (o GetBootstrapBrokersResultOutput) BootstrapBrokersTlsIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.BootstrapBrokersTlsIpv6 }).(pulumi.StringOutput)
 }
 
 // A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.

@@ -2809,6 +2809,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="mailmanager")
+    private @Nullable Output<String> mailmanager;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> mailmanager() {
+        return Optional.ofNullable(this.mailmanager);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="managedgrafana")
     private @Nullable Output<String> managedgrafana;
 
@@ -4914,6 +4929,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.logs = $.logs;
         this.m2 = $.m2;
         this.macie2 = $.macie2;
+        this.mailmanager = $.mailmanager;
         this.managedgrafana = $.managedgrafana;
         this.mediaconnect = $.mediaconnect;
         this.mediaconvert = $.mediaconvert;
@@ -8966,6 +8982,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder macie2(String macie2) {
             return macie2(Output.of(macie2));
+        }
+
+        /**
+         * @param mailmanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mailmanager(@Nullable Output<String> mailmanager) {
+            $.mailmanager = mailmanager;
+            return this;
+        }
+
+        /**
+         * @param mailmanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mailmanager(String mailmanager) {
+            return mailmanager(Output.of(mailmanager));
         }
 
         /**

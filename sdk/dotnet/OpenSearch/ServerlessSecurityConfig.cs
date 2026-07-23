@@ -41,6 +41,18 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for IAM Federation options. Required if `Type` is set to `Iamfederation`. See `IamFederationOptions` Block below for details.
+        /// </summary>
+        [Output("iamFederationOptions")]
+        public Output<Outputs.ServerlessSecurityConfigIamFederationOptions?> IamFederationOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for IAM Identity Center options. Required if `Type` is set to `Iamidentitycenter`. See `IamIdentityCenterOptions` Block below for details.
+        /// </summary>
+        [Output("iamIdentityCenterOptions")]
+        public Output<Outputs.ServerlessSecurityConfigIamIdentityCenterOptions?> IamIdentityCenterOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the policy.
         /// </summary>
         [Output("name")]
@@ -53,13 +65,13 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for SAML options.
+        /// Configuration block for SAML options. Required if `Type` is set to `Saml`. See `SamlOptions` Block below for details.
         /// </summary>
         [Output("samlOptions")]
         public Output<Outputs.ServerlessSecurityConfigSamlOptions?> SamlOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Type of configuration. Must be `Saml`.
+        /// Type of configuration. Valid values are `Saml`, `Iamidentitycenter` and `Iamfederation`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -119,6 +131,18 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration block for IAM Federation options. Required if `Type` is set to `Iamfederation`. See `IamFederationOptions` Block below for details.
+        /// </summary>
+        [Input("iamFederationOptions")]
+        public Input<Inputs.ServerlessSecurityConfigIamFederationOptionsArgs>? IamFederationOptions { get; set; }
+
+        /// <summary>
+        /// Configuration block for IAM Identity Center options. Required if `Type` is set to `Iamidentitycenter`. See `IamIdentityCenterOptions` Block below for details.
+        /// </summary>
+        [Input("iamIdentityCenterOptions")]
+        public Input<Inputs.ServerlessSecurityConfigIamIdentityCenterOptionsArgs>? IamIdentityCenterOptions { get; set; }
+
+        /// <summary>
         /// Name of the policy.
         /// </summary>
         [Input("name")]
@@ -131,13 +155,13 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for SAML options.
+        /// Configuration block for SAML options. Required if `Type` is set to `Saml`. See `SamlOptions` Block below for details.
         /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsArgs>? SamlOptions { get; set; }
 
         /// <summary>
-        /// Type of configuration. Must be `Saml`.
+        /// Type of configuration. Valid values are `Saml`, `Iamidentitycenter` and `Iamfederation`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -165,6 +189,18 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration block for IAM Federation options. Required if `Type` is set to `Iamfederation`. See `IamFederationOptions` Block below for details.
+        /// </summary>
+        [Input("iamFederationOptions")]
+        public Input<Inputs.ServerlessSecurityConfigIamFederationOptionsGetArgs>? IamFederationOptions { get; set; }
+
+        /// <summary>
+        /// Configuration block for IAM Identity Center options. Required if `Type` is set to `Iamidentitycenter`. See `IamIdentityCenterOptions` Block below for details.
+        /// </summary>
+        [Input("iamIdentityCenterOptions")]
+        public Input<Inputs.ServerlessSecurityConfigIamIdentityCenterOptionsGetArgs>? IamIdentityCenterOptions { get; set; }
+
+        /// <summary>
         /// Name of the policy.
         /// </summary>
         [Input("name")]
@@ -177,13 +213,13 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for SAML options.
+        /// Configuration block for SAML options. Required if `Type` is set to `Saml`. See `SamlOptions` Block below for details.
         /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.ServerlessSecurityConfigSamlOptionsGetArgs>? SamlOptions { get; set; }
 
         /// <summary>
-        /// Type of configuration. Must be `Saml`.
+        /// Type of configuration. Valid values are `Saml`, `Iamidentitycenter` and `Iamfederation`.
         /// 
         /// The following arguments are optional:
         /// </summary>

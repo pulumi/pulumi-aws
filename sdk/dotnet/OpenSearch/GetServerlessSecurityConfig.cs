@@ -93,8 +93,32 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessSecurityConfigArgs : global::Pulumi.InvokeArgs
     {
+        [Input("iamFederationOptions")]
+        private List<Inputs.GetServerlessSecurityConfigIamFederationOptionArgs>? _iamFederationOptions;
+
         /// <summary>
-        /// The unique identifier of the security configuration.
+        /// IAM Federation options for the security configuration.
+        /// </summary>
+        public List<Inputs.GetServerlessSecurityConfigIamFederationOptionArgs> IamFederationOptions
+        {
+            get => _iamFederationOptions ?? (_iamFederationOptions = new List<Inputs.GetServerlessSecurityConfigIamFederationOptionArgs>());
+            set => _iamFederationOptions = value;
+        }
+
+        [Input("iamIdentityCenterOptions")]
+        private List<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionArgs>? _iamIdentityCenterOptions;
+
+        /// <summary>
+        /// IAM Identity Center options for the security configuration.
+        /// </summary>
+        public List<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionArgs> IamIdentityCenterOptions
+        {
+            get => _iamIdentityCenterOptions ?? (_iamIdentityCenterOptions = new List<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionArgs>());
+            set => _iamIdentityCenterOptions = value;
+        }
+
+        /// <summary>
+        /// Unique identifier of the security configuration.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -125,8 +149,32 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessSecurityConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("iamFederationOptions")]
+        private InputList<Inputs.GetServerlessSecurityConfigIamFederationOptionInputArgs>? _iamFederationOptions;
+
         /// <summary>
-        /// The unique identifier of the security configuration.
+        /// IAM Federation options for the security configuration.
+        /// </summary>
+        public InputList<Inputs.GetServerlessSecurityConfigIamFederationOptionInputArgs> IamFederationOptions
+        {
+            get => _iamFederationOptions ?? (_iamFederationOptions = new InputList<Inputs.GetServerlessSecurityConfigIamFederationOptionInputArgs>());
+            set => _iamFederationOptions = value;
+        }
+
+        [Input("iamIdentityCenterOptions")]
+        private InputList<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionInputArgs>? _iamIdentityCenterOptions;
+
+        /// <summary>
+        /// IAM Identity Center options for the security configuration.
+        /// </summary>
+        public InputList<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionInputArgs> IamIdentityCenterOptions
+        {
+            get => _iamIdentityCenterOptions ?? (_iamIdentityCenterOptions = new InputList<Inputs.GetServerlessSecurityConfigIamIdentityCenterOptionInputArgs>());
+            set => _iamIdentityCenterOptions = value;
+        }
+
+        /// <summary>
+        /// Unique identifier of the security configuration.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -160,20 +208,28 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class GetServerlessSecurityConfigResult
     {
         /// <summary>
-        /// The version of the security configuration.
+        /// Version of the security configuration.
         /// </summary>
         public readonly string ConfigVersion;
         /// <summary>
-        /// The date the configuration was created.
+        /// Date the configuration was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
-        /// The description of the security configuration.
+        /// Description of the security configuration.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// IAM Federation options for the security configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerlessSecurityConfigIamFederationOptionResult> IamFederationOptions;
+        /// <summary>
+        /// IAM Identity Center options for the security configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult> IamIdentityCenterOptions;
         public readonly string Id;
         /// <summary>
-        /// The date the configuration was last modified.
+        /// Date the configuration was last modified.
         /// </summary>
         public readonly string LastModifiedDate;
         public readonly string Region;
@@ -182,7 +238,7 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerlessSecurityConfigSamlOptionResult> SamlOptions;
         /// <summary>
-        /// The type of security configuration.
+        /// Type of security configuration.
         /// </summary>
         public readonly string Type;
 
@@ -193,6 +249,10 @@ namespace Pulumi.Aws.OpenSearch
             string createdDate,
 
             string description,
+
+            ImmutableArray<Outputs.GetServerlessSecurityConfigIamFederationOptionResult> iamFederationOptions,
+
+            ImmutableArray<Outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult> iamIdentityCenterOptions,
 
             string id,
 
@@ -207,6 +267,8 @@ namespace Pulumi.Aws.OpenSearch
             ConfigVersion = configVersion;
             CreatedDate = createdDate;
             Description = description;
+            IamFederationOptions = iamFederationOptions;
+            IamIdentityCenterOptions = iamIdentityCenterOptions;
             Id = id;
             LastModifiedDate = lastModifiedDate;
             Region = region;

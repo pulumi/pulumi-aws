@@ -103,6 +103,8 @@ type LookupNodeGroupResult struct {
 	UpdateConfigs []GetNodeGroupUpdateConfig `pulumi:"updateConfigs"`
 	// Kubernetes version.
 	Version string `pulumi:"version"`
+	// Configuration block with EC2 Auto Scaling warm pool settings.
+	WarmPoolConfigs []GetNodeGroupWarmPoolConfig `pulumi:"warmPoolConfigs"`
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
@@ -249,6 +251,11 @@ func (o LookupNodeGroupResultOutput) UpdateConfigs() GetNodeGroupUpdateConfigArr
 // Kubernetes version.
 func (o LookupNodeGroupResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Configuration block with EC2 Auto Scaling warm pool settings.
+func (o LookupNodeGroupResultOutput) WarmPoolConfigs() GetNodeGroupWarmPoolConfigArrayOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) []GetNodeGroupWarmPoolConfig { return v.WarmPoolConfigs }).(GetNodeGroupWarmPoolConfigArrayOutput)
 }
 
 func init() {

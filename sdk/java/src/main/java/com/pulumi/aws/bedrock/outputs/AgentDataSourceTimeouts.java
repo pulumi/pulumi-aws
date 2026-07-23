@@ -21,6 +21,11 @@ public final class AgentDataSourceTimeouts {
      * 
      */
     private @Nullable String delete;
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
+    private @Nullable String update;
 
     private AgentDataSourceTimeouts() {}
     /**
@@ -37,6 +42,13 @@ public final class AgentDataSourceTimeouts {
     public Optional<String> delete() {
         return Optional.ofNullable(this.delete);
     }
+    /**
+     * @return A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
+     * 
+     */
+    public Optional<String> update() {
+        return Optional.ofNullable(this.update);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -49,11 +61,13 @@ public final class AgentDataSourceTimeouts {
     public static final class Builder {
         private @Nullable String create;
         private @Nullable String delete;
+        private @Nullable String update;
         public Builder() {}
         public Builder(AgentDataSourceTimeouts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.create = defaults.create;
     	      this.delete = defaults.delete;
+    	      this.update = defaults.update;
         }
 
         @CustomType.Setter
@@ -68,10 +82,17 @@ public final class AgentDataSourceTimeouts {
             this.delete = delete;
             return this;
         }
+        @CustomType.Setter
+        public Builder update(@Nullable String update) {
+
+            this.update = update;
+            return this;
+        }
         public AgentDataSourceTimeouts build() {
             final var _resultValue = new AgentDataSourceTimeouts();
             _resultValue.create = create;
             _resultValue.delete = delete;
+            _resultValue.update = update;
             return _resultValue;
         }
     }

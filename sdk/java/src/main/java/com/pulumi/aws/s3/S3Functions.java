@@ -22,6 +22,8 @@ import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPolicyPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
 import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationPlainArgs;
+import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+import com.pulumi.aws.s3.inputs.GetBucketsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetFilesAccessPointArgs;
@@ -45,6 +47,7 @@ import com.pulumi.aws.s3.outputs.GetBucketObjectsResult;
 import com.pulumi.aws.s3.outputs.GetBucketPolicyResult;
 import com.pulumi.aws.s3.outputs.GetBucketReplicationConfigurationResult;
 import com.pulumi.aws.s3.outputs.GetBucketResult;
+import com.pulumi.aws.s3.outputs.GetBucketsResult;
 import com.pulumi.aws.s3.outputs.GetCanonicalUserIdResult;
 import com.pulumi.aws.s3.outputs.GetDirectoryBucketsResult;
 import com.pulumi.aws.s3.outputs.GetFilesAccessPointResult;
@@ -3084,6 +3087,538 @@ public final class S3Functions {
      */
     public static CompletableFuture<GetBucketReplicationConfigurationResult> getBucketReplicationConfigurationPlain(GetBucketReplicationConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", TypeShape.of(GetBucketReplicationConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketsResult> getBuckets() {
+        return getBuckets(GetBucketsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketsResult> getBucketsPlain() {
+        return getBucketsPlain(GetBucketsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketsResult> getBuckets(GetBucketsArgs args) {
+        return getBuckets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketsResult> getBucketsPlain(GetBucketsPlainArgs args) {
+        return getBucketsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketsResult> getBuckets(GetBucketsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBuckets:getBuckets", TypeShape.of(GetBucketsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketsResult> getBuckets(GetBucketsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBuckets:getBuckets", TypeShape.of(GetBucketsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS S3 (Simple Storage) buckets with optional filters.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Full Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBuckets(GetBucketsArgs.builder()
+     *             .bucketRegion("us-west-2")
+     *             .maxBuckets(3)
+     *             .prefix("tf-")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketsResult> getBucketsPlain(GetBucketsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getBuckets:getBuckets", TypeShape.of(GetBucketsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)

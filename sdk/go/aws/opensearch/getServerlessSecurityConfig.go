@@ -52,7 +52,11 @@ func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessS
 
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigArgs struct {
-	// The unique identifier of the security configuration.
+	// IAM Federation options for the security configuration.
+	IamFederationOptions []GetServerlessSecurityConfigIamFederationOption `pulumi:"iamFederationOptions"`
+	// IAM Identity Center options for the security configuration.
+	IamIdentityCenterOptions []GetServerlessSecurityConfigIamIdentityCenterOption `pulumi:"iamIdentityCenterOptions"`
+	// Unique identifier of the security configuration.
 	Id string `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -62,19 +66,23 @@ type LookupServerlessSecurityConfigArgs struct {
 
 // A collection of values returned by getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigResult struct {
-	// The version of the security configuration.
+	// Version of the security configuration.
 	ConfigVersion string `pulumi:"configVersion"`
-	// The date the configuration was created.
+	// Date the configuration was created.
 	CreatedDate string `pulumi:"createdDate"`
-	// The description of the security configuration.
+	// Description of the security configuration.
 	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	// The date the configuration was last modified.
+	// IAM Federation options for the security configuration.
+	IamFederationOptions []GetServerlessSecurityConfigIamFederationOption `pulumi:"iamFederationOptions"`
+	// IAM Identity Center options for the security configuration.
+	IamIdentityCenterOptions []GetServerlessSecurityConfigIamIdentityCenterOption `pulumi:"iamIdentityCenterOptions"`
+	Id                       string                                               `pulumi:"id"`
+	// Date the configuration was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Region           string `pulumi:"region"`
 	// SAML options for the security configuration.
 	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
-	// The type of security configuration.
+	// Type of security configuration.
 	Type string `pulumi:"type"`
 }
 
@@ -89,7 +97,11 @@ func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServer
 
 // A collection of arguments for invoking getServerlessSecurityConfig.
 type LookupServerlessSecurityConfigOutputArgs struct {
-	// The unique identifier of the security configuration.
+	// IAM Federation options for the security configuration.
+	IamFederationOptions GetServerlessSecurityConfigIamFederationOptionArrayInput `pulumi:"iamFederationOptions"`
+	// IAM Identity Center options for the security configuration.
+	IamIdentityCenterOptions GetServerlessSecurityConfigIamIdentityCenterOptionArrayInput `pulumi:"iamIdentityCenterOptions"`
+	// Unique identifier of the security configuration.
 	Id pulumi.StringInput `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -116,26 +128,40 @@ func (o LookupServerlessSecurityConfigResultOutput) ToLookupServerlessSecurityCo
 	return o
 }
 
-// The version of the security configuration.
+// Version of the security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) ConfigVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.ConfigVersion }).(pulumi.StringOutput)
 }
 
-// The date the configuration was created.
+// Date the configuration was created.
 func (o LookupServerlessSecurityConfigResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// The description of the security configuration.
+// Description of the security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// IAM Federation options for the security configuration.
+func (o LookupServerlessSecurityConfigResultOutput) IamFederationOptions() GetServerlessSecurityConfigIamFederationOptionArrayOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) []GetServerlessSecurityConfigIamFederationOption {
+		return v.IamFederationOptions
+	}).(GetServerlessSecurityConfigIamFederationOptionArrayOutput)
+}
+
+// IAM Identity Center options for the security configuration.
+func (o LookupServerlessSecurityConfigResultOutput) IamIdentityCenterOptions() GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) []GetServerlessSecurityConfigIamIdentityCenterOption {
+		return v.IamIdentityCenterOptions
+	}).(GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput)
 }
 
 func (o LookupServerlessSecurityConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The date the configuration was last modified.
+// Date the configuration was last modified.
 func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
@@ -151,7 +177,7 @@ func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessS
 	}).(GetServerlessSecurityConfigSamlOptionArrayOutput)
 }
 
-// The type of security configuration.
+// Type of security configuration.
 func (o LookupServerlessSecurityConfigResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Type }).(pulumi.StringOutput)
 }

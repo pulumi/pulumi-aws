@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly int MaxSize;
         /// <summary>
-        /// Minimum number of worker nodes.
+        /// Minimum number of instances maintained in the warm pool.
         /// </summary>
         public readonly int MinSize;
 

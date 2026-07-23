@@ -30,6 +30,11 @@ export const getServerlessCache: typeof import("./getServerlessCache").getServer
 export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCache","getServerlessCacheOutput"], () => require("./getServerlessCache"));
 
+export { GetServiceUpdateActionsArgs, GetServiceUpdateActionsResult, GetServiceUpdateActionsOutputArgs } from "./getServiceUpdateActions";
+export const getServiceUpdateActions: typeof import("./getServiceUpdateActions").getServiceUpdateActions = null as any;
+export const getServiceUpdateActionsOutput: typeof import("./getServiceUpdateActions").getServiceUpdateActionsOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceUpdateActions","getServiceUpdateActionsOutput"], () => require("./getServiceUpdateActions"));
+
 export { GetServiceUpdatesArgs, GetServiceUpdatesResult, GetServiceUpdatesOutputArgs } from "./getServiceUpdates";
 export const getServiceUpdates: typeof import("./getServiceUpdates").getServiceUpdates = null as any;
 export const getServiceUpdatesOutput: typeof import("./getServiceUpdates").getServiceUpdatesOutput = null as any;

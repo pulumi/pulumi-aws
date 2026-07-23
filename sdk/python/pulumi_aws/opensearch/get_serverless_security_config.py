@@ -28,7 +28,7 @@ class GetServerlessSecurityConfigResult:
     """
     A collection of values returned by getServerlessSecurityConfig.
     """
-    def __init__(__self__, config_version=None, created_date=None, description=None, id=None, last_modified_date=None, region=None, saml_options=None, type=None):
+    def __init__(__self__, config_version=None, created_date=None, description=None, iam_federation_options=None, iam_identity_center_options=None, id=None, last_modified_date=None, region=None, saml_options=None, type=None):
         if config_version and not isinstance(config_version, str):
             raise TypeError("Expected argument 'config_version' to be a str")
         pulumi.set(__self__, "config_version", config_version)
@@ -38,6 +38,12 @@ class GetServerlessSecurityConfigResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if iam_federation_options and not isinstance(iam_federation_options, list):
+            raise TypeError("Expected argument 'iam_federation_options' to be a list")
+        pulumi.set(__self__, "iam_federation_options", iam_federation_options)
+        if iam_identity_center_options and not isinstance(iam_identity_center_options, list):
+            raise TypeError("Expected argument 'iam_identity_center_options' to be a list")
+        pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,7 +64,7 @@ class GetServerlessSecurityConfigResult:
     @pulumi.getter(name="configVersion")
     def config_version(self) -> _builtins.str:
         """
-        The version of the security configuration.
+        Version of the security configuration.
         """
         return pulumi.get(self, "config_version")
 
@@ -66,7 +72,7 @@ class GetServerlessSecurityConfigResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
         """
-        The date the configuration was created.
+        Date the configuration was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -74,9 +80,25 @@ class GetServerlessSecurityConfigResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the security configuration.
+        Description of the security configuration.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="iamFederationOptions")
+    def iam_federation_options(self) -> Optional[Sequence['outputs.GetServerlessSecurityConfigIamFederationOptionResult']]:
+        """
+        IAM Federation options for the security configuration.
+        """
+        return pulumi.get(self, "iam_federation_options")
+
+    @_builtins.property
+    @pulumi.getter(name="iamIdentityCenterOptions")
+    def iam_identity_center_options(self) -> Optional[Sequence['outputs.GetServerlessSecurityConfigIamIdentityCenterOptionResult']]:
+        """
+        IAM Identity Center options for the security configuration.
+        """
+        return pulumi.get(self, "iam_identity_center_options")
 
     @_builtins.property
     @pulumi.getter
@@ -87,7 +109,7 @@ class GetServerlessSecurityConfigResult:
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> _builtins.str:
         """
-        The date the configuration was last modified.
+        Date the configuration was last modified.
         """
         return pulumi.get(self, "last_modified_date")
 
@@ -108,7 +130,7 @@ class GetServerlessSecurityConfigResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of security configuration.
+        Type of security configuration.
         """
         return pulumi.get(self, "type")
 
@@ -122,6 +144,8 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
             config_version=self.config_version,
             created_date=self.created_date,
             description=self.description,
+            iam_federation_options=self.iam_federation_options,
+            iam_identity_center_options=self.iam_identity_center_options,
             id=self.id,
             last_modified_date=self.last_modified_date,
             region=self.region,
@@ -129,7 +153,9 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
             type=self.type)
 
 
-def get_serverless_security_config(id: Optional[_builtins.str] = None,
+def get_serverless_security_config(iam_federation_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']]] = None,
+                                   iam_identity_center_options: Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']]] = None,
+                                   id: Optional[_builtins.str] = None,
                                    region: Optional[_builtins.str] = None,
                                    saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
@@ -148,11 +174,15 @@ def get_serverless_security_config(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: The unique identifier of the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']] iam_federation_options: IAM Federation options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']] iam_identity_center_options: IAM Identity Center options for the security configuration.
+    :param _builtins.str id: Unique identifier of the security configuration.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
+    __args__['iamFederationOptions'] = iam_federation_options
+    __args__['iamIdentityCenterOptions'] = iam_identity_center_options
     __args__['id'] = id
     __args__['region'] = region
     __args__['samlOptions'] = saml_options
@@ -163,12 +193,16 @@ def get_serverless_security_config(id: Optional[_builtins.str] = None,
         config_version=pulumi.get(__ret__, 'config_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
+        iam_federation_options=pulumi.get(__ret__, 'iam_federation_options'),
+        iam_identity_center_options=pulumi.get(__ret__, 'iam_identity_center_options'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         region=pulumi.get(__ret__, 'region'),
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
-def get_serverless_security_config_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_serverless_security_config_output(iam_federation_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']]]]] = None,
+                                          iam_identity_center_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']]]]] = None,
+                                          id: pulumi.Input[Optional[_builtins.str]] = None,
                                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           saml_options: pulumi.Input[Optional[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
@@ -187,11 +221,15 @@ def get_serverless_security_config_output(id: pulumi.Input[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str id: The unique identifier of the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamFederationOptionArgs', 'GetServerlessSecurityConfigIamFederationOptionArgsDict']] iam_federation_options: IAM Federation options for the security configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigIamIdentityCenterOptionArgs', 'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict']] iam_identity_center_options: IAM Identity Center options for the security configuration.
+    :param _builtins.str id: Unique identifier of the security configuration.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
+    __args__['iamFederationOptions'] = iam_federation_options
+    __args__['iamIdentityCenterOptions'] = iam_identity_center_options
     __args__['id'] = id
     __args__['region'] = region
     __args__['samlOptions'] = saml_options
@@ -201,6 +239,8 @@ def get_serverless_security_config_output(id: pulumi.Input[Optional[_builtins.st
         config_version=pulumi.get(__response__, 'config_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         description=pulumi.get(__response__, 'description'),
+        iam_federation_options=pulumi.get(__response__, 'iam_federation_options'),
+        iam_identity_center_options=pulumi.get(__response__, 'iam_identity_center_options'),
         id=pulumi.get(__response__, 'id'),
         last_modified_date=pulumi.get(__response__, 'last_modified_date'),
         region=pulumi.get(__response__, 'region'),

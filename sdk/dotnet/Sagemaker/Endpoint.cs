@@ -12,30 +12,7 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker AI Endpoint resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var e = new Aws.Sagemaker.Endpoint("e", new()
-    ///     {
-    ///         Name = "my-endpoint",
-    ///         EndpointConfigName = ec.Name,
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &gt; **Note:** `aws.sagemaker.Endpoint` resources cannot recognize changes to an `aws.sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `Name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `NamePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `True` to prevent conflicts.
     /// 
     /// ## Import
     /// 

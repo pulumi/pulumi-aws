@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration;
 import com.pulumi.core.annotations.CustomType;
@@ -21,12 +22,17 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration kendraKnowledgeBaseConfiguration;
     /**
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration managedKnowledgeBaseConfiguration;
+    /**
      * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
      * 
      */
     private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration sqlKnowledgeBaseConfiguration;
     /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
      * 
      */
     private String type;
@@ -45,6 +51,13 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         return Optional.ofNullable(this.kendraKnowledgeBaseConfiguration);
     }
     /**
+     * @return Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managedKnowledgeBaseConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration> managedKnowledgeBaseConfiguration() {
+        return Optional.ofNullable(this.managedKnowledgeBaseConfiguration);
+    }
+    /**
      * @return Configurations for a knowledge base connected to an SQL database. See `sqlKnowledgeBaseConfiguration` block for details.
      * 
      */
@@ -52,7 +65,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         return Optional.ofNullable(this.sqlKnowledgeBaseConfiguration);
     }
     /**
-     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+     * @return Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
      * 
      */
     public String type() {
@@ -76,6 +89,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration kendraKnowledgeBaseConfiguration;
+        private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration managedKnowledgeBaseConfiguration;
         private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration sqlKnowledgeBaseConfiguration;
         private String type;
         private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration vectorKnowledgeBaseConfiguration;
@@ -83,6 +97,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         public Builder(AgentKnowledgeBaseKnowledgeBaseConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kendraKnowledgeBaseConfiguration = defaults.kendraKnowledgeBaseConfiguration;
+    	      this.managedKnowledgeBaseConfiguration = defaults.managedKnowledgeBaseConfiguration;
     	      this.sqlKnowledgeBaseConfiguration = defaults.sqlKnowledgeBaseConfiguration;
     	      this.type = defaults.type;
     	      this.vectorKnowledgeBaseConfiguration = defaults.vectorKnowledgeBaseConfiguration;
@@ -92,6 +107,12 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         public Builder kendraKnowledgeBaseConfiguration(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration kendraKnowledgeBaseConfiguration) {
 
             this.kendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedKnowledgeBaseConfiguration(@Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration managedKnowledgeBaseConfiguration) {
+
+            this.managedKnowledgeBaseConfiguration = managedKnowledgeBaseConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -117,6 +138,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfiguration {
         public AgentKnowledgeBaseKnowledgeBaseConfiguration build() {
             final var _resultValue = new AgentKnowledgeBaseKnowledgeBaseConfiguration();
             _resultValue.kendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
+            _resultValue.managedKnowledgeBaseConfiguration = managedKnowledgeBaseConfiguration;
             _resultValue.sqlKnowledgeBaseConfiguration = sqlKnowledgeBaseConfiguration;
             _resultValue.type = type;
             _resultValue.vectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;

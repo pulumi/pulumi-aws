@@ -13,6 +13,7 @@ import com.pulumi.aws.eks.outputs.NodeGroupResource;
 import com.pulumi.aws.eks.outputs.NodeGroupScalingConfig;
 import com.pulumi.aws.eks.outputs.NodeGroupTaint;
 import com.pulumi.aws.eks.outputs.NodeGroupUpdateConfig;
+import com.pulumi.aws.eks.outputs.NodeGroupWarmPoolConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -607,6 +608,20 @@ public class NodeGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<String> version() {
         return this.version;
+    }
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     * 
+     */
+    @Export(name="warmPoolConfig", refs={NodeGroupWarmPoolConfig.class}, tree="[0]")
+    private Output</* @Nullable */ NodeGroupWarmPoolConfig> warmPoolConfig;
+
+    /**
+     * @return Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     * 
+     */
+    public Output<Optional<NodeGroupWarmPoolConfig>> warmPoolConfig() {
+        return Codegen.optional(this.warmPoolConfig);
     }
 
     /**

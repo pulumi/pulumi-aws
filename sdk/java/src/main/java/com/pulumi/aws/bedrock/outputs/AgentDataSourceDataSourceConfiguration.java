@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationS3Configuration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration;
@@ -23,6 +24,11 @@ public final class AgentDataSourceDataSourceConfiguration {
      */
     private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
     /**
+     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * 
+     */
+    private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration managedKnowledgeBaseConnectorConfiguration;
+    /**
      * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
      * 
      */
@@ -38,7 +44,7 @@ public final class AgentDataSourceDataSourceConfiguration {
      */
     private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
     /**
-     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
      * 
      */
     private String type;
@@ -55,6 +61,13 @@ public final class AgentDataSourceDataSourceConfiguration {
      */
     public Optional<AgentDataSourceDataSourceConfigurationConfluenceConfiguration> confluenceConfiguration() {
         return Optional.ofNullable(this.confluenceConfiguration);
+    }
+    /**
+     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * 
+     */
+    public Optional<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration> managedKnowledgeBaseConnectorConfiguration() {
+        return Optional.ofNullable(this.managedKnowledgeBaseConnectorConfiguration);
     }
     /**
      * @return Details about the configuration of the S3 object containing the data source. See `s3DataSourceConfiguration` block for details.
@@ -78,7 +91,7 @@ public final class AgentDataSourceDataSourceConfiguration {
         return Optional.ofNullable(this.sharePointConfiguration);
     }
     /**
-     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
      * 
      */
     public String type() {
@@ -102,6 +115,7 @@ public final class AgentDataSourceDataSourceConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration;
+        private @Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration managedKnowledgeBaseConnectorConfiguration;
         private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration;
         private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration;
         private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration;
@@ -111,6 +125,7 @@ public final class AgentDataSourceDataSourceConfiguration {
         public Builder(AgentDataSourceDataSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.confluenceConfiguration = defaults.confluenceConfiguration;
+    	      this.managedKnowledgeBaseConnectorConfiguration = defaults.managedKnowledgeBaseConnectorConfiguration;
     	      this.s3Configuration = defaults.s3Configuration;
     	      this.salesforceConfiguration = defaults.salesforceConfiguration;
     	      this.sharePointConfiguration = defaults.sharePointConfiguration;
@@ -122,6 +137,12 @@ public final class AgentDataSourceDataSourceConfiguration {
         public Builder confluenceConfiguration(@Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration) {
 
             this.confluenceConfiguration = confluenceConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedKnowledgeBaseConnectorConfiguration(@Nullable AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration managedKnowledgeBaseConnectorConfiguration) {
+
+            this.managedKnowledgeBaseConnectorConfiguration = managedKnowledgeBaseConnectorConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -159,6 +180,7 @@ public final class AgentDataSourceDataSourceConfiguration {
         public AgentDataSourceDataSourceConfiguration build() {
             final var _resultValue = new AgentDataSourceDataSourceConfiguration();
             _resultValue.confluenceConfiguration = confluenceConfiguration;
+            _resultValue.managedKnowledgeBaseConnectorConfiguration = managedKnowledgeBaseConnectorConfiguration;
             _resultValue.s3Configuration = s3Configuration;
             _resultValue.salesforceConfiguration = salesforceConfiguration;
             _resultValue.sharePointConfiguration = sharePointConfiguration;

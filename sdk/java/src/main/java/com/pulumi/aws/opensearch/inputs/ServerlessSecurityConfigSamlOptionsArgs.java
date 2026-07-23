@@ -33,14 +33,14 @@ public final class ServerlessSecurityConfigSamlOptionsArgs extends com.pulumi.re
     }
 
     /**
-     * The XML IdP metadata file generated from your identity provider.
+     * XML IdP metadata file generated from your identity provider.
      * 
      */
     @Import(name="metadata", required=true)
     private Output<String> metadata;
 
     /**
-     * @return The XML IdP metadata file generated from your identity provider.
+     * @return XML IdP metadata file generated from your identity provider.
      * 
      */
     public Output<String> metadata() {
@@ -126,7 +126,7 @@ public final class ServerlessSecurityConfigSamlOptionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param metadata The XML IdP metadata file generated from your identity provider.
+         * @param metadata XML IdP metadata file generated from your identity provider.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ServerlessSecurityConfigSamlOptionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param metadata The XML IdP metadata file generated from your identity provider.
+         * @param metadata XML IdP metadata file generated from your identity provider.
          * 
          * @return builder
          * 

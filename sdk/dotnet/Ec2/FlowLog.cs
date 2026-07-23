@@ -451,6 +451,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `LogFormat`. More details below.
+        /// </summary>
+        [Output("tagFieldSpecifications")]
+        public Output<ImmutableArray<Outputs.FlowLogTagFieldSpecification>> TagFieldSpecifications { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -602,6 +608,18 @@ namespace Pulumi.Aws.Ec2
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        [Input("tagFieldSpecifications")]
+        private InputList<Inputs.FlowLogTagFieldSpecificationArgs>? _tagFieldSpecifications;
+
+        /// <summary>
+        /// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `LogFormat`. More details below.
+        /// </summary>
+        public InputList<Inputs.FlowLogTagFieldSpecificationArgs> TagFieldSpecifications
+        {
+            get => _tagFieldSpecifications ?? (_tagFieldSpecifications = new InputList<Inputs.FlowLogTagFieldSpecificationArgs>());
+            set => _tagFieldSpecifications = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -721,6 +739,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        [Input("tagFieldSpecifications")]
+        private InputList<Inputs.FlowLogTagFieldSpecificationGetArgs>? _tagFieldSpecifications;
+
+        /// <summary>
+        /// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `LogFormat`. More details below.
+        /// </summary>
+        public InputList<Inputs.FlowLogTagFieldSpecificationGetArgs> TagFieldSpecifications
+        {
+            get => _tagFieldSpecifications ?? (_tagFieldSpecifications = new InputList<Inputs.FlowLogTagFieldSpecificationGetArgs>());
+            set => _tagFieldSpecifications = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

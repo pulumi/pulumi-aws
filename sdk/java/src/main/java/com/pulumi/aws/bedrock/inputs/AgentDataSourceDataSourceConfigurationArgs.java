@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs;
@@ -34,6 +35,21 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
      */
     public Optional<Output<AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs>> confluenceConfiguration() {
         return Optional.ofNullable(this.confluenceConfiguration);
+    }
+
+    /**
+     * Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * 
+     */
+    @Import(name="managedKnowledgeBaseConnectorConfiguration")
+    private @Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs> managedKnowledgeBaseConnectorConfiguration;
+
+    /**
+     * @return Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs>> managedKnowledgeBaseConnectorConfiguration() {
+        return Optional.ofNullable(this.managedKnowledgeBaseConnectorConfiguration);
     }
 
     /**
@@ -82,14 +98,14 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
     }
 
     /**
-     * Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+     * Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+     * @return Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
      * 
      */
     public Output<String> type() {
@@ -115,6 +131,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
 
     private AgentDataSourceDataSourceConfigurationArgs(AgentDataSourceDataSourceConfigurationArgs $) {
         this.confluenceConfiguration = $.confluenceConfiguration;
+        this.managedKnowledgeBaseConnectorConfiguration = $.managedKnowledgeBaseConnectorConfiguration;
         this.s3Configuration = $.s3Configuration;
         this.salesforceConfiguration = $.salesforceConfiguration;
         this.sharePointConfiguration = $.sharePointConfiguration;
@@ -159,6 +176,27 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
          */
         public Builder confluenceConfiguration(AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs confluenceConfiguration) {
             return confluenceConfiguration(Output.of(confluenceConfiguration));
+        }
+
+        /**
+         * @param managedKnowledgeBaseConnectorConfiguration Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedKnowledgeBaseConnectorConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs> managedKnowledgeBaseConnectorConfiguration) {
+            $.managedKnowledgeBaseConnectorConfiguration = managedKnowledgeBaseConnectorConfiguration;
+            return this;
+        }
+
+        /**
+         * @param managedKnowledgeBaseConnectorConfiguration Details about the configuration of a Managed Knowledge Base connector data source. See `managedKnowledgeBaseConnectorConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedKnowledgeBaseConnectorConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs managedKnowledgeBaseConnectorConfiguration) {
+            return managedKnowledgeBaseConnectorConfiguration(Output.of(managedKnowledgeBaseConnectorConfiguration));
         }
 
         /**
@@ -225,7 +263,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
          * 
          * @return builder
          * 
@@ -236,7 +274,7 @@ public final class AgentDataSourceDataSourceConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+         * @param type Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
          * 
          * @return builder
          * 

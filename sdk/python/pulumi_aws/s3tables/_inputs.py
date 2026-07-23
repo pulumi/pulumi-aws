@@ -620,16 +620,24 @@ class TableMetadataIcebergArgsDict(TypedDict):
     Schema configuration for the Iceberg table.
     See `schema` below.
     """
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+    """
 
 @pulumi.input_type
 class TableMetadataIcebergArgs:
     def __init__(__self__, *,
-                 schema: pulumi.Input['TableMetadataIcebergSchemaArgs']):
+                 schema: pulumi.Input['TableMetadataIcebergSchemaArgs'],
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['TableMetadataIcebergSchemaArgs'] schema: Schema configuration for the Iceberg table.
                See `schema` below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
         """
         pulumi.set(__self__, "schema", schema)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @_builtins.property
     @pulumi.getter
@@ -643,6 +651,18 @@ class TableMetadataIcebergArgs:
     @schema.setter
     def schema(self, value: pulumi.Input['TableMetadataIcebergSchemaArgs']):
         pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "properties", value)
 
 
 class TableMetadataIcebergSchemaArgsDict(TypedDict):

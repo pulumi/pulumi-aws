@@ -7,12 +7,31 @@ import com.pulumi.aws.s3tables.inputs.TableMetadataIcebergSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TableMetadataIcebergArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableMetadataIcebergArgs Empty = new TableMetadataIcebergArgs();
+
+    /**
+     * Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+     * 
+     */
+    @Import(name="properties")
+    private @Nullable Output<Map<String,String>> properties;
+
+    /**
+     * @return Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> properties() {
+        return Optional.ofNullable(this.properties);
+    }
 
     /**
      * Schema configuration for the Iceberg table.
@@ -34,6 +53,7 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
     private TableMetadataIcebergArgs() {}
 
     private TableMetadataIcebergArgs(TableMetadataIcebergArgs $) {
+        this.properties = $.properties;
         this.schema = $.schema;
     }
 
@@ -53,6 +73,27 @@ public final class TableMetadataIcebergArgs extends com.pulumi.resources.Resourc
 
         public Builder(TableMetadataIcebergArgs defaults) {
             $ = new TableMetadataIcebergArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param properties Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder properties(@Nullable Output<Map<String,String>> properties) {
+            $.properties = properties;
+            return this;
+        }
+
+        /**
+         * @param properties Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder properties(Map<String,String> properties) {
+            return properties(Output.of(properties));
         }
 
         /**

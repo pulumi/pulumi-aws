@@ -73,7 +73,7 @@ type LogSubscriptionFilter struct {
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrOutput `pulumi:"distribution"`
-	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 	EmitSystemFields pulumi.StringArrayOutput `pulumi:"emitSystemFields"`
 	// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringOutput `pulumi:"filterPattern"`
@@ -132,7 +132,7 @@ type logSubscriptionFilterState struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 	// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution *string `pulumi:"distribution"`
-	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 	EmitSystemFields []string `pulumi:"emitSystemFields"`
 	// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
@@ -153,7 +153,7 @@ type LogSubscriptionFilterState struct {
 	DestinationArn pulumi.StringPtrInput
 	// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrInput
-	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 	EmitSystemFields pulumi.StringArrayInput
 	// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type logSubscriptionFilterArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution *string `pulumi:"distribution"`
-	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 	EmitSystemFields []string `pulumi:"emitSystemFields"`
 	// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern string `pulumi:"filterPattern"`
@@ -200,7 +200,7 @@ type LogSubscriptionFilterArgs struct {
 	DestinationArn pulumi.StringInput
 	// Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
 	Distribution pulumi.StringPtrInput
-	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+	// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 	EmitSystemFields pulumi.StringArrayInput
 	// Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern pulumi.StringInput
@@ -316,7 +316,7 @@ func (o LogSubscriptionFilterOutput) Distribution() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringPtrOutput { return v.Distribution }).(pulumi.StringPtrOutput)
 }
 
-// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
 func (o LogSubscriptionFilterOutput) EmitSystemFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogSubscriptionFilter) pulumi.StringArrayOutput { return v.EmitSystemFields }).(pulumi.StringArrayOutput)
 }

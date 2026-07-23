@@ -18,11 +18,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
         /// <summary>
+        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration? ManagedKnowledgeBaseConfiguration;
+        /// <summary>
         /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration? SqlKnowledgeBaseConfiguration;
         /// <summary>
-        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentKnowledgeBaseKnowledgeBaseConfiguration(
             Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfiguration? kendraKnowledgeBaseConfiguration,
 
+            Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfiguration? managedKnowledgeBaseConfiguration,
+
             Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguration? sqlKnowledgeBaseConfiguration,
 
             string type,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
             Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? vectorKnowledgeBaseConfiguration)
         {
             KendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
+            ManagedKnowledgeBaseConfiguration = managedKnowledgeBaseConfiguration;
             SqlKnowledgeBaseConfiguration = sqlKnowledgeBaseConfiguration;
             Type = type;
             VectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;

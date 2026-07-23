@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.opensearch.outputs;
 
+import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigIamFederationOption;
+import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigIamIdentityCenterOption;
 import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigSamlOption;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,23 +16,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetServerlessSecurityConfigResult {
     /**
-     * @return The version of the security configuration.
+     * @return Version of the security configuration.
      * 
      */
     private String configVersion;
     /**
-     * @return The date the configuration was created.
+     * @return Date the configuration was created.
      * 
      */
     private String createdDate;
     /**
-     * @return The description of the security configuration.
+     * @return Description of the security configuration.
      * 
      */
     private String description;
+    /**
+     * @return IAM Federation options for the security configuration.
+     * 
+     */
+    private @Nullable List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions;
+    /**
+     * @return IAM Identity Center options for the security configuration.
+     * 
+     */
+    private @Nullable List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions;
     private String id;
     /**
-     * @return The date the configuration was last modified.
+     * @return Date the configuration was last modified.
      * 
      */
     private String lastModifiedDate;
@@ -41,38 +53,52 @@ public final class GetServerlessSecurityConfigResult {
      */
     private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
     /**
-     * @return The type of security configuration.
+     * @return Type of security configuration.
      * 
      */
     private String type;
 
     private GetServerlessSecurityConfigResult() {}
     /**
-     * @return The version of the security configuration.
+     * @return Version of the security configuration.
      * 
      */
     public String configVersion() {
         return this.configVersion;
     }
     /**
-     * @return The date the configuration was created.
+     * @return Date the configuration was created.
      * 
      */
     public String createdDate() {
         return this.createdDate;
     }
     /**
-     * @return The description of the security configuration.
+     * @return Description of the security configuration.
      * 
      */
     public String description() {
         return this.description;
     }
+    /**
+     * @return IAM Federation options for the security configuration.
+     * 
+     */
+    public List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions() {
+        return this.iamFederationOptions == null ? List.of() : this.iamFederationOptions;
+    }
+    /**
+     * @return IAM Identity Center options for the security configuration.
+     * 
+     */
+    public List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions() {
+        return this.iamIdentityCenterOptions == null ? List.of() : this.iamIdentityCenterOptions;
+    }
     public String id() {
         return this.id;
     }
     /**
-     * @return The date the configuration was last modified.
+     * @return Date the configuration was last modified.
      * 
      */
     public String lastModifiedDate() {
@@ -89,7 +115,7 @@ public final class GetServerlessSecurityConfigResult {
         return this.samlOptions == null ? List.of() : this.samlOptions;
     }
     /**
-     * @return The type of security configuration.
+     * @return Type of security configuration.
      * 
      */
     public String type() {
@@ -108,6 +134,8 @@ public final class GetServerlessSecurityConfigResult {
         private String configVersion;
         private String createdDate;
         private String description;
+        private @Nullable List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions;
+        private @Nullable List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions;
         private String id;
         private String lastModifiedDate;
         private String region;
@@ -119,6 +147,8 @@ public final class GetServerlessSecurityConfigResult {
     	      this.configVersion = defaults.configVersion;
     	      this.createdDate = defaults.createdDate;
     	      this.description = defaults.description;
+    	      this.iamFederationOptions = defaults.iamFederationOptions;
+    	      this.iamIdentityCenterOptions = defaults.iamIdentityCenterOptions;
     	      this.id = defaults.id;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.region = defaults.region;
@@ -149,6 +179,24 @@ public final class GetServerlessSecurityConfigResult {
             }
             this.description = description;
             return this;
+        }
+        @CustomType.Setter
+        public Builder iamFederationOptions(@Nullable List<GetServerlessSecurityConfigIamFederationOption> iamFederationOptions) {
+
+            this.iamFederationOptions = iamFederationOptions;
+            return this;
+        }
+        public Builder iamFederationOptions(GetServerlessSecurityConfigIamFederationOption... iamFederationOptions) {
+            return iamFederationOptions(List.of(iamFederationOptions));
+        }
+        @CustomType.Setter
+        public Builder iamIdentityCenterOptions(@Nullable List<GetServerlessSecurityConfigIamIdentityCenterOption> iamIdentityCenterOptions) {
+
+            this.iamIdentityCenterOptions = iamIdentityCenterOptions;
+            return this;
+        }
+        public Builder iamIdentityCenterOptions(GetServerlessSecurityConfigIamIdentityCenterOption... iamIdentityCenterOptions) {
+            return iamIdentityCenterOptions(List.of(iamIdentityCenterOptions));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -196,6 +244,8 @@ public final class GetServerlessSecurityConfigResult {
             _resultValue.configVersion = configVersion;
             _resultValue.createdDate = createdDate;
             _resultValue.description = description;
+            _resultValue.iamFederationOptions = iamFederationOptions;
+            _resultValue.iamIdentityCenterOptions = iamIdentityCenterOptions;
             _resultValue.id = id;
             _resultValue.lastModifiedDate = lastModifiedDate;
             _resultValue.region = region;

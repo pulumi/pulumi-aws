@@ -9,6 +9,7 @@ import com.pulumi.aws.eks.outputs.GetNodeGroupResource;
 import com.pulumi.aws.eks.outputs.GetNodeGroupScalingConfig;
 import com.pulumi.aws.eks.outputs.GetNodeGroupTaint;
 import com.pulumi.aws.eks.outputs.GetNodeGroupUpdateConfig;
+import com.pulumi.aws.eks.outputs.GetNodeGroupWarmPoolConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -113,6 +114,11 @@ public final class GetNodeGroupResult {
      * 
      */
     private String version;
+    /**
+     * @return Configuration block with EC2 Auto Scaling warm pool settings.
+     * 
+     */
+    private List<GetNodeGroupWarmPoolConfig> warmPoolConfigs;
 
     private GetNodeGroupResult() {}
     /**
@@ -253,6 +259,13 @@ public final class GetNodeGroupResult {
     public String version() {
         return this.version;
     }
+    /**
+     * @return Configuration block with EC2 Auto Scaling warm pool settings.
+     * 
+     */
+    public List<GetNodeGroupWarmPoolConfig> warmPoolConfigs() {
+        return this.warmPoolConfigs;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -285,6 +298,7 @@ public final class GetNodeGroupResult {
         private List<GetNodeGroupTaint> taints;
         private List<GetNodeGroupUpdateConfig> updateConfigs;
         private String version;
+        private List<GetNodeGroupWarmPoolConfig> warmPoolConfigs;
         public Builder() {}
         public Builder(GetNodeGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -310,6 +324,7 @@ public final class GetNodeGroupResult {
     	      this.taints = defaults.taints;
     	      this.updateConfigs = defaults.updateConfigs;
     	      this.version = defaults.version;
+    	      this.warmPoolConfigs = defaults.warmPoolConfigs;
         }
 
         @CustomType.Setter
@@ -512,6 +527,17 @@ public final class GetNodeGroupResult {
             this.version = version;
             return this;
         }
+        @CustomType.Setter
+        public Builder warmPoolConfigs(List<GetNodeGroupWarmPoolConfig> warmPoolConfigs) {
+            if (warmPoolConfigs == null) {
+              throw new MissingRequiredPropertyException("GetNodeGroupResult", "warmPoolConfigs");
+            }
+            this.warmPoolConfigs = warmPoolConfigs;
+            return this;
+        }
+        public Builder warmPoolConfigs(GetNodeGroupWarmPoolConfig... warmPoolConfigs) {
+            return warmPoolConfigs(List.of(warmPoolConfigs));
+        }
         public GetNodeGroupResult build() {
             final var _resultValue = new GetNodeGroupResult();
             _resultValue.amiType = amiType;
@@ -536,6 +562,7 @@ public final class GetNodeGroupResult {
             _resultValue.taints = taints;
             _resultValue.updateConfigs = updateConfigs;
             _resultValue.version = version;
+            _resultValue.warmPoolConfigs = warmPoolConfigs;
             return _resultValue;
         }
     }

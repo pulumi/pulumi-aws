@@ -10,22 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker AI Endpoint resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const e = new aws.sagemaker.Endpoint("e", {
- *     name: "my-endpoint",
- *     endpointConfigName: ec.name,
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
+ * > **Note:** `aws.sagemaker.Endpoint` resources cannot recognize changes to an `aws.sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `namePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
  *
  * ## Import
  *

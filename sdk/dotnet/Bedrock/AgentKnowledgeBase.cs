@@ -202,6 +202,20 @@ namespace Pulumi.Aws.Bedrock
     ///                     {
     ///                         Dimensions = 1024,
     ///                         EmbeddingDataType = "FLOAT32",
+    ///                         Audio = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs
+    ///                         {
+    ///                             SegmentationConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs
+    ///                             {
+    ///                                 FixedLengthDuration = 60,
+    ///                             },
+    ///                         },
+    ///                         Video = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs
+    ///                         {
+    ///                             SegmentationConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs
+    ///                             {
+    ///                                 FixedLengthDuration = 60,
+    ///                             },
+    ///                         },
     ///                     },
     ///                 },
     ///                 SupplementalDataStorageConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs
@@ -288,6 +302,68 @@ namespace Pulumi.Aws.Bedrock
     ///             S3VectorsConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs
     ///             {
     ///                 IndexArn = exampleVectorsIndex.IndexArn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Managed Knowledge Base
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentKnowledgeBase("example", new()
+    ///     {
+    ///         Name = "example-managed-kb",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         KnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs
+    ///         {
+    ///             Type = "MANAGED",
+    ///             ManagedKnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs
+    ///             {
+    ///                 EmbeddingModelType = "MANAGED",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Managed Knowledge Base with Custom Embedding Model
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentKnowledgeBase("example", new()
+    ///     {
+    ///         Name = "example-managed-multilingual-kb",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         KnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs
+    ///         {
+    ///             Type = "MANAGED",
+    ///             ManagedKnowledgeBaseConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs
+    ///             {
+    ///                 EmbeddingModelType = "CUSTOM",
+    ///                 EmbeddingModelArn = "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
+    ///                 EmbeddingModelConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs
+    ///                 {
+    ///                     BedrockEmbeddingModelConfiguration = new Aws.Bedrock.Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs
+    ///                     {
+    ///                         Dimensions = 1024,
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     });

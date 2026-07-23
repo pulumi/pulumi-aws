@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
 export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
+        "iamFederationOptions": args.iamFederationOptions,
+        "iamIdentityCenterOptions": args.iamIdentityCenterOptions,
         "id": args.id,
         "region": args.region,
         "samlOptions": args.samlOptions,
@@ -37,7 +39,15 @@ export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArg
  */
 export interface GetServerlessSecurityConfigArgs {
     /**
-     * The unique identifier of the security configuration.
+     * IAM Federation options for the security configuration.
+     */
+    iamFederationOptions?: inputs.opensearch.GetServerlessSecurityConfigIamFederationOption[];
+    /**
+     * IAM Identity Center options for the security configuration.
+     */
+    iamIdentityCenterOptions?: inputs.opensearch.GetServerlessSecurityConfigIamIdentityCenterOption[];
+    /**
+     * Unique identifier of the security configuration.
      */
     id: string;
     /**
@@ -55,20 +65,28 @@ export interface GetServerlessSecurityConfigArgs {
  */
 export interface GetServerlessSecurityConfigResult {
     /**
-     * The version of the security configuration.
+     * Version of the security configuration.
      */
     readonly configVersion: string;
     /**
-     * The date the configuration was created.
+     * Date the configuration was created.
      */
     readonly createdDate: string;
     /**
-     * The description of the security configuration.
+     * Description of the security configuration.
      */
     readonly description: string;
+    /**
+     * IAM Federation options for the security configuration.
+     */
+    readonly iamFederationOptions?: outputs.opensearch.GetServerlessSecurityConfigIamFederationOption[];
+    /**
+     * IAM Identity Center options for the security configuration.
+     */
+    readonly iamIdentityCenterOptions?: outputs.opensearch.GetServerlessSecurityConfigIamIdentityCenterOption[];
     readonly id: string;
     /**
-     * The date the configuration was last modified.
+     * Date the configuration was last modified.
      */
     readonly lastModifiedDate: string;
     readonly region: string;
@@ -77,7 +95,7 @@ export interface GetServerlessSecurityConfigResult {
      */
     readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOption[];
     /**
-     * The type of security configuration.
+     * Type of security configuration.
      */
     readonly type: string;
 }
@@ -100,6 +118,8 @@ export interface GetServerlessSecurityConfigResult {
 export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
+        "iamFederationOptions": args.iamFederationOptions,
+        "iamIdentityCenterOptions": args.iamIdentityCenterOptions,
         "id": args.id,
         "region": args.region,
         "samlOptions": args.samlOptions,
@@ -111,7 +131,15 @@ export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityCon
  */
 export interface GetServerlessSecurityConfigOutputArgs {
     /**
-     * The unique identifier of the security configuration.
+     * IAM Federation options for the security configuration.
+     */
+    iamFederationOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigIamFederationOptionArgs>[] | undefined>;
+    /**
+     * IAM Identity Center options for the security configuration.
+     */
+    iamIdentityCenterOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigIamIdentityCenterOptionArgs>[] | undefined>;
+    /**
+     * Unique identifier of the security configuration.
      */
     id: pulumi.Input<string>;
     /**

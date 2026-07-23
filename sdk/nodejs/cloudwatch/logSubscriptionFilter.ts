@@ -86,7 +86,7 @@ export class LogSubscriptionFilter extends pulumi.CustomResource {
      */
     declare public readonly distribution: pulumi.Output<string | undefined>;
     /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      */
     declare public readonly emitSystemFields: pulumi.Output<string[] | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface LogSubscriptionFilterState {
      */
     distribution?: pulumi.Input<string | undefined>;
     /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      */
     emitSystemFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface LogSubscriptionFilterArgs {
      */
     distribution?: pulumi.Input<string | undefined>;
     /**
-     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+     * List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
      */
     emitSystemFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

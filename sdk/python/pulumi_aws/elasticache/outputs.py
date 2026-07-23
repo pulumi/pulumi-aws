@@ -40,6 +40,7 @@ __all__ = [
     'GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult',
     'GetServerlessCacheEndpointResult',
     'GetServerlessCacheReaderEndpointResult',
+    'GetServiceUpdateActionsUpdateActionResult',
     'GetServiceUpdatesServiceUpdateResult',
     'GetUserAuthenticationModeResult',
 ]
@@ -1173,6 +1174,134 @@ class GetServerlessCacheReaderEndpointResult(dict):
         The port number that the cache engine is listening on. Set as integer.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetServiceUpdateActionsUpdateActionResult(dict):
+    def __init__(__self__, *,
+                 cache_cluster_id: _builtins.str,
+                 engine: _builtins.str,
+                 estimated_update_time: _builtins.str,
+                 recommended_apply_by_date: _builtins.str,
+                 release_date: _builtins.str,
+                 replication_group_id: _builtins.str,
+                 service_update_name: _builtins.str,
+                 service_update_severity: _builtins.str,
+                 service_update_status: _builtins.str,
+                 service_update_type: _builtins.str,
+                 update_action_status: _builtins.str):
+        """
+        :param _builtins.str cache_cluster_id: ID of Cache Cluster to list updates for. If neither `cache_cluster_id` nor `replication_group_id` are specified, all service update actions will be listed.
+        :param _builtins.str engine: Engine this update applies to.
+        :param _builtins.str estimated_update_time: Estimated duration of update.
+        :param _builtins.str recommended_apply_by_date: Date the update should be applied by.
+        :param _builtins.str release_date: Date the update was released.
+        :param _builtins.str replication_group_id: ID of Replication Group to list updates for. If neither `replication_group_id` nor `cache_cluster_id` are specified, all service update actions will be listed.
+        :param _builtins.str service_update_name: Name of the update.
+        :param _builtins.str service_update_severity: Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+        :param _builtins.str service_update_status: Service update statuses to include in list. Valid values are `available`, `cancelled`, and `expired`. If no value is specified, service updates in all statuses will be listed.
+        :param _builtins.str service_update_type: Type of the update.
+        :param _builtins.str update_action_status: Status of the update action.
+        """
+        pulumi.set(__self__, "cache_cluster_id", cache_cluster_id)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "estimated_update_time", estimated_update_time)
+        pulumi.set(__self__, "recommended_apply_by_date", recommended_apply_by_date)
+        pulumi.set(__self__, "release_date", release_date)
+        pulumi.set(__self__, "replication_group_id", replication_group_id)
+        pulumi.set(__self__, "service_update_name", service_update_name)
+        pulumi.set(__self__, "service_update_severity", service_update_severity)
+        pulumi.set(__self__, "service_update_status", service_update_status)
+        pulumi.set(__self__, "service_update_type", service_update_type)
+        pulumi.set(__self__, "update_action_status", update_action_status)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheClusterId")
+    def cache_cluster_id(self) -> _builtins.str:
+        """
+        ID of Cache Cluster to list updates for. If neither `cache_cluster_id` nor `replication_group_id` are specified, all service update actions will be listed.
+        """
+        return pulumi.get(self, "cache_cluster_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def engine(self) -> _builtins.str:
+        """
+        Engine this update applies to.
+        """
+        return pulumi.get(self, "engine")
+
+    @_builtins.property
+    @pulumi.getter(name="estimatedUpdateTime")
+    def estimated_update_time(self) -> _builtins.str:
+        """
+        Estimated duration of update.
+        """
+        return pulumi.get(self, "estimated_update_time")
+
+    @_builtins.property
+    @pulumi.getter(name="recommendedApplyByDate")
+    def recommended_apply_by_date(self) -> _builtins.str:
+        """
+        Date the update should be applied by.
+        """
+        return pulumi.get(self, "recommended_apply_by_date")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseDate")
+    def release_date(self) -> _builtins.str:
+        """
+        Date the update was released.
+        """
+        return pulumi.get(self, "release_date")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationGroupId")
+    def replication_group_id(self) -> _builtins.str:
+        """
+        ID of Replication Group to list updates for. If neither `replication_group_id` nor `cache_cluster_id` are specified, all service update actions will be listed.
+        """
+        return pulumi.get(self, "replication_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceUpdateName")
+    def service_update_name(self) -> _builtins.str:
+        """
+        Name of the update.
+        """
+        return pulumi.get(self, "service_update_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceUpdateSeverity")
+    def service_update_severity(self) -> _builtins.str:
+        """
+        Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+        """
+        return pulumi.get(self, "service_update_severity")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceUpdateStatus")
+    def service_update_status(self) -> _builtins.str:
+        """
+        Service update statuses to include in list. Valid values are `available`, `cancelled`, and `expired`. If no value is specified, service updates in all statuses will be listed.
+        """
+        return pulumi.get(self, "service_update_status")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceUpdateType")
+    def service_update_type(self) -> _builtins.str:
+        """
+        Type of the update.
+        """
+        return pulumi.get(self, "service_update_type")
+
+    @_builtins.property
+    @pulumi.getter(name="updateActionStatus")
+    def update_action_status(self) -> _builtins.str:
+        """
+        Status of the update action.
+        """
+        return pulumi.get(self, "update_action_status")
 
 
 @pulumi.output_type

@@ -19,13 +19,19 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationGetArgs>? KendraKnowledgeBaseConfiguration { get; set; }
 
         /// <summary>
+        /// Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `ManagedKnowledgeBaseConfiguration` block for details.
+        /// </summary>
+        [Input("managedKnowledgeBaseConfiguration")]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationGetArgs>? ManagedKnowledgeBaseConfiguration { get; set; }
+
+        /// <summary>
         /// Configurations for a knowledge base connected to an SQL database. See `SqlKnowledgeBaseConfiguration` block for details.
         /// </summary>
         [Input("sqlKnowledgeBaseConfiguration")]
         public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationGetArgs>? SqlKnowledgeBaseConfiguration { get; set; }
 
         /// <summary>
-        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

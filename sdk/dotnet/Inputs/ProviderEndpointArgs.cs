@@ -1131,6 +1131,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("mailmanager")]
+        public Input<string>? Mailmanager { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("managedgrafana")]
         public Input<string>? Managedgrafana { get; set; }
 

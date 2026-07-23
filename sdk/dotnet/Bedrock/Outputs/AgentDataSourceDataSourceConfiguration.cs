@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? ConfluenceConfiguration;
         /// <summary>
+        /// Details about the configuration of a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` block for details.
+        /// </summary>
+        public readonly Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration? ManagedKnowledgeBaseConnectorConfiguration;
+        /// <summary>
         /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? S3Configuration;
@@ -30,7 +34,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentDataSourceDataSourceConfigurationSharePointConfiguration? SharePointConfiguration;
         /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -41,6 +45,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
         [OutputConstructor]
         private AgentDataSourceDataSourceConfiguration(
             Outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration? confluenceConfiguration,
+
+            Outputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfiguration? managedKnowledgeBaseConnectorConfiguration,
 
             Outputs.AgentDataSourceDataSourceConfigurationS3Configuration? s3Configuration,
 
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
             Outputs.AgentDataSourceDataSourceConfigurationWebConfiguration? webConfiguration)
         {
             ConfluenceConfiguration = confluenceConfiguration;
+            ManagedKnowledgeBaseConnectorConfiguration = managedKnowledgeBaseConnectorConfiguration;
             S3Configuration = s3Configuration;
             SalesforceConfiguration = salesforceConfiguration;
             SharePointConfiguration = sharePointConfiguration;

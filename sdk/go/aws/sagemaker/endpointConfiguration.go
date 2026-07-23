@@ -14,52 +14,7 @@ import (
 
 // Provides a SageMaker AI endpoint configuration resource.
 //
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewEndpointConfiguration(ctx, "ec", &sagemaker.EndpointConfigurationArgs{
-//				Name: pulumi.String("my-endpoint-config"),
-//				ProductionVariants: sagemaker.EndpointConfigurationProductionVariantArray{
-//					&sagemaker.EndpointConfigurationProductionVariantArgs{
-//						VariantName:          pulumi.String("variant-1"),
-//						ModelName:            pulumi.Any(m.Name),
-//						InitialInstanceCount: pulumi.Int(1),
-//						InstanceType:         pulumi.String("ml.t2.medium"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ### Identity Schema
-//
-// #### Required
-//
-// * `name` (String) Name of the endpoint configuration.
+// > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `namePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 //
 // #### Optional
 //
@@ -84,7 +39,7 @@ type EndpointConfiguration struct {
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
@@ -143,7 +98,7 @@ type endpointConfigurationState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 	Name *string `pulumi:"name"`
 	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -170,7 +125,7 @@ type EndpointConfigurationState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 	Name pulumi.StringPtrInput
 	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -199,7 +154,7 @@ type endpointConfigurationArgs struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 	Name *string `pulumi:"name"`
 	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -223,7 +178,7 @@ type EndpointConfigurationArgs struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
 	KmsKeyArn pulumi.StringPtrInput
-	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+	// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 	Name pulumi.StringPtrInput
 	// Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
@@ -353,7 +308,7 @@ func (o EndpointConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
 func (o EndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -1987,6 +1987,8 @@ func (o TableMetadataPtrOutput) Iceberg() TableMetadataIcebergPtrOutput {
 }
 
 type TableMetadataIceberg struct {
+	// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+	Properties map[string]string `pulumi:"properties"`
 	// Schema configuration for the Iceberg table.
 	// See `schema` below.
 	Schema TableMetadataIcebergSchema `pulumi:"schema"`
@@ -2004,6 +2006,8 @@ type TableMetadataIcebergInput interface {
 }
 
 type TableMetadataIcebergArgs struct {
+	// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Schema configuration for the Iceberg table.
 	// See `schema` below.
 	Schema TableMetadataIcebergSchemaInput `pulumi:"schema"`
@@ -2086,6 +2090,11 @@ func (o TableMetadataIcebergOutput) ToTableMetadataIcebergPtrOutputWithContext(c
 	}).(TableMetadataIcebergPtrOutput)
 }
 
+// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+func (o TableMetadataIcebergOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TableMetadataIceberg) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
 // Schema configuration for the Iceberg table.
 // See `schema` below.
 func (o TableMetadataIcebergOutput) Schema() TableMetadataIcebergSchemaOutput {
@@ -2114,6 +2123,16 @@ func (o TableMetadataIcebergPtrOutput) Elem() TableMetadataIcebergOutput {
 		var ret TableMetadataIceberg
 		return ret
 	}).(TableMetadataIcebergOutput)
+}
+
+// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+func (o TableMetadataIcebergPtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TableMetadataIceberg) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
 }
 
 // Schema configuration for the Iceberg table.

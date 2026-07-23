@@ -286,6 +286,8 @@ type NodeGroup struct {
 	UpdateConfig NodeGroupUpdateConfigOutput `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringOutput `pulumi:"version"`
+	// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+	WarmPoolConfig NodeGroupWarmPoolConfigPtrOutput `pulumi:"warmPoolConfig"`
 }
 
 // NewNodeGroup registers a new resource with the given unique name, arguments, and options.
@@ -382,6 +384,8 @@ type nodeGroupState struct {
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
+	// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+	WarmPoolConfig *NodeGroupWarmPoolConfig `pulumi:"warmPoolConfig"`
 }
 
 type NodeGroupState struct {
@@ -437,6 +441,8 @@ type NodeGroupState struct {
 	UpdateConfig NodeGroupUpdateConfigPtrInput
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
+	// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+	WarmPoolConfig NodeGroupWarmPoolConfigPtrInput
 }
 
 func (NodeGroupState) ElementType() reflect.Type {
@@ -488,6 +494,8 @@ type nodeGroupArgs struct {
 	UpdateConfig *NodeGroupUpdateConfig `pulumi:"updateConfig"`
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version *string `pulumi:"version"`
+	// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+	WarmPoolConfig *NodeGroupWarmPoolConfig `pulumi:"warmPoolConfig"`
 }
 
 // The set of arguments for constructing a NodeGroup resource.
@@ -536,6 +544,8 @@ type NodeGroupArgs struct {
 	UpdateConfig NodeGroupUpdateConfigPtrInput
 	// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 	Version pulumi.StringPtrInput
+	// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+	WarmPoolConfig NodeGroupWarmPoolConfigPtrInput
 }
 
 func (NodeGroupArgs) ElementType() reflect.Type {
@@ -750,6 +760,11 @@ func (o NodeGroupOutput) UpdateConfig() NodeGroupUpdateConfigOutput {
 // Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
 func (o NodeGroupOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *NodeGroup) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
+// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+func (o NodeGroupOutput) WarmPoolConfig() NodeGroupWarmPoolConfigPtrOutput {
+	return o.ApplyT(func(v *NodeGroup) NodeGroupWarmPoolConfigPtrOutput { return v.WarmPoolConfig }).(NodeGroupWarmPoolConfigPtrOutput)
 }
 
 type NodeGroupArrayOutput struct{ *pulumi.OutputState }

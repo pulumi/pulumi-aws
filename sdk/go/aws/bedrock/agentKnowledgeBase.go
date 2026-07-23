@@ -215,6 +215,16 @@ import (
 //							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
 //								Dimensions:        pulumi.Int(1024),
 //								EmbeddingDataType: pulumi.String("FLOAT32"),
+//								Audio: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs{
+//									SegmentationConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs{
+//										FixedLengthDuration: pulumi.Int(60),
+//									},
+//								},
+//								Video: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs{
+//									SegmentationConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs{
+//										FixedLengthDuration: pulumi.Int(60),
+//									},
+//								},
 //							},
 //						},
 //						SupplementalDataStorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{
@@ -300,6 +310,78 @@ import (
 //					Type: pulumi.String("S3_VECTORS"),
 //					S3VectorsConfiguration: &bedrock.AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs{
 //						IndexArn: exampleVectorsIndex.IndexArn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Managed Knowledge Base
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-managed-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("MANAGED"),
+//					ManagedKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelType: pulumi.String("MANAGED"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Managed Knowledge Base with Custom Embedding Model
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentKnowledgeBase(ctx, "example", &bedrock.AgentKnowledgeBaseArgs{
+//				Name:    pulumi.String("example-managed-multilingual-kb"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				KnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs{
+//					Type: pulumi.String("MANAGED"),
+//					ManagedKnowledgeBaseConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs{
+//						EmbeddingModelType: pulumi.String("CUSTOM"),
+//						EmbeddingModelArn:  pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3"),
+//						EmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs{
+//							BedrockEmbeddingModelConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs{
+//								Dimensions: pulumi.Int(1024),
+//							},
+//						},
 //					},
 //				},
 //			})

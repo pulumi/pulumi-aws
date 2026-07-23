@@ -41,7 +41,8 @@ class NodeGroupArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  taints: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
                  update_config: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_pool_config: pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
 
@@ -68,6 +69,7 @@ class NodeGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input['NodeGroupWarmPoolConfigArgs'] warm_pool_config: Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "node_role_arn", node_role_arn)
@@ -107,6 +109,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "update_config", update_config)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if warm_pool_config is not None:
+            pulumi.set(__self__, "warm_pool_config", warm_pool_config)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -362,6 +366,18 @@ class NodeGroupArgs:
     def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']]:
+        """
+        Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
+        """
+        return pulumi.get(self, "warm_pool_config")
+
+    @warm_pool_config.setter
+    def warm_pool_config(self, value: pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']]):
+        pulumi.set(self, "warm_pool_config", value)
+
 
 @pulumi.input_type
 class _NodeGroupState:
@@ -390,7 +406,8 @@ class _NodeGroupState:
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  taints: pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
                  update_config: pulumi.Input[Optional['NodeGroupUpdateConfigArgs']] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_pool_config: pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
 
@@ -421,6 +438,7 @@ class _NodeGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input['NodeGroupWarmPoolConfigArgs'] warm_pool_config: Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
         """
         if ami_type is not None:
             pulumi.set(__self__, "ami_type", ami_type)
@@ -472,6 +490,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "update_config", update_config)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if warm_pool_config is not None:
+            pulumi.set(__self__, "warm_pool_config", warm_pool_config)
 
     @_builtins.property
     @pulumi.getter(name="amiType")
@@ -775,6 +795,18 @@ class _NodeGroupState:
     def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']]:
+        """
+        Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
+        """
+        return pulumi.get(self, "warm_pool_config")
+
+    @warm_pool_config.setter
+    def warm_pool_config(self, value: pulumi.Input[Optional['NodeGroupWarmPoolConfigArgs']]):
+        pulumi.set(self, "warm_pool_config", value)
+
 
 @pulumi.type_token("aws:eks/nodeGroup:NodeGroup")
 class NodeGroup(pulumi.CustomResource):
@@ -803,6 +835,7 @@ class NodeGroup(pulumi.CustomResource):
                  taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
                  update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_pool_config: pulumi.Input[Optional[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
@@ -941,6 +974,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict']] warm_pool_config: Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
         """
         ...
     @overload
@@ -1096,6 +1130,7 @@ class NodeGroup(pulumi.CustomResource):
                  taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
                  update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_pool_config: pulumi.Input[Optional[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1134,6 +1169,7 @@ class NodeGroup(pulumi.CustomResource):
             __props__.__dict__["taints"] = taints
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
+            __props__.__dict__["warm_pool_config"] = warm_pool_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["status"] = None
@@ -1172,7 +1208,8 @@ class NodeGroup(pulumi.CustomResource):
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             taints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]]] = None,
             update_config: pulumi.Input[Optional[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']]] = None,
-            version: pulumi.Input[Optional[_builtins.str]] = None) -> 'NodeGroup':
+            version: pulumi.Input[Optional[_builtins.str]] = None,
+            warm_pool_config: pulumi.Input[Optional[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict']]] = None) -> 'NodeGroup':
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1207,6 +1244,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupTaintArgs', 'NodeGroupTaintArgsDict']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         :param pulumi.Input[Union['NodeGroupUpdateConfigArgs', 'NodeGroupUpdateConfigArgsDict']] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[_builtins.str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[Union['NodeGroupWarmPoolConfigArgs', 'NodeGroupWarmPoolConfigArgsDict']] warm_pool_config: Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1237,6 +1275,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["taints"] = taints
         __props__.__dict__["update_config"] = update_config
         __props__.__dict__["version"] = version
+        __props__.__dict__["warm_pool_config"] = warm_pool_config
         return NodeGroup(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1440,4 +1479,12 @@ class NodeGroup(pulumi.CustomResource):
         Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfig")
+    def warm_pool_config(self) -> pulumi.Output[Optional['outputs.NodeGroupWarmPoolConfig']]:
+        """
+        Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warm_pool_config` below for details.
+        """
+        return pulumi.get(self, "warm_pool_config")
 

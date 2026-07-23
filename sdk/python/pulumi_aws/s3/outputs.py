@@ -212,6 +212,7 @@ __all__ = [
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult',
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult',
     'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult',
+    'GetBucketsBucketResult',
     'GetFilesAccessPointPosixUserResult',
     'GetFilesAccessPointRootDirectoryResult',
     'GetFilesAccessPointRootDirectoryCreationPermissionResult',
@@ -9466,6 +9467,57 @@ class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypte
     @pulumi.getter
     def status(self) -> _builtins.str:
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketsBucketResult(dict):
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 bucket_region: _builtins.str,
+                 creation_date: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.str bucket_arn: Bucket ARN.
+        :param _builtins.str bucket_region: Limits the response to buckets that are located in the specified AWS Region. The AWS Region must be expressed according to the AWS Region code.
+        :param _builtins.str creation_date: Bucket creation date.
+        :param _builtins.str name: Bucket name.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "bucket_region", bucket_region)
+        pulumi.set(__self__, "creation_date", creation_date)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        Bucket ARN.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> _builtins.str:
+        """
+        Limits the response to buckets that are located in the specified AWS Region. The AWS Region must be expressed according to the AWS Region code.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @_builtins.property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> _builtins.str:
+        """
+        Bucket creation date.
+        """
+        return pulumi.get(self, "creation_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Bucket name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

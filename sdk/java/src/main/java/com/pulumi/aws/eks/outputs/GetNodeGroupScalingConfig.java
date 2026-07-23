@@ -21,7 +21,7 @@ public final class GetNodeGroupScalingConfig {
      */
     private Integer maxSize;
     /**
-     * @return Minimum number of worker nodes.
+     * @return Minimum number of instances maintained in the warm pool.
      * 
      */
     private Integer minSize;
@@ -42,7 +42,7 @@ public final class GetNodeGroupScalingConfig {
         return this.maxSize;
     }
     /**
-     * @return Minimum number of worker nodes.
+     * @return Minimum number of instances maintained in the warm pool.
      * 
      */
     public Integer minSize() {

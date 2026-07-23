@@ -945,6 +945,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String mailmanager;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String managedgrafana;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2889,6 +2894,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> mailmanager() {
+        return Optional.ofNullable(this.mailmanager);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> managedgrafana() {
         return Optional.ofNullable(this.managedgrafana);
     }
@@ -3977,6 +3989,7 @@ public final class Endpoints {
         private @Nullable String logs;
         private @Nullable String m2;
         private @Nullable String macie2;
+        private @Nullable String mailmanager;
         private @Nullable String managedgrafana;
         private @Nullable String mediaconnect;
         private @Nullable String mediaconvert;
@@ -4294,6 +4307,7 @@ public final class Endpoints {
     	      this.logs = defaults.logs;
     	      this.m2 = defaults.m2;
     	      this.macie2 = defaults.macie2;
+    	      this.mailmanager = defaults.mailmanager;
     	      this.managedgrafana = defaults.managedgrafana;
     	      this.mediaconnect = defaults.mediaconnect;
     	      this.mediaconvert = defaults.mediaconvert;
@@ -5541,6 +5555,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder mailmanager(@Nullable String mailmanager) {
+
+            this.mailmanager = mailmanager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder managedgrafana(@Nullable String managedgrafana) {
 
             this.managedgrafana = managedgrafana;
@@ -6496,6 +6516,7 @@ public final class Endpoints {
             _resultValue.logs = logs;
             _resultValue.m2 = m2;
             _resultValue.macie2 = macie2;
+            _resultValue.mailmanager = mailmanager;
             _resultValue.managedgrafana = managedgrafana;
             _resultValue.mediaconnect = mediaconnect;
             _resultValue.mediaconvert = mediaconvert;

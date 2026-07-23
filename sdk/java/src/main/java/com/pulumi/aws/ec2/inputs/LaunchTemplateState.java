@@ -133,14 +133,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Description of the launch template.
+     * Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the launch template.
+     * @return Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
      * 
      */
     public Optional<Output<String>> description() {
@@ -869,7 +869,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the launch template.
+         * @param description Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
          * 
          * @return builder
          * 
@@ -880,7 +880,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description Description of the launch template.
+         * @param description Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
          * 
          * @return builder
          * 

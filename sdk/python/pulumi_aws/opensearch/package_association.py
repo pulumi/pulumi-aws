@@ -179,6 +179,14 @@ class PackageAssociation(pulumi.CustomResource):
             domain_name=my_domain.domain_name)
         ```
 
+        ## Import
+
+        Using `pulumi import`, import `opensearch.PackageAssociation` using `DOMAIN_NAME,PACKAGE_ID`. For example:
+
+        ```sh
+        $ pulumi import aws:opensearch/packageAssociation:PackageAssociation example example-domain,F123456789
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,6 +227,14 @@ class PackageAssociation(pulumi.CustomResource):
         example_package_association = aws.opensearch.PackageAssociation("example",
             package_id=example.id,
             domain_name=my_domain.domain_name)
+        ```
+
+        ## Import
+
+        Using `pulumi import`, import `opensearch.PackageAssociation` using `DOMAIN_NAME,PACKAGE_ID`. For example:
+
+        ```sh
+        $ pulumi import aws:opensearch/packageAssociation:PackageAssociation example example-domain,F123456789
         ```
 
 

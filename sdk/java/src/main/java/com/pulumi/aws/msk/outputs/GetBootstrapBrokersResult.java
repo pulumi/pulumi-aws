@@ -16,6 +16,11 @@ public final class GetBootstrapBrokersResult {
      */
     private String bootstrapBrokers;
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    private String bootstrapBrokersIpv6;
+    /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
      * 
      */
@@ -36,15 +41,30 @@ public final class GetBootstrapBrokersResult {
      */
     private String bootstrapBrokersSaslIam;
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    private String bootstrapBrokersSaslIamIpv6;
+    /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
      * 
      */
     private String bootstrapBrokersSaslScram;
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    private String bootstrapBrokersSaslScramIpv6;
+    /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs.
      * 
      */
     private String bootstrapBrokersTls;
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    private String bootstrapBrokersTlsIpv6;
     /**
      * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
      * 
@@ -77,6 +97,13 @@ public final class GetBootstrapBrokersResult {
         return this.bootstrapBrokers;
     }
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    public String bootstrapBrokersIpv6() {
+        return this.bootstrapBrokersIpv6;
+    }
+    /**
      * @return One or more DNS names (or IP addresses) and SASL IAM port pairs.
      * 
      */
@@ -105,6 +132,13 @@ public final class GetBootstrapBrokersResult {
         return this.bootstrapBrokersSaslIam;
     }
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    public String bootstrapBrokersSaslIamIpv6() {
+        return this.bootstrapBrokersSaslIamIpv6;
+    }
+    /**
      * @return One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
      * 
      */
@@ -112,11 +146,25 @@ public final class GetBootstrapBrokersResult {
         return this.bootstrapBrokersSaslScram;
     }
     /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    public String bootstrapBrokersSaslScramIpv6() {
+        return this.bootstrapBrokersSaslScramIpv6;
+    }
+    /**
      * @return One or more DNS names (or IP addresses) and TLS port pairs.
      * 
      */
     public String bootstrapBrokersTls() {
         return this.bootstrapBrokersTls;
+    }
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+     * 
+     */
+    public String bootstrapBrokersTlsIpv6() {
+        return this.bootstrapBrokersTlsIpv6;
     }
     /**
      * @return A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
@@ -163,12 +211,16 @@ public final class GetBootstrapBrokersResult {
     @CustomType.Builder
     public static final class Builder {
         private String bootstrapBrokers;
+        private String bootstrapBrokersIpv6;
         private String bootstrapBrokersPublicSaslIam;
         private String bootstrapBrokersPublicSaslScram;
         private String bootstrapBrokersPublicTls;
         private String bootstrapBrokersSaslIam;
+        private String bootstrapBrokersSaslIamIpv6;
         private String bootstrapBrokersSaslScram;
+        private String bootstrapBrokersSaslScramIpv6;
         private String bootstrapBrokersTls;
+        private String bootstrapBrokersTlsIpv6;
         private String bootstrapBrokersVpcConnectivitySaslIam;
         private String bootstrapBrokersVpcConnectivitySaslScram;
         private String bootstrapBrokersVpcConnectivityTls;
@@ -179,12 +231,16 @@ public final class GetBootstrapBrokersResult {
         public Builder(GetBootstrapBrokersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bootstrapBrokers = defaults.bootstrapBrokers;
+    	      this.bootstrapBrokersIpv6 = defaults.bootstrapBrokersIpv6;
     	      this.bootstrapBrokersPublicSaslIam = defaults.bootstrapBrokersPublicSaslIam;
     	      this.bootstrapBrokersPublicSaslScram = defaults.bootstrapBrokersPublicSaslScram;
     	      this.bootstrapBrokersPublicTls = defaults.bootstrapBrokersPublicTls;
     	      this.bootstrapBrokersSaslIam = defaults.bootstrapBrokersSaslIam;
+    	      this.bootstrapBrokersSaslIamIpv6 = defaults.bootstrapBrokersSaslIamIpv6;
     	      this.bootstrapBrokersSaslScram = defaults.bootstrapBrokersSaslScram;
+    	      this.bootstrapBrokersSaslScramIpv6 = defaults.bootstrapBrokersSaslScramIpv6;
     	      this.bootstrapBrokersTls = defaults.bootstrapBrokersTls;
+    	      this.bootstrapBrokersTlsIpv6 = defaults.bootstrapBrokersTlsIpv6;
     	      this.bootstrapBrokersVpcConnectivitySaslIam = defaults.bootstrapBrokersVpcConnectivitySaslIam;
     	      this.bootstrapBrokersVpcConnectivitySaslScram = defaults.bootstrapBrokersVpcConnectivitySaslScram;
     	      this.bootstrapBrokersVpcConnectivityTls = defaults.bootstrapBrokersVpcConnectivityTls;
@@ -199,6 +255,14 @@ public final class GetBootstrapBrokersResult {
               throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokers");
             }
             this.bootstrapBrokers = bootstrapBrokers;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bootstrapBrokersIpv6(String bootstrapBrokersIpv6) {
+            if (bootstrapBrokersIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersIpv6");
+            }
+            this.bootstrapBrokersIpv6 = bootstrapBrokersIpv6;
             return this;
         }
         @CustomType.Setter
@@ -234,6 +298,14 @@ public final class GetBootstrapBrokersResult {
             return this;
         }
         @CustomType.Setter
+        public Builder bootstrapBrokersSaslIamIpv6(String bootstrapBrokersSaslIamIpv6) {
+            if (bootstrapBrokersSaslIamIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersSaslIamIpv6");
+            }
+            this.bootstrapBrokersSaslIamIpv6 = bootstrapBrokersSaslIamIpv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder bootstrapBrokersSaslScram(String bootstrapBrokersSaslScram) {
             if (bootstrapBrokersSaslScram == null) {
               throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersSaslScram");
@@ -242,11 +314,27 @@ public final class GetBootstrapBrokersResult {
             return this;
         }
         @CustomType.Setter
+        public Builder bootstrapBrokersSaslScramIpv6(String bootstrapBrokersSaslScramIpv6) {
+            if (bootstrapBrokersSaslScramIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersSaslScramIpv6");
+            }
+            this.bootstrapBrokersSaslScramIpv6 = bootstrapBrokersSaslScramIpv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
             if (bootstrapBrokersTls == null) {
               throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersTls");
             }
             this.bootstrapBrokersTls = bootstrapBrokersTls;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bootstrapBrokersTlsIpv6(String bootstrapBrokersTlsIpv6) {
+            if (bootstrapBrokersTlsIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetBootstrapBrokersResult", "bootstrapBrokersTlsIpv6");
+            }
+            this.bootstrapBrokersTlsIpv6 = bootstrapBrokersTlsIpv6;
             return this;
         }
         @CustomType.Setter
@@ -300,12 +388,16 @@ public final class GetBootstrapBrokersResult {
         public GetBootstrapBrokersResult build() {
             final var _resultValue = new GetBootstrapBrokersResult();
             _resultValue.bootstrapBrokers = bootstrapBrokers;
+            _resultValue.bootstrapBrokersIpv6 = bootstrapBrokersIpv6;
             _resultValue.bootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
             _resultValue.bootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
             _resultValue.bootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
             _resultValue.bootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            _resultValue.bootstrapBrokersSaslIamIpv6 = bootstrapBrokersSaslIamIpv6;
             _resultValue.bootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
+            _resultValue.bootstrapBrokersSaslScramIpv6 = bootstrapBrokersSaslScramIpv6;
             _resultValue.bootstrapBrokersTls = bootstrapBrokersTls;
+            _resultValue.bootstrapBrokersTlsIpv6 = bootstrapBrokersTlsIpv6;
             _resultValue.bootstrapBrokersVpcConnectivitySaslIam = bootstrapBrokersVpcConnectivitySaslIam;
             _resultValue.bootstrapBrokersVpcConnectivitySaslScram = bootstrapBrokersVpcConnectivitySaslScram;
             _resultValue.bootstrapBrokersVpcConnectivityTls = bootstrapBrokersVpcConnectivityTls;

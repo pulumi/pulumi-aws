@@ -105,12 +105,20 @@ __all__ = [
     'ServerlessCollectionTimeoutsArgsDict',
     'ServerlessCollectionVectorOptionArgs',
     'ServerlessCollectionVectorOptionArgsDict',
+    'ServerlessSecurityConfigIamFederationOptionsArgs',
+    'ServerlessSecurityConfigIamFederationOptionsArgsDict',
+    'ServerlessSecurityConfigIamIdentityCenterOptionsArgs',
+    'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict',
     'ServerlessSecurityConfigSamlOptionsArgs',
     'ServerlessSecurityConfigSamlOptionsArgsDict',
     'ServerlessVpcEndpointTimeoutsArgs',
     'ServerlessVpcEndpointTimeoutsArgsDict',
     'VpcEndpointVpcOptionsArgs',
     'VpcEndpointVpcOptionsArgsDict',
+    'GetServerlessSecurityConfigIamFederationOptionArgs',
+    'GetServerlessSecurityConfigIamFederationOptionArgsDict',
+    'GetServerlessSecurityConfigIamIdentityCenterOptionArgs',
+    'GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict',
     'GetServerlessSecurityConfigSamlOptionArgs',
     'GetServerlessSecurityConfigSamlOptionArgsDict',
 ]
@@ -2982,10 +2990,127 @@ class ServerlessCollectionVectorOptionArgs:
         pulumi.set(self, "serverless_vector_acceleration", value)
 
 
+class ServerlessSecurityConfigIamFederationOptionsArgsDict(TypedDict):
+    group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Group attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+    """
+    user_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+    """
+
+@pulumi.input_type
+class ServerlessSecurityConfigIamFederationOptionsArgs:
+    def __init__(__self__, *,
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+        :param pulumi.Input[_builtins.str] user_attribute: User attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+        """
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User attribute for this IAM federation integration. At least one of `group_attribute` or `user_attribute` must be specified.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_attribute", value)
+
+
+class ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict(TypedDict):
+    instance_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+    """
+    group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+    """
+    user_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+    """
+
+@pulumi.input_type
+class ServerlessSecurityConfigIamIdentityCenterOptionsArgs:
+    def __init__(__self__, *,
+                 instance_arn: pulumi.Input[_builtins.str],
+                 group_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+        :param pulumi.Input[_builtins.str] user_attribute: User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_attribute", value)
+
+
 class ServerlessSecurityConfigSamlOptionsArgsDict(TypedDict):
     metadata: pulumi.Input[_builtins.str]
     """
-    The XML IdP metadata file generated from your identity provider.
+    XML IdP metadata file generated from your identity provider.
     """
     group_attribute: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3008,7 +3133,7 @@ class ServerlessSecurityConfigSamlOptionsArgs:
                  session_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  user_attribute: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] metadata: The XML IdP metadata file generated from your identity provider.
+        :param pulumi.Input[_builtins.str] metadata: XML IdP metadata file generated from your identity provider.
         :param pulumi.Input[_builtins.str] group_attribute: Group attribute for this SAML integration.
         :param pulumi.Input[_builtins.int] session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param pulumi.Input[_builtins.str] user_attribute: User attribute for this SAML integration.
@@ -3025,7 +3150,7 @@ class ServerlessSecurityConfigSamlOptionsArgs:
     @pulumi.getter
     def metadata(self) -> pulumi.Input[_builtins.str]:
         """
-        The XML IdP metadata file generated from your identity provider.
+        XML IdP metadata file generated from your identity provider.
         """
         return pulumi.get(self, "metadata")
 
@@ -3213,6 +3338,119 @@ class VpcEndpointVpcOptionsArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+class GetServerlessSecurityConfigIamFederationOptionArgsDict(TypedDict):
+    group_attribute: _builtins.str
+    """
+    Group attribute for this SAML integration.
+    """
+    user_attribute: _builtins.str
+    """
+    User attribute for this SAML integration.
+    """
+
+@pulumi.input_type
+class GetServerlessSecurityConfigIamFederationOptionArgs:
+    def __init__(__self__, *,
+                 group_attribute: _builtins.str,
+                 user_attribute: _builtins.str):
+        """
+        :param _builtins.str group_attribute: Group attribute for this SAML integration.
+        :param _builtins.str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> _builtins.str:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: _builtins.str):
+        pulumi.set(self, "group_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> _builtins.str:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: _builtins.str):
+        pulumi.set(self, "user_attribute", value)
+
+
+class GetServerlessSecurityConfigIamIdentityCenterOptionArgsDict(TypedDict):
+    group_attribute: _builtins.str
+    """
+    Group attribute for this SAML integration.
+    """
+    instance_arn: _builtins.str
+    """
+    Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+    """
+    user_attribute: _builtins.str
+    """
+    User attribute for this SAML integration.
+    """
+
+@pulumi.input_type
+class GetServerlessSecurityConfigIamIdentityCenterOptionArgs:
+    def __init__(__self__, *,
+                 group_attribute: _builtins.str,
+                 instance_arn: _builtins.str,
+                 user_attribute: _builtins.str):
+        """
+        :param _builtins.str group_attribute: Group attribute for this SAML integration.
+        :param _builtins.str instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param _builtins.str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> _builtins.str:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: _builtins.str):
+        pulumi.set(self, "group_attribute", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> _builtins.str:
+        """
+        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        """
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: _builtins.str):
+        pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> _builtins.str:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: _builtins.str):
+        pulumi.set(self, "user_attribute", value)
+
+
 class GetServerlessSecurityConfigSamlOptionArgsDict(TypedDict):
     group_attribute: _builtins.str
     """
@@ -3220,7 +3458,7 @@ class GetServerlessSecurityConfigSamlOptionArgsDict(TypedDict):
     """
     metadata: _builtins.str
     """
-    The XML IdP metadata file generated from your identity provider.
+    XML IdP metadata file generated from your identity provider.
     """
     session_timeout: _builtins.int
     """
@@ -3240,7 +3478,7 @@ class GetServerlessSecurityConfigSamlOptionArgs:
                  user_attribute: _builtins.str):
         """
         :param _builtins.str group_attribute: Group attribute for this SAML integration.
-        :param _builtins.str metadata: The XML IdP metadata file generated from your identity provider.
+        :param _builtins.str metadata: XML IdP metadata file generated from your identity provider.
         :param _builtins.int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         :param _builtins.str user_attribute: User attribute for this SAML integration.
         """
@@ -3265,7 +3503,7 @@ class GetServerlessSecurityConfigSamlOptionArgs:
     @pulumi.getter
     def metadata(self) -> _builtins.str:
         """
-        The XML IdP metadata file generated from your identity provider.
+        XML IdP metadata file generated from your identity provider.
         """
         return pulumi.get(self, "metadata")
 
