@@ -12,13 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:build java || all
-// +build java all
-
 package examples
-
-// NOTE about build tags: CI does not understand yaml-specific tags yet, but splits builds per language to run on
-// separate runners. This file piggy-backs on the java tag so yaml tests will run on the same runner as java tests.
 
 import (
 	"bytes"

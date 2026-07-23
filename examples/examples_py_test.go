@@ -1,6 +1,4 @@
 // Copyright 2016-2024, Pulumi Corporation.  All rights reserved.
-//go:build python || all
-// +build python all
 
 package examples
 
