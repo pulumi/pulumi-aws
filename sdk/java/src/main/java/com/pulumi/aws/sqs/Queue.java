@@ -164,26 +164,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var queue = new Queue("queue", QueueArgs.builder()
- *             .name("pulumi-example-queue")
- *             .redrivePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty("deadLetterTargetArn", queueDeadletter.arn()),
- *                     jsonProperty("maxReceiveCount", 4)
- *                 )))
- *             .build());
- * 
  *         var exampleQueueDeadletter = new Queue("exampleQueueDeadletter", QueueArgs.builder()
  *             .name("pulumi-example-deadletter-queue")
  *             .build());
  * 
+ *         var queue = new Queue("queue", QueueArgs.builder()
+ *             .name("pulumi-example-queue")
+ *             .redrivePolicy(exampleQueueDeadletter.arn().applyValue(_arn -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("deadLetterTargetArn", _arn),
+ *                     jsonProperty("maxReceiveCount", 4)
+ *                 ))))
+ *             .build());
+ * 
  *         var exampleQueueRedriveAllowPolicy = new RedriveAllowPolicy("exampleQueueRedriveAllowPolicy", RedriveAllowPolicyArgs.builder()
  *             .queueUrl(exampleQueueDeadletter.id())
- *             .redriveAllowPolicy(serializeJson(
+ *             .redriveAllowPolicy(queue.arn().applyValue(_arn -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("redrivePermission", "byQueue"),
- *                     jsonProperty("sourceQueueArns", jsonArray(exampleQueue.arn()))
- *                 )))
+ *                     jsonProperty("sourceQueueArns", jsonArray(_arn))
+ *                 ))))
  *             .build());
  * 
  *     }

@@ -132,40 +132,46 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"deadLetterTargetArn": queueDeadletter.Arn,
-//				"maxReceiveCount":     4,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
-//				Name:          pulumi.String("pulumi-example-queue"),
-//				RedrivePolicy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleQueueDeadletter, err := sqs.NewQueue(ctx, "example_queue_deadletter", &sqs.QueueArgs{
 //				Name: pulumi.String("pulumi-example-deadletter-queue"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"redrivePermission": "byQueue",
-//				"sourceQueueArns": []interface{}{
-//					exampleQueue.Arn,
-//				},
+//			queue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				Name: pulumi.String("pulumi-example-queue"),
+//				RedrivePolicy: exampleQueueDeadletter.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"deadLetterTargetArn": arn,
+//						"maxReceiveCount":     4,
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			json1 := string(tmpJSON1)
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "example_queue_redrive_allow_policy", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl:           exampleQueueDeadletter.ID(),
-//				RedriveAllowPolicy: pulumi.String(json1),
+//				QueueUrl: exampleQueueDeadletter.ID(),
+//				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						"redrivePermission": "byQueue",
+//						"sourceQueueArns": []string{
+//							arn,
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json1 := string(tmpJSON1)
+//					return pulumi.String(json1), nil
+//				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {
 //				return err
