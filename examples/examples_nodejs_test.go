@@ -712,6 +712,30 @@ func TestRegress6549(t *testing.T) {
 	assert.NotZero(t, (*res.Summary.ResourceChanges)["update"])
 }
 
+// Regress an upstream aws_rds_cluster bug where changing storage_type on a
+// non-Aurora Multi-AZ cluster incorrectly forced a replacement, even though
+// the AWS ModifyDBCluster API supports the change in place. See
+// hashicorp/terraform-provider-aws#48545.
+func TestRegressRDSClusterStorageTypeUpdateNonAurora(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	dir := filepath.Join("test-programs", "regress-rds-storage-type")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	test := pulumitest.NewPulumiTest(t, dir,
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+	)
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
+	test.SetConfig(t, "storageType", "io1")
+	test.Up(t)
+
+	test.SetConfig(t, "storageType", "gp3")
+	res := test.Up(t, optup.Diff())
+
+	assertup.HasNoReplacements(t, res)
+	assert.NotZero(t, (*res.Summary.ResourceChanges)["update"])
+}
+
 type expectFailure struct {
 	*testing.T
 	failed bool
