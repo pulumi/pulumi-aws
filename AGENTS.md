@@ -52,6 +52,7 @@ Makefile              -- Build orchestration
 
 ## Rules
 
+- Before deciding, creating, or materially changing a carried patch, use `upstream-patches` for the shared policy and patch mechanics, then read `docs/upstream-patches.md` for Pulumi AWS-specific requirements.
 - **Never work directly in `sdk/` folders** - All SDK generation is automated through `make`
 - **Never cancel running builds** - Builds may take several minutes
 - **Do not run tests in `examples/`** - They require cloud credentials and run in CI

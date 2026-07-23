@@ -46,6 +46,16 @@ If you are using an AI coding assistant:
 1. Do not manually edit generated files under `sdk/`.
 1. Include exact validation commands and outcomes in the pull request description.
 
+## Carrying Upstream Patches
+
+Upstream patches add recurring upgrade cost and can create behavior that Pulumi
+must maintain indefinitely. When contributing a patch, use the
+`upstream-patches` skill for shared patch policy and mechanics, then follow
+[`docs/upstream-patches.md`](./docs/upstream-patches.md) for Pulumi AWS-specific
+tracking, test, CI, and AWS safety requirements.
+
+Do not treat a patch applying cleanly as sufficient validation.
+
 ## Running Integration Tests
 
 The examples and integration tests in this repository will create and destroy real AWS

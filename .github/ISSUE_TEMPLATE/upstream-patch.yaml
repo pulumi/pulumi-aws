@@ -1,0 +1,102 @@
+name: Upstream Patch Tracking
+description: Track why Pulumi AWS carries a patch and when it can be removed
+labels: ["area/patch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this issue to record the design, compatibility, testing, and removal
+        conditions for a patch carried by Pulumi AWS. Read
+        [`docs/upstream-patches.md`](https://github.com/pulumi/pulumi-aws/blob/master/docs/upstream-patches.md) before completing it.
+
+  - type: dropdown
+    id: owner-label
+    attributes:
+      label: Owning repository
+      description: Select the matching existing label and apply it to the issue after creation.
+      options:
+        - awaiting-upstream
+        - awaiting/bridge
+        - awaiting/core
+        - awaiting/codegen
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-work
+    attributes:
+      label: Related issues and pull requests
+      description: Link the user-facing issue, owning-project issue, upstream pull request, and Pulumi patch pull request when available.
+    validations:
+      required: true
+
+  - type: textarea
+    id: need
+    attributes:
+      label: Why the patch is needed
+      description: Explain why Pulumi AWS should carry the change instead of waiting for the owner or solving it without a patch.
+      placeholder: Include the affected behavior, urgency, alternatives considered, and why those alternatives are insufficient.
+    validations:
+      required: true
+
+  - type: textarea
+    id: upstream-assessment
+    attributes:
+      label: Owning-project change
+      description: Assess the proposed owner-side solution and explain whether the patch matches it.
+      placeholder: |
+        If an external contributor opened the upstream change, assess whether it is complete enough to carry.
+        If Pulumi needs a different change, explain why and whether a separate upstream pull request is required.
+        For Pulumi-specific behavior, explain why the change would be incorrect or irrelevant upstream.
+    validations:
+      required: true
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and maintenance risks
+      description: Describe how the patch may affect existing programs, state, future upgrades, and eventual removal. Address relevant public API or schema changes, state migrations, identifiers, import behavior, cross-cutting resource effects, the risk that upstream adopts an incompatible design, known unknowns, and untested behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Regression coverage
+      description: Name the tests that prove the behavior and where CI selects them. Mark unavailable or inapplicable coverage explicitly.
+      placeholder: |
+        - Upstream acceptance test:
+        - aws-upstream-tests.yml selection:
+        - Pulumi examples regression test:
+        - Provider-upgrade test, if required:
+        - Other validation or blocked evidence:
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lifetime
+    attributes:
+      label: Expected lifetime
+      options:
+        - Temporary until the owning project releases a compatible solution
+        - Intentionally permanent Pulumi-specific divergence
+        - Unknown pending owner or compatibility investigation
+    validations:
+      required: true
+
+  - type: textarea
+    id: removal
+    attributes:
+      label: Removal conditions and validation
+      description: State the observable conditions for removing the patch and the tests required to prove removal is safe. “Fixed upstream” alone is insufficient.
+      placeholder: For a permanent patch, explain why removal is not expected and what future change would require reassessment.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Patch policy
+      options:
+        - label: I have read `docs/upstream-patches.md` and will report exact test outcomes in the patch pull request.
+          required: true
