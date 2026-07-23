@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -27,6 +28,14 @@ func rootSdkPath() string {
 	return rootSdkPath
 }
 
+func tidyGoModule(t *testing.T, workdir string) {
+	t.Helper()
+	cmd := exec.Command("go", "mod", "tidy")
+	cmd.Dir = workdir
+	out, err := cmd.CombinedOutput()
+	require.NoErrorf(t, err, "go mod tidy failed:\n%s", out)
+}
+
 // Keep the Go release-verification example covered in normal CI.
 func TestReleaseVerificationGo(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "webserver-go"),
@@ -34,6 +43,7 @@ func TestReleaseVerificationGo(t *testing.T) {
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 		opttest.GoModReplacement("github.com/pulumi/pulumi-aws/sdk/v7", rootSdkPath()),
 	)
+	tidyGoModule(t, test.WorkingDir())
 	test.SetConfig(t, "aws:region", getEnvRegion(t))
 
 	runExampleLifecycle(t, test, exampleLifecycleOptions{})
