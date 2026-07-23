@@ -63,6 +63,14 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// Using `pulumi import`, import `opensearch.PackageAssociation` using `DOMAIN_NAME,PACKAGE_ID`. For example:
+//
+// ```sh
+// $ pulumi import aws:opensearch/packageAssociation:PackageAssociation example example-domain,F123456789
+// ```
 type PackageAssociation struct {
 	pulumi.CustomResourceState
 

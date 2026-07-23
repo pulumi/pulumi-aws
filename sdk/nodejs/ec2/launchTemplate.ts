@@ -76,7 +76,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     declare public readonly defaultVersion: pulumi.Output<number>;
     /**
-     * Description of the launch template.
+     * Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -354,7 +354,7 @@ export interface LaunchTemplateState {
      */
     defaultVersion?: pulumi.Input<number | undefined>;
     /**
-     * Description of the launch template.
+     * Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -526,7 +526,7 @@ export interface LaunchTemplateArgs {
      */
     defaultVersion?: pulumi.Input<number | undefined>;
     /**
-     * Description of the launch template.
+     * Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
      */
     description?: pulumi.Input<string | undefined>;
     /**

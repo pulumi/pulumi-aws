@@ -244,6 +244,10 @@ namespace Pulumi.Aws.Eks
         /// Kubernetes version.
         /// </summary>
         public readonly string Version;
+        /// <summary>
+        /// Configuration block with EC2 Auto Scaling warm pool settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetNodeGroupWarmPoolConfigResult> WarmPoolConfigs;
 
         [OutputConstructor]
         private GetNodeGroupResult(
@@ -289,7 +293,9 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetNodeGroupUpdateConfigResult> updateConfigs,
 
-            string version)
+            string version,
+
+            ImmutableArray<Outputs.GetNodeGroupWarmPoolConfigResult> warmPoolConfigs)
         {
             AmiType = amiType;
             Arn = arn;
@@ -313,6 +319,7 @@ namespace Pulumi.Aws.Eks
             Taints = taints;
             UpdateConfigs = updateConfigs;
             Version = version;
+            WarmPoolConfigs = warmPoolConfigs;
         }
     }
 }

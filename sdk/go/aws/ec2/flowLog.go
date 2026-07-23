@@ -413,6 +413,8 @@ type FlowLog struct {
 	RegionalNatGatewayId pulumi.StringPtrOutput `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
+	// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+	TagFieldSpecifications FlowLogTagFieldSpecificationArrayOutput `pulumi:"tagFieldSpecifications"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -485,6 +487,8 @@ type flowLogState struct {
 	RegionalNatGatewayId *string `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
+	// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+	TagFieldSpecifications []FlowLogTagFieldSpecification `pulumi:"tagFieldSpecifications"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -528,6 +532,8 @@ type FlowLogState struct {
 	RegionalNatGatewayId pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
+	// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+	TagFieldSpecifications FlowLogTagFieldSpecificationArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -573,6 +579,8 @@ type flowLogArgs struct {
 	RegionalNatGatewayId *string `pulumi:"regionalNatGatewayId"`
 	// Subnet ID to attach to.
 	SubnetId *string `pulumi:"subnetId"`
+	// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+	TagFieldSpecifications []FlowLogTagFieldSpecification `pulumi:"tagFieldSpecifications"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
@@ -613,6 +621,8 @@ type FlowLogArgs struct {
 	RegionalNatGatewayId pulumi.StringPtrInput
 	// Subnet ID to attach to.
 	SubnetId pulumi.StringPtrInput
+	// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+	TagFieldSpecifications FlowLogTagFieldSpecificationArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
@@ -774,6 +784,11 @@ func (o FlowLogOutput) RegionalNatGatewayId() pulumi.StringPtrOutput {
 // Subnet ID to attach to.
 func (o FlowLogOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+func (o FlowLogOutput) TagFieldSpecifications() FlowLogTagFieldSpecificationArrayOutput {
+	return o.ApplyT(func(v *FlowLog) FlowLogTagFieldSpecificationArrayOutput { return v.TagFieldSpecifications }).(FlowLogTagFieldSpecificationArrayOutput)
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

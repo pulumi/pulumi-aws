@@ -69,6 +69,18 @@ __all__ = [
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict',
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs',
     'AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgsDict',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgsDict',
     'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs',
     'AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict',
     'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs',
@@ -261,6 +273,22 @@ __all__ = [
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs',
@@ -297,6 +325,14 @@ __all__ = [
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs',
@@ -2128,11 +2164,15 @@ class AgentAgentTimeoutsArgs:
 class AgentDataSourceDataSourceConfigurationArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+    Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
     """
     confluence_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgsDict']]]
     """
     Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+    """
+    managed_knowledge_base_connector_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgsDict']]]
+    """
+    Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
     """
     s3_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict']]]
     """
@@ -2156,13 +2196,15 @@ class AgentDataSourceDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  confluence_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs']] = None,
+                 managed_knowledge_base_connector_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs']] = None,
                  s3_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']] = None,
                  salesforce_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs']] = None,
                  share_point_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs']] = None,
                  web_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        :param pulumi.Input[_builtins.str] type: Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs'] confluence_configuration: Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs'] managed_knowledge_base_connector_configuration: Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs'] s3_configuration: Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs'] salesforce_configuration: Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs'] share_point_configuration: Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
@@ -2171,6 +2213,8 @@ class AgentDataSourceDataSourceConfigurationArgs:
         pulumi.set(__self__, "type", type)
         if confluence_configuration is not None:
             pulumi.set(__self__, "confluence_configuration", confluence_configuration)
+        if managed_knowledge_base_connector_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_connector_configuration", managed_knowledge_base_connector_configuration)
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
         if salesforce_configuration is not None:
@@ -2184,7 +2228,7 @@ class AgentDataSourceDataSourceConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         """
         return pulumi.get(self, "type")
 
@@ -2203,6 +2247,18 @@ class AgentDataSourceDataSourceConfigurationArgs:
     @confluence_configuration.setter
     def confluence_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs']]):
         pulumi.set(self, "confluence_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
+    def managed_knowledge_base_connector_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs']]:
+        """
+        Details about the configuration of a Managed Knowledge Base connector data source. See `managed_knowledge_base_connector_configuration` block for details.
+        """
+        return pulumi.get(self, "managed_knowledge_base_connector_configuration")
+
+    @managed_knowledge_base_connector_configuration.setter
+    def managed_knowledge_base_connector_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs']]):
+        pulumi.set(self, "managed_knowledge_base_connector_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
@@ -2535,6 +2591,276 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigu
     @host_url.setter
     def host_url(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "host_url", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgsDict(TypedDict):
+    connector_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
+    """
+    deletion_protection_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgsDict']]]
+    """
+    Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+    """
+    media_extraction_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgsDict']]]
+    """
+    Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs:
+    def __init__(__self__, *,
+                 connector_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 deletion_protection_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs']] = None,
+                 media_extraction_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] connector_parameters: JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs'] deletion_protection_configuration: Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs'] media_extraction_configuration: Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        """
+        if connector_parameters is not None:
+            pulumi.set(__self__, "connector_parameters", connector_parameters)
+        if deletion_protection_configuration is not None:
+            pulumi.set(__self__, "deletion_protection_configuration", deletion_protection_configuration)
+        if media_extraction_configuration is not None:
+            pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorParameters")
+    def connector_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON-encoded string containing the connector-specific parameters. The structure depends on the connector type (S3, SharePoint, Google Drive, etc.). See [Managed Knowledge Base connector parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-connectors.html) for details on each connector type.
+        """
+        return pulumi.get(self, "connector_parameters")
+
+    @connector_parameters.setter
+    def connector_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionConfiguration")
+    def deletion_protection_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs']]:
+        """
+        Configuration for deletion protection on the data source. See `deletion_protection_configuration` block for details.
+        """
+        return pulumi.get(self, "deletion_protection_configuration")
+
+    @deletion_protection_configuration.setter
+    def deletion_protection_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs']]):
+        pulumi.set(self, "deletion_protection_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs']]:
+        """
+        Configuration for extracting media content (images, audio, video) from documents. See `media_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "media_extraction_configuration")
+
+    @media_extraction_configuration.setter
+    def media_extraction_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs']]):
+        pulumi.set(self, "media_extraction_configuration", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgsDict(TypedDict):
+    deletion_protection_status: pulumi.Input[_builtins.str]
+    """
+    Enable or disable deletion protection for the connector. Valid values: `ENABLED`, `DISABLED`.
+    """
+    deletion_protection_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum percentage of documents that a sync job can delete from your index.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationDeletionProtectionConfigurationArgs:
+    def __init__(__self__, *,
+                 deletion_protection_status: pulumi.Input[_builtins.str],
+                 deletion_protection_threshold: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] deletion_protection_status: Enable or disable deletion protection for the connector. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.int] deletion_protection_threshold: Maximum percentage of documents that a sync job can delete from your index.
+        """
+        pulumi.set(__self__, "deletion_protection_status", deletion_protection_status)
+        if deletion_protection_threshold is not None:
+            pulumi.set(__self__, "deletion_protection_threshold", deletion_protection_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionStatus")
+    def deletion_protection_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Enable or disable deletion protection for the connector. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "deletion_protection_status")
+
+    @deletion_protection_status.setter
+    def deletion_protection_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "deletion_protection_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionThreshold")
+    def deletion_protection_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum percentage of documents that a sync job can delete from your index.
+        """
+        return pulumi.get(self, "deletion_protection_threshold")
+
+    @deletion_protection_threshold.setter
+    def deletion_protection_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "deletion_protection_threshold", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgsDict']]]
+    """
+    Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+    """
+    image_extraction_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgsDict']]]
+    """
+    Configuration for extracting image content. See `image_extraction_configuration` block for details.
+    """
+    video_extraction_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgsDict']]]
+    """
+    Configuration for extracting video content. See `video_extraction_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs'] audio_extraction_configuration: Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs'] image_extraction_configuration: Configuration for extracting image content. See `image_extraction_configuration` block for details.
+        :param pulumi.Input['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs'] video_extraction_configuration: Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        """
+        if audio_extraction_configuration is not None:
+            pulumi.set(__self__, "audio_extraction_configuration", audio_extraction_configuration)
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+        if video_extraction_configuration is not None:
+            pulumi.set(__self__, "video_extraction_configuration", video_extraction_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionConfiguration")
+    def audio_extraction_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs']]:
+        """
+        Configuration for extracting audio content. See `audio_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "audio_extraction_configuration")
+
+    @audio_extraction_configuration.setter
+    def audio_extraction_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs']]):
+        pulumi.set(self, "audio_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs']]:
+        """
+        Configuration for extracting image content. See `image_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @image_extraction_configuration.setter
+    def image_extraction_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs']]):
+        pulumi.set(self, "image_extraction_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionConfiguration")
+    def video_extraction_configuration(self) -> pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs']]:
+        """
+        Configuration for extracting video content. See `video_extraction_configuration` block for details.
+        """
+        return pulumi.get(self, "video_extraction_configuration")
+
+    @video_extraction_configuration.setter
+    def video_extraction_configuration(self, value: pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs']]):
+        pulumi.set(self, "video_extraction_configuration", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgsDict(TypedDict):
+    audio_extraction_status: pulumi.Input[_builtins.str]
+    """
+    Whether audio extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationAudioExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 audio_extraction_status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] audio_extraction_status: Whether audio extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "audio_extraction_status", audio_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="audioExtractionStatus")
+    def audio_extraction_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether audio extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "audio_extraction_status")
+
+    @audio_extraction_status.setter
+    def audio_extraction_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "audio_extraction_status", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgsDict(TypedDict):
+    image_extraction_status: pulumi.Input[_builtins.str]
+    """
+    Whether image extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 image_extraction_status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] image_extraction_status: Whether image extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether image extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "image_extraction_status")
+
+    @image_extraction_status.setter
+    def image_extraction_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image_extraction_status", value)
+
+
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgsDict(TypedDict):
+    video_extraction_status: pulumi.Input[_builtins.str]
+    """
+    Whether video extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+    """
+
+@pulumi.input_type
+class AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationVideoExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 video_extraction_status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] video_extraction_status: Whether video extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "video_extraction_status", video_extraction_status)
+
+    @_builtins.property
+    @pulumi.getter(name="videoExtractionStatus")
+    def video_extraction_status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether video extraction is enabled. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "video_extraction_status")
+
+    @video_extraction_status.setter
+    def video_extraction_status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "video_extraction_status", value)
 
 
 class AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict(TypedDict):
@@ -3508,20 +3834,28 @@ class AgentDataSourceTimeoutsArgsDict(TypedDict):
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class AgentDataSourceTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
-                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @_builtins.property
     @pulumi.getter
@@ -3546,6 +3880,18 @@ class AgentDataSourceTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class AgentDataSourceVectorIngestionConfigurationArgsDict(TypedDict):
@@ -7070,11 +7416,15 @@ class AgentFlowTimeoutsArgs:
 class AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+    Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
     """
     kendra_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict']]]
     """
     Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+    """
+    managed_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgsDict']]]
+    """
+    Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
     """
     sql_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict']]]
     """
@@ -7090,17 +7440,21 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  kendra_knowledge_base_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']] = None,
+                 managed_knowledge_base_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs']] = None,
                  sql_knowledge_base_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs']] = None,
                  vector_knowledge_base_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        :param pulumi.Input[_builtins.str] type: Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs'] kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs'] managed_knowledge_base_configuration: Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs'] sql_knowledge_base_configuration: Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs'] vector_knowledge_base_configuration: Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
         """
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if managed_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "managed_knowledge_base_configuration", managed_knowledge_base_configuration)
         if sql_knowledge_base_configuration is not None:
             pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
@@ -7110,7 +7464,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
+        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`, `MANAGED`.
         """
         return pulumi.get(self, "type")
 
@@ -7129,6 +7483,18 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
     @kendra_knowledge_base_configuration.setter
     def kendra_knowledge_base_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "kendra_knowledge_base_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedKnowledgeBaseConfiguration")
+    def managed_knowledge_base_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs']]:
+        """
+        Settings for a managed knowledge base where Amazon Bedrock manages the vector store. See `managed_knowledge_base_configuration` block for details.
+        """
+        return pulumi.get(self, "managed_knowledge_base_configuration")
+
+    @managed_knowledge_base_configuration.setter
+    def managed_knowledge_base_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "managed_knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
@@ -7181,6 +7547,360 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurati
     @kendra_index_arn.setter
     def kendra_index_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kendra_index_arn", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
+    embedding_model_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
+    """
+    embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict']]]
+    """
+    Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+    """
+    embedding_model_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
+    """
+    server_side_encryption_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgsDict']]]
+    """
+    Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 embedding_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 embedding_model_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs']] = None,
+                 embedding_model_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] embedding_model_arn: ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs'] embedding_model_configuration: Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        :param pulumi.Input[_builtins.str] embedding_model_type: Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        """
+        if embedding_model_arn is not None:
+            pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_configuration is not None:
+            pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if embedding_model_type is not None:
+            pulumi.set(__self__, "embedding_model_type", embedding_model_type)
+        if server_side_encryption_configuration is not None:
+            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelArn")
+    def embedding_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the embedding model. Required when `embedding_model_type` is `CUSTOM`.
+        """
+        return pulumi.get(self, "embedding_model_arn")
+
+    @embedding_model_arn.setter
+    def embedding_model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "embedding_model_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelConfiguration")
+    def embedding_model_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs']]:
+        """
+        Configuration for the embedding model. Required when `embedding_model_type` is `CUSTOM`. See `embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "embedding_model_configuration")
+
+    @embedding_model_configuration.setter
+    def embedding_model_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs']]):
+        pulumi.set(self, "embedding_model_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingModelType")
+    def embedding_model_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of embedding model. Valid values: `MANAGED`, `CUSTOM`. When `MANAGED`, no model selection or configuration is required. When `CUSTOM`, `embedding_model_arn` and `embedding_model_configuration` are required. Defaults to `MANAGED`.
+        """
+        return pulumi.get(self, "embedding_model_type")
+
+    @embedding_model_type.setter
+    def embedding_model_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "embedding_model_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverSideEncryptionConfiguration")
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs']]:
+        """
+        Server-side encryption configuration for the managed knowledge base. See `server_side_encryption_configuration` block for details.
+        """
+        return pulumi.get(self, "server_side_encryption_configuration")
+
+    @server_side_encryption_configuration.setter
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs']]):
+        pulumi.set(self, "server_side_encryption_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict(TypedDict):
+    bedrock_embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict']]]
+    """
+    The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs:
+    def __init__(__self__, *,
+                 bedrock_embedding_model_configuration: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs'] bedrock_embedding_model_configuration: The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        if bedrock_embedding_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_embedding_model_configuration", bedrock_embedding_model_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
+    def bedrock_embedding_model_configuration(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs']]:
+        """
+        The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
+        """
+        return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+    @bedrock_embedding_model_configuration.setter
+    def bedrock_embedding_model_configuration(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs']]):
+        pulumi.set(self, "bedrock_embedding_model_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
+    audio: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict']]]
+    """
+    Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+    """
+    dimensions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Dimension details for the vector configuration used on the Bedrock embeddings model.
+    """
+    embedding_data_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+    """
+    video: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict']]]
+    """
+    Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs:
+    def __init__(__self__, *,
+                 audio: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']] = None,
+                 dimensions: pulumi.Input[Optional[_builtins.int]] = None,
+                 embedding_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 video: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']] = None):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs'] audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        :param pulumi.Input[_builtins.int] dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
+        :param pulumi.Input[_builtins.str] embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs'] video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if embedding_data_type is not None:
+            pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']]:
+        """
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        """
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']]):
+        pulumi.set(self, "audio", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Dimension details for the vector configuration used on the Bedrock embeddings model.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="embeddingDataType")
+    def embedding_data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        """
+        return pulumi.get(self, "embedding_data_type")
+
+    @embedding_data_type.setter
+    def embedding_data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "embedding_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']]:
+        """
+        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']]):
+        pulumi.set(self, "video", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict(TypedDict):
+    segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict']
+    """
+    Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs'] segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']:
+        """
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict(TypedDict):
+    fixed_length_duration: pulumi.Input[_builtins.int]
+    """
+    Duration in seconds for each audio or video segment.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict(TypedDict):
+    segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict']
+    """
+    Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs'] segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']:
+        """
+        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict(TypedDict):
+    fixed_length_duration: pulumi.Input[_builtins.int]
+    """
+    Duration in seconds for each audio or video segment.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the KMS key used to encrypt the managed knowledge base.
+
+    > **NOTE:** `storage_configuration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationServerSideEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the managed knowledge base.
+               
+               > **NOTE:** `storage_configuration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the KMS key used to encrypt the managed knowledge base.
+
+        > **NOTE:** `storage_configuration` is not required when `knowledge_base_configuration.type` is `MANAGED`. Amazon Bedrock manages the vector store automatically for managed knowledge bases.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
@@ -8100,6 +8820,10 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 
 
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
+    audio: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict']]]
+    """
+    Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+    """
     dimensions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Dimension details for the vector configuration used on the Bedrock embeddings model.
@@ -8108,20 +8832,44 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     """
     Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
     """
+    video: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict']]]
+    """
+    Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+    """
 
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs:
     def __init__(__self__, *,
+                 audio: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']] = None,
                  dimensions: pulumi.Input[Optional[_builtins.int]] = None,
-                 embedding_data_type: pulumi.Input[Optional[_builtins.str]] = None):
+                 embedding_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 video: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']] = None):
         """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs'] audio: Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
         :param pulumi.Input[_builtins.int] dimensions: Dimension details for the vector configuration used on the Bedrock embeddings model.
         :param pulumi.Input[_builtins.str] embedding_data_type: Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs'] video: Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
             pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']]:
+        """
+        Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+        """
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs']]):
+        pulumi.set(self, "audio", value)
 
     @_builtins.property
     @pulumi.getter
@@ -8146,6 +8894,130 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     @embedding_data_type.setter
     def embedding_data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embedding_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']]:
+        """
+        Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+        """
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs']]):
+        pulumi.set(self, "video", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgsDict(TypedDict):
+    segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict']
+    """
+    Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs'] segmentation_configuration: Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']:
+        """
+        Configuration for segmenting audio content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgsDict(TypedDict):
+    fixed_length_duration: pulumi.Input[_builtins.int]
+    """
+    Duration in seconds for each audio or video segment.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgsDict(TypedDict):
+    segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict']
+    """
+    Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']):
+        """
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs'] segmentation_configuration: Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']:
+        """
+        Configuration for segmenting video content during processing. See `segmentation_configuration` block for details.
+        """
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgsDict(TypedDict):
+    fixed_length_duration: pulumi.Input[_builtins.int]
+    """
+    Duration in seconds for each audio or video segment.
+    """
+
+@pulumi.input_type
+class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] fixed_length_duration: Duration in seconds for each audio or video segment.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        """
+        Duration in seconds for each audio or video segment.
+        """
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
 
 
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgsDict(TypedDict):

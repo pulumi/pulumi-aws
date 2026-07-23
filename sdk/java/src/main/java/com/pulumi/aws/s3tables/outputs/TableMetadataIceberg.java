@@ -6,10 +6,18 @@ package com.pulumi.aws.s3tables.outputs;
 import com.pulumi.aws.s3tables.outputs.TableMetadataIcebergSchema;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TableMetadataIceberg {
+    /**
+     * @return Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+     * 
+     */
+    private @Nullable Map<String,String> properties;
     /**
      * @return Schema configuration for the Iceberg table.
      * See `schema` below.
@@ -18,6 +26,13 @@ public final class TableMetadataIceberg {
     private TableMetadataIcebergSchema schema;
 
     private TableMetadataIceberg() {}
+    /**
+     * @return Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+     * 
+     */
+    public Map<String,String> properties() {
+        return this.properties == null ? Map.of() : this.properties;
+    }
     /**
      * @return Schema configuration for the Iceberg table.
      * See `schema` below.
@@ -36,13 +51,21 @@ public final class TableMetadataIceberg {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Map<String,String> properties;
         private TableMetadataIcebergSchema schema;
         public Builder() {}
         public Builder(TableMetadataIceberg defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.properties = defaults.properties;
     	      this.schema = defaults.schema;
         }
 
+        @CustomType.Setter
+        public Builder properties(@Nullable Map<String,String> properties) {
+
+            this.properties = properties;
+            return this;
+        }
         @CustomType.Setter
         public Builder schema(TableMetadataIcebergSchema schema) {
             if (schema == null) {
@@ -53,6 +76,7 @@ public final class TableMetadataIceberg {
         }
         public TableMetadataIceberg build() {
             final var _resultValue = new TableMetadataIceberg();
+            _resultValue.properties = properties;
             _resultValue.schema = schema;
             return _resultValue;
         }

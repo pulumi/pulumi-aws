@@ -55,6 +55,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersIpv6")
+    private @Nullable Output<String> bootstrapBrokersIpv6;
+
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersIpv6() {
+        return Optional.ofNullable(this.bootstrapBrokersIpv6);
+    }
+
+    /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
@@ -115,6 +130,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersSaslIamIpv6")
+    private @Nullable Output<String> bootstrapBrokersSaslIamIpv6;
+
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersSaslIamIpv6() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslIamIpv6);
+    }
+
+    /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
@@ -130,6 +160,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersSaslScramIpv6")
+    private @Nullable Output<String> bootstrapBrokersSaslScramIpv6;
+
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersSaslScramIpv6() {
+        return Optional.ofNullable(this.bootstrapBrokersSaslScramIpv6);
+    }
+
+    /**
      * One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
      * 
      */
@@ -142,6 +187,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> bootstrapBrokersTls() {
         return Optional.ofNullable(this.bootstrapBrokersTls);
+    }
+
+    /**
+     * One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    @Import(name="bootstrapBrokersTlsIpv6")
+    private @Nullable Output<String> bootstrapBrokersTlsIpv6;
+
+    /**
+     * @return One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+     * 
+     */
+    public Optional<Output<String>> bootstrapBrokersTlsIpv6() {
+        return Optional.ofNullable(this.bootstrapBrokersTlsIpv6);
     }
 
     /**
@@ -494,12 +554,16 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private ClusterState(ClusterState $) {
         this.arn = $.arn;
         this.bootstrapBrokers = $.bootstrapBrokers;
+        this.bootstrapBrokersIpv6 = $.bootstrapBrokersIpv6;
         this.bootstrapBrokersPublicSaslIam = $.bootstrapBrokersPublicSaslIam;
         this.bootstrapBrokersPublicSaslScram = $.bootstrapBrokersPublicSaslScram;
         this.bootstrapBrokersPublicTls = $.bootstrapBrokersPublicTls;
         this.bootstrapBrokersSaslIam = $.bootstrapBrokersSaslIam;
+        this.bootstrapBrokersSaslIamIpv6 = $.bootstrapBrokersSaslIamIpv6;
         this.bootstrapBrokersSaslScram = $.bootstrapBrokersSaslScram;
+        this.bootstrapBrokersSaslScramIpv6 = $.bootstrapBrokersSaslScramIpv6;
         this.bootstrapBrokersTls = $.bootstrapBrokersTls;
+        this.bootstrapBrokersTlsIpv6 = $.bootstrapBrokersTlsIpv6;
         this.bootstrapBrokersVpcConnectivitySaslIam = $.bootstrapBrokersVpcConnectivitySaslIam;
         this.bootstrapBrokersVpcConnectivitySaslScram = $.bootstrapBrokersVpcConnectivitySaslScram;
         this.bootstrapBrokersVpcConnectivityTls = $.bootstrapBrokersVpcConnectivityTls;
@@ -583,6 +647,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bootstrapBrokers(String bootstrapBrokers) {
             return bootstrapBrokers(Output.of(bootstrapBrokers));
+        }
+
+        /**
+         * @param bootstrapBrokersIpv6 One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersIpv6(@Nullable Output<String> bootstrapBrokersIpv6) {
+            $.bootstrapBrokersIpv6 = bootstrapBrokersIpv6;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersIpv6 One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersIpv6(String bootstrapBrokersIpv6) {
+            return bootstrapBrokersIpv6(Output.of(bootstrapBrokersIpv6));
         }
 
         /**
@@ -670,6 +755,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param bootstrapBrokersSaslIamIpv6 One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIamIpv6(@Nullable Output<String> bootstrapBrokersSaslIamIpv6) {
+            $.bootstrapBrokersSaslIamIpv6 = bootstrapBrokersSaslIamIpv6;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersSaslIamIpv6 One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslIamIpv6(String bootstrapBrokersSaslIamIpv6) {
+            return bootstrapBrokersSaslIamIpv6(Output.of(bootstrapBrokersSaslIamIpv6));
+        }
+
+        /**
          * @param bootstrapBrokersSaslScram One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
@@ -691,6 +797,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param bootstrapBrokersSaslScramIpv6 One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslScramIpv6(@Nullable Output<String> bootstrapBrokersSaslScramIpv6) {
+            $.bootstrapBrokersSaslScramIpv6 = bootstrapBrokersSaslScramIpv6;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersSaslScramIpv6 One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersSaslScramIpv6(String bootstrapBrokersSaslScramIpv6) {
+            return bootstrapBrokersSaslScramIpv6(Output.of(bootstrapBrokersSaslScramIpv6));
+        }
+
+        /**
          * @param bootstrapBrokersTls One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
          * 
          * @return builder
@@ -709,6 +836,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bootstrapBrokersTls(String bootstrapBrokersTls) {
             return bootstrapBrokersTls(Output.of(bootstrapBrokersTls));
+        }
+
+        /**
+         * @param bootstrapBrokersTlsIpv6 One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersTlsIpv6(@Nullable Output<String> bootstrapBrokersTlsIpv6) {
+            $.bootstrapBrokersTlsIpv6 = bootstrapBrokersTlsIpv6;
+            return this;
+        }
+
+        /**
+         * @param bootstrapBrokersTlsIpv6 One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapBrokersTlsIpv6(String bootstrapBrokersTlsIpv6) {
+            return bootstrapBrokersTlsIpv6(Output.of(bootstrapBrokersTlsIpv6));
         }
 
         /**

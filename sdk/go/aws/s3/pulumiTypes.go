@@ -27341,6 +27341,130 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryp
 	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
 }
 
+type GetBucketsBucket struct {
+	// Bucket ARN.
+	BucketArn string `pulumi:"bucketArn"`
+	// Limits the response to buckets that are located in the specified AWS Region. The AWS Region must be expressed according to the AWS Region code.
+	BucketRegion string `pulumi:"bucketRegion"`
+	// Bucket creation date.
+	CreationDate string `pulumi:"creationDate"`
+	// Bucket name.
+	Name string `pulumi:"name"`
+}
+
+// GetBucketsBucketInput is an input type that accepts GetBucketsBucketArgs and GetBucketsBucketOutput values.
+// You can construct a concrete instance of `GetBucketsBucketInput` via:
+//
+//	GetBucketsBucketArgs{...}
+type GetBucketsBucketInput interface {
+	pulumi.Input
+
+	ToGetBucketsBucketOutput() GetBucketsBucketOutput
+	ToGetBucketsBucketOutputWithContext(context.Context) GetBucketsBucketOutput
+}
+
+type GetBucketsBucketArgs struct {
+	// Bucket ARN.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Limits the response to buckets that are located in the specified AWS Region. The AWS Region must be expressed according to the AWS Region code.
+	BucketRegion pulumi.StringInput `pulumi:"bucketRegion"`
+	// Bucket creation date.
+	CreationDate pulumi.StringInput `pulumi:"creationDate"`
+	// Bucket name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetBucketsBucketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketsBucket)(nil)).Elem()
+}
+
+func (i GetBucketsBucketArgs) ToGetBucketsBucketOutput() GetBucketsBucketOutput {
+	return i.ToGetBucketsBucketOutputWithContext(context.Background())
+}
+
+func (i GetBucketsBucketArgs) ToGetBucketsBucketOutputWithContext(ctx context.Context) GetBucketsBucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketsBucketOutput)
+}
+
+// GetBucketsBucketArrayInput is an input type that accepts GetBucketsBucketArray and GetBucketsBucketArrayOutput values.
+// You can construct a concrete instance of `GetBucketsBucketArrayInput` via:
+//
+//	GetBucketsBucketArray{ GetBucketsBucketArgs{...} }
+type GetBucketsBucketArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketsBucketArrayOutput() GetBucketsBucketArrayOutput
+	ToGetBucketsBucketArrayOutputWithContext(context.Context) GetBucketsBucketArrayOutput
+}
+
+type GetBucketsBucketArray []GetBucketsBucketInput
+
+func (GetBucketsBucketArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketsBucket)(nil)).Elem()
+}
+
+func (i GetBucketsBucketArray) ToGetBucketsBucketArrayOutput() GetBucketsBucketArrayOutput {
+	return i.ToGetBucketsBucketArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketsBucketArray) ToGetBucketsBucketArrayOutputWithContext(ctx context.Context) GetBucketsBucketArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketsBucketArrayOutput)
+}
+
+type GetBucketsBucketOutput struct{ *pulumi.OutputState }
+
+func (GetBucketsBucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketsBucket)(nil)).Elem()
+}
+
+func (o GetBucketsBucketOutput) ToGetBucketsBucketOutput() GetBucketsBucketOutput {
+	return o
+}
+
+func (o GetBucketsBucketOutput) ToGetBucketsBucketOutputWithContext(ctx context.Context) GetBucketsBucketOutput {
+	return o
+}
+
+// Bucket ARN.
+func (o GetBucketsBucketOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketsBucket) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Limits the response to buckets that are located in the specified AWS Region. The AWS Region must be expressed according to the AWS Region code.
+func (o GetBucketsBucketOutput) BucketRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketsBucket) string { return v.BucketRegion }).(pulumi.StringOutput)
+}
+
+// Bucket creation date.
+func (o GetBucketsBucketOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketsBucket) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Bucket name.
+func (o GetBucketsBucketOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketsBucket) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetBucketsBucketArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketsBucketArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketsBucket)(nil)).Elem()
+}
+
+func (o GetBucketsBucketArrayOutput) ToGetBucketsBucketArrayOutput() GetBucketsBucketArrayOutput {
+	return o
+}
+
+func (o GetBucketsBucketArrayOutput) ToGetBucketsBucketArrayOutputWithContext(ctx context.Context) GetBucketsBucketArrayOutput {
+	return o
+}
+
+func (o GetBucketsBucketArrayOutput) Index(i pulumi.IntInput) GetBucketsBucketOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketsBucket {
+		return vs[0].([]GetBucketsBucket)[vs[1].(int)]
+	}).(GetBucketsBucketOutput)
+}
+
 type GetFilesAccessPointPosixUser struct {
 	// POSIX group ID.
 	Gid int `pulumi:"gid"`
@@ -28245,6 +28369,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketsBucketInput)(nil)).Elem(), GetBucketsBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketsBucketArrayInput)(nil)).Elem(), GetBucketsBucketArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointPosixUserInput)(nil)).Elem(), GetFilesAccessPointPosixUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointPosixUserArrayInput)(nil)).Elem(), GetFilesAccessPointPosixUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFilesAccessPointRootDirectoryInput)(nil)).Elem(), GetFilesAccessPointRootDirectoryArgs{})
@@ -28640,6 +28766,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput{})
 	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketsBucketOutput{})
+	pulumi.RegisterOutputType(GetBucketsBucketArrayOutput{})
 	pulumi.RegisterOutputType(GetFilesAccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(GetFilesAccessPointPosixUserArrayOutput{})
 	pulumi.RegisterOutputType(GetFilesAccessPointRootDirectoryOutput{})

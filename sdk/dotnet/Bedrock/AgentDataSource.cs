@@ -41,6 +41,115 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Managed Knowledge Base Connector - S3
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
+    ///     {
+    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
+    ///         Name = "example-s3-managed",
+    ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
+    ///         {
+    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+    ///             ManagedKnowledgeBaseConnectorConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs
+    ///             {
+    ///                 ConnectorParameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "S3",
+    ///                     ["version"] = "1",
+    ///                     ["connectionConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["bucketName"] = "my-documents-bucket",
+    ///                         ["bucketOwnerAccountId"] = "123456789012",
+    ///                     },
+    ///                     ["aclEnabled"] = false,
+    ///                     ["filterConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["maxFileSizeInMegaBytes"] = "500",
+    ///                     },
+    ///                 }),
+    ///                 MediaExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs
+    ///                 {
+    ///                     ImageExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs
+    ///                     {
+    ///                         ImageExtractionStatus = "ENABLED",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VectorIngestionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationArgs
+    ///         {
+    ///             ParsingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs
+    ///             {
+    ///                 ParsingStrategy = "SMART_PARSING",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Managed Knowledge Base Connector - SharePoint
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sharepoint = new Aws.Bedrock.AgentDataSource("sharepoint", new()
+    ///     {
+    ///         KnowledgeBaseId = example.Id,
+    ///         Name = "example-sharepoint",
+    ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
+    ///         {
+    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+    ///             ManagedKnowledgeBaseConnectorConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs
+    ///             {
+    ///                 ConnectorParameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = "SHAREPOINT",
+    ///                     ["version"] = "1",
+    ///                     ["connectionConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["tenantId"] = "your-entra-tenant-id",
+    ///                         ["authType"] = "ENTRA_ID_APP_ONLY",
+    ///                         ["secretArn"] = "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
+    ///                         ["certificateS3Path"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["s3BucketName"] = "my-certs-bucket",
+    ///                             ["s3KeyName"] = "certs/sharepoint-cert.crt",
+    ///                         },
+    ///                     },
+    ///                     ["dataEntityConfiguration"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["type"] = "DOCUMENT",
+    ///                         ["crawlFiles"] = "true",
+    ///                         ["crawlPages"] = "true",
+    ///                         ["siteUrls"] = new[]
+    ///                         {
+    ///                             "https://company.sharepoint.com/sites/MySite",
+    ///                         },
+    ///                     },
+    ///                 }),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Multimodal Parsing
     /// 
     /// ```csharp

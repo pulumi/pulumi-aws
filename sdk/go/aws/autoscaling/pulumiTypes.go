@@ -601,6 +601,282 @@ func (o GroupInitialLifecycleHookArrayOutput) Index(i pulumi.IntInput) GroupInit
 	}).(GroupInitialLifecycleHookOutput)
 }
 
+type GroupInstanceLifecyclePolicy struct {
+	// Conditions that trigger instance retention behavior. Defined below.
+	RetentionTriggers *GroupInstanceLifecyclePolicyRetentionTriggers `pulumi:"retentionTriggers"`
+}
+
+// GroupInstanceLifecyclePolicyInput is an input type that accepts GroupInstanceLifecyclePolicyArgs and GroupInstanceLifecyclePolicyOutput values.
+// You can construct a concrete instance of `GroupInstanceLifecyclePolicyInput` via:
+//
+//	GroupInstanceLifecyclePolicyArgs{...}
+type GroupInstanceLifecyclePolicyInput interface {
+	pulumi.Input
+
+	ToGroupInstanceLifecyclePolicyOutput() GroupInstanceLifecyclePolicyOutput
+	ToGroupInstanceLifecyclePolicyOutputWithContext(context.Context) GroupInstanceLifecyclePolicyOutput
+}
+
+type GroupInstanceLifecyclePolicyArgs struct {
+	// Conditions that trigger instance retention behavior. Defined below.
+	RetentionTriggers GroupInstanceLifecyclePolicyRetentionTriggersPtrInput `pulumi:"retentionTriggers"`
+}
+
+func (GroupInstanceLifecyclePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (i GroupInstanceLifecyclePolicyArgs) ToGroupInstanceLifecyclePolicyOutput() GroupInstanceLifecyclePolicyOutput {
+	return i.ToGroupInstanceLifecyclePolicyOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceLifecyclePolicyArgs) ToGroupInstanceLifecyclePolicyOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyOutput)
+}
+
+func (i GroupInstanceLifecyclePolicyArgs) ToGroupInstanceLifecyclePolicyPtrOutput() GroupInstanceLifecyclePolicyPtrOutput {
+	return i.ToGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceLifecyclePolicyArgs) ToGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyOutput).ToGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx)
+}
+
+// GroupInstanceLifecyclePolicyPtrInput is an input type that accepts GroupInstanceLifecyclePolicyArgs, GroupInstanceLifecyclePolicyPtr and GroupInstanceLifecyclePolicyPtrOutput values.
+// You can construct a concrete instance of `GroupInstanceLifecyclePolicyPtrInput` via:
+//
+//	        GroupInstanceLifecyclePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupInstanceLifecyclePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGroupInstanceLifecyclePolicyPtrOutput() GroupInstanceLifecyclePolicyPtrOutput
+	ToGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Context) GroupInstanceLifecyclePolicyPtrOutput
+}
+
+type groupInstanceLifecyclePolicyPtrType GroupInstanceLifecyclePolicyArgs
+
+func GroupInstanceLifecyclePolicyPtr(v *GroupInstanceLifecyclePolicyArgs) GroupInstanceLifecyclePolicyPtrInput {
+	return (*groupInstanceLifecyclePolicyPtrType)(v)
+}
+
+func (*groupInstanceLifecyclePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (i *groupInstanceLifecyclePolicyPtrType) ToGroupInstanceLifecyclePolicyPtrOutput() GroupInstanceLifecyclePolicyPtrOutput {
+	return i.ToGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *groupInstanceLifecyclePolicyPtrType) ToGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyPtrOutput)
+}
+
+type GroupInstanceLifecyclePolicyOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceLifecyclePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (o GroupInstanceLifecyclePolicyOutput) ToGroupInstanceLifecyclePolicyOutput() GroupInstanceLifecyclePolicyOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyOutput) ToGroupInstanceLifecyclePolicyOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyOutput) ToGroupInstanceLifecyclePolicyPtrOutput() GroupInstanceLifecyclePolicyPtrOutput {
+	return o.ToGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GroupInstanceLifecyclePolicyOutput) ToGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceLifecyclePolicy) *GroupInstanceLifecyclePolicy {
+		return &v
+	}).(GroupInstanceLifecyclePolicyPtrOutput)
+}
+
+// Conditions that trigger instance retention behavior. Defined below.
+func (o GroupInstanceLifecyclePolicyOutput) RetentionTriggers() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o.ApplyT(func(v GroupInstanceLifecyclePolicy) *GroupInstanceLifecyclePolicyRetentionTriggers {
+		return v.RetentionTriggers
+	}).(GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput)
+}
+
+type GroupInstanceLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceLifecyclePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (o GroupInstanceLifecyclePolicyPtrOutput) ToGroupInstanceLifecyclePolicyPtrOutput() GroupInstanceLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyPtrOutput) ToGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyPtrOutput) Elem() GroupInstanceLifecyclePolicyOutput {
+	return o.ApplyT(func(v *GroupInstanceLifecyclePolicy) GroupInstanceLifecyclePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceLifecyclePolicy
+		return ret
+	}).(GroupInstanceLifecyclePolicyOutput)
+}
+
+// Conditions that trigger instance retention behavior. Defined below.
+func (o GroupInstanceLifecyclePolicyPtrOutput) RetentionTriggers() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceLifecyclePolicy) *GroupInstanceLifecyclePolicyRetentionTriggers {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTriggers
+	}).(GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput)
+}
+
+type GroupInstanceLifecyclePolicyRetentionTriggers struct {
+	// Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+	TerminateHookAbandon *string `pulumi:"terminateHookAbandon"`
+}
+
+// GroupInstanceLifecyclePolicyRetentionTriggersInput is an input type that accepts GroupInstanceLifecyclePolicyRetentionTriggersArgs and GroupInstanceLifecyclePolicyRetentionTriggersOutput values.
+// You can construct a concrete instance of `GroupInstanceLifecyclePolicyRetentionTriggersInput` via:
+//
+//	GroupInstanceLifecyclePolicyRetentionTriggersArgs{...}
+type GroupInstanceLifecyclePolicyRetentionTriggersInput interface {
+	pulumi.Input
+
+	ToGroupInstanceLifecyclePolicyRetentionTriggersOutput() GroupInstanceLifecyclePolicyRetentionTriggersOutput
+	ToGroupInstanceLifecyclePolicyRetentionTriggersOutputWithContext(context.Context) GroupInstanceLifecyclePolicyRetentionTriggersOutput
+}
+
+type GroupInstanceLifecyclePolicyRetentionTriggersArgs struct {
+	// Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+	TerminateHookAbandon pulumi.StringPtrInput `pulumi:"terminateHookAbandon"`
+}
+
+func (GroupInstanceLifecyclePolicyRetentionTriggersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceLifecyclePolicyRetentionTriggers)(nil)).Elem()
+}
+
+func (i GroupInstanceLifecyclePolicyRetentionTriggersArgs) ToGroupInstanceLifecyclePolicyRetentionTriggersOutput() GroupInstanceLifecyclePolicyRetentionTriggersOutput {
+	return i.ToGroupInstanceLifecyclePolicyRetentionTriggersOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceLifecyclePolicyRetentionTriggersArgs) ToGroupInstanceLifecyclePolicyRetentionTriggersOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyRetentionTriggersOutput)
+}
+
+func (i GroupInstanceLifecyclePolicyRetentionTriggersArgs) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutput() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return i.ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i GroupInstanceLifecyclePolicyRetentionTriggersArgs) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyRetentionTriggersOutput).ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(ctx)
+}
+
+// GroupInstanceLifecyclePolicyRetentionTriggersPtrInput is an input type that accepts GroupInstanceLifecyclePolicyRetentionTriggersArgs, GroupInstanceLifecyclePolicyRetentionTriggersPtr and GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput values.
+// You can construct a concrete instance of `GroupInstanceLifecyclePolicyRetentionTriggersPtrInput` via:
+//
+//	        GroupInstanceLifecyclePolicyRetentionTriggersArgs{...}
+//
+//	or:
+//
+//	        nil
+type GroupInstanceLifecyclePolicyRetentionTriggersPtrInput interface {
+	pulumi.Input
+
+	ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutput() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput
+	ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(context.Context) GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput
+}
+
+type groupInstanceLifecyclePolicyRetentionTriggersPtrType GroupInstanceLifecyclePolicyRetentionTriggersArgs
+
+func GroupInstanceLifecyclePolicyRetentionTriggersPtr(v *GroupInstanceLifecyclePolicyRetentionTriggersArgs) GroupInstanceLifecyclePolicyRetentionTriggersPtrInput {
+	return (*groupInstanceLifecyclePolicyRetentionTriggersPtrType)(v)
+}
+
+func (*groupInstanceLifecyclePolicyRetentionTriggersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceLifecyclePolicyRetentionTriggers)(nil)).Elem()
+}
+
+func (i *groupInstanceLifecyclePolicyRetentionTriggersPtrType) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutput() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return i.ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i *groupInstanceLifecyclePolicyRetentionTriggersPtrType) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput)
+}
+
+type GroupInstanceLifecyclePolicyRetentionTriggersOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceLifecyclePolicyRetentionTriggersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupInstanceLifecyclePolicyRetentionTriggers)(nil)).Elem()
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersOutput() GroupInstanceLifecyclePolicyRetentionTriggersOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutput() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o.ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceLifecyclePolicyRetentionTriggers) *GroupInstanceLifecyclePolicyRetentionTriggers {
+		return &v
+	}).(GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput)
+}
+
+// Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+func (o GroupInstanceLifecyclePolicyRetentionTriggersOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInstanceLifecyclePolicyRetentionTriggers) *string { return v.TerminateHookAbandon }).(pulumi.StringPtrOutput)
+}
+
+type GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupInstanceLifecyclePolicyRetentionTriggers)(nil)).Elem()
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutput() GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput) ToGroupInstanceLifecyclePolicyRetentionTriggersPtrOutputWithContext(ctx context.Context) GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput {
+	return o
+}
+
+func (o GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput) Elem() GroupInstanceLifecyclePolicyRetentionTriggersOutput {
+	return o.ApplyT(func(v *GroupInstanceLifecyclePolicyRetentionTriggers) GroupInstanceLifecyclePolicyRetentionTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceLifecyclePolicyRetentionTriggers
+		return ret
+	}).(GroupInstanceLifecyclePolicyRetentionTriggersOutput)
+}
+
+// Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+func (o GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceLifecyclePolicyRetentionTriggers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateHookAbandon
+	}).(pulumi.StringPtrOutput)
+}
+
 type GroupInstanceMaintenancePolicy struct {
 	// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
 	MaxHealthyPercentage int `pulumi:"maxHealthyPercentage"`
@@ -13144,6 +13420,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupCapacityReservationSpecificationCapacityReservationTargetPtrInput)(nil)).Elem(), GroupCapacityReservationSpecificationCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookInput)(nil)).Elem(), GroupInitialLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInitialLifecycleHookArrayInput)(nil)).Elem(), GroupInitialLifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceLifecyclePolicyInput)(nil)).Elem(), GroupInstanceLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceLifecyclePolicyPtrInput)(nil)).Elem(), GroupInstanceLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceLifecyclePolicyRetentionTriggersInput)(nil)).Elem(), GroupInstanceLifecyclePolicyRetentionTriggersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceLifecyclePolicyRetentionTriggersPtrInput)(nil)).Elem(), GroupInstanceLifecyclePolicyRetentionTriggersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), GroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInstanceRefreshInput)(nil)).Elem(), GroupInstanceRefreshArgs{})
@@ -13310,6 +13590,10 @@ func init() {
 	pulumi.RegisterOutputType(GroupCapacityReservationSpecificationCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookArrayOutput{})
+	pulumi.RegisterOutputType(GroupInstanceLifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(GroupInstanceLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(GroupInstanceLifecyclePolicyRetentionTriggersOutput{})
+	pulumi.RegisterOutputType(GroupInstanceLifecyclePolicyRetentionTriggersPtrOutput{})
 	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyOutput{})
 	pulumi.RegisterOutputType(GroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshOutput{})

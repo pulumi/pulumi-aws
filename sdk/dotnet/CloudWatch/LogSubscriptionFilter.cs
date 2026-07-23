@@ -77,7 +77,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Distribution { get; private set; } = null!;
 
         /// <summary>
-        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         /// </summary>
         [Output("emitSystemFields")]
         public Output<ImmutableArray<string>> EmitSystemFields { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _emitSystemFields;
 
         /// <summary>
-        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         /// </summary>
         public InputList<string> EmitSystemFields
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _emitSystemFields;
 
         /// <summary>
-        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        /// List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         /// </summary>
         public InputList<string> EmitSystemFields
         {

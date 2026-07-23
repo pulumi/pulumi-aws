@@ -14,14 +14,22 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableMetadataIceberg
     {
         /// <summary>
+        /// Map of configuration properties for the Iceberg table, for example `write.distribution-mode` and `write.sort-order`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
         /// Schema configuration for the Iceberg table.
         /// See `Schema` below.
         /// </summary>
         public readonly Outputs.TableMetadataIcebergSchema Schema;
 
         [OutputConstructor]
-        private TableMetadataIceberg(Outputs.TableMetadataIcebergSchema schema)
+        private TableMetadataIceberg(
+            ImmutableDictionary<string, string>? properties,
+
+            Outputs.TableMetadataIcebergSchema schema)
         {
+            Properties = properties;
             Schema = schema;
         }
     }

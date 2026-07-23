@@ -253,12 +253,16 @@ class _ClusterState:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_brokers_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_public_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_public_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_public_tls: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_brokers_sasl_iam_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_brokers_sasl_scram_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_tls: pulumi.Input[Optional[_builtins.str]] = None,
+                 bootstrap_brokers_tls_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_brokers_vpc_connectivity_tls: pulumi.Input[Optional[_builtins.str]] = None,
@@ -287,12 +291,16 @@ class _ClusterState:
 
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[_builtins.str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_ipv6: One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_iam_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_tls_ipv6: One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
@@ -321,6 +329,8 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if bootstrap_brokers is not None:
             pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_ipv6 is not None:
+            pulumi.set(__self__, "bootstrap_brokers_ipv6", bootstrap_brokers_ipv6)
         if bootstrap_brokers_public_sasl_iam is not None:
             pulumi.set(__self__, "bootstrap_brokers_public_sasl_iam", bootstrap_brokers_public_sasl_iam)
         if bootstrap_brokers_public_sasl_scram is not None:
@@ -329,10 +339,16 @@ class _ClusterState:
             pulumi.set(__self__, "bootstrap_brokers_public_tls", bootstrap_brokers_public_tls)
         if bootstrap_brokers_sasl_iam is not None:
             pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
+        if bootstrap_brokers_sasl_iam_ipv6 is not None:
+            pulumi.set(__self__, "bootstrap_brokers_sasl_iam_ipv6", bootstrap_brokers_sasl_iam_ipv6)
         if bootstrap_brokers_sasl_scram is not None:
             pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
+        if bootstrap_brokers_sasl_scram_ipv6 is not None:
+            pulumi.set(__self__, "bootstrap_brokers_sasl_scram_ipv6", bootstrap_brokers_sasl_scram_ipv6)
         if bootstrap_brokers_tls is not None:
             pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
+        if bootstrap_brokers_tls_ipv6 is not None:
+            pulumi.set(__self__, "bootstrap_brokers_tls_ipv6", bootstrap_brokers_tls_ipv6)
         if bootstrap_brokers_vpc_connectivity_sasl_iam is not None:
             pulumi.set(__self__, "bootstrap_brokers_vpc_connectivity_sasl_iam", bootstrap_brokers_vpc_connectivity_sasl_iam)
         if bootstrap_brokers_vpc_connectivity_sasl_scram is not None:
@@ -405,6 +421,18 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_brokers", value)
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersIpv6")
+    def bootstrap_brokers_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_ipv6")
+
+    @bootstrap_brokers_ipv6.setter
+    def bootstrap_brokers_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bootstrap_brokers_ipv6", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicSaslIam")
     def bootstrap_brokers_public_sasl_iam(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -453,6 +481,18 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_brokers_sasl_iam", value)
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslIamIpv6")
+    def bootstrap_brokers_sasl_iam_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam_ipv6")
+
+    @bootstrap_brokers_sasl_iam_ipv6.setter
+    def bootstrap_brokers_sasl_iam_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bootstrap_brokers_sasl_iam_ipv6", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -465,6 +505,18 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_brokers_sasl_scram", value)
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslScramIpv6")
+    def bootstrap_brokers_sasl_scram_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_scram_ipv6")
+
+    @bootstrap_brokers_sasl_scram_ipv6.setter
+    def bootstrap_brokers_sasl_scram_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bootstrap_brokers_sasl_scram_ipv6", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -475,6 +527,18 @@ class _ClusterState:
     @bootstrap_brokers_tls.setter
     def bootstrap_brokers_tls(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bootstrap_brokers_tls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersTlsIpv6")
+    def bootstrap_brokers_tls_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_tls_ipv6")
+
+    @bootstrap_brokers_tls_ipv6.setter
+    def bootstrap_brokers_tls_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bootstrap_brokers_tls_ipv6", value)
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
@@ -1167,12 +1231,16 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["bootstrap_brokers"] = None
+            __props__.__dict__["bootstrap_brokers_ipv6"] = None
             __props__.__dict__["bootstrap_brokers_public_sasl_iam"] = None
             __props__.__dict__["bootstrap_brokers_public_sasl_scram"] = None
             __props__.__dict__["bootstrap_brokers_public_tls"] = None
             __props__.__dict__["bootstrap_brokers_sasl_iam"] = None
+            __props__.__dict__["bootstrap_brokers_sasl_iam_ipv6"] = None
             __props__.__dict__["bootstrap_brokers_sasl_scram"] = None
+            __props__.__dict__["bootstrap_brokers_sasl_scram_ipv6"] = None
             __props__.__dict__["bootstrap_brokers_tls"] = None
+            __props__.__dict__["bootstrap_brokers_tls_ipv6"] = None
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_iam"] = None
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_scram"] = None
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_tls"] = None
@@ -1194,12 +1262,16 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_public_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_public_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_public_tls: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_iam_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_sasl_scram_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_tls: pulumi.Input[Optional[_builtins.str]] = None,
+            bootstrap_brokers_tls_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_brokers_vpc_connectivity_tls: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1232,12 +1304,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the MSK cluster.
         :param pulumi.Input[_builtins.str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_ipv6: One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_public_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_iam_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_sasl_scram_ipv6: One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[_builtins.str] bootstrap_brokers_tls_ipv6: One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_iam: A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_sasl_scram: A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[_builtins.str] bootstrap_brokers_vpc_connectivity_tls: A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
@@ -1268,12 +1344,16 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bootstrap_brokers"] = bootstrap_brokers
+        __props__.__dict__["bootstrap_brokers_ipv6"] = bootstrap_brokers_ipv6
         __props__.__dict__["bootstrap_brokers_public_sasl_iam"] = bootstrap_brokers_public_sasl_iam
         __props__.__dict__["bootstrap_brokers_public_sasl_scram"] = bootstrap_brokers_public_sasl_scram
         __props__.__dict__["bootstrap_brokers_public_tls"] = bootstrap_brokers_public_tls
         __props__.__dict__["bootstrap_brokers_sasl_iam"] = bootstrap_brokers_sasl_iam
+        __props__.__dict__["bootstrap_brokers_sasl_iam_ipv6"] = bootstrap_brokers_sasl_iam_ipv6
         __props__.__dict__["bootstrap_brokers_sasl_scram"] = bootstrap_brokers_sasl_scram
+        __props__.__dict__["bootstrap_brokers_sasl_scram_ipv6"] = bootstrap_brokers_sasl_scram_ipv6
         __props__.__dict__["bootstrap_brokers_tls"] = bootstrap_brokers_tls
+        __props__.__dict__["bootstrap_brokers_tls_ipv6"] = bootstrap_brokers_tls_ipv6
         __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_iam"] = bootstrap_brokers_vpc_connectivity_sasl_iam
         __props__.__dict__["bootstrap_brokers_vpc_connectivity_sasl_scram"] = bootstrap_brokers_vpc_connectivity_sasl_scram
         __props__.__dict__["bootstrap_brokers_vpc_connectivity_tls"] = bootstrap_brokers_vpc_connectivity_tls
@@ -1316,6 +1396,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "bootstrap_brokers")
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersIpv6")
+    def bootstrap_brokers_ipv6(self) -> pulumi.Output[_builtins.str]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and plaintext port pairs. For example, `2001:db8:1234:1a00:*:80,2001:db8:1234:1a02:*:80,2001:db8:1234:1a04:*:80`. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicSaslIam")
     def bootstrap_brokers_public_sasl_iam(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1348,6 +1436,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslIamIpv6")
+    def bootstrap_brokers_sasl_iam_ipv6(self) -> pulumi.Output[_builtins.str]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1356,12 +1452,28 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslScramIpv6")
+    def bootstrap_brokers_sasl_scram_ipv6(self) -> pulumi.Output[_builtins.str]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_scram_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> pulumi.Output[_builtins.str]:
         """
         One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersTlsIpv6")
+    def bootstrap_brokers_tls_ipv6(self) -> pulumi.Output[_builtins.str]:
+        """
+        One or more IPv6 DNS names (or IP addresses) and TLS port pairs. This attribute will have a value if the cluster is configured with `broker_node_group_info.0.connectivity_info.0.network_type` set to `DUAL` and `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_tls_ipv6")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")

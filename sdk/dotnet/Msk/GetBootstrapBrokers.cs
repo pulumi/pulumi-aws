@@ -134,6 +134,10 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokers;
         /// <summary>
+        /// One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+        /// </summary>
+        public readonly string BootstrapBrokersIpv6;
+        /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs.
         /// </summary>
         public readonly string BootstrapBrokersPublicSaslIam;
@@ -150,13 +154,25 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokersSaslIam;
         /// <summary>
+        /// One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+        /// </summary>
+        public readonly string BootstrapBrokersSaslIamIpv6;
+        /// <summary>
         /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
         /// </summary>
         public readonly string BootstrapBrokersSaslScram;
         /// <summary>
+        /// One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+        /// </summary>
+        public readonly string BootstrapBrokersSaslScramIpv6;
+        /// <summary>
         /// One or more DNS names (or IP addresses) and TLS port pairs.
         /// </summary>
         public readonly string BootstrapBrokersTls;
+        /// <summary>
+        /// One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+        /// </summary>
+        public readonly string BootstrapBrokersTlsIpv6;
         /// <summary>
         /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
         /// </summary>
@@ -180,6 +196,8 @@ namespace Pulumi.Aws.Msk
         private GetBootstrapBrokersResult(
             string bootstrapBrokers,
 
+            string bootstrapBrokersIpv6,
+
             string bootstrapBrokersPublicSaslIam,
 
             string bootstrapBrokersPublicSaslScram,
@@ -188,9 +206,15 @@ namespace Pulumi.Aws.Msk
 
             string bootstrapBrokersSaslIam,
 
+            string bootstrapBrokersSaslIamIpv6,
+
             string bootstrapBrokersSaslScram,
 
+            string bootstrapBrokersSaslScramIpv6,
+
             string bootstrapBrokersTls,
+
+            string bootstrapBrokersTlsIpv6,
 
             string bootstrapBrokersVpcConnectivitySaslIam,
 
@@ -205,12 +229,16 @@ namespace Pulumi.Aws.Msk
             string region)
         {
             BootstrapBrokers = bootstrapBrokers;
+            BootstrapBrokersIpv6 = bootstrapBrokersIpv6;
             BootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
             BootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
             BootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
             BootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
+            BootstrapBrokersSaslIamIpv6 = bootstrapBrokersSaslIamIpv6;
             BootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
+            BootstrapBrokersSaslScramIpv6 = bootstrapBrokersSaslScramIpv6;
             BootstrapBrokersTls = bootstrapBrokersTls;
+            BootstrapBrokersTlsIpv6 = bootstrapBrokersTlsIpv6;
             BootstrapBrokersVpcConnectivitySaslIam = bootstrapBrokersVpcConnectivitySaslIam;
             BootstrapBrokersVpcConnectivitySaslScram = bootstrapBrokersVpcConnectivitySaslScram;
             BootstrapBrokersVpcConnectivityTls = bootstrapBrokersVpcConnectivityTls;

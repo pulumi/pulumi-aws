@@ -97,14 +97,14 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -342,7 +342,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class EndpointConfigurationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
          * 
          * @return builder
          * 

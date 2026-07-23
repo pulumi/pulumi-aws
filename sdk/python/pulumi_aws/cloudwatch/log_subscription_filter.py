@@ -36,7 +36,7 @@ class LogSubscriptionFilterArgs:
         :param pulumi.Input[_builtins.str] log_group: Name of the log group to associate the subscription filter with.
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] distribution: Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         :param pulumi.Input[_builtins.str] name: Name for the subscription filter.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
@@ -121,7 +121,7 @@ class LogSubscriptionFilterArgs:
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         """
         return pulumi.get(self, "emit_system_fields")
 
@@ -184,7 +184,7 @@ class _LogSubscriptionFilterState:
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         :param pulumi.Input[_builtins.str] distribution: Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         :param pulumi.Input[_builtins.str] filter_pattern: Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group: Name of the log group to associate the subscription filter with.
         :param pulumi.Input[_builtins.str] name: Name for the subscription filter.
@@ -250,7 +250,7 @@ class _LogSubscriptionFilterState:
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         """
         return pulumi.get(self, "emit_system_fields")
 
@@ -379,7 +379,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         :param pulumi.Input[_builtins.str] distribution: Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         :param pulumi.Input[_builtins.str] filter_pattern: Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group: Name of the log group to associate the subscription filter with.
         :param pulumi.Input[_builtins.str] name: Name for the subscription filter.
@@ -508,7 +508,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_on_transformed_logs: Boolean to indicate whether to apply the subscription filter on the transformed version of the log events instead of the original ingested log events. Defaults to `false`. Valid only for log groups that have an active log transformer.
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         :param pulumi.Input[_builtins.str] distribution: Method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] emit_system_fields: List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         :param pulumi.Input[_builtins.str] filter_pattern: Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[_builtins.str] log_group: Name of the log group to associate the subscription filter with.
         :param pulumi.Input[_builtins.str] name: Name for the subscription filter.
@@ -558,7 +558,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
     @pulumi.getter(name="emitSystemFields")
     def emit_system_fields(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
+        List of system fields to include in the log events sent to the subscription destination. These fields provide source information for centralized log data in the forwarded payload. Valid values: `"@aws.account"`, `"@aws.region"`, `"@source.log"`. To remove this argument after it has been set, specify an empty list `[]` explicitly to avoid perpetual differences.
         """
         return pulumi.get(self, "emit_system_fields")
 

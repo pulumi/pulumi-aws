@@ -708,6 +708,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Macie2 *string `pulumi:"macie2"`
 	// Use this to override the default service endpoint URL
+	Mailmanager *string `pulumi:"mailmanager"`
+	// Use this to override the default service endpoint URL
 	Managedgrafana *string `pulumi:"managedgrafana"`
 	// Use this to override the default service endpoint URL
 	Mediaconnect *string `pulumi:"mediaconnect"`
@@ -1349,6 +1351,8 @@ type EndpointsArgs struct {
 	M2 pulumi.StringPtrInput `pulumi:"m2"`
 	// Use this to override the default service endpoint URL
 	Macie2 pulumi.StringPtrInput `pulumi:"macie2"`
+	// Use this to override the default service endpoint URL
+	Mailmanager pulumi.StringPtrInput `pulumi:"mailmanager"`
 	// Use this to override the default service endpoint URL
 	Managedgrafana pulumi.StringPtrInput `pulumi:"managedgrafana"`
 	// Use this to override the default service endpoint URL
@@ -2586,6 +2590,11 @@ func (o EndpointsOutput) M2() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Macie2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Macie2 }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Mailmanager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Mailmanager }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

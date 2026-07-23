@@ -768,6 +768,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<Outputs.GroupInitialLifecycleHook>> InitialLifecycleHooks { get; private set; } = null!;
 
         /// <summary>
+        /// If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+        /// </summary>
+        [Output("instanceLifecyclePolicy")]
+        public Output<Outputs.GroupInstanceLifecyclePolicy> InstanceLifecyclePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         /// </summary>
         [Output("instanceMaintenancePolicy")]
@@ -1130,6 +1136,12 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
+        /// If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+        /// </summary>
+        [Input("instanceLifecyclePolicy")]
+        public Input<Inputs.GroupInstanceLifecyclePolicyArgs>? InstanceLifecyclePolicy { get; set; }
+
+        /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         /// </summary>
         [Input("instanceMaintenancePolicy")]
@@ -1488,6 +1500,12 @@ namespace Pulumi.Aws.AutoScaling
             get => _initialLifecycleHooks ?? (_initialLifecycleHooks = new InputList<Inputs.GroupInitialLifecycleHookGetArgs>());
             set => _initialLifecycleHooks = value;
         }
+
+        /// <summary>
+        /// If this block is configured, adds an instance lifecycle policy to the specified Auto Scaling Group. Defined below.
+        /// </summary>
+        [Input("instanceLifecyclePolicy")]
+        public Input<Inputs.GroupInstanceLifecyclePolicyGetArgs>? InstanceLifecyclePolicy { get; set; }
 
         /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.

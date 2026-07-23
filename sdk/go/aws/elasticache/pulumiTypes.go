@@ -2842,6 +2842,193 @@ func (o GetServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
 
+type GetServiceUpdateActionsUpdateAction struct {
+	// ID of Cache Cluster to list updates for. If neither `cacheClusterId` nor `replicationGroupId` are specified, all service update actions will be listed.
+	CacheClusterId string `pulumi:"cacheClusterId"`
+	// Engine this update applies to.
+	Engine string `pulumi:"engine"`
+	// Estimated duration of update.
+	EstimatedUpdateTime string `pulumi:"estimatedUpdateTime"`
+	// Date the update should be applied by.
+	RecommendedApplyByDate string `pulumi:"recommendedApplyByDate"`
+	// Date the update was released.
+	ReleaseDate string `pulumi:"releaseDate"`
+	// ID of Replication Group to list updates for. If neither `replicationGroupId` nor `cacheClusterId` are specified, all service update actions will be listed.
+	ReplicationGroupId string `pulumi:"replicationGroupId"`
+	// Name of the update.
+	ServiceUpdateName string `pulumi:"serviceUpdateName"`
+	// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+	ServiceUpdateSeverity string `pulumi:"serviceUpdateSeverity"`
+	// Service update statuses to include in list. Valid values are `available`, `cancelled`, and `expired`. If no value is specified, service updates in all statuses will be listed.
+	ServiceUpdateStatus string `pulumi:"serviceUpdateStatus"`
+	// Type of the update.
+	ServiceUpdateType string `pulumi:"serviceUpdateType"`
+	// Status of the update action.
+	UpdateActionStatus string `pulumi:"updateActionStatus"`
+}
+
+// GetServiceUpdateActionsUpdateActionInput is an input type that accepts GetServiceUpdateActionsUpdateActionArgs and GetServiceUpdateActionsUpdateActionOutput values.
+// You can construct a concrete instance of `GetServiceUpdateActionsUpdateActionInput` via:
+//
+//	GetServiceUpdateActionsUpdateActionArgs{...}
+type GetServiceUpdateActionsUpdateActionInput interface {
+	pulumi.Input
+
+	ToGetServiceUpdateActionsUpdateActionOutput() GetServiceUpdateActionsUpdateActionOutput
+	ToGetServiceUpdateActionsUpdateActionOutputWithContext(context.Context) GetServiceUpdateActionsUpdateActionOutput
+}
+
+type GetServiceUpdateActionsUpdateActionArgs struct {
+	// ID of Cache Cluster to list updates for. If neither `cacheClusterId` nor `replicationGroupId` are specified, all service update actions will be listed.
+	CacheClusterId pulumi.StringInput `pulumi:"cacheClusterId"`
+	// Engine this update applies to.
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// Estimated duration of update.
+	EstimatedUpdateTime pulumi.StringInput `pulumi:"estimatedUpdateTime"`
+	// Date the update should be applied by.
+	RecommendedApplyByDate pulumi.StringInput `pulumi:"recommendedApplyByDate"`
+	// Date the update was released.
+	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
+	// ID of Replication Group to list updates for. If neither `replicationGroupId` nor `cacheClusterId` are specified, all service update actions will be listed.
+	ReplicationGroupId pulumi.StringInput `pulumi:"replicationGroupId"`
+	// Name of the update.
+	ServiceUpdateName pulumi.StringInput `pulumi:"serviceUpdateName"`
+	// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+	ServiceUpdateSeverity pulumi.StringInput `pulumi:"serviceUpdateSeverity"`
+	// Service update statuses to include in list. Valid values are `available`, `cancelled`, and `expired`. If no value is specified, service updates in all statuses will be listed.
+	ServiceUpdateStatus pulumi.StringInput `pulumi:"serviceUpdateStatus"`
+	// Type of the update.
+	ServiceUpdateType pulumi.StringInput `pulumi:"serviceUpdateType"`
+	// Status of the update action.
+	UpdateActionStatus pulumi.StringInput `pulumi:"updateActionStatus"`
+}
+
+func (GetServiceUpdateActionsUpdateActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceUpdateActionsUpdateAction)(nil)).Elem()
+}
+
+func (i GetServiceUpdateActionsUpdateActionArgs) ToGetServiceUpdateActionsUpdateActionOutput() GetServiceUpdateActionsUpdateActionOutput {
+	return i.ToGetServiceUpdateActionsUpdateActionOutputWithContext(context.Background())
+}
+
+func (i GetServiceUpdateActionsUpdateActionArgs) ToGetServiceUpdateActionsUpdateActionOutputWithContext(ctx context.Context) GetServiceUpdateActionsUpdateActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceUpdateActionsUpdateActionOutput)
+}
+
+// GetServiceUpdateActionsUpdateActionArrayInput is an input type that accepts GetServiceUpdateActionsUpdateActionArray and GetServiceUpdateActionsUpdateActionArrayOutput values.
+// You can construct a concrete instance of `GetServiceUpdateActionsUpdateActionArrayInput` via:
+//
+//	GetServiceUpdateActionsUpdateActionArray{ GetServiceUpdateActionsUpdateActionArgs{...} }
+type GetServiceUpdateActionsUpdateActionArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceUpdateActionsUpdateActionArrayOutput() GetServiceUpdateActionsUpdateActionArrayOutput
+	ToGetServiceUpdateActionsUpdateActionArrayOutputWithContext(context.Context) GetServiceUpdateActionsUpdateActionArrayOutput
+}
+
+type GetServiceUpdateActionsUpdateActionArray []GetServiceUpdateActionsUpdateActionInput
+
+func (GetServiceUpdateActionsUpdateActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceUpdateActionsUpdateAction)(nil)).Elem()
+}
+
+func (i GetServiceUpdateActionsUpdateActionArray) ToGetServiceUpdateActionsUpdateActionArrayOutput() GetServiceUpdateActionsUpdateActionArrayOutput {
+	return i.ToGetServiceUpdateActionsUpdateActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceUpdateActionsUpdateActionArray) ToGetServiceUpdateActionsUpdateActionArrayOutputWithContext(ctx context.Context) GetServiceUpdateActionsUpdateActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceUpdateActionsUpdateActionArrayOutput)
+}
+
+type GetServiceUpdateActionsUpdateActionOutput struct{ *pulumi.OutputState }
+
+func (GetServiceUpdateActionsUpdateActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceUpdateActionsUpdateAction)(nil)).Elem()
+}
+
+func (o GetServiceUpdateActionsUpdateActionOutput) ToGetServiceUpdateActionsUpdateActionOutput() GetServiceUpdateActionsUpdateActionOutput {
+	return o
+}
+
+func (o GetServiceUpdateActionsUpdateActionOutput) ToGetServiceUpdateActionsUpdateActionOutputWithContext(ctx context.Context) GetServiceUpdateActionsUpdateActionOutput {
+	return o
+}
+
+// ID of Cache Cluster to list updates for. If neither `cacheClusterId` nor `replicationGroupId` are specified, all service update actions will be listed.
+func (o GetServiceUpdateActionsUpdateActionOutput) CacheClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.CacheClusterId }).(pulumi.StringOutput)
+}
+
+// Engine this update applies to.
+func (o GetServiceUpdateActionsUpdateActionOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Estimated duration of update.
+func (o GetServiceUpdateActionsUpdateActionOutput) EstimatedUpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.EstimatedUpdateTime }).(pulumi.StringOutput)
+}
+
+// Date the update should be applied by.
+func (o GetServiceUpdateActionsUpdateActionOutput) RecommendedApplyByDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.RecommendedApplyByDate }).(pulumi.StringOutput)
+}
+
+// Date the update was released.
+func (o GetServiceUpdateActionsUpdateActionOutput) ReleaseDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ReleaseDate }).(pulumi.StringOutput)
+}
+
+// ID of Replication Group to list updates for. If neither `replicationGroupId` nor `cacheClusterId` are specified, all service update actions will be listed.
+func (o GetServiceUpdateActionsUpdateActionOutput) ReplicationGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ReplicationGroupId }).(pulumi.StringOutput)
+}
+
+// Name of the update.
+func (o GetServiceUpdateActionsUpdateActionOutput) ServiceUpdateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ServiceUpdateName }).(pulumi.StringOutput)
+}
+
+// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+func (o GetServiceUpdateActionsUpdateActionOutput) ServiceUpdateSeverity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ServiceUpdateSeverity }).(pulumi.StringOutput)
+}
+
+// Service update statuses to include in list. Valid values are `available`, `cancelled`, and `expired`. If no value is specified, service updates in all statuses will be listed.
+func (o GetServiceUpdateActionsUpdateActionOutput) ServiceUpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ServiceUpdateStatus }).(pulumi.StringOutput)
+}
+
+// Type of the update.
+func (o GetServiceUpdateActionsUpdateActionOutput) ServiceUpdateType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.ServiceUpdateType }).(pulumi.StringOutput)
+}
+
+// Status of the update action.
+func (o GetServiceUpdateActionsUpdateActionOutput) UpdateActionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdateActionsUpdateAction) string { return v.UpdateActionStatus }).(pulumi.StringOutput)
+}
+
+type GetServiceUpdateActionsUpdateActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceUpdateActionsUpdateActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceUpdateActionsUpdateAction)(nil)).Elem()
+}
+
+func (o GetServiceUpdateActionsUpdateActionArrayOutput) ToGetServiceUpdateActionsUpdateActionArrayOutput() GetServiceUpdateActionsUpdateActionArrayOutput {
+	return o
+}
+
+func (o GetServiceUpdateActionsUpdateActionArrayOutput) ToGetServiceUpdateActionsUpdateActionArrayOutputWithContext(ctx context.Context) GetServiceUpdateActionsUpdateActionArrayOutput {
+	return o
+}
+
+func (o GetServiceUpdateActionsUpdateActionArrayOutput) Index(i pulumi.IntInput) GetServiceUpdateActionsUpdateActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceUpdateActionsUpdateAction {
+		return vs[0].([]GetServiceUpdateActionsUpdateAction)[vs[1].(int)]
+	}).(GetServiceUpdateActionsUpdateActionOutput)
+}
+
 type GetServiceUpdatesServiceUpdate struct {
 	// Whether the update will be applied after `recommendedApplyByDate`.
 	AutoUpdateAfterRecommendedApplyByDate bool `pulumi:"autoUpdateAfterRecommendedApplyByDate"`
@@ -3182,6 +3369,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheCacheUsageLimitsEcpuPerSecondInput)(nil)).Elem(), GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheEndpointInput)(nil)).Elem(), GetServerlessCacheEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheReaderEndpointInput)(nil)).Elem(), GetServerlessCacheReaderEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdateActionsUpdateActionInput)(nil)).Elem(), GetServiceUpdateActionsUpdateActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdateActionsUpdateActionArrayInput)(nil)).Elem(), GetServiceUpdateActionsUpdateActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdatesServiceUpdateInput)(nil)).Elem(), GetServiceUpdatesServiceUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdatesServiceUpdateArrayInput)(nil)).Elem(), GetServiceUpdatesServiceUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeInput)(nil)).Elem(), GetUserAuthenticationModeArgs{})
@@ -3229,6 +3418,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheEndpointOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheReaderEndpointOutput{})
+	pulumi.RegisterOutputType(GetServiceUpdateActionsUpdateActionOutput{})
+	pulumi.RegisterOutputType(GetServiceUpdateActionsUpdateActionArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceUpdatesServiceUpdateOutput{})
 	pulumi.RegisterOutputType(GetServiceUpdatesServiceUpdateArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAuthenticationModeOutput{})

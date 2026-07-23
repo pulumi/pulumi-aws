@@ -4,10 +4,12 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
+import com.pulumi.aws.ec2.inputs.FlowLogTagFieldSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -203,6 +205,21 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     * 
+     */
+    @Import(name="tagFieldSpecifications")
+    private @Nullable Output<List<FlowLogTagFieldSpecificationArgs>> tagFieldSpecifications;
+
+    /**
+     * @return Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     * 
+     */
+    public Optional<Output<List<FlowLogTagFieldSpecificationArgs>>> tagFieldSpecifications() {
+        return Optional.ofNullable(this.tagFieldSpecifications);
+    }
+
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -311,6 +328,7 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.regionalNatGatewayId = $.regionalNatGatewayId;
         this.subnetId = $.subnetId;
+        this.tagFieldSpecifications = $.tagFieldSpecifications;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.trafficType = $.trafficType;
@@ -591,6 +609,37 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
+        }
+
+        /**
+         * @param tagFieldSpecifications Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagFieldSpecifications(@Nullable Output<List<FlowLogTagFieldSpecificationArgs>> tagFieldSpecifications) {
+            $.tagFieldSpecifications = tagFieldSpecifications;
+            return this;
+        }
+
+        /**
+         * @param tagFieldSpecifications Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagFieldSpecifications(List<FlowLogTagFieldSpecificationArgs> tagFieldSpecifications) {
+            return tagFieldSpecifications(Output.of(tagFieldSpecifications));
+        }
+
+        /**
+         * @param tagFieldSpecifications Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagFieldSpecifications(FlowLogTagFieldSpecificationArgs... tagFieldSpecifications) {
+            return tagFieldSpecifications(List.of(tagFieldSpecifications));
         }
 
         /**

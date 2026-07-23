@@ -18,7 +18,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly string GroupAttribute;
         /// <summary>
-        /// The XML IdP metadata file generated from your identity provider.
+        /// XML IdP metadata file generated from your identity provider.
         /// </summary>
         public readonly string Metadata;
         /// <summary>

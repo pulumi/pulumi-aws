@@ -10,35 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker AI endpoint configuration resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
- *     name: "my-endpoint-config",
- *     productionVariants: [{
- *         variantName: "variant-1",
- *         modelName: m.name,
- *         initialInstanceCount: 1,
- *         instanceType: "ml.t2.medium",
- *     }],
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * ### Identity Schema
- *
- * #### Required
- *
- * * `name` (String) Name of the endpoint configuration.
+ * > **Note:** `aws.sagemaker.Endpoint` resources cannot recognize changes to an `aws.sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `namePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
  *
  * #### Optional
  *
@@ -100,7 +72,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -201,7 +173,7 @@ export interface EndpointConfigurationState {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -251,7 +223,7 @@ export interface EndpointConfigurationArgs {
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`. If `namePrefix` is specified, `name` is populated with the full name.
      */
     name?: pulumi.Input<string | undefined>;
     /**

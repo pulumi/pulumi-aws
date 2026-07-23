@@ -19,42 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a SageMaker AI Endpoint resource.
  * 
- * ## Example Usage
- * 
- * Basic usage:
- * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Endpoint;
- * import com.pulumi.aws.sagemaker.EndpointArgs;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var e = new Endpoint("e", EndpointArgs.builder()
- *             .name("my-endpoint")
- *             .endpointConfigName(ec.name())
- *             .tags(Map.of("Name", "foo"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
+ * &gt; **Note:** `aws.sagemaker.Endpoint` resources cannot recognize changes to an `aws.sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration&#39;s `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `namePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration&#39;s lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
  * 
  * ## Import
  * 

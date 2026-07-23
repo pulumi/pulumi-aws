@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
         /// <summary>
+        /// Details about the configuration of a Managed Knowledge Base connector data source. See `ManagedKnowledgeBaseConnectorConfiguration` block for details.
+        /// </summary>
+        [Input("managedKnowledgeBaseConnectorConfiguration")]
+        public Input<Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs>? ManagedKnowledgeBaseConnectorConfiguration { get; set; }
+
+        /// <summary>
         /// Details about the configuration of the S3 object containing the data source. See `S3DataSourceConfiguration` block for details.
         /// </summary>
         [Input("s3Configuration")]
@@ -37,7 +43,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
 
         /// <summary>
-        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
+        /// Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`, `MANAGED_KNOWLEDGE_BASE_CONNECTOR`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

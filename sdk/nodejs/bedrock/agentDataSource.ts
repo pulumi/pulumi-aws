@@ -30,6 +30,81 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Managed Knowledge Base Connector - S3
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentDataSource("example", {
+ *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
+ *     name: "example-s3-managed",
+ *     dataSourceConfiguration: {
+ *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+ *         managedKnowledgeBaseConnectorConfiguration: {
+ *             connectorParameters: JSON.stringify({
+ *                 type: "S3",
+ *                 version: "1",
+ *                 connectionConfiguration: {
+ *                     bucketName: "my-documents-bucket",
+ *                     bucketOwnerAccountId: "123456789012",
+ *                 },
+ *                 aclEnabled: false,
+ *                 filterConfiguration: {
+ *                     maxFileSizeInMegaBytes: "500",
+ *                 },
+ *             }),
+ *             mediaExtractionConfiguration: {
+ *                 imageExtractionConfiguration: {
+ *                     imageExtractionStatus: "ENABLED",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     vectorIngestionConfiguration: {
+ *         parsingConfiguration: {
+ *             parsingStrategy: "SMART_PARSING",
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Managed Knowledge Base Connector - SharePoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sharepoint = new aws.bedrock.AgentDataSource("sharepoint", {
+ *     knowledgeBaseId: example.id,
+ *     name: "example-sharepoint",
+ *     dataSourceConfiguration: {
+ *         type: "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+ *         managedKnowledgeBaseConnectorConfiguration: {
+ *             connectorParameters: JSON.stringify({
+ *                 type: "SHAREPOINT",
+ *                 version: "1",
+ *                 connectionConfiguration: {
+ *                     tenantId: "your-entra-tenant-id",
+ *                     authType: "ENTRA_ID_APP_ONLY",
+ *                     secretArn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
+ *                     certificateS3Path: {
+ *                         s3BucketName: "my-certs-bucket",
+ *                         s3KeyName: "certs/sharepoint-cert.crt",
+ *                     },
+ *                 },
+ *                 dataEntityConfiguration: {
+ *                     type: "DOCUMENT",
+ *                     crawlFiles: "true",
+ *                     crawlPages: "true",
+ *                     siteUrls: ["https://company.sharepoint.com/sites/MySite"],
+ *                 },
+ *             }),
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Multimodal Parsing
  *
  * ```typescript

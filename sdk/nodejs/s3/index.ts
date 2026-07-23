@@ -260,6 +260,11 @@ export const getBucketReplicationConfiguration: typeof import("./getBucketReplic
 export const getBucketReplicationConfigurationOutput: typeof import("./getBucketReplicationConfiguration").getBucketReplicationConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketReplicationConfiguration","getBucketReplicationConfigurationOutput"], () => require("./getBucketReplicationConfiguration"));
 
+export { GetBucketsArgs, GetBucketsResult, GetBucketsOutputArgs } from "./getBuckets";
+export const getBuckets: typeof import("./getBuckets").getBuckets = null as any;
+export const getBucketsOutput: typeof import("./getBuckets").getBucketsOutput = null as any;
+utilities.lazyLoad(exports, ["getBuckets","getBucketsOutput"], () => require("./getBuckets"));
+
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
 export const getCanonicalUserIdOutput: typeof import("./getCanonicalUserId").getCanonicalUserIdOutput = null as any;

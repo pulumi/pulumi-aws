@@ -337,6 +337,12 @@ namespace Pulumi.Aws.Eks
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `WarmPoolConfig` below for details.
+        /// </summary>
+        [Output("warmPoolConfig")]
+        public Output<Outputs.NodeGroupWarmPoolConfig?> WarmPoolConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a NodeGroup resource with the given unique name, arguments, and options.
@@ -541,6 +547,12 @@ namespace Pulumi.Aws.Eks
         [Input("version")]
         public Input<string>? Version { get; set; }
 
+        /// <summary>
+        /// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `WarmPoolConfig` below for details.
+        /// </summary>
+        [Input("warmPoolConfig")]
+        public Input<Inputs.NodeGroupWarmPoolConfigArgs>? WarmPoolConfig { get; set; }
+
         public NodeGroupArgs()
         {
         }
@@ -742,6 +754,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `WarmPoolConfig` below for details.
+        /// </summary>
+        [Input("warmPoolConfig")]
+        public Input<Inputs.NodeGroupWarmPoolConfigGetArgs>? WarmPoolConfig { get; set; }
 
         public NodeGroupState()
         {

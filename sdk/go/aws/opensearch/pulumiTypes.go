@@ -7148,10 +7148,341 @@ func (o ServerlessCollectionVectorOptionArrayOutput) Index(i pulumi.IntInput) Se
 	}).(ServerlessCollectionVectorOptionOutput)
 }
 
+type ServerlessSecurityConfigIamFederationOptions struct {
+	// Group attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// User attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// ServerlessSecurityConfigIamFederationOptionsInput is an input type that accepts ServerlessSecurityConfigIamFederationOptionsArgs and ServerlessSecurityConfigIamFederationOptionsOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigIamFederationOptionsInput` via:
+//
+//	ServerlessSecurityConfigIamFederationOptionsArgs{...}
+type ServerlessSecurityConfigIamFederationOptionsInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigIamFederationOptionsOutput() ServerlessSecurityConfigIamFederationOptionsOutput
+	ToServerlessSecurityConfigIamFederationOptionsOutputWithContext(context.Context) ServerlessSecurityConfigIamFederationOptionsOutput
+}
+
+type ServerlessSecurityConfigIamFederationOptionsArgs struct {
+	// Group attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// User attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (ServerlessSecurityConfigIamFederationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigIamFederationOptions)(nil)).Elem()
+}
+
+func (i ServerlessSecurityConfigIamFederationOptionsArgs) ToServerlessSecurityConfigIamFederationOptionsOutput() ServerlessSecurityConfigIamFederationOptionsOutput {
+	return i.ToServerlessSecurityConfigIamFederationOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigIamFederationOptionsArgs) ToServerlessSecurityConfigIamFederationOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamFederationOptionsOutput)
+}
+
+func (i ServerlessSecurityConfigIamFederationOptionsArgs) ToServerlessSecurityConfigIamFederationOptionsPtrOutput() ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigIamFederationOptionsArgs) ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamFederationOptionsOutput).ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerlessSecurityConfigIamFederationOptionsPtrInput is an input type that accepts ServerlessSecurityConfigIamFederationOptionsArgs, ServerlessSecurityConfigIamFederationOptionsPtr and ServerlessSecurityConfigIamFederationOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigIamFederationOptionsPtrInput` via:
+//
+//	        ServerlessSecurityConfigIamFederationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessSecurityConfigIamFederationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigIamFederationOptionsPtrOutput() ServerlessSecurityConfigIamFederationOptionsPtrOutput
+	ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(context.Context) ServerlessSecurityConfigIamFederationOptionsPtrOutput
+}
+
+type serverlessSecurityConfigIamFederationOptionsPtrType ServerlessSecurityConfigIamFederationOptionsArgs
+
+func ServerlessSecurityConfigIamFederationOptionsPtr(v *ServerlessSecurityConfigIamFederationOptionsArgs) ServerlessSecurityConfigIamFederationOptionsPtrInput {
+	return (*serverlessSecurityConfigIamFederationOptionsPtrType)(v)
+}
+
+func (*serverlessSecurityConfigIamFederationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigIamFederationOptions)(nil)).Elem()
+}
+
+func (i *serverlessSecurityConfigIamFederationOptionsPtrType) ToServerlessSecurityConfigIamFederationOptionsPtrOutput() ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessSecurityConfigIamFederationOptionsPtrType) ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamFederationOptionsPtrOutput)
+}
+
+type ServerlessSecurityConfigIamFederationOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigIamFederationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigIamFederationOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) ToServerlessSecurityConfigIamFederationOptionsOutput() ServerlessSecurityConfigIamFederationOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) ToServerlessSecurityConfigIamFederationOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) ToServerlessSecurityConfigIamFederationOptionsPtrOutput() ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return o.ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessSecurityConfigIamFederationOptions) *ServerlessSecurityConfigIamFederationOptions {
+		return &v
+	}).(ServerlessSecurityConfigIamFederationOptionsPtrOutput)
+}
+
+// Group attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigIamFederationOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// User attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+func (o ServerlessSecurityConfigIamFederationOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigIamFederationOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigIamFederationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigIamFederationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigIamFederationOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) ToServerlessSecurityConfigIamFederationOptionsPtrOutput() ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) ToServerlessSecurityConfigIamFederationOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) Elem() ServerlessSecurityConfigIamFederationOptionsOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamFederationOptions) ServerlessSecurityConfigIamFederationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessSecurityConfigIamFederationOptions
+		return ret
+	}).(ServerlessSecurityConfigIamFederationOptionsOutput)
+}
+
+// Group attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamFederationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// User attribute for this IAM federation integration. At least one of `groupAttribute` or `userAttribute` must be specified.
+func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamFederationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigIamIdentityCenterOptions struct {
+	// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn string `pulumi:"instanceArn"`
+	// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// ServerlessSecurityConfigIamIdentityCenterOptionsInput is an input type that accepts ServerlessSecurityConfigIamIdentityCenterOptionsArgs and ServerlessSecurityConfigIamIdentityCenterOptionsOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigIamIdentityCenterOptionsInput` via:
+//
+//	ServerlessSecurityConfigIamIdentityCenterOptionsArgs{...}
+type ServerlessSecurityConfigIamIdentityCenterOptionsInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigIamIdentityCenterOptionsOutput() ServerlessSecurityConfigIamIdentityCenterOptionsOutput
+	ToServerlessSecurityConfigIamIdentityCenterOptionsOutputWithContext(context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsOutput
+}
+
+type ServerlessSecurityConfigIamIdentityCenterOptionsArgs struct {
+	// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ToServerlessSecurityConfigIamIdentityCenterOptionsOutput() ServerlessSecurityConfigIamIdentityCenterOptionsOutput {
+	return i.ToServerlessSecurityConfigIamIdentityCenterOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ToServerlessSecurityConfigIamIdentityCenterOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamIdentityCenterOptionsOutput)
+}
+
+func (i ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamIdentityCenterOptionsOutput).ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput is an input type that accepts ServerlessSecurityConfigIamIdentityCenterOptionsArgs, ServerlessSecurityConfigIamIdentityCenterOptionsPtr and ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput` via:
+//
+//	        ServerlessSecurityConfigIamIdentityCenterOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput
+	ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput
+}
+
+type serverlessSecurityConfigIamIdentityCenterOptionsPtrType ServerlessSecurityConfigIamIdentityCenterOptionsArgs
+
+func ServerlessSecurityConfigIamIdentityCenterOptionsPtr(v *ServerlessSecurityConfigIamIdentityCenterOptionsArgs) ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput {
+	return (*serverlessSecurityConfigIamIdentityCenterOptionsPtrType)(v)
+}
+
+func (*serverlessSecurityConfigIamIdentityCenterOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i *serverlessSecurityConfigIamIdentityCenterOptionsPtrType) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessSecurityConfigIamIdentityCenterOptionsPtrType) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput)
+}
+
+type ServerlessSecurityConfigIamIdentityCenterOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigIamIdentityCenterOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsOutput() ServerlessSecurityConfigIamIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return o.ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessSecurityConfigIamIdentityCenterOptions) *ServerlessSecurityConfigIamIdentityCenterOptions {
+		return &v
+	}).(ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput)
+}
+
+// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigIamIdentityCenterOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigIamIdentityCenterOptions) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigIamIdentityCenterOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) ToServerlessSecurityConfigIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) Elem() ServerlessSecurityConfigIamIdentityCenterOptionsOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamIdentityCenterOptions) ServerlessSecurityConfigIamIdentityCenterOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessSecurityConfigIamIdentityCenterOptions
+		return ret
+	}).(ServerlessSecurityConfigIamIdentityCenterOptionsOutput)
+}
+
+// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
+func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerlessSecurityConfigSamlOptions struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute *string `pulumi:"groupAttribute"`
-	// The XML IdP metadata file generated from your identity provider.
+	// XML IdP metadata file generated from your identity provider.
 	Metadata string `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
 	SessionTimeout *int `pulumi:"sessionTimeout"`
@@ -7173,7 +7504,7 @@ type ServerlessSecurityConfigSamlOptionsInput interface {
 type ServerlessSecurityConfigSamlOptionsArgs struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
-	// The XML IdP metadata file generated from your identity provider.
+	// XML IdP metadata file generated from your identity provider.
 	Metadata pulumi.StringInput `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
 	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
@@ -7263,7 +7594,7 @@ func (o ServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.Strin
 	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
 
-// The XML IdP metadata file generated from your identity provider.
+// XML IdP metadata file generated from your identity provider.
 func (o ServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
 }
@@ -7312,7 +7643,7 @@ func (o ServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The XML IdP metadata file generated from your identity provider.
+// XML IdP metadata file generated from your identity provider.
 func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
 		if v == nil {
@@ -10723,10 +11054,231 @@ func (o GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOut
 	}).(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput)
 }
 
+type GetServerlessSecurityConfigIamFederationOption struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute string `pulumi:"groupAttribute"`
+	// User attribute for this SAML integration.
+	UserAttribute string `pulumi:"userAttribute"`
+}
+
+// GetServerlessSecurityConfigIamFederationOptionInput is an input type that accepts GetServerlessSecurityConfigIamFederationOptionArgs and GetServerlessSecurityConfigIamFederationOptionOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigIamFederationOptionInput` via:
+//
+//	GetServerlessSecurityConfigIamFederationOptionArgs{...}
+type GetServerlessSecurityConfigIamFederationOptionInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigIamFederationOptionOutput() GetServerlessSecurityConfigIamFederationOptionOutput
+	ToGetServerlessSecurityConfigIamFederationOptionOutputWithContext(context.Context) GetServerlessSecurityConfigIamFederationOptionOutput
+}
+
+type GetServerlessSecurityConfigIamFederationOptionArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
+}
+
+func (GetServerlessSecurityConfigIamFederationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigIamFederationOption)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigIamFederationOptionArgs) ToGetServerlessSecurityConfigIamFederationOptionOutput() GetServerlessSecurityConfigIamFederationOptionOutput {
+	return i.ToGetServerlessSecurityConfigIamFederationOptionOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigIamFederationOptionArgs) ToGetServerlessSecurityConfigIamFederationOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamFederationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigIamFederationOptionOutput)
+}
+
+// GetServerlessSecurityConfigIamFederationOptionArrayInput is an input type that accepts GetServerlessSecurityConfigIamFederationOptionArray and GetServerlessSecurityConfigIamFederationOptionArrayOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigIamFederationOptionArrayInput` via:
+//
+//	GetServerlessSecurityConfigIamFederationOptionArray{ GetServerlessSecurityConfigIamFederationOptionArgs{...} }
+type GetServerlessSecurityConfigIamFederationOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigIamFederationOptionArrayOutput() GetServerlessSecurityConfigIamFederationOptionArrayOutput
+	ToGetServerlessSecurityConfigIamFederationOptionArrayOutputWithContext(context.Context) GetServerlessSecurityConfigIamFederationOptionArrayOutput
+}
+
+type GetServerlessSecurityConfigIamFederationOptionArray []GetServerlessSecurityConfigIamFederationOptionInput
+
+func (GetServerlessSecurityConfigIamFederationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigIamFederationOption)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigIamFederationOptionArray) ToGetServerlessSecurityConfigIamFederationOptionArrayOutput() GetServerlessSecurityConfigIamFederationOptionArrayOutput {
+	return i.ToGetServerlessSecurityConfigIamFederationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigIamFederationOptionArray) ToGetServerlessSecurityConfigIamFederationOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamFederationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigIamFederationOptionArrayOutput)
+}
+
+type GetServerlessSecurityConfigIamFederationOptionOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigIamFederationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigIamFederationOption)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigIamFederationOptionOutput) ToGetServerlessSecurityConfigIamFederationOptionOutput() GetServerlessSecurityConfigIamFederationOptionOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamFederationOptionOutput) ToGetServerlessSecurityConfigIamFederationOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamFederationOptionOutput {
+	return o
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigIamFederationOptionOutput) GroupAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigIamFederationOption) string { return v.GroupAttribute }).(pulumi.StringOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigIamFederationOptionOutput) UserAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigIamFederationOption) string { return v.UserAttribute }).(pulumi.StringOutput)
+}
+
+type GetServerlessSecurityConfigIamFederationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigIamFederationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigIamFederationOption)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigIamFederationOptionArrayOutput) ToGetServerlessSecurityConfigIamFederationOptionArrayOutput() GetServerlessSecurityConfigIamFederationOptionArrayOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamFederationOptionArrayOutput) ToGetServerlessSecurityConfigIamFederationOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamFederationOptionArrayOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamFederationOptionArrayOutput) Index(i pulumi.IntInput) GetServerlessSecurityConfigIamFederationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessSecurityConfigIamFederationOption {
+		return vs[0].([]GetServerlessSecurityConfigIamFederationOption)[vs[1].(int)]
+	}).(GetServerlessSecurityConfigIamFederationOptionOutput)
+}
+
+type GetServerlessSecurityConfigIamIdentityCenterOption struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute string `pulumi:"groupAttribute"`
+	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn string `pulumi:"instanceArn"`
+	// User attribute for this SAML integration.
+	UserAttribute string `pulumi:"userAttribute"`
+}
+
+// GetServerlessSecurityConfigIamIdentityCenterOptionInput is an input type that accepts GetServerlessSecurityConfigIamIdentityCenterOptionArgs and GetServerlessSecurityConfigIamIdentityCenterOptionOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigIamIdentityCenterOptionInput` via:
+//
+//	GetServerlessSecurityConfigIamIdentityCenterOptionArgs{...}
+type GetServerlessSecurityConfigIamIdentityCenterOptionInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigIamIdentityCenterOptionOutput() GetServerlessSecurityConfigIamIdentityCenterOptionOutput
+	ToGetServerlessSecurityConfigIamIdentityCenterOptionOutputWithContext(context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionOutput
+}
+
+type GetServerlessSecurityConfigIamIdentityCenterOptionArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
+	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
+}
+
+func (GetServerlessSecurityConfigIamIdentityCenterOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigIamIdentityCenterOption)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigIamIdentityCenterOptionArgs) ToGetServerlessSecurityConfigIamIdentityCenterOptionOutput() GetServerlessSecurityConfigIamIdentityCenterOptionOutput {
+	return i.ToGetServerlessSecurityConfigIamIdentityCenterOptionOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigIamIdentityCenterOptionArgs) ToGetServerlessSecurityConfigIamIdentityCenterOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigIamIdentityCenterOptionOutput)
+}
+
+// GetServerlessSecurityConfigIamIdentityCenterOptionArrayInput is an input type that accepts GetServerlessSecurityConfigIamIdentityCenterOptionArray and GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput values.
+// You can construct a concrete instance of `GetServerlessSecurityConfigIamIdentityCenterOptionArrayInput` via:
+//
+//	GetServerlessSecurityConfigIamIdentityCenterOptionArray{ GetServerlessSecurityConfigIamIdentityCenterOptionArgs{...} }
+type GetServerlessSecurityConfigIamIdentityCenterOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput() GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput
+	ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutputWithContext(context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput
+}
+
+type GetServerlessSecurityConfigIamIdentityCenterOptionArray []GetServerlessSecurityConfigIamIdentityCenterOptionInput
+
+func (GetServerlessSecurityConfigIamIdentityCenterOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigIamIdentityCenterOption)(nil)).Elem()
+}
+
+func (i GetServerlessSecurityConfigIamIdentityCenterOptionArray) ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput() GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput {
+	return i.ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetServerlessSecurityConfigIamIdentityCenterOptionArray) ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput)
+}
+
+type GetServerlessSecurityConfigIamIdentityCenterOptionOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigIamIdentityCenterOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServerlessSecurityConfigIamIdentityCenterOption)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) ToGetServerlessSecurityConfigIamIdentityCenterOptionOutput() GetServerlessSecurityConfigIamIdentityCenterOptionOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) ToGetServerlessSecurityConfigIamIdentityCenterOptionOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionOutput {
+	return o
+}
+
+// Group attribute for this SAML integration.
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) GroupAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigIamIdentityCenterOption) string { return v.GroupAttribute }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigIamIdentityCenterOption) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+// User attribute for this SAML integration.
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) UserAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServerlessSecurityConfigIamIdentityCenterOption) string { return v.UserAttribute }).(pulumi.StringOutput)
+}
+
+type GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServerlessSecurityConfigIamIdentityCenterOption)(nil)).Elem()
+}
+
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput) ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput() GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput) ToGetServerlessSecurityConfigIamIdentityCenterOptionArrayOutputWithContext(ctx context.Context) GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput {
+	return o
+}
+
+func (o GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput) Index(i pulumi.IntInput) GetServerlessSecurityConfigIamIdentityCenterOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServerlessSecurityConfigIamIdentityCenterOption {
+		return vs[0].([]GetServerlessSecurityConfigIamIdentityCenterOption)[vs[1].(int)]
+	}).(GetServerlessSecurityConfigIamIdentityCenterOptionOutput)
+}
+
 type GetServerlessSecurityConfigSamlOption struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute string `pulumi:"groupAttribute"`
-	// The XML IdP metadata file generated from your identity provider.
+	// XML IdP metadata file generated from your identity provider.
 	Metadata string `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
 	SessionTimeout int `pulumi:"sessionTimeout"`
@@ -10748,7 +11300,7 @@ type GetServerlessSecurityConfigSamlOptionInput interface {
 type GetServerlessSecurityConfigSamlOptionArgs struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
-	// The XML IdP metadata file generated from your identity provider.
+	// XML IdP metadata file generated from your identity provider.
 	Metadata pulumi.StringInput `pulumi:"metadata"`
 	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
 	SessionTimeout pulumi.IntInput `pulumi:"sessionTimeout"`
@@ -10812,7 +11364,7 @@ func (o GetServerlessSecurityConfigSamlOptionOutput) GroupAttribute() pulumi.Str
 	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) string { return v.GroupAttribute }).(pulumi.StringOutput)
 }
 
-// The XML IdP metadata file generated from your identity provider.
+// XML IdP metadata file generated from your identity provider.
 func (o GetServerlessSecurityConfigSamlOptionOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessSecurityConfigSamlOption) string { return v.Metadata }).(pulumi.StringOutput)
 }
@@ -10937,6 +11489,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionVectorOptionInput)(nil)).Elem(), ServerlessCollectionVectorOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionVectorOptionArrayInput)(nil)).Elem(), ServerlessCollectionVectorOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigIamFederationOptionsInput)(nil)).Elem(), ServerlessSecurityConfigIamFederationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigIamFederationOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigIamFederationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigIamIdentityCenterOptionsInput)(nil)).Elem(), ServerlessSecurityConfigIamIdentityCenterOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigIamIdentityCenterOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
@@ -10994,6 +11550,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryArrayInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput)(nil)).Elem(), GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigIamFederationOptionInput)(nil)).Elem(), GetServerlessSecurityConfigIamFederationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigIamFederationOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigIamFederationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigIamIdentityCenterOptionInput)(nil)).Elem(), GetServerlessSecurityConfigIamIdentityCenterOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigIamIdentityCenterOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigIamIdentityCenterOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArray{})
 	pulumi.RegisterOutputType(ApplicationAppConfigOutput{})
@@ -11085,6 +11645,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionVectorOptionOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionVectorOptionArrayOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigIamFederationOptionsOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigIamFederationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigIamIdentityCenterOptionsOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})
@@ -11142,6 +11706,10 @@ func init() {
 	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput{})
 	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitOutput{})
 	pulumi.RegisterOutputType(GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigIamFederationOptionOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigIamFederationOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigIamIdentityCenterOptionOutput{})
+	pulumi.RegisterOutputType(GetServerlessSecurityConfigIamIdentityCenterOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionOutput{})
 	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionArrayOutput{})
 }

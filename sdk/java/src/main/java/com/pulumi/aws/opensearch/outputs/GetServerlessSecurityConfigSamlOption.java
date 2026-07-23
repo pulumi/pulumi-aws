@@ -17,7 +17,7 @@ public final class GetServerlessSecurityConfigSamlOption {
      */
     private String groupAttribute;
     /**
-     * @return The XML IdP metadata file generated from your identity provider.
+     * @return XML IdP metadata file generated from your identity provider.
      * 
      */
     private String metadata;
@@ -41,7 +41,7 @@ public final class GetServerlessSecurityConfigSamlOption {
         return this.groupAttribute;
     }
     /**
-     * @return The XML IdP metadata file generated from your identity provider.
+     * @return XML IdP metadata file generated from your identity provider.
      * 
      */
     public String metadata() {

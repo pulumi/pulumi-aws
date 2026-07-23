@@ -12,47 +12,7 @@ namespace Pulumi.Aws.Sagemaker
     /// <summary>
     /// Provides a SageMaker AI endpoint configuration resource.
     /// 
-    /// ## Example Usage
-    /// 
-    /// Basic usage:
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var ec = new Aws.Sagemaker.EndpointConfiguration("ec", new()
-    ///     {
-    ///         Name = "my-endpoint-config",
-    ///         ProductionVariants = new[]
-    ///         {
-    ///             new Aws.Sagemaker.Inputs.EndpointConfigurationProductionVariantArgs
-    ///             {
-    ///                 VariantName = "variant-1",
-    ///                 ModelName = m.Name,
-    ///                 InitialInstanceCount = 1,
-    ///                 InstanceType = "ml.t2.medium",
-    ///             },
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "foo" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// #### Required
-    /// 
-    /// * `Name` (String) Name of the endpoint configuration.
+    /// &gt; **Note:** `aws.sagemaker.Endpoint` resources cannot recognize changes to an `aws.sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `Name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `NamePrefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `True` to prevent conflicts.
     /// 
     /// #### Optional
     /// 
@@ -99,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`. If `NamePrefix` is specified, `Name` is populated with the full name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -211,7 +171,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`. If `NamePrefix` is specified, `Name` is populated with the full name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -303,7 +263,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`. If `NamePrefix` is specified, `Name` is populated with the full name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

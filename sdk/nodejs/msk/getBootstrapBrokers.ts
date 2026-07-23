@@ -49,6 +49,10 @@ export interface GetBootstrapBrokersResult {
      */
     readonly bootstrapBrokers: string;
     /**
+     * One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+     */
+    readonly bootstrapBrokersIpv6: string;
+    /**
      * One or more DNS names (or IP addresses) and SASL IAM port pairs.
      */
     readonly bootstrapBrokersPublicSaslIam: string;
@@ -65,13 +69,25 @@ export interface GetBootstrapBrokersResult {
      */
     readonly bootstrapBrokersSaslIam: string;
     /**
+     * One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+     */
+    readonly bootstrapBrokersSaslIamIpv6: string;
+    /**
      * One or more DNS names (or IP addresses) and SASL SCRAM port pairs.
      */
     readonly bootstrapBrokersSaslScram: string;
     /**
+     * One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+     */
+    readonly bootstrapBrokersSaslScramIpv6: string;
+    /**
      * One or more DNS names (or IP addresses) and TLS port pairs.
      */
     readonly bootstrapBrokersTls: string;
+    /**
+     * One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+     */
+    readonly bootstrapBrokersTlsIpv6: string;
     /**
      * A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity.
      */

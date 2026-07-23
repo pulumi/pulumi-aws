@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for processing audio content in multimodal knowledge bases. See `Audio` block for details.
+        /// </summary>
+        [Input("audio")]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioGetArgs>? Audio { get; set; }
+
+        /// <summary>
         /// Dimension details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
         [Input("dimensions")]
@@ -23,6 +29,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// </summary>
         [Input("embeddingDataType")]
         public Input<string>? EmbeddingDataType { get; set; }
+
+        /// <summary>
+        /// Configuration for processing video content in multimodal knowledge bases. See `Video` block for details.
+        /// </summary>
+        [Input("video")]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoGetArgs>? Video { get; set; }
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationGetArgs()
         {

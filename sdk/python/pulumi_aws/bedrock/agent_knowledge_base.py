@@ -513,6 +513,16 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                             "embedding_data_type": "FLOAT32",
+                            "audio": {
+                                "segmentation_configuration": {
+                                    "fixed_length_duration": 60,
+                                },
+                            },
+                            "video": {
+                                "segmentation_configuration": {
+                                    "fixed_length_duration": 60,
+                                },
+                            },
                         },
                     },
                     "supplemental_data_storage_configuration": {
@@ -572,6 +582,46 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"],
+            knowledge_base_configuration={
+                "type": "MANAGED",
+                "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "MANAGED",
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base with Custom Embedding Model
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"],
+            knowledge_base_configuration={
+                "type": "MANAGED",
+                "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
+                    "embedding_model_configuration": {
+                        "bedrock_embedding_model_configuration": {
+                            "dimensions": 1024,
+                        },
+                    },
                 },
             })
         ```
@@ -735,6 +785,16 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                         "bedrock_embedding_model_configuration": {
                             "dimensions": 1024,
                             "embedding_data_type": "FLOAT32",
+                            "audio": {
+                                "segmentation_configuration": {
+                                    "fixed_length_duration": 60,
+                                },
+                            },
+                            "video": {
+                                "segmentation_configuration": {
+                                    "fixed_length_duration": 60,
+                                },
+                            },
                         },
                     },
                     "supplemental_data_storage_configuration": {
@@ -794,6 +854,46 @@ class AgentKnowledgeBase(pulumi.CustomResource):
                 "type": "S3_VECTORS",
                 "s3_vectors_configuration": {
                     "index_arn": example_vectors_index.index_arn,
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-kb",
+            role_arn=example_aws_iam_role["arn"],
+            knowledge_base_configuration={
+                "type": "MANAGED",
+                "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "MANAGED",
+                },
+            })
+        ```
+
+        ### Managed Knowledge Base with Custom Embedding Model
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentKnowledgeBase("example",
+            name="example-managed-multilingual-kb",
+            role_arn=example_aws_iam_role["arn"],
+            knowledge_base_configuration={
+                "type": "MANAGED",
+                "managed_knowledge_base_configuration": {
+                    "embedding_model_type": "CUSTOM",
+                    "embedding_model_arn": "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
+                    "embedding_model_configuration": {
+                        "bedrock_embedding_model_configuration": {
+                            "dimensions": 1024,
+                        },
+                    },
                 },
             })
         ```

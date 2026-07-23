@@ -292,6 +292,10 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
+     * Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     */
+    declare public readonly tagFieldSpecifications: pulumi.Output<outputs.ec2.FlowLogTagFieldSpecification[] | undefined>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -343,6 +347,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["regionalNatGatewayId"] = state?.regionalNatGatewayId;
             resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tagFieldSpecifications"] = state?.tagFieldSpecifications;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["trafficType"] = state?.trafficType;
@@ -362,6 +367,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["regionalNatGatewayId"] = args?.regionalNatGatewayId;
             resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tagFieldSpecifications"] = args?.tagFieldSpecifications;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trafficType"] = args?.trafficType;
             resourceInputs["transitGatewayAttachmentId"] = args?.transitGatewayAttachmentId;
@@ -429,6 +435,10 @@ export interface FlowLogState {
      * Subnet ID to attach to.
      */
     subnetId?: pulumi.Input<string | undefined>;
+    /**
+     * Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     */
+    tagFieldSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagFieldSpecification>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -507,6 +517,10 @@ export interface FlowLogArgs {
      * Subnet ID to attach to.
      */
     subnetId?: pulumi.Input<string | undefined>;
+    /**
+     * Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     */
+    tagFieldSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.FlowLogTagFieldSpecification>[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

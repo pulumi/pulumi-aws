@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs;
+import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -15,6 +17,21 @@ import javax.annotation.Nullable;
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs Empty = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs();
+
+    /**
+     * Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * 
+     */
+    @Import(name="audio")
+    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs> audio;
+
+    /**
+     * @return Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+     * 
+     */
+    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs>> audio() {
+        return Optional.ofNullable(this.audio);
+    }
 
     /**
      * Dimension details for the vector configuration used on the Bedrock embeddings model.
@@ -46,11 +63,28 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         return Optional.ofNullable(this.embeddingDataType);
     }
 
+    /**
+     * Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * 
+     */
+    @Import(name="video")
+    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs> video;
+
+    /**
+     * @return Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+     * 
+     */
+    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs>> video() {
+        return Optional.ofNullable(this.video);
+    }
+
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs() {}
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs $) {
+        this.audio = $.audio;
         this.dimensions = $.dimensions;
         this.embeddingDataType = $.embeddingDataType;
+        this.video = $.video;
     }
 
     public static Builder builder() {
@@ -69,6 +103,27 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
 
         public Builder(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs defaults) {
             $ = new AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder audio(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs> audio) {
+            $.audio = audio;
+            return this;
+        }
+
+        /**
+         * @param audio Configuration for processing audio content in multimodal knowledge bases. See `audio` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder audio(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs audio) {
+            return audio(Output.of(audio));
         }
 
         /**
@@ -111,6 +166,27 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
          */
         public Builder embeddingDataType(String embeddingDataType) {
             return embeddingDataType(Output.of(embeddingDataType));
+        }
+
+        /**
+         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder video(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs> video) {
+            $.video = video;
+            return this;
+        }
+
+        /**
+         * @param video Configuration for processing video content in multimodal knowledge bases. See `video` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder video(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationVideoArgs video) {
+            return video(Output.of(video));
         }
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs build() {

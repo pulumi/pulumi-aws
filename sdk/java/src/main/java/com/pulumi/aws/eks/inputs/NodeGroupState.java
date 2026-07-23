@@ -10,6 +10,7 @@ import com.pulumi.aws.eks.inputs.NodeGroupResourceArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupScalingConfigArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupTaintArgs;
 import com.pulumi.aws.eks.inputs.NodeGroupUpdateConfigArgs;
+import com.pulumi.aws.eks.inputs.NodeGroupWarmPoolConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -405,6 +406,21 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.version);
     }
 
+    /**
+     * Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     * 
+     */
+    @Import(name="warmPoolConfig")
+    private @Nullable Output<NodeGroupWarmPoolConfigArgs> warmPoolConfig;
+
+    /**
+     * @return Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+     * 
+     */
+    public Optional<Output<NodeGroupWarmPoolConfigArgs>> warmPoolConfig() {
+        return Optional.ofNullable(this.warmPoolConfig);
+    }
+
     private NodeGroupState() {}
 
     private NodeGroupState(NodeGroupState $) {
@@ -433,6 +449,7 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
         this.taints = $.taints;
         this.updateConfig = $.updateConfig;
         this.version = $.version;
+        this.warmPoolConfig = $.warmPoolConfig;
     }
 
     public static Builder builder() {
@@ -1022,6 +1039,27 @@ public final class NodeGroupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder version(String version) {
             return version(Output.of(version));
+        }
+
+        /**
+         * @param warmPoolConfig Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmPoolConfig(@Nullable Output<NodeGroupWarmPoolConfigArgs> warmPoolConfig) {
+            $.warmPoolConfig = warmPoolConfig;
+            return this;
+        }
+
+        /**
+         * @param warmPoolConfig Configuration block with EC2 Auto Scaling warm pool settings. Including this block enables the warm pool; removing it disables and removes the warm pool. See `warmPoolConfig` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmPoolConfig(NodeGroupWarmPoolConfigArgs warmPoolConfig) {
+            return warmPoolConfig(Output.of(warmPoolConfig));
         }
 
         public NodeGroupState build() {

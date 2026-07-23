@@ -65,6 +65,137 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Managed Knowledge Base Connector - S3
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentDataSource;
+ * import com.pulumi.aws.bedrock.AgentDataSourceArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .name("example-s3-managed")
+ *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
+ *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
+ *                 .managedKnowledgeBaseConnectorConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs.builder()
+ *                     .connectorParameters(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty("type", "S3"),
+ *                             jsonProperty("version", "1"),
+ *                             jsonProperty("connectionConfiguration", jsonObject(
+ *                                 jsonProperty("bucketName", "my-documents-bucket"),
+ *                                 jsonProperty("bucketOwnerAccountId", "123456789012")
+ *                             )),
+ *                             jsonProperty("aclEnabled", false),
+ *                             jsonProperty("filterConfiguration", jsonObject(
+ *                                 jsonProperty("maxFileSizeInMegaBytes", "500")
+ *                             ))
+ *                         )))
+ *                     .mediaExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs.builder()
+ *                         .imageExtractionConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs.builder()
+ *                             .imageExtractionStatus("ENABLED")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs.builder()
+ *                 .parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.builder()
+ *                     .parsingStrategy("SMART_PARSING")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Managed Knowledge Base Connector - SharePoint
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentDataSource;
+ * import com.pulumi.aws.bedrock.AgentDataSourceArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sharepoint = new AgentDataSource("sharepoint", AgentDataSourceArgs.builder()
+ *             .knowledgeBaseId(example.id())
+ *             .name("example-sharepoint")
+ *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
+ *                 .type("MANAGED_KNOWLEDGE_BASE_CONNECTOR")
+ *                 .managedKnowledgeBaseConnectorConfiguration(AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs.builder()
+ *                     .connectorParameters(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty("type", "SHAREPOINT"),
+ *                             jsonProperty("version", "1"),
+ *                             jsonProperty("connectionConfiguration", jsonObject(
+ *                                 jsonProperty("tenantId", "your-entra-tenant-id"),
+ *                                 jsonProperty("authType", "ENTRA_ID_APP_ONLY"),
+ *                                 jsonProperty("secretArn", "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret"),
+ *                                 jsonProperty("certificateS3Path", jsonObject(
+ *                                     jsonProperty("s3BucketName", "my-certs-bucket"),
+ *                                     jsonProperty("s3KeyName", "certs/sharepoint-cert.crt")
+ *                                 ))
+ *                             )),
+ *                             jsonProperty("dataEntityConfiguration", jsonObject(
+ *                                 jsonProperty("type", "DOCUMENT"),
+ *                                 jsonProperty("crawlFiles", "true"),
+ *                                 jsonProperty("crawlPages", "true"),
+ *                                 jsonProperty("siteUrls", jsonArray("https://company.sharepoint.com/sites/MySite"))
+ *                             ))
+ *                         )))
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Multimodal Parsing
  * 
  * <pre>

@@ -49,6 +49,127 @@ import (
 //
 // ```
 //
+// ### Managed Knowledge Base Connector - S3
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"type":    "S3",
+//				"version": "1",
+//				"connectionConfiguration": map[string]interface{}{
+//					"bucketName":           "my-documents-bucket",
+//					"bucketOwnerAccountId": "123456789012",
+//				},
+//				"aclEnabled": false,
+//				"filterConfiguration": map[string]interface{}{
+//					"maxFileSizeInMegaBytes": "500",
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
+//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
+//				Name:            pulumi.String("example-s3-managed"),
+//				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
+//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
+//					ManagedKnowledgeBaseConnectorConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs{
+//						ConnectorParameters: pulumi.String(json0),
+//						MediaExtractionConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs{
+//							ImageExtractionConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs{
+//								ImageExtractionStatus: pulumi.String("ENABLED"),
+//							},
+//						},
+//					},
+//				},
+//				VectorIngestionConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationArgs{
+//					ParsingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{
+//						ParsingStrategy: pulumi.String("SMART_PARSING"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Managed Knowledge Base Connector - SharePoint
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"type":    "SHAREPOINT",
+//				"version": "1",
+//				"connectionConfiguration": map[string]interface{}{
+//					"tenantId":  "your-entra-tenant-id",
+//					"authType":  "ENTRA_ID_APP_ONLY",
+//					"secretArn": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
+//					"certificateS3Path": map[string]interface{}{
+//						"s3BucketName": "my-certs-bucket",
+//						"s3KeyName":    "certs/sharepoint-cert.crt",
+//					},
+//				},
+//				"dataEntityConfiguration": map[string]interface{}{
+//					"type":       "DOCUMENT",
+//					"crawlFiles": "true",
+//					"crawlPages": "true",
+//					"siteUrls": []string{
+//						"https://company.sharepoint.com/sites/MySite",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = bedrock.NewAgentDataSource(ctx, "sharepoint", &bedrock.AgentDataSourceArgs{
+//				KnowledgeBaseId: pulumi.Any(example.Id),
+//				Name:            pulumi.String("example-sharepoint"),
+//				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
+//					Type: pulumi.String("MANAGED_KNOWLEDGE_BASE_CONNECTOR"),
+//					ManagedKnowledgeBaseConnectorConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs{
+//						ConnectorParameters: pulumi.String(json0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Multimodal Parsing
 //
 // ```go

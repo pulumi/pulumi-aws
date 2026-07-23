@@ -162,10 +162,11 @@ diff --git a/internal/service/wafv2/web_acl_rule_blocks.go b/internal/service/wa
 index b8b27e6f458..c212f02dfe8 100644
 --- a/internal/service/wafv2/web_acl_rule_blocks.go
 +++ b/internal/service/wafv2/web_acl_rule_blocks.go
-@@ -879,23 +879,108 @@ var ruleActionOverrideBlock = tfsync.OnceValueCtx(func(ctx context.Context) sche
+@@ -879,24 +879,109 @@ var ruleActionOverrideBlock = tfsync.OnceValueCtx(func(ctx context.Context) sche
  	}
  })
  
+-var scopeDownStatementBlock = tfsync.OnceValueCtx(func(ctx context.Context) schema.Block {
 +// scopeDownLeafStatementBlocks returns only leaf statements (no managed_rule_group, rate_based,
 +// or rule_group_reference) to avoid initialization cycles when used inside scope_down_statement
 +// which is itself referenced by managed_rule_group_statement and rate_based_statement.
@@ -189,7 +190,8 @@ index b8b27e6f458..c212f02dfe8 100644
 +
 +// scopeDownStatementBlockLevel0NoMinMax: level-0 statements, used by AND/OR at level 0.
 +var scopeDownStatementBlockLevel0NoMinMax = tfsync.OnceValueCtx(func(ctx context.Context) schema.Block {
-+	return schema.ListNestedBlock{
+ 	return schema.ListNestedBlock{
+-		CustomType: fwtypes.NewListNestedObjectTypeOf[webACLRuleScopeDownStatementModel](ctx),
 +		CustomType: fwtypes.NewListNestedObjectTypeOf[webACLRuleScopeDownStatementLevel0Model](ctx),
 +		Validators: []validator.List{
 +			listvalidator.SizeAtLeast(1),
@@ -219,12 +221,22 @@ index b8b27e6f458..c212f02dfe8 100644
 +var scopeDownAndStatementBlockLevel0 = tfsync.OnceValueCtx(func(ctx context.Context) schema.Block {
 +	return schema.ListNestedBlock{
 +		CustomType: fwtypes.NewListNestedObjectTypeOf[webACLRuleScopeDownAndStatementLevel0Model](ctx),
-+		Validators: []validator.List{listvalidator.SizeAtMost(1)},
-+		NestedObject: schema.NestedBlockObject{
-+			Blocks: map[string]schema.Block{
+ 		Validators: []validator.List{listvalidator.SizeAtMost(1)},
+ 		NestedObject: schema.NestedBlockObject{
+ 			Blocks: map[string]schema.Block{
+-				"ip_set_reference_statement":            ipSetReferenceStatementBlock(ctx),
+-				"geo_match_statement":                   geoMatchStatementBlock(ctx),
+-				"byte_match_statement":                  byteMatchStatementBlock(ctx),
+-				"sqli_match_statement":                  sqliMatchStatementBlock(ctx),
+-				"xss_match_statement":                   xssMatchStatementBlock(ctx),
+-				"size_constraint_statement":             sizeConstraintStatementBlock(ctx),
+-				"regex_match_statement":                 regexMatchStatementBlock(ctx),
+-				"regex_pattern_set_reference_statement": regexPatternSetReferenceStatementBlock(ctx),
+-				"label_match_statement":                 labelMatchStatementBlock(ctx),
+-				"asn_match_statement":                   asnMatchStatementBlock(ctx),
 +				"statement": scopeDownStatementBlockLevel0NoMinMax(ctx),
-+			},
-+		},
+ 			},
+ 		},
 +		Description: "Logical AND statement.",
 +	}
 +})
@@ -257,32 +269,21 @@ index b8b27e6f458..c212f02dfe8 100644
 +
 +// scopeDownStatementBlock adds logical statements (and/or/not) to the leaf statement blocks.
 +// Uses scope-down-specific models to avoid type cycles with managed_rule_group and rate_based.
- var scopeDownStatementBlock = tfsync.OnceValueCtx(func(ctx context.Context) schema.Block {
++var scopeDownStatementBlock = tfsync.OnceValueCtx(func(ctx context.Context) schema.Block {
 +	blocks := scopeDownLeafStatementBlocks(ctx)
 +	blocks["and_statement"] = scopeDownAndStatementBlockLevel0(ctx)
 +	blocks["not_statement"] = scopeDownNotStatementBlockLevel0(ctx)
 +	blocks["or_statement"] = scopeDownOrStatementBlockLevel0(ctx)
 +
- 	return schema.ListNestedBlock{
- 		CustomType: fwtypes.NewListNestedObjectTypeOf[webACLRuleScopeDownStatementModel](ctx),
- 		Validators: []validator.List{listvalidator.SizeAtMost(1)},
- 		NestedObject: schema.NestedBlockObject{
--			Blocks: map[string]schema.Block{
--				"ip_set_reference_statement":            ipSetReferenceStatementBlock(ctx),
--				"geo_match_statement":                   geoMatchStatementBlock(ctx),
--				"byte_match_statement":                  byteMatchStatementBlock(ctx),
--				"sqli_match_statement":                  sqliMatchStatementBlock(ctx),
--				"xss_match_statement":                   xssMatchStatementBlock(ctx),
--				"size_constraint_statement":             sizeConstraintStatementBlock(ctx),
--				"regex_match_statement":                 regexMatchStatementBlock(ctx),
--				"regex_pattern_set_reference_statement": regexPatternSetReferenceStatementBlock(ctx),
--				"label_match_statement":                 labelMatchStatementBlock(ctx),
--				"asn_match_statement":                   asnMatchStatementBlock(ctx),
--			},
++	return schema.ListNestedBlock{
++		CustomType: fwtypes.NewListNestedObjectTypeOf[webACLRuleScopeDownStatementModel](ctx),
++		Validators: []validator.List{listvalidator.SizeAtMost(1)},
++		NestedObject: schema.NestedBlockObject{
 +			Blocks: blocks,
- 		},
++		},
  		Description: "Scope down statement for managed rule groups.",
  	}
+ })
 diff --git a/internal/service/wafv2/web_acl_rule_statement_models.gtpl b/internal/service/wafv2/web_acl_rule_statement_models.gtpl
 index 9d0f787ad63..619c2a835ee 100644
 --- a/internal/service/wafv2/web_acl_rule_statement_models.gtpl

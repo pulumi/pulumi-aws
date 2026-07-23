@@ -7,12 +7,14 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.FlowLogArgs;
 import com.pulumi.aws.ec2.inputs.FlowLogState;
 import com.pulumi.aws.ec2.outputs.FlowLogDestinationOptions;
+import com.pulumi.aws.ec2.outputs.FlowLogTagFieldSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -530,6 +532,20 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> subnetId() {
         return Codegen.optional(this.subnetId);
+    }
+    /**
+     * Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     * 
+     */
+    @Export(name="tagFieldSpecifications", refs={List.class,FlowLogTagFieldSpecification.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<FlowLogTagFieldSpecification>> tagFieldSpecifications;
+
+    /**
+     * @return Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `logFormat`. More details below.
+     * 
+     */
+    public Output<Optional<List<FlowLogTagFieldSpecification>>> tagFieldSpecifications() {
+        return Codegen.optional(this.tagFieldSpecifications);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

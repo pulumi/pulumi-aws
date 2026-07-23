@@ -40,7 +40,7 @@ type LaunchTemplate struct {
 	CreditSpecification LaunchTemplateCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// Default Version of the launch template.
 	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
-	// Description of the launch template.
+	// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrOutput `pulumi:"disableApiStop"`
@@ -162,7 +162,7 @@ type launchTemplateState struct {
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
 	// Default Version of the launch template.
 	DefaultVersion *int `pulumi:"defaultVersion"`
-	// Description of the launch template.
+	// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 	Description *string `pulumi:"description"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop *bool `pulumi:"disableApiStop"`
@@ -255,7 +255,7 @@ type LaunchTemplateState struct {
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
 	// Default Version of the launch template.
 	DefaultVersion pulumi.IntPtrInput
-	// Description of the launch template.
+	// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 	Description pulumi.StringPtrInput
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrInput
@@ -350,7 +350,7 @@ type launchTemplateArgs struct {
 	CreditSpecification *LaunchTemplateCreditSpecification `pulumi:"creditSpecification"`
 	// Default Version of the launch template.
 	DefaultVersion *int `pulumi:"defaultVersion"`
-	// Description of the launch template.
+	// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 	Description *string `pulumi:"description"`
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop *bool `pulumi:"disableApiStop"`
@@ -438,7 +438,7 @@ type LaunchTemplateArgs struct {
 	CreditSpecification LaunchTemplateCreditSpecificationPtrInput
 	// Default Version of the launch template.
 	DefaultVersion pulumi.IntPtrInput
-	// Description of the launch template.
+	// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 	Description pulumi.StringPtrInput
 	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
 	DisableApiStop pulumi.BoolPtrInput
@@ -633,7 +633,7 @@ func (o LaunchTemplateOutput) DefaultVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.IntOutput { return v.DefaultVersion }).(pulumi.IntOutput)
 }
 
-// Description of the launch template.
+// Description of the launch template version (`VersionDescription` in the [EC2 API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html)). Launch templates in AWS do not have a template-level description; whenever a change to this resource creates a new version, the new version is created with this description. To give each version a distinct description, update this argument in the same apply as the other changes.
 func (o LaunchTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<string> GroupAttribute { get; set; } = null!;
 
         /// <summary>
-        /// The XML IdP metadata file generated from your identity provider.
+        /// XML IdP metadata file generated from your identity provider.
         /// </summary>
         [Input("metadata", required: true)]
         public Input<string> Metadata { get; set; } = null!;

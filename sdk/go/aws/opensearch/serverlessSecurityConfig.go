@@ -33,13 +33,17 @@ type ServerlessSecurityConfig struct {
 	ConfigVersion pulumi.StringOutput `pulumi:"configVersion"`
 	// Description of the security configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+	IamFederationOptions ServerlessSecurityConfigIamFederationOptionsPtrOutput `pulumi:"iamFederationOptions"`
+	// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+	IamIdentityCenterOptions ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput `pulumi:"iamIdentityCenterOptions"`
 	// Name of the policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for SAML options.
+	// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrOutput `pulumi:"samlOptions"`
-	// Type of configuration. Must be `saml`.
+	// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -82,13 +86,17 @@ type serverlessSecurityConfigState struct {
 	ConfigVersion *string `pulumi:"configVersion"`
 	// Description of the security configuration.
 	Description *string `pulumi:"description"`
+	// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+	IamFederationOptions *ServerlessSecurityConfigIamFederationOptions `pulumi:"iamFederationOptions"`
+	// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+	IamIdentityCenterOptions *ServerlessSecurityConfigIamIdentityCenterOptions `pulumi:"iamIdentityCenterOptions"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block for SAML options.
+	// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 	SamlOptions *ServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
-	// Type of configuration. Must be `saml`.
+	// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
@@ -99,13 +107,17 @@ type ServerlessSecurityConfigState struct {
 	ConfigVersion pulumi.StringPtrInput
 	// Description of the security configuration.
 	Description pulumi.StringPtrInput
+	// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+	IamFederationOptions ServerlessSecurityConfigIamFederationOptionsPtrInput
+	// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+	IamIdentityCenterOptions ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block for SAML options.
+	// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrInput
-	// Type of configuration. Must be `saml`.
+	// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
@@ -118,13 +130,17 @@ func (ServerlessSecurityConfigState) ElementType() reflect.Type {
 type serverlessSecurityConfigArgs struct {
 	// Description of the security configuration.
 	Description *string `pulumi:"description"`
+	// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+	IamFederationOptions *ServerlessSecurityConfigIamFederationOptions `pulumi:"iamFederationOptions"`
+	// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+	IamIdentityCenterOptions *ServerlessSecurityConfigIamIdentityCenterOptions `pulumi:"iamIdentityCenterOptions"`
 	// Name of the policy.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block for SAML options.
+	// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 	SamlOptions *ServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
-	// Type of configuration. Must be `saml`.
+	// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
@@ -134,13 +150,17 @@ type serverlessSecurityConfigArgs struct {
 type ServerlessSecurityConfigArgs struct {
 	// Description of the security configuration.
 	Description pulumi.StringPtrInput
+	// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+	IamFederationOptions ServerlessSecurityConfigIamFederationOptionsPtrInput
+	// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+	IamIdentityCenterOptions ServerlessSecurityConfigIamIdentityCenterOptionsPtrInput
 	// Name of the policy.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block for SAML options.
+	// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrInput
-	// Type of configuration. Must be `saml`.
+	// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput
@@ -243,6 +263,20 @@ func (o ServerlessSecurityConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+func (o ServerlessSecurityConfigOutput) IamFederationOptions() ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfig) ServerlessSecurityConfigIamFederationOptionsPtrOutput {
+		return v.IamFederationOptions
+	}).(ServerlessSecurityConfigIamFederationOptionsPtrOutput)
+}
+
+// Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+func (o ServerlessSecurityConfigOutput) IamIdentityCenterOptions() ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfig) ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput {
+		return v.IamIdentityCenterOptions
+	}).(ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput)
+}
+
 // Name of the policy.
 func (o ServerlessSecurityConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -253,12 +287,12 @@ func (o ServerlessSecurityConfigOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for SAML options.
+// Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
 func (o ServerlessSecurityConfigOutput) SamlOptions() ServerlessSecurityConfigSamlOptionsPtrOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfig) ServerlessSecurityConfigSamlOptionsPtrOutput { return v.SamlOptions }).(ServerlessSecurityConfigSamlOptionsPtrOutput)
 }
 
-// Type of configuration. Must be `saml`.
+// Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
 //
 // The following arguments are optional:
 func (o ServerlessSecurityConfigOutput) Type() pulumi.StringOutput {

@@ -27,7 +27,7 @@ class GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
-    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, launch_templates=None, node_group_name=None, node_role_arn=None, region=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, update_configs=None, version=None):
+    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, launch_templates=None, node_group_name=None, node_role_arn=None, region=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, update_configs=None, version=None, warm_pool_configs=None):
         if ami_type and not isinstance(ami_type, str):
             raise TypeError("Expected argument 'ami_type' to be a str")
         pulumi.set(__self__, "ami_type", ami_type)
@@ -94,6 +94,9 @@ class GetNodeGroupResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if warm_pool_configs and not isinstance(warm_pool_configs, list):
+            raise TypeError("Expected argument 'warm_pool_configs' to be a list")
+        pulumi.set(__self__, "warm_pool_configs", warm_pool_configs)
 
     @_builtins.property
     @pulumi.getter(name="amiType")
@@ -259,6 +262,14 @@ class GetNodeGroupResult:
         """
         return pulumi.get(self, "version")
 
+    @_builtins.property
+    @pulumi.getter(name="warmPoolConfigs")
+    def warm_pool_configs(self) -> Sequence['outputs.GetNodeGroupWarmPoolConfigResult']:
+        """
+        Configuration block with EC2 Auto Scaling warm pool settings.
+        """
+        return pulumi.get(self, "warm_pool_configs")
+
 
 class AwaitableGetNodeGroupResult(GetNodeGroupResult):
     # pylint: disable=using-constant-test
@@ -287,7 +298,8 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
             tags=self.tags,
             taints=self.taints,
             update_configs=self.update_configs,
-            version=self.version)
+            version=self.version,
+            warm_pool_configs=self.warm_pool_configs)
 
 
 def get_node_group(cluster_name: Optional[_builtins.str] = None,
@@ -344,7 +356,8 @@ def get_node_group(cluster_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         taints=pulumi.get(__ret__, 'taints'),
         update_configs=pulumi.get(__ret__, 'update_configs'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        warm_pool_configs=pulumi.get(__ret__, 'warm_pool_configs'))
 def get_node_group_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                           node_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -398,4 +411,5 @@ def get_node_group_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = 
         tags=pulumi.get(__response__, 'tags'),
         taints=pulumi.get(__response__, 'taints'),
         update_configs=pulumi.get(__response__, 'update_configs'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        warm_pool_configs=pulumi.get(__response__, 'warm_pool_configs')))

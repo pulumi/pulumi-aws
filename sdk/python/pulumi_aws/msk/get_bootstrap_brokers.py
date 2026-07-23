@@ -26,10 +26,13 @@ class GetBootstrapBrokersResult:
     """
     A collection of values returned by getBootstrapBrokers.
     """
-    def __init__(__self__, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, bootstrap_brokers_vpc_connectivity_sasl_iam=None, bootstrap_brokers_vpc_connectivity_sasl_scram=None, bootstrap_brokers_vpc_connectivity_tls=None, cluster_arn=None, id=None, region=None):
+    def __init__(__self__, bootstrap_brokers=None, bootstrap_brokers_ipv6=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_iam_ipv6=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_sasl_scram_ipv6=None, bootstrap_brokers_tls=None, bootstrap_brokers_tls_ipv6=None, bootstrap_brokers_vpc_connectivity_sasl_iam=None, bootstrap_brokers_vpc_connectivity_sasl_scram=None, bootstrap_brokers_vpc_connectivity_tls=None, cluster_arn=None, id=None, region=None):
         if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
             raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
         pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_ipv6 and not isinstance(bootstrap_brokers_ipv6, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_ipv6' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_ipv6", bootstrap_brokers_ipv6)
         if bootstrap_brokers_public_sasl_iam and not isinstance(bootstrap_brokers_public_sasl_iam, str):
             raise TypeError("Expected argument 'bootstrap_brokers_public_sasl_iam' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_public_sasl_iam", bootstrap_brokers_public_sasl_iam)
@@ -42,12 +45,21 @@ class GetBootstrapBrokersResult:
         if bootstrap_brokers_sasl_iam and not isinstance(bootstrap_brokers_sasl_iam, str):
             raise TypeError("Expected argument 'bootstrap_brokers_sasl_iam' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
+        if bootstrap_brokers_sasl_iam_ipv6 and not isinstance(bootstrap_brokers_sasl_iam_ipv6, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_sasl_iam_ipv6' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_sasl_iam_ipv6", bootstrap_brokers_sasl_iam_ipv6)
         if bootstrap_brokers_sasl_scram and not isinstance(bootstrap_brokers_sasl_scram, str):
             raise TypeError("Expected argument 'bootstrap_brokers_sasl_scram' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
+        if bootstrap_brokers_sasl_scram_ipv6 and not isinstance(bootstrap_brokers_sasl_scram_ipv6, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_sasl_scram_ipv6' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_sasl_scram_ipv6", bootstrap_brokers_sasl_scram_ipv6)
         if bootstrap_brokers_tls and not isinstance(bootstrap_brokers_tls, str):
             raise TypeError("Expected argument 'bootstrap_brokers_tls' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_tls", bootstrap_brokers_tls)
+        if bootstrap_brokers_tls_ipv6 and not isinstance(bootstrap_brokers_tls_ipv6, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_tls_ipv6' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_tls_ipv6", bootstrap_brokers_tls_ipv6)
         if bootstrap_brokers_vpc_connectivity_sasl_iam and not isinstance(bootstrap_brokers_vpc_connectivity_sasl_iam, str):
             raise TypeError("Expected argument 'bootstrap_brokers_vpc_connectivity_sasl_iam' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_vpc_connectivity_sasl_iam", bootstrap_brokers_vpc_connectivity_sasl_iam)
@@ -74,6 +86,14 @@ class GetBootstrapBrokersResult:
         Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster.
         """
         return pulumi.get(self, "bootstrap_brokers")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersIpv6")
+    def bootstrap_brokers_ipv6(self) -> _builtins.str:
+        """
+        One or more IPv6 DNS names (or IP addresses) and plaintext port pairs for clusters configured with DUAL network type.
+        """
+        return pulumi.get(self, "bootstrap_brokers_ipv6")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersPublicSaslIam")
@@ -108,6 +128,14 @@ class GetBootstrapBrokersResult:
         return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslIamIpv6")
+    def bootstrap_brokers_sasl_iam_ipv6(self) -> _builtins.str:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL IAM port pairs for clusters configured with DUAL network type.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> _builtins.str:
         """
@@ -116,12 +144,28 @@ class GetBootstrapBrokersResult:
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
     @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersSaslScramIpv6")
+    def bootstrap_brokers_sasl_scram_ipv6(self) -> _builtins.str:
+        """
+        One or more IPv6 DNS names (or IP addresses) and SASL SCRAM port pairs for clusters configured with DUAL network type.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_scram_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> _builtins.str:
         """
         One or more DNS names (or IP addresses) and TLS port pairs.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapBrokersTlsIpv6")
+    def bootstrap_brokers_tls_ipv6(self) -> _builtins.str:
+        """
+        One or more IPv6 DNS names (or IP addresses) and TLS port pairs for clusters configured with DUAL network type.
+        """
+        return pulumi.get(self, "bootstrap_brokers_tls_ipv6")
 
     @_builtins.property
     @pulumi.getter(name="bootstrapBrokersVpcConnectivitySaslIam")
@@ -173,12 +217,16 @@ class AwaitableGetBootstrapBrokersResult(GetBootstrapBrokersResult):
             yield self
         return GetBootstrapBrokersResult(
             bootstrap_brokers=self.bootstrap_brokers,
+            bootstrap_brokers_ipv6=self.bootstrap_brokers_ipv6,
             bootstrap_brokers_public_sasl_iam=self.bootstrap_brokers_public_sasl_iam,
             bootstrap_brokers_public_sasl_scram=self.bootstrap_brokers_public_sasl_scram,
             bootstrap_brokers_public_tls=self.bootstrap_brokers_public_tls,
             bootstrap_brokers_sasl_iam=self.bootstrap_brokers_sasl_iam,
+            bootstrap_brokers_sasl_iam_ipv6=self.bootstrap_brokers_sasl_iam_ipv6,
             bootstrap_brokers_sasl_scram=self.bootstrap_brokers_sasl_scram,
+            bootstrap_brokers_sasl_scram_ipv6=self.bootstrap_brokers_sasl_scram_ipv6,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
+            bootstrap_brokers_tls_ipv6=self.bootstrap_brokers_tls_ipv6,
             bootstrap_brokers_vpc_connectivity_sasl_iam=self.bootstrap_brokers_vpc_connectivity_sasl_iam,
             bootstrap_brokers_vpc_connectivity_sasl_scram=self.bootstrap_brokers_vpc_connectivity_sasl_scram,
             bootstrap_brokers_vpc_connectivity_tls=self.bootstrap_brokers_vpc_connectivity_tls,
@@ -214,12 +262,16 @@ def get_bootstrap_brokers(cluster_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetBootstrapBrokersResult(
         bootstrap_brokers=pulumi.get(__ret__, 'bootstrap_brokers'),
+        bootstrap_brokers_ipv6=pulumi.get(__ret__, 'bootstrap_brokers_ipv6'),
         bootstrap_brokers_public_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_public_sasl_iam'),
         bootstrap_brokers_public_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_public_sasl_scram'),
         bootstrap_brokers_public_tls=pulumi.get(__ret__, 'bootstrap_brokers_public_tls'),
         bootstrap_brokers_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_sasl_iam'),
+        bootstrap_brokers_sasl_iam_ipv6=pulumi.get(__ret__, 'bootstrap_brokers_sasl_iam_ipv6'),
         bootstrap_brokers_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_sasl_scram'),
+        bootstrap_brokers_sasl_scram_ipv6=pulumi.get(__ret__, 'bootstrap_brokers_sasl_scram_ipv6'),
         bootstrap_brokers_tls=pulumi.get(__ret__, 'bootstrap_brokers_tls'),
+        bootstrap_brokers_tls_ipv6=pulumi.get(__ret__, 'bootstrap_brokers_tls_ipv6'),
         bootstrap_brokers_vpc_connectivity_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_sasl_iam'),
         bootstrap_brokers_vpc_connectivity_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_sasl_scram'),
         bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_tls'),
@@ -252,12 +304,16 @@ def get_bootstrap_brokers_output(cluster_arn: pulumi.Input[Optional[_builtins.st
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getBootstrapBrokers:getBootstrapBrokers', __args__, opts=opts, typ=GetBootstrapBrokersResult)
     return __ret__.apply(lambda __response__: GetBootstrapBrokersResult(
         bootstrap_brokers=pulumi.get(__response__, 'bootstrap_brokers'),
+        bootstrap_brokers_ipv6=pulumi.get(__response__, 'bootstrap_brokers_ipv6'),
         bootstrap_brokers_public_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_iam'),
         bootstrap_brokers_public_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_public_sasl_scram'),
         bootstrap_brokers_public_tls=pulumi.get(__response__, 'bootstrap_brokers_public_tls'),
         bootstrap_brokers_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_sasl_iam'),
+        bootstrap_brokers_sasl_iam_ipv6=pulumi.get(__response__, 'bootstrap_brokers_sasl_iam_ipv6'),
         bootstrap_brokers_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_sasl_scram'),
+        bootstrap_brokers_sasl_scram_ipv6=pulumi.get(__response__, 'bootstrap_brokers_sasl_scram_ipv6'),
         bootstrap_brokers_tls=pulumi.get(__response__, 'bootstrap_brokers_tls'),
+        bootstrap_brokers_tls_ipv6=pulumi.get(__response__, 'bootstrap_brokers_tls_ipv6'),
         bootstrap_brokers_vpc_connectivity_sasl_iam=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_sasl_iam'),
         bootstrap_brokers_vpc_connectivity_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_sasl_scram'),
         bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_tls'),

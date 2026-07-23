@@ -12,6 +12,8 @@ import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
 import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
 import com.pulumi.aws.elasticache.inputs.GetServerlessCachePlainArgs;
+import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
 import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
@@ -22,6 +24,7 @@ import com.pulumi.aws.elasticache.outputs.GetClusterResult;
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetReservedCacheNodeOfferingResult;
 import com.pulumi.aws.elasticache.outputs.GetServerlessCacheResult;
+import com.pulumi.aws.elasticache.outputs.GetServiceUpdateActionsResult;
 import com.pulumi.aws.elasticache.outputs.GetServiceUpdatesResult;
 import com.pulumi.aws.elasticache.outputs.GetSubnetGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetUserResult;
@@ -847,6 +850,335 @@ public final class ElasticacheFunctions {
      */
     public static CompletableFuture<GetServerlessCacheResult> getServerlessCachePlain(GetServerlessCachePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getServerlessCache:getServerlessCache", TypeShape.of(GetServerlessCacheResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdateActionsResult> getServiceUpdateActions() {
+        return getServiceUpdateActions(GetServiceUpdateActionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdateActionsResult> getServiceUpdateActionsPlain() {
+        return getServiceUpdateActionsPlain(GetServiceUpdateActionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdateActionsResult> getServiceUpdateActions(GetServiceUpdateActionsArgs args) {
+        return getServiceUpdateActions(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdateActionsResult> getServiceUpdateActionsPlain(GetServiceUpdateActionsPlainArgs args) {
+        return getServiceUpdateActionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdateActionsResult> getServiceUpdateActions(GetServiceUpdateActionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getServiceUpdateActions:getServiceUpdateActions", TypeShape.of(GetServiceUpdateActionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdateActionsResult> getServiceUpdateActions(GetServiceUpdateActionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getServiceUpdateActions:getServiceUpdateActions", TypeShape.of(GetServiceUpdateActionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS ElastiCache Service Update Actions for a given Cache Cluster or Replication Group.
+     * 
+     * When creating a new Cache Cluster or Replication Group, it takes approximately 10 minutes for Update Actions to be listed.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * The following example will list all Update Actions for the Cache Cluster with a service update status of `available`.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdateActionsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdateActions(GetServiceUpdateActionsArgs.builder()
+     *             .cacheClusterId(exampleAwsElasticacheCluster.clusterId())
+     *             .serviceUpdateStatuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdateActionsResult> getServiceUpdateActionsPlain(GetServiceUpdateActionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:elasticache/getServiceUpdateActions:getServiceUpdateActions", TypeShape.of(GetServiceUpdateActionsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about AWS ElastiCache Service Updates.

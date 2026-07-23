@@ -24,6 +24,10 @@ __all__ = [
     'GroupCapacityReservationSpecificationCapacityReservationTargetArgsDict',
     'GroupInitialLifecycleHookArgs',
     'GroupInitialLifecycleHookArgsDict',
+    'GroupInstanceLifecyclePolicyArgs',
+    'GroupInstanceLifecyclePolicyArgsDict',
+    'GroupInstanceLifecyclePolicyRetentionTriggersArgs',
+    'GroupInstanceLifecyclePolicyRetentionTriggersArgsDict',
     'GroupInstanceMaintenancePolicyArgs',
     'GroupInstanceMaintenancePolicyArgsDict',
     'GroupInstanceRefreshArgs',
@@ -370,6 +374,64 @@ class GroupInitialLifecycleHookArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
+
+
+class GroupInstanceLifecyclePolicyArgsDict(TypedDict):
+    retention_triggers: NotRequired[pulumi.Input[Optional['GroupInstanceLifecyclePolicyRetentionTriggersArgsDict']]]
+    """
+    Conditions that trigger instance retention behavior. Defined below.
+    """
+
+@pulumi.input_type
+class GroupInstanceLifecyclePolicyArgs:
+    def __init__(__self__, *,
+                 retention_triggers: pulumi.Input[Optional['GroupInstanceLifecyclePolicyRetentionTriggersArgs']] = None):
+        """
+        :param pulumi.Input['GroupInstanceLifecyclePolicyRetentionTriggersArgs'] retention_triggers: Conditions that trigger instance retention behavior. Defined below.
+        """
+        if retention_triggers is not None:
+            pulumi.set(__self__, "retention_triggers", retention_triggers)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTriggers")
+    def retention_triggers(self) -> pulumi.Input[Optional['GroupInstanceLifecyclePolicyRetentionTriggersArgs']]:
+        """
+        Conditions that trigger instance retention behavior. Defined below.
+        """
+        return pulumi.get(self, "retention_triggers")
+
+    @retention_triggers.setter
+    def retention_triggers(self, value: pulumi.Input[Optional['GroupInstanceLifecyclePolicyRetentionTriggersArgs']]):
+        pulumi.set(self, "retention_triggers", value)
+
+
+class GroupInstanceLifecyclePolicyRetentionTriggersArgsDict(TypedDict):
+    terminate_hook_abandon: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+    """
+
+@pulumi.input_type
+class GroupInstanceLifecyclePolicyRetentionTriggersArgs:
+    def __init__(__self__, *,
+                 terminate_hook_abandon: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] terminate_hook_abandon: Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+        """
+        if terminate_hook_abandon is not None:
+            pulumi.set(__self__, "terminate_hook_abandon", terminate_hook_abandon)
+
+    @_builtins.property
+    @pulumi.getter(name="terminateHookAbandon")
+    def terminate_hook_abandon(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Action to take when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment. Valid values are `retain` and `terminate`. Set to `retain` to move instances to a retained state instead of terminating them. Retained instances don't count toward desired capacity and remain until you terminate them.
+        """
+        return pulumi.get(self, "terminate_hook_abandon")
+
+    @terminate_hook_abandon.setter
+    def terminate_hook_abandon(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "terminate_hook_abandon", value)
 
 
 class GroupInstanceMaintenancePolicyArgsDict(TypedDict):

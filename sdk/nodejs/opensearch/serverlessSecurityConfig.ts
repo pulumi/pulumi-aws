@@ -60,6 +60,14 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+     */
+    declare public readonly iamFederationOptions: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigIamFederationOptions | undefined>;
+    /**
+     * Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+     */
+    declare public readonly iamIdentityCenterOptions: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigIamIdentityCenterOptions | undefined>;
+    /**
      * Name of the policy.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -68,11 +76,11 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration block for SAML options.
+     * Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
      */
     declare public readonly samlOptions: pulumi.Output<outputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
-     * Type of configuration. Must be `saml`.
+     * Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
      *
      * The following arguments are optional:
      */
@@ -93,6 +101,8 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
             const state = argsOrState as ServerlessSecurityConfigState | undefined;
             resourceInputs["configVersion"] = state?.configVersion;
             resourceInputs["description"] = state?.description;
+            resourceInputs["iamFederationOptions"] = state?.iamFederationOptions;
+            resourceInputs["iamIdentityCenterOptions"] = state?.iamIdentityCenterOptions;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["samlOptions"] = state?.samlOptions;
@@ -103,6 +113,8 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["description"] = args?.description;
+            resourceInputs["iamFederationOptions"] = args?.iamFederationOptions;
+            resourceInputs["iamIdentityCenterOptions"] = args?.iamIdentityCenterOptions;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["samlOptions"] = args?.samlOptions;
@@ -127,6 +139,14 @@ export interface ServerlessSecurityConfigState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
+     * Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+     */
+    iamFederationOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigIamFederationOptions | undefined>;
+    /**
+     * Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+     */
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigIamIdentityCenterOptions | undefined>;
+    /**
      * Name of the policy.
      */
     name?: pulumi.Input<string | undefined>;
@@ -135,11 +155,11 @@ export interface ServerlessSecurityConfigState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for SAML options.
+     * Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
      */
     samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
-     * Type of configuration. Must be `saml`.
+     * Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
      *
      * The following arguments are optional:
      */
@@ -155,6 +175,14 @@ export interface ServerlessSecurityConfigArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
+     * Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iamFederationOptions` Block below for details.
+     */
+    iamFederationOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigIamFederationOptions | undefined>;
+    /**
+     * Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iamIdentityCenterOptions` Block below for details.
+     */
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigIamIdentityCenterOptions | undefined>;
+    /**
      * Name of the policy.
      */
     name?: pulumi.Input<string | undefined>;
@@ -163,11 +191,11 @@ export interface ServerlessSecurityConfigArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for SAML options.
+     * Configuration block for SAML options. Required if `type` is set to `saml`. See `samlOptions` Block below for details.
      */
     samlOptions?: pulumi.Input<inputs.opensearch.ServerlessSecurityConfigSamlOptions | undefined>;
     /**
-     * Type of configuration. Must be `saml`.
+     * Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
      *
      * The following arguments are optional:
      */

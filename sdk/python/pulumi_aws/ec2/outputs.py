@@ -65,6 +65,7 @@ __all__ = [
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance',
     'FleetTargetCapacitySpecification',
     'FlowLogDestinationOptions',
+    'FlowLogTagFieldSpecification',
     'InstanceCapacityReservationSpecification',
     'InstanceCapacityReservationSpecificationCapacityReservationTarget',
     'InstanceCpuOptions',
@@ -4198,6 +4199,54 @@ class FlowLogDestinationOptions(dict):
         Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
         return pulumi.get(self, "per_hour_partition")
+
+
+@pulumi.output_type
+class FlowLogTagFieldSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "tagKeys":
+            suggest = "tag_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowLogTagFieldSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowLogTagFieldSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowLogTagFieldSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_type: _builtins.str,
+                 tag_keys: Sequence[_builtins.str]):
+        """
+        :param _builtins.str resource_type: Resource type to associate the tag keys with. Valid values: `instance`, `network-interface`, `auto-scaling-group`.
+        :param Sequence[_builtins.str] tag_keys: Ordered list of tag keys, on resources of `resource_type`, to display in Flow Log records. The position of each key determines which field it populates in `log_format` (e.g., the first `instance` tag key populates `$${instance-tag}` and the second populates `$${instance-tag-2}`).
+        """
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "tag_keys", tag_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        Resource type to associate the tag keys with. Valid values: `instance`, `network-interface`, `auto-scaling-group`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tagKeys")
+    def tag_keys(self) -> Sequence[_builtins.str]:
+        """
+        Ordered list of tag keys, on resources of `resource_type`, to display in Flow Log records. The position of each key determines which field it populates in `log_format` (e.g., the first `instance` tag key populates `$${instance-tag}` and the second populates `$${instance-tag-2}`).
+        """
+        return pulumi.get(self, "tag_keys")
 
 
 @pulumi.output_type

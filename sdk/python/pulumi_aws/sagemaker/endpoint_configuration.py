@@ -39,7 +39,7 @@ class EndpointConfigurationArgs:
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `production_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
@@ -129,7 +129,7 @@ class EndpointConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         """
         return pulumi.get(self, "name")
 
@@ -209,7 +209,7 @@ class _EndpointConfigurationState:
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -306,7 +306,7 @@ class _EndpointConfigurationState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         """
         return pulumi.get(self, "name")
 
@@ -407,34 +407,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         """
         Provides a SageMaker AI endpoint configuration resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec = aws.sagemaker.EndpointConfiguration("ec",
-            name="my-endpoint-config",
-            production_variants=[{
-                "variant_name": "variant-1",
-                "model_name": m["name"],
-                "initial_instance_count": 1,
-                "instance_type": "ml.t2.medium",
-            }],
-            tags={
-                "Name": "foo",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` (String) Name of the endpoint configuration.
+        > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `name_prefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 
         #### Optional
 
@@ -454,7 +427,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -470,34 +443,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         """
         Provides a SageMaker AI endpoint configuration resource.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ec = aws.sagemaker.EndpointConfiguration("ec",
-            name="my-endpoint-config",
-            production_variants=[{
-                "variant_name": "variant-1",
-                "model_name": m["name"],
-                "initial_instance_count": 1,
-                "instance_type": "ml.t2.medium",
-            }],
-            tags={
-                "Name": "foo",
-            })
-        ```
-
-        ## Import
-
-        ### Identity Schema
-
-        #### Required
-
-        * `name` (String) Name of the endpoint configuration.
+        > **Note:** `sagemaker.Endpoint` resources cannot recognize changes to an `sagemaker.EndpointConfiguration` resource unless the Endpoint Configuration's `name` attribute, changes. Endpoint Configuration names should be randomized by either specifying `name_prefix` or specifying no name. This will automatically change the name when the Endpoint Configuration is modified. The Endpoint Configuration's lifecycle meta-argument `lifecycle.create_before_destroy` should also be set to `true` to prevent conflicts.
 
         #### Optional
 
@@ -593,7 +539,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -663,7 +609,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         """
         return pulumi.get(self, "name")
 
