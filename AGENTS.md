@@ -10,7 +10,6 @@ This is a Go-based Pulumi resource provider that bridges the Terraform provider 
 - `make build` - Build provider and all SDKs
 - `make provider` - Build provider binary
 - `make schema` - Generate provider schema
-- `make tfgen` - Generate SDKs from schema
 - `make upstream` - Initialize upstream submodule
 
 ### SDK Targets
@@ -22,8 +21,8 @@ This is a Go-based Pulumi resource provider that bridges the Terraform provider 
 - `make build_java` - Build Java SDK
 
 ### Development Targets
-- `make lint_provider` - Lint provider Go code
-- `make test_provider` - Run provider unit tests
+- `make lint` - Lint provider Go code
+- `make test_provider` - Run root provider package tests
 
 ## Repository Structure
 
@@ -31,31 +30,39 @@ This is a Go-based Pulumi resource provider that bridges the Terraform provider 
 provider/             -- Go provider implementation
 sdk/                  -- Generated SDKs (never edit directly)
 upstream/             -- Terraform provider submodule
+patches/              -- Carried upstream patches
 scripts/              -- Build utilities
-examples/             -- Example Pulumi programs
-.ci-mgmt.yaml         -- CI management configuration
-Makefile              -- Build orchestration
+examples/             -- Pulumi tests and programs
+.ci-mgmt.yaml         -- Source for generated CI and Makefile
+Makefile              -- Generated build orchestration
 ```
 
 ### Key Files
 - `provider/resources.go` - Resource definitions
-- `provider/resources_test.go` - Unit tests
+- `provider/resources_test.go` - Provider tests
 
 ## Development Workflow
 
 1. Initialize repository: `make upstream`
-2. Make changes in `provider/`
-3. Lint: `make lint_provider`
+2. Make changes in `provider/` or, for a carried upstream patch, `upstream/`
+3. Lint: `make lint`
 4. Test: `make test_provider`
 5. Build provider: `make provider`
-6. Build SDKs: `make build_sdks`
+6. Build SDKs when schema changes: `make build_sdks`
+
+## Investigation and Testing
+
+- Start provider issue investigation with `triage-provider-issue`; invoke a narrower helper directly only when that route is already established.
+- Before adding or changing tests, read `TESTING.md` and use the lowest-cost test that directly proves the behavior.
+- Before deciding, creating, or materially changing a carried patch, read `docs/upstream-patches.md` for the shared policy and Pulumi AWS-specific requirements, then use `upstream-patches` for patch mechanics.
+- Use `pulumi-upgrade-provider` for provider upgrades.
 
 ## Rules
 
-- Before deciding, creating, or materially changing a carried patch, use `upstream-patches` for the shared policy and patch mechanics, then read `docs/upstream-patches.md` for Pulumi AWS-specific requirements.
 - **Never work directly in `sdk/` folders** - All SDK generation is automated through `make`
+- **Never edit the generated `Makefile` or ci-mgmt-marked workflows directly** - Change `.ci-mgmt.yaml` and run `make ci-mgmt`
 - **Never cancel running builds** - Builds may take several minutes
-- **Do not run tests in `examples/`** - They require cloud credentials and run in CI
+- **Do not run unfiltered `make test` by default** - The `examples/` package mixes local, recorded, and live AWS tests; inspect and run the focused test described in `TESTING.md`
 - **Set timeouts to 300+ seconds** for build operations
 
 ## CI Notes

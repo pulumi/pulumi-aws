@@ -56,19 +56,11 @@ tracking, test, CI, and AWS safety requirements.
 
 Do not treat a patch applying cleanly as sufficient validation.
 
-## Running Integration Tests
+## Testing
 
-The examples and integration tests in this repository will create and destroy real AWS
-cloud resources while running. Before running these tests, make sure that you have
-[configured Pulumi with AWS](https://pulumi.io/install/aws.html) successfully once before.
+See [`TESTING.md`](./TESTING.md) to choose the lowest-cost test that proves the behavior, use the repository's test helpers, and run focused tests.
 
-The only additional step you need to take to run tests in this repo is to set the
-`AWS_REGION` environment variable to the region you'd like to create test resources in.
-The integration tests do try to clean up after themselves by deleting everything that was
-created, but in the event of bugs or test failures you may need to go into the AWS Console
-and delete resources yourself.
-
-Once you have set `AWS_REGION` and configured your AWS credentials, `make test` will run your integration tests.
+The `examples/` package mixes live AWS tests, recorded provider-upgrade tests, and local checks. Do not run unfiltered `make test` unless you intend to run the full acceptance suite. For a live test, configure Pulumi with AWS, set `AWS_REGION`, inspect the fixture and cleanup path, and run only the named test. Failed cleanup may require manual removal of AWS resources.
 
 ## Generating IAM Policies
 
