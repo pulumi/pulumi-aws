@@ -117,7 +117,7 @@ Stop and ask for maintainer judgment rather than silently proceeding when:
 
 ## Pulumi AWS repository requirements
 
-The shared policy above applies together with these Pulumi AWS-specific repository and test requirements.
+The policy above applies together with these Pulumi AWS-specific repository and test requirements.
 
 ### Track the patch
 
@@ -136,7 +136,7 @@ Every upstream-owned patch that changes resource behavior requires all of the fo
 2. Select that exact test in `.github/workflows/aws-upstream-tests.yml`. A passing service job does not prove a new test ran unless its test expression includes the test.
 3. Add a Pulumi regression test under `examples/` that fails without the patch and passes with it.
 
-Put Pulumi regression tests required for Pulumi-specific patches under `examples/` as well. Use [`TESTING.md`](../TESTING.md) to design the focused Pulumi regression and decide whether provider-upgrade or language-specific coverage is also needed. Add a provider-upgrade test when the shared policy requires coverage of schema, diff, identifier, or state compatibility.
+Put Pulumi regression tests required for Pulumi-specific patches under `examples/` as well. Use [`TESTING.md`](../TESTING.md) to design the focused Pulumi regression and decide whether provider-upgrade or language-specific coverage is also needed. Add a provider-upgrade test when the policy requires coverage of schema, diff, identifier, or state compatibility.
 
 Assert the affected field or lifecycle transition directly. A successful deployment alone may not prove the regression.
 

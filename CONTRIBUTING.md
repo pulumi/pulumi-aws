@@ -49,10 +49,10 @@ If you are using an AI coding assistant:
 ## Carrying Upstream Patches
 
 Upstream patches add recurring upgrade cost and can create behavior that Pulumi
-must maintain indefinitely. When contributing a patch, use the
-`upstream-patches` skill for shared patch policy and mechanics, then follow
-[`docs/upstream-patches.md`](./docs/upstream-patches.md) for Pulumi AWS-specific
-tracking, test, CI, and AWS safety requirements.
+must maintain indefinitely. Before contributing one, follow
+[`docs/upstream-patches.md`](./docs/upstream-patches.md) for patch policy and
+Pulumi AWS-specific tracking, test, CI, and AWS safety requirements. Use the
+`upstream-patches` skill for patch mechanics.
 
 Do not treat a patch applying cleanly as sufficient validation.
 
