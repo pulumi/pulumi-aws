@@ -1,0 +1,7 @@
+name: regress-rds-storage-type
+runtime: nodejs
+description: Regress aws_rds_cluster storage_type change forcing replacement on non-Aurora clusters
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-typescript
