@@ -3,20 +3,16 @@
 package examples
 
 import (
-	"io"
 	"math/rand"
-	"net/http"
 	"os"
 	"testing"
-	"time"
 
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/stretchr/testify/assert"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optrefresh"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 )
-
-func createEditDir(dir string) integration.EditDir {
-	return integration.EditDir{Dir: dir, ExtraRuntimeValidation: nil}
-}
 
 func skipIfShort(t *testing.T) {
 	if testing.Short() {
@@ -42,29 +38,6 @@ func getCwd(t *testing.T) string {
 	return cwd
 }
 
-func validateAPITest(isValid func(body string)) func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-		var resp *http.Response
-		var err error
-		url := stack.Outputs["url"].(string)
-		// Retry a couple times on 5xx
-		for i := 0; i < 5; i++ {
-			resp, err = http.Get(url)
-			if !assert.NoError(t, err) {
-				return
-			}
-			if resp.StatusCode < 500 {
-				break
-			}
-			time.Sleep(10 * time.Second)
-		}
-		defer resp.Body.Close()
-		body, err := io.ReadAll(resp.Body)
-		assert.NoError(t, err)
-		isValid(string(body))
-	}
-}
-
 var letterRunes = []rune("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 func randomString(length int) string {
@@ -75,12 +48,46 @@ func randomString(length int) string {
 	return string(b)
 }
 
-// A lot of tests do not currently refresh cleanly. The work to root cause each tests has not been
-// done yet but the common causes are listed here:
-//
-// TODO[pulumi/pulumi-aws#2246] specifically affects overlays such as bucket.onObjectCreated; may be worked around
-// TODO[pulumi/pulumi#6235]
-// TODO[pulumi/pulumi-terraform-bridge#1595]
-func skipRefresh(opts *integration.ProgramTestOptions) {
-	opts.SkipRefresh = true
+type exampleLifecycleOptions struct {
+	skipRefresh              bool
+	allowEmptyPreviewChanges bool
+	allowEmptyUpdateChanges  bool
+	validate                 func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
+}
+
+// runExampleLifecycle preserves the standard checks previously provided implicitly by
+// ProgramTest. Tests with materially different lifecycles should call pulumitest directly.
+func runExampleLifecycle(
+	t *testing.T,
+	test *pulumitest.PulumiTest,
+	opts exampleLifecycleOptions,
+) auto.UpResult {
+	t.Helper()
+
+	test.Preview(t, optpreview.Diff())
+	test.Up(t)
+
+	state := test.ExportStack(t)
+	test.ImportStack(t, state)
+
+	previewOpts := []optpreview.Option{optpreview.Diff()}
+	if !opts.allowEmptyPreviewChanges {
+		previewOpts = append(previewOpts, optpreview.ExpectNoChanges())
+	}
+	test.Preview(t, previewOpts...)
+
+	upOpts := []optup.Option{}
+	if !opts.allowEmptyUpdateChanges {
+		upOpts = append(upOpts, optup.ExpectNoChanges())
+	}
+	result := test.Up(t, upOpts...)
+
+	if opts.validate != nil {
+		opts.validate(t, test, result)
+	}
+	if !opts.skipRefresh {
+		test.Refresh(t, optrefresh.ExpectNoChanges())
+	}
+
+	return result
 }

@@ -1,6 +1,4 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
-//go:build go || all
-// +build go all
 
 package examples
 
@@ -8,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"math/rand"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -19,7 +18,6 @@ import (
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -30,26 +28,25 @@ func rootSdkPath() string {
 	return rootSdkPath
 }
 
-func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
-	envRegion := getEnvRegion(t)
-	return integration.ProgramTestOptions{
-		Dependencies: []string{
-			"github.com/pulumi/pulumi-aws/sdk/v7=" + rootSdkPath(),
-		},
-		Config: map[string]string{
-			"aws:region": envRegion,
-		},
-	}
+func tidyGoModule(t *testing.T, workdir string) {
+	t.Helper()
+	cmd := exec.Command("go", "mod", "tidy")
+	cmd.Dir = workdir
+	out, err := cmd.CombinedOutput()
+	require.NoErrorf(t, err, "go mod tidy failed:\n%s", out)
 }
 
 // Keep the Go release-verification example covered in normal CI.
 func TestReleaseVerificationGo(t *testing.T) {
-	test := getGoBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "webserver-go"),
-		})
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "webserver-go"),
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.GoModReplacement("github.com/pulumi/pulumi-aws/sdk/v7", rootSdkPath()),
+	)
+	tidyGoModule(t, test.WorkingDir())
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
 
-	integration.ProgramTest(t, &test)
+	runExampleLifecycle(t, test, exampleLifecycleOptions{})
 }
 
 func TestTagsCombinationsGo(t *testing.T) {

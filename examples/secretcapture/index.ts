@@ -18,7 +18,7 @@ import * as aws from "@pulumi/aws";
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
-const secret = pulumi.output("s3cr3t");
+const secret = pulumi.secret("s3cr3t");
 
 const f = new aws.lambda.CallbackFunction("f", {
     callback: (ev, ctx) => {
