@@ -65,6 +65,26 @@ func setJSBaseConfig(t *testing.T, test *pulumitest.PulumiTest) {
 	test.SetConfig(t, "aws:envRegion", getEnvRegion(t))
 }
 
+func exportStackRedacted(t *testing.T, test *pulumitest.PulumiTest) string {
+	t.Helper()
+	workspace := test.CurrentStack().Workspace()
+	env := make([]string, 0, len(workspace.GetEnvVars()))
+	for key, value := range workspace.GetEnvVars() {
+		env = append(env, fmt.Sprintf("%s=%s", key, value))
+	}
+	stdout, stderr, _, err := workspace.PulumiCommand().Run(
+		test.Context(),
+		workspace.WorkDir(),
+		bytes.NewReader(nil),
+		nil,
+		nil,
+		env,
+		"stack", "export", "--stack", test.CurrentStack().Name(),
+	)
+	require.NoErrorf(t, err, "failed to export redacted stack\n%s", stderr)
+	return stdout
+}
+
 func runNodeSDKUpdateLifecycle(
 	t *testing.T,
 	test *pulumitest.PulumiTest,
@@ -225,10 +245,7 @@ func TestAccSecretCapture(t *testing.T) {
 	runNodeSDKUpdateLifecycle(t, test, exampleLifecycleOptions{
 		skipRefresh: true,
 		validate: func(t *testing.T, test *pulumitest.PulumiTest, _ auto.UpResult) {
-			state := test.ExportStack(t)
-			byts, err := json.Marshal(state.Deployment)
-			assert.NoError(t, err)
-			assert.NotContains(t, string(byts), "s3cr3t")
+			assert.NotContains(t, exportStackRedacted(t, test), "s3cr3t")
 		},
 	})
 }
