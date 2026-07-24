@@ -1,0 +1,382 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Eon <eon@pulumi.com>
+Date: Thu, 9 Jul 2026 14:35:52 +0000
+Subject: [PATCH] Fix aws_route53domains_delegation_signer_record dropping from
+ state on refresh
+
+The Read function keyed on DnssecKey.Id, which GetDomainDetail does not
+reliably echo back in the form the resource stored it (the format returned
+by AssociateDelegationSignerToDomain), causing every refresh to fail to
+match the existing DS record and remove the resource from state. A
+subsequent apply would then fail because the registry already has the
+record.
+
+- Key Create/Read/Delete off DnssecKey.Digest, the value that is stable
+  across AssociateDelegationSignerToDomain and GetDomainDetail.
+- Stop flattening GetDomainDetail's DnssecKey onto signing_attributes in
+  Read: GetDomainDetail does not populate Algorithm/Flags/PublicKey on
+  DnssecKey, so the previous code was overwriting configured values with
+  zeros and producing a permanent RequiresReplace diff.
+- Delete now resolves the internal DnssecKey.Id from the digest before
+  calling DisassociateDelegationSignerFromDomain, which requires the
+  internal Id rather than the digest.
+- Bump schema to v1 with a state upgrader that rewrites existing
+  'DS:keytag-algorithm-digesttype-digest' shaped dnssec_key_id/id values
+  down to the bare digest, so users who already have state from a broken
+  provider version aren't affected on their next refresh.
+- Add a PlanOnly acceptance test step asserting an empty plan immediately
+  after Create, which is the exact symptom reported upstream.
+
+Upstream: https://github.com/hashicorp/terraform-provider-aws/issues/47928
+Upstream fix references: hashicorp/terraform-provider-aws#47932, #48163, #48165
+
+diff --git a/.changelog/47928.txt b/.changelog/47928.txt
+new file mode 100644
+index 00000000000..e1e55302ec8
+--- /dev/null
++++ b/.changelog/47928.txt
+@@ -0,0 +1,3 @@
++```release-note:bug
++resource/aws_route53domains_delegation_signer_record: Stop removing the resource from state and forcing replacement on refresh by keying the DS record on its digest, skipping refresh of write-only `signing_attributes`, and migrating prior state via a schema upgrader
++```
+diff --git a/internal/service/route53domains/delegation_signer_record.go b/internal/service/route53domains/delegation_signer_record.go
+index fddf33e306f..d260cc66094 100644
+--- a/internal/service/route53domains/delegation_signer_record.go
++++ b/internal/service/route53domains/delegation_signer_record.go
+@@ -54,6 +54,7 @@ type delegationSignerRecordResource struct {
+ 
+ func (r *delegationSignerRecordResource) Schema(ctx context.Context, request resource.SchemaRequest, response *resource.SchemaResponse) {
+ 	response.Schema = schema.Schema{
++		Version: 1,
+ 		Attributes: map[string]schema.Attribute{
+ 			"dnssec_key_id": framework.IDAttribute(),
+ 			names.AttrDomainName: schema.StringAttribute{
+@@ -105,6 +106,17 @@ func (r *delegationSignerRecordResource) Schema(ctx context.Context, request res
+ 	}
+ }
+ 
++func (r *delegationSignerRecordResource) UpgradeState(ctx context.Context) map[int64]resource.StateUpgrader {
++	schemaV0 := delegationSignerRecordSchemaV0(ctx)
++
++	return map[int64]resource.StateUpgrader{
++		0: {
++			PriorSchema:   &schemaV0,
++			StateUpgrader: upgradeDelegationSignerRecordStateFromV0,
++		},
++	}
++}
++
+ func (r *delegationSignerRecordResource) Create(ctx context.Context, request resource.CreateRequest, response *resource.CreateResponse) {
+ 	var data delegationSignerRecordResourceModel
+ 	response.Diagnostics.Append(request.Plan.Get(ctx, &data)...)
+@@ -148,8 +160,12 @@ func (r *delegationSignerRecordResource) Create(ctx context.Context, request res
+ 		return
+ 	}
+ 
+-	// Set values for unknowns.
+-	data.DNSSECKeyID = fwflex.StringToFramework(ctx, dnssecKey.Id)
++	// Set values for unknowns. Key on the DnssecKey's Digest, which is the stable
++	// value returned by GetDomainDetail. The DnssecKey.Id returned by
++	// AssociateDelegationSignerToDomain is not reliably echoed back by the
++	// registry on subsequent reads, so storing it here would cause refresh to
++	// drop the resource from state. See #47928.
++	data.DNSSECKeyID = fwflex.StringToFramework(ctx, dnssecKey.Digest)
+ 	id, err := data.setID()
+ 	if err != nil {
+ 		response.Diagnostics.AddError(fmt.Sprintf("flattening resource ID Route 53 Domains Domain (%s) DNSSEC key", data.DomainName.ValueString()), err.Error())
+@@ -175,30 +191,23 @@ func (r *delegationSignerRecordResource) Read(ctx context.Context, request resou
+ 
+ 	conn := r.Meta().Route53DomainsClient(ctx)
+ 
+-	dnssecKey, err := findDNSSECKeyByTwoPartKey(ctx, conn, data.DomainName.ValueString(), data.DNSSECKeyID.ValueString())
+-
+-	if retry.NotFound(err) {
++	// Only existence matters here. GetDomainDetail does not populate the
++	// DnssecKey's Algorithm, Flags, or PublicKey fields, so flattening the
++	// response onto signing_attributes would overwrite configured values with
++	// zeros and produce a permanent RequiresReplace diff. signing_attributes
++	// is RequiresReplace and write-only from the registry's perspective, so we
++	// leave the configured values untouched. See #47928.
++	if _, err := findDNSSECKeyByTwoPartKey(ctx, conn, data.DomainName.ValueString(), data.DNSSECKeyID.ValueString()); retry.NotFound(err) {
+ 		response.Diagnostics.Append(fwdiag.NewResourceNotFoundWarningDiagnostic(err))
+ 		response.State.RemoveResource(ctx)
+ 
+ 		return
+-	}
+-
+-	if err != nil {
++	} else if err != nil {
+ 		response.Diagnostics.AddError(fmt.Sprintf("reading Route 53 Domains Domain (%s) DNSSEC key", data.DomainName.ValueString()), err.Error())
+ 
+ 		return
+ 	}
+ 
+-	// Set attributes for import.
+-	var signingAttributes delegationSignerRecordSigningAttributesModel
+-	response.Diagnostics.Append(fwflex.Flatten(ctx, dnssecKey, &signingAttributes)...)
+-	if response.Diagnostics.HasError() {
+-		return
+-	}
+-
+-	data.SigningAttributes = fwtypes.NewListNestedObjectValueOfPtrMust(ctx, &signingAttributes)
+-
+ 	response.Diagnostics.Append(response.State.Set(ctx, &data)...)
+ }
+ 
+@@ -211,9 +220,24 @@ func (r *delegationSignerRecordResource) Delete(ctx context.Context, request res
+ 
+ 	conn := r.Meta().Route53DomainsClient(ctx)
+ 
++	// dnssec_key_id stores the registry-stable Digest, but
++	// DisassociateDelegationSignerFromDomain requires the internal DnssecKey.Id.
++	// Resolve the internal Id by looking the key up by digest.
++	dnssecKey, err := findDNSSECKeyByTwoPartKey(ctx, conn, data.DomainName.ValueString(), data.DNSSECKeyID.ValueString())
++
++	if retry.NotFound(err) {
++		return
++	}
++
++	if err != nil {
++		response.Diagnostics.AddError(fmt.Sprintf("reading Route 53 Domains Delegation Signer Record (%s)", data.ID.ValueString()), err.Error())
++
++		return
++	}
++
+ 	output, err := conn.DisassociateDelegationSignerFromDomain(ctx, &route53domains.DisassociateDelegationSignerFromDomainInput{
+ 		DomainName: data.DomainName.ValueStringPointer(),
+-		Id:         data.DNSSECKeyID.ValueStringPointer(),
++		Id:         dnssecKey.Id,
+ 	})
+ 
+ 	if err != nil {
+@@ -280,7 +304,7 @@ func findDNSSECKeyByTwoPartKey(ctx context.Context, conn *route53domains.Client,
+ 	}
+ 
+ 	return tfresource.AssertSingleValueResult(tfslices.Filter(output.DnssecKeys, func(v awstypes.DnssecKey) bool {
+-		return aws.ToString(v.Id) == keyID
++		return aws.ToString(v.Digest) == keyID
+ 	}))
+ }
+ 
+diff --git a/internal/service/route53domains/delegation_signer_record_migrate.go b/internal/service/route53domains/delegation_signer_record_migrate.go
+new file mode 100644
+index 00000000000..9009337245d
+--- /dev/null
++++ b/internal/service/route53domains/delegation_signer_record_migrate.go
+@@ -0,0 +1,142 @@
++// Copyright IBM Corp. 2014, 2026
++// SPDX-License-Identifier: MPL-2.0
++
++package route53domains
++
++import (
++	"context"
++	"strings"
++
++	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
++	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
++	"github.com/hashicorp/terraform-plugin-framework/resource"
++	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
++	"github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"
++	"github.com/hashicorp/terraform-plugin-framework/resource/schema/listplanmodifier"
++	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
++	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
++	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
++	"github.com/hashicorp/terraform-plugin-framework/types"
++	"github.com/hashicorp/terraform-provider-aws/internal/framework"
++	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
++	"github.com/hashicorp/terraform-provider-aws/names"
++)
++
++// delegationSignerRecordSchemaV0 mirrors the schema as it existed before the
++// digest-keying fix (#47928). The attribute set is identical to v1; the
++// version bump exists solely to give us a hook to rewrite the value stored in
++// dnssec_key_id (and the composite id) from the prior
++// "DS:keytag-algorithm-digesttype-digest" form down to the bare digest that
++// GetDomainDetail actually returns.
++func delegationSignerRecordSchemaV0(ctx context.Context) schema.Schema {
++	return schema.Schema{
++		Version: 0,
++		Attributes: map[string]schema.Attribute{
++			"dnssec_key_id": framework.IDAttribute(),
++			names.AttrDomainName: schema.StringAttribute{
++				Required: true,
++				PlanModifiers: []planmodifier.String{
++					stringplanmodifier.RequiresReplace(),
++				},
++			},
++			names.AttrID: framework.IDAttribute(),
++		},
++		Blocks: map[string]schema.Block{
++			"signing_attributes": schema.ListNestedBlock{
++				CustomType: fwtypes.NewListNestedObjectTypeOf[delegationSignerRecordSigningAttributesModel](ctx),
++				NestedObject: schema.NestedBlockObject{
++					Attributes: map[string]schema.Attribute{
++						"algorithm": schema.Int64Attribute{
++							Required: true,
++							PlanModifiers: []planmodifier.Int64{
++								int64planmodifier.RequiresReplace(),
++							},
++						},
++						"flags": schema.Int64Attribute{
++							Required: true,
++							PlanModifiers: []planmodifier.Int64{
++								int64planmodifier.RequiresReplace(),
++							},
++						},
++						names.AttrPublicKey: schema.StringAttribute{
++							Required: true,
++							PlanModifiers: []planmodifier.String{
++								stringplanmodifier.RequiresReplace(),
++							},
++						},
++					},
++				},
++				PlanModifiers: []planmodifier.List{
++					listplanmodifier.RequiresReplace(),
++				},
++				Validators: []validator.List{
++					listvalidator.SizeAtLeast(1),
++					listvalidator.SizeAtMost(1),
++				},
++			},
++			names.AttrTimeouts: timeouts.Block(ctx, timeouts.Opts{
++				Create: true,
++				Delete: true,
++			}),
++		},
++	}
++}
++
++// delegationSignerRecordResourceModelV0 has the same shape as the current
++// model. The migration only mutates string values.
++type delegationSignerRecordResourceModelV0 struct {
++	DNSSECKeyID       types.String                                                                  `tfsdk:"dnssec_key_id"`
++	DomainName        types.String                                                                  `tfsdk:"domain_name"`
++	ID                types.String                                                                  `tfsdk:"id"`
++	SigningAttributes fwtypes.ListNestedObjectValueOf[delegationSignerRecordSigningAttributesModel] `tfsdk:"signing_attributes"`
++	Timeouts          timeouts.Value                                                                `tfsdk:"timeouts"`
++}
++
++// digestFromLegacyDNSSECKeyID extracts the bare digest from a prior-form
++// dnssec_key_id value. The Route 53 Domains API documents the DS record id as
++// "DS:keytag-algorithm-digesttype-digest". We split on "-" and take the
++// trailing segment after stripping the "DS:" prefix.
++//
++// If the input is empty or does not have the "DS:" prefix it is returned
++// unchanged so that the upgrader is idempotent and safe to run against state
++// that was already imported with the digest form.
++func digestFromLegacyDNSSECKeyID(v string) string {
++	if !strings.HasPrefix(v, "DS:") {
++		return v
++	}
++	trimmed := strings.TrimPrefix(v, "DS:")
++	parts := strings.Split(trimmed, "-")
++	if len(parts) < 4 {
++		// Unexpected shape - leave the original alone rather than corrupt
++		// state. A subsequent Read will surface the mismatch loudly.
++		return v
++	}
++	return parts[len(parts)-1]
++}
++
++func upgradeDelegationSignerRecordStateFromV0(ctx context.Context, request resource.UpgradeStateRequest, response *resource.UpgradeStateResponse) {
++	var dataV0 delegationSignerRecordResourceModelV0
++	response.Diagnostics.Append(request.State.Get(ctx, &dataV0)...)
++	if response.Diagnostics.HasError() {
++		return
++	}
++
++	upgraded := delegationSignerRecordResourceModel{
++		DNSSECKeyID:       types.StringValue(digestFromLegacyDNSSECKeyID(dataV0.DNSSECKeyID.ValueString())),
++		DomainName:        dataV0.DomainName,
++		SigningAttributes: dataV0.SigningAttributes,
++		Timeouts:          dataV0.Timeouts,
++	}
++
++	// Rebuild the composite id from the (possibly rewritten) DomainName and
++	// DNSSECKeyID so that the id stored in state matches what setID() would
++	// have produced for a fresh Create.
++	id, err := upgraded.setID()
++	if err != nil {
++		response.Diagnostics.AddError("upgrading Route 53 Domains Delegation Signer Record state", err.Error())
++		return
++	}
++	upgraded.ID = types.StringValue(id)
++
++	response.Diagnostics.Append(response.State.Set(ctx, upgraded)...)
++}
+diff --git a/internal/service/route53domains/delegation_signer_record_migrate_test.go b/internal/service/route53domains/delegation_signer_record_migrate_test.go
+new file mode 100644
+index 00000000000..08b915c4448
+--- /dev/null
++++ b/internal/service/route53domains/delegation_signer_record_migrate_test.go
+@@ -0,0 +1,46 @@
++// Copyright IBM Corp. 2014, 2026
++// SPDX-License-Identifier: MPL-2.0
++
++package route53domains
++
++import "testing"
++
++func TestDigestFromLegacyDNSSECKeyID(t *testing.T) {
++	t.Parallel()
++
++	cases := map[string]struct {
++		in   string
++		want string
++	}{
++		"legacy DS form is reduced to digest": {
++			in:   "DS:12345-13-2-abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
++			want: "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
++		},
++		"already-digest is unchanged (idempotent)": {
++			in:   "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
++			want: "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
++		},
++		"empty is unchanged": {
++			in:   "",
++			want: "",
++		},
++		"malformed DS prefix with too few segments is left alone": {
++			in:   "DS:12345-13",
++			want: "DS:12345-13",
++		},
++		"digest containing hyphen-like chars from a longer split keeps trailing segment": {
++			in:   "DS:1-2-3-DEADBEEF",
++			want: "DEADBEEF",
++		},
++	}
++
++	for name, tc := range cases {
++		t.Run(name, func(t *testing.T) {
++			t.Parallel()
++			got := digestFromLegacyDNSSECKeyID(tc.in)
++			if got != tc.want {
++				t.Fatalf("digestFromLegacyDNSSECKeyID(%q) = %q, want %q", tc.in, got, tc.want)
++			}
++		})
++	}
++}
+diff --git a/internal/service/route53domains/delegation_signer_record_test.go b/internal/service/route53domains/delegation_signer_record_test.go
+index db1ba25cbd8..a9d29459089 100644
+--- a/internal/service/route53domains/delegation_signer_record_test.go
++++ b/internal/service/route53domains/delegation_signer_record_test.go
+@@ -36,6 +36,17 @@ func testAccDelegationSignerRecord_basic(t *testing.T) {
+ 					resource.TestCheckResourceAttrSet(resourceName, "dnssec_key_id"),
+ 				),
+ 			},
++			{
++				// Regression guard for #47928: after Create the very next
++				// refresh + plan must be empty. Prior to the digest-keying
++				// fix, Read would fail to match the stored dnssec_key_id
++				// against any DnssecKey returned by GetDomainDetail and would
++				// remove the resource from state, producing a non-empty plan
++				// (a fresh Create).
++				Config:             testAccDelegationSignerAssociationConfig_basic(domainName, publicKey),
++				PlanOnly:           true,
++				ExpectNonEmptyPlan: false,
++			},
+ 			{
+ 				ResourceName:      resourceName,
+ 				ImportState:       true,
