@@ -46,19 +46,21 @@ If you are using an AI coding assistant:
 1. Do not manually edit generated files under `sdk/`.
 1. Include exact validation commands and outcomes in the pull request description.
 
-## Running Integration Tests
+## Carrying Upstream Patches
 
-The examples and integration tests in this repository will create and destroy real AWS
-cloud resources while running. Before running these tests, make sure that you have
-[configured Pulumi with AWS](https://pulumi.io/install/aws.html) successfully once before.
+Upstream patches add recurring upgrade cost and can create behavior that Pulumi
+must maintain indefinitely. Before contributing one, follow
+[`docs/upstream-patches.md`](./docs/upstream-patches.md) for patch policy and
+Pulumi AWS-specific tracking, test, CI, and AWS safety requirements. Use the
+`upstream-patches` skill for patch mechanics.
 
-The only additional step you need to take to run tests in this repo is to set the
-`AWS_REGION` environment variable to the region you'd like to create test resources in.
-The integration tests do try to clean up after themselves by deleting everything that was
-created, but in the event of bugs or test failures you may need to go into the AWS Console
-and delete resources yourself.
+Do not treat a patch applying cleanly as sufficient validation.
 
-Once you have set `AWS_REGION` and configured your AWS credentials, `make test` will run your integration tests.
+## Testing
+
+See [`TESTING.md`](./TESTING.md) to choose the lowest-cost test that proves the behavior, use the repository's test helpers, and run focused tests.
+
+The `examples/` package mixes live AWS tests, recorded provider-upgrade tests, and local checks. Do not run unfiltered `make test` unless you intend to run the full acceptance suite. For a live test, configure Pulumi with AWS, set `AWS_REGION`, inspect the fixture and cleanup path, and run only the named test. Failed cleanup may require manual removal of AWS resources.
 
 ## Generating IAM Policies
 
