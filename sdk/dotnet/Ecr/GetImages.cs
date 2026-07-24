@@ -175,10 +175,6 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetImagesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of image objects containing image digest and tags. Each object has the following attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImagesImageIdResult> ImageIds;
@@ -188,8 +184,6 @@ namespace Pulumi.Aws.Ecr
 
         [OutputConstructor]
         private GetImagesResult(
-            string id,
-
             ImmutableArray<Outputs.GetImagesImageIdResult> imageIds,
 
             string region,
@@ -198,7 +192,6 @@ namespace Pulumi.Aws.Ecr
 
             string repositoryName)
         {
-            Id = id;
             ImageIds = imageIds;
             Region = region;
             RegistryId = registryId;

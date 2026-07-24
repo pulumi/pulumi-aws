@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetInferenceProfilesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
      * 
      */
@@ -32,13 +27,6 @@ public final class GetInferenceProfilesResult {
     private @Nullable String type;
 
     private GetInferenceProfilesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of inference profile summary objects. See `inferenceProfileSummaries`.
      * 
@@ -66,27 +54,17 @@ public final class GetInferenceProfilesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
         private String region;
         private @Nullable String type;
         public Builder() {}
         public Builder(GetInferenceProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.inferenceProfileSummaries = defaults.inferenceProfileSummaries;
     	      this.region = defaults.region;
     	      this.type = defaults.type;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetInferenceProfilesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder inferenceProfileSummaries(List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries) {
             if (inferenceProfileSummaries == null) {
@@ -114,7 +92,6 @@ public final class GetInferenceProfilesResult {
         }
         public GetInferenceProfilesResult build() {
             final var _resultValue = new GetInferenceProfilesResult();
-            _resultValue.id = id;
             _resultValue.inferenceProfileSummaries = inferenceProfileSummaries;
             _resultValue.region = region;
             _resultValue.type = type;

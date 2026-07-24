@@ -179,10 +179,6 @@ namespace Pulumi.Aws.DynamoDB
         /// BackupType: `USER`, `SYSTEM`, `AWS_BACKUP`.
         /// </summary>
         public readonly string? BackupType;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// Name of the table.
@@ -197,8 +193,6 @@ namespace Pulumi.Aws.DynamoDB
 
             string? backupType,
 
-            string id,
-
             string region,
 
             string? tableName,
@@ -209,7 +203,6 @@ namespace Pulumi.Aws.DynamoDB
         {
             BackupSummaries = backupSummaries;
             BackupType = backupType;
-            Id = id;
             Region = region;
             TableName = tableName;
             TimeRangeLowerBound = timeRangeLowerBound;

@@ -27,11 +27,6 @@ public final class GetClusterVersionsResult {
     private List<GetClusterVersionsClusterVersion> clusterVersions;
     private @Nullable List<String> clusterVersionsOnlies;
     private @Nullable Boolean defaultOnly;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable Boolean includeAll;
     private String region;
     /**
@@ -61,13 +56,6 @@ public final class GetClusterVersionsResult {
     public Optional<Boolean> defaultOnly() {
         return Optional.ofNullable(this.defaultOnly);
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public Optional<Boolean> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
@@ -95,7 +83,6 @@ public final class GetClusterVersionsResult {
         private List<GetClusterVersionsClusterVersion> clusterVersions;
         private @Nullable List<String> clusterVersionsOnlies;
         private @Nullable Boolean defaultOnly;
-        private String id;
         private @Nullable Boolean includeAll;
         private String region;
         private @Nullable String versionStatus;
@@ -106,7 +93,6 @@ public final class GetClusterVersionsResult {
     	      this.clusterVersions = defaults.clusterVersions;
     	      this.clusterVersionsOnlies = defaults.clusterVersionsOnlies;
     	      this.defaultOnly = defaults.defaultOnly;
-    	      this.id = defaults.id;
     	      this.includeAll = defaults.includeAll;
     	      this.region = defaults.region;
     	      this.versionStatus = defaults.versionStatus;
@@ -145,14 +131,6 @@ public final class GetClusterVersionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetClusterVersionsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder includeAll(@Nullable Boolean includeAll) {
 
             this.includeAll = includeAll;
@@ -178,7 +156,6 @@ public final class GetClusterVersionsResult {
             _resultValue.clusterVersions = clusterVersions;
             _resultValue.clusterVersionsOnlies = clusterVersionsOnlies;
             _resultValue.defaultOnly = defaultOnly;
-            _resultValue.id = id;
             _resultValue.includeAll = includeAll;
             _resultValue.region = region;
             _resultValue.versionStatus = versionStatus;

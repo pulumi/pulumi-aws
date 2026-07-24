@@ -27,10 +27,7 @@ class GetInferenceProfilesResult:
     """
     A collection of values returned by getInferenceProfiles.
     """
-    def __init__(__self__, id=None, inference_profile_summaries=None, region=None, type=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, inference_profile_summaries=None, region=None, type=None):
         if inference_profile_summaries and not isinstance(inference_profile_summaries, list):
             raise TypeError("Expected argument 'inference_profile_summaries' to be a list")
         pulumi.set(__self__, "inference_profile_summaries", inference_profile_summaries)
@@ -40,14 +37,6 @@ class GetInferenceProfilesResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileSummaries")
@@ -77,7 +66,6 @@ class AwaitableGetInferenceProfilesResult(GetInferenceProfilesResult):
         if False:
             yield self
         return GetInferenceProfilesResult(
-            id=self.id,
             inference_profile_summaries=self.inference_profile_summaries,
             region=self.region,
             type=self.type)
@@ -120,7 +108,6 @@ def get_inference_profiles(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getInferenceProfiles:getInferenceProfiles', __args__, opts=opts, typ=GetInferenceProfilesResult).value
 
     return AwaitableGetInferenceProfilesResult(
-        id=pulumi.get(__ret__, 'id'),
         inference_profile_summaries=pulumi.get(__ret__, 'inference_profile_summaries'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
@@ -160,7 +147,6 @@ def get_inference_profiles_output(region: pulumi.Input[Optional[Optional[_builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getInferenceProfiles:getInferenceProfiles', __args__, opts=opts, typ=GetInferenceProfilesResult)
     return __ret__.apply(lambda __response__: GetInferenceProfilesResult(
-        id=pulumi.get(__response__, 'id'),
         inference_profile_summaries=pulumi.get(__response__, 'inference_profile_summaries'),
         region=pulumi.get(__response__, 'region'),
         type=pulumi.get(__response__, 'type')))

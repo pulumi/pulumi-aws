@@ -164,21 +164,13 @@ namespace Pulumi.Aws.Uxc
     public sealed class GetServicesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of AWS service identifiers available in UXC.
         /// </summary>
         public readonly ImmutableArray<string> Services;
 
         [OutputConstructor]
-        private GetServicesResult(
-            string id,
-
-            ImmutableArray<string> services)
+        private GetServicesResult(ImmutableArray<string> services)
         {
-            Id = id;
             Services = services;
         }
     }

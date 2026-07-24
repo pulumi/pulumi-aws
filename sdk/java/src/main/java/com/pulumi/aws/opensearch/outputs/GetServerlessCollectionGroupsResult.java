@@ -17,11 +17,6 @@ public final class GetServerlessCollectionGroupsResult {
      * 
      */
     private List<GetServerlessCollectionGroupsCollectionGroupSummary> collectionGroupSummaries;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetServerlessCollectionGroupsResult() {}
@@ -31,13 +26,6 @@ public final class GetServerlessCollectionGroupsResult {
      */
     public List<GetServerlessCollectionGroupsCollectionGroupSummary> collectionGroupSummaries() {
         return this.collectionGroupSummaries;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -53,13 +41,11 @@ public final class GetServerlessCollectionGroupsResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetServerlessCollectionGroupsCollectionGroupSummary> collectionGroupSummaries;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetServerlessCollectionGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.collectionGroupSummaries = defaults.collectionGroupSummaries;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -75,14 +61,6 @@ public final class GetServerlessCollectionGroupsResult {
             return collectionGroupSummaries(List.of(collectionGroupSummaries));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServerlessCollectionGroupsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetServerlessCollectionGroupsResult", "region");
@@ -93,7 +71,6 @@ public final class GetServerlessCollectionGroupsResult {
         public GetServerlessCollectionGroupsResult build() {
             final var _resultValue = new GetServerlessCollectionGroupsResult();
             _resultValue.collectionGroupSummaries = collectionGroupSummaries;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

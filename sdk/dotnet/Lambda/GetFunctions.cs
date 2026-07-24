@@ -98,24 +98,20 @@ namespace Pulumi.Aws.Lambda
         ///     // Get detailed information for each function
         ///     var details = ;
         /// 
-        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {
         ///         var all = values.Item1;
-        ///         var all1 = values.Item2;
-        ///         var details = values.Item3;
-        ///         var details1 = values.Item4;
-        ///         var details2 = values.Item5;
-        ///         var details3 = values.Item6;
+        ///         var details = values.Item2;
         ///         return .Select(name =&gt; 
         ///         {
         ///             return 
         ///             {
         ///                 { "name", name },
-        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "arn", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionArns)[i] },
         ///                 { "runtime", details[i].Runtime },
-        ///                 { "memorySize", details1[i].MemorySize },
-        ///                 { "timeout", details2[i].Timeout },
-        ///                 { "handler", details3[i].Handler },
+        ///                 { "memorySize", details[i].MemorySize },
+        ///                 { "timeout", details[i].Timeout },
+        ///                 { "handler", details[i].Handler },
         ///             };
         ///         }).ToList();
         ///     });
@@ -217,24 +213,20 @@ namespace Pulumi.Aws.Lambda
         ///     // Get detailed information for each function
         ///     var details = ;
         /// 
-        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {
         ///         var all = values.Item1;
-        ///         var all1 = values.Item2;
-        ///         var details = values.Item3;
-        ///         var details1 = values.Item4;
-        ///         var details2 = values.Item5;
-        ///         var details3 = values.Item6;
+        ///         var details = values.Item2;
         ///         return .Select(name =&gt; 
         ///         {
         ///             return 
         ///             {
         ///                 { "name", name },
-        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "arn", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionArns)[i] },
         ///                 { "runtime", details[i].Runtime },
-        ///                 { "memorySize", details1[i].MemorySize },
-        ///                 { "timeout", details2[i].Timeout },
-        ///                 { "handler", details3[i].Handler },
+        ///                 { "memorySize", details[i].MemorySize },
+        ///                 { "timeout", details[i].Timeout },
+        ///                 { "handler", details[i].Handler },
         ///             };
         ///         }).ToList();
         ///     });
@@ -336,24 +328,20 @@ namespace Pulumi.Aws.Lambda
         ///     // Get detailed information for each function
         ///     var details = ;
         /// 
-        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     var functionInventory = Output.Tuple(all, details).Apply(values =&gt;
         ///     {
         ///         var all = values.Item1;
-        ///         var all1 = values.Item2;
-        ///         var details = values.Item3;
-        ///         var details1 = values.Item4;
-        ///         var details2 = values.Item5;
-        ///         var details3 = values.Item6;
+        ///         var details = values.Item2;
         ///         return .Select(name =&gt; 
         ///         {
         ///             return 
         ///             {
         ///                 { "name", name },
-        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "arn", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionArns)[i] },
         ///                 { "runtime", details[i].Runtime },
-        ///                 { "memorySize", details1[i].MemorySize },
-        ///                 { "timeout", details2[i].Timeout },
-        ///                 { "handler", details3[i].Handler },
+        ///                 { "memorySize", details[i].MemorySize },
+        ///                 { "timeout", details[i].Timeout },
+        ///                 { "handler", details[i].Handler },
         ///             };
         ///         }).ToList();
         ///     });

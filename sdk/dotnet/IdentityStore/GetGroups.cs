@@ -145,10 +145,6 @@ namespace Pulumi.Aws.IdentityStore
         /// List of Identity Store Groups
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupsGroupResult> Groups;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string IdentityStoreId;
         public readonly string Region;
 
@@ -156,14 +152,11 @@ namespace Pulumi.Aws.IdentityStore
         private GetGroupsResult(
             ImmutableArray<Outputs.GetGroupsGroupResult> groups,
 
-            string id,
-
             string identityStoreId,
 
             string region)
         {
             Groups = groups;
-            Id = id;
             IdentityStoreId = identityStoreId;
             Region = region;
         }

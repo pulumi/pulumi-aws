@@ -50,10 +50,6 @@ export interface GetBucketReplicationConfigurationArgs {
  */
 export interface GetBucketReplicationConfigurationResult {
     readonly bucket: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * The ARN of the IAM role that Amazon S3 assumes when replicating objects.

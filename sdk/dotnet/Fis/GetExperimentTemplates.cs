@@ -282,10 +282,6 @@ namespace Pulumi.Aws.Fis
     public sealed class GetExperimentTemplatesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of all the experiment template ids found.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
@@ -294,15 +290,12 @@ namespace Pulumi.Aws.Fis
 
         [OutputConstructor]
         private GetExperimentTemplatesResult(
-            string id,
-
             ImmutableArray<string> ids,
 
             string region,
 
             ImmutableDictionary<string, string>? tags)
         {
-            Id = id;
             Ids = ids;
             Region = region;
             Tags = tags;

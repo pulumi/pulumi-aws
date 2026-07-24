@@ -27,16 +27,13 @@ class GetDbServersResult:
     """
     A collection of values returned by getDbServers.
     """
-    def __init__(__self__, cloud_exadata_infrastructure_id=None, db_servers=None, id=None, region=None):
+    def __init__(__self__, cloud_exadata_infrastructure_id=None, db_servers=None, region=None):
         if cloud_exadata_infrastructure_id and not isinstance(cloud_exadata_infrastructure_id, str):
             raise TypeError("Expected argument 'cloud_exadata_infrastructure_id' to be a str")
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         if db_servers and not isinstance(db_servers, list):
             raise TypeError("Expected argument 'db_servers' to be a list")
         pulumi.set(__self__, "db_servers", db_servers)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -56,14 +53,6 @@ class GetDbServersResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -76,7 +65,6 @@ class AwaitableGetDbServersResult(GetDbServersResult):
         return GetDbServersResult(
             cloud_exadata_infrastructure_id=self.cloud_exadata_infrastructure_id,
             db_servers=self.db_servers,
-            id=self.id,
             region=self.region)
 
 
@@ -114,7 +102,6 @@ def get_db_servers(cloud_exadata_infrastructure_id: Optional[_builtins.str] = No
     return AwaitableGetDbServersResult(
         cloud_exadata_infrastructure_id=pulumi.get(__ret__, 'cloud_exadata_infrastructure_id'),
         db_servers=pulumi.get(__ret__, 'db_servers'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_db_servers_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -149,5 +136,4 @@ def get_db_servers_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional
     return __ret__.apply(lambda __response__: GetDbServersResult(
         cloud_exadata_infrastructure_id=pulumi.get(__response__, 'cloud_exadata_infrastructure_id'),
         db_servers=pulumi.get(__response__, 'db_servers'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

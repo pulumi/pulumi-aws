@@ -27,13 +27,10 @@ class GetRolePolicyAttachmentsResult:
     """
     A collection of values returned by getRolePolicyAttachments.
     """
-    def __init__(__self__, attached_policies=None, id=None, path_prefix=None, role_name=None):
+    def __init__(__self__, attached_policies=None, path_prefix=None, role_name=None):
         if attached_policies and not isinstance(attached_policies, list):
             raise TypeError("Expected argument 'attached_policies' to be a list")
         pulumi.set(__self__, "attached_policies", attached_policies)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if path_prefix and not isinstance(path_prefix, str):
             raise TypeError("Expected argument 'path_prefix' to be a str")
         pulumi.set(__self__, "path_prefix", path_prefix)
@@ -48,14 +45,6 @@ class GetRolePolicyAttachmentsResult:
         List of attached managed policies. See below.
         """
         return pulumi.get(self, "attached_policies")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="pathPrefix")
@@ -75,7 +64,6 @@ class AwaitableGetRolePolicyAttachmentsResult(GetRolePolicyAttachmentsResult):
             yield self
         return GetRolePolicyAttachmentsResult(
             attached_policies=self.attached_policies,
-            id=self.id,
             path_prefix=self.path_prefix,
             role_name=self.role_name)
 
@@ -111,7 +99,6 @@ def get_role_policy_attachments(path_prefix: Optional[_builtins.str] = None,
 
     return AwaitableGetRolePolicyAttachmentsResult(
         attached_policies=pulumi.get(__ret__, 'attached_policies'),
-        id=pulumi.get(__ret__, 'id'),
         path_prefix=pulumi.get(__ret__, 'path_prefix'),
         role_name=pulumi.get(__ret__, 'role_name'))
 def get_role_policy_attachments_output(path_prefix: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -144,6 +131,5 @@ def get_role_policy_attachments_output(path_prefix: pulumi.Input[Optional[Option
     __ret__ = pulumi.runtime.invoke_output('aws:iam/getRolePolicyAttachments:getRolePolicyAttachments', __args__, opts=opts, typ=GetRolePolicyAttachmentsResult)
     return __ret__.apply(lambda __response__: GetRolePolicyAttachmentsResult(
         attached_policies=pulumi.get(__response__, 'attached_policies'),
-        id=pulumi.get(__response__, 'id'),
         path_prefix=pulumi.get(__response__, 'path_prefix'),
         role_name=pulumi.get(__response__, 'role_name')))

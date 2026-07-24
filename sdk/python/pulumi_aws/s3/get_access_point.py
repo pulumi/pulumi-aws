@@ -27,7 +27,7 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, account_id=None, alias=None, arn=None, bucket=None, bucket_account_id=None, data_source_id=None, data_source_type=None, endpoints=None, id=None, name=None, network_origin=None, public_access_block_configurations=None, region=None, tags=None, vpc_configurations=None):
+    def __init__(__self__, account_id=None, alias=None, arn=None, bucket=None, bucket_account_id=None, data_source_id=None, data_source_type=None, endpoints=None, name=None, network_origin=None, public_access_block_configurations=None, region=None, tags=None, vpc_configurations=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -52,9 +52,6 @@ class GetAccessPointResult:
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -137,14 +134,6 @@ class GetAccessPointResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
 
@@ -200,7 +189,6 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             data_source_id=self.data_source_id,
             data_source_type=self.data_source_type,
             endpoints=self.endpoints,
-            id=self.id,
             name=self.name,
             network_origin=self.network_origin,
             public_access_block_configurations=self.public_access_block_configurations,
@@ -246,7 +234,6 @@ def get_access_point(account_id: Optional[_builtins.str] = None,
         data_source_id=pulumi.get(__ret__, 'data_source_id'),
         data_source_type=pulumi.get(__ret__, 'data_source_type'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         network_origin=pulumi.get(__ret__, 'network_origin'),
         public_access_block_configurations=pulumi.get(__ret__, 'public_access_block_configurations'),
@@ -289,7 +276,6 @@ def get_access_point_output(account_id: pulumi.Input[Optional[Optional[_builtins
         data_source_id=pulumi.get(__response__, 'data_source_id'),
         data_source_type=pulumi.get(__response__, 'data_source_type'),
         endpoints=pulumi.get(__response__, 'endpoints'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         network_origin=pulumi.get(__response__, 'network_origin'),
         public_access_block_configurations=pulumi.get(__response__, 'public_access_block_configurations'),

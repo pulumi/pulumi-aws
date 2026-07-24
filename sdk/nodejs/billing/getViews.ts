@@ -60,10 +60,6 @@ export interface GetViewsResult {
      * List of billing view objects with the following attributes:
      */
     readonly billingViews: outputs.billing.GetViewsBillingView[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
 }
 /**
  * Provides details about an AWS Billing Views.

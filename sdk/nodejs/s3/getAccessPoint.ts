@@ -81,10 +81,6 @@ export interface GetAccessPointResult {
      * VPC endpoint for the access point.
      */
     readonly endpoints: {[key: string]: string};
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly name: string;
     /**
      * Indicates whether the access point allows access from the public Internet.

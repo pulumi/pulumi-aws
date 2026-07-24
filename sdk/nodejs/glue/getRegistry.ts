@@ -54,10 +54,6 @@ export interface GetRegistryResult {
      * A description of the registry.
      */
     readonly description: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly name: string;
     readonly region: string;
 }

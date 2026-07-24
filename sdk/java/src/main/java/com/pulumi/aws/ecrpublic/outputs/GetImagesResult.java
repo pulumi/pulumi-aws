@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImagesResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable List<GetImagesImageId> imageIds;
     /**
      * @return List of images returned. Each image contains:
@@ -39,13 +34,6 @@ public final class GetImagesResult {
     private String repositoryName;
 
     private GetImagesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public List<GetImagesImageId> imageIds() {
         return this.imageIds == null ? List.of() : this.imageIds;
     }
@@ -83,7 +71,6 @@ public final class GetImagesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private @Nullable List<GetImagesImageId> imageIds;
         private List<GetImagesImage> images;
         private String region;
@@ -92,7 +79,6 @@ public final class GetImagesResult {
         public Builder() {}
         public Builder(GetImagesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.imageIds = defaults.imageIds;
     	      this.images = defaults.images;
     	      this.region = defaults.region;
@@ -100,14 +86,6 @@ public final class GetImagesResult {
     	      this.repositoryName = defaults.repositoryName;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetImagesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder imageIds(@Nullable List<GetImagesImageId> imageIds) {
 
@@ -152,7 +130,6 @@ public final class GetImagesResult {
         }
         public GetImagesResult build() {
             final var _resultValue = new GetImagesResult();
-            _resultValue.id = id;
             _resultValue.imageIds = imageIds;
             _resultValue.images = images;
             _resultValue.region = region;

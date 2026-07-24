@@ -27,10 +27,7 @@ class GetRecordsResult:
     """
     A collection of values returned by getRecords.
     """
-    def __init__(__self__, id=None, name_regex=None, resource_record_sets=None, zone_id=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, name_regex=None, resource_record_sets=None, zone_id=None):
         if name_regex and not isinstance(name_regex, str):
             raise TypeError("Expected argument 'name_regex' to be a str")
         pulumi.set(__self__, "name_regex", name_regex)
@@ -40,14 +37,6 @@ class GetRecordsResult:
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         pulumi.set(__self__, "zone_id", zone_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="nameRegex")
@@ -74,7 +63,6 @@ class AwaitableGetRecordsResult(GetRecordsResult):
         if False:
             yield self
         return GetRecordsResult(
-            id=self.id,
             name_regex=self.name_regex,
             resource_record_sets=self.resource_record_sets,
             zone_id=self.zone_id)
@@ -126,7 +114,6 @@ def get_records(name_regex: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getRecords:getRecords', __args__, opts=opts, typ=GetRecordsResult).value
 
     return AwaitableGetRecordsResult(
-        id=pulumi.get(__ret__, 'id'),
         name_regex=pulumi.get(__ret__, 'name_regex'),
         resource_record_sets=pulumi.get(__ret__, 'resource_record_sets'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
@@ -175,7 +162,6 @@ def get_records_output(name_regex: pulumi.Input[Optional[Optional[_builtins.str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getRecords:getRecords', __args__, opts=opts, typ=GetRecordsResult)
     return __ret__.apply(lambda __response__: GetRecordsResult(
-        id=pulumi.get(__response__, 'id'),
         name_regex=pulumi.get(__response__, 'name_regex'),
         resource_record_sets=pulumi.get(__response__, 'resource_record_sets'),
         zone_id=pulumi.get(__response__, 'zone_id')))

@@ -27,16 +27,13 @@ class GetDbSystemShapesResult:
     """
     A collection of values returned by getDbSystemShapes.
     """
-    def __init__(__self__, availability_zone_id=None, db_system_shapes=None, id=None, region=None):
+    def __init__(__self__, availability_zone_id=None, db_system_shapes=None, region=None):
         if availability_zone_id and not isinstance(availability_zone_id, str):
             raise TypeError("Expected argument 'availability_zone_id' to be a str")
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if db_system_shapes and not isinstance(db_system_shapes, list):
             raise TypeError("Expected argument 'db_system_shapes' to be a list")
         pulumi.set(__self__, "db_system_shapes", db_system_shapes)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -56,14 +53,6 @@ class GetDbSystemShapesResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -76,7 +65,6 @@ class AwaitableGetDbSystemShapesResult(GetDbSystemShapesResult):
         return GetDbSystemShapesResult(
             availability_zone_id=self.availability_zone_id,
             db_system_shapes=self.db_system_shapes,
-            id=self.id,
             region=self.region)
 
 
@@ -112,7 +100,6 @@ def get_db_system_shapes(availability_zone_id: Optional[_builtins.str] = None,
     return AwaitableGetDbSystemShapesResult(
         availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
         db_system_shapes=pulumi.get(__ret__, 'db_system_shapes'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_db_system_shapes_output(availability_zone_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -145,5 +132,4 @@ def get_db_system_shapes_output(availability_zone_id: pulumi.Input[Optional[Opti
     return __ret__.apply(lambda __response__: GetDbSystemShapesResult(
         availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
         db_system_shapes=pulumi.get(__response__, 'db_system_shapes'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

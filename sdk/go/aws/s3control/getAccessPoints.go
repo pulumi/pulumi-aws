@@ -99,9 +99,7 @@ type GetAccessPointsResult struct {
 	DataSourceId *string `pulumi:"dataSourceId"`
 	// Type of the data source that the access point is attached to.
 	DataSourceType *string `pulumi:"dataSourceType"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region         string  `pulumi:"region"`
 }
 
 func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
@@ -168,11 +166,6 @@ func (o GetAccessPointsResultOutput) DataSourceId() pulumi.StringPtrOutput {
 // Type of the data source that the access point is attached to.
 func (o GetAccessPointsResultOutput) DataSourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) *string { return v.DataSourceType }).(pulumi.StringPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetAccessPointsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccessPointsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetAccessPointsResultOutput) Region() pulumi.StringOutput {

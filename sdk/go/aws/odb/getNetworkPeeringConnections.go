@@ -58,8 +58,6 @@ type GetNetworkPeeringConnectionsArgs struct {
 
 // A collection of values returned by getNetworkPeeringConnections.
 type GetNetworkPeeringConnectionsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The list of ODB peering connections. A summary of an ODB peering connection.
 	OdbPeeringConnections []GetNetworkPeeringConnectionsOdbPeeringConnection `pulumi:"odbPeeringConnections"`
 	Region                string                                             `pulumi:"region"`
@@ -97,11 +95,6 @@ func (o GetNetworkPeeringConnectionsResultOutput) ToGetNetworkPeeringConnections
 
 func (o GetNetworkPeeringConnectionsResultOutput) ToGetNetworkPeeringConnectionsResultOutputWithContext(ctx context.Context) GetNetworkPeeringConnectionsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetNetworkPeeringConnectionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetNetworkPeeringConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The list of ODB peering connections. A summary of an ODB peering connection.

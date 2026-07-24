@@ -12,11 +12,6 @@ import java.util.Objects;
 @CustomType
 public final class GetTablesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return A list of all the DynamoDB table names found.
      * 
      */
@@ -24,13 +19,6 @@ public final class GetTablesResult {
     private String region;
 
     private GetTablesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return A list of all the DynamoDB table names found.
      * 
@@ -51,25 +39,15 @@ public final class GetTablesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<String> names;
         private String region;
         public Builder() {}
         public Builder(GetTablesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.names = defaults.names;
     	      this.region = defaults.region;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetTablesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder names(List<String> names) {
             if (names == null) {
@@ -91,7 +69,6 @@ public final class GetTablesResult {
         }
         public GetTablesResult build() {
             final var _resultValue = new GetTablesResult();
-            _resultValue.id = id;
             _resultValue.names = names;
             _resultValue.region = region;
             return _resultValue;

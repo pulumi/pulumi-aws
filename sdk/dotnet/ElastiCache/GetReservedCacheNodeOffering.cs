@@ -195,10 +195,6 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly double FixedPrice;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Unique identifier for the reservation.
         /// </summary>
         public readonly string OfferingId;
@@ -214,8 +210,6 @@ namespace Pulumi.Aws.ElastiCache
 
             double fixedPrice,
 
-            string id,
-
             string offeringId,
 
             string offeringType,
@@ -227,7 +221,6 @@ namespace Pulumi.Aws.ElastiCache
             CacheNodeType = cacheNodeType;
             Duration = duration;
             FixedPrice = fixedPrice;
-            Id = id;
             OfferingId = offeringId;
             OfferingType = offeringType;
             ProductDescription = productDescription;

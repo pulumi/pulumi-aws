@@ -64,8 +64,6 @@ type GetViewsResult struct {
 	BillingViewTypes []string `pulumi:"billingViewTypes"`
 	// List of billing view objects with the following attributes:
 	BillingViews []GetViewsBillingView `pulumi:"billingViews"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 }
 
 func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi.InvokeOption) GetViewsResultOutput {
@@ -109,11 +107,6 @@ func (o GetViewsResultOutput) BillingViewTypes() pulumi.StringArrayOutput {
 // List of billing view objects with the following attributes:
 func (o GetViewsResultOutput) BillingViews() GetViewsBillingViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsBillingView { return v.BillingViews }).(GetViewsBillingViewArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetViewsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetViewsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func init() {

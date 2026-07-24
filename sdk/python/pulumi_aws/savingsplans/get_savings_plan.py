@@ -26,7 +26,7 @@ class GetSavingsPlanResult:
     """
     A collection of values returned by getSavingsPlan.
     """
-    def __init__(__self__, commitment=None, currency=None, description=None, ec2_instance_family=None, end=None, id=None, offering_id=None, payment_option=None, product_types=None, purchase_time=None, recurring_payment_amount=None, region=None, returnable_until=None, savings_plan_arn=None, savings_plan_id=None, savings_plan_offering_id=None, savings_plan_type=None, start=None, state=None, tags=None, term_duration_in_seconds=None, upfront_payment_amount=None):
+    def __init__(__self__, commitment=None, currency=None, description=None, ec2_instance_family=None, end=None, offering_id=None, payment_option=None, product_types=None, purchase_time=None, recurring_payment_amount=None, region=None, returnable_until=None, savings_plan_arn=None, savings_plan_id=None, savings_plan_offering_id=None, savings_plan_type=None, start=None, state=None, tags=None, term_duration_in_seconds=None, upfront_payment_amount=None):
         if commitment and not isinstance(commitment, str):
             raise TypeError("Expected argument 'commitment' to be a str")
         pulumi.set(__self__, "commitment", commitment)
@@ -42,9 +42,6 @@ class GetSavingsPlanResult:
         if end and not isinstance(end, str):
             raise TypeError("Expected argument 'end' to be a str")
         pulumi.set(__self__, "end", end)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if offering_id and not isinstance(offering_id, str):
             raise TypeError("Expected argument 'offering_id' to be a str")
         pulumi.set(__self__, "offering_id", offering_id)
@@ -130,14 +127,6 @@ class GetSavingsPlanResult:
         The end time of the Savings Plan.
         """
         return pulumi.get(self, "end")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="offeringId")
@@ -265,7 +254,6 @@ class AwaitableGetSavingsPlanResult(GetSavingsPlanResult):
             description=self.description,
             ec2_instance_family=self.ec2_instance_family,
             end=self.end,
-            id=self.id,
             offering_id=self.offering_id,
             payment_option=self.payment_option,
             product_types=self.product_types,
@@ -313,7 +301,6 @@ def get_savings_plan(savings_plan_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         ec2_instance_family=pulumi.get(__ret__, 'ec2_instance_family'),
         end=pulumi.get(__ret__, 'end'),
-        id=pulumi.get(__ret__, 'id'),
         offering_id=pulumi.get(__ret__, 'offering_id'),
         payment_option=pulumi.get(__ret__, 'payment_option'),
         product_types=pulumi.get(__ret__, 'product_types'),
@@ -358,7 +345,6 @@ def get_savings_plan_output(savings_plan_id: pulumi.Input[Optional[_builtins.str
         description=pulumi.get(__response__, 'description'),
         ec2_instance_family=pulumi.get(__response__, 'ec2_instance_family'),
         end=pulumi.get(__response__, 'end'),
-        id=pulumi.get(__response__, 'id'),
         offering_id=pulumi.get(__response__, 'offering_id'),
         payment_option=pulumi.get(__response__, 'payment_option'),
         product_types=pulumi.get(__response__, 'product_types'),

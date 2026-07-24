@@ -58,9 +58,7 @@ type GetServerlessCollectionGroupsArgs struct {
 type GetServerlessCollectionGroupsResult struct {
 	// List of collection group summary objects. See `collectionGroupSummaries` below for details.
 	CollectionGroupSummaries []GetServerlessCollectionGroupsCollectionGroupSummary `pulumi:"collectionGroupSummaries"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region                   string                                                `pulumi:"region"`
 }
 
 func GetServerlessCollectionGroupsOutput(ctx *pulumi.Context, args GetServerlessCollectionGroupsOutputArgs, opts ...pulumi.InvokeOption) GetServerlessCollectionGroupsResultOutput {
@@ -102,11 +100,6 @@ func (o GetServerlessCollectionGroupsResultOutput) CollectionGroupSummaries() Ge
 	return o.ApplyT(func(v GetServerlessCollectionGroupsResult) []GetServerlessCollectionGroupsCollectionGroupSummary {
 		return v.CollectionGroupSummaries
 	}).(GetServerlessCollectionGroupsCollectionGroupSummaryArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetServerlessCollectionGroupsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServerlessCollectionGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetServerlessCollectionGroupsResultOutput) Region() pulumi.StringOutput {

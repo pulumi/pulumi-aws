@@ -59,10 +59,6 @@ export interface GetBucketObjectLockConfigurationResult {
     readonly bucket: string;
     readonly expectedBucketOwner?: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Indicates whether this bucket has an Object Lock configuration enabled.
      */
     readonly objectLockEnabled: string;

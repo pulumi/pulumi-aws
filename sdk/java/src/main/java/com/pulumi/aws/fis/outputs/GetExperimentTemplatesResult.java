@@ -14,11 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetExperimentTemplatesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of all the experiment template ids found.
      * 
      */
@@ -27,13 +22,6 @@ public final class GetExperimentTemplatesResult {
     private @Nullable Map<String,String> tags;
 
     private GetExperimentTemplatesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of all the experiment template ids found.
      * 
@@ -57,27 +45,17 @@ public final class GetExperimentTemplatesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<String> ids;
         private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetExperimentTemplatesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetExperimentTemplatesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder ids(List<String> ids) {
             if (ids == null) {
@@ -105,7 +83,6 @@ public final class GetExperimentTemplatesResult {
         }
         public GetExperimentTemplatesResult build() {
             final var _resultValue = new GetExperimentTemplatesResult();
-            _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.region = region;
             _resultValue.tags = tags;

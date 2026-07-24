@@ -225,10 +225,6 @@ namespace Pulumi.Aws.SecurityHub
     [OutputType]
     public sealed class GetSecurityControlsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// List of controls. See below for details.
@@ -238,15 +234,12 @@ namespace Pulumi.Aws.SecurityHub
 
         [OutputConstructor]
         private GetSecurityControlsResult(
-            string id,
-
             string region,
 
             ImmutableArray<Outputs.GetSecurityControlsSecurityControlDefinitionResult> securityControlDefinitions,
 
             string? standardsArn)
         {
-            Id = id;
             Region = region;
             SecurityControlDefinitions = securityControlDefinitions;
             StandardsArn = standardsArn;

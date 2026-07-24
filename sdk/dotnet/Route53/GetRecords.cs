@@ -240,10 +240,6 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetRecordsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string? NameRegex;
         /// <summary>
         /// The resource records sets.
@@ -253,15 +249,12 @@ namespace Pulumi.Aws.Route53
 
         [OutputConstructor]
         private GetRecordsResult(
-            string id,
-
             string? nameRegex,
 
             ImmutableArray<Outputs.GetRecordsResourceRecordSetResult> resourceRecordSets,
 
             string zoneId)
         {
-            Id = id;
             NameRegex = nameRegex;
             ResourceRecordSets = resourceRecordSets;
             ZoneId = zoneId;

@@ -73,10 +73,6 @@ export interface GetBackupsResult {
      * BackupType: `USER`, `SYSTEM`, `AWS_BACKUP`.
      */
     readonly backupType?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * Name of the table.

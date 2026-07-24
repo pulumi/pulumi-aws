@@ -79,10 +79,6 @@ export interface GetBucketsResult {
      * List of bucket objects:
      */
     readonly buckets: outputs.s3.GetBucketsBucket[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly maxBuckets?: number;
     readonly prefix?: string;
     readonly region: string;

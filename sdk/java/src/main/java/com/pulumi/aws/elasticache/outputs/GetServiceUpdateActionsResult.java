@@ -19,11 +19,6 @@ public final class GetServiceUpdateActionsResult {
      * 
      */
     private @Nullable String cacheClusterId;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
     /**
      * @return ID of Replication Group this update action applies to.
@@ -48,13 +43,6 @@ public final class GetServiceUpdateActionsResult {
      */
     public Optional<String> cacheClusterId() {
         return Optional.ofNullable(this.cacheClusterId);
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -91,7 +79,6 @@ public final class GetServiceUpdateActionsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String cacheClusterId;
-        private String id;
         private String region;
         private @Nullable String replicationGroupId;
         private @Nullable List<String> serviceUpdateStatuses;
@@ -100,7 +87,6 @@ public final class GetServiceUpdateActionsResult {
         public Builder(GetServiceUpdateActionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheClusterId = defaults.cacheClusterId;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.serviceUpdateStatuses = defaults.serviceUpdateStatuses;
@@ -111,14 +97,6 @@ public final class GetServiceUpdateActionsResult {
         public Builder cacheClusterId(@Nullable String cacheClusterId) {
 
             this.cacheClusterId = cacheClusterId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServiceUpdateActionsResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -158,7 +136,6 @@ public final class GetServiceUpdateActionsResult {
         public GetServiceUpdateActionsResult build() {
             final var _resultValue = new GetServiceUpdateActionsResult();
             _resultValue.cacheClusterId = cacheClusterId;
-            _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.replicationGroupId = replicationGroupId;
             _resultValue.serviceUpdateStatuses = serviceUpdateStatuses;

@@ -35,11 +35,6 @@ public final class GetAccessPointsResult {
      * 
      */
     private @Nullable String dataSourceType;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetAccessPointsResult() {}
@@ -74,13 +69,6 @@ public final class GetAccessPointsResult {
     public Optional<String> dataSourceType() {
         return Optional.ofNullable(this.dataSourceType);
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String region() {
         return this.region;
     }
@@ -99,7 +87,6 @@ public final class GetAccessPointsResult {
         private @Nullable String bucket;
         private @Nullable String dataSourceId;
         private @Nullable String dataSourceType;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetAccessPointsResult defaults) {
@@ -109,7 +96,6 @@ public final class GetAccessPointsResult {
     	      this.bucket = defaults.bucket;
     	      this.dataSourceId = defaults.dataSourceId;
     	      this.dataSourceType = defaults.dataSourceType;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -149,14 +135,6 @@ public final class GetAccessPointsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetAccessPointsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetAccessPointsResult", "region");
@@ -171,7 +149,6 @@ public final class GetAccessPointsResult {
             _resultValue.bucket = bucket;
             _resultValue.dataSourceId = dataSourceId;
             _resultValue.dataSourceType = dataSourceType;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

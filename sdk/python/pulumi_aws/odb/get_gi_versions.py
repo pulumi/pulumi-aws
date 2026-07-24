@@ -27,13 +27,10 @@ class GetGiVersionsResult:
     """
     A collection of values returned by getGiVersions.
     """
-    def __init__(__self__, gi_versions=None, id=None, region=None, shape=None):
+    def __init__(__self__, gi_versions=None, region=None, shape=None):
         if gi_versions and not isinstance(gi_versions, list):
             raise TypeError("Expected argument 'gi_versions' to be a list")
         pulumi.set(__self__, "gi_versions", gi_versions)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -48,14 +45,6 @@ class GetGiVersionsResult:
         Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
         """
         return pulumi.get(self, "gi_versions")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -75,7 +64,6 @@ class AwaitableGetGiVersionsResult(GetGiVersionsResult):
             yield self
         return GetGiVersionsResult(
             gi_versions=self.gi_versions,
-            id=self.id,
             region=self.region,
             shape=self.shape)
 
@@ -102,7 +90,6 @@ def get_gi_versions(region: Optional[_builtins.str] = None,
 
     return AwaitableGetGiVersionsResult(
         gi_versions=pulumi.get(__ret__, 'gi_versions'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         shape=pulumi.get(__ret__, 'shape'))
 def get_gi_versions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -126,6 +113,5 @@ def get_gi_versions_output(region: pulumi.Input[Optional[Optional[_builtins.str]
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getGiVersions:getGiVersions', __args__, opts=opts, typ=GetGiVersionsResult)
     return __ret__.apply(lambda __response__: GetGiVersionsResult(
         gi_versions=pulumi.get(__response__, 'gi_versions'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         shape=pulumi.get(__response__, 'shape')))

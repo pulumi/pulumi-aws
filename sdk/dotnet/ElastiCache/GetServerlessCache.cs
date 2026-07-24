@@ -162,10 +162,6 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string FullEngineVersion;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// ARN of the customer managed key for encrypting the data at rest.
         /// </summary>
         public readonly string KmsKeyId;
@@ -218,8 +214,6 @@ namespace Pulumi.Aws.ElastiCache
 
             string fullEngineVersion,
 
-            string id,
-
             string kmsKeyId,
 
             string majorEngineVersion,
@@ -248,7 +242,6 @@ namespace Pulumi.Aws.ElastiCache
             Endpoint = endpoint;
             Engine = engine;
             FullEngineVersion = fullEngineVersion;
-            Id = id;
             KmsKeyId = kmsKeyId;
             MajorEngineVersion = majorEngineVersion;
             Name = name;

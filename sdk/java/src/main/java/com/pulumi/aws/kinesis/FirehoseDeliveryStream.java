@@ -675,10 +675,7 @@ import javax.annotation.Nullable;
  *         var firehose_opensearch = new RolePolicy("firehose-opensearch", RolePolicyArgs.builder()
  *             .name("opensearch")
  *             .role(firehose.id())
- *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -> {
- *                 var testClusterArn = values.t1;
- *                 var testClusterArn1 = values.t2;
- *                 return """
+ *             .policy(testCluster.arn().applyValue(_arn -> """
  * {
  *   \"Version\": \"2012-10-17\",
  *   \"Statement\": [
@@ -710,8 +707,7 @@ import javax.annotation.Nullable;
  *         }
  *   ]
  * }
- * ", testClusterArn,testClusterArn1);
- *             }))
+ * ", _arn,_arn)))
  *             .build());
  * 
  *         var test = new FirehoseDeliveryStream("test", FirehoseDeliveryStreamArgs.builder()

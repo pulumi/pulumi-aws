@@ -62,8 +62,6 @@ type GetServiceUpdatesArgs struct {
 
 // A collection of values returned by getServiceUpdates.
 type GetServiceUpdatesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 	// Set of Service Updates. Each element has the following attributes:
 	ServiceUpdates []GetServiceUpdatesServiceUpdate `pulumi:"serviceUpdates"`
@@ -105,11 +103,6 @@ func (o GetServiceUpdatesResultOutput) ToGetServiceUpdatesResultOutput() GetServ
 
 func (o GetServiceUpdatesResultOutput) ToGetServiceUpdatesResultOutputWithContext(ctx context.Context) GetServiceUpdatesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetServiceUpdatesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceUpdatesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetServiceUpdatesResultOutput) Region() pulumi.StringOutput {

@@ -17,11 +17,6 @@ public final class GetCloudAutonomousVmClustersResult {
      * 
      */
     private List<GetCloudAutonomousVmClustersCloudAutonomousVmCluster> cloudAutonomousVmClusters;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetCloudAutonomousVmClustersResult() {}
@@ -31,13 +26,6 @@ public final class GetCloudAutonomousVmClustersResult {
      */
     public List<GetCloudAutonomousVmClustersCloudAutonomousVmCluster> cloudAutonomousVmClusters() {
         return this.cloudAutonomousVmClusters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -53,13 +41,11 @@ public final class GetCloudAutonomousVmClustersResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetCloudAutonomousVmClustersCloudAutonomousVmCluster> cloudAutonomousVmClusters;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetCloudAutonomousVmClustersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cloudAutonomousVmClusters = defaults.cloudAutonomousVmClusters;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -75,14 +61,6 @@ public final class GetCloudAutonomousVmClustersResult {
             return cloudAutonomousVmClusters(List.of(cloudAutonomousVmClusters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetCloudAutonomousVmClustersResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetCloudAutonomousVmClustersResult", "region");
@@ -93,7 +71,6 @@ public final class GetCloudAutonomousVmClustersResult {
         public GetCloudAutonomousVmClustersResult build() {
             final var _resultValue = new GetCloudAutonomousVmClustersResult();
             _resultValue.cloudAutonomousVmClusters = cloudAutonomousVmClusters;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

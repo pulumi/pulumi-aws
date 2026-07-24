@@ -141,10 +141,6 @@ namespace Pulumi.Aws.Rds
         /// Family of the cluster parameter group.
         /// </summary>
         public readonly string Family;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Name;
         public readonly string Region;
 
@@ -156,8 +152,6 @@ namespace Pulumi.Aws.Rds
 
             string family,
 
-            string id,
-
             string name,
 
             string region)
@@ -165,7 +159,6 @@ namespace Pulumi.Aws.Rds
             Arn = arn;
             Description = description;
             Family = family;
-            Id = id;
             Name = name;
             Region = region;
         }

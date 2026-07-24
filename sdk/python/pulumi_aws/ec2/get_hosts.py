@@ -28,13 +28,10 @@ class GetHostsResult:
     """
     A collection of values returned by getHosts.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, outpost_arn=None, region=None, tags=None):
+    def __init__(__self__, filters=None, ids=None, outpost_arn=None, region=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
@@ -52,14 +49,6 @@ class GetHostsResult:
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetHostsFilterResult']]:
         return pulumi.get(self, "filters")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -92,7 +81,6 @@ class AwaitableGetHostsResult(GetHostsResult):
             yield self
         return GetHostsResult(
             filters=self.filters,
-            id=self.id,
             ids=self.ids,
             outpost_arn=self.outpost_arn,
             region=self.region,
@@ -158,7 +146,6 @@ def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFi
 
     return AwaitableGetHostsResult(
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         region=pulumi.get(__ret__, 'region'),
@@ -221,7 +208,6 @@ def get_hosts_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Get
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getHosts:getHosts', __args__, opts=opts, typ=GetHostsResult)
     return __ret__.apply(lambda __response__: GetHostsResult(
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         region=pulumi.get(__response__, 'region'),

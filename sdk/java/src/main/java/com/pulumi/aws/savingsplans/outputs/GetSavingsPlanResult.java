@@ -35,11 +35,6 @@ public final class GetSavingsPlanResult {
      */
     private String end;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The ID of the offering.
      * 
      * @deprecated
@@ -135,13 +130,6 @@ public final class GetSavingsPlanResult {
      */
     public String end() {
         return this.end;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return The ID of the offering.
@@ -254,7 +242,6 @@ public final class GetSavingsPlanResult {
         private String description;
         private String ec2InstanceFamily;
         private String end;
-        private String id;
         private String offeringId;
         private String paymentOption;
         private List<String> productTypes;
@@ -279,7 +266,6 @@ public final class GetSavingsPlanResult {
     	      this.description = defaults.description;
     	      this.ec2InstanceFamily = defaults.ec2InstanceFamily;
     	      this.end = defaults.end;
-    	      this.id = defaults.id;
     	      this.offeringId = defaults.offeringId;
     	      this.paymentOption = defaults.paymentOption;
     	      this.productTypes = defaults.productTypes;
@@ -336,14 +322,6 @@ public final class GetSavingsPlanResult {
               throw new MissingRequiredPropertyException("GetSavingsPlanResult", "end");
             }
             this.end = end;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetSavingsPlanResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -484,7 +462,6 @@ public final class GetSavingsPlanResult {
             _resultValue.description = description;
             _resultValue.ec2InstanceFamily = ec2InstanceFamily;
             _resultValue.end = end;
-            _resultValue.id = id;
             _resultValue.offeringId = offeringId;
             _resultValue.paymentOption = paymentOption;
             _resultValue.productTypes = productTypes;

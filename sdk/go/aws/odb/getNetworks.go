@@ -56,8 +56,6 @@ type GetNetworksArgs struct {
 
 // A collection of values returned by getNetworks.
 type GetNetworksResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// List of odb networks returns basic information about odb networks.
 	OdbNetworks []GetNetworksOdbNetwork `pulumi:"odbNetworks"`
 	Region      string                  `pulumi:"region"`
@@ -95,11 +93,6 @@ func (o GetNetworksResultOutput) ToGetNetworksResultOutput() GetNetworksResultOu
 
 func (o GetNetworksResultOutput) ToGetNetworksResultOutputWithContext(ctx context.Context) GetNetworksResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetNetworksResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetNetworksResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // List of odb networks returns basic information about odb networks.

@@ -78,8 +78,6 @@ type GetReservedCacheNodeOfferingResult struct {
 	Duration      string `pulumi:"duration"`
 	// Fixed price charged for this reserved cache node.
 	FixedPrice float64 `pulumi:"fixedPrice"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Unique identifier for the reservation.
 	OfferingId         string `pulumi:"offeringId"`
 	OfferingType       string `pulumi:"offeringType"`
@@ -147,11 +145,6 @@ func (o GetReservedCacheNodeOfferingResultOutput) Duration() pulumi.StringOutput
 // Fixed price charged for this reserved cache node.
 func (o GetReservedCacheNodeOfferingResultOutput) FixedPrice() pulumi.Float64Output {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) float64 { return v.FixedPrice }).(pulumi.Float64Output)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetReservedCacheNodeOfferingResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Unique identifier for the reservation.

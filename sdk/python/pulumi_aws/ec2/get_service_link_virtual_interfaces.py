@@ -28,13 +28,10 @@ class GetServiceLinkVirtualInterfacesResult:
     """
     A collection of values returned by getServiceLinkVirtualInterfaces.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, region=None, tags=None):
+    def __init__(__self__, filters=None, ids=None, region=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
@@ -49,14 +46,6 @@ class GetServiceLinkVirtualInterfacesResult:
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetServiceLinkVirtualInterfacesFilterResult']]:
         return pulumi.get(self, "filters")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -84,7 +73,6 @@ class AwaitableGetServiceLinkVirtualInterfacesResult(GetServiceLinkVirtualInterf
             yield self
         return GetServiceLinkVirtualInterfacesResult(
             filters=self.filters,
-            id=self.id,
             ids=self.ids,
             region=self.region,
             tags=self.tags)
@@ -123,7 +111,6 @@ def get_service_link_virtual_interfaces(filters: Optional[Sequence[Union['GetSer
 
     return AwaitableGetServiceLinkVirtualInterfacesResult(
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -159,7 +146,6 @@ def get_service_link_virtual_interfaces_output(filters: pulumi.Input[Optional[Op
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getServiceLinkVirtualInterfaces:getServiceLinkVirtualInterfaces', __args__, opts=opts, typ=GetServiceLinkVirtualInterfacesResult)
     return __ret__.apply(lambda __response__: GetServiceLinkVirtualInterfacesResult(
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
         region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

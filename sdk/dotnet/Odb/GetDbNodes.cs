@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Odb
         /// The list of DB nodes along with their properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbNodesDbNodeResult> DbNodes;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
@@ -162,13 +158,10 @@ namespace Pulumi.Aws.Odb
 
             ImmutableArray<Outputs.GetDbNodesDbNodeResult> dbNodes,
 
-            string id,
-
             string region)
         {
             CloudVmClusterId = cloudVmClusterId;
             DbNodes = dbNodes;
-            Id = id;
             Region = region;
         }
     }

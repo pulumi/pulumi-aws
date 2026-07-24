@@ -54,10 +54,6 @@ export interface GetMultiRegionAccessPointsResult {
     readonly accessPoints: outputs.s3control.GetMultiRegionAccessPointsAccessPoint[];
     readonly accountId?: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Name of the Region.
      */
     readonly region: string;

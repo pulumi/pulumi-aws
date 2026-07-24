@@ -80,21 +80,13 @@ namespace Pulumi.Aws.Iam
     public sealed class GetOutboundWebIdentityFederationResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
         /// </summary>
         public readonly string IssuerIdentifier;
 
         [OutputConstructor]
-        private GetOutboundWebIdentityFederationResult(
-            string id,
-
-            string issuerIdentifier)
+        private GetOutboundWebIdentityFederationResult(string issuerIdentifier)
         {
-            Id = id;
             IssuerIdentifier = issuerIdentifier;
         }
     }

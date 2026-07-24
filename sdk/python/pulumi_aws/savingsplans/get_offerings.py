@@ -28,7 +28,7 @@ class GetOfferingsResult:
     """
     A collection of values returned by getOfferings.
     """
-    def __init__(__self__, currencies=None, descriptions=None, durations=None, filters=None, id=None, offering_ids=None, offerings=None, operations=None, payment_options=None, plan_types=None, product_type=None, service_codes=None, usage_types=None):
+    def __init__(__self__, currencies=None, descriptions=None, durations=None, filters=None, offering_ids=None, offerings=None, operations=None, payment_options=None, plan_types=None, product_type=None, service_codes=None, usage_types=None):
         if currencies and not isinstance(currencies, list):
             raise TypeError("Expected argument 'currencies' to be a list")
         pulumi.set(__self__, "currencies", currencies)
@@ -41,9 +41,6 @@ class GetOfferingsResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if offering_ids and not isinstance(offering_ids, list):
             raise TypeError("Expected argument 'offering_ids' to be a list")
         pulumi.set(__self__, "offering_ids", offering_ids)
@@ -88,14 +85,6 @@ class GetOfferingsResult:
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetOfferingsFilterResult']]:
         return pulumi.get(self, "filters")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="offeringIds")
@@ -151,7 +140,6 @@ class AwaitableGetOfferingsResult(GetOfferingsResult):
             descriptions=self.descriptions,
             durations=self.durations,
             filters=self.filters,
-            id=self.id,
             offering_ids=self.offering_ids,
             offerings=self.offerings,
             operations=self.operations,
@@ -225,7 +213,6 @@ def get_offerings(currencies: Optional[Sequence[_builtins.str]] = None,
         descriptions=pulumi.get(__ret__, 'descriptions'),
         durations=pulumi.get(__ret__, 'durations'),
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'),
         offering_ids=pulumi.get(__ret__, 'offering_ids'),
         offerings=pulumi.get(__ret__, 'offerings'),
         operations=pulumi.get(__ret__, 'operations'),
@@ -296,7 +283,6 @@ def get_offerings_output(currencies: pulumi.Input[Optional[Optional[Sequence[_bu
         descriptions=pulumi.get(__response__, 'descriptions'),
         durations=pulumi.get(__response__, 'durations'),
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id'),
         offering_ids=pulumi.get(__response__, 'offering_ids'),
         offerings=pulumi.get(__response__, 'offerings'),
         operations=pulumi.get(__response__, 'operations'),

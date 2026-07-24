@@ -58,10 +58,6 @@ export interface GetPlanResult {
      */
     readonly executionRole: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Name of the plan.
      */
     readonly name: string;

@@ -50,10 +50,6 @@ export interface GetFilesFileSystemsResult {
      * List of file systems. See `fileSystems` below.
      */
     readonly fileSystems?: outputs.s3.GetFilesFileSystemsFileSystem[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

@@ -56,9 +56,7 @@ type GetDefaultScraperConfigurationArgs struct {
 type GetDefaultScraperConfigurationResult struct {
 	// The configuration file.
 	Configuration string `pulumi:"configuration"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region        string `pulumi:"region"`
 }
 
 func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, args GetDefaultScraperConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetDefaultScraperConfigurationResultOutput {
@@ -98,11 +96,6 @@ func (o GetDefaultScraperConfigurationResultOutput) ToGetDefaultScraperConfigura
 // The configuration file.
 func (o GetDefaultScraperConfigurationResultOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Configuration }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetDefaultScraperConfigurationResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetDefaultScraperConfigurationResultOutput) Region() pulumi.StringOutput {

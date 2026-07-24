@@ -90,9 +90,7 @@ type GetOfferingsResult struct {
 	Descriptions []string             `pulumi:"descriptions"`
 	Durations    []int                `pulumi:"durations"`
 	Filters      []GetOfferingsFilter `pulumi:"filters"`
-	// The provider-assigned unique ID for this managed resource.
-	Id          string   `pulumi:"id"`
-	OfferingIds []string `pulumi:"offeringIds"`
+	OfferingIds  []string             `pulumi:"offeringIds"`
 	// List of Savings Plans Offerings. See `offerings` Attribute Reference.
 	Offerings      []GetOfferingsOffering `pulumi:"offerings"`
 	Operations     []string               `pulumi:"operations"`
@@ -171,11 +169,6 @@ func (o GetOfferingsResultOutput) Durations() pulumi.IntArrayOutput {
 
 func (o GetOfferingsResultOutput) Filters() GetOfferingsFilterArrayOutput {
 	return o.ApplyT(func(v GetOfferingsResult) []GetOfferingsFilter { return v.Filters }).(GetOfferingsFilterArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetOfferingsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetOfferingsResultOutput) OfferingIds() pulumi.StringArrayOutput {

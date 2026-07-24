@@ -49,11 +49,6 @@ public final class GetGlobalClusterResult {
      * 
      */
     private String engineVersion;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String identifier;
     /**
      * @return Set of objects containing Global Cluster members.
@@ -127,13 +122,6 @@ public final class GetGlobalClusterResult {
     public String engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     public String identifier() {
         return this.identifier;
     }
@@ -185,7 +173,6 @@ public final class GetGlobalClusterResult {
         private String engine;
         private String engineLifecycleSupport;
         private String engineVersion;
-        private String id;
         private String identifier;
         private List<GetGlobalClusterMember> members;
         private String region;
@@ -202,7 +189,6 @@ public final class GetGlobalClusterResult {
     	      this.engine = defaults.engine;
     	      this.engineLifecycleSupport = defaults.engineLifecycleSupport;
     	      this.engineVersion = defaults.engineVersion;
-    	      this.id = defaults.id;
     	      this.identifier = defaults.identifier;
     	      this.members = defaults.members;
     	      this.region = defaults.region;
@@ -268,14 +254,6 @@ public final class GetGlobalClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetGlobalClusterResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder identifier(String identifier) {
             if (identifier == null) {
               throw new MissingRequiredPropertyException("GetGlobalClusterResult", "identifier");
@@ -335,7 +313,6 @@ public final class GetGlobalClusterResult {
             _resultValue.engine = engine;
             _resultValue.engineLifecycleSupport = engineLifecycleSupport;
             _resultValue.engineVersion = engineVersion;
-            _resultValue.id = id;
             _resultValue.identifier = identifier;
             _resultValue.members = members;
             _resultValue.region = region;

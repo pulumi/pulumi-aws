@@ -82,8 +82,6 @@ type GetImageResult struct {
 	Description string `pulumi:"description"`
 	// Image name to display.
 	DisplayName string `pulumi:"displayName"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
 	ImageBuilderName string `pulumi:"imageBuilderName"`
 	// Boolean to indicate whether an image builder can be launched from this image.
@@ -183,11 +181,6 @@ func (o GetImageResultOutput) Description() pulumi.StringOutput {
 // Image name to display.
 func (o GetImageResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetImageResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetImageResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.

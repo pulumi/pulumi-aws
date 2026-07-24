@@ -1049,10 +1049,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
             name="opensearch",
             role=firehose["id"],
-            policy=pulumi.Output.all(
-                testClusterArn=test_cluster.arn,
-                testClusterArn1=test_cluster.arn
-        ).apply(lambda resolved_outputs: f\"\"\"{{
+            policy=test_cluster.arn.apply(lambda arn: f\"\"\"{{
           \\"Version\\": \\"2012-10-17\\",
           \\"Statement\\": [
             {{
@@ -1061,8 +1058,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 \\"es:*\\"
               ],
               \\"Resource\\": [
-                \\"{resolved_outputs['testClusterArn']}\\",
-                \\"{resolved_outputs['testClusterArn1']}/*\\"
+                \\"{arn}\\",
+                \\"{arn}/*\\"
               ]
                 }},
                 {{
@@ -1083,8 +1080,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\")
-        )
+        \"\"\"))
         test = aws.kinesis.FirehoseDeliveryStream("test",
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",
@@ -1717,10 +1713,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
             name="opensearch",
             role=firehose["id"],
-            policy=pulumi.Output.all(
-                testClusterArn=test_cluster.arn,
-                testClusterArn1=test_cluster.arn
-        ).apply(lambda resolved_outputs: f\"\"\"{{
+            policy=test_cluster.arn.apply(lambda arn: f\"\"\"{{
           \\"Version\\": \\"2012-10-17\\",
           \\"Statement\\": [
             {{
@@ -1729,8 +1722,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 \\"es:*\\"
               ],
               \\"Resource\\": [
-                \\"{resolved_outputs['testClusterArn']}\\",
-                \\"{resolved_outputs['testClusterArn1']}/*\\"
+                \\"{arn}\\",
+                \\"{arn}/*\\"
               ]
                 }},
                 {{
@@ -1751,8 +1744,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 }}
           ]
         }}
-        \"\"\")
-        )
+        \"\"\"))
         test = aws.kinesis.FirehoseDeliveryStream("test",
             name="pulumi-kinesis-firehose-os",
             destination="opensearch",

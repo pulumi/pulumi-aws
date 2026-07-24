@@ -12,24 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetServicesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of AWS service identifiers available in UXC.
      * 
      */
     private List<String> services;
 
     private GetServicesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of AWS service identifiers available in UXC.
      * 
@@ -47,23 +35,13 @@ public final class GetServicesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<String> services;
         public Builder() {}
         public Builder(GetServicesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.services = defaults.services;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetServicesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder services(List<String> services) {
             if (services == null) {
@@ -77,7 +55,6 @@ public final class GetServicesResult {
         }
         public GetServicesResult build() {
             final var _resultValue = new GetServicesResult();
-            _resultValue.id = id;
             _resultValue.services = services;
             return _resultValue;
         }

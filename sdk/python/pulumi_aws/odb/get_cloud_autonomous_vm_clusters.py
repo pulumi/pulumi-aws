@@ -27,13 +27,10 @@ class GetCloudAutonomousVmClustersResult:
     """
     A collection of values returned by getCloudAutonomousVmClusters.
     """
-    def __init__(__self__, cloud_autonomous_vm_clusters=None, id=None, region=None):
+    def __init__(__self__, cloud_autonomous_vm_clusters=None, region=None):
         if cloud_autonomous_vm_clusters and not isinstance(cloud_autonomous_vm_clusters, list):
             raise TypeError("Expected argument 'cloud_autonomous_vm_clusters' to be a list")
         pulumi.set(__self__, "cloud_autonomous_vm_clusters", cloud_autonomous_vm_clusters)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -48,14 +45,6 @@ class GetCloudAutonomousVmClustersResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -67,7 +56,6 @@ class AwaitableGetCloudAutonomousVmClustersResult(GetCloudAutonomousVmClustersRe
             yield self
         return GetCloudAutonomousVmClustersResult(
             cloud_autonomous_vm_clusters=self.cloud_autonomous_vm_clusters,
-            id=self.id,
             region=self.region)
 
 
@@ -99,7 +87,6 @@ def get_cloud_autonomous_vm_clusters(region: Optional[_builtins.str] = None,
 
     return AwaitableGetCloudAutonomousVmClustersResult(
         cloud_autonomous_vm_clusters=pulumi.get(__ret__, 'cloud_autonomous_vm_clusters'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_cloud_autonomous_vm_clusters_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAutonomousVmClustersResult]:
@@ -128,5 +115,4 @@ def get_cloud_autonomous_vm_clusters_output(region: pulumi.Input[Optional[Option
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getCloudAutonomousVmClusters:getCloudAutonomousVmClusters', __args__, opts=opts, typ=GetCloudAutonomousVmClustersResult)
     return __ret__.apply(lambda __response__: GetCloudAutonomousVmClustersResult(
         cloud_autonomous_vm_clusters=pulumi.get(__response__, 'cloud_autonomous_vm_clusters'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

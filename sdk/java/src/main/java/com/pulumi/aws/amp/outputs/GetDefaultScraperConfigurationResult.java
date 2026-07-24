@@ -15,11 +15,6 @@ public final class GetDefaultScraperConfigurationResult {
      * 
      */
     private String configuration;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetDefaultScraperConfigurationResult() {}
@@ -29,13 +24,6 @@ public final class GetDefaultScraperConfigurationResult {
      */
     public String configuration() {
         return this.configuration;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -51,13 +39,11 @@ public final class GetDefaultScraperConfigurationResult {
     @CustomType.Builder
     public static final class Builder {
         private String configuration;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetDefaultScraperConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configuration = defaults.configuration;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -67,14 +53,6 @@ public final class GetDefaultScraperConfigurationResult {
               throw new MissingRequiredPropertyException("GetDefaultScraperConfigurationResult", "configuration");
             }
             this.configuration = configuration;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDefaultScraperConfigurationResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -88,7 +66,6 @@ public final class GetDefaultScraperConfigurationResult {
         public GetDefaultScraperConfigurationResult build() {
             final var _resultValue = new GetDefaultScraperConfigurationResult();
             _resultValue.configuration = configuration;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

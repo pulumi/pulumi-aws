@@ -84,8 +84,6 @@ type GetGroupMembershipsResult struct {
 	GroupId string `pulumi:"groupId"`
 	// A list of group membership objects. See `groupMemberships` below.
 	GroupMemberships []GetGroupMembershipsGroupMembership `pulumi:"groupMemberships"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Identity store identifier.
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	Region          string `pulumi:"region"`
@@ -137,11 +135,6 @@ func (o GetGroupMembershipsResultOutput) GroupId() pulumi.StringOutput {
 // A list of group membership objects. See `groupMemberships` below.
 func (o GetGroupMembershipsResultOutput) GroupMemberships() GetGroupMembershipsGroupMembershipArrayOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) []GetGroupMembershipsGroupMembership { return v.GroupMemberships }).(GetGroupMembershipsGroupMembershipArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetGroupMembershipsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Identity store identifier.

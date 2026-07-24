@@ -145,10 +145,6 @@ namespace Pulumi.Aws.Account
     public sealed class GetRegionsResult
     {
         public readonly string AccountId;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly ImmutableArray<string> RegionOptStatusContains;
         /// <summary>
         /// The regions for a given account
@@ -159,14 +155,11 @@ namespace Pulumi.Aws.Account
         private GetRegionsResult(
             string accountId,
 
-            string id,
-
             ImmutableArray<string> regionOptStatusContains,
 
             ImmutableArray<Outputs.GetRegionsRegionResult> regions)
         {
             AccountId = accountId;
-            Id = id;
             RegionOptStatusContains = regionOptStatusContains;
             Regions = regions;
         }

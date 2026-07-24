@@ -76,9 +76,7 @@ type LookupGlobalClusterResult struct {
 	EngineLifecycleSupport string `pulumi:"engineLifecycleSupport"`
 	// Version of the database engine for this Global Cluster.
 	EngineVersion string `pulumi:"engineVersion"`
-	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	Identifier string `pulumi:"identifier"`
+	Identifier    string `pulumi:"identifier"`
 	// Set of objects containing Global Cluster members.
 	Members []GetGlobalClusterMember `pulumi:"members"`
 	Region  string                   `pulumi:"region"`
@@ -161,11 +159,6 @@ func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringO
 // Version of the database engine for this Global Cluster.
 func (o LookupGlobalClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o LookupGlobalClusterResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o LookupGlobalClusterResultOutput) Identifier() pulumi.StringOutput {

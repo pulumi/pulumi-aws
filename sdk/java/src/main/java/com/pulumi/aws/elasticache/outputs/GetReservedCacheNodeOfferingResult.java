@@ -19,11 +19,6 @@ public final class GetReservedCacheNodeOfferingResult {
      */
     private Double fixedPrice;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Unique identifier for the reservation.
      * 
      */
@@ -45,13 +40,6 @@ public final class GetReservedCacheNodeOfferingResult {
      */
     public Double fixedPrice() {
         return this.fixedPrice;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Unique identifier for the reservation.
@@ -82,7 +70,6 @@ public final class GetReservedCacheNodeOfferingResult {
         private String cacheNodeType;
         private String duration;
         private Double fixedPrice;
-        private String id;
         private String offeringId;
         private String offeringType;
         private String productDescription;
@@ -93,7 +80,6 @@ public final class GetReservedCacheNodeOfferingResult {
     	      this.cacheNodeType = defaults.cacheNodeType;
     	      this.duration = defaults.duration;
     	      this.fixedPrice = defaults.fixedPrice;
-    	      this.id = defaults.id;
     	      this.offeringId = defaults.offeringId;
     	      this.offeringType = defaults.offeringType;
     	      this.productDescription = defaults.productDescription;
@@ -122,14 +108,6 @@ public final class GetReservedCacheNodeOfferingResult {
               throw new MissingRequiredPropertyException("GetReservedCacheNodeOfferingResult", "fixedPrice");
             }
             this.fixedPrice = fixedPrice;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetReservedCacheNodeOfferingResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -169,7 +147,6 @@ public final class GetReservedCacheNodeOfferingResult {
             _resultValue.cacheNodeType = cacheNodeType;
             _resultValue.duration = duration;
             _resultValue.fixedPrice = fixedPrice;
-            _resultValue.id = id;
             _resultValue.offeringId = offeringId;
             _resultValue.offeringType = offeringType;
             _resultValue.productDescription = productDescription;

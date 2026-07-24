@@ -63,9 +63,7 @@ type GetDbSystemShapesResult struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
 	DbSystemShapes []GetDbSystemShapesDbSystemShape `pulumi:"dbSystemShapes"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region         string                           `pulumi:"region"`
 }
 
 func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputArgs, opts ...pulumi.InvokeOption) GetDbSystemShapesResultOutput {
@@ -111,11 +109,6 @@ func (o GetDbSystemShapesResultOutput) AvailabilityZoneId() pulumi.StringPtrOutp
 // The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
 func (o GetDbSystemShapesResultOutput) DbSystemShapes() GetDbSystemShapesDbSystemShapeArrayOutput {
 	return o.ApplyT(func(v GetDbSystemShapesResult) []GetDbSystemShapesDbSystemShape { return v.DbSystemShapes }).(GetDbSystemShapesDbSystemShapeArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetDbSystemShapesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDbSystemShapesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetDbSystemShapesResultOutput) Region() pulumi.StringOutput {

@@ -64,8 +64,6 @@ type GetModelAgreementOffersArgs struct {
 
 // A collection of values returned by getModelAgreementOffers.
 type GetModelAgreementOffersResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
 	ModelId   string  `pulumi:"modelId"`
 	OfferType *string `pulumi:"offerType"`
 	// List of the offers associated with the specified model. See `offers`.
@@ -111,11 +109,6 @@ func (o GetModelAgreementOffersResultOutput) ToGetModelAgreementOffersResultOutp
 
 func (o GetModelAgreementOffersResultOutput) ToGetModelAgreementOffersResultOutputWithContext(ctx context.Context) GetModelAgreementOffersResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetModelAgreementOffersResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetModelAgreementOffersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetModelAgreementOffersResultOutput) ModelId() pulumi.StringOutput {

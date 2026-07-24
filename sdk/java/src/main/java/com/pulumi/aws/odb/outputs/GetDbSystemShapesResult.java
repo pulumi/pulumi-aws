@@ -20,11 +20,6 @@ public final class GetDbSystemShapesResult {
      * 
      */
     private List<GetDbSystemShapesDbSystemShape> dbSystemShapes;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetDbSystemShapesResult() {}
@@ -37,13 +32,6 @@ public final class GetDbSystemShapesResult {
      */
     public List<GetDbSystemShapesDbSystemShape> dbSystemShapes() {
         return this.dbSystemShapes;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -60,14 +48,12 @@ public final class GetDbSystemShapesResult {
     public static final class Builder {
         private @Nullable String availabilityZoneId;
         private List<GetDbSystemShapesDbSystemShape> dbSystemShapes;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetDbSystemShapesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.availabilityZoneId = defaults.availabilityZoneId;
     	      this.dbSystemShapes = defaults.dbSystemShapes;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -89,14 +75,6 @@ public final class GetDbSystemShapesResult {
             return dbSystemShapes(List.of(dbSystemShapes));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetDbSystemShapesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetDbSystemShapesResult", "region");
@@ -108,7 +86,6 @@ public final class GetDbSystemShapesResult {
             final var _resultValue = new GetDbSystemShapesResult();
             _resultValue.availabilityZoneId = availabilityZoneId;
             _resultValue.dbSystemShapes = dbSystemShapes;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

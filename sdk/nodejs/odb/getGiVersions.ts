@@ -45,10 +45,6 @@ export interface GetGiVersionsResult {
      * Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.
      */
     readonly giVersions: outputs.odb.GetGiVersionsGiVersion[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     readonly shape?: string;
 }

@@ -149,10 +149,9 @@ import (
 //			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
 //				Name:        pulumi.String("example"),
 //				Description: pulumi.String("Policy to allow QuickSight access to S3 bucket"),
-//				Policy: pulumi.All(example.Arn, exampleBucketObjectv2.Key, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
-//					exampleArn := _args[0].(string)
+//				Policy: pulumi.All(example.Arn, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
+//					arn := _args[0].(string)
 //					key := _args[1].(string)
-//					exampleArn1 := _args[2].(string)
 //					var _zero string
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
@@ -162,14 +161,14 @@ import (
 //									"s3:GetObject",
 //								},
 //								"Effect":   "Allow",
-//								"Resource": fmt.Sprintf("%v/%v", exampleArn, key),
+//								"Resource": fmt.Sprintf("%v/%v", arn, key),
 //							},
 //							map[string]interface{}{
 //								"Action": []string{
 //									"s3:ListBucket",
 //								},
 //								"Effect":   "Allow",
-//								"Resource": exampleArn1,
+//								"Resource": arn,
 //							},
 //						},
 //					})

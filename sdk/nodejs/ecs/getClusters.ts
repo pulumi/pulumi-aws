@@ -44,10 +44,6 @@ export interface GetClustersResult {
      * List of ECS cluster ARNs associated with the account.
      */
     readonly clusterArns: string[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

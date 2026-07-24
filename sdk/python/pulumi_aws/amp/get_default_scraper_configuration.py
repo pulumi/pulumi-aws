@@ -26,13 +26,10 @@ class GetDefaultScraperConfigurationResult:
     """
     A collection of values returned by getDefaultScraperConfiguration.
     """
-    def __init__(__self__, configuration=None, id=None, region=None):
+    def __init__(__self__, configuration=None, region=None):
         if configuration and not isinstance(configuration, str):
             raise TypeError("Expected argument 'configuration' to be a str")
         pulumi.set(__self__, "configuration", configuration)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -47,14 +44,6 @@ class GetDefaultScraperConfigurationResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -66,7 +55,6 @@ class AwaitableGetDefaultScraperConfigurationResult(GetDefaultScraperConfigurati
             yield self
         return GetDefaultScraperConfigurationResult(
             configuration=self.configuration,
-            id=self.id,
             region=self.region)
 
 
@@ -94,7 +82,6 @@ def get_default_scraper_configuration(region: Optional[_builtins.str] = None,
 
     return AwaitableGetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__ret__, 'configuration'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_default_scraper_configuration_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
@@ -119,5 +106,4 @@ def get_default_scraper_configuration_output(region: pulumi.Input[Optional[Optio
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration', __args__, opts=opts, typ=GetDefaultScraperConfigurationResult)
     return __ret__.apply(lambda __response__: GetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__response__, 'configuration'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

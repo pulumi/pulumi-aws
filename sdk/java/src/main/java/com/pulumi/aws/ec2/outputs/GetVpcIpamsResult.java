@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetVpcIpamsResult {
     private @Nullable List<GetVpcIpamsFilter> filters;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private @Nullable List<String> ipamIds;
     /**
      * @return List of IPAM resources matching the provided arguments.
@@ -31,13 +26,6 @@ public final class GetVpcIpamsResult {
     private GetVpcIpamsResult() {}
     public List<GetVpcIpamsFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public List<String> ipamIds() {
         return this.ipamIds == null ? List.of() : this.ipamIds;
@@ -63,7 +51,6 @@ public final class GetVpcIpamsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetVpcIpamsFilter> filters;
-        private String id;
         private @Nullable List<String> ipamIds;
         private List<GetVpcIpamsIpam> ipams;
         private String region;
@@ -71,7 +58,6 @@ public final class GetVpcIpamsResult {
         public Builder(GetVpcIpamsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
-    	      this.id = defaults.id;
     	      this.ipamIds = defaults.ipamIds;
     	      this.ipams = defaults.ipams;
     	      this.region = defaults.region;
@@ -85,14 +71,6 @@ public final class GetVpcIpamsResult {
         }
         public Builder filters(GetVpcIpamsFilter... filters) {
             return filters(List.of(filters));
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetVpcIpamsResult", "id");
-            }
-            this.id = id;
-            return this;
         }
         @CustomType.Setter
         public Builder ipamIds(@Nullable List<String> ipamIds) {
@@ -125,7 +103,6 @@ public final class GetVpcIpamsResult {
         public GetVpcIpamsResult build() {
             final var _resultValue = new GetVpcIpamsResult();
             _resultValue.filters = filters;
-            _resultValue.id = id;
             _resultValue.ipamIds = ipamIds;
             _resultValue.ipams = ipams;
             _resultValue.region = region;

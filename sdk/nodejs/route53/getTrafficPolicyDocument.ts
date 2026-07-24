@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = current.then(current => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *         {
  *             id: "site_down_banner",
  *             type: "s3-website",
- *             region: current1.region,
+ *             region: current.region,
  *             value: "www.example.com",
  *         },
  *     ],
@@ -204,7 +204,7 @@ export interface GetTrafficPolicyDocumentResult {
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const example = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
+ * const example = current.then(current => aws.route53.getTrafficPolicyDocument({
  *     recordType: "A",
  *     startRule: "site_switch",
  *     endpoints: [
@@ -216,7 +216,7 @@ export interface GetTrafficPolicyDocumentResult {
  *         {
  *             id: "site_down_banner",
  *             type: "s3-website",
- *             region: current1.region,
+ *             region: current.region,
  *             value: "www.example.com",
  *         },
  *     ],

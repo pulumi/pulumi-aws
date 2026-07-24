@@ -169,10 +169,6 @@ namespace Pulumi.Aws.Glue
         /// Federated catalog configuration. See `FederatedCatalog` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCatalogFederatedCatalogResult> FederatedCatalogs;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Name;
         /// <summary>
         /// Map of key-value pairs that define parameters and properties of the catalog.
@@ -212,8 +208,6 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetCatalogFederatedCatalogResult> federatedCatalogs,
 
-            string id,
-
             string name,
 
             ImmutableDictionary<string, string> parameters,
@@ -235,7 +229,6 @@ namespace Pulumi.Aws.Glue
             CreateTime = createTime;
             Description = description;
             FederatedCatalogs = federatedCatalogs;
-            Id = id;
             Name = name;
             Parameters = parameters;
             Region = region;

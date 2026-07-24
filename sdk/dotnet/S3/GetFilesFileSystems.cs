@@ -136,22 +136,15 @@ namespace Pulumi.Aws.S3
         /// List of file systems. See `FileSystems` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFilesFileSystemsFileSystemResult> FileSystems;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetFilesFileSystemsResult(
             ImmutableArray<Outputs.GetFilesFileSystemsFileSystemResult> fileSystems,
 
-            string id,
-
             string region)
         {
             FileSystems = fileSystems;
-            Id = id;
             Region = region;
         }
     }

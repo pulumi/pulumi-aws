@@ -52,11 +52,6 @@ public final class GetPrimaryContactResult {
      */
     private String fullName;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return The phone number of the primary contact information.
      * 
      */
@@ -138,13 +133,6 @@ public final class GetPrimaryContactResult {
         return this.fullName;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
-    /**
      * @return The phone number of the primary contact information.
      * 
      */
@@ -191,7 +179,6 @@ public final class GetPrimaryContactResult {
         private String countryCode;
         private String districtOrCounty;
         private String fullName;
-        private String id;
         private String phoneNumber;
         private String postalCode;
         private String stateOrRegion;
@@ -208,7 +195,6 @@ public final class GetPrimaryContactResult {
     	      this.countryCode = defaults.countryCode;
     	      this.districtOrCounty = defaults.districtOrCounty;
     	      this.fullName = defaults.fullName;
-    	      this.id = defaults.id;
     	      this.phoneNumber = defaults.phoneNumber;
     	      this.postalCode = defaults.postalCode;
     	      this.stateOrRegion = defaults.stateOrRegion;
@@ -288,14 +274,6 @@ public final class GetPrimaryContactResult {
             return this;
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetPrimaryContactResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             if (phoneNumber == null) {
               throw new MissingRequiredPropertyException("GetPrimaryContactResult", "phoneNumber");
@@ -338,7 +316,6 @@ public final class GetPrimaryContactResult {
             _resultValue.countryCode = countryCode;
             _resultValue.districtOrCounty = districtOrCounty;
             _resultValue.fullName = fullName;
-            _resultValue.id = id;
             _resultValue.phoneNumber = phoneNumber;
             _resultValue.postalCode = postalCode;
             _resultValue.stateOrRegion = stateOrRegion;

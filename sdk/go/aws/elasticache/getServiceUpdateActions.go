@@ -73,9 +73,7 @@ type GetServiceUpdateActionsArgs struct {
 type GetServiceUpdateActionsResult struct {
 	// ID of Cache Cluster this update action applies to.
 	CacheClusterId *string `pulumi:"cacheClusterId"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region         string  `pulumi:"region"`
 	// ID of Replication Group this update action applies to.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
 	// Availability of the update. One of `available`, `cancelled`, or `expired`.
@@ -127,11 +125,6 @@ func (o GetServiceUpdateActionsResultOutput) ToGetServiceUpdateActionsResultOutp
 // ID of Cache Cluster this update action applies to.
 func (o GetServiceUpdateActionsResultOutput) CacheClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceUpdateActionsResult) *string { return v.CacheClusterId }).(pulumi.StringPtrOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetServiceUpdateActionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetServiceUpdateActionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetServiceUpdateActionsResultOutput) Region() pulumi.StringOutput {

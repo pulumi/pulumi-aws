@@ -118,10 +118,6 @@ namespace Pulumi.Aws.Iam
     public sealed class GetRolePoliciesResult
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Set of inline policy names associated with the role.
         /// </summary>
         public readonly ImmutableArray<string> PolicyNames;
@@ -129,13 +125,10 @@ namespace Pulumi.Aws.Iam
 
         [OutputConstructor]
         private GetRolePoliciesResult(
-            string id,
-
             ImmutableArray<string> policyNames,
 
             string roleName)
         {
-            Id = id;
             PolicyNames = policyNames;
             RoleName = roleName;
         }

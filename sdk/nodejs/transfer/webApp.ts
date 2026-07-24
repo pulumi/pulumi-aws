@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRoleTransfer.then(assumeRoleTransfer => assumeRoleTransfer.json),
  * });
- * const exampleGetPolicyDocument = Promise.all([currentGetPartition, currentGetRegion, current, current, current]).then(([currentGetPartition, currentGetRegion, current, current1, current2]) => aws.iam.getPolicyDocument({
+ * const exampleGetPolicyDocument = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *             resources: [`arn:${currentGetPartition.partition}:s3:${currentGetRegion.region}:${current.accountId}:access-grants/*`],
  *             conditions: [{
  *                 test: "StringEquals",
- *                 values: [current1.accountId],
+ *                 values: [current.accountId],
  *                 variable: "s3:ResourceAccount",
  *             }],
  *         },
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *             conditions: [{
  *                 test: "StringEquals",
- *                 values: [current2.accountId],
+ *                 values: [current.accountId],
  *                 variable: "s3:ResourceAccount",
  *             }],
  *         },

@@ -132,10 +132,6 @@ namespace Pulumi.Aws.SecurityHub
     [OutputType]
     public sealed class GetEnabledStandardsResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         public readonly ImmutableArray<string> StandardsSubscriptionArns;
         /// <summary>
@@ -145,15 +141,12 @@ namespace Pulumi.Aws.SecurityHub
 
         [OutputConstructor]
         private GetEnabledStandardsResult(
-            string id,
-
             string region,
 
             ImmutableArray<string> standardsSubscriptionArns,
 
             ImmutableArray<Outputs.GetEnabledStandardsStandardsSubscriptionResult> standardsSubscriptions)
         {
-            Id = id;
             Region = region;
             StandardsSubscriptionArns = standardsSubscriptionArns;
             StandardsSubscriptions = standardsSubscriptions;

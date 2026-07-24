@@ -105,8 +105,6 @@ type GetRecordsArgs struct {
 
 // A collection of values returned by getRecords.
 type GetRecordsResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id        string  `pulumi:"id"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// The resource records sets.
 	ResourceRecordSets []GetRecordsResourceRecordSet `pulumi:"resourceRecordSets"`
@@ -147,11 +145,6 @@ func (o GetRecordsResultOutput) ToGetRecordsResultOutput() GetRecordsResultOutpu
 
 func (o GetRecordsResultOutput) ToGetRecordsResultOutputWithContext(ctx context.Context) GetRecordsResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRecordsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRecordsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetRecordsResultOutput) NameRegex() pulumi.StringPtrOutput {

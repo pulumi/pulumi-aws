@@ -89,19 +89,11 @@ namespace Pulumi.Aws.Bedrock
         /// Form data as JSON from the Anthropic first time user request.
         /// </summary>
         public readonly string FormData;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
 
         [OutputConstructor]
-        private GetUseCaseForModelAccessResult(
-            string formData,
-
-            string id)
+        private GetUseCaseForModelAccessResult(string formData)
         {
             FormData = formData;
-            Id = id;
         }
     }
 }

@@ -58,9 +58,7 @@ type GetFilesFileSystemsArgs struct {
 type GetFilesFileSystemsResult struct {
 	// List of file systems. See `fileSystems` below.
 	FileSystems []GetFilesFileSystemsFileSystem `pulumi:"fileSystems"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region      string                          `pulumi:"region"`
 }
 
 func GetFilesFileSystemsOutput(ctx *pulumi.Context, args GetFilesFileSystemsOutputArgs, opts ...pulumi.InvokeOption) GetFilesFileSystemsResultOutput {
@@ -102,11 +100,6 @@ func (o GetFilesFileSystemsResultOutput) ToGetFilesFileSystemsResultOutputWithCo
 // List of file systems. See `fileSystems` below.
 func (o GetFilesFileSystemsResultOutput) FileSystems() GetFilesFileSystemsFileSystemArrayOutput {
 	return o.ApplyT(func(v GetFilesFileSystemsResult) []GetFilesFileSystemsFileSystem { return v.FileSystems }).(GetFilesFileSystemsFileSystemArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetFilesFileSystemsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetFilesFileSystemsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetFilesFileSystemsResultOutput) Region() pulumi.StringOutput {

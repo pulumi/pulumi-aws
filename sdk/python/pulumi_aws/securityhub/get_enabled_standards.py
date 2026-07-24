@@ -27,10 +27,7 @@ class GetEnabledStandardsResult:
     """
     A collection of values returned by getEnabledStandards.
     """
-    def __init__(__self__, id=None, region=None, standards_subscription_arns=None, standards_subscriptions=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, region=None, standards_subscription_arns=None, standards_subscriptions=None):
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -40,14 +37,6 @@ class GetEnabledStandardsResult:
         if standards_subscriptions and not isinstance(standards_subscriptions, list):
             raise TypeError("Expected argument 'standards_subscriptions' to be a list")
         pulumi.set(__self__, "standards_subscriptions", standards_subscriptions)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -74,7 +63,6 @@ class AwaitableGetEnabledStandardsResult(GetEnabledStandardsResult):
         if False:
             yield self
         return GetEnabledStandardsResult(
-            id=self.id,
             region=self.region,
             standards_subscription_arns=self.standards_subscription_arns,
             standards_subscriptions=self.standards_subscriptions)
@@ -106,7 +94,6 @@ def get_enabled_standards(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:securityhub/getEnabledStandards:getEnabledStandards', __args__, opts=opts, typ=GetEnabledStandardsResult).value
 
     return AwaitableGetEnabledStandardsResult(
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         standards_subscription_arns=pulumi.get(__ret__, 'standards_subscription_arns'),
         standards_subscriptions=pulumi.get(__ret__, 'standards_subscriptions'))
@@ -135,7 +122,6 @@ def get_enabled_standards_output(region: pulumi.Input[Optional[Optional[_builtin
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:securityhub/getEnabledStandards:getEnabledStandards', __args__, opts=opts, typ=GetEnabledStandardsResult)
     return __ret__.apply(lambda __response__: GetEnabledStandardsResult(
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         standards_subscription_arns=pulumi.get(__response__, 'standards_subscription_arns'),
         standards_subscriptions=pulumi.get(__response__, 'standards_subscriptions')))

@@ -60,9 +60,7 @@ type GetCloudExadataInfrastructuresArgs struct {
 type GetCloudExadataInfrastructuresResult struct {
 	// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
 	CloudExadataInfrastructures []GetCloudExadataInfrastructuresCloudExadataInfrastructure `pulumi:"cloudExadataInfrastructures"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region                      string                                                     `pulumi:"region"`
 }
 
 func GetCloudExadataInfrastructuresOutput(ctx *pulumi.Context, args GetCloudExadataInfrastructuresOutputArgs, opts ...pulumi.InvokeOption) GetCloudExadataInfrastructuresResultOutput {
@@ -104,11 +102,6 @@ func (o GetCloudExadataInfrastructuresResultOutput) CloudExadataInfrastructures(
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresResult) []GetCloudExadataInfrastructuresCloudExadataInfrastructure {
 		return v.CloudExadataInfrastructures
 	}).(GetCloudExadataInfrastructuresCloudExadataInfrastructureArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetCloudExadataInfrastructuresResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCloudExadataInfrastructuresResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetCloudExadataInfrastructuresResultOutput) Region() pulumi.StringOutput {

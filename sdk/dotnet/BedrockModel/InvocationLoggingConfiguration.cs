@@ -37,11 +37,10 @@ namespace Pulumi.Aws.BedrockModel
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
     ///         Bucket = example.BucketName,
-    ///         Policy = Output.Tuple(example.Arn, current, current).Apply(values =&gt;
+    ///         Policy = Output.Tuple(example.Arn, current).Apply(values =&gt;
     ///         {
     ///             var arn = values.Item1;
     ///             var current = values.Item2;
-    ///             var current1 = values.Item3;
     ///             return @$"{{
     ///   \""Version\"": \""2012-10-17\"",
     ///   \""Statement\"": [
@@ -61,7 +60,7 @@ namespace Pulumi.Aws.BedrockModel
     ///           \""aws:SourceAccount\"": \""{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}\""
     ///         }},
     ///         \""ArnLike\"": {{
-    ///           \""aws:SourceArn\"": \""arn:aws:bedrock:us-east-1:{current1.AccountId}:*\""
+    ///           \""aws:SourceArn\"": \""arn:aws:bedrock:us-east-1:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*\""
     ///         }}
     ///       }}
     ///     }}

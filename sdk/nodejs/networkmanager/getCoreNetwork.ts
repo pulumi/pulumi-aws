@@ -66,10 +66,6 @@ export interface GetCoreNetworkResult {
      */
     readonly globalNetworkId: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * Network function groups associated with the core network. See `networkFunctionGroups` Attribute Reference for details.
      */
     readonly networkFunctionGroups: outputs.networkmanager.GetCoreNetworkNetworkFunctionGroup[];

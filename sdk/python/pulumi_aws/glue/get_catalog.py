@@ -27,7 +27,7 @@ class GetCatalogResult:
     """
     A collection of values returned by getCatalog.
     """
-    def __init__(__self__, allow_full_table_external_data_access=None, arn=None, catalog_id=None, catalog_properties=None, create_database_default_permissions=None, create_table_default_permissions=None, create_time=None, description=None, federated_catalogs=None, id=None, name=None, parameters=None, region=None, tags=None, target_redshift_catalogs=None, update_time=None):
+    def __init__(__self__, allow_full_table_external_data_access=None, arn=None, catalog_id=None, catalog_properties=None, create_database_default_permissions=None, create_table_default_permissions=None, create_time=None, description=None, federated_catalogs=None, name=None, parameters=None, region=None, tags=None, target_redshift_catalogs=None, update_time=None):
         if allow_full_table_external_data_access and not isinstance(allow_full_table_external_data_access, str):
             raise TypeError("Expected argument 'allow_full_table_external_data_access' to be a str")
         pulumi.set(__self__, "allow_full_table_external_data_access", allow_full_table_external_data_access)
@@ -55,9 +55,6 @@ class GetCatalogResult:
         if federated_catalogs and not isinstance(federated_catalogs, list):
             raise TypeError("Expected argument 'federated_catalogs' to be a list")
         pulumi.set(__self__, "federated_catalogs", federated_catalogs)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -151,14 +148,6 @@ class GetCatalogResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
 
@@ -215,7 +204,6 @@ class AwaitableGetCatalogResult(GetCatalogResult):
             create_time=self.create_time,
             description=self.description,
             federated_catalogs=self.federated_catalogs,
-            id=self.id,
             name=self.name,
             parameters=self.parameters,
             region=self.region,
@@ -261,7 +249,6 @@ def get_catalog(name: Optional[_builtins.str] = None,
         create_time=pulumi.get(__ret__, 'create_time'),
         description=pulumi.get(__ret__, 'description'),
         federated_catalogs=pulumi.get(__ret__, 'federated_catalogs'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'),
         region=pulumi.get(__ret__, 'region'),
@@ -304,7 +291,6 @@ def get_catalog_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         create_time=pulumi.get(__response__, 'create_time'),
         description=pulumi.get(__response__, 'description'),
         federated_catalogs=pulumi.get(__response__, 'federated_catalogs'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         parameters=pulumi.get(__response__, 'parameters'),
         region=pulumi.get(__response__, 'region'),

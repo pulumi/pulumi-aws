@@ -73,10 +73,6 @@ export interface GetRecordsArgs {
  * A collection of values returned by getRecords.
  */
 export interface GetRecordsResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly nameRegex?: string;
     /**
      * The resource records sets.

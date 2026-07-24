@@ -27,7 +27,7 @@ class GetCoreNetworkResult:
     """
     A collection of values returned by getCoreNetwork.
     """
-    def __init__(__self__, arn=None, core_network_id=None, created_at=None, description=None, edges=None, global_network_id=None, id=None, network_function_groups=None, segments=None, state=None, tags=None):
+    def __init__(__self__, arn=None, core_network_id=None, created_at=None, description=None, edges=None, global_network_id=None, network_function_groups=None, segments=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,9 +46,6 @@ class GetCoreNetworkResult:
         if global_network_id and not isinstance(global_network_id, str):
             raise TypeError("Expected argument 'global_network_id' to be a str")
         pulumi.set(__self__, "global_network_id", global_network_id)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if network_function_groups and not isinstance(network_function_groups, list):
             raise TypeError("Expected argument 'network_function_groups' to be a list")
         pulumi.set(__self__, "network_function_groups", network_function_groups)
@@ -108,14 +105,6 @@ class GetCoreNetworkResult:
         return pulumi.get(self, "global_network_id")
 
     @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
     @pulumi.getter(name="networkFunctionGroups")
     def network_function_groups(self) -> Sequence['outputs.GetCoreNetworkNetworkFunctionGroupResult']:
         """
@@ -160,7 +149,6 @@ class AwaitableGetCoreNetworkResult(GetCoreNetworkResult):
             description=self.description,
             edges=self.edges,
             global_network_id=self.global_network_id,
-            id=self.id,
             network_function_groups=self.network_function_groups,
             segments=self.segments,
             state=self.state,
@@ -198,7 +186,6 @@ def get_core_network(core_network_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         edges=pulumi.get(__ret__, 'edges'),
         global_network_id=pulumi.get(__ret__, 'global_network_id'),
-        id=pulumi.get(__ret__, 'id'),
         network_function_groups=pulumi.get(__ret__, 'network_function_groups'),
         segments=pulumi.get(__ret__, 'segments'),
         state=pulumi.get(__ret__, 'state'),
@@ -233,7 +220,6 @@ def get_core_network_output(core_network_id: pulumi.Input[Optional[_builtins.str
         description=pulumi.get(__response__, 'description'),
         edges=pulumi.get(__response__, 'edges'),
         global_network_id=pulumi.get(__response__, 'global_network_id'),
-        id=pulumi.get(__response__, 'id'),
         network_function_groups=pulumi.get(__response__, 'network_function_groups'),
         segments=pulumi.get(__response__, 'segments'),
         state=pulumi.get(__response__, 'state'),

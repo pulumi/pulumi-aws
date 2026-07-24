@@ -26,16 +26,13 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, arn=None, created_time=None, id=None, kms_key_id=None, last_updated_time=None, name=None, region=None, table_count=None):
+    def __init__(__self__, arn=None, created_time=None, kms_key_id=None, last_updated_time=None, name=None, region=None, table_count=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -67,14 +64,6 @@ class GetDatabaseResult:
         Creation time of database.
         """
         return pulumi.get(self, "created_time")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
@@ -119,7 +108,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         return GetDatabaseResult(
             arn=self.arn,
             created_time=self.created_time,
-            id=self.id,
             kms_key_id=self.kms_key_id,
             last_updated_time=self.last_updated_time,
             name=self.name,
@@ -156,7 +144,6 @@ def get_database(name: Optional[_builtins.str] = None,
     return AwaitableGetDatabaseResult(
         arn=pulumi.get(__ret__, 'arn'),
         created_time=pulumi.get(__ret__, 'created_time'),
-        id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
@@ -190,7 +177,6 @@ def get_database_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         arn=pulumi.get(__response__, 'arn'),
         created_time=pulumi.get(__response__, 'created_time'),
-        id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),

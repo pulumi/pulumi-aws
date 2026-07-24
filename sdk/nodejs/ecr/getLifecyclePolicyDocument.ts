@@ -55,10 +55,6 @@ export interface GetLifecyclePolicyDocumentArgs {
  */
 export interface GetLifecyclePolicyDocumentResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The above arguments serialized as a standard JSON policy document.
      */
     readonly json: string;

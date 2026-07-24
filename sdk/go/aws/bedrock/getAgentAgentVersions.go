@@ -65,9 +65,7 @@ type GetAgentAgentVersionsResult struct {
 	AgentId string `pulumi:"agentId"`
 	// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
 	AgentVersionSummaries []GetAgentAgentVersionsAgentVersionSummary `pulumi:"agentVersionSummaries"`
-	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
-	Region string `pulumi:"region"`
+	Region                string                                     `pulumi:"region"`
 }
 
 func GetAgentAgentVersionsOutput(ctx *pulumi.Context, args GetAgentAgentVersionsOutputArgs, opts ...pulumi.InvokeOption) GetAgentAgentVersionsResultOutput {
@@ -117,11 +115,6 @@ func (o GetAgentAgentVersionsResultOutput) AgentVersionSummaries() GetAgentAgent
 	return o.ApplyT(func(v GetAgentAgentVersionsResult) []GetAgentAgentVersionsAgentVersionSummary {
 		return v.AgentVersionSummaries
 	}).(GetAgentAgentVersionsAgentVersionSummaryArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetAgentAgentVersionsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAgentAgentVersionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetAgentAgentVersionsResultOutput) Region() pulumi.StringOutput {

@@ -82,7 +82,7 @@ jobs:
           cache_save: false
       - name: Setup Go Cache
         if: matrix.language == 'go' || contains(matrix.language, 'go')
-        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           cache-dependency-path: |
             provider/*.sum

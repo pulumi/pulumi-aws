@@ -54,10 +54,6 @@ export interface GetGroupsResult {
      * List of Identity Store Groups
      */
     readonly groups: outputs.identitystore.GetGroupsGroup[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly identityStoreId: string;
     readonly region: string;
 }

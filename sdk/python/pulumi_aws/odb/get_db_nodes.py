@@ -27,16 +27,13 @@ class GetDbNodesResult:
     """
     A collection of values returned by getDbNodes.
     """
-    def __init__(__self__, cloud_vm_cluster_id=None, db_nodes=None, id=None, region=None):
+    def __init__(__self__, cloud_vm_cluster_id=None, db_nodes=None, region=None):
         if cloud_vm_cluster_id and not isinstance(cloud_vm_cluster_id, str):
             raise TypeError("Expected argument 'cloud_vm_cluster_id' to be a str")
         pulumi.set(__self__, "cloud_vm_cluster_id", cloud_vm_cluster_id)
         if db_nodes and not isinstance(db_nodes, list):
             raise TypeError("Expected argument 'db_nodes' to be a list")
         pulumi.set(__self__, "db_nodes", db_nodes)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -56,14 +53,6 @@ class GetDbNodesResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 
@@ -76,7 +65,6 @@ class AwaitableGetDbNodesResult(GetDbNodesResult):
         return GetDbNodesResult(
             cloud_vm_cluster_id=self.cloud_vm_cluster_id,
             db_nodes=self.db_nodes,
-            id=self.id,
             region=self.region)
 
 
@@ -114,7 +102,6 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
     return AwaitableGetDbNodesResult(
         cloud_vm_cluster_id=pulumi.get(__ret__, 'cloud_vm_cluster_id'),
         db_nodes=pulumi.get(__ret__, 'db_nodes'),
-        id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'))
 def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -149,5 +136,4 @@ def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str
     return __ret__.apply(lambda __response__: GetDbNodesResult(
         cloud_vm_cluster_id=pulumi.get(__response__, 'cloud_vm_cluster_id'),
         db_nodes=pulumi.get(__response__, 'db_nodes'),
-        id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region')))

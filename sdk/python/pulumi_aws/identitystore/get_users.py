@@ -27,10 +27,7 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, identity_store_id=None, region=None, users=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, identity_store_id=None, region=None, users=None):
         if identity_store_id and not isinstance(identity_store_id, str):
             raise TypeError("Expected argument 'identity_store_id' to be a str")
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -40,14 +37,6 @@ class GetUsersResult:
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="identityStoreId")
@@ -77,7 +66,6 @@ class AwaitableGetUsersResult(GetUsersResult):
         if False:
             yield self
         return GetUsersResult(
-            id=self.id,
             identity_store_id=self.identity_store_id,
             region=self.region,
             users=self.users)
@@ -112,7 +100,6 @@ def get_users(identity_store_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         region=pulumi.get(__ret__, 'region'),
         users=pulumi.get(__ret__, 'users'))
@@ -144,7 +131,6 @@ def get_users_output(identity_store_id: pulumi.Input[Optional[_builtins.str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
-        id=pulumi.get(__response__, 'id'),
         identity_store_id=pulumi.get(__response__, 'identity_store_id'),
         region=pulumi.get(__response__, 'region'),
         users=pulumi.get(__response__, 'users')))

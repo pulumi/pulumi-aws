@@ -27,7 +27,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, creation_time=None, database_name=None, id=None, last_updated_time=None, magnetic_store_write_properties=None, name=None, region=None, retention_properties=None, schemas=None, table_status=None):
+    def __init__(__self__, arn=None, creation_time=None, database_name=None, last_updated_time=None, magnetic_store_write_properties=None, name=None, region=None, retention_properties=None, schemas=None, table_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,9 +37,6 @@ class GetTableResult:
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -85,14 +82,6 @@ class GetTableResult:
         Name of database.
         """
         return pulumi.get(self, "database_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedTime")
@@ -157,7 +146,6 @@ class AwaitableGetTableResult(GetTableResult):
             arn=self.arn,
             creation_time=self.creation_time,
             database_name=self.database_name,
-            id=self.id,
             last_updated_time=self.last_updated_time,
             magnetic_store_write_properties=self.magnetic_store_write_properties,
             name=self.name,
@@ -202,7 +190,6 @@ def get_table(database_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         database_name=pulumi.get(__ret__, 'database_name'),
-        id=pulumi.get(__ret__, 'id'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         magnetic_store_write_properties=pulumi.get(__ret__, 'magnetic_store_write_properties'),
         name=pulumi.get(__ret__, 'name'),
@@ -244,7 +231,6 @@ def get_table_output(database_name: pulumi.Input[Optional[_builtins.str]] = None
         arn=pulumi.get(__response__, 'arn'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         database_name=pulumi.get(__response__, 'database_name'),
-        id=pulumi.get(__response__, 'id'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         magnetic_store_write_properties=pulumi.get(__response__, 'magnetic_store_write_properties'),
         name=pulumi.get(__response__, 'name'),

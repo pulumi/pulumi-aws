@@ -45,10 +45,6 @@ export interface GetSpotDatafeedSubscriptionResult {
      */
     readonly bucket: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * The prefix for the data feed files.
      */
     readonly prefix: string;

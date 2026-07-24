@@ -124,22 +124,15 @@ namespace Pulumi.Aws.Odb
         /// List of Cloud Exadata Infrastructures. Returns basic information about the Cloud Exadata Infrastructures.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCloudExadataInfrastructuresCloudExadataInfrastructureResult> CloudExadataInfrastructures;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
 
         [OutputConstructor]
         private GetCloudExadataInfrastructuresResult(
             ImmutableArray<Outputs.GetCloudExadataInfrastructuresCloudExadataInfrastructureResult> cloudExadataInfrastructures,
 
-            string id,
-
             string region)
         {
             CloudExadataInfrastructures = cloudExadataInfrastructures;
-            Id = id;
             Region = region;
         }
     }

@@ -15,11 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImagesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of image objects containing image digest and tags. Each object has the following attributes:
      * 
      */
@@ -29,13 +24,6 @@ public final class GetImagesResult {
     private String repositoryName;
 
     private GetImagesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of image objects containing image digest and tags. Each object has the following attributes:
      * 
@@ -62,7 +50,6 @@ public final class GetImagesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetImagesImageId> imageIds;
         private String region;
         private @Nullable String registryId;
@@ -70,21 +57,12 @@ public final class GetImagesResult {
         public Builder() {}
         public Builder(GetImagesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.imageIds = defaults.imageIds;
     	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.repositoryName = defaults.repositoryName;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetImagesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder imageIds(List<GetImagesImageId> imageIds) {
             if (imageIds == null) {
@@ -120,7 +98,6 @@ public final class GetImagesResult {
         }
         public GetImagesResult build() {
             final var _resultValue = new GetImagesResult();
-            _resultValue.id = id;
             _resultValue.imageIds = imageIds;
             _resultValue.region = region;
             _resultValue.registryId = registryId;

@@ -22,11 +22,6 @@ public final class GetTopicResult {
      * 
      */
     private String configs;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String name;
     /**
      * @return Number of partitions for the topic.
@@ -57,13 +52,6 @@ public final class GetTopicResult {
      */
     public String configs() {
         return this.configs;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String name() {
         return this.name;
@@ -98,7 +86,6 @@ public final class GetTopicResult {
         private String arn;
         private String clusterArn;
         private String configs;
-        private String id;
         private String name;
         private Integer partitionCount;
         private String region;
@@ -109,7 +96,6 @@ public final class GetTopicResult {
     	      this.arn = defaults.arn;
     	      this.clusterArn = defaults.clusterArn;
     	      this.configs = defaults.configs;
-    	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.partitionCount = defaults.partitionCount;
     	      this.region = defaults.region;
@@ -138,14 +124,6 @@ public final class GetTopicResult {
               throw new MissingRequiredPropertyException("GetTopicResult", "configs");
             }
             this.configs = configs;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetTopicResult", "id");
-            }
-            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -185,7 +163,6 @@ public final class GetTopicResult {
             _resultValue.arn = arn;
             _resultValue.clusterArn = clusterArn;
             _resultValue.configs = configs;
-            _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.partitionCount = partitionCount;
             _resultValue.region = region;

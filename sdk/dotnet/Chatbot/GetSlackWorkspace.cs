@@ -135,10 +135,6 @@ namespace Pulumi.Aws.Chatbot
     [OutputType]
     public sealed class GetSlackWorkspaceResult
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly string Region;
         /// <summary>
         /// ID of the Slack Workspace assigned by AWS Chatbot.
@@ -148,15 +144,12 @@ namespace Pulumi.Aws.Chatbot
 
         [OutputConstructor]
         private GetSlackWorkspaceResult(
-            string id,
-
             string region,
 
             string slackTeamId,
 
             string slackTeamName)
         {
-            Id = id;
             Region = region;
             SlackTeamId = slackTeamId;
             SlackTeamName = slackTeamName;

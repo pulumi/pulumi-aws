@@ -332,10 +332,6 @@ namespace Pulumi.Aws.Ec2
     {
         public readonly ImmutableArray<Outputs.GetHostsFilterResult> Filters;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// List of EC2 Dedicated Host identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
@@ -347,8 +343,6 @@ namespace Pulumi.Aws.Ec2
         private GetHostsResult(
             ImmutableArray<Outputs.GetHostsFilterResult> filters,
 
-            string id,
-
             ImmutableArray<string> ids,
 
             string? outpostArn,
@@ -358,7 +352,6 @@ namespace Pulumi.Aws.Ec2
             ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
-            Id = id;
             Ids = ids;
             OutpostArn = outpostArn;
             Region = region;

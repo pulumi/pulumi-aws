@@ -23,11 +23,6 @@ public final class GetGroupMembershipsResult {
      */
     private List<GetGroupMembershipsGroupMembership> groupMemberships;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Identity store identifier.
      * 
      */
@@ -48,13 +43,6 @@ public final class GetGroupMembershipsResult {
      */
     public List<GetGroupMembershipsGroupMembership> groupMemberships() {
         return this.groupMemberships;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     /**
      * @return Identity store identifier.
@@ -78,7 +66,6 @@ public final class GetGroupMembershipsResult {
     public static final class Builder {
         private String groupId;
         private List<GetGroupMembershipsGroupMembership> groupMemberships;
-        private String id;
         private String identityStoreId;
         private String region;
         public Builder() {}
@@ -86,7 +73,6 @@ public final class GetGroupMembershipsResult {
     	      Objects.requireNonNull(defaults);
     	      this.groupId = defaults.groupId;
     	      this.groupMemberships = defaults.groupMemberships;
-    	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
     	      this.region = defaults.region;
         }
@@ -111,14 +97,6 @@ public final class GetGroupMembershipsResult {
             return groupMemberships(List.of(groupMemberships));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetGroupMembershipsResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder identityStoreId(String identityStoreId) {
             if (identityStoreId == null) {
               throw new MissingRequiredPropertyException("GetGroupMembershipsResult", "identityStoreId");
@@ -138,7 +116,6 @@ public final class GetGroupMembershipsResult {
             final var _resultValue = new GetGroupMembershipsResult();
             _resultValue.groupId = groupId;
             _resultValue.groupMemberships = groupMemberships;
-            _resultValue.id = id;
             _resultValue.identityStoreId = identityStoreId;
             _resultValue.region = region;
             return _resultValue;

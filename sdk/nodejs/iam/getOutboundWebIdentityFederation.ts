@@ -27,10 +27,6 @@ export function getOutboundWebIdentityFederation(opts?: pulumi.InvokeOptions): P
  */
 export interface GetOutboundWebIdentityFederationResult {
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
      */
     readonly issuerIdentifier: string;

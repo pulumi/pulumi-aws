@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the inference profile.
         /// </summary>
         public readonly string InferenceProfileArn;
@@ -186,8 +182,6 @@ namespace Pulumi.Aws.Bedrock
 
             string description,
 
-            string id,
-
             string inferenceProfileArn,
 
             string inferenceProfileId,
@@ -206,7 +200,6 @@ namespace Pulumi.Aws.Bedrock
         {
             CreatedAt = createdAt;
             Description = description;
-            Id = id;
             InferenceProfileArn = inferenceProfileArn;
             InferenceProfileId = inferenceProfileId;
             InferenceProfileName = inferenceProfileName;

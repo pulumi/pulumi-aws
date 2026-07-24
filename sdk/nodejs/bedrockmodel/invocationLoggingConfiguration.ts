@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: example.bucket,
- *     policy: Promise.all([example.arn, current, current]).then(([arn, current, current1]) => `{
+ *     policy: Promise.all([example.arn, current]).then(([arn, current]) => `{
  *   \"Version\": \"2012-10-17\",
  *   \"Statement\": [
  *     {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *           \"aws:SourceAccount\": \"${current.accountId}\"
  *         },
  *         \"ArnLike\": {
- *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:${current1.accountId}:*\"
+ *           \"aws:SourceArn\": \"arn:aws:bedrock:us-east-1:${current.accountId}:*\"
  *         }
  *       }
  *     }

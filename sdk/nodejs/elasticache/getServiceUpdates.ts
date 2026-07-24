@@ -50,10 +50,6 @@ export interface GetServiceUpdatesArgs {
  * A collection of values returned by getServiceUpdates.
  */
 export interface GetServiceUpdatesResult {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
     /**
      * Set of Service Updates. Each element has the following attributes:

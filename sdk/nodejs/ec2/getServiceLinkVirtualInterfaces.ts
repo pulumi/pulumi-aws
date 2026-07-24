@@ -58,10 +58,6 @@ export interface GetServiceLinkVirtualInterfacesArgs {
 export interface GetServiceLinkVirtualInterfacesResult {
     readonly filters?: outputs.ec2.GetServiceLinkVirtualInterfacesFilter[];
     /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
-    /**
      * List of EC2 Service Link Virtual Interface identifiers.
      */
     readonly ids: string[];

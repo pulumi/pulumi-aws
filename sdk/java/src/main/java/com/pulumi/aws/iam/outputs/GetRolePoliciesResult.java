@@ -12,11 +12,6 @@ import java.util.Objects;
 @CustomType
 public final class GetRolePoliciesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return Set of inline policy names associated with the role.
      * 
      */
@@ -24,13 +19,6 @@ public final class GetRolePoliciesResult {
     private String roleName;
 
     private GetRolePoliciesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return Set of inline policy names associated with the role.
      * 
@@ -51,25 +39,15 @@ public final class GetRolePoliciesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<String> policyNames;
         private String roleName;
         public Builder() {}
         public Builder(GetRolePoliciesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.policyNames = defaults.policyNames;
     	      this.roleName = defaults.roleName;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetRolePoliciesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder policyNames(List<String> policyNames) {
             if (policyNames == null) {
@@ -91,7 +69,6 @@ public final class GetRolePoliciesResult {
         }
         public GetRolePoliciesResult build() {
             final var _resultValue = new GetRolePoliciesResult();
-            _resultValue.id = id;
             _resultValue.policyNames = policyNames;
             _resultValue.roleName = roleName;
             return _resultValue;

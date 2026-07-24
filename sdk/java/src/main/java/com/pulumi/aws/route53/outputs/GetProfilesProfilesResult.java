@@ -13,11 +13,6 @@ import java.util.Objects;
 @CustomType
 public final class GetProfilesProfilesResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return List of Profiles.
      * 
      */
@@ -25,13 +20,6 @@ public final class GetProfilesProfilesResult {
     private String region;
 
     private GetProfilesProfilesResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return List of Profiles.
      * 
@@ -52,25 +40,15 @@ public final class GetProfilesProfilesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private List<GetProfilesProfilesProfile> profiles;
         private String region;
         public Builder() {}
         public Builder(GetProfilesProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.profiles = defaults.profiles;
     	      this.region = defaults.region;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetProfilesProfilesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder profiles(List<GetProfilesProfilesProfile> profiles) {
             if (profiles == null) {
@@ -92,7 +70,6 @@ public final class GetProfilesProfilesResult {
         }
         public GetProfilesProfilesResult build() {
             final var _resultValue = new GetProfilesProfilesResult();
-            _resultValue.id = id;
             _resultValue.profiles = profiles;
             _resultValue.region = region;
             return _resultValue;

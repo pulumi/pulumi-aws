@@ -36,12 +36,7 @@ namespace Pulumi.Aws.RedShift
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
         ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///             {
-        ///                 var example = values.Item1;
-        ///                 var example1 = values.Item2;
-        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
-        ///             }),
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
         ///             Username = "exampleuser",
         ///             Password = "Exampl3Pass",
         ///             DataTableName = "example-table",
@@ -89,12 +84,7 @@ namespace Pulumi.Aws.RedShift
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
         ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///             {
-        ///                 var example = values.Item1;
-        ///                 var example1 = values.Item2;
-        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
-        ///             }),
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
         ///             Username = "exampleuser",
         ///             Password = "Exampl3Pass",
         ///             DataTableName = "example-table",
@@ -142,12 +132,7 @@ namespace Pulumi.Aws.RedShift
         ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
         ///         {
         ///             RoleArn = firehoseRole.Arn,
-        ///             ClusterJdbcurl = Output.Tuple(example, example).Apply(values =&gt;
-        ///             {
-        ///                 var example = values.Item1;
-        ///                 var example1 = values.Item2;
-        ///                 return $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example1.DatabaseName}";
-        ///             }),
+        ///             ClusterJdbcurl = $"jdbc:redshift://{example.Apply(getClusterResult =&gt; getClusterResult.Endpoint)}/{example.Apply(getClusterResult =&gt; getClusterResult.DatabaseName)}",
         ///             Username = "exampleuser",
         ///             Password = "Exampl3Pass",
         ///             DataTableName = "example-table",

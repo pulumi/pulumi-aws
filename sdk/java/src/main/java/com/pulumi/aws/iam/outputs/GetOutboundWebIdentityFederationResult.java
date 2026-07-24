@@ -11,24 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetOutboundWebIdentityFederationResult {
     /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
-    /**
      * @return A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
      * 
      */
     private String issuerIdentifier;
 
     private GetOutboundWebIdentityFederationResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
-    }
     /**
      * @return A unique issuer URL for your AWS account that hosts the OpenID Connect (OIDC) discovery endpoints.
      * 
@@ -46,23 +34,13 @@ public final class GetOutboundWebIdentityFederationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String id;
         private String issuerIdentifier;
         public Builder() {}
         public Builder(GetOutboundWebIdentityFederationResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.id = defaults.id;
     	      this.issuerIdentifier = defaults.issuerIdentifier;
         }
 
-        @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetOutboundWebIdentityFederationResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
         @CustomType.Setter
         public Builder issuerIdentifier(String issuerIdentifier) {
             if (issuerIdentifier == null) {
@@ -73,7 +51,6 @@ public final class GetOutboundWebIdentityFederationResult {
         }
         public GetOutboundWebIdentityFederationResult build() {
             final var _resultValue = new GetOutboundWebIdentityFederationResult();
-            _resultValue.id = id;
             _resultValue.issuerIdentifier = issuerIdentifier;
             return _resultValue;
         }

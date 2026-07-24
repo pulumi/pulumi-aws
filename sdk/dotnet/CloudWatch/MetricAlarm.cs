@@ -35,7 +35,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         Statistic = "Average",
     ///         Threshold = 80,
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///         InsufficientDataActions = new[] {},
+    ///         InsufficientDataActions =  {},
     ///     });
     /// 
     /// });
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             { "AutoScalingGroupName", bar.Name },
     ///         },
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///         AlarmActions = new[]
+    ///         AlarmActions = 
     ///         {
     ///             bat.Arn,
     ///         },
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         EvaluationPeriods = 2,
     ///         Threshold = 10,
     ///         AlarmDescription = "Request error rate has exceeded 10%",
-    ///         InsufficientDataActions = new[] {},
+    ///         InsufficientDataActions =  {},
     ///         MetricQueries = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///         },
     ///         EvaluationInterval = 30,
-    ///         AlarmActions = new[]
+    ///         AlarmActions = 
     ///         {
     ///             alerts.Arn,
     ///         },
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         EvaluationPeriods = 2,
     ///         ThresholdMetricId = "e1",
     ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///         InsufficientDataActions = new[] {},
+    ///         InsufficientDataActions =  {},
     ///         MetricQueries = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
@@ -293,11 +293,11 @@ namespace Pulumi.Aws.CloudWatch
     ///         Threshold = logstashServersCount,
     ///         AlarmDescription = "Number of healthy nodes in Target Group",
     ///         ActionsEnabled = true,
-    ///         AlarmActions = new[]
+    ///         AlarmActions = 
     ///         {
     ///             sns.Arn,
     ///         },
-    ///         OkActions = new[]
+    ///         OkActions = 
     ///         {
     ///             sns.Arn,
     ///         },

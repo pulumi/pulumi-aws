@@ -58,10 +58,6 @@ export interface GetDbNodesResult {
      * The list of DB nodes along with their properties.
      */
     readonly dbNodes: outputs.odb.GetDbNodesDbNode[];
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
-    readonly id: string;
     readonly region: string;
 }
 /**

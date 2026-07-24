@@ -336,10 +336,6 @@ namespace Pulumi.Aws.Eks
         public readonly ImmutableArray<Outputs.GetClusterVersionsClusterVersionResult> ClusterVersions;
         public readonly ImmutableArray<string> ClusterVersionsOnlies;
         public readonly bool? DefaultOnly;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
-        public readonly string Id;
         public readonly bool? IncludeAll;
         public readonly string Region;
         /// <summary>
@@ -357,8 +353,6 @@ namespace Pulumi.Aws.Eks
 
             bool? defaultOnly,
 
-            string id,
-
             bool? includeAll,
 
             string region,
@@ -369,7 +363,6 @@ namespace Pulumi.Aws.Eks
             ClusterVersions = clusterVersions;
             ClusterVersionsOnlies = clusterVersionsOnlies;
             DefaultOnly = defaultOnly;
-            Id = id;
             IncludeAll = includeAll;
             Region = region;
             VersionStatus = versionStatus;

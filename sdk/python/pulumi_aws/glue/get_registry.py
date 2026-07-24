@@ -26,16 +26,13 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None):
+    def __init__(__self__, arn=None, description=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -61,14 +58,6 @@ class GetRegistryResult:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
 
@@ -86,7 +75,6 @@ class AwaitableGetRegistryResult(GetRegistryResult):
         return GetRegistryResult(
             arn=self.arn,
             description=self.description,
-            id=self.id,
             name=self.name,
             region=self.region)
 
@@ -121,7 +109,6 @@ def get_registry(name: Optional[_builtins.str] = None,
     return AwaitableGetRegistryResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'))
 def get_registry_output(name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -153,6 +140,5 @@ def get_registry_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetRegistryResult(
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
-        id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region')))

@@ -56,8 +56,6 @@ type GetRolePoliciesArgs struct {
 
 // A collection of values returned by getRolePolicies.
 type GetRolePoliciesResult struct {
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
 	// Set of inline policy names associated with the role.
 	PolicyNames []string `pulumi:"policyNames"`
 	RoleName    string   `pulumi:"roleName"`
@@ -95,11 +93,6 @@ func (o GetRolePoliciesResultOutput) ToGetRolePoliciesResultOutput() GetRolePoli
 
 func (o GetRolePoliciesResultOutput) ToGetRolePoliciesResultOutputWithContext(ctx context.Context) GetRolePoliciesResultOutput {
 	return o
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetRolePoliciesResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRolePoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Set of inline policy names associated with the role.

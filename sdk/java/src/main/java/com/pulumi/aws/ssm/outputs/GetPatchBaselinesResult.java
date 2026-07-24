@@ -23,11 +23,6 @@ public final class GetPatchBaselinesResult {
     private List<GetPatchBaselinesBaselineIdentity> baselineIdentities;
     private @Nullable Boolean defaultBaselines;
     private @Nullable List<GetPatchBaselinesFilter> filters;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    private String id;
     private String region;
 
     private GetPatchBaselinesResult() {}
@@ -43,13 +38,6 @@ public final class GetPatchBaselinesResult {
     }
     public List<GetPatchBaselinesFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
-    }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
-    public String id() {
-        return this.id;
     }
     public String region() {
         return this.region;
@@ -67,7 +55,6 @@ public final class GetPatchBaselinesResult {
         private List<GetPatchBaselinesBaselineIdentity> baselineIdentities;
         private @Nullable Boolean defaultBaselines;
         private @Nullable List<GetPatchBaselinesFilter> filters;
-        private String id;
         private String region;
         public Builder() {}
         public Builder(GetPatchBaselinesResult defaults) {
@@ -75,7 +62,6 @@ public final class GetPatchBaselinesResult {
     	      this.baselineIdentities = defaults.baselineIdentities;
     	      this.defaultBaselines = defaults.defaultBaselines;
     	      this.filters = defaults.filters;
-    	      this.id = defaults.id;
     	      this.region = defaults.region;
         }
 
@@ -106,14 +92,6 @@ public final class GetPatchBaselinesResult {
             return filters(List.of(filters));
         }
         @CustomType.Setter
-        public Builder id(String id) {
-            if (id == null) {
-              throw new MissingRequiredPropertyException("GetPatchBaselinesResult", "id");
-            }
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetPatchBaselinesResult", "region");
@@ -126,7 +104,6 @@ public final class GetPatchBaselinesResult {
             _resultValue.baselineIdentities = baselineIdentities;
             _resultValue.defaultBaselines = defaultBaselines;
             _resultValue.filters = filters;
-            _resultValue.id = id;
             _resultValue.region = region;
             return _resultValue;
         }

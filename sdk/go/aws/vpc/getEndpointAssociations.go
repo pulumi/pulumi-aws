@@ -61,11 +61,9 @@ type GetEndpointAssociationsArgs struct {
 // A collection of values returned by getEndpointAssociations.
 type GetEndpointAssociationsResult struct {
 	// Associations for the VPC Endpoint. Association blocks are documented below.
-	Associations []GetEndpointAssociationsAssociation `pulumi:"associations"`
-	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	Region        string `pulumi:"region"`
-	VpcEndpointId string `pulumi:"vpcEndpointId"`
+	Associations  []GetEndpointAssociationsAssociation `pulumi:"associations"`
+	Region        string                               `pulumi:"region"`
+	VpcEndpointId string                               `pulumi:"vpcEndpointId"`
 }
 
 func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetEndpointAssociationsResultOutput {
@@ -107,11 +105,6 @@ func (o GetEndpointAssociationsResultOutput) ToGetEndpointAssociationsResultOutp
 // Associations for the VPC Endpoint. Association blocks are documented below.
 func (o GetEndpointAssociationsResultOutput) Associations() GetEndpointAssociationsAssociationArrayOutput {
 	return o.ApplyT(func(v GetEndpointAssociationsResult) []GetEndpointAssociationsAssociation { return v.Associations }).(GetEndpointAssociationsAssociationArrayOutput)
-}
-
-// The provider-assigned unique ID for this managed resource.
-func (o GetEndpointAssociationsResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetEndpointAssociationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 func (o GetEndpointAssociationsResultOutput) Region() pulumi.StringOutput {
