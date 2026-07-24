@@ -53,6 +53,7 @@ Makefile              -- Generated build orchestration
 ## Investigation and Testing
 
 - Start provider issue investigation with `triage-provider-issue`; invoke a narrower helper directly only when that route is already established.
+- Use `docs/provider-runtime.md` to distinguish engine, bridge, upstream provider, and Pulumi AWS-owned behavior before choosing an editing point.
 - Before adding or changing tests, read `TESTING.md` and use the lowest-cost test that directly proves the behavior.
 - Before deciding, creating, or materially changing a carried patch, read `docs/upstream-patches.md` for the shared policy and Pulumi AWS-specific requirements, then use `upstream-patches` for patch mechanics.
 - Use `pulumi-upgrade-provider` for provider upgrades.
