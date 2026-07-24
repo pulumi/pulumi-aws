@@ -49,10 +49,10 @@ func randomString(length int) string {
 }
 
 type exampleLifecycleOptions struct {
-	skipRefresh             bool
+	skipRefresh              bool
 	allowEmptyPreviewChanges bool
 	allowEmptyUpdateChanges  bool
-	validate                func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
+	validate                 func(*testing.T, *pulumitest.PulumiTest, auto.UpResult)
 }
 
 // runExampleLifecycle preserves the standard checks previously provided implicitly by

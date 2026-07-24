@@ -228,7 +228,7 @@ func TestAccSecretCapture(t *testing.T) {
 			state := test.ExportStack(t)
 			byts, err := json.Marshal(state.Deployment)
 			assert.NoError(t, err)
-			assert.NotContains(t, "s3cr3t", string(byts))
+			assert.NotContains(t, string(byts), "s3cr3t")
 		},
 	})
 }
@@ -650,7 +650,7 @@ func TestParallelLambdaCreation(t *testing.T) {
 
 		// Lambdas have diffs on every update (source code hash).
 		runExampleLifecycle(t, test, exampleLifecycleOptions{
-			skipRefresh:             true,
+			skipRefresh:              true,
 			allowEmptyPreviewChanges: true,
 		})
 	})
