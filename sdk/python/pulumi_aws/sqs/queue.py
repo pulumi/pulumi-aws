@@ -775,18 +775,18 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
+        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
         queue = aws.sqs.Queue("queue",
             name="pulumi-example-queue",
-            redrive_policy=json.dumps({
-                "deadLetterTargetArn": queue_deadletter["arn"],
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example_queue_deadletter.arn,
                 "maxReceiveCount": 4,
             }))
-        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
         example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy",
             queue_url=example_queue_deadletter.id,
-            redrive_allow_policy=json.dumps({
+            redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [example_queue["arn"]],
+                "sourceQueueArns": [queue.arn],
             }))
         ```
 
@@ -917,18 +917,18 @@ class Queue(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
+        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
         queue = aws.sqs.Queue("queue",
             name="pulumi-example-queue",
-            redrive_policy=json.dumps({
-                "deadLetterTargetArn": queue_deadletter["arn"],
+            redrive_policy=pulumi.Output.json_dumps({
+                "deadLetterTargetArn": example_queue_deadletter.arn,
                 "maxReceiveCount": 4,
             }))
-        example_queue_deadletter = aws.sqs.Queue("example_queue_deadletter", name="pulumi-example-deadletter-queue")
         example_queue_redrive_allow_policy = aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy",
             queue_url=example_queue_deadletter.id,
-            redrive_allow_policy=json.dumps({
+            redrive_allow_policy=pulumi.Output.json_dumps({
                 "redrivePermission": "byQueue",
-                "sourceQueueArns": [example_queue["arn"]],
+                "sourceQueueArns": [queue.arn],
             }))
         ```
 
