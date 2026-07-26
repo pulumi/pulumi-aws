@@ -5,6 +5,7 @@ package examples
 import (
 	"encoding/json"
 	"fmt"
+	"maps"
 	"math/rand"
 	"os/exec"
 	"path/filepath"
@@ -145,8 +146,6 @@ func TestTagsCombinationsGo(t *testing.T) {
 	}
 
 	for i, tc := range testCases {
-		tc := tc
-		i := i
 		t.Run(tc.name, func(t *testing.T) {
 			tc.s1.validateTransitionTo(t, i, tc.s2)
 		})
@@ -191,7 +190,7 @@ func TestRandomTagsCombinationsGo(t *testing.T) {
 	t.Logf("total state space: %v states", len(states))
 	t.Logf("random-sampling 100 state transitions")
 
-	for i := 0; i < 100; i++ {
+	for i := range 100 {
 		i := i
 		t.Run(fmt.Sprintf("test-%d", i), func(t *testing.T) {
 			i := rand.Intn(len(states))
@@ -250,12 +249,8 @@ func (st tagsState) validateTransitionTo(t *testing.T, testIdent int, st2 tagsSt
 
 func (st tagsState) expectedTags() map[string]string {
 	r := map[string]string{}
-	for k, v := range st.DefaultTags {
-		r[k] = v
-	}
-	for k, v := range st.ResourceTags {
-		r[k] = v
-	}
+	maps.Copy(r, st.DefaultTags)
+	maps.Copy(r, st.ResourceTags)
 	return r
 }
 
@@ -275,7 +270,7 @@ func (st tagsState) assertTagsEqualWithRetry(
 ) {
 	expectTags := st.expectedTags()
 	var actualTags map[string]string
-	for attempt := 0; attempt < 2; attempt++ {
+	for attempt := range 2 {
 		var err error = nil
 		actualTags, err = getActualTags()
 		if err == nil && assert.ObjectsAreEqual(normTags(expectTags), normTags(actualTags)) {

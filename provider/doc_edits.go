@@ -87,9 +87,8 @@ func addResourceNote(resourceFile string, markdownNote string) tfbridge.DocsEdit
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			re := regexp.MustCompile(`[#] Resource: [\w-]+`)
 			return re.ReplaceAllFunc(content, func(matching []byte) []byte {
-				return append(append([]byte{}, matching...), []byte(
-					fmt.Sprintf("\n\n> **NOTE:**: %s", markdownNote),
-				)...)
+				return append(append([]byte{}, matching...),
+					fmt.Appendf(nil, "\n\n> **NOTE:**: %s", markdownNote)...)
 			}), nil
 		},
 	}
@@ -269,11 +268,11 @@ var fixUpBucketReplicationConfig = tfbridge.DocsEdit{
 func extractRuleNotes(content []byte) string {
 	const ruleHeader = "### rule\n"
 	text := string(content)
-	start := strings.Index(text, ruleHeader)
-	if start == -1 {
+	_, after, ok := strings.Cut(text, ruleHeader)
+	if !ok {
 		return ""
 	}
-	section := text[start+len(ruleHeader):]
+	section := after
 	if next := strings.Index(section, "\n### "); next != -1 {
 		section = section[:next]
 	}

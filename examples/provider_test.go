@@ -39,7 +39,7 @@ func runPreviewWithPlanDiff(
 	t *testing.T,
 	pt *pulumitest.PulumiTest,
 	previewOpts ...optpreview.Option,
-) map[string]interface{} {
+) map[string]any {
 	t.Helper()
 
 	root := pt.CurrentStack().Workspace().WorkDir()
@@ -56,7 +56,7 @@ func runPreviewWithPlanDiff(
 	err = json.Unmarshal(planContents, &plan)
 	assert.NoError(t, err)
 
-	resourceDiffs := map[string]interface{}{}
+	resourceDiffs := map[string]any{}
 	for urn, resourcePlan := range plan.ResourcePlans {
 		if !slices.Contains(resourcePlan.Steps, apitype.OpSame) {
 			var diff apitype.PlanDiffV1
@@ -64,7 +64,7 @@ func runPreviewWithPlanDiff(
 				diff = resourcePlan.Goal.InputDiff
 			}
 			if hasUpgradePreviewDiff(diff) {
-				resourceDiffs[urn.Name()] = map[string]interface{}{
+				resourceDiffs[urn.Name()] = map[string]any{
 					"diff":  diff,
 					"steps": resourcePlan.Steps,
 				}
@@ -407,18 +407,18 @@ func exists(filePath string) (bool, error) {
 }
 
 // cleanPlan removes fields that change every time, i.e. 'time' or 'seed'
-func cleanPlan(t *testing.T, plan map[string]interface{}) map[string]interface{} {
+func cleanPlan(t *testing.T, plan map[string]any) map[string]any {
 	t.Helper()
 	if val, exists := plan["resourcePlans"]; exists {
-		resourcePlans := val.(map[string]interface{})
+		resourcePlans := val.(map[string]any)
 		for _, v := range resourcePlans {
-			resourcePlan := v.(map[string]interface{})
+			resourcePlan := v.(map[string]any)
 			delete(resourcePlan, "seed")
 		}
 	}
 
 	if val, exists := plan["manifest"]; exists {
-		manifest := val.(map[string]interface{})
+		manifest := val.(map[string]any)
 		delete(manifest, "time")
 		delete(manifest, "version")
 		delete(manifest, "magic")
@@ -427,9 +427,9 @@ func cleanPlan(t *testing.T, plan map[string]interface{}) map[string]interface{}
 	return plan
 }
 
-func readPlan(t *testing.T, planPath string) map[string]interface{} {
+func readPlan(t *testing.T, planPath string) map[string]any {
 	t.Helper()
-	var firstData map[string]interface{}
+	var firstData map[string]any
 
 	firstFile, err := os.ReadFile(planPath)
 	assert.NoError(t, err)

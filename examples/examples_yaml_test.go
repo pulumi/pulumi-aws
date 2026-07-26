@@ -18,6 +18,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"maps"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -460,7 +461,6 @@ resources:
 	require.NoError(t, err)
 
 	for _, tc := range testCases {
-		tc := tc
 
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
@@ -636,7 +636,6 @@ resources:
 	require.NoError(t, err)
 
 	for _, tc := range testCases {
-		tc := tc
 
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
@@ -881,7 +880,7 @@ type tagsType struct {
 	// Constant properties for the primary resource under test.
 	//
 	// This cannot include the tags property, which will be adjusted by the test.
-	properties map[string]interface{}
+	properties map[string]any
 
 	// Other is a string that is inserted into the test program. It is intended to be
 	// used to provision supporting resources in tests.
@@ -893,9 +892,9 @@ type tagsType struct {
 
 type tagsStep struct {
 	purpose     string
-	defaultTags map[string]interface{}
-	tags        map[string]interface{}
-	expected    map[string]interface{}
+	defaultTags map[string]any
+	tags        map[string]any
+	expected    map[string]any
 }
 
 func TestAccDefaultTags(t *testing.T) {
@@ -910,10 +909,10 @@ func TestAccDefaultTags(t *testing.T) {
 			skip: "This doesn't work correctly in TF. Tracked in " +
 				"https://github.com/pulumi/pulumi-aws/issues/2666.",
 			name: "sdkv2", token: "aws:cognito:UserPool",
-			properties: map[string]interface{}{
+			properties: map[string]any{
 				// aliasAttributes is necessary because otherwise we don't
 				// see a clean initial refresh
-				"aliasAttributes": []interface{}{"email"},
+				"aliasAttributes": []any{"email"},
 			},
 		},
 
@@ -923,68 +922,68 @@ func TestAccDefaultTags(t *testing.T) {
 			other: `
   app:
     type: aws:appconfig:Application`,
-			properties: map[string]interface{}{
+			properties: map[string]any{
 				"applicationId": "${app.id}",
 			},
 		},
 	}
 
-	sameAsDefault := map[string]interface{}{"__sameAsDefault": ""}
+	sameAsDefault := map[string]any{"__sameAsDefault": ""}
 	steps := []tagsStep{
 		{
 			purpose: "Initial deployment without tags",
 		},
 		{
 			purpose: "Add first default tag: `foo: bar``",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo": "bar",
 			},
 			expected: sameAsDefault,
 		},
 		{
 			purpose: "Change tag `foo` value to `quux`",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo": "quux",
 			},
 			expected: sameAsDefault,
 		},
 		{
 			purpose: "Add a resource specific tag: `foo: buzz`",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo": "quux",
 			},
-			tags: map[string]interface{}{
+			tags: map[string]any{
 				"fizz": "buzz",
 			},
-			expected: map[string]interface{}{
+			expected: map[string]any{
 				"foo":  "quux",
 				"fizz": "buzz",
 			},
 		},
 		{
 			purpose: "Shadow the default tag with a resource specific tag",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo": "quux",
 			},
-			tags: map[string]interface{}{
+			tags: map[string]any{
 				"fizz": "buzz",
 				"foo":  "bar",
 			},
-			expected: map[string]interface{}{
+			expected: map[string]any{
 				"foo":  "bar",
 				"fizz": "buzz",
 			},
 		},
 		{
 			purpose: "Drop resource specific tags",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo": "quux",
 			},
 			expected: sameAsDefault,
 		},
 		{
 			purpose: "Add new tag: `thwomp: pow`",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"foo":    "quux",
 				"thwomp": "pow",
 			},
@@ -992,7 +991,7 @@ func TestAccDefaultTags(t *testing.T) {
 		},
 		{
 			purpose: "Remove foo tag (foo and thwomp)",
-			defaultTags: map[string]interface{}{
+			defaultTags: map[string]any{
 				"thwomp": "pow",
 			},
 			expected: sameAsDefault,
@@ -1000,7 +999,7 @@ func TestAccDefaultTags(t *testing.T) {
 		// This case is handled by the special PreCheckCallback function we added
 		{
 			purpose:     "Don't specify any default tags (should be empty)",
-			defaultTags: map[string]interface{}{},
+			defaultTags: map[string]any{},
 			expected:    sameAsDefault,
 		},
 	}
@@ -1026,7 +1025,6 @@ func TestAccDefaultTags(t *testing.T) {
 	}
 
 	for _, typ := range types {
-		typ := typ
 		t.Run(typ.name, func(t *testing.T) {
 			if reason := typ.skip; reason != "" {
 				t.Skip(reason)
@@ -1040,11 +1038,11 @@ func TestAccDefaultTags(t *testing.T) {
 }
 
 func testTags(t *testing.T, dir string, steps []tagsStep) {
-	isNil := func(val interface{}) bool {
+	isNil := func(val any) bool {
 		if val == nil {
 			return true
 		}
-		v, ok := val.(map[string]interface{})
+		v, ok := val.(map[string]any)
 		return ok && len(v) == 0
 	}
 	validate := func(t *testing.T, result auto.UpResult, i int, step tagsStep) {
@@ -1093,8 +1091,8 @@ resources:
 outputs:
   actual: ${res.tagsAll}`
 
-	var expandMap func(level int, v interface{}) string
-	expandMap = func(level int, v interface{}) string {
+	var expandMap func(level int, v any) string
+	expandMap = func(level int, v any) string {
 		indent := "\n" + strings.Repeat("  ", level)
 
 		var body string
@@ -1103,11 +1101,11 @@ outputs:
 			return ""
 		case string:
 			body = v
-		case []interface{}:
+		case []any:
 			for _, v := range v {
 				body += indent + "- " + strings.TrimSpace(expandMap(level+1, v))
 			}
-		case map[string]interface{}:
+		case map[string]any:
 			sortedKeys := make([]string, len(v))
 			for k := range v {
 				sortedKeys = append(sortedKeys, k)
@@ -1131,15 +1129,13 @@ outputs:
 		return body
 	}
 
-	expandProps := func(props ...map[string]interface{}) string {
-		a := map[string]interface{}{}
+	expandProps := func(props ...map[string]any) string {
+		a := map[string]any{}
 		for _, arg := range props {
-			for k, v := range arg {
-				a[k] = v
-			}
+			maps.Copy(a, arg)
 		}
 
-		return expandMap(2, map[string]interface{}{
+		return expandMap(2, map[string]any{
 			"properties": a,
 		})
 	}
@@ -1152,12 +1148,12 @@ outputs:
 				path = dir
 			}
 			body := fmt.Sprintf(template, typ.name, p.purpose,
-				expandProps(map[string]interface{}{
-					"defaultTags": map[string]interface{}{
+				expandProps(map[string]any{
+					"defaultTags": map[string]any{
 						"tags": p.defaultTags,
 					},
 				}), typ.other, typ.token,
-				expandProps(map[string]interface{}{
+				expandProps(map[string]any{
 					"tags": p.tags,
 				}, typ.properties))
 

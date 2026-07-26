@@ -565,7 +565,8 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsTypeDefaultFile(mod, res)
 }
 
-func ref[T any](value T) *T { return &value }
+//go:fix inline
+func ref[T any](value T) *T { return new(value) }
 
 // stringValue gets a string value from a property map if present, else ""
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
@@ -1384,7 +1385,7 @@ func providerFromMeta(
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"name": {
 						Default: &tfbridge.DefaultInfo{
-							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
+							From: func(res *tfbridge.PulumiResource) (any, error) {
 								return resource.NewUniqueHex(res.URN.Name()+"_", 7, 255)
 							},
 						},
@@ -2388,7 +2389,7 @@ func providerFromMeta(
 						// Even though only one is currently supported, the AWS API is designed to support multiple, so
 						// force this to project as an array (and assign a plural name).
 						Name:        "loadBalancers",
-						MaxItemsOne: ref(false),
+						MaxItemsOne: new(false),
 					},
 					"service_connect_configuration": {
 						Elem: &tfbridge.SchemaInfo{
@@ -3357,7 +3358,7 @@ func providerFromMeta(
 					"identifier": {
 						Default: &tfbridge.DefaultInfo{
 							AutoNamed: true,
-							ComputeDefault: func(ctx context.Context, opts tfbridge.ComputeDefaultOptions) (interface{}, error) {
+							ComputeDefault: func(ctx context.Context, opts tfbridge.ComputeDefaultOptions) (any, error) {
 								rand, maxlen := 7, 255
 								if engine, ok := opts.Properties["engine"]; ok && engine.IsString() {
 									if strings.Contains(strings.ToLower(engine.StringValue()), "sqlserver") {
@@ -3764,68 +3765,68 @@ func providerFromMeta(
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: ref("aws:s3/bucketV2:BucketV2"),
+						Type: new("aws:s3/bucketV2:BucketV2"),
 					},
 				},
 			},
 			"aws_s3_bucket_accelerate_configuration": {
 				Tok: awsResource(s3Mod, "BucketAccelerateConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")},
+					{Type: new("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_acl": {
 				Tok: awsResource(s3Mod, "BucketAcl"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketAclV2:BucketAclV2")},
+					{Type: new("aws:s3/bucketAclV2:BucketAclV2")},
 				},
 			},
 			"aws_s3_bucket_cors_configuration": {
 				Tok: awsResource(s3Mod, "BucketCorsConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")},
+					{Type: new("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_lifecycle_configuration": {
 				Tok: awsResource(s3Mod, "BucketLifecycleConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")},
+					{Type: new("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_logging": {
 				Tok: awsResource(s3Mod, "BucketLogging"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketLoggingV2:BucketLoggingV2")},
+					{Type: new("aws:s3/bucketLoggingV2:BucketLoggingV2")},
 				},
 			},
 			"aws_s3_bucket_object_lock_configuration": {
 				Tok: awsResource(s3Mod, "BucketObjectLockConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")},
+					{Type: new("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_request_payment_configuration": {
 				Tok: awsResource(s3Mod, "BucketRequestPaymentConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")},
+					{Type: new("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_server_side_encryption_configuration": {
 				Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")},
+					{Type: new("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")},
 				},
 			},
 			"aws_s3_bucket_versioning": {
 				Tok: awsResource(s3Mod, "BucketVersioning"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketVersioningV2:BucketVersioningV2")},
+					{Type: new("aws:s3/bucketVersioningV2:BucketVersioningV2")},
 				},
 			},
 			"aws_s3_bucket_website_configuration": {
 				Tok: awsResource(s3Mod, "BucketWebsiteConfiguration"),
 				Aliases: []tfbridge.AliasInfo{
-					{Type: ref("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")},
+					{Type: new("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")},
 				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"routing_rules": {
@@ -3864,7 +3865,7 @@ func providerFromMeta(
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: ref("aws:s3/BucketObject:BucketObject"),
+						Type: new("aws:s3/BucketObject:BucketObject"),
 					},
 				},
 			},
@@ -4687,8 +4688,8 @@ func providerFromMeta(
 					// so we enforce that at the Pulumi API as
 					// well. See
 					// https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-how-to.html
-					"ttl":                    {MaxItemsOne: ref(true)},
-					"point_in_time_recovery": {MaxItemsOne: ref(true)},
+					"ttl":                    {MaxItemsOne: new(true)},
+					"point_in_time_recovery": {MaxItemsOne: new(true)},
 				},
 			},
 			"aws_dynamodb_table_item": {Tok: awsDataSource(dynamodbMod, "getTableItem")},
@@ -4721,11 +4722,11 @@ func providerFromMeta(
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"associate_public_ip_address": {
 									Type:           "boolean",
-									MarkAsOptional: ref(true),
+									MarkAsOptional: new(true),
 								},
 								"delete_on_termination": {
 									Type:           "boolean",
-									MarkAsOptional: ref(true),
+									MarkAsOptional: new(true),
 								},
 							},
 						},
@@ -4820,7 +4821,7 @@ func providerFromMeta(
 					// This attribute is flattened upstream, so we
 					// only show one item in the Pulumi
 					// API. https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/elasticbeanstalk/application_data_source.go#L73
-					"appversion_lifecycle": {MaxItemsOne: ref(true)},
+					"appversion_lifecycle": {MaxItemsOne: new(true)},
 				},
 			},
 
@@ -4832,10 +4833,10 @@ func providerFromMeta(
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream:
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L302.
-					"access_logs": {MaxItemsOne: ref(true)},
+					"access_logs": {MaxItemsOne: new(true)},
 					// This attribute is flattened upstream:
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L327
-					"health_check": {MaxItemsOne: ref(true)},
+					"health_check": {MaxItemsOne: new(true)},
 				},
 			},
 
@@ -4871,7 +4872,7 @@ func providerFromMeta(
 					// This attribute is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/eks/cluster_data_source.go#L231
 					// for details.
-					"vpc_config": {MaxItemsOne: ref(true)},
+					"vpc_config": {MaxItemsOne: new(true)},
 				},
 			},
 			"aws_eks_cluster_auth":  {Tok: awsDataSource(eksMod, "getClusterAuth")},
@@ -4916,16 +4917,16 @@ func providerFromMeta(
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This item is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L263-L273
-					"dead_letter_config": {MaxItemsOne: ref(true)},
+					"dead_letter_config": {MaxItemsOne: new(true)},
 					// This item is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L321-L323
-					"vpc_config": {MaxItemsOne: ref(true)},
+					"vpc_config": {MaxItemsOne: new(true)},
 					// This item is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L275-L277
-					"environment": {MaxItemsOne: ref(true)},
+					"environment": {MaxItemsOne: new(true)},
 					// This item is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L313-L319
-					"tracing_config": {MaxItemsOne: ref(true)},
+					"tracing_config": {MaxItemsOne: new(true)},
 				},
 			},
 			"aws_lambda_functions":           {Tok: awsDataSource(lambdaMod, "getFunctions")},
@@ -4948,13 +4949,13 @@ func providerFromMeta(
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L315-L317
-					"configuration": {MaxItemsOne: ref(true)},
+					"configuration": {MaxItemsOne: new(true)},
 					// This attribute is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L336-L338.
-					"maintenance_window_start_time": {MaxItemsOne: ref(true)},
+					"maintenance_window_start_time": {MaxItemsOne: new(true)},
 					// This attribute is flattened upstream.
 					"logs": {
-						MaxItemsOne: ref(true),
+						MaxItemsOne: new(true),
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"audit": {
@@ -5315,7 +5316,7 @@ func providerFromMeta(
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// This attribute is flattened upstream. See
 					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elbv2/load_balancer_data_source.go#L319
-					"access_logs": {MaxItemsOne: ref(true)},
+					"access_logs": {MaxItemsOne: new(true)},
 				},
 			},
 			"aws_alb_listener": {
@@ -5326,8 +5327,8 @@ func providerFromMeta(
 				Tok:  awsDataSource(albMod, "getTargetGroup"),
 				Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"health_check": {MaxItemsOne: ref(true)},
-					"stickiness":   {MaxItemsOne: ref(true)},
+					"health_check": {MaxItemsOne: new(true)},
+					"stickiness":   {MaxItemsOne: new(true)},
 				},
 			},
 
@@ -5354,7 +5355,7 @@ func providerFromMeta(
 				Tok: awsDataSource(lbMod, "getLoadBalancer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"access_logs": {
-						MaxItemsOne: ref(true),
+						MaxItemsOne: new(true),
 					},
 				},
 			},
@@ -5363,10 +5364,10 @@ func providerFromMeta(
 				Tok: awsDataSource(lbMod, "getTargetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"stickiness": {
-						MaxItemsOne: ref(true),
+						MaxItemsOne: new(true),
 					},
 					"health_check": {
-						MaxItemsOne: ref(true),
+						MaxItemsOne: new(true),
 					},
 				},
 			},
@@ -5515,7 +5516,7 @@ func providerFromMeta(
 			info = new(tfbridge.ResourceInfo)
 		}
 		info.Tok = current
-		info.Aliases = append(info.Aliases, tfbridge.AliasInfo{Type: ref(string(prev))})
+		info.Aliases = append(info.Aliases, tfbridge.AliasInfo{Type: new(string(prev))})
 		prov.Resources[token] = info
 	}
 

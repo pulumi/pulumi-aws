@@ -92,7 +92,7 @@ func main() {
 }
 
 func exportTags(tags pulumi.StringMapOutput) pulumi.StringOutput {
-	return tags.ApplyT(func(x interface{}) string {
+	return tags.ApplyT(func(x any) string {
 		b, err := json.Marshal(x.(map[string]string))
 		if err != nil {
 			panic(err)
