@@ -123,7 +123,7 @@ func TestAccExpress(t *testing.T) {
 		sess := getAwsSession(t)
 		lambdaClient := lambda.New(sess)
 		invokeResult, err := lambdaClient.Invoke(&lambda.InvokeInput{
-			FunctionName: aws.String(lambdaARN),
+			FunctionName: new(lambdaARN),
 			Payload:      []byte("{}"),
 		})
 		require.NoError(t, err)
@@ -171,8 +171,8 @@ func TestAccBucket(t *testing.T) {
 			sess := getAwsSession(t)
 			s3client := s3.New(sess)
 			_, err := s3client.PutObject(&s3.PutObjectInput{
-				Bucket: aws.String(bucketName),
-				Key:    aws.String("foo.txt"),
+				Bucket: new(bucketName),
+				Key:    new("foo.txt"),
 				Body:   bytes.NewReader([]byte("Hello, world!")),
 			})
 			assert.NoError(t, err)
@@ -181,14 +181,14 @@ func TestAccBucket(t *testing.T) {
 			time.Sleep(5 * time.Second)
 
 			getOut, err := s3client.GetObject(&s3.GetObjectInput{
-				Bucket: aws.String(bucketName),
-				Key:    aws.String("lastPutFile.json"),
+				Bucket: new(bucketName),
+				Key:    new("lastPutFile.json"),
 			})
 			assert.NoError(t, err)
 			body, err := io.ReadAll(getOut.Body)
 			assert.NoError(t, err)
 
-			var data map[string]interface{}
+			var data map[string]any
 			err = json.Unmarshal(body, &data)
 			assert.NoError(t, err)
 
@@ -257,14 +257,14 @@ func TestAccCallbackFunction(t *testing.T) {
 		validate: func(t *testing.T, _ *pulumitest.PulumiTest, result auto.UpResult) {
 			sess := getAwsSession(t)
 			lambdaClient := lambda.New(sess)
-			arns := result.Outputs["arns"].Value.([]interface{})
+			arns := result.Outputs["arns"].Value.([]any)
 			results := make(chan bool, len(arns))
 			for i := range arns {
 				functionArn := arns[i].(string)
 				go func() {
 					defer func() { results <- true }()
 					res, err := lambdaClient.Invoke(&lambda.InvokeInput{
-						FunctionName: aws.String(functionArn),
+						FunctionName: new(functionArn),
 						Payload:      []byte("{}"),
 					})
 					assert.NoError(t, err)
@@ -325,8 +325,8 @@ func getAwsSession(t *testing.T) *session.Session {
 	sess, err := session.NewSessionWithOptions(session.Options{
 		SharedConfigState: session.SharedConfigEnable,
 		Config: aws.Config{
-			Region:                        aws.String(region),
-			CredentialsChainVerboseErrors: aws.Bool(true),
+			Region:                        new(region),
+			CredentialsChainVerboseErrors: new(true),
 		},
 	})
 	require.NoError(t, err)
@@ -475,8 +475,8 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 
 	// Check that the delete marker is present
 	require.Len(t, policyEmpty.Value, 1)
-	deleteMarker := policyEmpty.Value.([]interface{})[0]
-	require.Empty(t, deleteMarker.(map[string]interface{})["policy"])
+	deleteMarker := policyEmpty.Value.([]any)[0]
+	require.Empty(t, deleteMarker.(map[string]any)["policy"])
 
 	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
 	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
