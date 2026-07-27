@@ -235,7 +235,7 @@ func findProviderResource(
 	return ""
 }
 
-func assertBoolPtr(t *testing.T, actual *bool, expected bool, msgAndArgs ...interface{}) {
+func assertBoolPtr(t *testing.T, actual *bool, expected bool, msgAndArgs ...any) {
 	t.Helper()
 
 	if assert.NotNil(t, actual, msgAndArgs...) {
@@ -282,7 +282,6 @@ func TestCustomAutoNameTransforms(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -367,7 +366,6 @@ func TestRdsInstanceIdentifierAutonaming(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 

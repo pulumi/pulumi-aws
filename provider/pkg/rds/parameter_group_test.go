@@ -51,7 +51,6 @@ func TestParameterGroupReconfigureSupportsSchemaAndSchemaFunc(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
@@ -71,12 +70,12 @@ func TestParameterGroupReconfigureSupportsSchemaAndSchemaFunc(t *testing.T) {
 			assert.True(t, applyMethod.Computed)
 			assert.Nil(t, applyMethod.Default)
 
-			immediateHash := parameter.Set(map[string]interface{}{
+			immediateHash := parameter.Set(map[string]any{
 				"name":         "max_connections",
 				"value":        "100",
 				"apply_method": "immediate",
 			})
-			pendingRebootHash := parameter.Set(map[string]interface{}{
+			pendingRebootHash := parameter.Set(map[string]any{
 				"name":         "max_connections",
 				"value":        "100",
 				"apply_method": "pending-reboot",
@@ -107,8 +106,8 @@ func parameterGroupSchema() map[string]*schema.Schema {
 					},
 				},
 			},
-			Set: func(v interface{}) int {
-				m := v.(map[string]interface{})
+			Set: func(v any) int {
+				m := v.(map[string]any)
 				if m["apply_method"] == "immediate" {
 					return 1
 				}

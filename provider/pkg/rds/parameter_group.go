@@ -17,6 +17,7 @@ package rds
 import (
 	"context"
 	"fmt"
+	"maps"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -99,13 +100,11 @@ func reconfigureSchema(r *schema.Resource, reconfigure func(map[string]*schema.S
 
 // Exclude "apply_method" from influencing the set element hash for a parameter.
 func parameterGroupParameterSetFunc(oldSetFunc schema.SchemaSetFunc) schema.SchemaSetFunc {
-	return func(v interface{}) int {
-		m := v.(map[string]interface{})
+	return func(v any) int {
+		m := v.(map[string]any)
 		// Pretend apply_method is always "immediate" to avoid changing the hash
-		copyMap := make(map[string]interface{}, len(m))
-		for k, v := range m {
-			copyMap[k] = v
-		}
+		copyMap := make(map[string]any, len(m))
+		maps.Copy(copyMap, m)
 		copyMap["apply_method"] = "immediate"
 		return oldSetFunc(copyMap)
 	}
@@ -113,7 +112,7 @@ func parameterGroupParameterSetFunc(oldSetFunc schema.SchemaSetFunc) schema.Sche
 
 // Customize the diff to pretend that no changes are happening for a parameter that changes its apply_method but not its
 // value. This makes the provider match cloud behavior better.
-func parameterGroupCustomizeDiff(_ context.Context, diff *schema.ResourceDiff, _ interface{}) error {
+func parameterGroupCustomizeDiff(_ context.Context, diff *schema.ResourceDiff, _ any) error {
 	// If the apply_method is changed, and the value is not, then clear the apply_method change to ignore it.
 	for _, changedKey := range diff.GetChangedKeysPrefix("parameter") {
 		// Surprisingly GetChangedKeysPrefix returns keys that did not actually change, so skip those.
@@ -142,7 +141,7 @@ func addDiffCustomizer(r *schema.Resource, cdf schema.CustomizeDiffFunc) {
 	}
 	// Sequence to compose the custom diff functions otherwise.
 	oldCDF := r.CustomizeDiff
-	r.CustomizeDiff = func(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
+	r.CustomizeDiff = func(ctx context.Context, diff *schema.ResourceDiff, meta any) error {
 		if err := oldCDF(ctx, diff, meta); err != nil {
 			return err
 		}
