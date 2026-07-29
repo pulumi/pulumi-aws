@@ -1,0 +1,69 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Sky Moore <i@msky.me>
+Date: Tue, 28 Jul 2026 19:20:00 -0500
+Subject: [PATCH] Fix panic in route53recoverycontrolconfig safety_rule Create
+
+resourceSafetyRuleCreate, via createAssertionRule and createGatingRule,
+dereferenced output.AssertionRule and output.GatingRule before checking
+the error returned by CreateSafetyRule. When the API returns an error,
+for example ServiceQuotaExceededException when a control panel already
+holds the maximum number of safety rules, output is nil and the
+dereference panics with a nil pointer. Through the bridge this crashes
+the provider process and cascades connection refused errors to every
+other in-flight resource served by the same plugin.
+
+Move the result assignment below the error check and the nil-response
+check so the underlying AWS error surfaces as a diagnostic instead of a
+panic.
+
+Tracking issue: https://github.com/pulumi/pulumi-aws/issues/6577
+Upstream issue: https://github.com/hashicorp/terraform-provider-aws/issues/49154
+Upstream pull request: https://github.com/hashicorp/terraform-provider-aws/pull/49155
+
+diff --git a/internal/service/route53recoverycontrolconfig/safety_rule.go b/internal/service/route53recoverycontrolconfig/safety_rule.go
+index e9f2637ec9c..7f4a6b55712 100644
+--- a/internal/service/route53recoverycontrolconfig/safety_rule.go
++++ b/internal/service/route53recoverycontrolconfig/safety_rule.go
+@@ -263,16 +263,17 @@ func createAssertionRule(ctx context.Context, d *schema.ResourceData, meta any)
+ 	}
+ 
+ 	output, err := conn.CreateSafetyRule(ctx, input)
+-	result := output.AssertionRule
+ 
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating Route53 Recovery Control Config Assertion Rule: %s", err)
+ 	}
+ 
+-	if result == nil {
++	if output == nil || output.AssertionRule == nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating Route53 Recovery Control Config Assertion Rule empty response")
+ 	}
+ 
++	result := output.AssertionRule
++
+ 	d.SetId(aws.ToString(result.SafetyRuleArn))
+ 
+ 	if _, err := waitSafetyRuleCreated(ctx, conn, d.Id()); err != nil {
+@@ -305,16 +306,17 @@ func createGatingRule(ctx context.Context, d *schema.ResourceData, meta any) dia
+ 	}
+ 
+ 	output, err := conn.CreateSafetyRule(ctx, input)
+-	result := output.GatingRule
+ 
+ 	if err != nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating Route53 Recovery Control Config Gating Rule: %s", err)
+ 	}
+ 
+-	if result == nil {
++	if output == nil || output.GatingRule == nil {
+ 		return sdkdiag.AppendErrorf(diags, "creating Route53 Recovery Control Config Gating Rule empty response")
+ 	}
+ 
++	result := output.GatingRule
++
+ 	d.SetId(aws.ToString(result.SafetyRuleArn))
+ 
+ 	if _, err := waitSafetyRuleCreated(ctx, conn, d.Id()); err != nil {
+--
+2.39.0
+
