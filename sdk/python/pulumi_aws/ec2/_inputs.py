@@ -9583,6 +9583,10 @@ class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
     """
     The integer index of the network interface attachment.
     """
+    ena_queue_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+    """
     ena_srd_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict']]]
     """
     Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
@@ -9657,6 +9661,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  delete_on_termination: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  device_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
                  ena_srd_specification: pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs']] = None,
                  interface_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_address_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -9680,6 +9685,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[_builtins.str] delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param pulumi.Input[_builtins.str] description: Description of the network interface.
         :param pulumi.Input[_builtins.int] device_index: The integer index of the network interface attachment.
+        :param pulumi.Input[_builtins.int] ena_queue_count: The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
         :param pulumi.Input['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs'] ena_srd_specification: Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         :param pulumi.Input[_builtins.str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param pulumi.Input[_builtins.int] ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -9709,6 +9715,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_queue_count is not None:
+            pulumi.set(__self__, "ena_queue_count", ena_queue_count)
         if ena_srd_specification is not None:
             pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if interface_type is not None:
@@ -9813,6 +9821,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "device_index", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enaQueueCount")
+    def ena_queue_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+        """
+        return pulumi.get(self, "ena_queue_count")
+
+    @ena_queue_count.setter
+    def ena_queue_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "ena_queue_count", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSpecification")

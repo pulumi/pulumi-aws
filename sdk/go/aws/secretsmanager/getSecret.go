@@ -108,6 +108,8 @@ type LookupSecretResult struct {
 	Region string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
+	// Type of secret for managed external secrets.
+	Type string `pulumi:"type"`
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
@@ -196,6 +198,11 @@ func (o LookupSecretResultOutput) Region() pulumi.StringOutput {
 // Tags of the secret.
 func (o LookupSecretResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSecretResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of secret for managed external secrets.
+func (o LookupSecretResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

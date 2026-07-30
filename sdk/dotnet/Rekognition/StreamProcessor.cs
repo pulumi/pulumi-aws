@@ -311,6 +311,17 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the Stream Processor.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Rekognition Stream Processor using the `Name`. For example:
     /// 
     /// ```sh
@@ -345,13 +356,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// Name of the Stream Processor.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Output("notificationChannel")]
         public Output<Outputs.StreamProcessorNotificationChannel?> NotificationChannel { get; private set; } = null!;
@@ -369,13 +380,13 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
+        /// Locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         [Output("regionsOfInterests")]
         public Output<ImmutableArray<Outputs.StreamProcessorRegionsOfInterest>> RegionsOfInterests { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -389,20 +400,19 @@ namespace Pulumi.Aws.Rekognition
         public Output<Outputs.StreamProcessorSettings> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `Arn` instead.
+        /// (**Deprecated**) ARN of the Stream Processor. Use `Arn` instead.
         /// </summary>
         [Output("streamProcessorArn")]
         public Output<string> StreamProcessorArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -475,13 +485,13 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// Name of the Stream Processor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelArgs>? NotificationChannel { get; set; }
@@ -502,7 +512,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
+        /// Locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestArgs> RegionsOfInterests
         {
@@ -511,7 +521,7 @@ namespace Pulumi.Aws.Rekognition
         }
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -528,7 +538,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -572,13 +582,13 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of the Stream Processor.
+        /// Name of the Stream Processor.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
+        /// Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `NotificationChannel`.
         /// </summary>
         [Input("notificationChannel")]
         public Input<Inputs.StreamProcessorNotificationChannelGetArgs>? NotificationChannel { get; set; }
@@ -599,7 +609,7 @@ namespace Pulumi.Aws.Rekognition
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;
 
         /// <summary>
-        /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
+        /// Locations in the frames where Amazon Rekognition checks for objects or people. See `RegionsOfInterest`.
         /// </summary>
         public InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs> RegionsOfInterests
         {
@@ -608,7 +618,7 @@ namespace Pulumi.Aws.Rekognition
         }
 
         /// <summary>
-        /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        /// Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -622,8 +632,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<Inputs.StreamProcessorSettingsGetArgs>? Settings { get; set; }
 
         /// <summary>
-        /// (**Deprecated**) ARN of the Stream Processor.
-        /// Use `Arn` instead.
+        /// (**Deprecated**) ARN of the Stream Processor. Use `Arn` instead.
         /// </summary>
         [Input("streamProcessorArn")]
         public Input<string>? StreamProcessorArn { get; set; }
@@ -632,7 +641,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -644,7 +653,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

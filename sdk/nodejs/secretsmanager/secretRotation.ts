@@ -27,6 +27,39 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Managed External Secret Rotation
+ *
+ * For managed external secrets that are rotated by AWS partner integrations:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.secretsmanager.Secret("example", {
+ *     name: "example-salesforce-client-secret",
+ *     type: "SalesforceClientSecret",
+ * });
+ * const exampleSecretRotation = new aws.secretsmanager.SecretRotation("example", {
+ *     secretId: example.id,
+ *     externalSecretRotationRoleArn: exampleAwsIamRole.arn,
+ *     externalSecretRotationMetadatas: [
+ *         {
+ *             key: "adminSecretArn",
+ *             value: example.arn,
+ *         },
+ *         {
+ *             key: "apiVersion",
+ *             value: "v65.0",
+ *         },
+ *     ],
+ *     rotationRules: {
+ *         automaticallyAfterDays: Number(rotationDays),
+ *     },
+ * });
+ * ```
+ *
+ * For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
+ *
  * ### Rotation Configuration
  *
  * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -78,6 +111,14 @@ export class SecretRotation extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     */
+    declare public readonly externalSecretRotationMetadatas: pulumi.Output<outputs.secretsmanager.SecretRotationExternalSecretRotationMetadata[] | undefined>;
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     */
+    declare public readonly externalSecretRotationRoleArn: pulumi.Output<string | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -115,6 +156,8 @@ export class SecretRotation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretRotationState | undefined;
+            resourceInputs["externalSecretRotationMetadatas"] = state?.externalSecretRotationMetadatas;
+            resourceInputs["externalSecretRotationRoleArn"] = state?.externalSecretRotationRoleArn;
             resourceInputs["region"] = state?.region;
             resourceInputs["rotateImmediately"] = state?.rotateImmediately;
             resourceInputs["rotationEnabled"] = state?.rotationEnabled;
@@ -129,6 +172,8 @@ export class SecretRotation extends pulumi.CustomResource {
             if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
+            resourceInputs["externalSecretRotationMetadatas"] = args?.externalSecretRotationMetadatas;
+            resourceInputs["externalSecretRotationRoleArn"] = args?.externalSecretRotationRoleArn;
             resourceInputs["region"] = args?.region;
             resourceInputs["rotateImmediately"] = args?.rotateImmediately;
             resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
@@ -145,6 +190,14 @@ export class SecretRotation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecretRotation resources.
  */
 export interface SecretRotationState {
+    /**
+     * Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     */
+    externalSecretRotationMetadatas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretRotationExternalSecretRotationMetadata>[] | undefined>;
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     */
+    externalSecretRotationRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -175,6 +228,14 @@ export interface SecretRotationState {
  * The set of arguments for constructing a SecretRotation resource.
  */
 export interface SecretRotationArgs {
+    /**
+     * Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     */
+    externalSecretRotationMetadatas?: pulumi.Input<pulumi.Input<inputs.secretsmanager.SecretRotationExternalSecretRotationMetadata>[] | undefined>;
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     */
+    externalSecretRotationRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

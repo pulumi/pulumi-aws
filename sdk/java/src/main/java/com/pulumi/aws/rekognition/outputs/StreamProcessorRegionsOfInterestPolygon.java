@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorRegionsOfInterestPolygon {
     /**
-     * @return The value of the X coordinate for a point on a Polygon.
+     * @return Value of the X coordinate for a point on a Polygon.
      * 
      */
     private @Nullable Double x;
     /**
-     * @return The value of the Y coordinate for a point on a Polygon.
+     * @return Value of the Y coordinate for a point on a Polygon.
      * 
      */
     private @Nullable Double y;
 
     private StreamProcessorRegionsOfInterestPolygon() {}
     /**
-     * @return The value of the X coordinate for a point on a Polygon.
+     * @return Value of the X coordinate for a point on a Polygon.
      * 
      */
     public Optional<Double> x() {
         return Optional.ofNullable(this.x);
     }
     /**
-     * @return The value of the Y coordinate for a point on a Polygon.
+     * @return Value of the Y coordinate for a point on a Polygon.
      * 
      */
     public Optional<Double> y() {

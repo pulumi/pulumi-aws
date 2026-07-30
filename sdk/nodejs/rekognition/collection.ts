@@ -26,6 +26,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `collectionId` - (String) The name of the collection.
+ *
+ * #### Optional
+ *
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Rekognition Collection using the `collectionId`. For example:
  *
  * ```sh
@@ -65,13 +76,13 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the collection
+     * Name of the collection
      *
      * The following arguments are optional:
      */
     declare public readonly collectionId: pulumi.Output<string>;
     /**
-     * The Face Model Version that the collection was initialized with
+     * Face Model Version that the collection was initialized with
      */
     declare public /*out*/ readonly faceModelVersion: pulumi.Output<string>;
     /**
@@ -83,7 +94,7 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.rekognition.CollectionTimeouts | undefined>;
@@ -135,13 +146,13 @@ export interface CollectionState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the collection
+     * Name of the collection
      *
      * The following arguments are optional:
      */
     collectionId?: pulumi.Input<string | undefined>;
     /**
-     * The Face Model Version that the collection was initialized with
+     * Face Model Version that the collection was initialized with
      */
     faceModelVersion?: pulumi.Input<string | undefined>;
     /**
@@ -153,7 +164,7 @@ export interface CollectionState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.rekognition.CollectionTimeouts | undefined>;
@@ -164,7 +175,7 @@ export interface CollectionState {
  */
 export interface CollectionArgs {
     /**
-     * The name of the collection
+     * Name of the collection
      *
      * The following arguments are optional:
      */

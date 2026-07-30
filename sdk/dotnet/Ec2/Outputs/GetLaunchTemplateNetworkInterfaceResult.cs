@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly bool? DeleteOnTermination;
         public readonly string Description;
         public readonly int DeviceIndex;
+        public readonly int EnaQueueCount;
         public readonly string InterfaceType;
         public readonly int Ipv4AddressCount;
         public readonly ImmutableArray<string> Ipv4Addresses;
@@ -48,6 +49,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             string description,
 
             int deviceIndex,
+
+            int enaQueueCount,
 
             string interfaceType,
 
@@ -85,6 +88,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaQueueCount = enaQueueCount;
             InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;

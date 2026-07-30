@@ -1084,8 +1084,10 @@ func (o PipelineStageArrayOutput) Index(i pulumi.IntInput) PipelineStageOutput {
 }
 
 type PipelineStageAction struct {
-	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
 	Category string `pulumi:"category"`
+	// A list of shell commands to run with the compute action.
+	Commands []string `pulumi:"commands"`
 	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
 	Configuration map[string]string `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
@@ -1094,8 +1096,12 @@ type PipelineStageAction struct {
 	Name string `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
 	Namespace *string `pulumi:"namespace"`
-	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+	// A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
 	OutputArtifacts []string `pulumi:"outputArtifacts"`
+	// A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+	OutputArtifactsForComputeActions []PipelineStageActionOutputArtifactsForComputeAction `pulumi:"outputArtifactsForComputeActions"`
+	// A list of variables that are to be exported from the compute action.
+	OutputVariables []string `pulumi:"outputVariables"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner string `pulumi:"owner"`
 	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
@@ -1124,8 +1130,10 @@ type PipelineStageActionInput interface {
 }
 
 type PipelineStageActionArgs struct {
-	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+	// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
 	Category pulumi.StringInput `pulumi:"category"`
+	// A list of shell commands to run with the compute action.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
 	Configuration pulumi.StringMapInput `pulumi:"configuration"`
 	// A list of artifact names to be worked on.
@@ -1134,8 +1142,12 @@ type PipelineStageActionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The namespace all output variables will be accessed from.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+	// A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
 	OutputArtifacts pulumi.StringArrayInput `pulumi:"outputArtifacts"`
+	// A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+	OutputArtifactsForComputeActions PipelineStageActionOutputArtifactsForComputeActionArrayInput `pulumi:"outputArtifactsForComputeActions"`
+	// A list of variables that are to be exported from the compute action.
+	OutputVariables pulumi.StringArrayInput `pulumi:"outputVariables"`
 	// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
 	Owner pulumi.StringInput `pulumi:"owner"`
 	// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
@@ -1203,9 +1215,14 @@ func (o PipelineStageActionOutput) ToPipelineStageActionOutputWithContext(ctx co
 	return o
 }
 
-// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
 func (o PipelineStageActionOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineStageAction) string { return v.Category }).(pulumi.StringOutput)
+}
+
+// A list of shell commands to run with the compute action.
+func (o PipelineStageActionOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
 // A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
@@ -1228,9 +1245,21 @@ func (o PipelineStageActionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineStageAction) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+// A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
 func (o PipelineStageActionOutput) OutputArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineStageAction) []string { return v.OutputArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+func (o PipelineStageActionOutput) OutputArtifactsForComputeActions() PipelineStageActionOutputArtifactsForComputeActionArrayOutput {
+	return o.ApplyT(func(v PipelineStageAction) []PipelineStageActionOutputArtifactsForComputeAction {
+		return v.OutputArtifactsForComputeActions
+	}).(PipelineStageActionOutputArtifactsForComputeActionArrayOutput)
+}
+
+// A list of variables that are to be exported from the compute action.
+func (o PipelineStageActionOutput) OutputVariables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageAction) []string { return v.OutputVariables }).(pulumi.StringArrayOutput)
 }
 
 // The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -1286,6 +1315,112 @@ func (o PipelineStageActionArrayOutput) Index(i pulumi.IntInput) PipelineStageAc
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageAction {
 		return vs[0].([]PipelineStageAction)[vs[1].(int)]
 	}).(PipelineStageActionOutput)
+}
+
+type PipelineStageActionOutputArtifactsForComputeAction struct {
+	// A list of the files to associate with the output artifact that will be exported from the compute action.
+	Files []string `pulumi:"files"`
+	// The name of the output artifact.
+	Name string `pulumi:"name"`
+}
+
+// PipelineStageActionOutputArtifactsForComputeActionInput is an input type that accepts PipelineStageActionOutputArtifactsForComputeActionArgs and PipelineStageActionOutputArtifactsForComputeActionOutput values.
+// You can construct a concrete instance of `PipelineStageActionOutputArtifactsForComputeActionInput` via:
+//
+//	PipelineStageActionOutputArtifactsForComputeActionArgs{...}
+type PipelineStageActionOutputArtifactsForComputeActionInput interface {
+	pulumi.Input
+
+	ToPipelineStageActionOutputArtifactsForComputeActionOutput() PipelineStageActionOutputArtifactsForComputeActionOutput
+	ToPipelineStageActionOutputArtifactsForComputeActionOutputWithContext(context.Context) PipelineStageActionOutputArtifactsForComputeActionOutput
+}
+
+type PipelineStageActionOutputArtifactsForComputeActionArgs struct {
+	// A list of the files to associate with the output artifact that will be exported from the compute action.
+	Files pulumi.StringArrayInput `pulumi:"files"`
+	// The name of the output artifact.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PipelineStageActionOutputArtifactsForComputeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageActionOutputArtifactsForComputeAction)(nil)).Elem()
+}
+
+func (i PipelineStageActionOutputArtifactsForComputeActionArgs) ToPipelineStageActionOutputArtifactsForComputeActionOutput() PipelineStageActionOutputArtifactsForComputeActionOutput {
+	return i.ToPipelineStageActionOutputArtifactsForComputeActionOutputWithContext(context.Background())
+}
+
+func (i PipelineStageActionOutputArtifactsForComputeActionArgs) ToPipelineStageActionOutputArtifactsForComputeActionOutputWithContext(ctx context.Context) PipelineStageActionOutputArtifactsForComputeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionOutputArtifactsForComputeActionOutput)
+}
+
+// PipelineStageActionOutputArtifactsForComputeActionArrayInput is an input type that accepts PipelineStageActionOutputArtifactsForComputeActionArray and PipelineStageActionOutputArtifactsForComputeActionArrayOutput values.
+// You can construct a concrete instance of `PipelineStageActionOutputArtifactsForComputeActionArrayInput` via:
+//
+//	PipelineStageActionOutputArtifactsForComputeActionArray{ PipelineStageActionOutputArtifactsForComputeActionArgs{...} }
+type PipelineStageActionOutputArtifactsForComputeActionArrayInput interface {
+	pulumi.Input
+
+	ToPipelineStageActionOutputArtifactsForComputeActionArrayOutput() PipelineStageActionOutputArtifactsForComputeActionArrayOutput
+	ToPipelineStageActionOutputArtifactsForComputeActionArrayOutputWithContext(context.Context) PipelineStageActionOutputArtifactsForComputeActionArrayOutput
+}
+
+type PipelineStageActionOutputArtifactsForComputeActionArray []PipelineStageActionOutputArtifactsForComputeActionInput
+
+func (PipelineStageActionOutputArtifactsForComputeActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageActionOutputArtifactsForComputeAction)(nil)).Elem()
+}
+
+func (i PipelineStageActionOutputArtifactsForComputeActionArray) ToPipelineStageActionOutputArtifactsForComputeActionArrayOutput() PipelineStageActionOutputArtifactsForComputeActionArrayOutput {
+	return i.ToPipelineStageActionOutputArtifactsForComputeActionArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineStageActionOutputArtifactsForComputeActionArray) ToPipelineStageActionOutputArtifactsForComputeActionArrayOutputWithContext(ctx context.Context) PipelineStageActionOutputArtifactsForComputeActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineStageActionOutputArtifactsForComputeActionArrayOutput)
+}
+
+type PipelineStageActionOutputArtifactsForComputeActionOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageActionOutputArtifactsForComputeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineStageActionOutputArtifactsForComputeAction)(nil)).Elem()
+}
+
+func (o PipelineStageActionOutputArtifactsForComputeActionOutput) ToPipelineStageActionOutputArtifactsForComputeActionOutput() PipelineStageActionOutputArtifactsForComputeActionOutput {
+	return o
+}
+
+func (o PipelineStageActionOutputArtifactsForComputeActionOutput) ToPipelineStageActionOutputArtifactsForComputeActionOutputWithContext(ctx context.Context) PipelineStageActionOutputArtifactsForComputeActionOutput {
+	return o
+}
+
+// A list of the files to associate with the output artifact that will be exported from the compute action.
+func (o PipelineStageActionOutputArtifactsForComputeActionOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineStageActionOutputArtifactsForComputeAction) []string { return v.Files }).(pulumi.StringArrayOutput)
+}
+
+// The name of the output artifact.
+func (o PipelineStageActionOutputArtifactsForComputeActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineStageActionOutputArtifactsForComputeAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PipelineStageActionOutputArtifactsForComputeActionArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineStageActionOutputArtifactsForComputeActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineStageActionOutputArtifactsForComputeAction)(nil)).Elem()
+}
+
+func (o PipelineStageActionOutputArtifactsForComputeActionArrayOutput) ToPipelineStageActionOutputArtifactsForComputeActionArrayOutput() PipelineStageActionOutputArtifactsForComputeActionArrayOutput {
+	return o
+}
+
+func (o PipelineStageActionOutputArtifactsForComputeActionArrayOutput) ToPipelineStageActionOutputArtifactsForComputeActionArrayOutputWithContext(ctx context.Context) PipelineStageActionOutputArtifactsForComputeActionArrayOutput {
+	return o
+}
+
+func (o PipelineStageActionOutputArtifactsForComputeActionArrayOutput) Index(i pulumi.IntInput) PipelineStageActionOutputArtifactsForComputeActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineStageActionOutputArtifactsForComputeAction {
+		return vs[0].([]PipelineStageActionOutputArtifactsForComputeAction)[vs[1].(int)]
+	}).(PipelineStageActionOutputArtifactsForComputeActionOutput)
 }
 
 type PipelineStageBeforeEntry struct {
@@ -5648,6 +5783,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageArrayInput)(nil)).Elem(), PipelineStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionInput)(nil)).Elem(), PipelineStageActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionArrayInput)(nil)).Elem(), PipelineStageActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionOutputArtifactsForComputeActionInput)(nil)).Elem(), PipelineStageActionOutputArtifactsForComputeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionOutputArtifactsForComputeActionArrayInput)(nil)).Elem(), PipelineStageActionOutputArtifactsForComputeActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryInput)(nil)).Elem(), PipelineStageBeforeEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryPtrInput)(nil)).Elem(), PipelineStageBeforeEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageBeforeEntryConditionInput)(nil)).Elem(), PipelineStageBeforeEntryConditionArgs{})
@@ -5728,6 +5865,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionOutput{})
 	pulumi.RegisterOutputType(PipelineStageActionArrayOutput{})
+	pulumi.RegisterOutputType(PipelineStageActionOutputArtifactsForComputeActionOutput{})
+	pulumi.RegisterOutputType(PipelineStageActionOutputArtifactsForComputeActionArrayOutput{})
 	pulumi.RegisterOutputType(PipelineStageBeforeEntryOutput{})
 	pulumi.RegisterOutputType(PipelineStageBeforeEntryPtrOutput{})
 	pulumi.RegisterOutputType(PipelineStageBeforeEntryConditionOutput{})

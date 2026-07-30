@@ -17035,6 +17035,8 @@ type LaunchTemplateNetworkInterface struct {
 	Description *string `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex *int `pulumi:"deviceIndex"`
+	// The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+	EnaQueueCount *int `pulumi:"enaQueueCount"`
 	// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
 	EnaSrdSpecification *LaunchTemplateNetworkInterfaceEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -17093,6 +17095,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The integer index of the network interface attachment.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+	EnaQueueCount pulumi.IntPtrInput `pulumi:"enaQueueCount"`
 	// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
 	EnaSrdSpecification LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
@@ -17208,6 +17212,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 // The integer index of the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+// The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+func (o LaunchTemplateNetworkInterfaceOutput) EnaQueueCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.EnaQueueCount }).(pulumi.IntPtrOutput)
 }
 
 // Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
@@ -54941,6 +54950,7 @@ type GetLaunchTemplateNetworkInterface struct {
 	DeleteOnTermination              *bool                                                              `pulumi:"deleteOnTermination"`
 	Description                      string                                                             `pulumi:"description"`
 	DeviceIndex                      int                                                                `pulumi:"deviceIndex"`
+	EnaQueueCount                    int                                                                `pulumi:"enaQueueCount"`
 	InterfaceType                    string                                                             `pulumi:"interfaceType"`
 	Ipv4AddressCount                 int                                                                `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses                    []string                                                           `pulumi:"ipv4Addresses"`
@@ -54976,6 +54986,7 @@ type GetLaunchTemplateNetworkInterfaceArgs struct {
 	DeleteOnTermination              pulumi.BoolPtrInput                                                        `pulumi:"deleteOnTermination"`
 	Description                      pulumi.StringInput                                                         `pulumi:"description"`
 	DeviceIndex                      pulumi.IntInput                                                            `pulumi:"deviceIndex"`
+	EnaQueueCount                    pulumi.IntInput                                                            `pulumi:"enaQueueCount"`
 	InterfaceType                    pulumi.StringInput                                                         `pulumi:"interfaceType"`
 	Ipv4AddressCount                 pulumi.IntInput                                                            `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses                    pulumi.StringArrayInput                                                    `pulumi:"ipv4Addresses"`
@@ -55068,6 +55079,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringOutp
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) EnaQueueCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) int { return v.EnaQueueCount }).(pulumi.IntOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringOutput {

@@ -39,6 +39,53 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### CloudFront Standard Logging (v2)
+    /// 
+    /// CloudFront delivers access logs through CloudWatch Logs, so a distribution's standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `RecordFields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.LogDeliverySource("example", new()
+    ///     {
+    ///         Name = "cloudfront-access-logs",
+    ///         LogType = "ACCESS_LOGS",
+    ///         ResourceArn = exampleAwsCloudfrontDistribution.Arn,
+    ///     });
+    /// 
+    ///     var exampleLogDeliveryDestination = new Aws.CloudWatch.LogDeliveryDestination("example", new()
+    ///     {
+    ///         Name = "cloudfront-access-logs",
+    ///         OutputFormat = "json",
+    ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
+    ///         {
+    ///             DestinationResourceArn = exampleAwsCloudwatchLogGroup.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLogDelivery = new Aws.CloudWatch.LogDelivery("example", new()
+    ///     {
+    ///         DeliverySourceName = example.Name,
+    ///         DeliveryDestinationArn = exampleLogDeliveryDestination.Arn,
+    ///         RecordFields = new[]
+    ///         {
+    ///             "date",
+    ///             "time",
+    ///             "c-ip",
+    ///             "sc-status",
+    ///             "viewer-request-log-data",
+    ///             "viewer-response-log-data",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -86,7 +133,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> FieldDelimiter { get; private set; } = null!;
 
         /// <summary>
-        /// The list of record fields to be delivered to the destination, in order.
+        /// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `LogType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         /// </summary>
         [Output("recordFields")]
         public Output<ImmutableArray<string>> RecordFields { get; private set; } = null!;
@@ -183,7 +230,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _recordFields;
 
         /// <summary>
-        /// The list of record fields to be delivered to the destination, in order.
+        /// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `LogType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         /// </summary>
         public InputList<string> RecordFields
         {
@@ -257,7 +304,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _recordFields;
 
         /// <summary>
-        /// The list of record fields to be delivered to the destination, in order.
+        /// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `LogType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         /// </summary>
         public InputList<string> RecordFields
         {

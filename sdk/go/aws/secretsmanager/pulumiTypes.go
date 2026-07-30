@@ -146,6 +146,112 @@ func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
 	}).(SecretReplicaOutput)
 }
 
+type SecretRotationExternalSecretRotationMetadata struct {
+	// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+	Key string `pulumi:"key"`
+	// The metadata value for the specified key.
+	Value string `pulumi:"value"`
+}
+
+// SecretRotationExternalSecretRotationMetadataInput is an input type that accepts SecretRotationExternalSecretRotationMetadataArgs and SecretRotationExternalSecretRotationMetadataOutput values.
+// You can construct a concrete instance of `SecretRotationExternalSecretRotationMetadataInput` via:
+//
+//	SecretRotationExternalSecretRotationMetadataArgs{...}
+type SecretRotationExternalSecretRotationMetadataInput interface {
+	pulumi.Input
+
+	ToSecretRotationExternalSecretRotationMetadataOutput() SecretRotationExternalSecretRotationMetadataOutput
+	ToSecretRotationExternalSecretRotationMetadataOutputWithContext(context.Context) SecretRotationExternalSecretRotationMetadataOutput
+}
+
+type SecretRotationExternalSecretRotationMetadataArgs struct {
+	// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The metadata value for the specified key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SecretRotationExternalSecretRotationMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (i SecretRotationExternalSecretRotationMetadataArgs) ToSecretRotationExternalSecretRotationMetadataOutput() SecretRotationExternalSecretRotationMetadataOutput {
+	return i.ToSecretRotationExternalSecretRotationMetadataOutputWithContext(context.Background())
+}
+
+func (i SecretRotationExternalSecretRotationMetadataArgs) ToSecretRotationExternalSecretRotationMetadataOutputWithContext(ctx context.Context) SecretRotationExternalSecretRotationMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationExternalSecretRotationMetadataOutput)
+}
+
+// SecretRotationExternalSecretRotationMetadataArrayInput is an input type that accepts SecretRotationExternalSecretRotationMetadataArray and SecretRotationExternalSecretRotationMetadataArrayOutput values.
+// You can construct a concrete instance of `SecretRotationExternalSecretRotationMetadataArrayInput` via:
+//
+//	SecretRotationExternalSecretRotationMetadataArray{ SecretRotationExternalSecretRotationMetadataArgs{...} }
+type SecretRotationExternalSecretRotationMetadataArrayInput interface {
+	pulumi.Input
+
+	ToSecretRotationExternalSecretRotationMetadataArrayOutput() SecretRotationExternalSecretRotationMetadataArrayOutput
+	ToSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(context.Context) SecretRotationExternalSecretRotationMetadataArrayOutput
+}
+
+type SecretRotationExternalSecretRotationMetadataArray []SecretRotationExternalSecretRotationMetadataInput
+
+func (SecretRotationExternalSecretRotationMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (i SecretRotationExternalSecretRotationMetadataArray) ToSecretRotationExternalSecretRotationMetadataArrayOutput() SecretRotationExternalSecretRotationMetadataArrayOutput {
+	return i.ToSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i SecretRotationExternalSecretRotationMetadataArray) ToSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(ctx context.Context) SecretRotationExternalSecretRotationMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationExternalSecretRotationMetadataArrayOutput)
+}
+
+type SecretRotationExternalSecretRotationMetadataOutput struct{ *pulumi.OutputState }
+
+func (SecretRotationExternalSecretRotationMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (o SecretRotationExternalSecretRotationMetadataOutput) ToSecretRotationExternalSecretRotationMetadataOutput() SecretRotationExternalSecretRotationMetadataOutput {
+	return o
+}
+
+func (o SecretRotationExternalSecretRotationMetadataOutput) ToSecretRotationExternalSecretRotationMetadataOutputWithContext(ctx context.Context) SecretRotationExternalSecretRotationMetadataOutput {
+	return o
+}
+
+// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+func (o SecretRotationExternalSecretRotationMetadataOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretRotationExternalSecretRotationMetadata) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The metadata value for the specified key.
+func (o SecretRotationExternalSecretRotationMetadataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretRotationExternalSecretRotationMetadata) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SecretRotationExternalSecretRotationMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (SecretRotationExternalSecretRotationMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (o SecretRotationExternalSecretRotationMetadataArrayOutput) ToSecretRotationExternalSecretRotationMetadataArrayOutput() SecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o
+}
+
+func (o SecretRotationExternalSecretRotationMetadataArrayOutput) ToSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(ctx context.Context) SecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o
+}
+
+func (o SecretRotationExternalSecretRotationMetadataArrayOutput) Index(i pulumi.IntInput) SecretRotationExternalSecretRotationMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecretRotationExternalSecretRotationMetadata {
+		return vs[0].([]SecretRotationExternalSecretRotationMetadata)[vs[1].(int)]
+	}).(SecretRotationExternalSecretRotationMetadataOutput)
+}
+
 type SecretRotationRotationRules struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
 	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
@@ -319,6 +425,112 @@ func (o SecretRotationRotationRulesPtrOutput) ScheduleExpression() pulumi.String
 		}
 		return v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetSecretRotationExternalSecretRotationMetadata struct {
+	// Metadata key name.
+	Key string `pulumi:"key"`
+	// Metadata value for the specified key.
+	Value string `pulumi:"value"`
+}
+
+// GetSecretRotationExternalSecretRotationMetadataInput is an input type that accepts GetSecretRotationExternalSecretRotationMetadataArgs and GetSecretRotationExternalSecretRotationMetadataOutput values.
+// You can construct a concrete instance of `GetSecretRotationExternalSecretRotationMetadataInput` via:
+//
+//	GetSecretRotationExternalSecretRotationMetadataArgs{...}
+type GetSecretRotationExternalSecretRotationMetadataInput interface {
+	pulumi.Input
+
+	ToGetSecretRotationExternalSecretRotationMetadataOutput() GetSecretRotationExternalSecretRotationMetadataOutput
+	ToGetSecretRotationExternalSecretRotationMetadataOutputWithContext(context.Context) GetSecretRotationExternalSecretRotationMetadataOutput
+}
+
+type GetSecretRotationExternalSecretRotationMetadataArgs struct {
+	// Metadata key name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Metadata value for the specified key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetSecretRotationExternalSecretRotationMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (i GetSecretRotationExternalSecretRotationMetadataArgs) ToGetSecretRotationExternalSecretRotationMetadataOutput() GetSecretRotationExternalSecretRotationMetadataOutput {
+	return i.ToGetSecretRotationExternalSecretRotationMetadataOutputWithContext(context.Background())
+}
+
+func (i GetSecretRotationExternalSecretRotationMetadataArgs) ToGetSecretRotationExternalSecretRotationMetadataOutputWithContext(ctx context.Context) GetSecretRotationExternalSecretRotationMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationExternalSecretRotationMetadataOutput)
+}
+
+// GetSecretRotationExternalSecretRotationMetadataArrayInput is an input type that accepts GetSecretRotationExternalSecretRotationMetadataArray and GetSecretRotationExternalSecretRotationMetadataArrayOutput values.
+// You can construct a concrete instance of `GetSecretRotationExternalSecretRotationMetadataArrayInput` via:
+//
+//	GetSecretRotationExternalSecretRotationMetadataArray{ GetSecretRotationExternalSecretRotationMetadataArgs{...} }
+type GetSecretRotationExternalSecretRotationMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetSecretRotationExternalSecretRotationMetadataArrayOutput() GetSecretRotationExternalSecretRotationMetadataArrayOutput
+	ToGetSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(context.Context) GetSecretRotationExternalSecretRotationMetadataArrayOutput
+}
+
+type GetSecretRotationExternalSecretRotationMetadataArray []GetSecretRotationExternalSecretRotationMetadataInput
+
+func (GetSecretRotationExternalSecretRotationMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (i GetSecretRotationExternalSecretRotationMetadataArray) ToGetSecretRotationExternalSecretRotationMetadataArrayOutput() GetSecretRotationExternalSecretRotationMetadataArrayOutput {
+	return i.ToGetSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecretRotationExternalSecretRotationMetadataArray) ToGetSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(ctx context.Context) GetSecretRotationExternalSecretRotationMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationExternalSecretRotationMetadataArrayOutput)
+}
+
+type GetSecretRotationExternalSecretRotationMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetSecretRotationExternalSecretRotationMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (o GetSecretRotationExternalSecretRotationMetadataOutput) ToGetSecretRotationExternalSecretRotationMetadataOutput() GetSecretRotationExternalSecretRotationMetadataOutput {
+	return o
+}
+
+func (o GetSecretRotationExternalSecretRotationMetadataOutput) ToGetSecretRotationExternalSecretRotationMetadataOutputWithContext(ctx context.Context) GetSecretRotationExternalSecretRotationMetadataOutput {
+	return o
+}
+
+// Metadata key name.
+func (o GetSecretRotationExternalSecretRotationMetadataOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationExternalSecretRotationMetadata) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Metadata value for the specified key.
+func (o GetSecretRotationExternalSecretRotationMetadataOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretRotationExternalSecretRotationMetadata) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetSecretRotationExternalSecretRotationMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecretRotationExternalSecretRotationMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretRotationExternalSecretRotationMetadata)(nil)).Elem()
+}
+
+func (o GetSecretRotationExternalSecretRotationMetadataArrayOutput) ToGetSecretRotationExternalSecretRotationMetadataArrayOutput() GetSecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o
+}
+
+func (o GetSecretRotationExternalSecretRotationMetadataArrayOutput) ToGetSecretRotationExternalSecretRotationMetadataArrayOutputWithContext(ctx context.Context) GetSecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o
+}
+
+func (o GetSecretRotationExternalSecretRotationMetadataArrayOutput) Index(i pulumi.IntInput) GetSecretRotationExternalSecretRotationMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretRotationExternalSecretRotationMetadata {
+		return vs[0].([]GetSecretRotationExternalSecretRotationMetadata)[vs[1].(int)]
+	}).(GetSecretRotationExternalSecretRotationMetadataOutput)
 }
 
 type GetSecretRotationRotationRule struct {
@@ -669,8 +881,12 @@ func (o GetSecretsFilterArrayOutput) Index(i pulumi.IntInput) GetSecretsFilterOu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaInput)(nil)).Elem(), SecretReplicaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaArrayInput)(nil)).Elem(), SecretReplicaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationExternalSecretRotationMetadataInput)(nil)).Elem(), SecretRotationExternalSecretRotationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationExternalSecretRotationMetadataArrayInput)(nil)).Elem(), SecretRotationExternalSecretRotationMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRotationRulesInput)(nil)).Elem(), SecretRotationRotationRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRotationRulesPtrInput)(nil)).Elem(), SecretRotationRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationExternalSecretRotationMetadataInput)(nil)).Elem(), GetSecretRotationExternalSecretRotationMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationExternalSecretRotationMetadataArrayInput)(nil)).Elem(), GetSecretRotationExternalSecretRotationMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleInput)(nil)).Elem(), GetSecretRotationRotationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRotationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretVersionsVersionInput)(nil)).Elem(), GetSecretVersionsVersionArgs{})
@@ -679,8 +895,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsFilterArrayInput)(nil)).Elem(), GetSecretsFilterArray{})
 	pulumi.RegisterOutputType(SecretReplicaOutput{})
 	pulumi.RegisterOutputType(SecretReplicaArrayOutput{})
+	pulumi.RegisterOutputType(SecretRotationExternalSecretRotationMetadataOutput{})
+	pulumi.RegisterOutputType(SecretRotationExternalSecretRotationMetadataArrayOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesPtrOutput{})
+	pulumi.RegisterOutputType(GetSecretRotationExternalSecretRotationMetadataOutput{})
+	pulumi.RegisterOutputType(GetSecretRotationExternalSecretRotationMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRotationRuleOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRotationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretVersionsVersionOutput{})

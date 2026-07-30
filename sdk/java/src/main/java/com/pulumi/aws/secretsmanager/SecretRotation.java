@@ -6,6 +6,7 @@ package com.pulumi.aws.secretsmanager;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.secretsmanager.SecretRotationArgs;
 import com.pulumi.aws.secretsmanager.inputs.SecretRotationState;
+import com.pulumi.aws.secretsmanager.outputs.SecretRotationExternalSecretRotationMetadata;
 import com.pulumi.aws.secretsmanager.outputs.SecretRotationRotationRules;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -13,6 +14,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -59,6 +61,65 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Managed External Secret Rotation
+ * 
+ * For managed external secrets that are rotated by AWS partner integrations:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretRotation;
+ * import com.pulumi.aws.secretsmanager.SecretRotationArgs;
+ * import com.pulumi.aws.secretsmanager.inputs.SecretRotationExternalSecretRotationMetadataArgs;
+ * import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("example-salesforce-client-secret")
+ *             .type("SalesforceClientSecret")
+ *             .build());
+ * 
+ *         var exampleSecretRotation = new SecretRotation("exampleSecretRotation", SecretRotationArgs.builder()
+ *             .secretId(example.id())
+ *             .externalSecretRotationRoleArn(exampleAwsIamRole.arn())
+ *             .externalSecretRotationMetadatas(            
+ *                 SecretRotationExternalSecretRotationMetadataArgs.builder()
+ *                     .key("adminSecretArn")
+ *                     .value(example.arn())
+ *                     .build(),
+ *                 SecretRotationExternalSecretRotationMetadataArgs.builder()
+ *                     .key("apiVersion")
+ *                     .value("v65.0")
+ *                     .build())
+ *             .rotationRules(SecretRotationRotationRulesArgs.builder()
+ *                 .automaticallyAfterDays(rotationDays)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
+ * 
  * ### Rotation Configuration
  * 
  * To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -84,6 +145,34 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:secretsmanager/secretRotation:SecretRotation")
 public class SecretRotation extends com.pulumi.resources.CustomResource {
+    /**
+     * Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     * 
+     */
+    @Export(name="externalSecretRotationMetadatas", refs={List.class,SecretRotationExternalSecretRotationMetadata.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SecretRotationExternalSecretRotationMetadata>> externalSecretRotationMetadatas;
+
+    /**
+     * @return Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     * 
+     */
+    public Output<Optional<List<SecretRotationExternalSecretRotationMetadata>>> externalSecretRotationMetadatas() {
+        return Codegen.optional(this.externalSecretRotationMetadatas);
+    }
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     * 
+     */
+    @Export(name="externalSecretRotationRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> externalSecretRotationRoleArn;
+
+    /**
+     * @return ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     * 
+     */
+    public Output<Optional<String>> externalSecretRotationRoleArn() {
+        return Codegen.optional(this.externalSecretRotationRoleArn);
+    }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 

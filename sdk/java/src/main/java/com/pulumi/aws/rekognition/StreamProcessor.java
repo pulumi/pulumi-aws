@@ -314,6 +314,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the Stream Processor.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Rekognition Stream Processor using the `name`. For example:
  * 
  * ```sh
@@ -380,28 +391,28 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * The name of the Stream Processor.
+     * Name of the Stream Processor.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Stream Processor.
+     * @return Name of the Stream Processor.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     @Export(name="notificationChannel", refs={StreamProcessorNotificationChannel.class}, tree="[0]")
     private Output</* @Nullable */ StreamProcessorNotificationChannel> notificationChannel;
 
     /**
-     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * @return Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     public Output<Optional<StreamProcessorNotificationChannel>> notificationChannel() {
@@ -436,28 +447,28 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+     * Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     @Export(name="regionsOfInterests", refs={List.class,StreamProcessorRegionsOfInterest.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StreamProcessorRegionsOfInterest>> regionsOfInterests;
 
     /**
-     * @return Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+     * @return Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     public Output<Optional<List<StreamProcessorRegionsOfInterest>>> regionsOfInterests() {
         return Codegen.optional(this.regionsOfInterests);
     }
     /**
-     * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * @return Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
     public Output<String> roleArn() {
@@ -482,8 +493,7 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
         return this.settings;
     }
     /**
-     * (**Deprecated**) ARN of the Stream Processor.
-     * Use `arn` instead.
+     * (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
      * @deprecated
      * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
@@ -494,36 +504,35 @@ public class StreamProcessor extends com.pulumi.resources.CustomResource {
     private Output<String> streamProcessorArn;
 
     /**
-     * @return (**Deprecated**) ARN of the Stream Processor.
-     * Use `arn` instead.
+     * @return (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
      */
     public Output<String> streamProcessorArn() {
         return this.streamProcessorArn;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

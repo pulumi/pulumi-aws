@@ -3,12 +3,14 @@
 
 package com.pulumi.aws.secretsmanager;
 
+import com.pulumi.aws.secretsmanager.inputs.SecretRotationExternalSecretRotationMetadataArgs;
 import com.pulumi.aws.secretsmanager.inputs.SecretRotationRotationRulesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +19,36 @@ import javax.annotation.Nullable;
 public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
+
+    /**
+     * Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     * 
+     */
+    @Import(name="externalSecretRotationMetadatas")
+    private @Nullable Output<List<SecretRotationExternalSecretRotationMetadataArgs>> externalSecretRotationMetadatas;
+
+    /**
+     * @return Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+     * 
+     */
+    public Optional<Output<List<SecretRotationExternalSecretRotationMetadataArgs>>> externalSecretRotationMetadatas() {
+        return Optional.ofNullable(this.externalSecretRotationMetadatas);
+    }
+
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     * 
+     */
+    @Import(name="externalSecretRotationRoleArn")
+    private @Nullable Output<String> externalSecretRotationRoleArn;
+
+    /**
+     * @return ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+     * 
+     */
+    public Optional<Output<String>> externalSecretRotationRoleArn() {
+        return Optional.ofNullable(this.externalSecretRotationRoleArn);
+    }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -96,6 +128,8 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     private SecretRotationArgs() {}
 
     private SecretRotationArgs(SecretRotationArgs $) {
+        this.externalSecretRotationMetadatas = $.externalSecretRotationMetadatas;
+        this.externalSecretRotationRoleArn = $.externalSecretRotationRoleArn;
         this.region = $.region;
         this.rotateImmediately = $.rotateImmediately;
         this.rotationLambdaArn = $.rotationLambdaArn;
@@ -119,6 +153,58 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder(SecretRotationArgs defaults) {
             $ = new SecretRotationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param externalSecretRotationMetadatas Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretRotationMetadatas(@Nullable Output<List<SecretRotationExternalSecretRotationMetadataArgs>> externalSecretRotationMetadatas) {
+            $.externalSecretRotationMetadatas = externalSecretRotationMetadatas;
+            return this;
+        }
+
+        /**
+         * @param externalSecretRotationMetadatas Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretRotationMetadatas(List<SecretRotationExternalSecretRotationMetadataArgs> externalSecretRotationMetadatas) {
+            return externalSecretRotationMetadatas(Output.of(externalSecretRotationMetadatas));
+        }
+
+        /**
+         * @param externalSecretRotationMetadatas Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretRotationMetadatas(SecretRotationExternalSecretRotationMetadataArgs... externalSecretRotationMetadatas) {
+            return externalSecretRotationMetadatas(List.of(externalSecretRotationMetadatas));
+        }
+
+        /**
+         * @param externalSecretRotationRoleArn ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretRotationRoleArn(@Nullable Output<String> externalSecretRotationRoleArn) {
+            $.externalSecretRotationRoleArn = externalSecretRotationRoleArn;
+            return this;
+        }
+
+        /**
+         * @param externalSecretRotationRoleArn ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretRotationRoleArn(String externalSecretRotationRoleArn) {
+            return externalSecretRotationRoleArn(Output.of(externalSecretRotationRoleArn));
         }
 
         /**

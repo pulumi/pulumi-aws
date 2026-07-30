@@ -135,13 +135,18 @@ export interface GetVpcResult {
      */
     readonly instanceTenancy: string;
     /**
-     * Association ID for the IPv6 CIDR block.
+     * (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
+     *
+     * @deprecated ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
      */
     readonly ipv6AssociationId: string;
     /**
-     * IPv6 CIDR block.
+     * IPv6 CIDR block for the association.
+     *
+     * @deprecated ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      */
     readonly ipv6CidrBlock: string;
+    readonly ipv6CidrBlockAssociations: outputs.ec2.GetVpcIpv6CidrBlockAssociation[];
     /**
      * ID of the main route table associated with this VPC.
      */

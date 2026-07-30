@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.secretsmanager.outputs;
 
+import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationExternalSecretRotationMetadata;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationRotationRule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -13,6 +14,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecretRotationResult {
+    /**
+     * @return Metadata required by the external secret partner. See `externalSecretRotationMetadata` below.
+     * 
+     */
+    private List<GetSecretRotationExternalSecretRotationMetadata> externalSecretRotationMetadatas;
+    /**
+     * @return ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+     * 
+     */
+    private String externalSecretRotationRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -37,6 +48,20 @@ public final class GetSecretRotationResult {
     private String secretId;
 
     private GetSecretRotationResult() {}
+    /**
+     * @return Metadata required by the external secret partner. See `externalSecretRotationMetadata` below.
+     * 
+     */
+    public List<GetSecretRotationExternalSecretRotationMetadata> externalSecretRotationMetadatas() {
+        return this.externalSecretRotationMetadatas;
+    }
+    /**
+     * @return ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+     * 
+     */
+    public String externalSecretRotationRoleArn() {
+        return this.externalSecretRotationRoleArn;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -81,6 +106,8 @@ public final class GetSecretRotationResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetSecretRotationExternalSecretRotationMetadata> externalSecretRotationMetadatas;
+        private String externalSecretRotationRoleArn;
         private String id;
         private String region;
         private Boolean rotationEnabled;
@@ -90,6 +117,8 @@ public final class GetSecretRotationResult {
         public Builder() {}
         public Builder(GetSecretRotationResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.externalSecretRotationMetadatas = defaults.externalSecretRotationMetadatas;
+    	      this.externalSecretRotationRoleArn = defaults.externalSecretRotationRoleArn;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
     	      this.rotationEnabled = defaults.rotationEnabled;
@@ -98,6 +127,25 @@ public final class GetSecretRotationResult {
     	      this.secretId = defaults.secretId;
         }
 
+        @CustomType.Setter
+        public Builder externalSecretRotationMetadatas(List<GetSecretRotationExternalSecretRotationMetadata> externalSecretRotationMetadatas) {
+            if (externalSecretRotationMetadatas == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "externalSecretRotationMetadatas");
+            }
+            this.externalSecretRotationMetadatas = externalSecretRotationMetadatas;
+            return this;
+        }
+        public Builder externalSecretRotationMetadatas(GetSecretRotationExternalSecretRotationMetadata... externalSecretRotationMetadatas) {
+            return externalSecretRotationMetadatas(List.of(externalSecretRotationMetadatas));
+        }
+        @CustomType.Setter
+        public Builder externalSecretRotationRoleArn(String externalSecretRotationRoleArn) {
+            if (externalSecretRotationRoleArn == null) {
+              throw new MissingRequiredPropertyException("GetSecretRotationResult", "externalSecretRotationRoleArn");
+            }
+            this.externalSecretRotationRoleArn = externalSecretRotationRoleArn;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -151,6 +199,8 @@ public final class GetSecretRotationResult {
         }
         public GetSecretRotationResult build() {
             final var _resultValue = new GetSecretRotationResult();
+            _resultValue.externalSecretRotationMetadatas = externalSecretRotationMetadatas;
+            _resultValue.externalSecretRotationRoleArn = externalSecretRotationRoleArn;
             _resultValue.id = id;
             _resultValue.region = region;
             _resultValue.rotationEnabled = rotationEnabled;

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorNotificationChannel {
     /**
-     * @return The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+     * @return Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
      * 
      */
     private @Nullable String snsTopicArn;
 
     private StreamProcessorNotificationChannel() {}
     /**
-     * @return The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+     * @return Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
      * 
      */
     public Optional<String> snsTopicArn() {

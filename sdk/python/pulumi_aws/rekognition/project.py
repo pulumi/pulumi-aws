@@ -303,6 +303,17 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Desired name of the project.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
         Using `pulumi import`, import Rekognition Project using the `name`. For example:
 
         ```sh
@@ -355,6 +366,17 @@ class Project(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Desired name of the project.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
 
         Using `pulumi import`, import Rekognition Project using the `name`. For example:
 
@@ -468,7 +490,7 @@ class Project(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def feature(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def feature(self) -> pulumi.Output[_builtins.str]:
         """
         Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         """

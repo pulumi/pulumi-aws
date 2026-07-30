@@ -79,14 +79,14 @@ public final class LogDeliveryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of record fields to be delivered to the destination, in order.
+     * The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      * 
      */
     @Import(name="recordFields")
     private @Nullable Output<List<String>> recordFields;
 
     /**
-     * @return The list of record fields to be delivered to the destination, in order.
+     * @return The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      * 
      */
     public Optional<Output<List<String>>> recordFields() {
@@ -270,7 +270,7 @@ public final class LogDeliveryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
+         * @param recordFields The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class LogDeliveryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
+         * @param recordFields The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class LogDeliveryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recordFields The list of record fields to be delivered to the destination, in order.
+         * @param recordFields The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
          * 
          * @return builder
          * 

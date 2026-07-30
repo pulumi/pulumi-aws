@@ -102,6 +102,10 @@ export interface GetSecretResult {
      * Tags of the secret.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Type of secret for managed external secrets.
+     */
+    readonly type: string;
 }
 /**
  * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.

@@ -22,6 +22,45 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// ### With Inline Session Policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.PodIdentityAssociation("example", new()
+    ///     {
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         Namespace = "example",
+    ///         ServiceAccount = "example-sa",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         DisableSessionTags = true,
+    ///         Policy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "s3:GetObject",
+    ///                     },
+    ///                     ["Resource"] = "arn:aws:s3:::my-bucket/*",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Basic Usage
     /// 
     /// ```csharp
@@ -124,7 +163,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `True` when `Policy` is specified.
         /// </summary>
         [Output("disableSessionTags")]
         public Output<bool> DisableSessionTags { get; private set; } = null!;
@@ -140,6 +179,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
+
+        /// <summary>
+        /// An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `DisableSessionTags = true`.
+        /// </summary>
+        [Output("policy")]
+        public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -232,7 +277,7 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `True` when `Policy` is specified.
         /// </summary>
         [Input("disableSessionTags")]
         public Input<bool>? DisableSessionTags { get; set; }
@@ -242,6 +287,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
+
+        /// <summary>
+        /// An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `DisableSessionTags = true`.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -308,7 +359,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `True` when `Policy` is specified.
         /// </summary>
         [Input("disableSessionTags")]
         public Input<bool>? DisableSessionTags { get; set; }
@@ -324,6 +375,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `DisableSessionTags = true`.
+        /// </summary>
+        [Input("policy")]
+        public Input<string>? Policy { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

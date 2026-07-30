@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegion({});
- * const example = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
+ * const exampleRole = new aws.iam.Role("example", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
  *         Action: "sts:AssumeRole",
@@ -30,9 +30,9 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * })});
- * const examplePipeline = new aws.opensearchingest.Pipeline("example", {
+ * const example = new aws.opensearchingest.Pipeline("example", {
  *     pipelineName: "example",
- *     pipelineConfigurationBody: Promise.all([example.arn, current]).then(([arn, current]) => `version: \"2\"
+ *     pipelineConfigurationBody: Promise.all([exampleRole.arn, current]).then(([arn, current]) => `version: \"2\"
  * example-pipeline:
  *   source:
  *     http:
@@ -146,7 +146,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly pipelineArn: pulumi.Output<string>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     declare public readonly pipelineConfigurationBody: pulumi.Output<string>;
     /**
@@ -270,7 +270,7 @@ export interface PipelineState {
      */
     pipelineArn?: pulumi.Input<string | undefined>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     pipelineConfigurationBody?: pulumi.Input<string | undefined>;
     /**
@@ -324,7 +324,7 @@ export interface PipelineArgs {
      */
     minUnits: pulumi.Input<number>;
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      */
     pipelineConfigurationBody: pulumi.Input<string>;
     /**

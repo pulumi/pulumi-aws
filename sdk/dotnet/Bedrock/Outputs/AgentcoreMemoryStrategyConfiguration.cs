@@ -14,13 +14,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStrategyConfiguration
     {
         /// <summary>
-        /// Consolidation configuration for processing and organizing memory content. See `Consolidation` below. Once added, this block cannot be removed without recreating the resource.
+        /// Consolidation configuration for the memory strategy. See `Consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationConsolidation? Consolidation;
         /// <summary>
-        /// Extraction configuration for identifying and extracting relevant information. See `Extraction` below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        /// Extraction configuration for the memory strategy. See `Extraction` Block below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationExtraction? Extraction;
+        /// <summary>
+        /// Reflection configuration for the memory strategy. See `Reflection` Block below. Can only be used, and is required, with `Type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        /// </summary>
+        public readonly Outputs.AgentcoreMemoryStrategyConfigurationReflection? Reflection;
         /// <summary>
         /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
         /// </summary>
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentcoreMemoryStrategyConfigurationExtraction? extraction,
 
+            Outputs.AgentcoreMemoryStrategyConfigurationReflection? reflection,
+
             string type)
         {
             Consolidation = consolidation;
             Extraction = extraction;
+            Reflection = reflection;
             Type = type;
         }
     }

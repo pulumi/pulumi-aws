@@ -6645,6 +6645,112 @@ func (o NodeGroupWarmPoolConfigPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetAccessPoliciesAccessPolicy struct {
+	// ARN of the access policy.
+	Arn string `pulumi:"arn"`
+	// Name of the access policy.
+	Name string `pulumi:"name"`
+}
+
+// GetAccessPoliciesAccessPolicyInput is an input type that accepts GetAccessPoliciesAccessPolicyArgs and GetAccessPoliciesAccessPolicyOutput values.
+// You can construct a concrete instance of `GetAccessPoliciesAccessPolicyInput` via:
+//
+//	GetAccessPoliciesAccessPolicyArgs{...}
+type GetAccessPoliciesAccessPolicyInput interface {
+	pulumi.Input
+
+	ToGetAccessPoliciesAccessPolicyOutput() GetAccessPoliciesAccessPolicyOutput
+	ToGetAccessPoliciesAccessPolicyOutputWithContext(context.Context) GetAccessPoliciesAccessPolicyOutput
+}
+
+type GetAccessPoliciesAccessPolicyArgs struct {
+	// ARN of the access policy.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Name of the access policy.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAccessPoliciesAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPoliciesAccessPolicy)(nil)).Elem()
+}
+
+func (i GetAccessPoliciesAccessPolicyArgs) ToGetAccessPoliciesAccessPolicyOutput() GetAccessPoliciesAccessPolicyOutput {
+	return i.ToGetAccessPoliciesAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i GetAccessPoliciesAccessPolicyArgs) ToGetAccessPoliciesAccessPolicyOutputWithContext(ctx context.Context) GetAccessPoliciesAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPoliciesAccessPolicyOutput)
+}
+
+// GetAccessPoliciesAccessPolicyArrayInput is an input type that accepts GetAccessPoliciesAccessPolicyArray and GetAccessPoliciesAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `GetAccessPoliciesAccessPolicyArrayInput` via:
+//
+//	GetAccessPoliciesAccessPolicyArray{ GetAccessPoliciesAccessPolicyArgs{...} }
+type GetAccessPoliciesAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPoliciesAccessPolicyArrayOutput() GetAccessPoliciesAccessPolicyArrayOutput
+	ToGetAccessPoliciesAccessPolicyArrayOutputWithContext(context.Context) GetAccessPoliciesAccessPolicyArrayOutput
+}
+
+type GetAccessPoliciesAccessPolicyArray []GetAccessPoliciesAccessPolicyInput
+
+func (GetAccessPoliciesAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPoliciesAccessPolicy)(nil)).Elem()
+}
+
+func (i GetAccessPoliciesAccessPolicyArray) ToGetAccessPoliciesAccessPolicyArrayOutput() GetAccessPoliciesAccessPolicyArrayOutput {
+	return i.ToGetAccessPoliciesAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPoliciesAccessPolicyArray) ToGetAccessPoliciesAccessPolicyArrayOutputWithContext(ctx context.Context) GetAccessPoliciesAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPoliciesAccessPolicyArrayOutput)
+}
+
+type GetAccessPoliciesAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPoliciesAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPoliciesAccessPolicy)(nil)).Elem()
+}
+
+func (o GetAccessPoliciesAccessPolicyOutput) ToGetAccessPoliciesAccessPolicyOutput() GetAccessPoliciesAccessPolicyOutput {
+	return o
+}
+
+func (o GetAccessPoliciesAccessPolicyOutput) ToGetAccessPoliciesAccessPolicyOutputWithContext(ctx context.Context) GetAccessPoliciesAccessPolicyOutput {
+	return o
+}
+
+// ARN of the access policy.
+func (o GetAccessPoliciesAccessPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPoliciesAccessPolicy) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Name of the access policy.
+func (o GetAccessPoliciesAccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPoliciesAccessPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAccessPoliciesAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPoliciesAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPoliciesAccessPolicy)(nil)).Elem()
+}
+
+func (o GetAccessPoliciesAccessPolicyArrayOutput) ToGetAccessPoliciesAccessPolicyArrayOutput() GetAccessPoliciesAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetAccessPoliciesAccessPolicyArrayOutput) ToGetAccessPoliciesAccessPolicyArrayOutputWithContext(ctx context.Context) GetAccessPoliciesAccessPolicyArrayOutput {
+	return o
+}
+
+func (o GetAccessPoliciesAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetAccessPoliciesAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPoliciesAccessPolicy {
+		return vs[0].([]GetAccessPoliciesAccessPolicy)[vs[1].(int)]
+	}).(GetAccessPoliciesAccessPolicyOutput)
+}
+
 type GetAddonPodIdentityAssociation struct {
 	// ARN of the IAM role associated with the EKS add-on.
 	RoleArn string `pulumi:"roleArn"`
@@ -9874,6 +9980,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigPtrInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupWarmPoolConfigInput)(nil)).Elem(), NodeGroupWarmPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupWarmPoolConfigPtrInput)(nil)).Elem(), NodeGroupWarmPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPoliciesAccessPolicyInput)(nil)).Elem(), GetAccessPoliciesAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPoliciesAccessPolicyArrayInput)(nil)).Elem(), GetAccessPoliciesAccessPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAddonPodIdentityAssociationInput)(nil)).Elem(), GetAddonPodIdentityAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAddonPodIdentityAssociationArrayInput)(nil)).Elem(), GetAddonPodIdentityAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterAccessConfigInput)(nil)).Elem(), GetClusterAccessConfigArgs{})
@@ -10017,6 +10125,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupWarmPoolConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupWarmPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetAccessPoliciesAccessPolicyOutput{})
+	pulumi.RegisterOutputType(GetAccessPoliciesAccessPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetAddonPodIdentityAssociationOutput{})
 	pulumi.RegisterOutputType(GetAddonPodIdentityAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterAccessConfigOutput{})

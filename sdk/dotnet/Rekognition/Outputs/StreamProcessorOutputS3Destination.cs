@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Rekognition.Outputs
         /// </summary>
         public readonly string? Bucket;
         /// <summary>
-        /// The prefix value of the location within the bucket that you want the information to be published to.
+        /// Prefix value of the location within the bucket that you want the information to be published to.
         /// </summary>
         public readonly string? KeyPrefix;
 

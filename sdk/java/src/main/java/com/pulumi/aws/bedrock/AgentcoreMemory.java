@@ -188,16 +188,12 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="eventExpiryDuration", refs={Integer.class}, tree="[0]")
     private Output<Integer> eventExpiryDuration;
 
     /**
      * @return Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Integer> eventExpiryDuration() {
@@ -234,12 +230,16 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
     /**
      * Name of the memory.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the memory.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

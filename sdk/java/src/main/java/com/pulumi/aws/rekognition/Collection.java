@@ -55,6 +55,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `collectionId` - (String) The name of the collection.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Rekognition Collection using the `collectionId`. For example:
  * 
  * ```sh
@@ -79,7 +90,7 @@ public class Collection extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name of the collection
+     * Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -88,7 +99,7 @@ public class Collection extends com.pulumi.resources.CustomResource {
     private Output<String> collectionId;
 
     /**
-     * @return The name of the collection
+     * @return Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -97,14 +108,14 @@ public class Collection extends com.pulumi.resources.CustomResource {
         return this.collectionId;
     }
     /**
-     * The Face Model Version that the collection was initialized with
+     * Face Model Version that the collection was initialized with
      * 
      */
     @Export(name="faceModelVersion", refs={String.class}, tree="[0]")
     private Output<String> faceModelVersion;
 
     /**
-     * @return The Face Model Version that the collection was initialized with
+     * @return Face Model Version that the collection was initialized with
      * 
      */
     public Output<String> faceModelVersion() {
@@ -139,14 +150,14 @@ public class Collection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

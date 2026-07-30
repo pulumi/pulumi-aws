@@ -17,6 +17,8 @@ from .. import _utilities
 __all__ = [
     'SecretReplicaArgs',
     'SecretReplicaArgsDict',
+    'SecretRotationExternalSecretRotationMetadataArgs',
+    'SecretRotationExternalSecretRotationMetadataArgsDict',
     'SecretRotationRotationRulesArgs',
     'SecretRotationRotationRulesArgsDict',
     'GetSecretsFilterArgs',
@@ -129,6 +131,53 @@ class SecretReplicaArgs:
     @status_message.setter
     def status_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_message", value)
+
+
+class SecretRotationExternalSecretRotationMetadataArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The metadata value for the specified key.
+    """
+
+@pulumi.input_type
+class SecretRotationExternalSecretRotationMetadataArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        :param pulumi.Input[_builtins.str] value: The metadata value for the specified key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The metadata value for the specified key.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 class SecretRotationRotationRulesArgsDict(TypedDict):

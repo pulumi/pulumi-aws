@@ -46,9 +46,17 @@ public final class MeteringPolicyEntryState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.destinationTransitGatewayAttachmentId);
     }
 
+    /**
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     @Import(name="destinationTransitGatewayAttachmentType")
     private @Nullable Output<String> destinationTransitGatewayAttachmentType;
 
+    /**
+     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     public Optional<Output<String>> destinationTransitGatewayAttachmentType() {
         return Optional.ofNullable(this.destinationTransitGatewayAttachmentType);
     }
@@ -142,9 +150,17 @@ public final class MeteringPolicyEntryState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.sourceTransitGatewayAttachmentId);
     }
 
+    /**
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     @Import(name="sourceTransitGatewayAttachmentType")
     private @Nullable Output<String> sourceTransitGatewayAttachmentType;
 
+    /**
+     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     public Optional<Output<String>> sourceTransitGatewayAttachmentType() {
         return Optional.ofNullable(this.sourceTransitGatewayAttachmentType);
     }
@@ -251,11 +267,23 @@ public final class MeteringPolicyEntryState extends com.pulumi.resources.Resourc
             return destinationTransitGatewayAttachmentId(Output.of(destinationTransitGatewayAttachmentId));
         }
 
+        /**
+         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationTransitGatewayAttachmentType(@Nullable Output<String> destinationTransitGatewayAttachmentType) {
             $.destinationTransitGatewayAttachmentType = destinationTransitGatewayAttachmentType;
             return this;
         }
 
+        /**
+         * @param destinationTransitGatewayAttachmentType Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationTransitGatewayAttachmentType(String destinationTransitGatewayAttachmentType) {
             return destinationTransitGatewayAttachmentType(Output.of(destinationTransitGatewayAttachmentType));
         }
@@ -383,11 +411,23 @@ public final class MeteringPolicyEntryState extends com.pulumi.resources.Resourc
             return sourceTransitGatewayAttachmentId(Output.of(sourceTransitGatewayAttachmentId));
         }
 
+        /**
+         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceTransitGatewayAttachmentType(@Nullable Output<String> sourceTransitGatewayAttachmentType) {
             $.sourceTransitGatewayAttachmentType = sourceTransitGatewayAttachmentType;
             return this;
         }
 
+        /**
+         * @param sourceTransitGatewayAttachmentType Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceTransitGatewayAttachmentType(String sourceTransitGatewayAttachmentType) {
             return sourceTransitGatewayAttachmentType(Output.of(sourceTransitGatewayAttachmentType));
         }

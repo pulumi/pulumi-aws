@@ -13,6 +13,7 @@ from .capability import *
 from .cluster import *
 from .fargate_profile import *
 from .get_access_entry import *
+from .get_access_policies import *
 from .get_addon import *
 from .get_addon_version import *
 from .get_cluster import *

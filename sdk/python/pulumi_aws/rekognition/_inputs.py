@@ -214,7 +214,7 @@ class StreamProcessorInputKinesisVideoStreamArgs:
 class StreamProcessorNotificationChannelArgsDict(TypedDict):
     sns_topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+    Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
     """
 
 @pulumi.input_type
@@ -222,7 +222,7 @@ class StreamProcessorNotificationChannelArgs:
     def __init__(__self__, *,
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
         """
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -231,7 +231,7 @@ class StreamProcessorNotificationChannelArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+        Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -243,11 +243,11 @@ class StreamProcessorNotificationChannelArgs:
 class StreamProcessorOutputArgsDict(TypedDict):
     kinesis_data_stream: NotRequired[pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgsDict']]]
     """
-    The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+    Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
     """
     s3_destination: NotRequired[pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgsDict']]]
     """
-    The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+    Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
     """
 
 @pulumi.input_type
@@ -256,8 +256,8 @@ class StreamProcessorOutputArgs:
                  kinesis_data_stream: pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']] = None,
                  s3_destination: pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']] = None):
         """
-        :param pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs'] kinesis_data_stream: The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
-        :param pulumi.Input['StreamProcessorOutputS3DestinationArgs'] s3_destination: The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        :param pulumi.Input['StreamProcessorOutputKinesisDataStreamArgs'] kinesis_data_stream: Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+        :param pulumi.Input['StreamProcessorOutputS3DestinationArgs'] s3_destination: Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
         """
         if kinesis_data_stream is not None:
             pulumi.set(__self__, "kinesis_data_stream", kinesis_data_stream)
@@ -268,7 +268,7 @@ class StreamProcessorOutputArgs:
     @pulumi.getter(name="kinesisDataStream")
     def kinesis_data_stream(self) -> pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']]:
         """
-        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+        Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
         """
         return pulumi.get(self, "kinesis_data_stream")
 
@@ -280,7 +280,7 @@ class StreamProcessorOutputArgs:
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']]:
         """
-        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+        Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
         """
         return pulumi.get(self, "s3_destination")
 
@@ -325,7 +325,7 @@ class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
     """
     key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The prefix value of the location within the bucket that you want the information to be published to.
+    Prefix value of the location within the bucket that you want the information to be published to.
     """
 
 @pulumi.input_type
@@ -335,7 +335,7 @@ class StreamProcessorOutputS3DestinationArgs:
                  key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket you want to associate with the streaming video project.
-        :param pulumi.Input[_builtins.str] key_prefix: The prefix value of the location within the bucket that you want the information to be published to.
+        :param pulumi.Input[_builtins.str] key_prefix: Prefix value of the location within the bucket that you want the information to be published to.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -358,7 +358,7 @@ class StreamProcessorOutputS3DestinationArgs:
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The prefix value of the location within the bucket that you want the information to be published to.
+        Prefix value of the location within the bucket that you want the information to be published to.
         """
         return pulumi.get(self, "key_prefix")
 
@@ -508,11 +508,11 @@ class StreamProcessorRegionsOfInterestBoundingBoxArgs:
 class StreamProcessorRegionsOfInterestPolygonArgsDict(TypedDict):
     x: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    The value of the X coordinate for a point on a Polygon.
+    Value of the X coordinate for a point on a Polygon.
     """
     y: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    The value of the Y coordinate for a point on a Polygon.
+    Value of the Y coordinate for a point on a Polygon.
     """
 
 @pulumi.input_type
@@ -521,8 +521,8 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
                  x: pulumi.Input[Optional[_builtins.float]] = None,
                  y: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.float] x: The value of the X coordinate for a point on a Polygon.
-        :param pulumi.Input[_builtins.float] y: The value of the Y coordinate for a point on a Polygon.
+        :param pulumi.Input[_builtins.float] x: Value of the X coordinate for a point on a Polygon.
+        :param pulumi.Input[_builtins.float] y: Value of the Y coordinate for a point on a Polygon.
         """
         if x is not None:
             pulumi.set(__self__, "x", x)
@@ -533,7 +533,7 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
     @pulumi.getter
     def x(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        The value of the X coordinate for a point on a Polygon.
+        Value of the X coordinate for a point on a Polygon.
         """
         return pulumi.get(self, "x")
 
@@ -545,7 +545,7 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
     @pulumi.getter
     def y(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        The value of the Y coordinate for a point on a Polygon.
+        Value of the Y coordinate for a point on a Polygon.
         """
         return pulumi.get(self, "y")
 
@@ -606,7 +606,7 @@ class StreamProcessorSettingsArgs:
 class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
     labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+    What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
     """
     min_confidence: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -619,7 +619,7 @@ class StreamProcessorSettingsConnectedHomeArgs:
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  min_confidence: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
         :param pulumi.Input[_builtins.float] min_confidence: Minimum confidence required to label an object in the video.
         """
         if labels is not None:
@@ -631,7 +631,7 @@ class StreamProcessorSettingsConnectedHomeArgs:
     @pulumi.getter
     def labels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+        What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
         """
         return pulumi.get(self, "labels")
 

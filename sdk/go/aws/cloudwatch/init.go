@@ -79,6 +79,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LogResourcePolicy{}
 	case "aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource":
 		r = &LogS3TableIntegrationSource{}
+	case "aws:cloudwatch/logStorageTierPolicy:LogStorageTierPolicy":
+		r = &LogStorageTierPolicy{}
 	case "aws:cloudwatch/logStream:LogStream":
 		r = &LogStream{}
 	case "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
@@ -249,6 +251,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/logS3TableIntegrationSource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logStorageTierPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

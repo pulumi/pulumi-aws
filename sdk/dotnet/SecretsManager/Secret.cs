@@ -32,6 +32,27 @@ namespace Pulumi.Aws.SecretsManager
     /// });
     /// ```
     /// 
+    /// ### Managed External Secret
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecretsManager.Secret("example", new()
+    ///     {
+    ///         Name = "bigid-client-secret",
+    ///         Type = "BigIDClientSecret",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// For more information about managed external secrets and supported partners, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html).
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -120,6 +141,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -239,6 +266,12 @@ namespace Pulumi.Aws.SecretsManager
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public SecretArgs()
         {
         }
@@ -336,6 +369,12 @@ namespace Pulumi.Aws.SecretsManager
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public SecretState()
         {

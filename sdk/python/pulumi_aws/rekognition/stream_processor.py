@@ -38,17 +38,17 @@ class StreamProcessorArgs:
 
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
         :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
-        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
-        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
+        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "input", input)
         pulumi.set(__self__, "output", output)
@@ -99,7 +99,7 @@ class StreamProcessorArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         """
         return pulumi.get(self, "role_arn")
 
@@ -149,7 +149,7 @@ class StreamProcessorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Stream Processor.
+        Name of the Stream Processor.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +161,7 @@ class StreamProcessorArgs:
     @pulumi.getter(name="notificationChannel")
     def notification_channel(self) -> pulumi.Input[Optional['StreamProcessorNotificationChannelArgs']]:
         """
-        The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         """
         return pulumi.get(self, "notification_channel")
 
@@ -185,7 +185,7 @@ class StreamProcessorArgs:
     @pulumi.getter(name="regionsOfInterests")
     def regions_of_interests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]]:
         """
-        Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         """
         return pulumi.get(self, "regions_of_interests")
 
@@ -197,7 +197,7 @@ class StreamProcessorArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -240,19 +240,18 @@ class _StreamProcessorState:
         :param pulumi.Input['StreamProcessorDataSharingPreferenceArgs'] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input['StreamProcessorInputArgs'] input: Input video stream. See `input`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
-        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
-        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
+        :param pulumi.Input['StreamProcessorNotificationChannelArgs'] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input['StreamProcessorOutputArgs'] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input['StreamProcessorSettingsArgs'] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor.
-               Use `arn` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -340,7 +339,7 @@ class _StreamProcessorState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Stream Processor.
+        Name of the Stream Processor.
         """
         return pulumi.get(self, "name")
 
@@ -352,7 +351,7 @@ class _StreamProcessorState:
     @pulumi.getter(name="notificationChannel")
     def notification_channel(self) -> pulumi.Input[Optional['StreamProcessorNotificationChannelArgs']]:
         """
-        The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         """
         return pulumi.get(self, "notification_channel")
 
@@ -388,7 +387,7 @@ class _StreamProcessorState:
     @pulumi.getter(name="regionsOfInterests")
     def regions_of_interests(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestArgs']]]]:
         """
-        Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         """
         return pulumi.get(self, "regions_of_interests")
 
@@ -400,7 +399,7 @@ class _StreamProcessorState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         """
         return pulumi.get(self, "role_arn")
 
@@ -427,8 +426,7 @@ class _StreamProcessorState:
     @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def stream_processor_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (**Deprecated**) ARN of the Stream Processor.
-        Use `arn` instead.
+        (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
         """
         return pulumi.get(self, "stream_processor_arn")
 
@@ -440,7 +438,7 @@ class _StreamProcessorState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -452,7 +450,7 @@ class _StreamProcessorState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -669,6 +667,17 @@ class StreamProcessor(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Stream Processor.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Rekognition Stream Processor using the `name`. For example:
 
         ```sh
@@ -681,16 +690,16 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']] input: Input video stream. See `input`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
-        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
-        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
+        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -878,6 +887,17 @@ class StreamProcessor(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Stream Processor.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Rekognition Stream Processor using the `name`. For example:
 
         ```sh
@@ -980,19 +1000,18 @@ class StreamProcessor(pulumi.CustomResource):
         :param pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']] data_sharing_preference: See `data_sharing_preference`.
         :param pulumi.Input[Union['StreamProcessorInputArgs', 'StreamProcessorInputArgsDict']] input: Input video stream. See `input`.
         :param pulumi.Input[_builtins.str] kms_key_id: Optional parameter for label detection stream processors.
-        :param pulumi.Input[_builtins.str] name: The name of the Stream Processor.
-        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        :param pulumi.Input[_builtins.str] name: Name of the Stream Processor.
+        :param pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']] notification_channel: Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         :param pulumi.Input[Union['StreamProcessorOutputArgs', 'StreamProcessorOutputArgsDict']] output: Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorRegionsOfInterestArgs', 'StreamProcessorRegionsOfInterestArgsDict']]]] regions_of_interests: Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         :param pulumi.Input[Union['StreamProcessorSettingsArgs', 'StreamProcessorSettingsArgsDict']] settings: Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor.
-               Use `arn` instead.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] stream_processor_arn: (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1051,7 +1070,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Stream Processor.
+        Name of the Stream Processor.
         """
         return pulumi.get(self, "name")
 
@@ -1059,7 +1078,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter(name="notificationChannel")
     def notification_channel(self) -> pulumi.Output[Optional['outputs.StreamProcessorNotificationChannel']]:
         """
-        The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
+        Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         """
         return pulumi.get(self, "notification_channel")
 
@@ -1083,7 +1102,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter(name="regionsOfInterests")
     def regions_of_interests(self) -> pulumi.Output[Optional[Sequence['outputs.StreamProcessorRegionsOfInterest']]]:
         """
-        Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
+        Locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         """
         return pulumi.get(self, "regions_of_interests")
 
@@ -1091,7 +1110,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+        Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1110,8 +1129,7 @@ class StreamProcessor(pulumi.CustomResource):
     @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def stream_processor_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        (**Deprecated**) ARN of the Stream Processor.
-        Use `arn` instead.
+        (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
         """
         return pulumi.get(self, "stream_processor_arn")
 
@@ -1119,7 +1137,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1127,7 +1145,7 @@ class StreamProcessor(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

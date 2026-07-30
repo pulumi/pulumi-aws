@@ -64,6 +64,3 @@ index e9f2637ec9c..7f4a6b55712 100644
  	d.SetId(aws.ToString(result.SafetyRuleArn))
  
  	if _, err := waitSafetyRuleCreated(ctx, conn, d.Id()); err != nil {
---
-2.39.0
-

@@ -29,6 +29,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CloudFront Standard Logging (v2)
+ *
+ * CloudFront delivers access logs through CloudWatch Logs, so a distribution's standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `recordFields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudwatch.LogDeliverySource("example", {
+ *     name: "cloudfront-access-logs",
+ *     logType: "ACCESS_LOGS",
+ *     resourceArn: exampleAwsCloudfrontDistribution.arn,
+ * });
+ * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
+ *     name: "cloudfront-access-logs",
+ *     outputFormat: "json",
+ *     deliveryDestinationConfiguration: {
+ *         destinationResourceArn: exampleAwsCloudwatchLogGroup.arn,
+ *     },
+ * });
+ * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
+ *     deliverySourceName: example.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
+ *     recordFields: [
+ *         "date",
+ *         "time",
+ *         "c-ip",
+ *         "sc-status",
+ *         "viewer-request-log-data",
+ *         "viewer-response-log-data",
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -93,7 +127,7 @@ export class LogDelivery extends pulumi.CustomResource {
      */
     declare public readonly fieldDelimiter: pulumi.Output<string>;
     /**
-     * The list of record fields to be delivered to the destination, in order.
+     * The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      */
     declare public readonly recordFields: pulumi.Output<string[]>;
     /**
@@ -179,7 +213,7 @@ export interface LogDeliveryState {
      */
     fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
-     * The list of record fields to be delivered to the destination, in order.
+     * The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      */
     recordFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -217,7 +251,7 @@ export interface LogDeliveryArgs {
      */
     fieldDelimiter?: pulumi.Input<string | undefined>;
     /**
-     * The list of record fields to be delivered to the destination, in order.
+     * The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      */
     recordFields?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

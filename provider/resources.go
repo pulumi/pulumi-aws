@@ -187,6 +187,7 @@ const (
 	m2Mod                       = "M2"                       // Mainframe Modernisation
 	macieMod                    = "Macie"                    // Macie (Classic)
 	macie2Mod                   = "Macie2"                   // Macie2
+	mailManagerMod              = "MailManager"              // SES Mail Manager
 	mediaconvertMod             = "MediaConvert"             // Media Convert
 	medialiveMod                = "MediaLive"                // Media Live
 	mediapackageMod             = "MediaPackage"             // Elemental MediaPackage
@@ -427,6 +428,7 @@ var moduleMap = map[string]string{
 	"m2":                              m2Mod,
 	"macie":                           macieMod,
 	"macie2":                          macie2Mod,
+	"mailmanager":                     mailManagerMod,
 	"media_convert":                   mediaconvertMod,
 	"media_package":                   mediapackageMod,
 	"media_packagev2":                 mediapackagev2Mod,

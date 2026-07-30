@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import a static reverse DNS record to an Elastic IP addresses using their association IDs. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ec2/eipDomainName:EipDomainName test eipassoc-ab12c345
+    /// $ pulumi import aws:ec2/eipDomainName:EipDomainName test eipalloc-ab12c345
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eipDomainName:EipDomainName")]

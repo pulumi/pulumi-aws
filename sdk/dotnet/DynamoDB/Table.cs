@@ -460,6 +460,9 @@ namespace Pulumi.Aws.DynamoDB
     {
         /// <summary>
         /// ARN of the table
+        /// * `replica.*.arn` - ARN of the replica
+        /// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `StreamEnabled = true`.
+        /// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `StreamEnabled = true`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -916,6 +919,9 @@ namespace Pulumi.Aws.DynamoDB
     {
         /// <summary>
         /// ARN of the table
+        /// * `replica.*.arn` - ARN of the replica
+        /// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `StreamEnabled = true`.
+        /// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `StreamEnabled = true`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

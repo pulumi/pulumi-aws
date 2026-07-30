@@ -86,9 +86,10 @@ type MeteringPolicyEntry struct {
 	pulumi.CustomResourceState
 
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-	DestinationCidrBlock                    pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
-	DestinationPortRange                    pulumi.StringPtrOutput `pulumi:"destinationPortRange"`
-	DestinationTransitGatewayAttachmentId   pulumi.StringPtrOutput `pulumi:"destinationTransitGatewayAttachmentId"`
+	DestinationCidrBlock                  pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
+	DestinationPortRange                  pulumi.StringPtrOutput `pulumi:"destinationPortRange"`
+	DestinationTransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"destinationTransitGatewayAttachmentId"`
+	// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	DestinationTransitGatewayAttachmentType pulumi.StringPtrOutput `pulumi:"destinationTransitGatewayAttachmentType"`
 	// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
 	MeteredAccount pulumi.StringOutput `pulumi:"meteredAccount"`
@@ -99,9 +100,10 @@ type MeteringPolicyEntry struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-	SourceCidrBlock                    pulumi.StringPtrOutput               `pulumi:"sourceCidrBlock"`
-	SourcePortRange                    pulumi.StringPtrOutput               `pulumi:"sourcePortRange"`
-	SourceTransitGatewayAttachmentId   pulumi.StringPtrOutput               `pulumi:"sourceTransitGatewayAttachmentId"`
+	SourceCidrBlock                  pulumi.StringPtrOutput `pulumi:"sourceCidrBlock"`
+	SourcePortRange                  pulumi.StringPtrOutput `pulumi:"sourcePortRange"`
+	SourceTransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"sourceTransitGatewayAttachmentId"`
+	// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	SourceTransitGatewayAttachmentType pulumi.StringPtrOutput               `pulumi:"sourceTransitGatewayAttachmentType"`
 	Timeouts                           MeteringPolicyEntryTimeoutsPtrOutput `pulumi:"timeouts"`
 	// EC2 Transit Gateway Metering Policy identifier.
@@ -150,9 +152,10 @@ func GetMeteringPolicyEntry(ctx *pulumi.Context,
 // Input properties used for looking up and filtering MeteringPolicyEntry resources.
 type meteringPolicyEntryState struct {
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-	DestinationCidrBlock                    *string `pulumi:"destinationCidrBlock"`
-	DestinationPortRange                    *string `pulumi:"destinationPortRange"`
-	DestinationTransitGatewayAttachmentId   *string `pulumi:"destinationTransitGatewayAttachmentId"`
+	DestinationCidrBlock                  *string `pulumi:"destinationCidrBlock"`
+	DestinationPortRange                  *string `pulumi:"destinationPortRange"`
+	DestinationTransitGatewayAttachmentId *string `pulumi:"destinationTransitGatewayAttachmentId"`
+	// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	DestinationTransitGatewayAttachmentType *string `pulumi:"destinationTransitGatewayAttachmentType"`
 	// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
 	MeteredAccount *string `pulumi:"meteredAccount"`
@@ -163,9 +166,10 @@ type meteringPolicyEntryState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-	SourceCidrBlock                    *string                      `pulumi:"sourceCidrBlock"`
-	SourcePortRange                    *string                      `pulumi:"sourcePortRange"`
-	SourceTransitGatewayAttachmentId   *string                      `pulumi:"sourceTransitGatewayAttachmentId"`
+	SourceCidrBlock                  *string `pulumi:"sourceCidrBlock"`
+	SourcePortRange                  *string `pulumi:"sourcePortRange"`
+	SourceTransitGatewayAttachmentId *string `pulumi:"sourceTransitGatewayAttachmentId"`
+	// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	SourceTransitGatewayAttachmentType *string                      `pulumi:"sourceTransitGatewayAttachmentType"`
 	Timeouts                           *MeteringPolicyEntryTimeouts `pulumi:"timeouts"`
 	// EC2 Transit Gateway Metering Policy identifier.
@@ -176,9 +180,10 @@ type meteringPolicyEntryState struct {
 
 type MeteringPolicyEntryState struct {
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-	DestinationCidrBlock                    pulumi.StringPtrInput
-	DestinationPortRange                    pulumi.StringPtrInput
-	DestinationTransitGatewayAttachmentId   pulumi.StringPtrInput
+	DestinationCidrBlock                  pulumi.StringPtrInput
+	DestinationPortRange                  pulumi.StringPtrInput
+	DestinationTransitGatewayAttachmentId pulumi.StringPtrInput
+	// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	DestinationTransitGatewayAttachmentType pulumi.StringPtrInput
 	// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
 	MeteredAccount pulumi.StringPtrInput
@@ -189,9 +194,10 @@ type MeteringPolicyEntryState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-	SourceCidrBlock                    pulumi.StringPtrInput
-	SourcePortRange                    pulumi.StringPtrInput
-	SourceTransitGatewayAttachmentId   pulumi.StringPtrInput
+	SourceCidrBlock                  pulumi.StringPtrInput
+	SourcePortRange                  pulumi.StringPtrInput
+	SourceTransitGatewayAttachmentId pulumi.StringPtrInput
+	// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	SourceTransitGatewayAttachmentType pulumi.StringPtrInput
 	Timeouts                           MeteringPolicyEntryTimeoutsPtrInput
 	// EC2 Transit Gateway Metering Policy identifier.
@@ -206,9 +212,10 @@ func (MeteringPolicyEntryState) ElementType() reflect.Type {
 
 type meteringPolicyEntryArgs struct {
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-	DestinationCidrBlock                    *string `pulumi:"destinationCidrBlock"`
-	DestinationPortRange                    *string `pulumi:"destinationPortRange"`
-	DestinationTransitGatewayAttachmentId   *string `pulumi:"destinationTransitGatewayAttachmentId"`
+	DestinationCidrBlock                  *string `pulumi:"destinationCidrBlock"`
+	DestinationPortRange                  *string `pulumi:"destinationPortRange"`
+	DestinationTransitGatewayAttachmentId *string `pulumi:"destinationTransitGatewayAttachmentId"`
+	// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	DestinationTransitGatewayAttachmentType *string `pulumi:"destinationTransitGatewayAttachmentType"`
 	// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
 	MeteredAccount string `pulumi:"meteredAccount"`
@@ -219,9 +226,10 @@ type meteringPolicyEntryArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-	SourceCidrBlock                    *string                      `pulumi:"sourceCidrBlock"`
-	SourcePortRange                    *string                      `pulumi:"sourcePortRange"`
-	SourceTransitGatewayAttachmentId   *string                      `pulumi:"sourceTransitGatewayAttachmentId"`
+	SourceCidrBlock                  *string `pulumi:"sourceCidrBlock"`
+	SourcePortRange                  *string `pulumi:"sourcePortRange"`
+	SourceTransitGatewayAttachmentId *string `pulumi:"sourceTransitGatewayAttachmentId"`
+	// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	SourceTransitGatewayAttachmentType *string                      `pulumi:"sourceTransitGatewayAttachmentType"`
 	Timeouts                           *MeteringPolicyEntryTimeouts `pulumi:"timeouts"`
 	// EC2 Transit Gateway Metering Policy identifier.
@@ -233,9 +241,10 @@ type meteringPolicyEntryArgs struct {
 // The set of arguments for constructing a MeteringPolicyEntry resource.
 type MeteringPolicyEntryArgs struct {
 	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
-	DestinationCidrBlock                    pulumi.StringPtrInput
-	DestinationPortRange                    pulumi.StringPtrInput
-	DestinationTransitGatewayAttachmentId   pulumi.StringPtrInput
+	DestinationCidrBlock                  pulumi.StringPtrInput
+	DestinationPortRange                  pulumi.StringPtrInput
+	DestinationTransitGatewayAttachmentId pulumi.StringPtrInput
+	// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	DestinationTransitGatewayAttachmentType pulumi.StringPtrInput
 	// The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
 	MeteredAccount pulumi.StringInput
@@ -246,9 +255,10 @@ type MeteringPolicyEntryArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
-	SourceCidrBlock                    pulumi.StringPtrInput
-	SourcePortRange                    pulumi.StringPtrInput
-	SourceTransitGatewayAttachmentId   pulumi.StringPtrInput
+	SourceCidrBlock                  pulumi.StringPtrInput
+	SourcePortRange                  pulumi.StringPtrInput
+	SourceTransitGatewayAttachmentId pulumi.StringPtrInput
+	// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 	SourceTransitGatewayAttachmentType pulumi.StringPtrInput
 	Timeouts                           MeteringPolicyEntryTimeoutsPtrInput
 	// EC2 Transit Gateway Metering Policy identifier.
@@ -357,6 +367,7 @@ func (o MeteringPolicyEntryOutput) DestinationTransitGatewayAttachmentId() pulum
 	return o.ApplyT(func(v *MeteringPolicyEntry) pulumi.StringPtrOutput { return v.DestinationTransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
+// Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 func (o MeteringPolicyEntryOutput) DestinationTransitGatewayAttachmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeteringPolicyEntry) pulumi.StringPtrOutput { return v.DestinationTransitGatewayAttachmentType }).(pulumi.StringPtrOutput)
 }
@@ -394,6 +405,7 @@ func (o MeteringPolicyEntryOutput) SourceTransitGatewayAttachmentId() pulumi.Str
 	return o.ApplyT(func(v *MeteringPolicyEntry) pulumi.StringPtrOutput { return v.SourceTransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
+// Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
 func (o MeteringPolicyEntryOutput) SourceTransitGatewayAttachmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MeteringPolicyEntry) pulumi.StringPtrOutput { return v.SourceTransitGatewayAttachmentType }).(pulumi.StringPtrOutput)
 }

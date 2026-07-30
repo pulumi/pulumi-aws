@@ -24,6 +24,7 @@ class PodIdentityAssociationArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  service_account: pulumi.Input[_builtins.str],
                  disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
@@ -36,7 +37,8 @@ class PodIdentityAssociationArgs:
         :param pulumi.Input[_builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS.
+        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
+        :param pulumi.Input[_builtins.str] policy: An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target_role_arn: The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
@@ -47,6 +49,8 @@ class PodIdentityAssociationArgs:
         pulumi.set(__self__, "service_account", service_account)
         if disable_session_tags is not None:
             pulumi.set(__self__, "disable_session_tags", disable_session_tags)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -108,13 +112,25 @@ class PodIdentityAssociationArgs:
     @pulumi.getter(name="disableSessionTags")
     def disable_session_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Disable the tags that are automatically added to role session by Amazon EKS.
+        Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         """
         return pulumi.get(self, "disable_session_tags")
 
     @disable_session_tags.setter
     def disable_session_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_session_tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -162,6 +178,7 @@ class _PodIdentityAssociationState:
                  disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_id: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
@@ -174,9 +191,10 @@ class _PodIdentityAssociationState:
         :param pulumi.Input[_builtins.str] association_arn: The Amazon Resource Name (ARN) of the association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the association.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
-        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS.
+        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         :param pulumi.Input[_builtins.str] external_id: The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
         :param pulumi.Input[_builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[_builtins.str] policy: An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[_builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
@@ -198,6 +216,8 @@ class _PodIdentityAssociationState:
             pulumi.set(__self__, "external_id", external_id)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
@@ -251,7 +271,7 @@ class _PodIdentityAssociationState:
     @pulumi.getter(name="disableSessionTags")
     def disable_session_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Disable the tags that are automatically added to role session by Amazon EKS.
+        Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         """
         return pulumi.get(self, "disable_session_tags")
 
@@ -282,6 +302,18 @@ class _PodIdentityAssociationState:
     @namespace.setter
     def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter
@@ -367,6 +399,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
@@ -385,6 +418,29 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
+
+        ### With Inline Session Policy
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.eks.PodIdentityAssociation("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            namespace="example",
+            service_account="example-sa",
+            role_arn=example_aws_iam_role["arn"],
+            disable_session_tags=True,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": ["s3:GetObject"],
+                    "Resource": "arn:aws:s3:::my-bucket/*",
+                }],
+            }))
+        ```
 
         ### Basic Usage
 
@@ -440,8 +496,9 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
-        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS.
+        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         :param pulumi.Input[_builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[_builtins.str] policy: An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[_builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
@@ -468,6 +525,29 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
+
+        ### With Inline Session Policy
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.eks.PodIdentityAssociation("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            namespace="example",
+            service_account="example-sa",
+            role_arn=example_aws_iam_role["arn"],
+            disable_session_tags=True,
+            policy=json.dumps({
+                "Version": "2012-10-17",
+                "Statement": [{
+                    "Effect": "Allow",
+                    "Action": ["s3:GetObject"],
+                    "Resource": "arn:aws:s3:::my-bucket/*",
+                }],
+            }))
+        ```
 
         ### Basic Usage
 
@@ -538,6 +618,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
@@ -559,6 +640,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["policy"] = policy
             __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -588,6 +670,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
             disable_session_tags: pulumi.Input[Optional[_builtins.bool]] = None,
             external_id: pulumi.Input[Optional[_builtins.str]] = None,
             namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            policy: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             service_account: pulumi.Input[Optional[_builtins.str]] = None,
@@ -604,9 +687,10 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] association_arn: The Amazon Resource Name (ARN) of the association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the association.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster to create the association in.
-        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS.
+        :param pulumi.Input[_builtins.bool] disable_session_tags: Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         :param pulumi.Input[_builtins.str] external_id: The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
         :param pulumi.Input[_builtins.str] namespace: The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
+        :param pulumi.Input[_builtins.str] policy: An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
         :param pulumi.Input[_builtins.str] service_account: The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
@@ -626,6 +710,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         __props__.__dict__["disable_session_tags"] = disable_session_tags
         __props__.__dict__["external_id"] = external_id
         __props__.__dict__["namespace"] = namespace
+        __props__.__dict__["policy"] = policy
         __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["service_account"] = service_account
@@ -662,7 +747,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
     @pulumi.getter(name="disableSessionTags")
     def disable_session_tags(self) -> pulumi.Output[_builtins.bool]:
         """
-        Disable the tags that are automatically added to role session by Amazon EKS.
+        Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
         """
         return pulumi.get(self, "disable_session_tags")
 
@@ -681,6 +766,14 @@ class PodIdentityAssociation(pulumi.CustomResource):
         The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         """
         return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disable_session_tags = true`.
+        """
+        return pulumi.get(self, "policy")
 
     @_builtins.property
     @pulumi.getter

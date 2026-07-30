@@ -10389,7 +10389,7 @@ export namespace autoscaling {
 
     export interface GroupAvailabilityZoneDistribution {
         /**
-         * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+         * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
          */
         capacityDistributionStrategy?: pulumi.Input<string | undefined>;
     }
@@ -17409,13 +17409,17 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStrategyConfiguration {
         /**
-         * Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+         * Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
          */
         consolidation?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationConsolidation | undefined>;
         /**
-         * Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
          */
         extraction?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationExtraction | undefined>;
+        /**
+         * Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         */
+        reflection?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfigurationReflection | undefined>;
         /**
          * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
          */
@@ -17442,6 +17446,28 @@ export namespace bedrock {
          * ID of the foundation model to use for extraction processing.
          */
         modelId: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationReflection {
+        /**
+         * Additional text to append to the model prompt for reflection processing.
+         */
+        appendToPrompt: pulumi.Input<string>;
+        /**
+         * ID of the foundation model to use for reflection processing.
+         */
+        modelId: pulumi.Input<string>;
+        /**
+         * Namespace templates for episodic reflection. Can be less nested than the episodic namespaces.
+         */
+        namespaceTemplates: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreMemoryStrategyReflectionConfiguration {
+        /**
+         * Namespace templates over which to create reflections. Can be less nested than episode namespaces.
+         */
+        namespaceTemplates: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreMemoryStrategyTimeouts {
@@ -17504,6 +17530,10 @@ export namespace bedrock {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: pulumi.Input<string | undefined>;
     }
 
     export interface AgentcoreOauth2CredentialProviderClientSecretArn {
@@ -18173,6 +18203,392 @@ export namespace bedrock {
          * VPC configuration subnets.
          */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EvaluationJobEvaluationConfig {
+        /**
+         * Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
+         */
+        automated?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomated | undefined>;
+        /**
+         * Configuration for an evaluation job that uses human workers. See `human` Block below.
+         */
+        human?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHuman | undefined>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomated {
+        /**
+         * Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
+         */
+        customMetricConfig?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfig | undefined>;
+        /**
+         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         */
+        datasetMetricConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig>[]>;
+        /**
+         * Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
+         */
+        evaluatorModelConfig?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig | undefined>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
+        /**
+         * One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
+         */
+        customMetrics: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric>[]>;
+        /**
+         * Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
+         */
+        evaluatorModelConfig: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric {
+        /**
+         * Definition of the custom metric. See `customMetricDefinition` Block below.
+         */
+        customMetricDefinition: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition {
+        /**
+         * Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
+         */
+        instructions: pulumi.Input<string>;
+        /**
+         * Name for the custom metric. Must be unique in your AWS Region.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * One or more items defining the rating scale for the custom metric. See `ratingScale` Block below.
+         */
+        ratingScales?: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale>[] | undefined>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale {
+        /**
+         * Definition for one rating in the custom metric rating scale.
+         */
+        definition: pulumi.Input<string>;
+        /**
+         * Value for one rating in the custom metric rating scale. See `value` Block below.
+         */
+        value: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue {
+        /**
+         * Floating point number representing the rating value.
+         */
+        floatValue?: pulumi.Input<number | undefined>;
+        /**
+         * String representing the rating value.
+         */
+        stringValue?: pulumi.Input<string | undefined>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
+        /**
+         * Evaluator model. See `bedrockEvaluatorModel` Block below.
+         */
+        bedrockEvaluatorModel: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+         */
+        modelIdentifier: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
+        /**
+         * Prompt dataset to use. See `dataset` Block below.
+         */
+        dataset: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset>;
+        /**
+         * Names of the metrics to use for the evaluation job.
+         */
+        metricNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         */
+        taskType: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset {
+        /**
+         * Location of a custom prompt dataset. See `datasetLocation` Block below.
+         */
+        datasetLocation?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation | undefined>;
+        /**
+         * Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation {
+        /**
+         * S3 URI of the custom prompt dataset.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
+        /**
+         * Evaluator model. See `bedrockEvaluatorModel` Block below.
+         */
+        bedrockEvaluatorModel: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel>;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+         */
+        modelIdentifier: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHuman {
+        /**
+         * One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+         */
+        customMetrics?: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHumanCustomMetric>[] | undefined>;
+        /**
+         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         */
+        datasetMetricConfigs: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfig>[]>;
+        /**
+         * Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+         */
+        humanWorkflowConfig?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHumanHumanWorkflowConfig | undefined>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanCustomMetric {
+        /**
+         * Description of the metric.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the metric.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+         */
+        ratingMethod: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
+        /**
+         * Prompt dataset to use. See `dataset` Block below.
+         */
+        dataset: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset>;
+        /**
+         * Names of the metrics to use for the evaluation job.
+         */
+        metricNames: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         */
+        taskType: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset {
+        /**
+         * Location of a custom prompt dataset. See `datasetLocation` Block below.
+         */
+        datasetLocation?: pulumi.Input<inputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation | undefined>;
+        /**
+         * Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation {
+        /**
+         * S3 URI of the custom prompt dataset.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+        /**
+         * ARN of the Amazon SageMaker AI flow definition.
+         */
+        flowDefinitionArn: pulumi.Input<string>;
+        /**
+         * Instructions for the flow definition.
+         */
+        instructions?: pulumi.Input<string | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfig {
+        /**
+         * One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+         */
+        models?: pulumi.Input<pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigModel>[] | undefined>;
+        /**
+         * Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+         */
+        ragConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfig | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigModel {
+        /**
+         * Amazon Bedrock model. See `bedrockModel` Block below.
+         */
+        bedrockModel?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigModelBedrockModel | undefined>;
+        /**
+         * Model where you provide your own precomputed inference response data. See `precomputedInferenceSource` Block below.
+         */
+        precomputedInferenceSource?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigModelPrecomputedInferenceSource | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigModelBedrockModel {
+        /**
+         * JSON-formatted string of inference parameters for the model.
+         */
+        inferenceParams?: pulumi.Input<string | undefined>;
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+         */
+        modelIdentifier: pulumi.Input<string>;
+        /**
+         * Model's performance settings. See `performanceConfig` Block below.
+         */
+        performanceConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+        /**
+         * Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+         */
+        latency?: pulumi.Input<string | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigModelPrecomputedInferenceSource {
+        /**
+         * Label that identifies the precomputed inference source.
+         */
+        inferenceSourceIdentifier: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfig {
+        /**
+         * Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+         */
+        knowledgeBaseConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig | undefined>;
+        /**
+         * RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+         */
+        precomputedRagSourceConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+        /**
+         * Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+         */
+        retrieveAndGenerateConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig | undefined>;
+        /**
+         * Configuration for retrieval only. See `retrieveConfig` Block below.
+         */
+        retrieveConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+        /**
+         * Identifier of the knowledge base.
+         */
+        knowledgeBaseId: pulumi.Input<string>;
+        /**
+         * ARN of the foundation model, or inference profile, used to generate responses.
+         */
+        modelArn: pulumi.Input<string>;
+        /**
+         * Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+         */
+        retrievalConfiguration?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+        /**
+         * Vector search configuration. See `vectorSearchConfiguration` Block below.
+         */
+        vectorSearchConfiguration: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+        /**
+         * Number of text chunks to retrieve.
+         */
+        numberOfResults?: pulumi.Input<number | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+        /**
+         * Identifier of the knowledge base.
+         */
+        knowledgeBaseId: pulumi.Input<string>;
+        /**
+         * Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+         */
+        knowledgeBaseRetrievalConfiguration?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+        /**
+         * Vector search configuration. See `vectorSearchConfiguration` Block above.
+         */
+        vectorSearchConfiguration: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+        /**
+         * Number of text chunks to retrieve.
+         */
+        numberOfResults?: pulumi.Input<number | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+        /**
+         * Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+         */
+        retrieveAndGenerateSourceConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig | undefined>;
+        /**
+         * Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+         */
+        retrieveSourceConfig?: pulumi.Input<inputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig | undefined>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+        /**
+         * Label that identifies the precomputed RAG source.
+         */
+        ragSourceIdentifier: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+        /**
+         * Label that identifies the precomputed RAG source.
+         */
+        ragSourceIdentifier: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobOutputDataConfig {
+        /**
+         * S3 URI where the results of the evaluation job are stored.
+         */
+        s3Uri: pulumi.Input<string>;
+    }
+
+    export interface EvaluationJobTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
     }
 
     export interface GetAgentAgentVersionsAgentVersionSummary {
@@ -25558,9 +25974,13 @@ export namespace codepipeline {
 
     export interface PipelineStageAction {
         /**
-         * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+         * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
          */
         category: pulumi.Input<string>;
+        /**
+         * A list of shell commands to run with the compute action.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
          */
@@ -25578,9 +25998,17 @@ export namespace codepipeline {
          */
         namespace?: pulumi.Input<string | undefined>;
         /**
-         * A list of artifact names to output. Output artifact names must be unique within a pipeline.
+         * A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
          */
         outputArtifacts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+         */
+        outputArtifactsForComputeActions?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageActionOutputArtifactsForComputeAction>[] | undefined>;
+        /**
+         * A list of variables that are to be exported from the compute action.
+         */
+        outputVariables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
          * The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
          */
@@ -25609,6 +26037,17 @@ export namespace codepipeline {
          * A string that identifies the action type.
          */
         version: pulumi.Input<string>;
+    }
+
+    export interface PipelineStageActionOutputArtifactsForComputeAction {
+        /**
+         * A list of the files to associate with the output artifact that will be exported from the compute action.
+         */
+        files?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The name of the output artifact.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface PipelineStageBeforeEntry {
@@ -31856,11 +32295,11 @@ export namespace dynamodb {
 
     export interface TableGlobalSecondaryIndexWarmThroughput {
         /**
-         * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          */
         readUnitsPerSecond?: pulumi.Input<number | undefined>;
         /**
-         * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          */
         writeUnitsPerSecond?: pulumi.Input<number | undefined>;
     }
@@ -31973,6 +32412,9 @@ export namespace dynamodb {
     export interface TableReplica {
         /**
          * ARN of the table
+         * * `replica.*.arn` - ARN of the replica
+         * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+         * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
          */
         arn?: pulumi.Input<string | undefined>;
         /**
@@ -32043,11 +32485,11 @@ export namespace dynamodb {
 
     export interface TableWarmThroughput {
         /**
-         * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          */
         readUnitsPerSecond?: pulumi.Input<number | undefined>;
         /**
-         * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          */
         writeUnitsPerSecond?: pulumi.Input<number | undefined>;
     }
@@ -35542,6 +35984,10 @@ export namespace ec2 {
          * The integer index of the network interface attachment.
          */
         deviceIndex?: pulumi.Input<number | undefined>;
+        /**
+         * The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+         */
+        enaQueueCount?: pulumi.Input<number | undefined>;
         /**
          * Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
          */
@@ -44456,7 +44902,7 @@ export namespace fis {
 
     export interface ExperimentTemplateActionTarget {
         /**
-         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams),  `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `MultiRegionClusters` (MemoryDB Multi-Region clusters), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
          */
         key: pulumi.Input<string>;
         /**
@@ -71596,6 +72042,177 @@ export namespace macie2 {
     }
 }
 
+export namespace mailmanager {
+    export interface TrafficPolicyPolicyStatement {
+        /**
+         * Action applied when all conditions match. Valid values are `ALLOW` and `DENY`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Conditions evaluated by the statement. See `condition` Block below.
+         */
+        conditions?: pulumi.Input<pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementCondition>[] | undefined>;
+    }
+
+    export interface TrafficPolicyPolicyStatementCondition {
+        /**
+         * Boolean comparison. See `booleanExpression` Block below.
+         */
+        booleanExpression?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpression | undefined>;
+        /**
+         * IPv4 address comparison. See `ipExpression` Block below.
+         */
+        ipExpression?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionIpExpression | undefined>;
+        /**
+         * IPv6 address comparison. See `ipv6Expression` Block below.
+         */
+        ipv6Expression?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionIpv6Expression | undefined>;
+        /**
+         * String comparison. See `stringExpression` Block below.
+         */
+        stringExpression?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpression | undefined>;
+        /**
+         * TLS policy comparison. See `tlsExpression` Block below.
+         */
+        tlsExpression?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionTlsExpression | undefined>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.boolean_expression.evaluate` Block below.
+         */
+        evaluate?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluate | undefined>;
+        /**
+         * Boolean operator used for the comparison.
+         */
+        operator: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluate {
+        /**
+         * Analysis result to evaluate. See `policy_statement.condition.string_expression.evaluate.analysis` Block below.
+         */
+        analysis?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateAnalysis | undefined>;
+        /**
+         * Address list membership check. See `isInAddressList` Block below.
+         */
+        isInAddressList?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateIsInAddressList | undefined>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateAnalysis {
+        /**
+         * ARN of the analyzer performing the analysis.
+         */
+        analyzer: pulumi.Input<string>;
+        /**
+         * Result field returned in the analysis.
+         */
+        resultField: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateIsInAddressList {
+        /**
+         * List containing exactly one address list ARN to check membership against.
+         */
+        addressLists: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Email attribute to check against the address list.
+         */
+        attribute: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.ip_expression.evaluate` Block below.
+         */
+        evaluate?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionIpExpressionEvaluate | undefined>;
+        /**
+         * IP address operator used for the comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * IPv4 CIDR ranges used for the comparison.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpExpressionEvaluate {
+        attribute: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpv6Expression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.ipv6_expression.evaluate` Block below.
+         */
+        evaluate?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionIpv6ExpressionEvaluate | undefined>;
+        /**
+         * IPv6 address operator used for the comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * IPv6 CIDR ranges used for the comparison.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpv6ExpressionEvaluate {
+        attribute: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.string_expression.evaluate` Block below.
+         */
+        evaluate?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpressionEvaluate | undefined>;
+        /**
+         * String operator used for the comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Strings used for the comparison.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpressionEvaluate {
+        /**
+         * Analysis result to evaluate. See `policy_statement.condition.string_expression.evaluate.analysis` Block below.
+         */
+        analysis?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpressionEvaluateAnalysis | undefined>;
+        attribute?: pulumi.Input<string | undefined>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpressionEvaluateAnalysis {
+        /**
+         * ARN of the analyzer performing the analysis.
+         */
+        analyzer: pulumi.Input<string>;
+        /**
+         * Result field returned in the analysis.
+         */
+        resultField: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionTlsExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.tls_expression.evaluate` Block below.
+         */
+        evaluate?: pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatementConditionTlsExpressionEvaluate | undefined>;
+        /**
+         * TLS policy operator used for the comparison.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * TLS policy used for the comparison.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionTlsExpressionEvaluate {
+        attribute: pulumi.Input<string>;
+    }
+}
+
 export namespace mediaconvert {
     export interface QueueReservationPlanSettings {
         /**
@@ -79117,6 +79734,28 @@ export namespace opensearchingest {
         kmsKeyArn: pulumi.Input<string>;
     }
 
+    export interface PipelineEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PipelineEndpointVpcOptions {
+        /**
+         * List of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * List of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface PipelineLogPublishingOptions {
         /**
          * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
@@ -83137,18 +83776,18 @@ export namespace rekognition {
 
     export interface StreamProcessorNotificationChannel {
         /**
-         * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         * Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
          */
         snsTopicArn?: pulumi.Input<string | undefined>;
     }
 
     export interface StreamProcessorOutput {
         /**
-         * The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+         * Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
          */
         kinesisDataStream?: pulumi.Input<inputs.rekognition.StreamProcessorOutputKinesisDataStream | undefined>;
         /**
-         * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+         * Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
          */
         s3Destination?: pulumi.Input<inputs.rekognition.StreamProcessorOutputS3Destination | undefined>;
     }
@@ -83166,7 +83805,7 @@ export namespace rekognition {
          */
         bucket?: pulumi.Input<string | undefined>;
         /**
-         * The prefix value of the location within the bucket that you want the information to be published to.
+         * Prefix value of the location within the bucket that you want the information to be published to.
          */
         keyPrefix?: pulumi.Input<string | undefined>;
     }
@@ -83203,11 +83842,11 @@ export namespace rekognition {
 
     export interface StreamProcessorRegionsOfInterestPolygon {
         /**
-         * The value of the X coordinate for a point on a Polygon.
+         * Value of the X coordinate for a point on a Polygon.
          */
         x?: pulumi.Input<number | undefined>;
         /**
-         * The value of the Y coordinate for a point on a Polygon.
+         * Value of the Y coordinate for a point on a Polygon.
          */
         y?: pulumi.Input<number | undefined>;
     }
@@ -83225,7 +83864,7 @@ export namespace rekognition {
 
     export interface StreamProcessorSettingsConnectedHome {
         /**
-         * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         * What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
          */
         labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -94763,6 +95402,17 @@ export namespace secretsmanager {
          * Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
          */
         statusMessage?: pulumi.Input<string | undefined>;
+    }
+
+    export interface SecretRotationExternalSecretRotationMetadata {
+        /**
+         * The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The metadata value for the specified key.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface SecretRotationRotationRules {

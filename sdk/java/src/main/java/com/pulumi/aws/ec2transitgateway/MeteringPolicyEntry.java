@@ -131,9 +131,17 @@ public class MeteringPolicyEntry extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> destinationTransitGatewayAttachmentId() {
         return Codegen.optional(this.destinationTransitGatewayAttachmentId);
     }
+    /**
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     @Export(name="destinationTransitGatewayAttachmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationTransitGatewayAttachmentType;
 
+    /**
+     * @return Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     public Output<Optional<String>> destinationTransitGatewayAttachmentType() {
         return Codegen.optional(this.destinationTransitGatewayAttachmentType);
     }
@@ -219,9 +227,17 @@ public class MeteringPolicyEntry extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sourceTransitGatewayAttachmentId() {
         return Codegen.optional(this.sourceTransitGatewayAttachmentId);
     }
+    /**
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     @Export(name="sourceTransitGatewayAttachmentType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceTransitGatewayAttachmentType;
 
+    /**
+     * @return Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     * 
+     */
     public Output<Optional<String>> sourceTransitGatewayAttachmentType() {
         return Codegen.optional(this.sourceTransitGatewayAttachmentType);
     }

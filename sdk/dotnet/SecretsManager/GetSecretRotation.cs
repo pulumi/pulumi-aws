@@ -136,6 +136,14 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretRotationResult
     {
         /// <summary>
+        /// Metadata required by the external secret partner. See `ExternalSecretRotationMetadata` below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetSecretRotationExternalSecretRotationMetadataResult> ExternalSecretRotationMetadatas;
+        /// <summary>
+        /// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+        /// </summary>
+        public readonly string ExternalSecretRotationRoleArn;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -156,6 +164,10 @@ namespace Pulumi.Aws.SecretsManager
 
         [OutputConstructor]
         private GetSecretRotationResult(
+            ImmutableArray<Outputs.GetSecretRotationExternalSecretRotationMetadataResult> externalSecretRotationMetadatas,
+
+            string externalSecretRotationRoleArn,
+
             string id,
 
             string region,
@@ -168,6 +180,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string secretId)
         {
+            ExternalSecretRotationMetadatas = externalSecretRotationMetadatas;
+            ExternalSecretRotationRoleArn = externalSecretRotationRoleArn;
             Id = id;
             Region = region;
             RotationEnabled = rotationEnabled;

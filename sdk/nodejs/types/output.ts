@@ -10950,7 +10950,7 @@ export namespace autoscaling {
 
     export interface GroupAvailabilityZoneDistribution {
         /**
-         * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+         * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
          */
         capacityDistributionStrategy?: string;
     }
@@ -18826,13 +18826,17 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStrategyConfiguration {
         /**
-         * Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+         * Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
          */
         consolidation?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationConsolidation;
         /**
-         * Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
          */
         extraction?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationExtraction;
+        /**
+         * Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         */
+        reflection?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationReflection;
         /**
          * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
          */
@@ -18859,6 +18863,28 @@ export namespace bedrock {
          * ID of the foundation model to use for extraction processing.
          */
         modelId: string;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationReflection {
+        /**
+         * Additional text to append to the model prompt for reflection processing.
+         */
+        appendToPrompt: string;
+        /**
+         * ID of the foundation model to use for reflection processing.
+         */
+        modelId: string;
+        /**
+         * Namespace templates for episodic reflection. Can be less nested than the episodic namespaces.
+         */
+        namespaceTemplates: string[];
+    }
+
+    export interface AgentcoreMemoryStrategyReflectionConfiguration {
+        /**
+         * Namespace templates over which to create reflections. Can be less nested than episode namespaces.
+         */
+        namespaceTemplates: string[];
     }
 
     export interface AgentcoreMemoryStrategyTimeouts {
@@ -18921,6 +18947,10 @@ export namespace bedrock {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderClientSecretArn {
@@ -19590,6 +19620,392 @@ export namespace bedrock {
          * VPC configuration subnets.
          */
         subnetIds: string[];
+    }
+
+    export interface EvaluationJobEvaluationConfig {
+        /**
+         * Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
+         */
+        automated?: outputs.bedrock.EvaluationJobEvaluationConfigAutomated;
+        /**
+         * Configuration for an evaluation job that uses human workers. See `human` Block below.
+         */
+        human?: outputs.bedrock.EvaluationJobEvaluationConfigHuman;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomated {
+        /**
+         * Configuration for custom metrics to compute for the evaluation job. See `customMetricConfig` Block below.
+         */
+        customMetricConfig?: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfig;
+        /**
+         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block below.
+         */
+        datasetMetricConfigs: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig[];
+        /**
+         * Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluatorModelConfig` Block below.
+         */
+        evaluatorModelConfig?: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfig {
+        /**
+         * One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
+         */
+        customMetrics: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric[];
+        /**
+         * Configuration for the evaluator model used to compute the custom metrics. See `evaluatorModelConfig` Block above.
+         */
+        evaluatorModelConfig: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetric {
+        /**
+         * Definition of the custom metric. See `customMetricDefinition` Block below.
+         */
+        customMetricDefinition: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinition {
+        /**
+         * Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
+         */
+        instructions: string;
+        /**
+         * Name for the custom metric. Must be unique in your AWS Region.
+         */
+        name: string;
+        /**
+         * One or more items defining the rating scale for the custom metric. See `ratingScale` Block below.
+         */
+        ratingScales?: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale[];
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScale {
+        /**
+         * Definition for one rating in the custom metric rating scale.
+         */
+        definition: string;
+        /**
+         * Value for one rating in the custom metric rating scale. See `value` Block below.
+         */
+        value: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValue {
+        /**
+         * Floating point number representing the rating value.
+         */
+        floatValue?: number;
+        /**
+         * String representing the rating value.
+         */
+        stringValue?: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfig {
+        /**
+         * Evaluator model. See `bedrockEvaluatorModel` Block below.
+         */
+        bedrockEvaluatorModel: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModel {
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+         */
+        modelIdentifier: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
+        /**
+         * Prompt dataset to use. See `dataset` Block below.
+         */
+        dataset: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset;
+        /**
+         * Names of the metrics to use for the evaluation job.
+         */
+        metricNames: string[];
+        /**
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         */
+        taskType: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDataset {
+        /**
+         * Location of a custom prompt dataset. See `datasetLocation` Block below.
+         */
+        datasetLocation?: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation;
+        /**
+         * Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+         */
+        name: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocation {
+        /**
+         * S3 URI of the custom prompt dataset.
+         */
+        s3Uri: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfig {
+        /**
+         * Evaluator model. See `bedrockEvaluatorModel` Block below.
+         */
+        bedrockEvaluatorModel: outputs.bedrock.EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel;
+    }
+
+    export interface EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModel {
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+         */
+        modelIdentifier: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigHuman {
+        /**
+         * One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+         */
+        customMetrics?: outputs.bedrock.EvaluationJobEvaluationConfigHumanCustomMetric[];
+        /**
+         * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         */
+        datasetMetricConfigs: outputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfig[];
+        /**
+         * Configuration for the human workflow. See `humanWorkflowConfig` Block below.
+         */
+        humanWorkflowConfig?: outputs.bedrock.EvaluationJobEvaluationConfigHumanHumanWorkflowConfig;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanCustomMetric {
+        /**
+         * Description of the metric.
+         */
+        description?: string;
+        /**
+         * Name of the metric.
+         */
+        name: string;
+        /**
+         * How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+         */
+        ratingMethod: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfig {
+        /**
+         * Prompt dataset to use. See `dataset` Block below.
+         */
+        dataset: outputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset;
+        /**
+         * Names of the metrics to use for the evaluation job.
+         */
+        metricNames: string[];
+        /**
+         * Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+         */
+        taskType: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfigDataset {
+        /**
+         * Location of a custom prompt dataset. See `datasetLocation` Block below.
+         */
+        datasetLocation?: outputs.bedrock.EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation;
+        /**
+         * Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+         */
+        name: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocation {
+        /**
+         * S3 URI of the custom prompt dataset.
+         */
+        s3Uri: string;
+    }
+
+    export interface EvaluationJobEvaluationConfigHumanHumanWorkflowConfig {
+        /**
+         * ARN of the Amazon SageMaker AI flow definition.
+         */
+        flowDefinitionArn: string;
+        /**
+         * Instructions for the flow definition.
+         */
+        instructions?: string;
+    }
+
+    export interface EvaluationJobInferenceConfig {
+        /**
+         * One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+         */
+        models?: outputs.bedrock.EvaluationJobInferenceConfigModel[];
+        /**
+         * Inference configuration for a knowledge base evaluation job. See `ragConfig` Block below.
+         */
+        ragConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfig;
+    }
+
+    export interface EvaluationJobInferenceConfigModel {
+        /**
+         * Amazon Bedrock model. See `bedrockModel` Block below.
+         */
+        bedrockModel?: outputs.bedrock.EvaluationJobInferenceConfigModelBedrockModel;
+        /**
+         * Model where you provide your own precomputed inference response data. See `precomputedInferenceSource` Block below.
+         */
+        precomputedInferenceSource?: outputs.bedrock.EvaluationJobInferenceConfigModelPrecomputedInferenceSource;
+    }
+
+    export interface EvaluationJobInferenceConfigModelBedrockModel {
+        /**
+         * JSON-formatted string of inference parameters for the model.
+         */
+        inferenceParams?: string;
+        /**
+         * Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+         */
+        modelIdentifier: string;
+        /**
+         * Model's performance settings. See `performanceConfig` Block below.
+         */
+        performanceConfig?: outputs.bedrock.EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig;
+    }
+
+    export interface EvaluationJobInferenceConfigModelBedrockModelPerformanceConfig {
+        /**
+         * Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+         */
+        latency?: string;
+    }
+
+    export interface EvaluationJobInferenceConfigModelPrecomputedInferenceSource {
+        /**
+         * Label that identifies the precomputed inference source.
+         */
+        inferenceSourceIdentifier: string;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfig {
+        /**
+         * Amazon Bedrock knowledge base. See `knowledgeBaseConfig` Block below.
+         */
+        knowledgeBaseConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig;
+        /**
+         * RAG source where you provide your own precomputed inference response data. See `precomputedRagSourceConfig` Block below.
+         */
+        precomputedRagSourceConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfig {
+        /**
+         * Configuration for retrieval with response generation. See `retrieveAndGenerateConfig` Block below.
+         */
+        retrieveAndGenerateConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig;
+        /**
+         * Configuration for retrieval only. See `retrieveConfig` Block below.
+         */
+        retrieveConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfig {
+        /**
+         * Identifier of the knowledge base.
+         */
+        knowledgeBaseId: string;
+        /**
+         * ARN of the foundation model, or inference profile, used to generate responses.
+         */
+        modelArn: string;
+        /**
+         * Knowledge base retrieval configuration. See `retrievalConfiguration` Block below.
+         */
+        retrievalConfiguration?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfiguration {
+        /**
+         * Vector search configuration. See `vectorSearchConfiguration` Block below.
+         */
+        vectorSearchConfiguration: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfiguration {
+        /**
+         * Number of text chunks to retrieve.
+         */
+        numberOfResults?: number;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfig {
+        /**
+         * Identifier of the knowledge base.
+         */
+        knowledgeBaseId: string;
+        /**
+         * Knowledge base retrieval configuration. See `knowledgeBaseRetrievalConfiguration` Block below.
+         */
+        knowledgeBaseRetrievalConfiguration?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfiguration {
+        /**
+         * Vector search configuration. See `vectorSearchConfiguration` Block above.
+         */
+        vectorSearchConfiguration: outputs.bedrock.EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfiguration {
+        /**
+         * Number of text chunks to retrieve.
+         */
+        numberOfResults?: number;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfig {
+        /**
+         * Configuration for retrieval with response generation. See `retrieveAndGenerateSourceConfig` Block below.
+         */
+        retrieveAndGenerateSourceConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig;
+        /**
+         * Configuration for retrieval only. See `retrieveSourceConfig` Block below.
+         */
+        retrieveSourceConfig?: outputs.bedrock.EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfig {
+        /**
+         * Label that identifies the precomputed RAG source.
+         */
+        ragSourceIdentifier: string;
+    }
+
+    export interface EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfig {
+        /**
+         * Label that identifies the precomputed RAG source.
+         */
+        ragSourceIdentifier: string;
+    }
+
+    export interface EvaluationJobOutputDataConfig {
+        /**
+         * S3 URI where the results of the evaluation job are stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface EvaluationJobTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
     }
 
     export interface GetAgentAgentVersionsAgentVersionSummary {
@@ -27825,9 +28241,13 @@ export namespace codepipeline {
 
     export interface PipelineStageAction {
         /**
-         * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+         * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
          */
         category: string;
+        /**
+         * A list of shell commands to run with the compute action.
+         */
+        commands?: string[];
         /**
          * A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
          */
@@ -27845,9 +28265,17 @@ export namespace codepipeline {
          */
         namespace?: string;
         /**
-         * A list of artifact names to output. Output artifact names must be unique within a pipeline.
+         * A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
          */
         outputArtifacts?: string[];
+        /**
+         * A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+         */
+        outputArtifactsForComputeActions?: outputs.codepipeline.PipelineStageActionOutputArtifactsForComputeAction[];
+        /**
+         * A list of variables that are to be exported from the compute action.
+         */
+        outputVariables?: string[];
         /**
          * The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
          */
@@ -27876,6 +28304,17 @@ export namespace codepipeline {
          * A string that identifies the action type.
          */
         version: string;
+    }
+
+    export interface PipelineStageActionOutputArtifactsForComputeAction {
+        /**
+         * A list of the files to associate with the output artifact that will be exported from the compute action.
+         */
+        files?: string[];
+        /**
+         * The name of the output artifact.
+         */
+        name: string;
     }
 
     export interface PipelineStageBeforeEntry {
@@ -37284,11 +37723,11 @@ export namespace dynamodb {
 
     export interface TableGlobalSecondaryIndexWarmThroughput {
         /**
-         * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          */
         readUnitsPerSecond: number;
         /**
-         * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          */
         writeUnitsPerSecond: number;
     }
@@ -37401,6 +37840,9 @@ export namespace dynamodb {
     export interface TableReplica {
         /**
          * ARN of the table
+         * * `replica.*.arn` - ARN of the replica
+         * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+         * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
          */
         arn: string;
         /**
@@ -37471,11 +37913,11 @@ export namespace dynamodb {
 
     export interface TableWarmThroughput {
         /**
-         * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          */
         readUnitsPerSecond: number;
         /**
-         * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          */
         writeUnitsPerSecond: number;
     }
@@ -39423,6 +39865,7 @@ export namespace ec2 {
         deleteOnTermination?: boolean;
         description: string;
         deviceIndex: number;
+        enaQueueCount: number;
         interfaceType: string;
         ipv4AddressCount: number;
         ipv4Addresses: string[];
@@ -41226,6 +41669,38 @@ export namespace ec2 {
         regionName: string;
     }
 
+    export interface GetVpcIpv6CidrBlockAssociation {
+        /**
+         * Association ID for the IPv4 CIDR block.
+         */
+        associationId: string;
+        /**
+         * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+         */
+        ipSource: string;
+        /**
+         * Indicates whether the address is `public` or `private`.
+         */
+        ipv6AddressAttribute: string;
+        /**
+         * IPv6 CIDR block for the association.
+         */
+        ipv6CidrBlock: string;
+        /**
+         * Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+         */
+        ipv6Pool: string;
+        /**
+         * Name of association's network border group.
+         */
+        networkBorderGroup: string;
+        /**
+         * Current state of the desired VPC.
+         * Can be either `"pending"` or `"available"`.
+         */
+        state: string;
+    }
+
     export interface GetVpcPeeringConnectionCidrBlockSet {
         /**
          * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
@@ -42274,6 +42749,10 @@ export namespace ec2 {
          * The integer index of the network interface attachment.
          */
         deviceIndex?: number;
+        /**
+         * The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+         */
+        enaQueueCount?: number;
         /**
          * Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
          */
@@ -48690,6 +49169,17 @@ export namespace eks {
         namespace: string;
     }
 
+    export interface GetAccessPoliciesAccessPolicy {
+        /**
+         * ARN of the access policy.
+         */
+        arn: string;
+        /**
+         * Name of the access policy.
+         */
+        name: string;
+    }
+
     export interface GetAddonPodIdentityAssociation {
         /**
          * ARN of the IAM role associated with the EKS add-on.
@@ -52255,7 +52745,7 @@ export namespace fis {
 
     export interface ExperimentTemplateActionTarget {
         /**
-         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams),  `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
+         * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `MultiRegionClusters` (MemoryDB Multi-Region clusters), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
          */
         key: string;
         /**
@@ -80735,6 +81225,178 @@ export namespace macie2 {
 
 }
 
+export namespace mailmanager {
+    export interface TrafficPolicyPolicyStatement {
+        /**
+         * Action applied when all conditions match. Valid values are `ALLOW` and `DENY`.
+         */
+        action: string;
+        /**
+         * Conditions evaluated by the statement. See `condition` Block below.
+         */
+        conditions?: outputs.mailmanager.TrafficPolicyPolicyStatementCondition[];
+    }
+
+    export interface TrafficPolicyPolicyStatementCondition {
+        /**
+         * Boolean comparison. See `booleanExpression` Block below.
+         */
+        booleanExpression?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpression;
+        /**
+         * IPv4 address comparison. See `ipExpression` Block below.
+         */
+        ipExpression?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionIpExpression;
+        /**
+         * IPv6 address comparison. See `ipv6Expression` Block below.
+         */
+        ipv6Expression?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionIpv6Expression;
+        /**
+         * String comparison. See `stringExpression` Block below.
+         */
+        stringExpression?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpression;
+        /**
+         * TLS policy comparison. See `tlsExpression` Block below.
+         */
+        tlsExpression?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionTlsExpression;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.boolean_expression.evaluate` Block below.
+         */
+        evaluate?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluate;
+        /**
+         * Boolean operator used for the comparison.
+         */
+        operator: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluate {
+        /**
+         * Analysis result to evaluate. See `policy_statement.condition.string_expression.evaluate.analysis` Block below.
+         */
+        analysis?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateAnalysis;
+        /**
+         * Address list membership check. See `isInAddressList` Block below.
+         */
+        isInAddressList?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateIsInAddressList;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateAnalysis {
+        /**
+         * ARN of the analyzer performing the analysis.
+         */
+        analyzer: string;
+        /**
+         * Result field returned in the analysis.
+         */
+        resultField: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionBooleanExpressionEvaluateIsInAddressList {
+        /**
+         * List containing exactly one address list ARN to check membership against.
+         */
+        addressLists: string[];
+        /**
+         * Email attribute to check against the address list.
+         */
+        attribute: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.ip_expression.evaluate` Block below.
+         */
+        evaluate?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionIpExpressionEvaluate;
+        /**
+         * IP address operator used for the comparison.
+         */
+        operator: string;
+        /**
+         * IPv4 CIDR ranges used for the comparison.
+         */
+        values: string[];
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpExpressionEvaluate {
+        attribute: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpv6Expression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.ipv6_expression.evaluate` Block below.
+         */
+        evaluate?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionIpv6ExpressionEvaluate;
+        /**
+         * IPv6 address operator used for the comparison.
+         */
+        operator: string;
+        /**
+         * IPv6 CIDR ranges used for the comparison.
+         */
+        values: string[];
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionIpv6ExpressionEvaluate {
+        attribute: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.string_expression.evaluate` Block below.
+         */
+        evaluate?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpressionEvaluate;
+        /**
+         * String operator used for the comparison.
+         */
+        operator: string;
+        /**
+         * Strings used for the comparison.
+         */
+        values: string[];
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpressionEvaluate {
+        /**
+         * Analysis result to evaluate. See `policy_statement.condition.string_expression.evaluate.analysis` Block below.
+         */
+        analysis?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionStringExpressionEvaluateAnalysis;
+        attribute?: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionStringExpressionEvaluateAnalysis {
+        /**
+         * ARN of the analyzer performing the analysis.
+         */
+        analyzer: string;
+        /**
+         * Result field returned in the analysis.
+         */
+        resultField: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionTlsExpression {
+        /**
+         * Operand evaluated by the expression. See `policy_statement.condition.tls_expression.evaluate` Block below.
+         */
+        evaluate?: outputs.mailmanager.TrafficPolicyPolicyStatementConditionTlsExpressionEvaluate;
+        /**
+         * TLS policy operator used for the comparison.
+         */
+        operator: string;
+        /**
+         * TLS policy used for the comparison.
+         */
+        value: string;
+    }
+
+    export interface TrafficPolicyPolicyStatementConditionTlsExpressionEvaluate {
+        attribute: string;
+    }
+
+}
+
 export namespace mediaconvert {
     export interface QueueReservationPlanSettings {
         /**
@@ -89610,6 +90272,28 @@ export namespace opensearchingest {
         kmsKeyArn: string;
     }
 
+    export interface PipelineEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface PipelineEndpointVpcOptions {
+        /**
+         * List of security groups associated with the VPC endpoint.
+         */
+        securityGroupIds?: string[];
+        /**
+         * List of subnet IDs associated with the VPC endpoint.
+         */
+        subnetIds: string[];
+    }
+
     export interface PipelineLogPublishingOptions {
         /**
          * The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
@@ -94326,18 +95010,18 @@ export namespace rekognition {
 
     export interface StreamProcessorNotificationChannel {
         /**
-         * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         * Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
          */
         snsTopicArn?: string;
     }
 
     export interface StreamProcessorOutput {
         /**
-         * The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+         * Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
          */
         kinesisDataStream?: outputs.rekognition.StreamProcessorOutputKinesisDataStream;
         /**
-         * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+         * Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
          */
         s3Destination?: outputs.rekognition.StreamProcessorOutputS3Destination;
     }
@@ -94355,7 +95039,7 @@ export namespace rekognition {
          */
         bucket?: string;
         /**
-         * The prefix value of the location within the bucket that you want the information to be published to.
+         * Prefix value of the location within the bucket that you want the information to be published to.
          */
         keyPrefix?: string;
     }
@@ -94392,11 +95076,11 @@ export namespace rekognition {
 
     export interface StreamProcessorRegionsOfInterestPolygon {
         /**
-         * The value of the X coordinate for a point on a Polygon.
+         * Value of the X coordinate for a point on a Polygon.
          */
         x?: number;
         /**
-         * The value of the Y coordinate for a point on a Polygon.
+         * Value of the Y coordinate for a point on a Polygon.
          */
         y?: number;
     }
@@ -94414,7 +95098,7 @@ export namespace rekognition {
 
     export interface StreamProcessorSettingsConnectedHome {
         /**
-         * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+         * What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
          */
         labels?: string[];
         /**
@@ -106433,6 +107117,17 @@ export namespace scheduler {
 }
 
 export namespace secretsmanager {
+    export interface GetSecretRotationExternalSecretRotationMetadata {
+        /**
+         * Metadata key name.
+         */
+        key: string;
+        /**
+         * Metadata value for the specified key.
+         */
+        value: string;
+    }
+
     export interface GetSecretRotationRotationRule {
         /**
          * Number of days between automatic scheduled rotations of the secret.
@@ -106499,6 +107194,17 @@ export namespace secretsmanager {
          * Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
          */
         statusMessage: string;
+    }
+
+    export interface SecretRotationExternalSecretRotationMetadata {
+        /**
+         * The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+         */
+        key: string;
+        /**
+         * The metadata value for the specified key.
+         */
+        value: string;
     }
 
     export interface SecretRotationRotationRules {

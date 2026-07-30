@@ -63,14 +63,14 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      * 
      */
     @Import(name="disableSessionTags")
     private @Nullable Output<Boolean> disableSessionTags;
 
     /**
-     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * @return Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      * 
      */
     public Optional<Output<Boolean>> disableSessionTags() {
@@ -105,6 +105,21 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
+    }
+
+    /**
+     * An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     * 
+     */
+    @Import(name="policy")
+    private @Nullable Output<String> policy;
+
+    /**
+     * @return An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     * 
+     */
+    public Optional<Output<String>> policy() {
+        return Optional.ofNullable(this.policy);
     }
 
     /**
@@ -210,6 +225,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         this.disableSessionTags = $.disableSessionTags;
         this.externalId = $.externalId;
         this.namespace = $.namespace;
+        this.policy = $.policy;
         this.region = $.region;
         this.roleArn = $.roleArn;
         this.serviceAccount = $.serviceAccount;
@@ -300,7 +316,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
          * 
          * @return builder
          * 
@@ -311,7 +327,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
          * 
          * @return builder
          * 
@@ -360,6 +376,27 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param policy An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(@Nullable Output<String> policy) {
+            $.policy = policy;
+            return this;
+        }
+
+        /**
+         * @param policy An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Output.of(policy));
         }
 
         /**

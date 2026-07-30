@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codepipeline.inputs;
 
+import com.pulumi.aws.codepipeline.inputs.PipelineStageActionOutputArtifactsForComputeActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,18 +21,33 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
     public static final PipelineStageActionArgs Empty = new PipelineStageActionArgs();
 
     /**
-     * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+     * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
      * 
      */
     @Import(name="category", required=true)
     private Output<String> category;
 
     /**
-     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
      * 
      */
     public Output<String> category() {
         return this.category;
+    }
+
+    /**
+     * A list of shell commands to run with the compute action.
+     * 
+     */
+    @Import(name="commands")
+    private @Nullable Output<List<String>> commands;
+
+    /**
+     * @return A list of shell commands to run with the compute action.
+     * 
+     */
+    public Optional<Output<List<String>>> commands() {
+        return Optional.ofNullable(this.commands);
     }
 
     /**
@@ -95,18 +111,48 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of artifact names to output. Output artifact names must be unique within a pipeline.
+     * A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
      * 
      */
     @Import(name="outputArtifacts")
     private @Nullable Output<List<String>> outputArtifacts;
 
     /**
-     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
+     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
      * 
      */
     public Optional<Output<List<String>>> outputArtifacts() {
         return Optional.ofNullable(this.outputArtifacts);
+    }
+
+    /**
+     * A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+     * 
+     */
+    @Import(name="outputArtifactsForComputeActions")
+    private @Nullable Output<List<PipelineStageActionOutputArtifactsForComputeActionArgs>> outputArtifactsForComputeActions;
+
+    /**
+     * @return A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+     * 
+     */
+    public Optional<Output<List<PipelineStageActionOutputArtifactsForComputeActionArgs>>> outputArtifactsForComputeActions() {
+        return Optional.ofNullable(this.outputArtifactsForComputeActions);
+    }
+
+    /**
+     * A list of variables that are to be exported from the compute action.
+     * 
+     */
+    @Import(name="outputVariables")
+    private @Nullable Output<List<String>> outputVariables;
+
+    /**
+     * @return A list of variables that are to be exported from the compute action.
+     * 
+     */
+    public Optional<Output<List<String>>> outputVariables() {
+        return Optional.ofNullable(this.outputVariables);
     }
 
     /**
@@ -218,11 +264,14 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
 
     private PipelineStageActionArgs(PipelineStageActionArgs $) {
         this.category = $.category;
+        this.commands = $.commands;
         this.configuration = $.configuration;
         this.inputArtifacts = $.inputArtifacts;
         this.name = $.name;
         this.namespace = $.namespace;
         this.outputArtifacts = $.outputArtifacts;
+        this.outputArtifactsForComputeActions = $.outputArtifactsForComputeActions;
+        this.outputVariables = $.outputVariables;
         this.owner = $.owner;
         this.provider = $.provider;
         this.region = $.region;
@@ -251,7 +300,7 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param category A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+         * @param category A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
          * 
          * @return builder
          * 
@@ -262,13 +311,44 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param category A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+         * @param category A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
          * 
          * @return builder
          * 
          */
         public Builder category(String category) {
             return category(Output.of(category));
+        }
+
+        /**
+         * @param commands A list of shell commands to run with the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder commands(@Nullable Output<List<String>> commands) {
+            $.commands = commands;
+            return this;
+        }
+
+        /**
+         * @param commands A list of shell commands to run with the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder commands(List<String> commands) {
+            return commands(Output.of(commands));
+        }
+
+        /**
+         * @param commands A list of shell commands to run with the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder commands(String... commands) {
+            return commands(List.of(commands));
         }
 
         /**
@@ -366,7 +446,7 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline.
+         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
          * 
          * @return builder
          * 
@@ -377,7 +457,7 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline.
+         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
          * 
          * @return builder
          * 
@@ -387,13 +467,75 @@ public final class PipelineStageActionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline.
+         * @param outputArtifacts A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
          * 
          * @return builder
          * 
          */
         public Builder outputArtifacts(String... outputArtifacts) {
             return outputArtifacts(List.of(outputArtifacts));
+        }
+
+        /**
+         * @param outputArtifactsForComputeActions A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputArtifactsForComputeActions(@Nullable Output<List<PipelineStageActionOutputArtifactsForComputeActionArgs>> outputArtifactsForComputeActions) {
+            $.outputArtifactsForComputeActions = outputArtifactsForComputeActions;
+            return this;
+        }
+
+        /**
+         * @param outputArtifactsForComputeActions A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputArtifactsForComputeActions(List<PipelineStageActionOutputArtifactsForComputeActionArgs> outputArtifactsForComputeActions) {
+            return outputArtifactsForComputeActions(Output.of(outputArtifactsForComputeActions));
+        }
+
+        /**
+         * @param outputArtifactsForComputeActions A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputArtifactsForComputeActions(PipelineStageActionOutputArtifactsForComputeActionArgs... outputArtifactsForComputeActions) {
+            return outputArtifactsForComputeActions(List.of(outputArtifactsForComputeActions));
+        }
+
+        /**
+         * @param outputVariables A list of variables that are to be exported from the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputVariables(@Nullable Output<List<String>> outputVariables) {
+            $.outputVariables = outputVariables;
+            return this;
+        }
+
+        /**
+         * @param outputVariables A list of variables that are to be exported from the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputVariables(List<String> outputVariables) {
+            return outputVariables(Output.of(outputVariables));
+        }
+
+        /**
+         * @param outputVariables A list of variables that are to be exported from the compute action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outputVariables(String... outputVariables) {
+            return outputVariables(List.of(outputVariables));
         }
 
         /**

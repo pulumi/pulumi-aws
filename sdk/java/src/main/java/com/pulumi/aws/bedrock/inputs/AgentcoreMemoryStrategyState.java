@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyReflectionConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -19,14 +20,14 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     public static final AgentcoreMemoryStrategyState Empty = new AgentcoreMemoryStrategyState();
 
     /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationArgs> configuration;
 
     /**
-     * @return Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * @return Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationArgs>> configuration() {
@@ -48,9 +49,25 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * ARN of the IAM role that the memory service assumes to perform operations.
+     * 
+     * @deprecated
+     * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * 
+     */
+    @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
     @Import(name="memoryExecutionRoleArn")
     private @Nullable Output<String> memoryExecutionRoleArn;
 
+    /**
+     * @return ARN of the IAM role that the memory service assumes to perform operations.
+     * 
+     * @deprecated
+     * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * 
+     */
+    @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
     public Optional<Output<String>> memoryExecutionRoleArn() {
         return Optional.ofNullable(this.memoryExecutionRoleArn);
     }
@@ -101,22 +118,56 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     }
 
     /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     * 
-     * The following arguments are optional:
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
      * 
      */
+    @Import(name="namespaceTemplates")
+    private @Nullable Output<List<String>> namespaceTemplates;
+
+    /**
+     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     * 
+     */
+    public Optional<Output<List<String>>> namespaceTemplates() {
+        return Optional.ofNullable(this.namespaceTemplates);
+    }
+
+    /**
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * 
+     * @deprecated
+     * namespaces is deprecated. Use namespaceTemplates instead.
+     * 
+     */
+    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
     @Import(name="namespaces")
     private @Nullable Output<List<String>> namespaces;
 
     /**
-     * @return Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
-     * The following arguments are optional:
+     * @deprecated
+     * namespaces is deprecated. Use namespaceTemplates instead.
      * 
      */
+    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
     public Optional<Output<List<String>>> namespaces() {
         return Optional.ofNullable(this.namespaces);
+    }
+
+    /**
+     * Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     * 
+     */
+    @Import(name="reflectionConfiguration")
+    private @Nullable Output<AgentcoreMemoryStrategyReflectionConfigurationArgs> reflectionConfiguration;
+
+    /**
+     * @return Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreMemoryStrategyReflectionConfigurationArgs>> reflectionConfiguration() {
+        return Optional.ofNullable(this.reflectionConfiguration);
     }
 
     /**
@@ -144,12 +195,16 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -165,7 +220,9 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         this.memoryId = $.memoryId;
         this.memoryStrategyId = $.memoryStrategyId;
         this.name = $.name;
+        this.namespaceTemplates = $.namespaceTemplates;
         this.namespaces = $.namespaces;
+        this.reflectionConfiguration = $.reflectionConfiguration;
         this.region = $.region;
         this.timeouts = $.timeouts;
         this.type = $.type;
@@ -190,7 +247,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configuration Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+         * @param configuration Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
          * 
          * @return builder
          * 
@@ -201,7 +258,7 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configuration Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+         * @param configuration Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
          * 
          * @return builder
          * 
@@ -231,11 +288,31 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
             return description(Output.of(description));
         }
 
+        /**
+         * @param memoryExecutionRoleArn ARN of the IAM role that the memory service assumes to perform operations.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+         * 
+         */
+        @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
         public Builder memoryExecutionRoleArn(@Nullable Output<String> memoryExecutionRoleArn) {
             $.memoryExecutionRoleArn = memoryExecutionRoleArn;
             return this;
         }
 
+        /**
+         * @param memoryExecutionRoleArn ARN of the IAM role that the memory service assumes to perform operations.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+         * 
+         */
+        @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
         public Builder memoryExecutionRoleArn(String memoryExecutionRoleArn) {
             return memoryExecutionRoleArn(Output.of(memoryExecutionRoleArn));
         }
@@ -304,40 +381,98 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-         * 
-         * The following arguments are optional:
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
          * 
          * @return builder
          * 
          */
+        public Builder namespaceTemplates(@Nullable Output<List<String>> namespaceTemplates) {
+            $.namespaceTemplates = namespaceTemplates;
+            return this;
+        }
+
+        /**
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namespaceTemplates(List<String> namespaceTemplates) {
+            return namespaceTemplates(Output.of(namespaceTemplates));
+        }
+
+        /**
+         * @param namespaceTemplates Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder namespaceTemplates(String... namespaceTemplates) {
+            return namespaceTemplates(List.of(namespaceTemplates));
+        }
+
+        /**
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * namespaces is deprecated. Use namespaceTemplates instead.
+         * 
+         */
+        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
         public Builder namespaces(@Nullable Output<List<String>> namespaces) {
             $.namespaces = namespaces;
             return this;
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-         * 
-         * The following arguments are optional:
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
          * 
          * @return builder
          * 
+         * @deprecated
+         * namespaces is deprecated. Use namespaceTemplates instead.
+         * 
          */
+        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
         public Builder namespaces(List<String> namespaces) {
             return namespaces(Output.of(namespaces));
         }
 
         /**
-         * @param namespaces Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+         * @param namespaces Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
          * 
-         * The following arguments are optional:
+         * @return builder
+         * 
+         * @deprecated
+         * namespaces is deprecated. Use namespaceTemplates instead.
+         * 
+         */
+        @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
+        public Builder namespaces(String... namespaces) {
+            return namespaces(List.of(namespaces));
+        }
+
+        /**
+         * @param reflectionConfiguration Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
          * 
          * @return builder
          * 
          */
-        public Builder namespaces(String... namespaces) {
-            return namespaces(List.of(namespaces));
+        public Builder reflectionConfiguration(@Nullable Output<AgentcoreMemoryStrategyReflectionConfigurationArgs> reflectionConfiguration) {
+            $.reflectionConfiguration = reflectionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param reflectionConfiguration Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reflectionConfiguration(AgentcoreMemoryStrategyReflectionConfigurationArgs reflectionConfiguration) {
+            return reflectionConfiguration(Output.of(reflectionConfiguration));
         }
 
         /**
@@ -373,6 +508,8 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
         /**
          * @param type Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -383,6 +520,8 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
 
         /**
          * @param type Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -60,6 +60,68 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### CloudFront Standard Logging (v2)
+ * 
+ * CloudFront delivers access logs through CloudWatch Logs, so a distribution&#39;s standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `recordFields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySource;
+ * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.LogDelivery;
+ * import com.pulumi.aws.cloudwatch.LogDeliveryArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LogDeliverySource("example", LogDeliverySourceArgs.builder()
+ *             .name("cloudfront-access-logs")
+ *             .logType("ACCESS_LOGS")
+ *             .resourceArn(exampleAwsCloudfrontDistribution.arn())
+ *             .build());
+ * 
+ *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
+ *             .name("cloudfront-access-logs")
+ *             .outputFormat("json")
+ *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
+ *                 .destinationResourceArn(exampleAwsCloudwatchLogGroup.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
+ *             .deliverySourceName(example.name())
+ *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
+ *             .recordFields(            
+ *                 "date",
+ *                 "time",
+ *                 "c-ip",
+ *                 "sc-status",
+ *                 "viewer-request-log-data",
+ *                 "viewer-response-log-data")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -139,14 +201,14 @@ public class LogDelivery extends com.pulumi.resources.CustomResource {
         return this.fieldDelimiter;
     }
     /**
-     * The list of record fields to be delivered to the destination, in order.
+     * The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      * 
      */
     @Export(name="recordFields", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> recordFields;
 
     /**
-     * @return The list of record fields to be delivered to the destination, in order.
+     * @return The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
      * 
      */
     public Output<List<String>> recordFields() {

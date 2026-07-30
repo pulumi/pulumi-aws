@@ -13,10 +13,22 @@ namespace Pulumi.Aws.CodePipeline.Inputs
     public sealed class PipelineStageActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
+
+        [Input("commands")]
+        private InputList<string>? _commands;
+
+        /// <summary>
+        /// A list of shell commands to run with the compute action.
+        /// </summary>
+        public InputList<string> Commands
+        {
+            get => _commands ?? (_commands = new InputList<string>());
+            set => _commands = value;
+        }
 
         [Input("configuration")]
         private InputMap<string>? _configuration;
@@ -58,12 +70,36 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         private InputList<string>? _outputArtifacts;
 
         /// <summary>
-        /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        /// A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
         /// </summary>
         public InputList<string> OutputArtifacts
         {
             get => _outputArtifacts ?? (_outputArtifacts = new InputList<string>());
             set => _outputArtifacts = value;
+        }
+
+        [Input("outputArtifactsForComputeActions")]
+        private InputList<Inputs.PipelineStageActionOutputArtifactsForComputeActionGetArgs>? _outputArtifactsForComputeActions;
+
+        /// <summary>
+        /// A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+        /// </summary>
+        public InputList<Inputs.PipelineStageActionOutputArtifactsForComputeActionGetArgs> OutputArtifactsForComputeActions
+        {
+            get => _outputArtifactsForComputeActions ?? (_outputArtifactsForComputeActions = new InputList<Inputs.PipelineStageActionOutputArtifactsForComputeActionGetArgs>());
+            set => _outputArtifactsForComputeActions = value;
+        }
+
+        [Input("outputVariables")]
+        private InputList<string>? _outputVariables;
+
+        /// <summary>
+        /// A list of variables that are to be exported from the compute action.
+        /// </summary>
+        public InputList<string> OutputVariables
+        {
+            get => _outputVariables ?? (_outputVariables = new InputList<string>());
+            set => _outputVariables = value;
         }
 
         /// <summary>

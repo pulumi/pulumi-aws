@@ -517,6 +517,9 @@ import javax.annotation.Nullable;
 public class Table extends com.pulumi.resources.CustomResource {
     /**
      * ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -524,6 +527,9 @@ public class Table extends com.pulumi.resources.CustomResource {
 
     /**
      * @return ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     public Output<String> arn() {

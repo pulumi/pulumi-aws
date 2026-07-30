@@ -109,8 +109,6 @@ export class AgentcoreMemory extends pulumi.CustomResource {
     declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     *
-     * The following arguments are optional:
      */
     declare public readonly eventExpiryDuration: pulumi.Output<number>;
     /**
@@ -123,6 +121,8 @@ export class AgentcoreMemory extends pulumi.CustomResource {
     declare public readonly memoryExecutionRoleArn: pulumi.Output<string | undefined>;
     /**
      * Name of the memory.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -209,8 +209,6 @@ export interface AgentcoreMemoryState {
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     *
-     * The following arguments are optional:
      */
     eventExpiryDuration?: pulumi.Input<number | undefined>;
     /**
@@ -223,6 +221,8 @@ export interface AgentcoreMemoryState {
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the memory.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -258,8 +258,6 @@ export interface AgentcoreMemoryArgs {
     encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     *
-     * The following arguments are optional:
      */
     eventExpiryDuration: pulumi.Input<number>;
     /**
@@ -272,6 +270,8 @@ export interface AgentcoreMemoryArgs {
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the memory.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

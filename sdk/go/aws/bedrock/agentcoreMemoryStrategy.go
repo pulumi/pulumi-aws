@@ -41,7 +41,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("SEMANTIC"),
 //				Description: pulumi.String("Semantic understanding strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("default"),
 //				},
 //			})
@@ -73,7 +73,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("SUMMARIZATION"),
 //				Description: pulumi.String("Text summarization strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("{sessionId}"),
 //				},
 //			})
@@ -105,7 +105,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("USER_PREFERENCE"),
 //				Description: pulumi.String("User preference tracking strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("preferences"),
 //				},
 //			})
@@ -137,7 +137,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("EPISODIC"),
 //				Description: pulumi.String("Episodic memory strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
 //				},
 //			})
@@ -170,7 +170,7 @@ import (
 //				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
 //				Type:                   pulumi.String("CUSTOM"),
 //				Description:            pulumi.String("Custom semantic processing strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("{sessionId}"),
 //				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
@@ -213,7 +213,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("CUSTOM"),
 //				Description: pulumi.String("Custom summarization strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("summaries"),
 //				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
@@ -252,7 +252,7 @@ import (
 //				MemoryId:    pulumi.Any(example.Id),
 //				Type:        pulumi.String("CUSTOM"),
 //				Description: pulumi.String("Custom user preference tracking strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("user_prefs"),
 //				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
@@ -296,7 +296,7 @@ import (
 //				MemoryExecutionRoleArn: pulumi.Any(example.MemoryExecutionRoleArn),
 //				Type:                   pulumi.String("CUSTOM"),
 //				Description:            pulumi.String("Custom episodic processing strategy"),
-//				Namespaces: pulumi.StringArray{
+//				NamespaceTemplates: pulumi.StringArray{
 //					pulumi.String("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"),
 //				},
 //				Configuration: &bedrock.AgentcoreMemoryStrategyConfigurationArgs{
@@ -330,10 +330,13 @@ import (
 type AgentcoreMemoryStrategy struct {
 	pulumi.CustomResourceState
 
-	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrOutput `pulumi:"configuration"`
 	// Description of the memory strategy.
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// ARN of the IAM role that the memory service assumes to perform operations.
+	//
+	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringOutput `pulumi:"memoryId"`
@@ -341,14 +344,20 @@ type AgentcoreMemoryStrategy struct {
 	MemoryStrategyId pulumi.StringOutput `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	NamespaceTemplates pulumi.StringArrayOutput `pulumi:"namespaceTemplates"`
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
-	// The following arguments are optional:
+	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
+	// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+	ReflectionConfiguration AgentcoreMemoryStrategyReflectionConfigurationPtrOutput `pulumi:"reflectionConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                      `pulumi:"region"`
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -361,9 +370,6 @@ func NewAgentcoreMemoryStrategy(ctx *pulumi.Context,
 
 	if args.MemoryId == nil {
 		return nil, errors.New("invalid value for required argument 'MemoryId'")
-	}
-	if args.Namespaces == nil {
-		return nil, errors.New("invalid value for required argument 'Namespaces'")
 	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
@@ -391,10 +397,13 @@ func GetAgentcoreMemoryStrategy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
 type agentcoreMemoryStrategyState struct {
-	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration *AgentcoreMemoryStrategyConfiguration `pulumi:"configuration"`
 	// Description of the memory strategy.
-	Description            *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// ARN of the IAM role that the memory service assumes to perform operations.
+	//
+	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId *string `pulumi:"memoryId"`
@@ -402,22 +411,31 @@ type agentcoreMemoryStrategyState struct {
 	MemoryStrategyId *string `pulumi:"memoryStrategyId"`
 	// Name of the memory strategy.
 	Name *string `pulumi:"name"`
-	// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
-	// The following arguments are optional:
+	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces []string `pulumi:"namespaces"`
+	// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+	ReflectionConfiguration *AgentcoreMemoryStrategyReflectionConfiguration `pulumi:"reflectionConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                          `pulumi:"region"`
 	Timeouts *AgentcoreMemoryStrategyTimeouts `pulumi:"timeouts"`
 	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 }
 
 type AgentcoreMemoryStrategyState struct {
-	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrInput
 	// Description of the memory strategy.
-	Description            pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// ARN of the IAM role that the memory service assumes to perform operations.
+	//
+	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringPtrInput
@@ -425,14 +443,20 @@ type AgentcoreMemoryStrategyState struct {
 	MemoryStrategyId pulumi.StringPtrInput
 	// Name of the memory strategy.
 	Name pulumi.StringPtrInput
-	// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	NamespaceTemplates pulumi.StringArrayInput
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
-	// The following arguments are optional:
+	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayInput
+	// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+	ReflectionConfiguration AgentcoreMemoryStrategyReflectionConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrInput
 	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 }
 
@@ -441,45 +465,63 @@ func (AgentcoreMemoryStrategyState) ElementType() reflect.Type {
 }
 
 type agentcoreMemoryStrategyArgs struct {
-	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration *AgentcoreMemoryStrategyConfiguration `pulumi:"configuration"`
 	// Description of the memory strategy.
-	Description            *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// ARN of the IAM role that the memory service assumes to perform operations.
+	//
+	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId string `pulumi:"memoryId"`
 	// Name of the memory strategy.
 	Name *string `pulumi:"name"`
-	// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	NamespaceTemplates []string `pulumi:"namespaceTemplates"`
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
-	// The following arguments are optional:
+	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces []string `pulumi:"namespaces"`
+	// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+	ReflectionConfiguration *AgentcoreMemoryStrategyReflectionConfiguration `pulumi:"reflectionConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                          `pulumi:"region"`
 	Timeouts *AgentcoreMemoryStrategyTimeouts `pulumi:"timeouts"`
 	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AgentcoreMemoryStrategy resource.
 type AgentcoreMemoryStrategyArgs struct {
-	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+	// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 	Configuration AgentcoreMemoryStrategyConfigurationPtrInput
 	// Description of the memory strategy.
-	Description            pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// ARN of the IAM role that the memory service assumes to perform operations.
+	//
+	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringInput
 	// Name of the memory strategy.
 	Name pulumi.StringPtrInput
-	// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+	// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+	NamespaceTemplates pulumi.StringArrayInput
+	// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 	//
-	// The following arguments are optional:
+	// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 	Namespaces pulumi.StringArrayInput
+	// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+	ReflectionConfiguration AgentcoreMemoryStrategyReflectionConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts AgentcoreMemoryStrategyTimeoutsPtrInput
 	// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -570,7 +612,7 @@ func (o AgentcoreMemoryStrategyOutput) ToAgentcoreMemoryStrategyOutputWithContex
 	return o
 }
 
-// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+// Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
 func (o AgentcoreMemoryStrategyOutput) Configuration() AgentcoreMemoryStrategyConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) AgentcoreMemoryStrategyConfigurationPtrOutput { return v.Configuration }).(AgentcoreMemoryStrategyConfigurationPtrOutput)
 }
@@ -580,6 +622,9 @@ func (o AgentcoreMemoryStrategyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// ARN of the IAM role that the memory service assumes to perform operations.
+//
+// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
 func (o AgentcoreMemoryStrategyOutput) MemoryExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringPtrOutput { return v.MemoryExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -599,11 +644,23 @@ func (o AgentcoreMemoryStrategyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+func (o AgentcoreMemoryStrategyOutput) NamespaceTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringArrayOutput { return v.NamespaceTemplates }).(pulumi.StringArrayOutput)
+}
+
+// Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
 //
-// The following arguments are optional:
+// Deprecated: namespaces is deprecated. Use namespaceTemplates instead.
 func (o AgentcoreMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringArrayOutput { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+// Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+func (o AgentcoreMemoryStrategyOutput) ReflectionConfiguration() AgentcoreMemoryStrategyReflectionConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreMemoryStrategy) AgentcoreMemoryStrategyReflectionConfigurationPtrOutput {
+		return v.ReflectionConfiguration
+	}).(AgentcoreMemoryStrategyReflectionConfigurationPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -616,6 +673,8 @@ func (o AgentcoreMemoryStrategyOutput) Timeouts() AgentcoreMemoryStrategyTimeout
 }
 
 // Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+//
+// The following arguments are optional:
 func (o AgentcoreMemoryStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

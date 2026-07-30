@@ -134,14 +134,14 @@ type AgentcoreMemory struct {
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntOutput `pulumi:"eventExpiryDuration"`
 	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayOutput `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// Name of the memory.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -194,14 +194,14 @@ type agentcoreMemoryState struct {
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
 	EventExpiryDuration *int `pulumi:"eventExpiryDuration"`
 	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
 	IndexedKeys []AgentcoreMemoryIndexedKey `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// Name of the memory.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -222,14 +222,14 @@ type AgentcoreMemoryState struct {
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntPtrInput
 	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayInput
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// Name of the memory.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -252,14 +252,14 @@ type agentcoreMemoryArgs struct {
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
 	EventExpiryDuration int `pulumi:"eventExpiryDuration"`
 	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
 	IndexedKeys []AgentcoreMemoryIndexedKey `pulumi:"indexedKeys"`
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// Name of the memory.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -277,14 +277,14 @@ type AgentcoreMemoryArgs struct {
 	// ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-	//
-	// The following arguments are optional:
 	EventExpiryDuration pulumi.IntInput
 	// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
 	IndexedKeys AgentcoreMemoryIndexedKeyArrayInput
 	// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// Name of the memory.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -398,8 +398,6 @@ func (o AgentcoreMemoryOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 }
 
 // Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-//
-// The following arguments are optional:
 func (o AgentcoreMemoryOutput) EventExpiryDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.IntOutput { return v.EventExpiryDuration }).(pulumi.IntOutput)
 }
@@ -415,6 +413,8 @@ func (o AgentcoreMemoryOutput) MemoryExecutionRoleArn() pulumi.StringPtrOutput {
 }
 
 // Name of the memory.
+//
+// The following arguments are optional:
 func (o AgentcoreMemoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreMemory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

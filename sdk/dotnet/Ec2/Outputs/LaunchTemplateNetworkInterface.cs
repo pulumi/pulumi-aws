@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? DeviceIndex;
         /// <summary>
+        /// The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+        /// </summary>
+        public readonly int? EnaQueueCount;
+        /// <summary>
         /// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         /// </summary>
         public readonly Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification? EnaSrdSpecification;
@@ -116,6 +120,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int? deviceIndex,
 
+            int? enaQueueCount,
+
             Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification? enaSrdSpecification,
 
             string? interfaceType,
@@ -154,6 +160,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaQueueCount = enaQueueCount;
             EnaSrdSpecification = enaSrdSpecification;
             InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;

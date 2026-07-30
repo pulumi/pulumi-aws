@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Rekognition.Inputs
     public sealed class StreamProcessorRegionsOfInterestPolygonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value of the X coordinate for a point on a Polygon.
+        /// Value of the X coordinate for a point on a Polygon.
         /// </summary>
         [Input("x")]
         public Input<double>? X { get; set; }
 
         /// <summary>
-        /// The value of the Y coordinate for a point on a Polygon.
+        /// Value of the Y coordinate for a point on a Polygon.
         /// </summary>
         [Input("y")]
         public Input<double>? Y { get; set; }

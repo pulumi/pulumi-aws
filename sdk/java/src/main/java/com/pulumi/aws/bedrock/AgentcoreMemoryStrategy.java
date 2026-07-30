@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreMemoryStrategyArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyReflectionConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -57,7 +58,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("SEMANTIC")
  *             .description("Semantic understanding strategy")
- *             .namespaces("default")
+ *             .namespaceTemplates("default")
  *             .build());
  * 
  *     }
@@ -94,7 +95,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("SUMMARIZATION")
  *             .description("Text summarization strategy")
- *             .namespaces("{sessionId}")
+ *             .namespaceTemplates("{sessionId}")
  *             .build());
  * 
  *     }
@@ -131,7 +132,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("USER_PREFERENCE")
  *             .description("User preference tracking strategy")
- *             .namespaces("preferences")
+ *             .namespaceTemplates("preferences")
  *             .build());
  * 
  *     }
@@ -168,7 +169,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("EPISODIC")
  *             .description("Episodic memory strategy")
- *             .namespaces("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
+ *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .build());
  * 
  *     }
@@ -209,7 +210,7 @@ import javax.annotation.Nullable;
  *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
  *             .type("CUSTOM")
  *             .description("Custom semantic processing strategy")
- *             .namespaces("{sessionId}")
+ *             .namespaceTemplates("{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
  *                 .type("SEMANTIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
@@ -259,7 +260,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom summarization strategy")
- *             .namespaces("summaries")
+ *             .namespaceTemplates("summaries")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
  *                 .type("SUMMARY_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
@@ -306,7 +307,7 @@ import javax.annotation.Nullable;
  *             .memoryId(example.id())
  *             .type("CUSTOM")
  *             .description("Custom user preference tracking strategy")
- *             .namespaces("user_prefs")
+ *             .namespaceTemplates("user_prefs")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
  *                 .type("USER_PREFERENCE_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
@@ -358,7 +359,7 @@ import javax.annotation.Nullable;
  *             .memoryExecutionRoleArn(example.memoryExecutionRoleArn())
  *             .type("CUSTOM")
  *             .description("Custom episodic processing strategy")
- *             .namespaces("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
+ *             .namespaceTemplates("/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}")
  *             .configuration(AgentcoreMemoryStrategyConfigurationArgs.builder()
  *                 .type("EPISODIC_OVERRIDE")
  *                 .consolidation(AgentcoreMemoryStrategyConfigurationConsolidationArgs.builder()
@@ -389,14 +390,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy")
 public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource {
     /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      * 
      */
     @Export(name="configuration", refs={AgentcoreMemoryStrategyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AgentcoreMemoryStrategyConfiguration> configuration;
 
     /**
-     * @return Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * @return Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      * 
      */
     public Output<Optional<AgentcoreMemoryStrategyConfiguration>> configuration() {
@@ -416,9 +417,21 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    /**
+     * ARN of the IAM role that the memory service assumes to perform operations.
+     * 
+     * @deprecated
+     * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * 
+     */
+    @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
     @Export(name="memoryExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> memoryExecutionRoleArn;
 
+    /**
+     * @return ARN of the IAM role that the memory service assumes to perform operations.
+     * 
+     */
     public Output<Optional<String>> memoryExecutionRoleArn() {
         return Codegen.optional(this.memoryExecutionRoleArn);
     }
@@ -465,22 +478,50 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     * 
-     * The following arguments are optional:
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
      * 
      */
+    @Export(name="namespaceTemplates", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> namespaceTemplates;
+
+    /**
+     * @return Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     * 
+     */
+    public Output<List<String>> namespaceTemplates() {
+        return this.namespaceTemplates;
+    }
+    /**
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     * 
+     * @deprecated
+     * namespaces is deprecated. Use namespaceTemplates instead.
+     * 
+     */
+    @Deprecated /* namespaces is deprecated. Use namespaceTemplates instead. */
     @Export(name="namespaces", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> namespaces;
 
     /**
-     * @return Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     * 
-     * The following arguments are optional:
+     * @return Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      * 
      */
     public Output<List<String>> namespaces() {
         return this.namespaces;
+    }
+    /**
+     * Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     * 
+     */
+    @Export(name="reflectionConfiguration", refs={AgentcoreMemoryStrategyReflectionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreMemoryStrategyReflectionConfiguration> reflectionConfiguration;
+
+    /**
+     * @return Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     * 
+     */
+    public Output<Optional<AgentcoreMemoryStrategyReflectionConfiguration>> reflectionConfiguration() {
+        return Codegen.optional(this.reflectionConfiguration);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -505,12 +546,16 @@ public class AgentcoreMemoryStrategy extends com.pulumi.resources.CustomResource
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

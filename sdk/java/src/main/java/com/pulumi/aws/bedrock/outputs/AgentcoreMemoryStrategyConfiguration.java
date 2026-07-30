@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationConsolidation;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationExtraction;
+import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationReflection;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,15 +16,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreMemoryStrategyConfiguration {
     /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationConsolidation consolidation;
     /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
+    /**
+     * @return Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * 
+     */
+    private @Nullable AgentcoreMemoryStrategyConfigurationReflection reflection;
     /**
      * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
      * 
@@ -32,18 +38,25 @@ public final class AgentcoreMemoryStrategyConfiguration {
 
     private AgentcoreMemoryStrategyConfiguration() {}
     /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationConsolidation> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
     /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationExtraction> extraction() {
         return Optional.ofNullable(this.extraction);
+    }
+    /**
+     * @return Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * 
+     */
+    public Optional<AgentcoreMemoryStrategyConfigurationReflection> reflection() {
+        return Optional.ofNullable(this.reflection);
     }
     /**
      * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
@@ -64,12 +77,14 @@ public final class AgentcoreMemoryStrategyConfiguration {
     public static final class Builder {
         private @Nullable AgentcoreMemoryStrategyConfigurationConsolidation consolidation;
         private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
+        private @Nullable AgentcoreMemoryStrategyConfigurationReflection reflection;
         private String type;
         public Builder() {}
         public Builder(AgentcoreMemoryStrategyConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consolidation = defaults.consolidation;
     	      this.extraction = defaults.extraction;
+    	      this.reflection = defaults.reflection;
     	      this.type = defaults.type;
         }
 
@@ -86,6 +101,12 @@ public final class AgentcoreMemoryStrategyConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder reflection(@Nullable AgentcoreMemoryStrategyConfigurationReflection reflection) {
+
+            this.reflection = reflection;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("AgentcoreMemoryStrategyConfiguration", "type");
@@ -97,6 +118,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
             final var _resultValue = new AgentcoreMemoryStrategyConfiguration();
             _resultValue.consolidation = consolidation;
             _resultValue.extraction = extraction;
+            _resultValue.reflection = reflection;
             _resultValue.type = type;
             return _resultValue;
         }

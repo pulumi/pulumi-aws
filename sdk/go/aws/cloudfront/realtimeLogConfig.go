@@ -16,6 +16,8 @@ import (
 //
 // ## Example Usage
 //
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -110,6 +112,71 @@ import (
 //
 // ```
 //
+// ### Logging Custom Data From a CloudFront Function
+//
+// A viewer request or viewer response CloudFront Function can write arbitrary data into the log record for the request by calling the `cf.logCustomData()` helper method, which requires JavaScript runtime 2.0 (`cloudfront-js-2.0`) and the `cloudfront` module. The data is surfaced in the `viewer-request-log-data` and `viewer-response-log-data` fields, which must be selected in the real-time log configuration for them to be delivered.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewFunction(ctx, "example", &cloudfront.FunctionArgs{
+//				Name:    pulumi.String("tag-request"),
+//				Runtime: pulumi.String("cloudfront-js-2.0"),
+//				Publish: pulumi.Bool(true),
+//				Code: pulumi.String(`import cf from 'cloudfront';
+//
+//	function handler(event) {
+//	  var variant = event.request.uri.indexOf(\"/beta\") === 0 ? \"b\" : \"a\";
+//	  cf.logCustomData(\"variant=\" + variant);
+//	  return event.request;
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
+//				Name:         pulumi.String("example"),
+//				SamplingRate: pulumi.Int(100),
+//				Fields: pulumi.StringArray{
+//					pulumi.String("timestamp"),
+//					pulumi.String("c-ip"),
+//					pulumi.String("sc-status"),
+//					pulumi.String("viewer-request-log-data"),
+//					pulumi.String("viewer-response-log-data"),
+//				},
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					StreamType: pulumi.String("Kinesis"),
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAwsIamRolePolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Associate the function with a cache behavior on the distribution (`functionAssociation` with `eventType = "viewer-request"`) and attach the real-time log configuration to the same cache behavior via `realtimeLogConfigArn`. The field is `-` for any request whose viewer request or viewer response function did not call `cf.logCustomData()`.
+//
 // ## Import
 //
 // ### Identity Schema
@@ -130,7 +197,7 @@ type RealtimeLogConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 	Fields pulumi.StringArrayOutput `pulumi:"fields"`
 	// The unique name to identify this real-time log configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -181,7 +248,7 @@ type realtimeLogConfigState struct {
 	Arn *string `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint *RealtimeLogConfigEndpoint `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 	Fields []string `pulumi:"fields"`
 	// The unique name to identify this real-time log configuration.
 	Name *string `pulumi:"name"`
@@ -194,7 +261,7 @@ type RealtimeLogConfigState struct {
 	Arn pulumi.StringPtrInput
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointPtrInput
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 	Fields pulumi.StringArrayInput
 	// The unique name to identify this real-time log configuration.
 	Name pulumi.StringPtrInput
@@ -209,7 +276,7 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 type realtimeLogConfigArgs struct {
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpoint `pulumi:"endpoint"`
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 	Fields []string `pulumi:"fields"`
 	// The unique name to identify this real-time log configuration.
 	Name *string `pulumi:"name"`
@@ -221,7 +288,7 @@ type realtimeLogConfigArgs struct {
 type RealtimeLogConfigArgs struct {
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointInput
-	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+	// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 	Fields pulumi.StringArrayInput
 	// The unique name to identify this real-time log configuration.
 	Name pulumi.StringPtrInput
@@ -326,7 +393,7 @@ func (o RealtimeLogConfigOutput) Endpoint() RealtimeLogConfigEndpointOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) RealtimeLogConfigEndpointOutput { return v.Endpoint }).(RealtimeLogConfigEndpointOutput)
 }
 
-// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
+// The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values. This includes `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a CloudFront Function logs with `cf.logCustomData()`.
 func (o RealtimeLogConfigOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringArrayOutput { return v.Fields }).(pulumi.StringArrayOutput)
 }

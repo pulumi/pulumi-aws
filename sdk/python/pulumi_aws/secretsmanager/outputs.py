@@ -16,7 +16,9 @@ from .. import _utilities
 
 __all__ = [
     'SecretReplica',
+    'SecretRotationExternalSecretRotationMetadata',
     'SecretRotationRotationRules',
+    'GetSecretRotationExternalSecretRotationMetadataResult',
     'GetSecretRotationRotationRuleResult',
     'GetSecretVersionsVersionResult',
     'GetSecretsFilterResult',
@@ -110,6 +112,35 @@ class SecretReplica(dict):
 
 
 @pulumi.output_type
+class SecretRotationExternalSecretRotationMetadata(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        :param _builtins.str value: The metadata value for the specified key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The metadata value for the specified key.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class SecretRotationRotationRules(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -169,6 +200,35 @@ class SecretRotationRotationRules(dict):
         A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         """
         return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
+class GetSecretRotationExternalSecretRotationMetadataResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: Metadata key name.
+        :param _builtins.str value: Metadata value for the specified key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Metadata key name.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        Metadata value for the specified key.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

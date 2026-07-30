@@ -45,6 +45,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `collectionId` - (String) The name of the collection.
+//
+// #### Optional
+//
+// * `accountId` - (String) AWS Account where this resource is managed.
+// * `region` - (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Rekognition Collection using the `collectionId`. For example:
 //
 // ```sh
@@ -55,17 +66,17 @@ type Collection struct {
 
 	// ARN of the Collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the collection
+	// Name of the collection
 	//
 	// The following arguments are optional:
 	CollectionId pulumi.StringOutput `pulumi:"collectionId"`
-	// The Face Model Version that the collection was initialized with
+	// Face Model Version that the collection was initialized with
 	FaceModelVersion pulumi.StringOutput `pulumi:"faceModelVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
 	Timeouts CollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -105,17 +116,17 @@ func GetCollection(ctx *pulumi.Context,
 type collectionState struct {
 	// ARN of the Collection.
 	Arn *string `pulumi:"arn"`
-	// The name of the collection
+	// Name of the collection
 	//
 	// The following arguments are optional:
 	CollectionId *string `pulumi:"collectionId"`
-	// The Face Model Version that the collection was initialized with
+	// Face Model Version that the collection was initialized with
 	FaceModelVersion *string `pulumi:"faceModelVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string   `pulumi:"tagsAll"`
 	Timeouts *CollectionTimeouts `pulumi:"timeouts"`
 }
@@ -123,17 +134,17 @@ type collectionState struct {
 type CollectionState struct {
 	// ARN of the Collection.
 	Arn pulumi.StringPtrInput
-	// The name of the collection
+	// Name of the collection
 	//
 	// The following arguments are optional:
 	CollectionId pulumi.StringPtrInput
-	// The Face Model Version that the collection was initialized with
+	// Face Model Version that the collection was initialized with
 	FaceModelVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts CollectionTimeoutsPtrInput
 }
@@ -143,7 +154,7 @@ func (CollectionState) ElementType() reflect.Type {
 }
 
 type collectionArgs struct {
-	// The name of the collection
+	// Name of the collection
 	//
 	// The following arguments are optional:
 	CollectionId string `pulumi:"collectionId"`
@@ -156,7 +167,7 @@ type collectionArgs struct {
 
 // The set of arguments for constructing a Collection resource.
 type CollectionArgs struct {
-	// The name of the collection
+	// Name of the collection
 	//
 	// The following arguments are optional:
 	CollectionId pulumi.StringInput
@@ -259,14 +270,14 @@ func (o CollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the collection
+// Name of the collection
 //
 // The following arguments are optional:
 func (o CollectionOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.CollectionId }).(pulumi.StringOutput)
 }
 
-// The Face Model Version that the collection was initialized with
+// Face Model Version that the collection was initialized with
 func (o CollectionOutput) FaceModelVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.FaceModelVersion }).(pulumi.StringOutput)
 }
@@ -281,7 +292,7 @@ func (o CollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CollectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

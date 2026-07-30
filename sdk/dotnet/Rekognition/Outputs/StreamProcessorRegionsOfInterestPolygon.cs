@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rekognition.Outputs
     public sealed class StreamProcessorRegionsOfInterestPolygon
     {
         /// <summary>
-        /// The value of the X coordinate for a point on a Polygon.
+        /// Value of the X coordinate for a point on a Polygon.
         /// </summary>
         public readonly double? X;
         /// <summary>
-        /// The value of the Y coordinate for a point on a Polygon.
+        /// Value of the Y coordinate for a point on a Polygon.
         /// </summary>
         public readonly double? Y;
 

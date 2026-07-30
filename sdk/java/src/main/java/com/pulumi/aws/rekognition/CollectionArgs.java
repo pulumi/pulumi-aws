@@ -19,7 +19,7 @@ public final class CollectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final CollectionArgs Empty = new CollectionArgs();
 
     /**
-     * The name of the collection
+     * Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -28,7 +28,7 @@ public final class CollectionArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> collectionId;
 
     /**
-     * @return The name of the collection
+     * @return Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -102,7 +102,7 @@ public final class CollectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collectionId The name of the collection
+         * @param collectionId Name of the collection
          * 
          * The following arguments are optional:
          * 
@@ -115,7 +115,7 @@ public final class CollectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collectionId The name of the collection
+         * @param collectionId Name of the collection
          * 
          * The following arguments are optional:
          * 
