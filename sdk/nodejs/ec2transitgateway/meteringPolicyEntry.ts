@@ -83,6 +83,9 @@ export class MeteringPolicyEntry extends pulumi.CustomResource {
     declare public readonly destinationCidrBlock: pulumi.Output<string | undefined>;
     declare public readonly destinationPortRange: pulumi.Output<string | undefined>;
     declare public readonly destinationTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    /**
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     declare public readonly destinationTransitGatewayAttachmentType: pulumi.Output<string | undefined>;
     /**
      * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
@@ -106,6 +109,9 @@ export class MeteringPolicyEntry extends pulumi.CustomResource {
     declare public readonly sourceCidrBlock: pulumi.Output<string | undefined>;
     declare public readonly sourcePortRange: pulumi.Output<string | undefined>;
     declare public readonly sourceTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    /**
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     declare public readonly sourceTransitGatewayAttachmentType: pulumi.Output<string | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
     /**
@@ -183,6 +189,9 @@ export interface MeteringPolicyEntryState {
     destinationCidrBlock?: pulumi.Input<string | undefined>;
     destinationPortRange?: pulumi.Input<string | undefined>;
     destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    /**
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
      * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
@@ -206,6 +215,9 @@ export interface MeteringPolicyEntryState {
     sourceCidrBlock?: pulumi.Input<string | undefined>;
     sourcePortRange?: pulumi.Input<string | undefined>;
     sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    /**
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
     /**
@@ -226,6 +238,9 @@ export interface MeteringPolicyEntryArgs {
     destinationCidrBlock?: pulumi.Input<string | undefined>;
     destinationPortRange?: pulumi.Input<string | undefined>;
     destinationTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    /**
+     * Destination attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     destinationTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     /**
      * The account to charge for matching traffic. Valid values are `source-attachment-owner` or `destination-attachment-owner`.
@@ -249,6 +264,9 @@ export interface MeteringPolicyEntryArgs {
     sourceCidrBlock?: pulumi.Input<string | undefined>;
     sourcePortRange?: pulumi.Input<string | undefined>;
     sourceTransitGatewayAttachmentId?: pulumi.Input<string | undefined>;
+    /**
+     * Source attachment resource type to match. Valid values are `vpc`, `vpn`, `direct-connect-gateway`, `connect`, `peering`, `tgw-peering`.
+     */
     sourceTransitGatewayAttachmentType?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.ec2transitgateway.MeteringPolicyEntryTimeouts | undefined>;
     /**

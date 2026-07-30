@@ -72,6 +72,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` - (String) Desired name of the project.
+//
+// #### Optional
+//
+// * `accountId` - (String) AWS Account where this resource is managed.
+// * `region` - (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Rekognition Project using the `name`. For example:
 //
 // ```sh
@@ -85,7 +96,7 @@ type Project struct {
 	// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Must be set when `feature` is `CONTENT_MODERATION`, but do not set otherwise.
 	AutoUpdate pulumi.StringOutput `pulumi:"autoUpdate"`
 	// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-	Feature pulumi.StringPtrOutput `pulumi:"feature"`
+	Feature pulumi.StringOutput `pulumi:"feature"`
 	// Desired name of the project.
 	//
 	// The following arguments are optional:
@@ -303,8 +314,8 @@ func (o ProjectOutput) AutoUpdate() pulumi.StringOutput {
 }
 
 // Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
-func (o ProjectOutput) Feature() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Feature }).(pulumi.StringPtrOutput)
+func (o ProjectOutput) Feature() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Feature }).(pulumi.StringOutput)
 }
 
 // Desired name of the project.

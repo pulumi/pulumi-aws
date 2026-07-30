@@ -22,6 +22,7 @@ public final class GetLaunchTemplateNetworkInterface {
     private @Nullable Boolean deleteOnTermination;
     private String description;
     private Integer deviceIndex;
+    private Integer enaQueueCount;
     private String interfaceType;
     private Integer ipv4AddressCount;
     private List<String> ipv4Addresses;
@@ -56,6 +57,9 @@ public final class GetLaunchTemplateNetworkInterface {
     }
     public Integer deviceIndex() {
         return this.deviceIndex;
+    }
+    public Integer enaQueueCount() {
+        return this.enaQueueCount;
     }
     public String interfaceType() {
         return this.interfaceType;
@@ -118,6 +122,7 @@ public final class GetLaunchTemplateNetworkInterface {
         private @Nullable Boolean deleteOnTermination;
         private String description;
         private Integer deviceIndex;
+        private Integer enaQueueCount;
         private String interfaceType;
         private Integer ipv4AddressCount;
         private List<String> ipv4Addresses;
@@ -142,6 +147,7 @@ public final class GetLaunchTemplateNetworkInterface {
     	      this.deleteOnTermination = defaults.deleteOnTermination;
     	      this.description = defaults.description;
     	      this.deviceIndex = defaults.deviceIndex;
+    	      this.enaQueueCount = defaults.enaQueueCount;
     	      this.interfaceType = defaults.interfaceType;
     	      this.ipv4AddressCount = defaults.ipv4AddressCount;
     	      this.ipv4Addresses = defaults.ipv4Addresses;
@@ -204,6 +210,14 @@ public final class GetLaunchTemplateNetworkInterface {
               throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "deviceIndex");
             }
             this.deviceIndex = deviceIndex;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enaQueueCount(Integer enaQueueCount) {
+            if (enaQueueCount == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "enaQueueCount");
+            }
+            this.enaQueueCount = enaQueueCount;
             return this;
         }
         @CustomType.Setter
@@ -349,6 +363,7 @@ public final class GetLaunchTemplateNetworkInterface {
             _resultValue.deleteOnTermination = deleteOnTermination;
             _resultValue.description = description;
             _resultValue.deviceIndex = deviceIndex;
+            _resultValue.enaQueueCount = enaQueueCount;
             _resultValue.interfaceType = interfaceType;
             _resultValue.ipv4AddressCount = ipv4AddressCount;
             _resultValue.ipv4Addresses = ipv4Addresses;

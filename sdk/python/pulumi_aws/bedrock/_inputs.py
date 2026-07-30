@@ -799,6 +799,10 @@ __all__ = [
     'AgentcoreMemoryStrategyConfigurationConsolidationArgsDict',
     'AgentcoreMemoryStrategyConfigurationExtractionArgs',
     'AgentcoreMemoryStrategyConfigurationExtractionArgsDict',
+    'AgentcoreMemoryStrategyConfigurationReflectionArgs',
+    'AgentcoreMemoryStrategyConfigurationReflectionArgsDict',
+    'AgentcoreMemoryStrategyReflectionConfigurationArgs',
+    'AgentcoreMemoryStrategyReflectionConfigurationArgsDict',
     'AgentcoreMemoryStrategyTimeoutsArgs',
     'AgentcoreMemoryStrategyTimeoutsArgsDict',
     'AgentcoreMemoryStreamDeliveryResourcesArgs',
@@ -931,6 +935,82 @@ __all__ = [
     'CustomModelValidationMetricArgsDict',
     'CustomModelVpcConfigArgs',
     'CustomModelVpcConfigArgsDict',
+    'EvaluationJobEvaluationConfigArgs',
+    'EvaluationJobEvaluationConfigArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedArgs',
+    'EvaluationJobEvaluationConfigAutomatedArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs',
+    'EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs',
+    'EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs',
+    'EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgsDict',
+    'EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs',
+    'EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgsDict',
+    'EvaluationJobEvaluationConfigHumanArgs',
+    'EvaluationJobEvaluationConfigHumanArgsDict',
+    'EvaluationJobEvaluationConfigHumanCustomMetricArgs',
+    'EvaluationJobEvaluationConfigHumanCustomMetricArgsDict',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgsDict',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgsDict',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs',
+    'EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgsDict',
+    'EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs',
+    'EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgsDict',
+    'EvaluationJobInferenceConfigArgs',
+    'EvaluationJobInferenceConfigArgsDict',
+    'EvaluationJobInferenceConfigModelArgs',
+    'EvaluationJobInferenceConfigModelArgsDict',
+    'EvaluationJobInferenceConfigModelBedrockModelArgs',
+    'EvaluationJobInferenceConfigModelBedrockModelArgsDict',
+    'EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs',
+    'EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgsDict',
+    'EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs',
+    'EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgsDict',
+    'EvaluationJobInferenceConfigRagConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgsDict',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs',
+    'EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgsDict',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgsDict',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs',
+    'EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgsDict',
+    'EvaluationJobOutputDataConfigArgs',
+    'EvaluationJobOutputDataConfigArgsDict',
+    'EvaluationJobTimeoutsArgs',
+    'EvaluationJobTimeoutsArgsDict',
     'GuardrailContentPolicyConfigArgs',
     'GuardrailContentPolicyConfigArgsDict',
     'GuardrailContentPolicyConfigFiltersConfigArgs',
@@ -22777,11 +22857,15 @@ class AgentcoreMemoryStrategyConfigurationArgsDict(TypedDict):
     """
     consolidation: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationConsolidationArgsDict']]]
     """
-    Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+    Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
     """
     extraction: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgsDict']]]
     """
-    Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+    Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+    """
+    reflection: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationReflectionArgsDict']]]
+    """
+    Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
     """
 
 @pulumi.input_type
@@ -22789,17 +22873,21 @@ class AgentcoreMemoryStrategyConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  consolidation: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationConsolidationArgs']] = None,
-                 extraction: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgs']] = None):
+                 extraction: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgs']] = None,
+                 reflection: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationReflectionArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] type: Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationConsolidationArgs'] consolidation: Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationExtractionArgs'] extraction: Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationConsolidationArgs'] consolidation: Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationExtractionArgs'] extraction: Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationReflectionArgs'] reflection: Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
         """
         pulumi.set(__self__, "type", type)
         if consolidation is not None:
             pulumi.set(__self__, "consolidation", consolidation)
         if extraction is not None:
             pulumi.set(__self__, "extraction", extraction)
+        if reflection is not None:
+            pulumi.set(__self__, "reflection", reflection)
 
     @_builtins.property
     @pulumi.getter
@@ -22817,7 +22905,7 @@ class AgentcoreMemoryStrategyConfigurationArgs:
     @pulumi.getter
     def consolidation(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationConsolidationArgs']]:
         """
-        Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+        Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
         """
         return pulumi.get(self, "consolidation")
 
@@ -22829,13 +22917,25 @@ class AgentcoreMemoryStrategyConfigurationArgs:
     @pulumi.getter
     def extraction(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgs']]:
         """
-        Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
         """
         return pulumi.get(self, "extraction")
 
     @extraction.setter
     def extraction(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgs']]):
         pulumi.set(self, "extraction", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def reflection(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationReflectionArgs']]:
+        """
+        Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        """
+        return pulumi.get(self, "reflection")
+
+    @reflection.setter
+    def reflection(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationReflectionArgs']]):
+        pulumi.set(self, "reflection", value)
 
 
 class AgentcoreMemoryStrategyConfigurationConsolidationArgsDict(TypedDict):
@@ -22930,6 +23030,100 @@ class AgentcoreMemoryStrategyConfigurationExtractionArgs:
     @model_id.setter
     def model_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_id", value)
+
+
+class AgentcoreMemoryStrategyConfigurationReflectionArgsDict(TypedDict):
+    append_to_prompt: pulumi.Input[_builtins.str]
+    """
+    Additional text to append to the model prompt for reflection processing.
+    """
+    model_id: pulumi.Input[_builtins.str]
+    """
+    ID of the foundation model to use for reflection processing.
+    """
+    namespace_templates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Namespace templates for episodic reflection. Can be less nested than the episodic namespaces.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStrategyConfigurationReflectionArgs:
+    def __init__(__self__, *,
+                 append_to_prompt: pulumi.Input[_builtins.str],
+                 model_id: pulumi.Input[_builtins.str],
+                 namespace_templates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] append_to_prompt: Additional text to append to the model prompt for reflection processing.
+        :param pulumi.Input[_builtins.str] model_id: ID of the foundation model to use for reflection processing.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Namespace templates for episodic reflection. Can be less nested than the episodic namespaces.
+        """
+        pulumi.set(__self__, "append_to_prompt", append_to_prompt)
+        pulumi.set(__self__, "model_id", model_id)
+        pulumi.set(__self__, "namespace_templates", namespace_templates)
+
+    @_builtins.property
+    @pulumi.getter(name="appendToPrompt")
+    def append_to_prompt(self) -> pulumi.Input[_builtins.str]:
+        """
+        Additional text to append to the model prompt for reflection processing.
+        """
+        return pulumi.get(self, "append_to_prompt")
+
+    @append_to_prompt.setter
+    def append_to_prompt(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "append_to_prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the foundation model to use for reflection processing.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Namespace templates for episodic reflection. Can be less nested than the episodic namespaces.
+        """
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "namespace_templates", value)
+
+
+class AgentcoreMemoryStrategyReflectionConfigurationArgsDict(TypedDict):
+    namespace_templates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Namespace templates over which to create reflections. Can be less nested than episode namespaces.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStrategyReflectionConfigurationArgs:
+    def __init__(__self__, *,
+                 namespace_templates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Namespace templates over which to create reflections. Can be less nested than episode namespaces.
+        """
+        pulumi.set(__self__, "namespace_templates", namespace_templates)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Namespace templates over which to create reflections. Can be less nested than episode namespaces.
+        """
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "namespace_templates", value)
 
 
 class AgentcoreMemoryStrategyTimeoutsArgsDict(TypedDict):
@@ -23164,20 +23358,28 @@ class AgentcoreMemoryTimeoutsArgsDict(TypedDict):
     """
     A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class AgentcoreMemoryTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
-                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         if create is not None:
             pulumi.set(__self__, "create", create)
         if delete is not None:
             pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
 
     @_builtins.property
     @pulumi.getter
@@ -23202,6 +23404,18 @@ class AgentcoreMemoryTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class AgentcoreOauth2CredentialProviderClientSecretArnArgsDict(TypedDict):
@@ -26511,6 +26725,1672 @@ class CustomModelVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+class EvaluationJobEvaluationConfigArgsDict(TypedDict):
+    automated: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedArgsDict']]]
+    """
+    Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
+    """
+    human: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanArgsDict']]]
+    """
+    Configuration for an evaluation job that uses human workers. See `human` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigArgs:
+    def __init__(__self__, *,
+                 automated: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedArgs']] = None,
+                 human: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanArgs']] = None):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedArgs'] automated: Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
+        :param pulumi.Input['EvaluationJobEvaluationConfigHumanArgs'] human: Configuration for an evaluation job that uses human workers. See `human` Block below.
+        """
+        if automated is not None:
+            pulumi.set(__self__, "automated", automated)
+        if human is not None:
+            pulumi.set(__self__, "human", human)
+
+    @_builtins.property
+    @pulumi.getter
+    def automated(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedArgs']]:
+        """
+        Configuration for an automated evaluation job that computes metrics. See `automated` Block below.
+        """
+        return pulumi.get(self, "automated")
+
+    @automated.setter
+    def automated(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedArgs']]):
+        pulumi.set(self, "automated", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def human(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanArgs']]:
+        """
+        Configuration for an evaluation job that uses human workers. See `human` Block below.
+        """
+        return pulumi.get(self, "human")
+
+    @human.setter
+    def human(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanArgs']]):
+        pulumi.set(self, "human", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedArgsDict(TypedDict):
+    dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgsDict']]]
+    """
+    One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+    """
+    custom_metric_config: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgsDict']]]
+    """
+    Configuration for custom metrics to compute for the evaluation job. See `custom_metric_config` Block below.
+    """
+    evaluator_model_config: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgsDict']]]
+    """
+    Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluator_model_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedArgs:
+    def __init__(__self__, *,
+                 dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]],
+                 custom_metric_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs']] = None,
+                 evaluator_model_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs'] custom_metric_config: Configuration for custom metrics to compute for the evaluation job. See `custom_metric_config` Block below.
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs'] evaluator_model_config: Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluator_model_config` Block below.
+        """
+        pulumi.set(__self__, "dataset_metric_configs", dataset_metric_configs)
+        if custom_metric_config is not None:
+            pulumi.set(__self__, "custom_metric_config", custom_metric_config)
+        if evaluator_model_config is not None:
+            pulumi.set(__self__, "evaluator_model_config", evaluator_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetMetricConfigs")
+    def dataset_metric_configs(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]]:
+        """
+        One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+        """
+        return pulumi.get(self, "dataset_metric_configs")
+
+    @dataset_metric_configs.setter
+    def dataset_metric_configs(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]]):
+        pulumi.set(self, "dataset_metric_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetricConfig")
+    def custom_metric_config(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs']]:
+        """
+        Configuration for custom metrics to compute for the evaluation job. See `custom_metric_config` Block below.
+        """
+        return pulumi.get(self, "custom_metric_config")
+
+    @custom_metric_config.setter
+    def custom_metric_config(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs']]):
+        pulumi.set(self, "custom_metric_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorModelConfig")
+    def evaluator_model_config(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs']]:
+        """
+        Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluator_model_config` Block below.
+        """
+        return pulumi.get(self, "evaluator_model_config")
+
+    @evaluator_model_config.setter
+    def evaluator_model_config(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs']]):
+        pulumi.set(self, "evaluator_model_config", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgsDict(TypedDict):
+    custom_metrics: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgsDict']]]
+    """
+    One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
+    """
+    evaluator_model_config: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgsDict']
+    """
+    Configuration for the evaluator model used to compute the custom metrics. See `evaluator_model_config` Block above.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs:
+    def __init__(__self__, *,
+                 custom_metrics: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs']]],
+                 evaluator_model_config: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs']):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs']]] custom_metrics: One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs'] evaluator_model_config: Configuration for the evaluator model used to compute the custom metrics. See `evaluator_model_config` Block above.
+        """
+        pulumi.set(__self__, "custom_metrics", custom_metrics)
+        pulumi.set(__self__, "evaluator_model_config", evaluator_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetrics")
+    def custom_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs']]]:
+        """
+        One or more custom metric definitions. See `evaluation_config.automated.custom_metric_config.custom_metric` Block below.
+        """
+        return pulumi.get(self, "custom_metrics")
+
+    @custom_metrics.setter
+    def custom_metrics(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs']]]):
+        pulumi.set(self, "custom_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorModelConfig")
+    def evaluator_model_config(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs']:
+        """
+        Configuration for the evaluator model used to compute the custom metrics. See `evaluator_model_config` Block above.
+        """
+        return pulumi.get(self, "evaluator_model_config")
+
+    @evaluator_model_config.setter
+    def evaluator_model_config(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs']):
+        pulumi.set(self, "evaluator_model_config", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgsDict(TypedDict):
+    custom_metric_definition: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgsDict']
+    """
+    Definition of the custom metric. See `custom_metric_definition` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricArgs:
+    def __init__(__self__, *,
+                 custom_metric_definition: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs']):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs'] custom_metric_definition: Definition of the custom metric. See `custom_metric_definition` Block below.
+        """
+        pulumi.set(__self__, "custom_metric_definition", custom_metric_definition)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetricDefinition")
+    def custom_metric_definition(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs']:
+        """
+        Definition of the custom metric. See `custom_metric_definition` Block below.
+        """
+        return pulumi.get(self, "custom_metric_definition")
+
+    @custom_metric_definition.setter
+    def custom_metric_definition(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs']):
+        pulumi.set(self, "custom_metric_definition", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgsDict(TypedDict):
+    instructions: pulumi.Input[_builtins.str]
+    """
+    Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the custom metric. Must be unique in your AWS Region.
+    """
+    rating_scales: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgsDict']]]]]
+    """
+    One or more items defining the rating scale for the custom metric. See `rating_scale` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 instructions: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 rating_scales: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] instructions: Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
+        :param pulumi.Input[_builtins.str] name: Name for the custom metric. Must be unique in your AWS Region.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs']]] rating_scales: One or more items defining the rating scale for the custom metric. See `rating_scale` Block below.
+        """
+        pulumi.set(__self__, "instructions", instructions)
+        pulumi.set(__self__, "name", name)
+        if rating_scales is not None:
+            pulumi.set(__self__, "rating_scales", rating_scales)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> pulumi.Input[_builtins.str]:
+        """
+        Prompt that instructs the evaluator model how to rate the model or RAG source under evaluation.
+        """
+        return pulumi.get(self, "instructions")
+
+    @instructions.setter
+    def instructions(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instructions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name for the custom metric. Must be unique in your AWS Region.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ratingScales")
+    def rating_scales(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs']]]]:
+        """
+        One or more items defining the rating scale for the custom metric. See `rating_scale` Block below.
+        """
+        return pulumi.get(self, "rating_scales")
+
+    @rating_scales.setter
+    def rating_scales(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs']]]]):
+        pulumi.set(self, "rating_scales", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgsDict(TypedDict):
+    definition: pulumi.Input[_builtins.str]
+    """
+    Definition for one rating in the custom metric rating scale.
+    """
+    value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgsDict']
+    """
+    Value for one rating in the custom metric rating scale. See `value` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs']):
+        """
+        :param pulumi.Input[_builtins.str] definition: Definition for one rating in the custom metric rating scale.
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs'] value: Value for one rating in the custom metric rating scale. See `value` Block below.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        """
+        Definition for one rating in the custom metric rating scale.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs']:
+        """
+        Value for one rating in the custom metric rating scale. See `value` Block below.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs']):
+        pulumi.set(self, "value", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgsDict(TypedDict):
+    float_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Floating point number representing the rating value.
+    """
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String representing the rating value.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigCustomMetricCustomMetricDefinitionRatingScaleValueArgs:
+    def __init__(__self__, *,
+                 float_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.float] float_value: Floating point number representing the rating value.
+        :param pulumi.Input[_builtins.str] string_value: String representing the rating value.
+        """
+        if float_value is not None:
+            pulumi.set(__self__, "float_value", float_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="floatValue")
+    def float_value(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Floating point number representing the rating value.
+        """
+        return pulumi.get(self, "float_value")
+
+    @float_value.setter
+    def float_value(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "float_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String representing the rating value.
+        """
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "string_value", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgsDict(TypedDict):
+    bedrock_evaluator_model: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgsDict']
+    """
+    Evaluator model. See `bedrock_evaluator_model` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigArgs:
+    def __init__(__self__, *,
+                 bedrock_evaluator_model: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs']):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs'] bedrock_evaluator_model: Evaluator model. See `bedrock_evaluator_model` Block below.
+        """
+        pulumi.set(__self__, "bedrock_evaluator_model", bedrock_evaluator_model)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEvaluatorModel")
+    def bedrock_evaluator_model(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs']:
+        """
+        Evaluator model. See `bedrock_evaluator_model` Block below.
+        """
+        return pulumi.get(self, "bedrock_evaluator_model")
+
+    @bedrock_evaluator_model.setter
+    def bedrock_evaluator_model(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs']):
+        pulumi.set(self, "bedrock_evaluator_model", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgsDict(TypedDict):
+    model_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedCustomMetricConfigEvaluatorModelConfigBedrockEvaluatorModelArgs:
+    def __init__(__self__, *,
+                 model_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] model_identifier: Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+        """
+        pulumi.set(__self__, "model_identifier", model_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="modelIdentifier")
+    def model_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+        """
+        return pulumi.get(self, "model_identifier")
+
+    @model_identifier.setter
+    def model_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_identifier", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgsDict(TypedDict):
+    dataset: pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgsDict']
+    """
+    Prompt dataset to use. See `dataset` Block below.
+    """
+    metric_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Names of the metrics to use for the evaluation job.
+    """
+    task_type: pulumi.Input[_builtins.str]
+    """
+    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs:
+    def __init__(__self__, *,
+                 dataset: pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs'],
+                 metric_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 task_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs'] dataset: Prompt dataset to use. See `dataset` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to use for the evaluation job.
+        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        """
+        pulumi.set(__self__, "dataset", dataset)
+        pulumi.set(__self__, "metric_names", metric_names)
+        pulumi.set(__self__, "task_type", task_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def dataset(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs']:
+        """
+        Prompt dataset to use. See `dataset` Block below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs']):
+        pulumi.set(self, "dataset", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Names of the metrics to use for the evaluation job.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "metric_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "task_type", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+    """
+    dataset_location: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgsDict']]]
+    """
+    Location of a custom prompt dataset. See `dataset_location` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 dataset_location: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs'] dataset_location: Location of a custom prompt dataset. See `dataset_location` Block below.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_location is not None:
+            pulumi.set(__self__, "dataset_location", dataset_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetLocation")
+    def dataset_location(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs']]:
+        """
+        Location of a custom prompt dataset. See `dataset_location` Block below.
+        """
+        return pulumi.get(self, "dataset_location")
+
+    @dataset_location.setter
+    def dataset_location(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs']]):
+        pulumi.set(self, "dataset_location", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgsDict(TypedDict):
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the custom prompt dataset.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetDatasetLocationArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] s3_uri: S3 URI of the custom prompt dataset.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the custom prompt dataset.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgsDict(TypedDict):
+    bedrock_evaluator_model: pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgsDict']
+    """
+    Evaluator model. See `bedrock_evaluator_model` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs:
+    def __init__(__self__, *,
+                 bedrock_evaluator_model: pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs']):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs'] bedrock_evaluator_model: Evaluator model. See `bedrock_evaluator_model` Block below.
+        """
+        pulumi.set(__self__, "bedrock_evaluator_model", bedrock_evaluator_model)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEvaluatorModel")
+    def bedrock_evaluator_model(self) -> pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs']:
+        """
+        Evaluator model. See `bedrock_evaluator_model` Block below.
+        """
+        return pulumi.get(self, "bedrock_evaluator_model")
+
+    @bedrock_evaluator_model.setter
+    def bedrock_evaluator_model(self, value: pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs']):
+        pulumi.set(self, "bedrock_evaluator_model", value)
+
+
+class EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgsDict(TypedDict):
+    model_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluatorModelArgs:
+    def __init__(__self__, *,
+                 model_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] model_identifier: Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+        """
+        pulumi.set(__self__, "model_identifier", model_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="modelIdentifier")
+    def model_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the Amazon Bedrock model, or inference profile, used to compute the metrics.
+        """
+        return pulumi.get(self, "model_identifier")
+
+    @model_identifier.setter
+    def model_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_identifier", value)
+
+
+class EvaluationJobEvaluationConfigHumanArgsDict(TypedDict):
+    dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgsDict']]]
+    """
+    One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+    """
+    custom_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgsDict']]]]]
+    """
+    One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+    """
+    human_workflow_config: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgsDict']]]
+    """
+    Configuration for the human workflow. See `human_workflow_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanArgs:
+    def __init__(__self__, *,
+                 dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]],
+                 custom_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]]] = None,
+                 human_workflow_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]] custom_metrics: One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+        :param pulumi.Input['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs'] human_workflow_config: Configuration for the human workflow. See `human_workflow_config` Block below.
+        """
+        pulumi.set(__self__, "dataset_metric_configs", dataset_metric_configs)
+        if custom_metrics is not None:
+            pulumi.set(__self__, "custom_metrics", custom_metrics)
+        if human_workflow_config is not None:
+            pulumi.set(__self__, "human_workflow_config", human_workflow_config)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetMetricConfigs")
+    def dataset_metric_configs(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]]:
+        """
+        One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+        """
+        return pulumi.get(self, "dataset_metric_configs")
+
+    @dataset_metric_configs.setter
+    def dataset_metric_configs(self, value: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]]):
+        pulumi.set(self, "dataset_metric_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMetrics")
+    def custom_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]]]:
+        """
+        One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
+        """
+        return pulumi.get(self, "custom_metrics")
+
+    @custom_metrics.setter
+    def custom_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]]]):
+        pulumi.set(self, "custom_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="humanWorkflowConfig")
+    def human_workflow_config(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs']]:
+        """
+        Configuration for the human workflow. See `human_workflow_config` Block below.
+        """
+        return pulumi.get(self, "human_workflow_config")
+
+    @human_workflow_config.setter
+    def human_workflow_config(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs']]):
+        pulumi.set(self, "human_workflow_config", value)
+
+
+class EvaluationJobEvaluationConfigHumanCustomMetricArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the metric.
+    """
+    rating_method: pulumi.Input[_builtins.str]
+    """
+    How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of the metric.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanCustomMetricArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 rating_method: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the metric.
+        :param pulumi.Input[_builtins.str] rating_method: How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+        :param pulumi.Input[_builtins.str] description: Description of the metric.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rating_method", rating_method)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the metric.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ratingMethod")
+    def rating_method(self) -> pulumi.Input[_builtins.str]:
+        """
+        How the metric is rated. Valid values: `ThumbsUpDown`, `IndividualLikertScale`, `ComparisonLikertScale`, `ComparisonChoice`, `ComparisonRank`.
+        """
+        return pulumi.get(self, "rating_method")
+
+    @rating_method.setter
+    def rating_method(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rating_method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the metric.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgsDict(TypedDict):
+    dataset: pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgsDict']
+    """
+    Prompt dataset to use. See `dataset` Block below.
+    """
+    metric_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Names of the metrics to use for the evaluation job.
+    """
+    task_type: pulumi.Input[_builtins.str]
+    """
+    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs:
+    def __init__(__self__, *,
+                 dataset: pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs'],
+                 metric_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 task_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs'] dataset: Prompt dataset to use. See `dataset` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to use for the evaluation job.
+        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        """
+        pulumi.set(__self__, "dataset", dataset)
+        pulumi.set(__self__, "metric_names", metric_names)
+        pulumi.set(__self__, "task_type", task_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def dataset(self) -> pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs']:
+        """
+        Prompt dataset to use. See `dataset` Block below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs']):
+        pulumi.set(self, "dataset", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricNames")
+    def metric_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Names of the metrics to use for the evaluation job.
+        """
+        return pulumi.get(self, "metric_names")
+
+    @metric_names.setter
+    def metric_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "metric_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "task_type", value)
+
+
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+    """
+    dataset_location: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgsDict']]]
+    """
+    Location of a custom prompt dataset. See `dataset_location` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 dataset_location: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+        :param pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs'] dataset_location: Location of a custom prompt dataset. See `dataset_location` Block below.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_location is not None:
+            pulumi.set(__self__, "dataset_location", dataset_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of a built-in prompt dataset, for example `Builtin.Bold`, or a label for a custom prompt dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetLocation")
+    def dataset_location(self) -> pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs']]:
+        """
+        Location of a custom prompt dataset. See `dataset_location` Block below.
+        """
+        return pulumi.get(self, "dataset_location")
+
+    @dataset_location.setter
+    def dataset_location(self, value: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs']]):
+        pulumi.set(self, "dataset_location", value)
+
+
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgsDict(TypedDict):
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI of the custom prompt dataset.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetDatasetLocationArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] s3_uri: S3 URI of the custom prompt dataset.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI of the custom prompt dataset.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+class EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgsDict(TypedDict):
+    flow_definition_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon SageMaker AI flow definition.
+    """
+    instructions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Instructions for the flow definition.
+    """
+
+@pulumi.input_type
+class EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs:
+    def __init__(__self__, *,
+                 flow_definition_arn: pulumi.Input[_builtins.str],
+                 instructions: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] flow_definition_arn: ARN of the Amazon SageMaker AI flow definition.
+        :param pulumi.Input[_builtins.str] instructions: Instructions for the flow definition.
+        """
+        pulumi.set(__self__, "flow_definition_arn", flow_definition_arn)
+        if instructions is not None:
+            pulumi.set(__self__, "instructions", instructions)
+
+    @_builtins.property
+    @pulumi.getter(name="flowDefinitionArn")
+    def flow_definition_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon SageMaker AI flow definition.
+        """
+        return pulumi.get(self, "flow_definition_arn")
+
+    @flow_definition_arn.setter
+    def flow_definition_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "flow_definition_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instructions for the flow definition.
+        """
+        return pulumi.get(self, "instructions")
+
+    @instructions.setter
+    def instructions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instructions", value)
+
+
+class EvaluationJobInferenceConfigArgsDict(TypedDict):
+    models: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobInferenceConfigModelArgsDict']]]]]
+    """
+    One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+    """
+    rag_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigArgsDict']]]
+    """
+    Inference configuration for a knowledge base evaluation job. See `rag_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigArgs:
+    def __init__(__self__, *,
+                 models: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobInferenceConfigModelArgs']]]] = None,
+                 rag_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobInferenceConfigModelArgs']]] models: One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigArgs'] rag_config: Inference configuration for a knowledge base evaluation job. See `rag_config` Block below.
+        """
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if rag_config is not None:
+            pulumi.set(__self__, "rag_config", rag_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def models(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobInferenceConfigModelArgs']]]]:
+        """
+        One or more inference models. Automated jobs support a single model; jobs that use human workers support up to two models. See `model` Block below.
+        """
+        return pulumi.get(self, "models")
+
+    @models.setter
+    def models(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobInferenceConfigModelArgs']]]]):
+        pulumi.set(self, "models", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ragConfig")
+    def rag_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigArgs']]:
+        """
+        Inference configuration for a knowledge base evaluation job. See `rag_config` Block below.
+        """
+        return pulumi.get(self, "rag_config")
+
+    @rag_config.setter
+    def rag_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigArgs']]):
+        pulumi.set(self, "rag_config", value)
+
+
+class EvaluationJobInferenceConfigModelArgsDict(TypedDict):
+    bedrock_model: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelArgsDict']]]
+    """
+    Amazon Bedrock model. See `bedrock_model` Block below.
+    """
+    precomputed_inference_source: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgsDict']]]
+    """
+    Model where you provide your own precomputed inference response data. See `precomputed_inference_source` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigModelArgs:
+    def __init__(__self__, *,
+                 bedrock_model: pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelArgs']] = None,
+                 precomputed_inference_source: pulumi.Input[Optional['EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs']] = None):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigModelBedrockModelArgs'] bedrock_model: Amazon Bedrock model. See `bedrock_model` Block below.
+        :param pulumi.Input['EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs'] precomputed_inference_source: Model where you provide your own precomputed inference response data. See `precomputed_inference_source` Block below.
+        """
+        if bedrock_model is not None:
+            pulumi.set(__self__, "bedrock_model", bedrock_model)
+        if precomputed_inference_source is not None:
+            pulumi.set(__self__, "precomputed_inference_source", precomputed_inference_source)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockModel")
+    def bedrock_model(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelArgs']]:
+        """
+        Amazon Bedrock model. See `bedrock_model` Block below.
+        """
+        return pulumi.get(self, "bedrock_model")
+
+    @bedrock_model.setter
+    def bedrock_model(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelArgs']]):
+        pulumi.set(self, "bedrock_model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="precomputedInferenceSource")
+    def precomputed_inference_source(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs']]:
+        """
+        Model where you provide your own precomputed inference response data. See `precomputed_inference_source` Block below.
+        """
+        return pulumi.get(self, "precomputed_inference_source")
+
+    @precomputed_inference_source.setter
+    def precomputed_inference_source(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs']]):
+        pulumi.set(self, "precomputed_inference_source", value)
+
+
+class EvaluationJobInferenceConfigModelBedrockModelArgsDict(TypedDict):
+    model_identifier: pulumi.Input[_builtins.str]
+    """
+    Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+    """
+    inference_params: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON-formatted string of inference parameters for the model.
+    """
+    performance_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgsDict']]]
+    """
+    Model's performance settings. See `performance_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigModelBedrockModelArgs:
+    def __init__(__self__, *,
+                 model_identifier: pulumi.Input[_builtins.str],
+                 inference_params: pulumi.Input[Optional[_builtins.str]] = None,
+                 performance_config: pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] model_identifier: Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+        :param pulumi.Input[_builtins.str] inference_params: JSON-formatted string of inference parameters for the model.
+        :param pulumi.Input['EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs'] performance_config: Model's performance settings. See `performance_config` Block below.
+        """
+        pulumi.set(__self__, "model_identifier", model_identifier)
+        if inference_params is not None:
+            pulumi.set(__self__, "inference_params", inference_params)
+        if performance_config is not None:
+            pulumi.set(__self__, "performance_config", performance_config)
+
+    @_builtins.property
+    @pulumi.getter(name="modelIdentifier")
+    def model_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the Amazon Bedrock model, or inference profile, used for inference.
+        """
+        return pulumi.get(self, "model_identifier")
+
+    @model_identifier.setter
+    def model_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceParams")
+    def inference_params(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON-formatted string of inference parameters for the model.
+        """
+        return pulumi.get(self, "inference_params")
+
+    @inference_params.setter
+    def inference_params(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inference_params", value)
+
+    @_builtins.property
+    @pulumi.getter(name="performanceConfig")
+    def performance_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs']]:
+        """
+        Model's performance settings. See `performance_config` Block below.
+        """
+        return pulumi.get(self, "performance_config")
+
+    @performance_config.setter
+    def performance_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs']]):
+        pulumi.set(self, "performance_config", value)
+
+
+class EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgsDict(TypedDict):
+    latency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigModelBedrockModelPerformanceConfigArgs:
+    def __init__(__self__, *,
+                 latency: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] latency: Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+        """
+        if latency is not None:
+            pulumi.set(__self__, "latency", latency)
+
+    @_builtins.property
+    @pulumi.getter
+    def latency(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to use the latency-optimized or standard version of the model. Valid values: `standard`, `optimized`.
+        """
+        return pulumi.get(self, "latency")
+
+    @latency.setter
+    def latency(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "latency", value)
+
+
+class EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgsDict(TypedDict):
+    inference_source_identifier: pulumi.Input[_builtins.str]
+    """
+    Label that identifies the precomputed inference source.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigModelPrecomputedInferenceSourceArgs:
+    def __init__(__self__, *,
+                 inference_source_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] inference_source_identifier: Label that identifies the precomputed inference source.
+        """
+        pulumi.set(__self__, "inference_source_identifier", inference_source_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceSourceIdentifier")
+    def inference_source_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label that identifies the precomputed inference source.
+        """
+        return pulumi.get(self, "inference_source_identifier")
+
+    @inference_source_identifier.setter
+    def inference_source_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inference_source_identifier", value)
+
+
+class EvaluationJobInferenceConfigRagConfigArgsDict(TypedDict):
+    knowledge_base_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgsDict']]]
+    """
+    Amazon Bedrock knowledge base. See `knowledge_base_config` Block below.
+    """
+    precomputed_rag_source_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgsDict']]]
+    """
+    RAG source where you provide your own precomputed inference response data. See `precomputed_rag_source_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigArgs:
+    def __init__(__self__, *,
+                 knowledge_base_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs']] = None,
+                 precomputed_rag_source_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs']] = None):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs'] knowledge_base_config: Amazon Bedrock knowledge base. See `knowledge_base_config` Block below.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs'] precomputed_rag_source_config: RAG source where you provide your own precomputed inference response data. See `precomputed_rag_source_config` Block below.
+        """
+        if knowledge_base_config is not None:
+            pulumi.set(__self__, "knowledge_base_config", knowledge_base_config)
+        if precomputed_rag_source_config is not None:
+            pulumi.set(__self__, "precomputed_rag_source_config", precomputed_rag_source_config)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBaseConfig")
+    def knowledge_base_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs']]:
+        """
+        Amazon Bedrock knowledge base. See `knowledge_base_config` Block below.
+        """
+        return pulumi.get(self, "knowledge_base_config")
+
+    @knowledge_base_config.setter
+    def knowledge_base_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs']]):
+        pulumi.set(self, "knowledge_base_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="precomputedRagSourceConfig")
+    def precomputed_rag_source_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs']]:
+        """
+        RAG source where you provide your own precomputed inference response data. See `precomputed_rag_source_config` Block below.
+        """
+        return pulumi.get(self, "precomputed_rag_source_config")
+
+    @precomputed_rag_source_config.setter
+    def precomputed_rag_source_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs']]):
+        pulumi.set(self, "precomputed_rag_source_config", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgsDict(TypedDict):
+    retrieve_and_generate_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgsDict']]]
+    """
+    Configuration for retrieval with response generation. See `retrieve_and_generate_config` Block below.
+    """
+    retrieve_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgsDict']]]
+    """
+    Configuration for retrieval only. See `retrieve_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigArgs:
+    def __init__(__self__, *,
+                 retrieve_and_generate_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs']] = None,
+                 retrieve_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs']] = None):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs'] retrieve_and_generate_config: Configuration for retrieval with response generation. See `retrieve_and_generate_config` Block below.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs'] retrieve_config: Configuration for retrieval only. See `retrieve_config` Block below.
+        """
+        if retrieve_and_generate_config is not None:
+            pulumi.set(__self__, "retrieve_and_generate_config", retrieve_and_generate_config)
+        if retrieve_config is not None:
+            pulumi.set(__self__, "retrieve_config", retrieve_config)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveAndGenerateConfig")
+    def retrieve_and_generate_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs']]:
+        """
+        Configuration for retrieval with response generation. See `retrieve_and_generate_config` Block below.
+        """
+        return pulumi.get(self, "retrieve_and_generate_config")
+
+    @retrieve_and_generate_config.setter
+    def retrieve_and_generate_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs']]):
+        pulumi.set(self, "retrieve_and_generate_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveConfig")
+    def retrieve_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs']]:
+        """
+        Configuration for retrieval only. See `retrieve_config` Block below.
+        """
+        return pulumi.get(self, "retrieve_config")
+
+    @retrieve_config.setter
+    def retrieve_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs']]):
+        pulumi.set(self, "retrieve_config", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgsDict(TypedDict):
+    knowledge_base_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the knowledge base.
+    """
+    model_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the foundation model, or inference profile, used to generate responses.
+    """
+    retrieval_configuration: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgsDict']]]
+    """
+    Knowledge base retrieval configuration. See `retrieval_configuration` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigArgs:
+    def __init__(__self__, *,
+                 knowledge_base_id: pulumi.Input[_builtins.str],
+                 model_arn: pulumi.Input[_builtins.str],
+                 retrieval_configuration: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] knowledge_base_id: Identifier of the knowledge base.
+        :param pulumi.Input[_builtins.str] model_arn: ARN of the foundation model, or inference profile, used to generate responses.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs'] retrieval_configuration: Knowledge base retrieval configuration. See `retrieval_configuration` Block below.
+        """
+        pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        pulumi.set(__self__, "model_arn", model_arn)
+        if retrieval_configuration is not None:
+            pulumi.set(__self__, "retrieval_configuration", retrieval_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBaseId")
+    def knowledge_base_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the knowledge base.
+        """
+        return pulumi.get(self, "knowledge_base_id")
+
+    @knowledge_base_id.setter
+    def knowledge_base_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "knowledge_base_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the foundation model, or inference profile, used to generate responses.
+        """
+        return pulumi.get(self, "model_arn")
+
+    @model_arn.setter
+    def model_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrievalConfiguration")
+    def retrieval_configuration(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs']]:
+        """
+        Knowledge base retrieval configuration. See `retrieval_configuration` Block below.
+        """
+        return pulumi.get(self, "retrieval_configuration")
+
+    @retrieval_configuration.setter
+    def retrieval_configuration(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs']]):
+        pulumi.set(self, "retrieval_configuration", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgsDict(TypedDict):
+    vector_search_configuration: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgsDict']
+    """
+    Vector search configuration. See `vector_search_configuration` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationArgs:
+    def __init__(__self__, *,
+                 vector_search_configuration: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs']):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs'] vector_search_configuration: Vector search configuration. See `vector_search_configuration` Block below.
+        """
+        pulumi.set(__self__, "vector_search_configuration", vector_search_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorSearchConfiguration")
+    def vector_search_configuration(self) -> pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs']:
+        """
+        Vector search configuration. See `vector_search_configuration` Block below.
+        """
+        return pulumi.get(self, "vector_search_configuration")
+
+    @vector_search_configuration.setter
+    def vector_search_configuration(self, value: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs']):
+        pulumi.set(self, "vector_search_configuration", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgsDict(TypedDict):
+    number_of_results: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of text chunks to retrieve.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveAndGenerateConfigRetrievalConfigurationVectorSearchConfigurationArgs:
+    def __init__(__self__, *,
+                 number_of_results: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] number_of_results: Number of text chunks to retrieve.
+        """
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of text chunks to retrieve.
+        """
+        return pulumi.get(self, "number_of_results")
+
+    @number_of_results.setter
+    def number_of_results(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_results", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgsDict(TypedDict):
+    knowledge_base_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the knowledge base.
+    """
+    knowledge_base_retrieval_configuration: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgsDict']]]
+    """
+    Knowledge base retrieval configuration. See `knowledge_base_retrieval_configuration` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigArgs:
+    def __init__(__self__, *,
+                 knowledge_base_id: pulumi.Input[_builtins.str],
+                 knowledge_base_retrieval_configuration: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] knowledge_base_id: Identifier of the knowledge base.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs'] knowledge_base_retrieval_configuration: Knowledge base retrieval configuration. See `knowledge_base_retrieval_configuration` Block below.
+        """
+        pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if knowledge_base_retrieval_configuration is not None:
+            pulumi.set(__self__, "knowledge_base_retrieval_configuration", knowledge_base_retrieval_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBaseId")
+    def knowledge_base_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the knowledge base.
+        """
+        return pulumi.get(self, "knowledge_base_id")
+
+    @knowledge_base_id.setter
+    def knowledge_base_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "knowledge_base_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="knowledgeBaseRetrievalConfiguration")
+    def knowledge_base_retrieval_configuration(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs']]:
+        """
+        Knowledge base retrieval configuration. See `knowledge_base_retrieval_configuration` Block below.
+        """
+        return pulumi.get(self, "knowledge_base_retrieval_configuration")
+
+    @knowledge_base_retrieval_configuration.setter
+    def knowledge_base_retrieval_configuration(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs']]):
+        pulumi.set(self, "knowledge_base_retrieval_configuration", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgsDict(TypedDict):
+    vector_search_configuration: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgsDict']
+    """
+    Vector search configuration. See `vector_search_configuration` Block above.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationArgs:
+    def __init__(__self__, *,
+                 vector_search_configuration: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs']):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs'] vector_search_configuration: Vector search configuration. See `vector_search_configuration` Block above.
+        """
+        pulumi.set(__self__, "vector_search_configuration", vector_search_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorSearchConfiguration")
+    def vector_search_configuration(self) -> pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs']:
+        """
+        Vector search configuration. See `vector_search_configuration` Block above.
+        """
+        return pulumi.get(self, "vector_search_configuration")
+
+    @vector_search_configuration.setter
+    def vector_search_configuration(self, value: pulumi.Input['EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs']):
+        pulumi.set(self, "vector_search_configuration", value)
+
+
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgsDict(TypedDict):
+    number_of_results: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of text chunks to retrieve.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigKnowledgeBaseConfigRetrieveConfigKnowledgeBaseRetrievalConfigurationVectorSearchConfigurationArgs:
+    def __init__(__self__, *,
+                 number_of_results: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] number_of_results: Number of text chunks to retrieve.
+        """
+        if number_of_results is not None:
+            pulumi.set(__self__, "number_of_results", number_of_results)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfResults")
+    def number_of_results(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of text chunks to retrieve.
+        """
+        return pulumi.get(self, "number_of_results")
+
+    @number_of_results.setter
+    def number_of_results(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "number_of_results", value)
+
+
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgsDict(TypedDict):
+    retrieve_and_generate_source_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgsDict']]]
+    """
+    Configuration for retrieval with response generation. See `retrieve_and_generate_source_config` Block below.
+    """
+    retrieve_source_config: NotRequired[pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgsDict']]]
+    """
+    Configuration for retrieval only. See `retrieve_source_config` Block below.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigArgs:
+    def __init__(__self__, *,
+                 retrieve_and_generate_source_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs']] = None,
+                 retrieve_source_config: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs']] = None):
+        """
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs'] retrieve_and_generate_source_config: Configuration for retrieval with response generation. See `retrieve_and_generate_source_config` Block below.
+        :param pulumi.Input['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs'] retrieve_source_config: Configuration for retrieval only. See `retrieve_source_config` Block below.
+        """
+        if retrieve_and_generate_source_config is not None:
+            pulumi.set(__self__, "retrieve_and_generate_source_config", retrieve_and_generate_source_config)
+        if retrieve_source_config is not None:
+            pulumi.set(__self__, "retrieve_source_config", retrieve_source_config)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveAndGenerateSourceConfig")
+    def retrieve_and_generate_source_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs']]:
+        """
+        Configuration for retrieval with response generation. See `retrieve_and_generate_source_config` Block below.
+        """
+        return pulumi.get(self, "retrieve_and_generate_source_config")
+
+    @retrieve_and_generate_source_config.setter
+    def retrieve_and_generate_source_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs']]):
+        pulumi.set(self, "retrieve_and_generate_source_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retrieveSourceConfig")
+    def retrieve_source_config(self) -> pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs']]:
+        """
+        Configuration for retrieval only. See `retrieve_source_config` Block below.
+        """
+        return pulumi.get(self, "retrieve_source_config")
+
+    @retrieve_source_config.setter
+    def retrieve_source_config(self, value: pulumi.Input[Optional['EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs']]):
+        pulumi.set(self, "retrieve_source_config", value)
+
+
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgsDict(TypedDict):
+    rag_source_identifier: pulumi.Input[_builtins.str]
+    """
+    Label that identifies the precomputed RAG source.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveAndGenerateSourceConfigArgs:
+    def __init__(__self__, *,
+                 rag_source_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] rag_source_identifier: Label that identifies the precomputed RAG source.
+        """
+        pulumi.set(__self__, "rag_source_identifier", rag_source_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="ragSourceIdentifier")
+    def rag_source_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label that identifies the precomputed RAG source.
+        """
+        return pulumi.get(self, "rag_source_identifier")
+
+    @rag_source_identifier.setter
+    def rag_source_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rag_source_identifier", value)
+
+
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgsDict(TypedDict):
+    rag_source_identifier: pulumi.Input[_builtins.str]
+    """
+    Label that identifies the precomputed RAG source.
+    """
+
+@pulumi.input_type
+class EvaluationJobInferenceConfigRagConfigPrecomputedRagSourceConfigRetrieveSourceConfigArgs:
+    def __init__(__self__, *,
+                 rag_source_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] rag_source_identifier: Label that identifies the precomputed RAG source.
+        """
+        pulumi.set(__self__, "rag_source_identifier", rag_source_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="ragSourceIdentifier")
+    def rag_source_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label that identifies the precomputed RAG source.
+        """
+        return pulumi.get(self, "rag_source_identifier")
+
+    @rag_source_identifier.setter
+    def rag_source_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "rag_source_identifier", value)
+
+
+class EvaluationJobOutputDataConfigArgsDict(TypedDict):
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI where the results of the evaluation job are stored.
+    """
+
+@pulumi.input_type
+class EvaluationJobOutputDataConfigArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] s3_uri: S3 URI where the results of the evaluation job are stored.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 URI where the results of the evaluation job are stored.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+class EvaluationJobTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class EvaluationJobTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 class GuardrailContentPolicyConfigArgsDict(TypedDict):

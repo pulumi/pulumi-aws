@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "SEMANTIC",
  *     description: "Semantic understanding strategy",
- *     namespaces: ["default"],
+ *     namespaceTemplates: ["default"],
  * });
  * ```
  *
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "SUMMARIZATION",
  *     description: "Text summarization strategy",
- *     namespaces: ["{sessionId}"],
+ *     namespaceTemplates: ["{sessionId}"],
  * });
  * ```
  *
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "USER_PREFERENCE",
  *     description: "User preference tracking strategy",
- *     namespaces: ["preferences"],
+ *     namespaceTemplates: ["preferences"],
  * });
  * ```
  *
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "EPISODIC",
  *     description: "Episodic memory strategy",
- *     namespaces: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+ *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
  * });
  * ```
  *
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
  *     type: "CUSTOM",
  *     description: "Custom semantic processing strategy",
- *     namespaces: ["{sessionId}"],
+ *     namespaceTemplates: ["{sessionId}"],
  *     configuration: {
  *         type: "SEMANTIC_OVERRIDE",
  *         consolidation: {
@@ -116,7 +116,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom summarization strategy",
- *     namespaces: ["summaries"],
+ *     namespaceTemplates: ["summaries"],
  *     configuration: {
  *         type: "SUMMARY_OVERRIDE",
  *         consolidation: {
@@ -138,7 +138,7 @@ import * as utilities from "../utilities";
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom user preference tracking strategy",
- *     namespaces: ["user_prefs"],
+ *     namespaceTemplates: ["user_prefs"],
  *     configuration: {
  *         type: "USER_PREFERENCE_OVERRIDE",
  *         consolidation: {
@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
  *     type: "CUSTOM",
  *     description: "Custom episodic processing strategy",
- *     namespaces: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+ *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
  *     configuration: {
  *         type: "EPISODIC_OVERRIDE",
  *         consolidation: {
@@ -217,13 +217,18 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
     }
 
     /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      */
     declare public readonly configuration: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
      * Description of the memory strategy.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the IAM role that the memory service assumes to perform operations.
+     *
+     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     */
     declare public readonly memoryExecutionRoleArn: pulumi.Output<string | undefined>;
     /**
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
@@ -238,11 +243,19 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     */
+    declare public readonly namespaceTemplates: pulumi.Output<string[]>;
+    /**
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      *
-     * The following arguments are optional:
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      */
     declare public readonly namespaces: pulumi.Output<string[]>;
+    /**
+     * Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     */
+    declare public readonly reflectionConfiguration: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyReflectionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -250,6 +263,8 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
     declare public readonly timeouts: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+     *
+     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -272,7 +287,9 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
             resourceInputs["memoryId"] = state?.memoryId;
             resourceInputs["memoryStrategyId"] = state?.memoryStrategyId;
             resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceTemplates"] = state?.namespaceTemplates;
             resourceInputs["namespaces"] = state?.namespaces;
+            resourceInputs["reflectionConfiguration"] = state?.reflectionConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["timeouts"] = state?.timeouts;
             resourceInputs["type"] = state?.type;
@@ -280,9 +297,6 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
             const args = argsOrState as AgentcoreMemoryStrategyArgs | undefined;
             if (args?.memoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memoryId'");
-            }
-            if (args?.namespaces === undefined && !opts.urn) {
-                throw new Error("Missing required property 'namespaces'");
             }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
@@ -292,7 +306,9 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
             resourceInputs["memoryExecutionRoleArn"] = args?.memoryExecutionRoleArn;
             resourceInputs["memoryId"] = args?.memoryId;
             resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceTemplates"] = args?.namespaceTemplates;
             resourceInputs["namespaces"] = args?.namespaces;
+            resourceInputs["reflectionConfiguration"] = args?.reflectionConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["type"] = args?.type;
@@ -308,13 +324,18 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
  */
 export interface AgentcoreMemoryStrategyState {
     /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
      * Description of the memory strategy.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * ARN of the IAM role that the memory service assumes to perform operations.
+     *
+     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
@@ -329,11 +350,19 @@ export interface AgentcoreMemoryStrategyState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     */
+    namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
      *
-     * The following arguments are optional:
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
      */
     namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     */
+    reflectionConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyReflectionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -341,6 +370,8 @@ export interface AgentcoreMemoryStrategyState {
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -350,13 +381,18 @@ export interface AgentcoreMemoryStrategyState {
  */
 export interface AgentcoreMemoryStrategyArgs {
     /**
-     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+     * Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
      */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
      * Description of the memory strategy.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * ARN of the IAM role that the memory service assumes to perform operations.
+     *
+     * @deprecated memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * ID of the memory to associate with this strategy. Changing this forces a new resource.
@@ -367,11 +403,19 @@ export interface AgentcoreMemoryStrategyArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-     *
-     * The following arguments are optional:
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
      */
-    namespaces: pulumi.Input<pulumi.Input<string>[]>;
+    namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `namespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespaceTemplates` with the same value is an in-place no-op.
+     *
+     * @deprecated namespaces is deprecated. Use namespaceTemplates instead.
+     */
+    namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflectionConfiguration` Block below.
+     */
+    reflectionConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyReflectionConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -379,6 +423,8 @@ export interface AgentcoreMemoryStrategyArgs {
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyTimeouts | undefined>;
     /**
      * Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

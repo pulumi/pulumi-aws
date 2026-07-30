@@ -50,6 +50,14 @@ export interface GetSecretRotationArgs {
  */
 export interface GetSecretRotationResult {
     /**
+     * Metadata required by the external secret partner. See `externalSecretRotationMetadata` below.
+     */
+    readonly externalSecretRotationMetadatas: outputs.secretsmanager.GetSecretRotationExternalSecretRotationMetadata[];
+    /**
+     * ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+     */
+    readonly externalSecretRotationRoleArn: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcCidrBlockAssociation;
 import com.pulumi.aws.ec2.outputs.GetVpcFilter;
+import com.pulumi.aws.ec2.outputs.GetVpcIpv6CidrBlockAssociation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -53,15 +54,24 @@ public final class GetVpcResult {
      */
     private String instanceTenancy;
     /**
-     * @return Association ID for the IPv6 CIDR block.
+     * @return (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
+     * 
+     * @deprecated
+     * ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
+    @Deprecated /* ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead. */
     private String ipv6AssociationId;
     /**
-     * @return IPv6 CIDR block.
+     * @return IPv6 CIDR block for the association.
+     * 
+     * @deprecated
+     * ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
+    @Deprecated /* ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead. */
     private String ipv6CidrBlock;
+    private List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations;
     /**
      * @return ID of the main route table associated with this VPC.
      * 
@@ -140,18 +150,29 @@ public final class GetVpcResult {
         return this.instanceTenancy;
     }
     /**
-     * @return Association ID for the IPv6 CIDR block.
+     * @return (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
+     * 
+     * @deprecated
+     * ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
+    @Deprecated /* ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead. */
     public String ipv6AssociationId() {
         return this.ipv6AssociationId;
     }
     /**
-     * @return IPv6 CIDR block.
+     * @return IPv6 CIDR block for the association.
+     * 
+     * @deprecated
+     * ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      * 
      */
+    @Deprecated /* ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead. */
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
+    }
+    public List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations() {
+        return this.ipv6CidrBlockAssociations;
     }
     /**
      * @return ID of the main route table associated with this VPC.
@@ -203,6 +224,7 @@ public final class GetVpcResult {
         private String instanceTenancy;
         private String ipv6AssociationId;
         private String ipv6CidrBlock;
+        private List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations;
         private String mainRouteTableId;
         private String ownerId;
         private String region;
@@ -224,6 +246,7 @@ public final class GetVpcResult {
     	      this.instanceTenancy = defaults.instanceTenancy;
     	      this.ipv6AssociationId = defaults.ipv6AssociationId;
     	      this.ipv6CidrBlock = defaults.ipv6CidrBlock;
+    	      this.ipv6CidrBlockAssociations = defaults.ipv6CidrBlockAssociations;
     	      this.mainRouteTableId = defaults.mainRouteTableId;
     	      this.ownerId = defaults.ownerId;
     	      this.region = defaults.region;
@@ -340,6 +363,17 @@ public final class GetVpcResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6CidrBlockAssociations(List<GetVpcIpv6CidrBlockAssociation> ipv6CidrBlockAssociations) {
+            if (ipv6CidrBlockAssociations == null) {
+              throw new MissingRequiredPropertyException("GetVpcResult", "ipv6CidrBlockAssociations");
+            }
+            this.ipv6CidrBlockAssociations = ipv6CidrBlockAssociations;
+            return this;
+        }
+        public Builder ipv6CidrBlockAssociations(GetVpcIpv6CidrBlockAssociation... ipv6CidrBlockAssociations) {
+            return ipv6CidrBlockAssociations(List.of(ipv6CidrBlockAssociations));
+        }
+        @CustomType.Setter
         public Builder mainRouteTableId(String mainRouteTableId) {
             if (mainRouteTableId == null) {
               throw new MissingRequiredPropertyException("GetVpcResult", "mainRouteTableId");
@@ -394,6 +428,7 @@ public final class GetVpcResult {
             _resultValue.instanceTenancy = instanceTenancy;
             _resultValue.ipv6AssociationId = ipv6AssociationId;
             _resultValue.ipv6CidrBlock = ipv6CidrBlock;
+            _resultValue.ipv6CidrBlockAssociations = ipv6CidrBlockAssociations;
             _resultValue.mainRouteTableId = mainRouteTableId;
             _resultValue.ownerId = ownerId;
             _resultValue.region = region;

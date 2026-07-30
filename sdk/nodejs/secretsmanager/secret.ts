@@ -21,6 +21,20 @@ import * as utilities from "../utilities";
  * const example = new aws.secretsmanager.Secret("example", {name: "example"});
  * ```
  *
+ * ### Managed External Secret
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.secretsmanager.Secret("example", {
+ *     name: "bigid-client-secret",
+ *     type: "BigIDClientSecret",
+ * });
+ * ```
+ *
+ * For more information about managed external secrets and supported partners, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html).
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -111,6 +125,10 @@ export class Secret extends pulumi.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     */
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -137,6 +155,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["replicas"] = state?.replicas;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SecretArgs | undefined;
             resourceInputs["description"] = args?.description;
@@ -149,6 +168,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["replicas"] = args?.replicas;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -209,6 +229,10 @@ export interface SecretState {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     */
+    type?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -255,4 +279,8 @@ export interface SecretArgs {
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     */
+    type?: pulumi.Input<string | undefined>;
 }

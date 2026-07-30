@@ -830,6 +830,17 @@ class FlowLog(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Flow Log ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Flow Logs using the `id`. For example:
 
         ```sh
@@ -1044,6 +1055,17 @@ class FlowLog(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Flow Log ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Flow Logs using the `id`. For example:
 

@@ -22,38 +22,54 @@ __all__ = ['AgentcoreMemoryStrategyArgs', 'AgentcoreMemoryStrategy']
 class AgentcoreMemoryStrategyArgs:
     def __init__(__self__, *,
                  memory_id: pulumi.Input[_builtins.str],
-                 namespaces: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reflection_configuration: pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreMemoryStrategy resource.
 
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
+        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
+        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations.
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
+        :param pulumi.Input['AgentcoreMemoryStrategyReflectionConfigurationArgs'] reflection_configuration: Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "memory_id", memory_id)
-        pulumi.set(__self__, "namespaces", namespaces)
         pulumi.set(__self__, "type", type)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if memory_execution_role_arn is not None:
+            warnings.warn("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""", DeprecationWarning)
+            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+        if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
+        if namespaces is not None:
+            warnings.warn("""namespaces is deprecated. Use namespace_templates instead.""", DeprecationWarning)
+            pulumi.log.warn("""namespaces is deprecated: namespaces is deprecated. Use namespace_templates instead.""")
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+        if reflection_configuration is not None:
+            pulumi.set(__self__, "reflection_configuration", reflection_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
@@ -73,23 +89,11 @@ class AgentcoreMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def namespaces(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "namespaces")
-
-    @namespaces.setter
-    def namespaces(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "namespaces", value)
-
-    @_builtins.property
-    @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -101,7 +105,7 @@ class AgentcoreMemoryStrategyArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]:
         """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         """
         return pulumi.get(self, "configuration")
 
@@ -123,7 +127,11 @@ class AgentcoreMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that the memory service assumes to perform operations.
+        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
@@ -141,6 +149,43 @@ class AgentcoreMemoryStrategyArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        """
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
+
+    @_builtins.property
+    @pulumi.getter
+    @_utilities.deprecated("""namespaces is deprecated. Use namespace_templates instead.""")
+    def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
+        """
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reflectionConfiguration")
+    def reflection_configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']]:
+        """
+        Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
+        """
+        return pulumi.get(self, "reflection_configuration")
+
+    @reflection_configuration.setter
+    def reflection_configuration(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']]):
+        pulumi.set(self, "reflection_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,28 +218,36 @@ class _AgentcoreMemoryStrategyState:
                  memory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reflection_configuration: pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreMemoryStrategyTimeoutsArgs']] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreMemoryStrategy resources.
 
-        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        :param pulumi.Input['AgentcoreMemoryStrategyConfigurationArgs'] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
+        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
+        :param pulumi.Input['AgentcoreMemoryStrategyReflectionConfigurationArgs'] reflection_configuration: Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+               
+               The following arguments are optional:
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if memory_execution_role_arn is not None:
+            warnings.warn("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""", DeprecationWarning)
+            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if memory_id is not None:
@@ -203,8 +256,15 @@ class _AgentcoreMemoryStrategyState:
             pulumi.set(__self__, "memory_strategy_id", memory_strategy_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_templates is not None:
+            pulumi.set(__self__, "namespace_templates", namespace_templates)
+        if namespaces is not None:
+            warnings.warn("""namespaces is deprecated. Use namespace_templates instead.""", DeprecationWarning)
+            pulumi.log.warn("""namespaces is deprecated: namespaces is deprecated. Use namespace_templates instead.""")
         if namespaces is not None:
             pulumi.set(__self__, "namespaces", namespaces)
+        if reflection_configuration is not None:
+            pulumi.set(__self__, "reflection_configuration", reflection_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
@@ -216,7 +276,7 @@ class _AgentcoreMemoryStrategyState:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationArgs']]:
         """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         """
         return pulumi.get(self, "configuration")
 
@@ -238,7 +298,11 @@ class _AgentcoreMemoryStrategyState:
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that the memory service assumes to perform operations.
+        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
@@ -282,18 +346,41 @@ class _AgentcoreMemoryStrategyState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        """
+        return pulumi.get(self, "namespace_templates")
+
+    @namespace_templates.setter
+    def namespace_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "namespace_templates", value)
+
+    @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""namespaces is deprecated. Use namespace_templates instead.""")
     def namespaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
+        Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
         """
         return pulumi.get(self, "namespaces")
 
     @namespaces.setter
     def namespaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "namespaces", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reflectionConfiguration")
+    def reflection_configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']]:
+        """
+        Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
+        """
+        return pulumi.get(self, "reflection_configuration")
+
+    @reflection_configuration.setter
+    def reflection_configuration(self, value: pulumi.Input[Optional['AgentcoreMemoryStrategyReflectionConfigurationArgs']]):
+        pulumi.set(self, "reflection_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -321,6 +408,8 @@ class _AgentcoreMemoryStrategyState:
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -340,7 +429,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reflection_configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -367,7 +458,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="SEMANTIC",
             description="Semantic understanding strategy",
-            namespaces=["default"])
+            namespace_templates=["default"])
         ```
 
         ### Summarization Strategy
@@ -381,7 +472,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="SUMMARIZATION",
             description="Text summarization strategy",
-            namespaces=["{sessionId}"])
+            namespace_templates=["{sessionId}"])
         ```
 
         ### User Preference Strategy
@@ -395,7 +486,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="USER_PREFERENCE",
             description="User preference tracking strategy",
-            namespaces=["preferences"])
+            namespace_templates=["preferences"])
         ```
 
         ### Episodic Strategy
@@ -409,7 +500,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="EPISODIC",
             description="Episodic memory strategy",
-            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ### Custom Strategy with Semantic Override
@@ -424,7 +515,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_execution_role_arn=example["memoryExecutionRoleArn"],
             type="CUSTOM",
             description="Custom semantic processing strategy",
-            namespaces=["{sessionId}"],
+            namespace_templates=["{sessionId}"],
             configuration={
                 "type": "SEMANTIC_OVERRIDE",
                 "consolidation": {
@@ -449,7 +540,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="CUSTOM",
             description="Custom summarization strategy",
-            namespaces=["summaries"],
+            namespace_templates=["summaries"],
             configuration={
                 "type": "SUMMARY_OVERRIDE",
                 "consolidation": {
@@ -470,7 +561,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="CUSTOM",
             description="Custom user preference tracking strategy",
-            namespaces=["user_prefs"],
+            namespace_templates=["user_prefs"],
             configuration={
                 "type": "USER_PREFERENCE_OVERRIDE",
                 "consolidation": {
@@ -496,7 +587,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_execution_role_arn=example["memoryExecutionRoleArn"],
             type="CUSTOM",
             description="Custom episodic processing strategy",
-            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
             configuration={
                 "type": "EPISODIC_OVERRIDE",
                 "consolidation": {
@@ -521,15 +612,18 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
+        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
+        :param pulumi.Input[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict']] reflection_configuration: Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -559,7 +653,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="SEMANTIC",
             description="Semantic understanding strategy",
-            namespaces=["default"])
+            namespace_templates=["default"])
         ```
 
         ### Summarization Strategy
@@ -573,7 +667,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="SUMMARIZATION",
             description="Text summarization strategy",
-            namespaces=["{sessionId}"])
+            namespace_templates=["{sessionId}"])
         ```
 
         ### User Preference Strategy
@@ -587,7 +681,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="USER_PREFERENCE",
             description="User preference tracking strategy",
-            namespaces=["preferences"])
+            namespace_templates=["preferences"])
         ```
 
         ### Episodic Strategy
@@ -601,7 +695,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="EPISODIC",
             description="Episodic memory strategy",
-            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"])
         ```
 
         ### Custom Strategy with Semantic Override
@@ -616,7 +710,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_execution_role_arn=example["memoryExecutionRoleArn"],
             type="CUSTOM",
             description="Custom semantic processing strategy",
-            namespaces=["{sessionId}"],
+            namespace_templates=["{sessionId}"],
             configuration={
                 "type": "SEMANTIC_OVERRIDE",
                 "consolidation": {
@@ -641,7 +735,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="CUSTOM",
             description="Custom summarization strategy",
-            namespaces=["summaries"],
+            namespace_templates=["summaries"],
             configuration={
                 "type": "SUMMARY_OVERRIDE",
                 "consolidation": {
@@ -662,7 +756,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id=example["id"],
             type="CUSTOM",
             description="Custom user preference tracking strategy",
-            namespaces=["user_prefs"],
+            namespace_templates=["user_prefs"],
             configuration={
                 "type": "USER_PREFERENCE_OVERRIDE",
                 "consolidation": {
@@ -688,7 +782,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_execution_role_arn=example["memoryExecutionRoleArn"],
             type="CUSTOM",
             description="Custom episodic processing strategy",
-            namespaces=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+            namespace_templates=["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
             configuration={
                 "type": "EPISODIC_OVERRIDE",
                 "consolidation": {
@@ -731,7 +825,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 reflection_configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -751,9 +847,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'memory_id'")
             __props__.__dict__["memory_id"] = memory_id
             __props__.__dict__["name"] = name
-            if namespaces is None and not opts.urn:
-                raise TypeError("Missing required property 'namespaces'")
+            __props__.__dict__["namespace_templates"] = namespace_templates
             __props__.__dict__["namespaces"] = namespaces
+            __props__.__dict__["reflection_configuration"] = reflection_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             if type is None and not opts.urn:
@@ -776,7 +872,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
             memory_id: pulumi.Input[Optional[_builtins.str]] = None,
             memory_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            namespace_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            reflection_configuration: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryStrategyTimeoutsArgs', 'AgentcoreMemoryStrategyTimeoutsArgsDict']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcoreMemoryStrategy':
@@ -787,16 +885,19 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        :param pulumi.Input[Union['AgentcoreMemoryStrategyConfigurationArgs', 'AgentcoreMemoryStrategyConfigurationArgsDict']] configuration: Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the memory strategy.
+        :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations.
         :param pulumi.Input[_builtins.str] memory_id: ID of the memory to associate with this strategy. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] memory_strategy_id: Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
         :param pulumi.Input[_builtins.str] name: Name of the memory strategy.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-               
-               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespace_templates: Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
+        :param pulumi.Input[Union['AgentcoreMemoryStrategyReflectionConfigurationArgs', 'AgentcoreMemoryStrategyReflectionConfigurationArgsDict']] reflection_configuration: Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -808,7 +909,9 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         __props__.__dict__["memory_id"] = memory_id
         __props__.__dict__["memory_strategy_id"] = memory_strategy_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["namespace_templates"] = namespace_templates
         __props__.__dict__["namespaces"] = namespaces
+        __props__.__dict__["reflection_configuration"] = reflection_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["type"] = type
@@ -818,7 +921,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStrategyConfiguration']]:
         """
-        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` below.
+        Custom configuration block. Required when `type` is `CUSTOM`, must be omitted for other types. See `configuration` Block below.
         """
         return pulumi.get(self, "configuration")
 
@@ -832,7 +935,11 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
     def memory_execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that the memory service assumes to perform operations.
+        """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @_builtins.property
@@ -860,14 +967,29 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="namespaceTemplates")
+    def namespace_templates(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespace_templates` or `namespaces` must be configured.
+        """
+        return pulumi.get(self, "namespace_templates")
+
+    @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""namespaces is deprecated. Use namespace_templates instead.""")
     def namespaces(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-
-        The following arguments are optional:
+        Set of namespace identifiers where this strategy applies. Exactly one of `namespaces` or `namespace_templates` must be configured. The API treats this as a legacy parameter; prefer `namespace_templates`. Since the API mirrors the two fields, switching an existing configuration from `namespaces` to `namespace_templates` with the same value is an in-place no-op.
         """
         return pulumi.get(self, "namespaces")
+
+    @_builtins.property
+    @pulumi.getter(name="reflectionConfiguration")
+    def reflection_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStrategyReflectionConfiguration']]:
+        """
+        Configuration for the reflections created with the episodic memory strategy. Valid when `type` is `EPISODIC`, must be omitted for other types. See `reflection_configuration` Block below.
+        """
+        return pulumi.get(self, "reflection_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -887,6 +1009,8 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

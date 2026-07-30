@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var example = new Role("example", RoleArgs.builder()
+ *         var exampleRole = new Role("exampleRole", RoleArgs.builder()
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Version", "2012-10-17"),
@@ -74,9 +74,9 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var examplePipeline = new Pipeline("examplePipeline", PipelineArgs.builder()
+ *         var example = new Pipeline("example", PipelineArgs.builder()
  *             .pipelineName("example")
- *             .pipelineConfigurationBody(example.arn().applyValue(_arn -> """
+ *             .pipelineConfigurationBody(exampleRole.arn().applyValue(_arn -> """
  * version: \"2\"
  * example-pipeline:
  *   source:
@@ -263,14 +263,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineArn;
     }
     /**
-     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+     * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      * 
      */
     @Export(name="pipelineConfigurationBody", refs={String.class}, tree="[0]")
     private Output<String> pipelineConfigurationBody;
 
     /**
-     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+     * @return The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
      * 
      */
     public Output<String> pipelineConfigurationBody() {

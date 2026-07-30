@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
+//			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = opensearchingest.NewPipeline(ctx, "example", &opensearchingest.PipelineArgs{
 //				PipelineName: pulumi.String("example"),
-//				PipelineConfigurationBody: example.Arn.ApplyT(func(arn string) (string, error) {
+//				PipelineConfigurationBody: exampleRole.Arn.ApplyT(func(arn string) (string, error) {
 //					return fmt.Sprintf(`version: \"2\"
 //
 // example-pipeline:
@@ -169,7 +169,7 @@ type Pipeline struct {
 	MinUnits pulumi.IntOutput `pulumi:"minUnits"`
 	// Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn pulumi.StringOutput `pulumi:"pipelineArn"`
-	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody pulumi.StringOutput `pulumi:"pipelineConfigurationBody"`
 	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
@@ -243,7 +243,7 @@ type pipelineState struct {
 	MinUnits *int `pulumi:"minUnits"`
 	// Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn *string `pulumi:"pipelineArn"`
-	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
 	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
@@ -276,7 +276,7 @@ type PipelineState struct {
 	MinUnits pulumi.IntPtrInput
 	// Amazon Resource Name (ARN) of the pipeline.
 	PipelineArn pulumi.StringPtrInput
-	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody pulumi.StringPtrInput
 	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
@@ -309,7 +309,7 @@ type pipelineArgs struct {
 	MaxUnits int `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MinUnits int `pulumi:"minUnits"`
-	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody string `pulumi:"pipelineConfigurationBody"`
 	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
@@ -338,7 +338,7 @@ type PipelineArgs struct {
 	MaxUnits pulumi.IntInput
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MinUnits pulumi.IntInput
-	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 	PipelineConfigurationBody pulumi.StringInput
 	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
@@ -477,7 +477,7 @@ func (o PipelineOutput) PipelineArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineArn }).(pulumi.StringOutput)
 }
 
-// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
 func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineConfigurationBody }).(pulumi.StringOutput)
 }

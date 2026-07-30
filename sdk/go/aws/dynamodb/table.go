@@ -464,6 +464,9 @@ type Table struct {
 	pulumi.CustomResourceState
 
 	// ARN of the table
+	// * `replica.*.arn` - ARN of the replica
+	// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+	// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
 	Attributes TableAttributeArrayOutput `pulumi:"attributes"`
@@ -566,6 +569,9 @@ func GetTable(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
 	// ARN of the table
+	// * `replica.*.arn` - ARN of the replica
+	// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+	// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	Arn *string `pulumi:"arn"`
 	// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
 	Attributes []TableAttribute `pulumi:"attributes"`
@@ -639,6 +645,9 @@ type tableState struct {
 
 type TableState struct {
 	// ARN of the table
+	// * `replica.*.arn` - ARN of the replica
+	// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+	// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	Arn pulumi.StringPtrInput
 	// Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
 	Attributes TableAttributeArrayInput
@@ -933,6 +942,9 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 }
 
 // ARN of the table
+// * `replica.*.arn` - ARN of the replica
+// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 func (o TableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

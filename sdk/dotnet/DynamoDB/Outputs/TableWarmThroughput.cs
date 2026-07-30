@@ -14,11 +14,11 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableWarmThroughput
     {
         /// <summary>
-        /// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+        /// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
         /// </summary>
         public readonly int? ReadUnitsPerSecond;
         /// <summary>
-        /// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+        /// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
         /// </summary>
         public readonly int? WriteUnitsPerSecond;
 

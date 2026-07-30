@@ -368,6 +368,9 @@ export class Table extends pulumi.CustomResource {
 
     /**
      * ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -592,6 +595,9 @@ export class Table extends pulumi.CustomResource {
 export interface TableState {
     /**
      * ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

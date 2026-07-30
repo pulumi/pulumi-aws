@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "SEMANTIC",
     ///         Description = "Semantic understanding strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "default",
     ///         },
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "SUMMARIZATION",
     ///         Description = "Text summarization strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "{sessionId}",
     ///         },
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "USER_PREFERENCE",
     ///         Description = "User preference tracking strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "preferences",
     ///         },
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "EPISODIC",
     ///         Description = "Episodic memory strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
     ///         },
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
     ///         Type = "CUSTOM",
     ///         Description = "Custom semantic processing strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "{sessionId}",
     ///         },
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "CUSTOM",
     ///         Description = "Custom summarization strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "summaries",
     ///         },
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryId = example.Id,
     ///         Type = "CUSTOM",
     ///         Description = "Custom user preference tracking strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "user_prefs",
     ///         },
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Bedrock
     ///         MemoryExecutionRoleArn = example.MemoryExecutionRoleArn,
     ///         Type = "CUSTOM",
     ///         Description = "Custom episodic processing strategy",
-    ///         Namespaces = new[]
+    ///         NamespaceTemplates = new[]
     ///         {
     ///             "/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}",
     ///         },
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreMemoryStrategy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` below.
+        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` Block below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.AgentcoreMemoryStrategyConfiguration?> Configuration { get; private set; } = null!;
@@ -296,6 +296,9 @@ namespace Pulumi.Aws.Bedrock
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the IAM role that the memory service assumes to perform operations.
+        /// </summary>
         [Output("memoryExecutionRoleArn")]
         public Output<string?> MemoryExecutionRoleArn { get; private set; } = null!;
 
@@ -318,12 +321,22 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-        /// 
-        /// The following arguments are optional:
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// </summary>
+        [Output("namespaceTemplates")]
+        public Output<ImmutableArray<string>> NamespaceTemplates { get; private set; } = null!;
+
+        /// <summary>
+        /// Set of namespace identifiers where this strategy applies. Exactly one of `Namespaces` or `NamespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `NamespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `Namespaces` to `NamespaceTemplates` with the same value is an in-place no-op.
         /// </summary>
         [Output("namespaces")]
         public Output<ImmutableArray<string>> Namespaces { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for the reflections created with the episodic memory strategy. Valid when `Type` is `EPISODIC`, must be omitted for other types. See `ReflectionConfiguration` Block below.
+        /// </summary>
+        [Output("reflectionConfiguration")]
+        public Output<Outputs.AgentcoreMemoryStrategyReflectionConfiguration?> ReflectionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -336,6 +349,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -387,7 +402,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreMemoryStrategyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` below.
+        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` Block below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationArgs>? Configuration { get; set; }
@@ -398,6 +413,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// ARN of the IAM role that the memory service assumes to perform operations.
+        /// </summary>
         [Input("memoryExecutionRoleArn")]
         public Input<string>? MemoryExecutionRoleArn { get; set; }
 
@@ -413,19 +431,36 @@ namespace Pulumi.Aws.Bedrock
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("namespaces", required: true)]
+        [Input("namespaceTemplates")]
+        private InputList<string>? _namespaceTemplates;
+
+        /// <summary>
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// </summary>
+        public InputList<string> NamespaceTemplates
+        {
+            get => _namespaceTemplates ?? (_namespaceTemplates = new InputList<string>());
+            set => _namespaceTemplates = value;
+        }
+
+        [Input("namespaces")]
         private InputList<string>? _namespaces;
 
         /// <summary>
-        /// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-        /// 
-        /// The following arguments are optional:
+        /// Set of namespace identifiers where this strategy applies. Exactly one of `Namespaces` or `NamespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `NamespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `Namespaces` to `NamespaceTemplates` with the same value is an in-place no-op.
         /// </summary>
+        [Obsolete(@"namespaces is deprecated. Use NamespaceTemplates instead.")]
         public InputList<string> Namespaces
         {
             get => _namespaces ?? (_namespaces = new InputList<string>());
             set => _namespaces = value;
         }
+
+        /// <summary>
+        /// Configuration for the reflections created with the episodic memory strategy. Valid when `Type` is `EPISODIC`, must be omitted for other types. See `ReflectionConfiguration` Block below.
+        /// </summary>
+        [Input("reflectionConfiguration")]
+        public Input<Inputs.AgentcoreMemoryStrategyReflectionConfigurationArgs>? ReflectionConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -438,6 +473,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -451,7 +488,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreMemoryStrategyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` below.
+        /// Custom configuration block. Required when `Type` is `CUSTOM`, must be omitted for other types. See `Configuration` Block below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationGetArgs>? Configuration { get; set; }
@@ -462,6 +499,9 @@ namespace Pulumi.Aws.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// ARN of the IAM role that the memory service assumes to perform operations.
+        /// </summary>
         [Input("memoryExecutionRoleArn")]
         public Input<string>? MemoryExecutionRoleArn { get; set; }
 
@@ -483,19 +523,36 @@ namespace Pulumi.Aws.Bedrock
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("namespaceTemplates")]
+        private InputList<string>? _namespaceTemplates;
+
+        /// <summary>
+        /// Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `NamespaceTemplates` or `Namespaces` must be configured.
+        /// </summary>
+        public InputList<string> NamespaceTemplates
+        {
+            get => _namespaceTemplates ?? (_namespaceTemplates = new InputList<string>());
+            set => _namespaceTemplates = value;
+        }
+
         [Input("namespaces")]
         private InputList<string>? _namespaces;
 
         /// <summary>
-        /// Set of namespace identifiers where this strategy applies. Namespaces help organize and scope memory content.
-        /// 
-        /// The following arguments are optional:
+        /// Set of namespace identifiers where this strategy applies. Exactly one of `Namespaces` or `NamespaceTemplates` must be configured. The API treats this as a legacy parameter; prefer `NamespaceTemplates`. Since the API mirrors the two fields, switching an existing configuration from `Namespaces` to `NamespaceTemplates` with the same value is an in-place no-op.
         /// </summary>
+        [Obsolete(@"namespaces is deprecated. Use NamespaceTemplates instead.")]
         public InputList<string> Namespaces
         {
             get => _namespaces ?? (_namespaces = new InputList<string>());
             set => _namespaces = value;
         }
+
+        /// <summary>
+        /// Configuration for the reflections created with the episodic memory strategy. Valid when `Type` is `EPISODIC`, must be omitted for other types. See `ReflectionConfiguration` Block below.
+        /// </summary>
+        [Input("reflectionConfiguration")]
+        public Input<Inputs.AgentcoreMemoryStrategyReflectionConfigurationGetArgs>? ReflectionConfiguration { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -508,6 +565,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Type of memory strategy. Valid values: `SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`, `CUSTOM`. Changing this forces a new resource. Note that only one strategy of each built-in type (`SEMANTIC`, `SUMMARIZATION`, `USER_PREFERENCE`, `EPISODIC`) can exist per memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

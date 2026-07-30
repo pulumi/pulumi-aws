@@ -16,14 +16,14 @@ public final class StreamProcessorNotificationChannelArgs extends com.pulumi.res
     public static final StreamProcessorNotificationChannelArgs Empty = new StreamProcessorNotificationChannelArgs();
 
     /**
-     * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+     * Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
      * 
      */
     @Import(name="snsTopicArn")
     private @Nullable Output<String> snsTopicArn;
 
     /**
-     * @return The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+     * @return Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
      * 
      */
     public Optional<Output<String>> snsTopicArn() {
@@ -55,7 +55,7 @@ public final class StreamProcessorNotificationChannelArgs extends com.pulumi.res
         }
 
         /**
-         * @param snsTopicArn The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         * @param snsTopicArn Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class StreamProcessorNotificationChannelArgs extends com.pulumi.res
         }
 
         /**
-         * @param snsTopicArn The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+         * @param snsTopicArn Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
          * 
          * @return builder
          * 

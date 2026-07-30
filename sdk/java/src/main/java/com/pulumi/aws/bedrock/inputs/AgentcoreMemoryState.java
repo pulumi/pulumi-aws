@@ -69,16 +69,12 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
     /**
      * Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="eventExpiryDuration")
     private @Nullable Output<Integer> eventExpiryDuration;
 
     /**
      * @return Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> eventExpiryDuration() {
@@ -118,12 +114,16 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
     /**
      * Name of the memory.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the memory.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -298,8 +298,6 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         /**
          * @param eventExpiryDuration Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -310,8 +308,6 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param eventExpiryDuration Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -375,6 +371,8 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         /**
          * @param name Name of the memory.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -385,6 +383,8 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param name Name of the memory.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

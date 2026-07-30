@@ -32,6 +32,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     @Import(name="arn")
@@ -39,6 +42,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return ARN of the table
+     * * `replica.*.arn` - ARN of the replica
+     * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+     * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -579,6 +585,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn ARN of the table
+         * * `replica.*.arn` - ARN of the replica
+         * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+         * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
          * 
          * @return builder
          * 
@@ -590,6 +599,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param arn ARN of the table
+         * * `replica.*.arn` - ARN of the replica
+         * * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+         * * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
          * 
          * @return builder
          * 

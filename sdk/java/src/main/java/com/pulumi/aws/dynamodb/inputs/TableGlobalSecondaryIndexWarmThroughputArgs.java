@@ -16,14 +16,14 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
     public static final TableGlobalSecondaryIndexWarmThroughputArgs Empty = new TableGlobalSecondaryIndexWarmThroughputArgs();
 
     /**
-     * Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+     * Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
      * 
      */
     @Import(name="readUnitsPerSecond")
     private @Nullable Output<Integer> readUnitsPerSecond;
 
     /**
-     * @return Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+     * @return Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
      * 
      */
     public Optional<Output<Integer>> readUnitsPerSecond() {
@@ -31,14 +31,14 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
     }
 
     /**
-     * Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+     * Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
      * 
      */
     @Import(name="writeUnitsPerSecond")
     private @Nullable Output<Integer> writeUnitsPerSecond;
 
     /**
-     * @return Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+     * @return Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
      * 
      */
     public Optional<Output<Integer>> writeUnitsPerSecond() {
@@ -71,7 +71,7 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
         }
 
         /**
-         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
         }
 
         /**
-         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+         * @param readUnitsPerSecond Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
         }
 
         /**
-         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TableGlobalSecondaryIndexWarmThroughputArgs extends com.pulum
         }
 
         /**
-         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+         * @param writeUnitsPerSecond Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
          * 
          * @return builder
          * 

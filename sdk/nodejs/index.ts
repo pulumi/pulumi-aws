@@ -228,6 +228,7 @@ import * as location from "./location";
 import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as macie2 from "./macie2";
+import * as mailmanager from "./mailmanager";
 import * as mediaconvert from "./mediaconvert";
 import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
@@ -463,6 +464,7 @@ export {
     m2,
     macie,
     macie2,
+    mailmanager,
     mediaconvert,
     medialive,
     mediapackage,

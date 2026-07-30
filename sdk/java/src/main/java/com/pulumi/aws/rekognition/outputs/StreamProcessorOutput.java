@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorOutput {
     /**
-     * @return The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+     * @return Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
      * 
      */
     private @Nullable StreamProcessorOutputKinesisDataStream kinesisDataStream;
     /**
-     * @return The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+     * @return Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
      * 
      */
     private @Nullable StreamProcessorOutputS3Destination s3Destination;
 
     private StreamProcessorOutput() {}
     /**
-     * @return The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
+     * @return Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesisDataStream`.
      * 
      */
     public Optional<StreamProcessorOutputKinesisDataStream> kinesisDataStream() {
         return Optional.ofNullable(this.kinesisDataStream);
     }
     /**
-     * @return The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
+     * @return Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3Destination`.
      * 
      */
     public Optional<StreamProcessorOutputS3Destination> s3Destination() {

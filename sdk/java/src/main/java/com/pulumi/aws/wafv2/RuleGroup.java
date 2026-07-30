@@ -189,8 +189,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("notStatement", RuleGroupRuleStatementNotStatementArgs.builder()
- *                         .statements(Map.of("andStatement", Map.of("statements", Arrays.asList(                        
+ *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(RuleGroupRuleStatementArgs.builder()
+ *                         .andStatement(Map.of("statements", Arrays.asList(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                     .countryCodes("US")
@@ -214,8 +214,8 @@ import javax.annotation.Nullable;
  *                                             .type("LOWERCASE")
  *                                             .build())
  *                                     .build())
- *                                 .build()))))
- *                         .build()))
+ *                                 .build())))
+ *                         .build()))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -323,8 +323,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
- *                         .statements(                        
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .orStatement(Map.of("statements", Arrays.asList(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
  *                                     .arn(test.arn())
@@ -343,8 +343,8 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build())
- *                         .build()))
+ *                                 .build())))
+ *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-4")

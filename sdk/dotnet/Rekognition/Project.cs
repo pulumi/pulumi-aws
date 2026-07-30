@@ -55,6 +55,17 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` - (String) Desired name of the project.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` - (String) AWS Account where this resource is managed.
+    /// * `Region` - (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Rekognition Project using the `Name`. For example:
     /// 
     /// ```sh
@@ -80,7 +91,7 @@ namespace Pulumi.Aws.Rekognition
         /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
         /// </summary>
         [Output("feature")]
-        public Output<string?> Feature { get; private set; } = null!;
+        public Output<string> Feature { get; private set; } = null!;
 
         /// <summary>
         /// Desired name of the project.

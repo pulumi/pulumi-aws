@@ -123,10 +123,15 @@ type LookupVpcResult struct {
 	// Allowed tenancy of instances launched into the
 	// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
 	InstanceTenancy string `pulumi:"instanceTenancy"`
-	// Association ID for the IPv6 CIDR block.
+	// (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
+	//
+	// Deprecated: ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
 	Ipv6AssociationId string `pulumi:"ipv6AssociationId"`
-	// IPv6 CIDR block.
-	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	// IPv6 CIDR block for the association.
+	//
+	// Deprecated: ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
+	Ipv6CidrBlock             string                               `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockAssociations []GetVpcIpv6CidrBlockAssociationType `pulumi:"ipv6CidrBlockAssociations"`
 	// ID of the main route table associated with this VPC.
 	MainRouteTableId string `pulumi:"mainRouteTableId"`
 	// ID of the AWS account that owns the VPC.
@@ -242,14 +247,22 @@ func (o LookupVpcResultOutput) InstanceTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.InstanceTenancy }).(pulumi.StringOutput)
 }
 
-// Association ID for the IPv6 CIDR block.
+// (**Deprecated** use `ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
+//
+// Deprecated: ipv6_association_id is deprecated. Use ipv6CidrBlockAssociations instead.
 func (o LookupVpcResultOutput) Ipv6AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6AssociationId }).(pulumi.StringOutput)
 }
 
-// IPv6 CIDR block.
+// IPv6 CIDR block for the association.
+//
+// Deprecated: ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
 func (o LookupVpcResultOutput) Ipv6CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcResult) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcResultOutput) Ipv6CidrBlockAssociations() GetVpcIpv6CidrBlockAssociationTypeArrayOutput {
+	return o.ApplyT(func(v LookupVpcResult) []GetVpcIpv6CidrBlockAssociationType { return v.Ipv6CidrBlockAssociations }).(GetVpcIpv6CidrBlockAssociationTypeArrayOutput)
 }
 
 // ID of the main route table associated with this VPC.

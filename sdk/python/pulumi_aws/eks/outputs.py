@@ -59,6 +59,7 @@ __all__ = [
     'NodeGroupTaint',
     'NodeGroupUpdateConfig',
     'NodeGroupWarmPoolConfig',
+    'GetAccessPoliciesAccessPolicyResult',
     'GetAddonPodIdentityAssociationResult',
     'GetClusterAccessConfigResult',
     'GetClusterCertificateAuthorityResult',
@@ -2142,6 +2143,35 @@ class NodeGroupWarmPoolConfig(dict):
         Whether to return instances in the Auto Scaling Group to the warm pool on scale in. Not supported on Bottlerocket. Defaults to `false`.
         """
         return pulumi.get(self, "reuse_on_scale_in")
+
+
+@pulumi.output_type
+class GetAccessPoliciesAccessPolicyResult(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str,
+                 name: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the access policy.
+        :param _builtins.str name: Name of the access policy.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the access policy.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the access policy.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

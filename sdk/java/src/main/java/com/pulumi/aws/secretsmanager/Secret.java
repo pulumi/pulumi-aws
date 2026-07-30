@@ -57,6 +57,42 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Managed External Secret
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Secret("example", SecretArgs.builder()
+ *             .name("bigid-client-secret")
+ *             .type("BigIDClientSecret")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * For more information about managed external secrets and supported partners, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html).
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -241,6 +277,20 @@ public class Secret extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     * 
+     */
+    @Export(name="type", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> type;
+
+    /**
+     * @return The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     * 
+     */
+    public Output<Optional<String>> type() {
+        return Codegen.optional(this.type);
     }
 
     /**

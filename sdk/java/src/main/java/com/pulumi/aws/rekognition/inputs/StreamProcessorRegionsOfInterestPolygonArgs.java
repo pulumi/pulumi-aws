@@ -16,14 +16,14 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
     public static final StreamProcessorRegionsOfInterestPolygonArgs Empty = new StreamProcessorRegionsOfInterestPolygonArgs();
 
     /**
-     * The value of the X coordinate for a point on a Polygon.
+     * Value of the X coordinate for a point on a Polygon.
      * 
      */
     @Import(name="x")
     private @Nullable Output<Double> x;
 
     /**
-     * @return The value of the X coordinate for a point on a Polygon.
+     * @return Value of the X coordinate for a point on a Polygon.
      * 
      */
     public Optional<Output<Double>> x() {
@@ -31,14 +31,14 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
     }
 
     /**
-     * The value of the Y coordinate for a point on a Polygon.
+     * Value of the Y coordinate for a point on a Polygon.
      * 
      */
     @Import(name="y")
     private @Nullable Output<Double> y;
 
     /**
-     * @return The value of the Y coordinate for a point on a Polygon.
+     * @return Value of the Y coordinate for a point on a Polygon.
      * 
      */
     public Optional<Output<Double>> y() {
@@ -71,7 +71,7 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
         }
 
         /**
-         * @param x The value of the X coordinate for a point on a Polygon.
+         * @param x Value of the X coordinate for a point on a Polygon.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
         }
 
         /**
-         * @param x The value of the X coordinate for a point on a Polygon.
+         * @param x Value of the X coordinate for a point on a Polygon.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
         }
 
         /**
-         * @param y The value of the Y coordinate for a point on a Polygon.
+         * @param y Value of the Y coordinate for a point on a Polygon.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StreamProcessorRegionsOfInterestPolygonArgs extends com.pulum
         }
 
         /**
-         * @param y The value of the Y coordinate for a point on a Polygon.
+         * @param y Value of the Y coordinate for a point on a Polygon.
          * 
          * @return builder
          * 

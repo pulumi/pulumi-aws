@@ -27,7 +27,13 @@ class GetSecretRotationResult:
     """
     A collection of values returned by getSecretRotation.
     """
-    def __init__(__self__, id=None, region=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, secret_id=None):
+    def __init__(__self__, external_secret_rotation_metadatas=None, external_secret_rotation_role_arn=None, id=None, region=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, secret_id=None):
+        if external_secret_rotation_metadatas and not isinstance(external_secret_rotation_metadatas, list):
+            raise TypeError("Expected argument 'external_secret_rotation_metadatas' to be a list")
+        pulumi.set(__self__, "external_secret_rotation_metadatas", external_secret_rotation_metadatas)
+        if external_secret_rotation_role_arn and not isinstance(external_secret_rotation_role_arn, str):
+            raise TypeError("Expected argument 'external_secret_rotation_role_arn' to be a str")
+        pulumi.set(__self__, "external_secret_rotation_role_arn", external_secret_rotation_role_arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +52,22 @@ class GetSecretRotationResult:
         if secret_id and not isinstance(secret_id, str):
             raise TypeError("Expected argument 'secret_id' to be a str")
         pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretRotationMetadatas")
+    def external_secret_rotation_metadatas(self) -> Sequence['outputs.GetSecretRotationExternalSecretRotationMetadataResult']:
+        """
+        Metadata required by the external secret partner. See `external_secret_rotation_metadata` below.
+        """
+        return pulumi.get(self, "external_secret_rotation_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretRotationRoleArn")
+    def external_secret_rotation_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+        """
+        return pulumi.get(self, "external_secret_rotation_role_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -96,6 +118,8 @@ class AwaitableGetSecretRotationResult(GetSecretRotationResult):
         if False:
             yield self
         return GetSecretRotationResult(
+            external_secret_rotation_metadatas=self.external_secret_rotation_metadatas,
+            external_secret_rotation_role_arn=self.external_secret_rotation_role_arn,
             id=self.id,
             region=self.region,
             rotation_enabled=self.rotation_enabled,
@@ -132,6 +156,8 @@ def get_secret_rotation(region: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult).value
 
     return AwaitableGetSecretRotationResult(
+        external_secret_rotation_metadatas=pulumi.get(__ret__, 'external_secret_rotation_metadatas'),
+        external_secret_rotation_role_arn=pulumi.get(__ret__, 'external_secret_rotation_role_arn'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         rotation_enabled=pulumi.get(__ret__, 'rotation_enabled'),
@@ -165,6 +191,8 @@ def get_secret_rotation_output(region: pulumi.Input[Optional[Optional[_builtins.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult)
     return __ret__.apply(lambda __response__: GetSecretRotationResult(
+        external_secret_rotation_metadatas=pulumi.get(__response__, 'external_secret_rotation_metadatas'),
+        external_secret_rotation_role_arn=pulumi.get(__response__, 'external_secret_rotation_role_arn'),
         id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         rotation_enabled=pulumi.get(__response__, 'rotation_enabled'),

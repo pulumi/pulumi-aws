@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationReflectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,14 +20,14 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     public static final AgentcoreMemoryStrategyConfigurationArgs Empty = new AgentcoreMemoryStrategyConfigurationArgs();
 
     /**
-     * Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+     * Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     @Import(name="consolidation")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs> consolidation;
 
     /**
-     * @return Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs>> consolidation() {
@@ -34,18 +35,33 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     @Import(name="extraction")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationExtractionArgs> extraction;
 
     /**
-     * @return Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationExtractionArgs>> extraction() {
         return Optional.ofNullable(this.extraction);
+    }
+
+    /**
+     * Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * 
+     */
+    @Import(name="reflection")
+    private @Nullable Output<AgentcoreMemoryStrategyConfigurationReflectionArgs> reflection;
+
+    /**
+     * @return Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * 
+     */
+    public Optional<Output<AgentcoreMemoryStrategyConfigurationReflectionArgs>> reflection() {
+        return Optional.ofNullable(this.reflection);
     }
 
     /**
@@ -68,6 +84,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     private AgentcoreMemoryStrategyConfigurationArgs(AgentcoreMemoryStrategyConfigurationArgs $) {
         this.consolidation = $.consolidation;
         this.extraction = $.extraction;
+        this.reflection = $.reflection;
         this.type = $.type;
     }
 
@@ -90,7 +107,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param consolidation Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -101,7 +118,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param consolidation Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
+         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -111,7 +128,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param extraction Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -122,13 +139,34 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param extraction Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
          */
         public Builder extraction(AgentcoreMemoryStrategyConfigurationExtractionArgs extraction) {
             return extraction(Output.of(extraction));
+        }
+
+        /**
+         * @param reflection Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reflection(@Nullable Output<AgentcoreMemoryStrategyConfigurationReflectionArgs> reflection) {
+            $.reflection = reflection;
+            return this;
+        }
+
+        /**
+         * @param reflection Reflection configuration for the memory strategy. See `reflection` Block below. Can only be used, and is required, with `type` set to `EPISODIC_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reflection(AgentcoreMemoryStrategyConfigurationReflectionArgs reflection) {
+            return reflection(Output.of(reflection));
         }
 
         /**

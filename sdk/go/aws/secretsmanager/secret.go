@@ -41,6 +41,35 @@ import (
 //
 // ```
 //
+// ### Managed External Secret
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("bigid-client-secret"),
+//				Type: pulumi.String("BigIDClientSecret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// For more information about managed external secrets and supported partners, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html).
+//
 // ## Import
 //
 // ### Identity Schema
@@ -81,6 +110,8 @@ type Secret struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -137,6 +168,8 @@ type secretState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+	Type *string `pulumi:"type"`
 }
 
 type SecretState struct {
@@ -164,6 +197,8 @@ type SecretState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+	Type pulumi.StringPtrInput
 }
 
 func (SecretState) ElementType() reflect.Type {
@@ -191,6 +226,8 @@ type secretArgs struct {
 	Replicas []SecretReplica `pulumi:"replicas"`
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -215,6 +252,8 @@ type SecretArgs struct {
 	Replicas SecretReplicaArrayInput
 	// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+	Type pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -362,6 +401,11 @@ func (o SecretOutput) Tags() pulumi.StringMapOutput {
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o SecretOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+func (o SecretOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type SecretArrayOutput struct{ *pulumi.OutputState }

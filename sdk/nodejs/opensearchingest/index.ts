@@ -10,6 +10,16 @@ export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
 utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
+export { PipelineEndpointArgs, PipelineEndpointState } from "./pipelineEndpoint";
+export type PipelineEndpoint = import("./pipelineEndpoint").PipelineEndpoint;
+export const PipelineEndpoint: typeof import("./pipelineEndpoint").PipelineEndpoint = null as any;
+utilities.lazyLoad(exports, ["PipelineEndpoint"], () => require("./pipelineEndpoint"));
+
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +27,15 @@ const _module = {
         switch (type) {
             case "aws:opensearchingest/pipeline:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
+            case "aws:opensearchingest/pipelineEndpoint:PipelineEndpoint":
+                return new PipelineEndpoint(name, <any>undefined, { urn })
+            case "aws:opensearchingest/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "opensearchingest/pipeline", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearchingest/pipelineEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearchingest/resourcePolicy", _module)

@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int>? DeviceIndex { get; set; }
 
         /// <summary>
+        /// The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+        /// </summary>
+        [Input("enaQueueCount")]
+        public Input<int>? EnaQueueCount { get; set; }
+
+        /// <summary>
         /// Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         /// </summary>
         [Input("enaSrdSpecification")]

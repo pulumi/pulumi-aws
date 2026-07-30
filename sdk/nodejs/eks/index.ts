@@ -40,6 +40,11 @@ export const getAccessEntry: typeof import("./getAccessEntry").getAccessEntry = 
 export const getAccessEntryOutput: typeof import("./getAccessEntry").getAccessEntryOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessEntry","getAccessEntryOutput"], () => require("./getAccessEntry"));
 
+export { GetAccessPoliciesArgs, GetAccessPoliciesResult, GetAccessPoliciesOutputArgs } from "./getAccessPolicies";
+export const getAccessPolicies: typeof import("./getAccessPolicies").getAccessPolicies = null as any;
+export const getAccessPoliciesOutput: typeof import("./getAccessPolicies").getAccessPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicies","getAccessPoliciesOutput"], () => require("./getAccessPolicies"));
+
 export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
 export const getAddon: typeof import("./getAddon").getAddon = null as any;
 export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;

@@ -60,6 +60,10 @@ type LookupSecretRotationArgs struct {
 
 // A collection of values returned by getSecretRotation.
 type LookupSecretRotationResult struct {
+	// Metadata required by the external secret partner. See `externalSecretRotationMetadata` below.
+	ExternalSecretRotationMetadatas []GetSecretRotationExternalSecretRotationMetadata `pulumi:"externalSecretRotationMetadatas"`
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+	ExternalSecretRotationRoleArn string `pulumi:"externalSecretRotationRoleArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
@@ -106,6 +110,18 @@ func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutput() L
 
 func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutputWithContext(ctx context.Context) LookupSecretRotationResultOutput {
 	return o
+}
+
+// Metadata required by the external secret partner. See `externalSecretRotationMetadata` below.
+func (o LookupSecretRotationResultOutput) ExternalSecretRotationMetadatas() GetSecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) []GetSecretRotationExternalSecretRotationMetadata {
+		return v.ExternalSecretRotationMetadatas
+	}).(GetSecretRotationExternalSecretRotationMetadataArrayOutput)
+}
+
+// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner.
+func (o LookupSecretRotationResultOutput) ExternalSecretRotationRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.ExternalSecretRotationRoleArn }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

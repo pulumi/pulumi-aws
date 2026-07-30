@@ -6,6 +6,8 @@ package com.pulumi.aws.eks;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.eks.inputs.GetAccessEntryArgs;
 import com.pulumi.aws.eks.inputs.GetAccessEntryPlainArgs;
+import com.pulumi.aws.eks.inputs.GetAccessPoliciesArgs;
+import com.pulumi.aws.eks.inputs.GetAccessPoliciesPlainArgs;
 import com.pulumi.aws.eks.inputs.GetAddonArgs;
 import com.pulumi.aws.eks.inputs.GetAddonPlainArgs;
 import com.pulumi.aws.eks.inputs.GetAddonVersionArgs;
@@ -23,6 +25,7 @@ import com.pulumi.aws.eks.inputs.GetNodeGroupPlainArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupsArgs;
 import com.pulumi.aws.eks.inputs.GetNodeGroupsPlainArgs;
 import com.pulumi.aws.eks.outputs.GetAccessEntryResult;
+import com.pulumi.aws.eks.outputs.GetAccessPoliciesResult;
 import com.pulumi.aws.eks.outputs.GetAddonResult;
 import com.pulumi.aws.eks.outputs.GetAddonVersionResult;
 import com.pulumi.aws.eks.outputs.GetClusterAuthResult;
@@ -248,6 +251,83 @@ public final class EksFunctions {
      */
     public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:eks/getAccessEntry:getAccessEntry", TypeShape.of(GetAccessEntryResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static Output<GetAccessPoliciesResult> getAccessPolicies() {
+        return getAccessPolicies(GetAccessPoliciesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static CompletableFuture<GetAccessPoliciesResult> getAccessPoliciesPlain() {
+        return getAccessPoliciesPlain(GetAccessPoliciesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static Output<GetAccessPoliciesResult> getAccessPolicies(GetAccessPoliciesArgs args) {
+        return getAccessPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static CompletableFuture<GetAccessPoliciesResult> getAccessPoliciesPlain(GetAccessPoliciesPlainArgs args) {
+        return getAccessPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static Output<GetAccessPoliciesResult> getAccessPolicies(GetAccessPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:eks/getAccessPolicies:getAccessPolicies", TypeShape.of(GetAccessPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static Output<GetAccessPoliciesResult> getAccessPolicies(GetAccessPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:eks/getAccessPolicies:getAccessPolicies", TypeShape.of(GetAccessPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS EKS (Elastic Kubernetes) Access Policies.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     */
+    public static CompletableFuture<GetAccessPoliciesResult> getAccessPoliciesPlain(GetAccessPoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:eks/getAccessPolicies:getAccessPolicies", TypeShape.of(GetAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve information about an EKS add-on.

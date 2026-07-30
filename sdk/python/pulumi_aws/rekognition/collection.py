@@ -28,7 +28,7 @@ class CollectionArgs:
         """
         The set of arguments for constructing a Collection resource.
 
-        :param pulumi.Input[_builtins.str] collection_id: The name of the collection
+        :param pulumi.Input[_builtins.str] collection_id: Name of the collection
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -46,7 +46,7 @@ class CollectionArgs:
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the collection
+        Name of the collection
 
         The following arguments are optional:
         """
@@ -104,13 +104,13 @@ class _CollectionState:
         Input properties used for looking up and filtering Collection resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Collection.
-        :param pulumi.Input[_builtins.str] collection_id: The name of the collection
+        :param pulumi.Input[_builtins.str] collection_id: Name of the collection
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] face_model_version: The Face Model Version that the collection was initialized with
+        :param pulumi.Input[_builtins.str] face_model_version: Face Model Version that the collection was initialized with
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -143,7 +143,7 @@ class _CollectionState:
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the collection
+        Name of the collection
 
         The following arguments are optional:
         """
@@ -157,7 +157,7 @@ class _CollectionState:
     @pulumi.getter(name="faceModelVersion")
     def face_model_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Face Model Version that the collection was initialized with
+        Face Model Version that the collection was initialized with
         """
         return pulumi.get(self, "face_model_version")
 
@@ -193,7 +193,7 @@ class _CollectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -240,6 +240,17 @@ class Collection(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `collection_id` - (String) The name of the collection.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
         Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
 
         ```sh
@@ -249,7 +260,7 @@ class Collection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] collection_id: The name of the collection
+        :param pulumi.Input[_builtins.str] collection_id: Name of the collection
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -278,6 +289,17 @@ class Collection(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `collection_id` - (String) The name of the collection.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
 
         Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
 
@@ -348,13 +370,13 @@ class Collection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Collection.
-        :param pulumi.Input[_builtins.str] collection_id: The name of the collection
+        :param pulumi.Input[_builtins.str] collection_id: Name of the collection
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] face_model_version: The Face Model Version that the collection was initialized with
+        :param pulumi.Input[_builtins.str] face_model_version: Face Model Version that the collection was initialized with
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,7 +403,7 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the collection
+        Name of the collection
 
         The following arguments are optional:
         """
@@ -391,7 +413,7 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="faceModelVersion")
     def face_model_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The Face Model Version that the collection was initialized with
+        Face Model Version that the collection was initialized with
         """
         return pulumi.get(self, "face_model_version")
 
@@ -415,7 +437,7 @@ class Collection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -287,6 +287,318 @@ func (o PipelineEncryptionAtRestOptionsPtrOutput) KmsKeyArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipelineEndpointTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// PipelineEndpointTimeoutsInput is an input type that accepts PipelineEndpointTimeoutsArgs and PipelineEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `PipelineEndpointTimeoutsInput` via:
+//
+//	PipelineEndpointTimeoutsArgs{...}
+type PipelineEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToPipelineEndpointTimeoutsOutput() PipelineEndpointTimeoutsOutput
+	ToPipelineEndpointTimeoutsOutputWithContext(context.Context) PipelineEndpointTimeoutsOutput
+}
+
+type PipelineEndpointTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (PipelineEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointTimeouts)(nil)).Elem()
+}
+
+func (i PipelineEndpointTimeoutsArgs) ToPipelineEndpointTimeoutsOutput() PipelineEndpointTimeoutsOutput {
+	return i.ToPipelineEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PipelineEndpointTimeoutsArgs) ToPipelineEndpointTimeoutsOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointTimeoutsOutput)
+}
+
+func (i PipelineEndpointTimeoutsArgs) ToPipelineEndpointTimeoutsPtrOutput() PipelineEndpointTimeoutsPtrOutput {
+	return i.ToPipelineEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineEndpointTimeoutsArgs) ToPipelineEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointTimeoutsOutput).ToPipelineEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PipelineEndpointTimeoutsPtrInput is an input type that accepts PipelineEndpointTimeoutsArgs, PipelineEndpointTimeoutsPtr and PipelineEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PipelineEndpointTimeoutsPtrInput` via:
+//
+//	        PipelineEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineEndpointTimeoutsPtrOutput() PipelineEndpointTimeoutsPtrOutput
+	ToPipelineEndpointTimeoutsPtrOutputWithContext(context.Context) PipelineEndpointTimeoutsPtrOutput
+}
+
+type pipelineEndpointTimeoutsPtrType PipelineEndpointTimeoutsArgs
+
+func PipelineEndpointTimeoutsPtr(v *PipelineEndpointTimeoutsArgs) PipelineEndpointTimeoutsPtrInput {
+	return (*pipelineEndpointTimeoutsPtrType)(v)
+}
+
+func (*pipelineEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *pipelineEndpointTimeoutsPtrType) ToPipelineEndpointTimeoutsPtrOutput() PipelineEndpointTimeoutsPtrOutput {
+	return i.ToPipelineEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineEndpointTimeoutsPtrType) ToPipelineEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointTimeoutsPtrOutput)
+}
+
+type PipelineEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointTimeouts)(nil)).Elem()
+}
+
+func (o PipelineEndpointTimeoutsOutput) ToPipelineEndpointTimeoutsOutput() PipelineEndpointTimeoutsOutput {
+	return o
+}
+
+func (o PipelineEndpointTimeoutsOutput) ToPipelineEndpointTimeoutsOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsOutput {
+	return o
+}
+
+func (o PipelineEndpointTimeoutsOutput) ToPipelineEndpointTimeoutsPtrOutput() PipelineEndpointTimeoutsPtrOutput {
+	return o.ToPipelineEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointTimeoutsOutput) ToPipelineEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineEndpointTimeouts) *PipelineEndpointTimeouts {
+		return &v
+	}).(PipelineEndpointTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PipelineEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PipelineEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type PipelineEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEndpointTimeouts)(nil)).Elem()
+}
+
+func (o PipelineEndpointTimeoutsPtrOutput) ToPipelineEndpointTimeoutsPtrOutput() PipelineEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointTimeoutsPtrOutput) ToPipelineEndpointTimeoutsPtrOutputWithContext(ctx context.Context) PipelineEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointTimeoutsPtrOutput) Elem() PipelineEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *PipelineEndpointTimeouts) PipelineEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineEndpointTimeouts
+		return ret
+	}).(PipelineEndpointTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PipelineEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PipelineEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineEndpointVpcOptions struct {
+	// List of security groups associated with the VPC endpoint.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs associated with the VPC endpoint.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// PipelineEndpointVpcOptionsInput is an input type that accepts PipelineEndpointVpcOptionsArgs and PipelineEndpointVpcOptionsOutput values.
+// You can construct a concrete instance of `PipelineEndpointVpcOptionsInput` via:
+//
+//	PipelineEndpointVpcOptionsArgs{...}
+type PipelineEndpointVpcOptionsInput interface {
+	pulumi.Input
+
+	ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput
+	ToPipelineEndpointVpcOptionsOutputWithContext(context.Context) PipelineEndpointVpcOptionsOutput
+}
+
+type PipelineEndpointVpcOptionsArgs struct {
+	// List of security groups associated with the VPC endpoint.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs associated with the VPC endpoint.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (PipelineEndpointVpcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput {
+	return i.ToPipelineEndpointVpcOptionsOutputWithContext(context.Background())
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointVpcOptionsOutput)
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsPtrOutput() PipelineEndpointVpcOptionsPtrOutput {
+	return i.ToPipelineEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineEndpointVpcOptionsArgs) ToPipelineEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointVpcOptionsOutput).ToPipelineEndpointVpcOptionsPtrOutputWithContext(ctx)
+}
+
+// PipelineEndpointVpcOptionsPtrInput is an input type that accepts PipelineEndpointVpcOptionsArgs, PipelineEndpointVpcOptionsPtr and PipelineEndpointVpcOptionsPtrOutput values.
+// You can construct a concrete instance of `PipelineEndpointVpcOptionsPtrInput` via:
+//
+//	        PipelineEndpointVpcOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineEndpointVpcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineEndpointVpcOptionsPtrOutput() PipelineEndpointVpcOptionsPtrOutput
+	ToPipelineEndpointVpcOptionsPtrOutputWithContext(context.Context) PipelineEndpointVpcOptionsPtrOutput
+}
+
+type pipelineEndpointVpcOptionsPtrType PipelineEndpointVpcOptionsArgs
+
+func PipelineEndpointVpcOptionsPtr(v *PipelineEndpointVpcOptionsArgs) PipelineEndpointVpcOptionsPtrInput {
+	return (*pipelineEndpointVpcOptionsPtrType)(v)
+}
+
+func (*pipelineEndpointVpcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (i *pipelineEndpointVpcOptionsPtrType) ToPipelineEndpointVpcOptionsPtrOutput() PipelineEndpointVpcOptionsPtrOutput {
+	return i.ToPipelineEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineEndpointVpcOptionsPtrType) ToPipelineEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEndpointVpcOptionsPtrOutput)
+}
+
+type PipelineEndpointVpcOptionsOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointVpcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsOutput() PipelineEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsOutput {
+	return o
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsPtrOutput() PipelineEndpointVpcOptionsPtrOutput {
+	return o.ToPipelineEndpointVpcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEndpointVpcOptionsOutput) ToPipelineEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineEndpointVpcOptions) *PipelineEndpointVpcOptions {
+		return &v
+	}).(PipelineEndpointVpcOptionsPtrOutput)
+}
+
+// List of security groups associated with the VPC endpoint.
+func (o PipelineEndpointVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineEndpointVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs associated with the VPC endpoint.
+func (o PipelineEndpointVpcOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineEndpointVpcOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type PipelineEndpointVpcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineEndpointVpcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEndpointVpcOptions)(nil)).Elem()
+}
+
+func (o PipelineEndpointVpcOptionsPtrOutput) ToPipelineEndpointVpcOptionsPtrOutput() PipelineEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointVpcOptionsPtrOutput) ToPipelineEndpointVpcOptionsPtrOutputWithContext(ctx context.Context) PipelineEndpointVpcOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineEndpointVpcOptionsPtrOutput) Elem() PipelineEndpointVpcOptionsOutput {
+	return o.ApplyT(func(v *PipelineEndpointVpcOptions) PipelineEndpointVpcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineEndpointVpcOptions
+		return ret
+	}).(PipelineEndpointVpcOptionsOutput)
+}
+
+// List of security groups associated with the VPC endpoint.
+func (o PipelineEndpointVpcOptionsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs associated with the VPC endpoint.
+func (o PipelineEndpointVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineEndpointVpcOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type PipelineLogPublishingOptions struct {
 	// The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatchLogDestination` below.
 	CloudwatchLogDestination *PipelineLogPublishingOptionsCloudwatchLogDestination `pulumi:"cloudwatchLogDestination"`
@@ -937,6 +1249,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBufferOptionsPtrInput)(nil)).Elem(), PipelineBufferOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsPtrInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEndpointTimeoutsInput)(nil)).Elem(), PipelineEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEndpointTimeoutsPtrInput)(nil)).Elem(), PipelineEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEndpointVpcOptionsInput)(nil)).Elem(), PipelineEndpointVpcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEndpointVpcOptionsPtrInput)(nil)).Elem(), PipelineEndpointVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudwatchLogDestinationInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudwatchLogDestinationArgs{})
@@ -949,6 +1265,10 @@ func init() {
 	pulumi.RegisterOutputType(PipelineBufferOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointVpcOptionsOutput{})
+	pulumi.RegisterOutputType(PipelineEndpointVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudwatchLogDestinationOutput{})

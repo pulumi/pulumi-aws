@@ -110,6 +110,21 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
     }
 
     /**
+     * The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+     * 
+     */
+    @Import(name="enaQueueCount")
+    private @Nullable Output<Integer> enaQueueCount;
+
+    /**
+     * @return The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+     * 
+     */
+    public Optional<Output<Integer>> enaQueueCount() {
+        return Optional.ofNullable(this.enaQueueCount);
+    }
+
+    /**
      * Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
      * 
      */
@@ -358,6 +373,7 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
         this.deleteOnTermination = $.deleteOnTermination;
         this.description = $.description;
         this.deviceIndex = $.deviceIndex;
+        this.enaQueueCount = $.enaQueueCount;
         this.enaSrdSpecification = $.enaSrdSpecification;
         this.interfaceType = $.interfaceType;
         this.ipv4AddressCount = $.ipv4AddressCount;
@@ -518,6 +534,27 @@ public final class LaunchTemplateNetworkInterfaceArgs extends com.pulumi.resourc
          */
         public Builder deviceIndex(Integer deviceIndex) {
             return deviceIndex(Output.of(deviceIndex));
+        }
+
+        /**
+         * @param enaQueueCount The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaQueueCount(@Nullable Output<Integer> enaQueueCount) {
+            $.enaQueueCount = enaQueueCount;
+            return this;
+        }
+
+        /**
+         * @param enaQueueCount The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enaQueueCount(Integer enaQueueCount) {
+            return enaQueueCount(Output.of(enaQueueCount));
         }
 
         /**

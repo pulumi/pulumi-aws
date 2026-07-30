@@ -14,9 +14,13 @@ namespace Pulumi.Aws.CodePipeline.Outputs
     public sealed class PipelineStageAction
     {
         /// <summary>
-        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
         /// </summary>
         public readonly string Category;
+        /// <summary>
+        /// A list of shell commands to run with the compute action.
+        /// </summary>
+        public readonly ImmutableArray<string> Commands;
         /// <summary>
         /// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `Configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
         /// </summary>
@@ -34,9 +38,17 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        /// A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
         /// </summary>
         public readonly ImmutableArray<string> OutputArtifacts;
+        /// <summary>
+        /// A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PipelineStageActionOutputArtifactsForComputeAction> OutputArtifactsForComputeActions;
+        /// <summary>
+        /// A list of variables that are to be exported from the compute action.
+        /// </summary>
+        public readonly ImmutableArray<string> OutputVariables;
         /// <summary>
         /// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
         /// </summary>
@@ -70,6 +82,8 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         private PipelineStageAction(
             string category,
 
+            ImmutableArray<string> commands,
+
             ImmutableDictionary<string, string>? configuration,
 
             ImmutableArray<string> inputArtifacts,
@@ -79,6 +93,10 @@ namespace Pulumi.Aws.CodePipeline.Outputs
             string? @namespace,
 
             ImmutableArray<string> outputArtifacts,
+
+            ImmutableArray<Outputs.PipelineStageActionOutputArtifactsForComputeAction> outputArtifactsForComputeActions,
+
+            ImmutableArray<string> outputVariables,
 
             string owner,
 
@@ -95,11 +113,14 @@ namespace Pulumi.Aws.CodePipeline.Outputs
             string version)
         {
             Category = category;
+            Commands = commands;
             Configuration = configuration;
             InputArtifacts = inputArtifacts;
             Name = name;
             Namespace = @namespace;
             OutputArtifacts = outputArtifacts;
+            OutputArtifactsForComputeActions = outputArtifactsForComputeActions;
+            OutputVariables = outputVariables;
             Owner = owner;
             Provider = provider;
             Region = region;

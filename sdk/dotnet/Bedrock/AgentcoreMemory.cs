@@ -130,8 +130,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("eventExpiryDuration")]
         public Output<int> EventExpiryDuration { get; private set; } = null!;
@@ -150,6 +148,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -241,8 +241,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("eventExpiryDuration", required: true)]
         public Input<int> EventExpiryDuration { get; set; } = null!;
@@ -267,6 +265,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -326,8 +326,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("eventExpiryDuration")]
         public Input<int>? EventExpiryDuration { get; set; }
@@ -352,6 +350,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Name of the memory.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

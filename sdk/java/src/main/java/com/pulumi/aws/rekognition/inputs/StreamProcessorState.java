@@ -85,14 +85,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the Stream Processor.
+     * Name of the Stream Processor.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Stream Processor.
+     * @return Name of the Stream Processor.
      * 
      */
     public Optional<Output<String>> name() {
@@ -100,14 +100,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     @Import(name="notificationChannel")
     private @Nullable Output<StreamProcessorNotificationChannelArgs> notificationChannel;
 
     /**
-     * @return The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+     * @return Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
      * 
      */
     public Optional<Output<StreamProcessorNotificationChannelArgs>> notificationChannel() {
@@ -145,14 +145,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+     * Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     @Import(name="regionsOfInterests")
     private @Nullable Output<List<StreamProcessorRegionsOfInterestArgs>> regionsOfInterests;
 
     /**
-     * @return Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+     * @return Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      * 
      */
     public Optional<Output<List<StreamProcessorRegionsOfInterestArgs>>> regionsOfInterests() {
@@ -160,14 +160,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+     * @return Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -194,8 +194,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * (**Deprecated**) ARN of the Stream Processor.
-     * Use `arn` instead.
+     * (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
      * @deprecated
      * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
@@ -206,8 +205,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> streamProcessorArn;
 
     /**
-     * @return (**Deprecated**) ARN of the Stream Processor.
-     * Use `arn` instead.
+     * @return (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
      * 
      * @deprecated
      * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
@@ -219,14 +217,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -234,14 +232,14 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -378,7 +376,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the Stream Processor.
+         * @param name Name of the Stream Processor.
          * 
          * @return builder
          * 
@@ -389,7 +387,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the Stream Processor.
+         * @param name Name of the Stream Processor.
          * 
          * @return builder
          * 
@@ -399,7 +397,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+         * @param notificationChannel Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
          * 
          * @return builder
          * 
@@ -410,7 +408,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param notificationChannel The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
+         * @param notificationChannel Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
          * 
          * @return builder
          * 
@@ -462,7 +460,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+         * @param regionsOfInterests Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
          * 
          * @return builder
          * 
@@ -473,7 +471,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+         * @param regionsOfInterests Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
          * 
          * @return builder
          * 
@@ -483,7 +481,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param regionsOfInterests Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
+         * @param regionsOfInterests Locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
          * 
          * @return builder
          * 
@@ -493,7 +491,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+         * @param roleArn Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
          * 
          * @return builder
          * 
@@ -504,7 +502,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param roleArn The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
+         * @param roleArn Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
          * 
          * @return builder
          * 
@@ -539,8 +537,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor.
-         * Use `arn` instead.
+         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
          * 
          * @return builder
          * 
@@ -555,8 +552,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor.
-         * Use `arn` instead.
+         * @param streamProcessorArn (**Deprecated**) ARN of the Stream Processor. Use `arn` instead.
          * 
          * @return builder
          * 
@@ -570,7 +566,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -581,7 +577,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -591,7 +587,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -602,7 +598,7 @@ public final class StreamProcessorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

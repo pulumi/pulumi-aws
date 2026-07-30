@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type GroupAvailabilityZoneDistribution struct {
-	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
 	CapacityDistributionStrategy *string `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -30,7 +30,7 @@ type GroupAvailabilityZoneDistributionInput interface {
 }
 
 type GroupAvailabilityZoneDistributionArgs struct {
-	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+	// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
 	CapacityDistributionStrategy pulumi.StringPtrInput `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -111,7 +111,7 @@ func (o GroupAvailabilityZoneDistributionOutput) ToGroupAvailabilityZoneDistribu
 	}).(GroupAvailabilityZoneDistributionPtrOutput)
 }
 
-// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
 func (o GroupAvailabilityZoneDistributionOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupAvailabilityZoneDistribution) *string { return v.CapacityDistributionStrategy }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o GroupAvailabilityZoneDistributionPtrOutput) Elem() GroupAvailabilityZone
 	}).(GroupAvailabilityZoneDistributionOutput)
 }
 
-// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+// The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
 func (o GroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupAvailabilityZoneDistribution) *string {
 		if v == nil {

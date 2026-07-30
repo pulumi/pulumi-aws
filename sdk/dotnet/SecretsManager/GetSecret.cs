@@ -259,6 +259,10 @@ namespace Pulumi.Aws.SecretsManager
         /// Tags of the secret.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Type of secret for managed external secrets.
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -280,7 +284,9 @@ namespace Pulumi.Aws.SecretsManager
 
             string region,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string type)
         {
             Arn = arn;
             CreatedDate = createdDate;
@@ -292,6 +298,7 @@ namespace Pulumi.Aws.SecretsManager
             Policy = policy;
             Region = region;
             Tags = tags;
+            Type = type;
         }
     }
 }

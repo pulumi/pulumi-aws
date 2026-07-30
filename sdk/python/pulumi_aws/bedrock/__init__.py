@@ -36,6 +36,7 @@ from .agentcore_resource_policy import *
 from .agentcore_token_vault_cmk import *
 from .agentcore_workload_identity import *
 from .custom_model import *
+from .evaluation_job import *
 from .get_agent_agent_versions import *
 from .get_custom_model import *
 from .get_custom_models import *

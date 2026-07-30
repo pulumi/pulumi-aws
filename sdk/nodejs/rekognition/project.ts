@@ -39,6 +39,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` - (String) Desired name of the project.
+ *
+ * #### Optional
+ *
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Rekognition Project using the `name`. For example:
  *
  * ```sh
@@ -84,7 +95,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      */
-    declare public readonly feature: pulumi.Output<string | undefined>;
+    declare public readonly feature: pulumi.Output<string>;
     /**
      * Desired name of the project.
      *

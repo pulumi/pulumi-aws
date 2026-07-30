@@ -46,6 +46,11 @@ public final class LaunchTemplateNetworkInterface {
      */
     private @Nullable Integer deviceIndex;
     /**
+     * @return The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+     * 
+     */
+    private @Nullable Integer enaQueueCount;
+    /**
      * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
      * 
      */
@@ -168,6 +173,13 @@ public final class LaunchTemplateNetworkInterface {
      */
     public Optional<Integer> deviceIndex() {
         return Optional.ofNullable(this.deviceIndex);
+    }
+    /**
+     * @return The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+     * 
+     */
+    public Optional<Integer> enaQueueCount() {
+        return Optional.ofNullable(this.enaQueueCount);
     }
     /**
      * @return Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
@@ -297,6 +309,7 @@ public final class LaunchTemplateNetworkInterface {
         private @Nullable String deleteOnTermination;
         private @Nullable String description;
         private @Nullable Integer deviceIndex;
+        private @Nullable Integer enaQueueCount;
         private @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecification enaSrdSpecification;
         private @Nullable String interfaceType;
         private @Nullable Integer ipv4AddressCount;
@@ -322,6 +335,7 @@ public final class LaunchTemplateNetworkInterface {
     	      this.deleteOnTermination = defaults.deleteOnTermination;
     	      this.description = defaults.description;
     	      this.deviceIndex = defaults.deviceIndex;
+    	      this.enaQueueCount = defaults.enaQueueCount;
     	      this.enaSrdSpecification = defaults.enaSrdSpecification;
     	      this.interfaceType = defaults.interfaceType;
     	      this.ipv4AddressCount = defaults.ipv4AddressCount;
@@ -374,6 +388,12 @@ public final class LaunchTemplateNetworkInterface {
         public Builder deviceIndex(@Nullable Integer deviceIndex) {
 
             this.deviceIndex = deviceIndex;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enaQueueCount(@Nullable Integer enaQueueCount) {
+
+            this.enaQueueCount = enaQueueCount;
             return this;
         }
         @CustomType.Setter
@@ -495,6 +515,7 @@ public final class LaunchTemplateNetworkInterface {
             _resultValue.deleteOnTermination = deleteOnTermination;
             _resultValue.description = description;
             _resultValue.deviceIndex = deviceIndex;
+            _resultValue.enaQueueCount = enaQueueCount;
             _resultValue.enaSrdSpecification = enaSrdSpecification;
             _resultValue.interfaceType = interfaceType;
             _resultValue.ipv4AddressCount = ipv4AddressCount;

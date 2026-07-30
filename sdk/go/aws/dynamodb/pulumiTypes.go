@@ -1762,9 +1762,9 @@ func (o TableGlobalSecondaryIndexOnDemandThroughputPtrOutput) MaxWriteRequestUni
 }
 
 type TableGlobalSecondaryIndexWarmThroughput struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -1780,9 +1780,9 @@ type TableGlobalSecondaryIndexWarmThroughputInput interface {
 }
 
 type TableGlobalSecondaryIndexWarmThroughputArgs struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -1863,12 +1863,12 @@ func (o TableGlobalSecondaryIndexWarmThroughputOutput) ToTableGlobalSecondaryInd
 	}).(TableGlobalSecondaryIndexWarmThroughputPtrOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
@@ -1897,7 +1897,7 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) Elem() TableGlobalSeco
 	}).(TableGlobalSecondaryIndexWarmThroughputOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -1907,7 +1907,7 @@ func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) ReadUnitsPerSecond() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 func (o TableGlobalSecondaryIndexWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableGlobalSecondaryIndexWarmThroughput) *int {
 		if v == nil {
@@ -3174,6 +3174,9 @@ func (o TablePointInTimeRecoveryPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrO
 
 type TableReplicaType struct {
 	// ARN of the table
+	// * `replica.*.arn` - ARN of the replica
+	// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+	// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	Arn *string `pulumi:"arn"`
 	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 	ConsistencyMode *string `pulumi:"consistencyMode"`
@@ -3214,6 +3217,9 @@ type TableReplicaTypeInput interface {
 
 type TableReplicaTypeArgs struct {
 	// ARN of the table
+	// * `replica.*.arn` - ARN of the replica
+	// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+	// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
 	ConsistencyMode pulumi.StringPtrInput `pulumi:"consistencyMode"`
@@ -3293,6 +3299,9 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.
 }
 
 // ARN of the table
+// * `replica.*.arn` - ARN of the replica
+// * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `streamEnabled = true`.
+// * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3686,9 +3695,9 @@ func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TableWarmThroughput struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -3704,9 +3713,9 @@ type TableWarmThroughputInput interface {
 }
 
 type TableWarmThroughputArgs struct {
-	// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+	// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
-	// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+	// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
 }
 
@@ -3787,12 +3796,12 @@ func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutputWithContext(ctx
 	}).(TableWarmThroughputPtrOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 func (o TableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 func (o TableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
 }
@@ -3821,7 +3830,7 @@ func (o TableWarmThroughputPtrOutput) Elem() TableWarmThroughputOutput {
 	}).(TableWarmThroughputOutput)
 }
 
-// Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+// Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
 func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableWarmThroughput) *int {
 		if v == nil {
@@ -3831,7 +3840,7 @@ func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+// Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
 func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableWarmThroughput) *int {
 		if v == nil {

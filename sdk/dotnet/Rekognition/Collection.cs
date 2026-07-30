@@ -36,6 +36,17 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `CollectionId` - (String) The name of the collection.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` - (String) AWS Account where this resource is managed.
+    /// * `Region` - (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Rekognition Collection using the `CollectionId`. For example:
     /// 
     /// ```sh
@@ -52,7 +63,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the collection
+        /// Name of the collection
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -60,7 +71,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<string> CollectionId { get; private set; } = null!;
 
         /// <summary>
-        /// The Face Model Version that the collection was initialized with
+        /// Face Model Version that the collection was initialized with
         /// </summary>
         [Output("faceModelVersion")]
         public Output<string> FaceModelVersion { get; private set; } = null!;
@@ -78,7 +89,7 @@ namespace Pulumi.Aws.Rekognition
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -133,7 +144,7 @@ namespace Pulumi.Aws.Rekognition
     public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collection
+        /// Name of the collection
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -176,7 +187,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the collection
+        /// Name of the collection
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -184,7 +195,7 @@ namespace Pulumi.Aws.Rekognition
         public Input<string>? CollectionId { get; set; }
 
         /// <summary>
-        /// The Face Model Version that the collection was initialized with
+        /// Face Model Version that the collection was initialized with
         /// </summary>
         [Input("faceModelVersion")]
         public Input<string>? FaceModelVersion { get; set; }
@@ -211,7 +222,7 @@ namespace Pulumi.Aws.Rekognition
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

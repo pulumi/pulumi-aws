@@ -53,6 +53,11 @@ public final class GetSecretResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Type of secret for managed external secrets.
+     * 
+     */
+    private String type;
 
     private GetSecretResult() {}
     /**
@@ -117,6 +122,13 @@ public final class GetSecretResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Type of secret for managed external secrets.
+     * 
+     */
+    public String type() {
+        return this.type;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -137,6 +149,7 @@ public final class GetSecretResult {
         private String policy;
         private String region;
         private Map<String,String> tags;
+        private String type;
         public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -150,6 +163,7 @@ public final class GetSecretResult {
     	      this.policy = defaults.policy;
     	      this.region = defaults.region;
     	      this.tags = defaults.tags;
+    	      this.type = defaults.type;
         }
 
         @CustomType.Setter
@@ -232,6 +246,14 @@ public final class GetSecretResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder type(String type) {
+            if (type == null) {
+              throw new MissingRequiredPropertyException("GetSecretResult", "type");
+            }
+            this.type = type;
+            return this;
+        }
         public GetSecretResult build() {
             final var _resultValue = new GetSecretResult();
             _resultValue.arn = arn;
@@ -244,6 +266,7 @@ public final class GetSecretResult {
             _resultValue.policy = policy;
             _resultValue.region = region;
             _resultValue.tags = tags;
+            _resultValue.type = type;
             return _resultValue;
         }
     }

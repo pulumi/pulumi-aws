@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codepipeline.outputs;
 
+import com.pulumi.aws.codepipeline.outputs.PipelineStageActionOutputArtifactsForComputeAction;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -16,10 +17,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipelineStageAction {
     /**
-     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
      * 
      */
     private String category;
+    /**
+     * @return A list of shell commands to run with the compute action.
+     * 
+     */
+    private @Nullable List<String> commands;
     /**
      * @return A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
      * 
@@ -41,10 +47,20 @@ public final class PipelineStageAction {
      */
     private @Nullable String namespace;
     /**
-     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
+     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
      * 
      */
     private @Nullable List<String> outputArtifacts;
+    /**
+     * @return A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+     * 
+     */
+    private @Nullable List<PipelineStageActionOutputArtifactsForComputeAction> outputArtifactsForComputeActions;
+    /**
+     * @return A list of variables that are to be exported from the compute action.
+     * 
+     */
+    private @Nullable List<String> outputVariables;
     /**
      * @return The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
      * 
@@ -83,11 +99,18 @@ public final class PipelineStageAction {
 
     private PipelineStageAction() {}
     /**
-     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+     * @return A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
      * 
      */
     public String category() {
         return this.category;
+    }
+    /**
+     * @return A list of shell commands to run with the compute action.
+     * 
+     */
+    public List<String> commands() {
+        return this.commands == null ? List.of() : this.commands;
     }
     /**
      * @return A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
@@ -118,11 +141,25 @@ public final class PipelineStageAction {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline.
+     * @return A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
      * 
      */
     public List<String> outputArtifacts() {
         return this.outputArtifacts == null ? List.of() : this.outputArtifacts;
+    }
+    /**
+     * @return A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+     * 
+     */
+    public List<PipelineStageActionOutputArtifactsForComputeAction> outputArtifactsForComputeActions() {
+        return this.outputArtifactsForComputeActions == null ? List.of() : this.outputArtifactsForComputeActions;
+    }
+    /**
+     * @return A list of variables that are to be exported from the compute action.
+     * 
+     */
+    public List<String> outputVariables() {
+        return this.outputVariables == null ? List.of() : this.outputVariables;
     }
     /**
      * @return The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
@@ -184,11 +221,14 @@ public final class PipelineStageAction {
     @CustomType.Builder
     public static final class Builder {
         private String category;
+        private @Nullable List<String> commands;
         private @Nullable Map<String,String> configuration;
         private @Nullable List<String> inputArtifacts;
         private String name;
         private @Nullable String namespace;
         private @Nullable List<String> outputArtifacts;
+        private @Nullable List<PipelineStageActionOutputArtifactsForComputeAction> outputArtifactsForComputeActions;
+        private @Nullable List<String> outputVariables;
         private String owner;
         private String provider;
         private @Nullable String region;
@@ -200,11 +240,14 @@ public final class PipelineStageAction {
         public Builder(PipelineStageAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
+    	      this.commands = defaults.commands;
     	      this.configuration = defaults.configuration;
     	      this.inputArtifacts = defaults.inputArtifacts;
     	      this.name = defaults.name;
     	      this.namespace = defaults.namespace;
     	      this.outputArtifacts = defaults.outputArtifacts;
+    	      this.outputArtifactsForComputeActions = defaults.outputArtifactsForComputeActions;
+    	      this.outputVariables = defaults.outputVariables;
     	      this.owner = defaults.owner;
     	      this.provider = defaults.provider;
     	      this.region = defaults.region;
@@ -221,6 +264,15 @@ public final class PipelineStageAction {
             }
             this.category = category;
             return this;
+        }
+        @CustomType.Setter
+        public Builder commands(@Nullable List<String> commands) {
+
+            this.commands = commands;
+            return this;
+        }
+        public Builder commands(String... commands) {
+            return commands(List.of(commands));
         }
         @CustomType.Setter
         public Builder configuration(@Nullable Map<String,String> configuration) {
@@ -259,6 +311,24 @@ public final class PipelineStageAction {
         }
         public Builder outputArtifacts(String... outputArtifacts) {
             return outputArtifacts(List.of(outputArtifacts));
+        }
+        @CustomType.Setter
+        public Builder outputArtifactsForComputeActions(@Nullable List<PipelineStageActionOutputArtifactsForComputeAction> outputArtifactsForComputeActions) {
+
+            this.outputArtifactsForComputeActions = outputArtifactsForComputeActions;
+            return this;
+        }
+        public Builder outputArtifactsForComputeActions(PipelineStageActionOutputArtifactsForComputeAction... outputArtifactsForComputeActions) {
+            return outputArtifactsForComputeActions(List.of(outputArtifactsForComputeActions));
+        }
+        @CustomType.Setter
+        public Builder outputVariables(@Nullable List<String> outputVariables) {
+
+            this.outputVariables = outputVariables;
+            return this;
+        }
+        public Builder outputVariables(String... outputVariables) {
+            return outputVariables(List.of(outputVariables));
         }
         @CustomType.Setter
         public Builder owner(String owner) {
@@ -311,11 +381,14 @@ public final class PipelineStageAction {
         public PipelineStageAction build() {
             final var _resultValue = new PipelineStageAction();
             _resultValue.category = category;
+            _resultValue.commands = commands;
             _resultValue.configuration = configuration;
             _resultValue.inputArtifacts = inputArtifacts;
             _resultValue.name = name;
             _resultValue.namespace = namespace;
             _resultValue.outputArtifacts = outputArtifacts;
+            _resultValue.outputArtifactsForComputeActions = outputArtifactsForComputeActions;
+            _resultValue.outputVariables = outputVariables;
             _resultValue.owner = owner;
             _resultValue.provider = provider;
             _resultValue.region = region;

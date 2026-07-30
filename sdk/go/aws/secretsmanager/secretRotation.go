@@ -46,6 +46,57 @@ import (
 //
 // ```
 //
+// ### Managed External Secret Rotation
+//
+// For managed external secrets that are rotated by AWS partner integrations:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.NewSecret(ctx, "example", &secretsmanager.SecretArgs{
+//				Name: pulumi.String("example-salesforce-client-secret"),
+//				Type: pulumi.String("SalesforceClientSecret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
+//				SecretId:                      example.ID(),
+//				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//				ExternalSecretRotationMetadatas: secretsmanager.SecretRotationExternalSecretRotationMetadataArray{
+//					&secretsmanager.SecretRotationExternalSecretRotationMetadataArgs{
+//						Key:   pulumi.String("adminSecretArn"),
+//						Value: example.Arn,
+//					},
+//					&secretsmanager.SecretRotationExternalSecretRotationMetadataArgs{
+//						Key:   pulumi.String("apiVersion"),
+//						Value: pulumi.String("v65.0"),
+//					},
+//				},
+//				RotationRules: &secretsmanager.SecretRotationRotationRulesArgs{
+//					AutomaticallyAfterDays: pulumi.Any(rotationDays),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// For more information about managed external secrets and partner-specific metadata requirements, see the [AWS documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managed-external-secrets.html) and [partner-specific guides](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
+//
 // ### Rotation Configuration
 //
 // To enable automatic secret rotation, the Secrets Manager service requires usage of a Lambda function. The [Rotate Secrets section in the Secrets Manager User Guide](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html) provides additional information about deploying a prebuilt Lambda functions for supported credential rotation (e.g., RDS) or deploying a custom Lambda function.
@@ -70,6 +121,10 @@ import (
 type SecretRotation struct {
 	pulumi.CustomResourceState
 
+	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+	ExternalSecretRotationMetadatas SecretRotationExternalSecretRotationMetadataArrayOutput `pulumi:"externalSecretRotationMetadatas"`
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+	ExternalSecretRotationRoleArn pulumi.StringPtrOutput `pulumi:"externalSecretRotationRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
@@ -120,6 +175,10 @@ func GetSecretRotation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretRotation resources.
 type secretRotationState struct {
+	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+	ExternalSecretRotationMetadatas []SecretRotationExternalSecretRotationMetadata `pulumi:"externalSecretRotationMetadatas"`
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+	ExternalSecretRotationRoleArn *string `pulumi:"externalSecretRotationRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
@@ -135,6 +194,10 @@ type secretRotationState struct {
 }
 
 type SecretRotationState struct {
+	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+	ExternalSecretRotationMetadatas SecretRotationExternalSecretRotationMetadataArrayInput
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+	ExternalSecretRotationRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
@@ -154,6 +217,10 @@ func (SecretRotationState) ElementType() reflect.Type {
 }
 
 type secretRotationArgs struct {
+	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+	ExternalSecretRotationMetadatas []SecretRotationExternalSecretRotationMetadata `pulumi:"externalSecretRotationMetadatas"`
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+	ExternalSecretRotationRoleArn *string `pulumi:"externalSecretRotationRoleArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
@@ -168,6 +235,10 @@ type secretRotationArgs struct {
 
 // The set of arguments for constructing a SecretRotation resource.
 type SecretRotationArgs struct {
+	// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+	ExternalSecretRotationMetadatas SecretRotationExternalSecretRotationMetadataArrayInput
+	// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+	ExternalSecretRotationRoleArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
@@ -265,6 +336,18 @@ func (o SecretRotationOutput) ToSecretRotationOutput() SecretRotationOutput {
 
 func (o SecretRotationOutput) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
 	return o
+}
+
+// Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+func (o SecretRotationOutput) ExternalSecretRotationMetadatas() SecretRotationExternalSecretRotationMetadataArrayOutput {
+	return o.ApplyT(func(v *SecretRotation) SecretRotationExternalSecretRotationMetadataArrayOutput {
+		return v.ExternalSecretRotationMetadatas
+	}).(SecretRotationExternalSecretRotationMetadataArrayOutput)
+}
+
+// ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
+func (o SecretRotationOutput) ExternalSecretRotationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotation) pulumi.StringPtrOutput { return v.ExternalSecretRotationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

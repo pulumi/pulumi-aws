@@ -17,7 +17,7 @@ public final class StreamProcessorOutputS3Destination {
      */
     private @Nullable String bucket;
     /**
-     * @return The prefix value of the location within the bucket that you want the information to be published to.
+     * @return Prefix value of the location within the bucket that you want the information to be published to.
      * 
      */
     private @Nullable String keyPrefix;
@@ -31,7 +31,7 @@ public final class StreamProcessorOutputS3Destination {
         return Optional.ofNullable(this.bucket);
     }
     /**
-     * @return The prefix value of the location within the bucket that you want the information to be published to.
+     * @return Prefix value of the location within the bucket that you want the information to be published to.
      * 
      */
     public Optional<String> keyPrefix() {

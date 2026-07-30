@@ -27,7 +27,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// {
     ///     var current = Aws.GetRegion.Invoke();
     /// 
-    ///     var example = new Aws.Iam.Role("example", new()
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
     ///     {
     ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -48,10 +48,10 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///         }),
     ///     });
     /// 
-    ///     var examplePipeline = new Aws.OpenSearchIngest.Pipeline("example", new()
+    ///     var example = new Aws.OpenSearchIngest.Pipeline("example", new()
     ///     {
     ///         PipelineName = "example",
-    ///         PipelineConfigurationBody = Output.Tuple(example.Arn, current).Apply(values =&gt;
+    ///         PipelineConfigurationBody = Output.Tuple(exampleRole.Arn, current).Apply(values =&gt;
     ///         {
     ///             var arn = values.Item1;
     ///             var current = values.Item2;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<string> PipelineArn { get; private set; } = null!;
 
         /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
         /// </summary>
         [Output("pipelineConfigurationBody")]
         public Output<string> PipelineConfigurationBody { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<int> MinUnits { get; set; } = null!;
 
         /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
         /// </summary>
         [Input("pipelineConfigurationBody", required: true)]
         public Input<string> PipelineConfigurationBody { get; set; } = null!;
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<string>? PipelineArn { get; set; }
 
         /// <summary>
-        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
+        /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\n`.
         /// </summary>
         [Input("pipelineConfigurationBody")]
         public Input<string>? PipelineConfigurationBody { get; set; }

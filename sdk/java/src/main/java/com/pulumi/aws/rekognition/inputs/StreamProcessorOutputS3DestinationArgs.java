@@ -31,14 +31,14 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
     }
 
     /**
-     * The prefix value of the location within the bucket that you want the information to be published to.
+     * Prefix value of the location within the bucket that you want the information to be published to.
      * 
      */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
     /**
-     * @return The prefix value of the location within the bucket that you want the information to be published to.
+     * @return Prefix value of the location within the bucket that you want the information to be published to.
      * 
      */
     public Optional<Output<String>> keyPrefix() {
@@ -92,7 +92,7 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param keyPrefix The prefix value of the location within the bucket that you want the information to be published to.
+         * @param keyPrefix Prefix value of the location within the bucket that you want the information to be published to.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class StreamProcessorOutputS3DestinationArgs extends com.pulumi.res
         }
 
         /**
-         * @param keyPrefix The prefix value of the location within the bucket that you want the information to be published to.
+         * @param keyPrefix Prefix value of the location within the bucket that you want the information to be published to.
          * 
          * @return builder
          * 

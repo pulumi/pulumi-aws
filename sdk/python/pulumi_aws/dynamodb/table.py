@@ -526,6 +526,9 @@ class _TableState:
         Input properties used for looking up and filtering Table resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the table
+               * `replica.*.arn` - ARN of the replica
+               * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+               * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
@@ -634,6 +637,9 @@ class _TableState:
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the table
+        * `replica.*.arn` - ARN of the replica
+        * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+        * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         return pulumi.get(self, "arn")
 
@@ -1878,6 +1884,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the table
+               * `replica.*.arn` - ARN of the replica
+               * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+               * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAttributeArgs', 'TableAttributeArgsDict']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[_builtins.str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Enables deletion protection for table. Defaults to `false`.
@@ -1959,6 +1968,9 @@ class Table(pulumi.CustomResource):
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN of the table
+        * `replica.*.arn` - ARN of the replica
+        * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+        * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         return pulumi.get(self, "arn")
 

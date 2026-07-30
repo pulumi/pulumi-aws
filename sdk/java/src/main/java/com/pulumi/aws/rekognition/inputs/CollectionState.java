@@ -33,7 +33,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the collection
+     * Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -42,7 +42,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> collectionId;
 
     /**
-     * @return The name of the collection
+     * @return Name of the collection
      * 
      * The following arguments are optional:
      * 
@@ -52,14 +52,14 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Face Model Version that the collection was initialized with
+     * Face Model Version that the collection was initialized with
      * 
      */
     @Import(name="faceModelVersion")
     private @Nullable Output<String> faceModelVersion;
 
     /**
-     * @return The Face Model Version that the collection was initialized with
+     * @return Face Model Version that the collection was initialized with
      * 
      */
     public Optional<Output<String>> faceModelVersion() {
@@ -97,14 +97,14 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -170,7 +170,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collectionId The name of the collection
+         * @param collectionId Name of the collection
          * 
          * The following arguments are optional:
          * 
@@ -183,7 +183,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collectionId The name of the collection
+         * @param collectionId Name of the collection
          * 
          * The following arguments are optional:
          * 
@@ -195,7 +195,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param faceModelVersion The Face Model Version that the collection was initialized with
+         * @param faceModelVersion Face Model Version that the collection was initialized with
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param faceModelVersion The Face Model Version that the collection was initialized with
+         * @param faceModelVersion Face Model Version that the collection was initialized with
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class CollectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

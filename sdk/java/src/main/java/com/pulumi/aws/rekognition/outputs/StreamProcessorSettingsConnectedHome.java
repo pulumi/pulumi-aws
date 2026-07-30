@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamProcessorSettingsConnectedHome {
     /**
-     * @return Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * @return What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
      * 
      */
     private @Nullable List<String> labels;
@@ -26,7 +26,7 @@ public final class StreamProcessorSettingsConnectedHome {
 
     private StreamProcessorSettingsConnectedHome() {}
     /**
-     * @return Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+     * @return What you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
      * 
      */
     public List<String> labels() {

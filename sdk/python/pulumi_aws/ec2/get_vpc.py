@@ -28,7 +28,7 @@ class GetVpcResult:
     """
     A collection of values returned by getVpc.
     """
-    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, enable_network_address_usage_metrics=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, owner_id=None, region=None, state=None, tags=None):
+    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, enable_network_address_usage_metrics=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, ipv6_cidr_block_associations=None, main_route_table_id=None, owner_id=None, region=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -68,6 +68,9 @@ class GetVpcResult:
         if ipv6_cidr_block and not isinstance(ipv6_cidr_block, str):
             raise TypeError("Expected argument 'ipv6_cidr_block' to be a str")
         pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_cidr_block_associations and not isinstance(ipv6_cidr_block_associations, list):
+            raise TypeError("Expected argument 'ipv6_cidr_block_associations' to be a list")
+        pulumi.set(__self__, "ipv6_cidr_block_associations", ipv6_cidr_block_associations)
         if main_route_table_id and not isinstance(main_route_table_id, str):
             raise TypeError("Expected argument 'main_route_table_id' to be a str")
         pulumi.set(__self__, "main_route_table_id", main_route_table_id)
@@ -160,19 +163,26 @@ class GetVpcResult:
 
     @_builtins.property
     @pulumi.getter(name="ipv6AssociationId")
+    @_utilities.deprecated("""ipv6_association_id is deprecated. Use ipv6_cidr_block_associations instead.""")
     def ipv6_association_id(self) -> _builtins.str:
         """
-        Association ID for the IPv6 CIDR block.
+        (**Deprecated** use `ipv6_cidr_block_associations` instead) Association ID for the IPv6 CIDR block.
         """
         return pulumi.get(self, "ipv6_association_id")
 
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
+    @_utilities.deprecated("""ipv6_cidr_block is deprecated. Use ipv6_cidr_block_associations instead.""")
     def ipv6_cidr_block(self) -> _builtins.str:
         """
-        IPv6 CIDR block.
+        IPv6 CIDR block for the association.
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6CidrBlockAssociations")
+    def ipv6_cidr_block_associations(self) -> Sequence['outputs.GetVpcIpv6CidrBlockAssociationResult']:
+        return pulumi.get(self, "ipv6_cidr_block_associations")
 
     @_builtins.property
     @pulumi.getter(name="mainRouteTableId")
@@ -228,6 +238,7 @@ class AwaitableGetVpcResult(GetVpcResult):
             instance_tenancy=self.instance_tenancy,
             ipv6_association_id=self.ipv6_association_id,
             ipv6_cidr_block=self.ipv6_cidr_block,
+            ipv6_cidr_block_associations=self.ipv6_cidr_block_associations,
             main_route_table_id=self.main_route_table_id,
             owner_id=self.owner_id,
             region=self.region,
@@ -315,6 +326,7 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
         instance_tenancy=pulumi.get(__ret__, 'instance_tenancy'),
         ipv6_association_id=pulumi.get(__ret__, 'ipv6_association_id'),
         ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
+        ipv6_cidr_block_associations=pulumi.get(__ret__, 'ipv6_cidr_block_associations'),
         main_route_table_id=pulumi.get(__ret__, 'main_route_table_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         region=pulumi.get(__ret__, 'region'),
@@ -399,6 +411,7 @@ def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] =
         instance_tenancy=pulumi.get(__response__, 'instance_tenancy'),
         ipv6_association_id=pulumi.get(__response__, 'ipv6_association_id'),
         ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
+        ipv6_cidr_block_associations=pulumi.get(__response__, 'ipv6_cidr_block_associations'),
         main_route_table_id=pulumi.get(__response__, 'main_route_table_id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         region=pulumi.get(__response__, 'region'),

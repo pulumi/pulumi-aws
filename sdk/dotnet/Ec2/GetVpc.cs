@@ -337,13 +337,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string InstanceTenancy;
         /// <summary>
-        /// Association ID for the IPv6 CIDR block.
+        /// (**Deprecated** use `Ipv6CidrBlockAssociations` instead) Association ID for the IPv6 CIDR block.
         /// </summary>
         public readonly string Ipv6AssociationId;
         /// <summary>
-        /// IPv6 CIDR block.
+        /// IPv6 CIDR block for the association.
         /// </summary>
         public readonly string Ipv6CidrBlock;
+        public readonly ImmutableArray<Outputs.GetVpcIpv6CidrBlockAssociationResult> Ipv6CidrBlockAssociations;
         /// <summary>
         /// ID of the main route table associated with this VPC.
         /// </summary>
@@ -387,6 +388,8 @@ namespace Pulumi.Aws.Ec2
 
             string ipv6CidrBlock,
 
+            ImmutableArray<Outputs.GetVpcIpv6CidrBlockAssociationResult> ipv6CidrBlockAssociations,
+
             string mainRouteTableId,
 
             string ownerId,
@@ -410,6 +413,7 @@ namespace Pulumi.Aws.Ec2
             InstanceTenancy = instanceTenancy;
             Ipv6AssociationId = ipv6AssociationId;
             Ipv6CidrBlock = ipv6CidrBlock;
+            Ipv6CidrBlockAssociations = ipv6CidrBlockAssociations;
             MainRouteTableId = mainRouteTableId;
             OwnerId = ownerId;
             Region = region;

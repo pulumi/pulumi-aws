@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Rekognition.Inputs
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The prefix value of the location within the bucket that you want the information to be published to.
+        /// Prefix value of the location within the bucket that you want the information to be published to.
         /// </summary>
         [Input("keyPrefix")]
         public Input<string>? KeyPrefix { get; set; }

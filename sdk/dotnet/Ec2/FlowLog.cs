@@ -367,6 +367,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Flow Log ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Flow Logs using the `Id`. For example:
     /// 
     /// ```sh

@@ -80,6 +80,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("destinationTransitGatewayAttachmentId")]
         public Output<string?> DestinationTransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Output("destinationTransitGatewayAttachmentType")]
         public Output<string?> DestinationTransitGatewayAttachmentType { get; private set; } = null!;
 
@@ -119,6 +122,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("sourceTransitGatewayAttachmentId")]
         public Output<string?> SourceTransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Output("sourceTransitGatewayAttachmentType")]
         public Output<string?> SourceTransitGatewayAttachmentType { get; private set; } = null!;
 
@@ -191,6 +197,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("destinationTransitGatewayAttachmentId")]
         public Input<string>? DestinationTransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Input("destinationTransitGatewayAttachmentType")]
         public Input<string>? DestinationTransitGatewayAttachmentType { get; set; }
 
@@ -230,6 +239,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("sourceTransitGatewayAttachmentId")]
         public Input<string>? SourceTransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Input("sourceTransitGatewayAttachmentType")]
         public Input<string>? SourceTransitGatewayAttachmentType { get; set; }
 
@@ -264,6 +276,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("destinationTransitGatewayAttachmentId")]
         public Input<string>? DestinationTransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Destination attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Input("destinationTransitGatewayAttachmentType")]
         public Input<string>? DestinationTransitGatewayAttachmentType { get; set; }
 
@@ -303,6 +318,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("sourceTransitGatewayAttachmentId")]
         public Input<string>? SourceTransitGatewayAttachmentId { get; set; }
 
+        /// <summary>
+        /// Source attachment resource type to match. Valid values are `Vpc`, `Vpn`, `direct-connect-gateway`, `Connect`, `Peering`, `tgw-peering`.
+        /// </summary>
         [Input("sourceTransitGatewayAttachmentType")]
         public Input<string>? SourceTransitGatewayAttachmentType { get; set; }
 

@@ -17,6 +17,29 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### With Inline Session Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.PodIdentityAssociation("example", {
+ *     clusterName: exampleAwsEksCluster.name,
+ *     namespace: "example",
+ *     serviceAccount: "example-sa",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     disableSessionTags: true,
+ *     policy: JSON.stringify({
+ *         Version: "2012-10-17",
+ *         Statement: [{
+ *             Effect: "Allow",
+ *             Action: ["s3:GetObject"],
+ *             Resource: "arn:aws:s3:::my-bucket/*",
+ *         }],
+ *     }),
+ * });
+ * ```
+ *
  * ### Basic Usage
  *
  * ```typescript
@@ -113,7 +136,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      */
     declare public readonly clusterName: pulumi.Output<string>;
     /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      */
     declare public readonly disableSessionTags: pulumi.Output<boolean>;
     /**
@@ -124,6 +147,10 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
     declare public readonly namespace: pulumi.Output<string>;
+    /**
+     * An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     */
+    declare public readonly policy: pulumi.Output<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -170,6 +197,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["disableSessionTags"] = state?.disableSessionTags;
             resourceInputs["externalId"] = state?.externalId;
             resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["policy"] = state?.policy;
             resourceInputs["region"] = state?.region;
             resourceInputs["roleArn"] = state?.roleArn;
             resourceInputs["serviceAccount"] = state?.serviceAccount;
@@ -193,6 +221,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["disableSessionTags"] = args?.disableSessionTags;
             resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["policy"] = args?.policy;
             resourceInputs["region"] = args?.region;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["serviceAccount"] = args?.serviceAccount;
@@ -225,7 +254,7 @@ export interface PodIdentityAssociationState {
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      */
     disableSessionTags?: pulumi.Input<boolean | undefined>;
     /**
@@ -236,6 +265,10 @@ export interface PodIdentityAssociationState {
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
     namespace?: pulumi.Input<string | undefined>;
+    /**
+     * An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     */
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -273,13 +306,17 @@ export interface PodIdentityAssociationArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      */
     disableSessionTags?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role's policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     */
+    policy?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

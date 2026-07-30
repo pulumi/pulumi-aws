@@ -48,6 +48,61 @@ import (
 //
 // ```
 //
+// ### CloudFront Standard Logging (v2)
+//
+// CloudFront delivers access logs through CloudWatch Logs, so a distribution's standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `recordFields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloudwatch.NewLogDeliverySource(ctx, "example", &cloudwatch.LogDeliverySourceArgs{
+//				Name:        pulumi.String("cloudfront-access-logs"),
+//				LogType:     pulumi.String("ACCESS_LOGS"),
+//				ResourceArn: pulumi.Any(exampleAwsCloudfrontDistribution.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogDeliveryDestination, err := cloudwatch.NewLogDeliveryDestination(ctx, "example", &cloudwatch.LogDeliveryDestinationArgs{
+//				Name:         pulumi.String("cloudfront-access-logs"),
+//				OutputFormat: pulumi.String("json"),
+//				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
+//					DestinationResourceArn: pulumi.Any(exampleAwsCloudwatchLogGroup.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewLogDelivery(ctx, "example", &cloudwatch.LogDeliveryArgs{
+//				DeliverySourceName:     example.Name,
+//				DeliveryDestinationArn: exampleLogDeliveryDestination.Arn,
+//				RecordFields: pulumi.StringArray{
+//					pulumi.String("date"),
+//					pulumi.String("time"),
+//					pulumi.String("c-ip"),
+//					pulumi.String("sc-status"),
+//					pulumi.String("viewer-request-log-data"),
+//					pulumi.String("viewer-response-log-data"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -77,7 +132,7 @@ type LogDelivery struct {
 	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 	FieldDelimiter pulumi.StringOutput `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
+	// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -133,7 +188,7 @@ type logDeliveryState struct {
 	DeliverySourceName *string `pulumi:"deliverySourceName"`
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
+	// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 	RecordFields []string `pulumi:"recordFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -154,7 +209,7 @@ type LogDeliveryState struct {
 	DeliverySourceName pulumi.StringPtrInput
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 	FieldDelimiter pulumi.StringPtrInput
-	// The list of record fields to be delivered to the destination, in order.
+	// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 	RecordFields pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -177,7 +232,7 @@ type logDeliveryArgs struct {
 	DeliverySourceName string `pulumi:"deliverySourceName"`
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// The list of record fields to be delivered to the destination, in order.
+	// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 	RecordFields []string `pulumi:"recordFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -195,7 +250,7 @@ type LogDeliveryArgs struct {
 	DeliverySourceName pulumi.StringInput
 	// The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
 	FieldDelimiter pulumi.StringPtrInput
-	// The list of record fields to be delivered to the destination, in order.
+	// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 	RecordFields pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -312,7 +367,7 @@ func (o LogDeliveryOutput) FieldDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.FieldDelimiter }).(pulumi.StringOutput)
 }
 
-// The list of record fields to be delivered to the destination, in order.
+// The list of record fields to be delivered to the destination, in order. The valid field names vary by the `logType` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
 func (o LogDeliveryOutput) RecordFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringArrayOutput { return v.RecordFields }).(pulumi.StringArrayOutput)
 }

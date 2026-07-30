@@ -2784,6 +2784,160 @@ func (o GetVpcIpamsIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) GetV
 	}).(GetVpcIpamsIpamOperatingRegionOutput)
 }
 
+type GetVpcIpv6CidrBlockAssociationType struct {
+	// Association ID for the IPv4 CIDR block.
+	AssociationId string `pulumi:"associationId"`
+	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	IpSource string `pulumi:"ipSource"`
+	// Indicates whether the address is `public` or `private`.
+	Ipv6AddressAttribute string `pulumi:"ipv6AddressAttribute"`
+	// IPv6 CIDR block for the association.
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+	// Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+	Ipv6Pool string `pulumi:"ipv6Pool"`
+	// Name of association's network border group.
+	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
+	// Current state of the desired VPC.
+	// Can be either `"pending"` or `"available"`.
+	State string `pulumi:"state"`
+}
+
+// GetVpcIpv6CidrBlockAssociationTypeInput is an input type that accepts GetVpcIpv6CidrBlockAssociationTypeArgs and GetVpcIpv6CidrBlockAssociationTypeOutput values.
+// You can construct a concrete instance of `GetVpcIpv6CidrBlockAssociationTypeInput` via:
+//
+//	GetVpcIpv6CidrBlockAssociationTypeArgs{...}
+type GetVpcIpv6CidrBlockAssociationTypeInput interface {
+	pulumi.Input
+
+	ToGetVpcIpv6CidrBlockAssociationTypeOutput() GetVpcIpv6CidrBlockAssociationTypeOutput
+	ToGetVpcIpv6CidrBlockAssociationTypeOutputWithContext(context.Context) GetVpcIpv6CidrBlockAssociationTypeOutput
+}
+
+type GetVpcIpv6CidrBlockAssociationTypeArgs struct {
+	// Association ID for the IPv4 CIDR block.
+	AssociationId pulumi.StringInput `pulumi:"associationId"`
+	// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+	IpSource pulumi.StringInput `pulumi:"ipSource"`
+	// Indicates whether the address is `public` or `private`.
+	Ipv6AddressAttribute pulumi.StringInput `pulumi:"ipv6AddressAttribute"`
+	// IPv6 CIDR block for the association.
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+	// Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+	Ipv6Pool pulumi.StringInput `pulumi:"ipv6Pool"`
+	// Name of association's network border group.
+	NetworkBorderGroup pulumi.StringInput `pulumi:"networkBorderGroup"`
+	// Current state of the desired VPC.
+	// Can be either `"pending"` or `"available"`.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (GetVpcIpv6CidrBlockAssociationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpv6CidrBlockAssociationType)(nil)).Elem()
+}
+
+func (i GetVpcIpv6CidrBlockAssociationTypeArgs) ToGetVpcIpv6CidrBlockAssociationTypeOutput() GetVpcIpv6CidrBlockAssociationTypeOutput {
+	return i.ToGetVpcIpv6CidrBlockAssociationTypeOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpv6CidrBlockAssociationTypeArgs) ToGetVpcIpv6CidrBlockAssociationTypeOutputWithContext(ctx context.Context) GetVpcIpv6CidrBlockAssociationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpv6CidrBlockAssociationTypeOutput)
+}
+
+// GetVpcIpv6CidrBlockAssociationTypeArrayInput is an input type that accepts GetVpcIpv6CidrBlockAssociationTypeArray and GetVpcIpv6CidrBlockAssociationTypeArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpv6CidrBlockAssociationTypeArrayInput` via:
+//
+//	GetVpcIpv6CidrBlockAssociationTypeArray{ GetVpcIpv6CidrBlockAssociationTypeArgs{...} }
+type GetVpcIpv6CidrBlockAssociationTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpv6CidrBlockAssociationTypeArrayOutput() GetVpcIpv6CidrBlockAssociationTypeArrayOutput
+	ToGetVpcIpv6CidrBlockAssociationTypeArrayOutputWithContext(context.Context) GetVpcIpv6CidrBlockAssociationTypeArrayOutput
+}
+
+type GetVpcIpv6CidrBlockAssociationTypeArray []GetVpcIpv6CidrBlockAssociationTypeInput
+
+func (GetVpcIpv6CidrBlockAssociationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpv6CidrBlockAssociationType)(nil)).Elem()
+}
+
+func (i GetVpcIpv6CidrBlockAssociationTypeArray) ToGetVpcIpv6CidrBlockAssociationTypeArrayOutput() GetVpcIpv6CidrBlockAssociationTypeArrayOutput {
+	return i.ToGetVpcIpv6CidrBlockAssociationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpv6CidrBlockAssociationTypeArray) ToGetVpcIpv6CidrBlockAssociationTypeArrayOutputWithContext(ctx context.Context) GetVpcIpv6CidrBlockAssociationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpv6CidrBlockAssociationTypeArrayOutput)
+}
+
+type GetVpcIpv6CidrBlockAssociationTypeOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpv6CidrBlockAssociationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpv6CidrBlockAssociationType)(nil)).Elem()
+}
+
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) ToGetVpcIpv6CidrBlockAssociationTypeOutput() GetVpcIpv6CidrBlockAssociationTypeOutput {
+	return o
+}
+
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) ToGetVpcIpv6CidrBlockAssociationTypeOutputWithContext(ctx context.Context) GetVpcIpv6CidrBlockAssociationTypeOutput {
+	return o
+}
+
+// Association ID for the IPv4 CIDR block.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) IpSource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.IpSource }).(pulumi.StringOutput)
+}
+
+// Indicates whether the address is `public` or `private`.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) Ipv6AddressAttribute() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.Ipv6AddressAttribute }).(pulumi.StringOutput)
+}
+
+// IPv6 CIDR block for the association.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+// Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) Ipv6Pool() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.Ipv6Pool }).(pulumi.StringOutput)
+}
+
+// Name of association's network border group.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) NetworkBorderGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.NetworkBorderGroup }).(pulumi.StringOutput)
+}
+
+// Current state of the desired VPC.
+// Can be either `"pending"` or `"available"`.
+func (o GetVpcIpv6CidrBlockAssociationTypeOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpv6CidrBlockAssociationType) string { return v.State }).(pulumi.StringOutput)
+}
+
+type GetVpcIpv6CidrBlockAssociationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpv6CidrBlockAssociationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpv6CidrBlockAssociationType)(nil)).Elem()
+}
+
+func (o GetVpcIpv6CidrBlockAssociationTypeArrayOutput) ToGetVpcIpv6CidrBlockAssociationTypeArrayOutput() GetVpcIpv6CidrBlockAssociationTypeArrayOutput {
+	return o
+}
+
+func (o GetVpcIpv6CidrBlockAssociationTypeArrayOutput) ToGetVpcIpv6CidrBlockAssociationTypeArrayOutputWithContext(ctx context.Context) GetVpcIpv6CidrBlockAssociationTypeArrayOutput {
+	return o
+}
+
+func (o GetVpcIpv6CidrBlockAssociationTypeArrayOutput) Index(i pulumi.IntInput) GetVpcIpv6CidrBlockAssociationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpv6CidrBlockAssociationType {
+		return vs[0].([]GetVpcIpv6CidrBlockAssociationType)[vs[1].(int)]
+	}).(GetVpcIpv6CidrBlockAssociationTypeOutput)
+}
+
 type GetVpcPeeringConnectionCidrBlockSet struct {
 	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -3994,6 +4148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamArrayInput)(nil)).Elem(), GetVpcIpamsIpamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamOperatingRegionInput)(nil)).Elem(), GetVpcIpamsIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamsIpamOperatingRegionArrayInput)(nil)).Elem(), GetVpcIpamsIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpv6CidrBlockAssociationTypeInput)(nil)).Elem(), GetVpcIpv6CidrBlockAssociationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpv6CidrBlockAssociationTypeArrayInput)(nil)).Elem(), GetVpcIpv6CidrBlockAssociationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
@@ -4062,6 +4218,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcIpamsIpamArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamsIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamsIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpv6CidrBlockAssociationTypeOutput{})
+	pulumi.RegisterOutputType(GetVpcIpv6CidrBlockAssociationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})

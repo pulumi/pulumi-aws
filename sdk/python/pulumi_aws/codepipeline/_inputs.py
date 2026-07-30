@@ -31,6 +31,8 @@ __all__ = [
     'PipelineStageArgsDict',
     'PipelineStageActionArgs',
     'PipelineStageActionArgsDict',
+    'PipelineStageActionOutputArtifactsForComputeActionArgs',
+    'PipelineStageActionOutputArtifactsForComputeActionArgsDict',
     'PipelineStageBeforeEntryArgs',
     'PipelineStageBeforeEntryArgsDict',
     'PipelineStageBeforeEntryConditionArgs',
@@ -673,7 +675,7 @@ class PipelineStageArgs:
 class PipelineStageActionArgsDict(TypedDict):
     category: pulumi.Input[_builtins.str]
     """
-    A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+    A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -691,6 +693,10 @@ class PipelineStageActionArgsDict(TypedDict):
     """
     A string that identifies the action type.
     """
+    commands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of shell commands to run with the compute action.
+    """
     configuration: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
@@ -705,7 +711,15 @@ class PipelineStageActionArgsDict(TypedDict):
     """
     output_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of artifact names to output. Output artifact names must be unique within a pipeline.
+    A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
+    """
+    output_artifacts_for_compute_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineStageActionOutputArtifactsForComputeActionArgsDict']]]]]
+    """
+    A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+    """
+    output_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of variables that are to be exported from the compute action.
     """
     region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -732,24 +746,30 @@ class PipelineStageActionArgs:
                  owner: pulumi.Input[_builtins.str],
                  provider: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
+                 commands: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  input_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  output_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 output_artifacts_for_compute_actions: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineStageActionOutputArtifactsForComputeActionArgs']]]] = None,
+                 output_variables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  run_order: pulumi.Input[Optional[_builtins.int]] = None,
                  timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        :param pulumi.Input[_builtins.str] category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
         :param pulumi.Input[_builtins.str] name: The action declaration's name.
         :param pulumi.Input[_builtins.str] owner: The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
         :param pulumi.Input[_builtins.str] provider: The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         :param pulumi.Input[_builtins.str] version: A string that identifies the action type.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: A list of shell commands to run with the compute action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] input_artifacts: A list of artifact names to be worked on.
         :param pulumi.Input[_builtins.str] namespace: The namespace all output variables will be accessed from.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionOutputArtifactsForComputeActionArgs']]] output_artifacts_for_compute_actions: A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] output_variables: A list of variables that are to be exported from the compute action.
         :param pulumi.Input[_builtins.str] region: The region in which to run the action.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         :param pulumi.Input[_builtins.int] run_order: The order in which actions are run.
@@ -760,6 +780,8 @@ class PipelineStageActionArgs:
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "version", version)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if input_artifacts is not None:
@@ -768,6 +790,10 @@ class PipelineStageActionArgs:
             pulumi.set(__self__, "namespace", namespace)
         if output_artifacts is not None:
             pulumi.set(__self__, "output_artifacts", output_artifacts)
+        if output_artifacts_for_compute_actions is not None:
+            pulumi.set(__self__, "output_artifacts_for_compute_actions", output_artifacts_for_compute_actions)
+        if output_variables is not None:
+            pulumi.set(__self__, "output_variables", output_variables)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
@@ -781,7 +807,7 @@ class PipelineStageActionArgs:
     @pulumi.getter
     def category(self) -> pulumi.Input[_builtins.str]:
         """
-        A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
+        A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source`, `Compute` and `Test`.
         """
         return pulumi.get(self, "category")
 
@@ -839,6 +865,18 @@ class PipelineStageActionArgs:
 
     @_builtins.property
     @pulumi.getter
+    def commands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of shell commands to run with the compute action.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @_builtins.property
+    @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
@@ -877,13 +915,37 @@ class PipelineStageActionArgs:
     @pulumi.getter(name="outputArtifacts")
     def output_artifacts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of artifact names to output. Output artifact names must be unique within a pipeline.
+        A list of artifact names to output. Output artifact names must be unique within a pipeline. If the action is `Compute`, this argument is ignored.
         """
         return pulumi.get(self, "output_artifacts")
 
     @output_artifacts.setter
     def output_artifacts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "output_artifacts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputArtifactsForComputeActions")
+    def output_artifacts_for_compute_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipelineStageActionOutputArtifactsForComputeActionArgs']]]]:
+        """
+        A block of output artifacts for the compute action. If the action is not `Compute`, this argument is ignored.
+        """
+        return pulumi.get(self, "output_artifacts_for_compute_actions")
+
+    @output_artifacts_for_compute_actions.setter
+    def output_artifacts_for_compute_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineStageActionOutputArtifactsForComputeActionArgs']]]]):
+        pulumi.set(self, "output_artifacts_for_compute_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputVariables")
+    def output_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of variables that are to be exported from the compute action.
+        """
+        return pulumi.get(self, "output_variables")
+
+    @output_variables.setter
+    def output_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "output_variables", value)
 
     @_builtins.property
     @pulumi.getter
@@ -932,6 +994,54 @@ class PipelineStageActionArgs:
     @timeout_in_minutes.setter
     def timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_in_minutes", value)
+
+
+class PipelineStageActionOutputArtifactsForComputeActionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the output artifact.
+    """
+    files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of the files to associate with the output artifact that will be exported from the compute action.
+    """
+
+@pulumi.input_type
+class PipelineStageActionOutputArtifactsForComputeActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the output artifact.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] files: A list of the files to associate with the output artifact that will be exported from the compute action.
+        """
+        pulumi.set(__self__, "name", name)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the output artifact.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of the files to associate with the output artifact that will be exported from the compute action.
+        """
+        return pulumi.get(self, "files")
+
+    @files.setter
+    def files(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "files", value)
 
 
 class PipelineStageBeforeEntryArgsDict(TypedDict):

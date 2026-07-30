@@ -19,6 +19,10 @@ __all__ = [
     'PipelineBufferOptionsArgsDict',
     'PipelineEncryptionAtRestOptionsArgs',
     'PipelineEncryptionAtRestOptionsArgsDict',
+    'PipelineEndpointTimeoutsArgs',
+    'PipelineEndpointTimeoutsArgsDict',
+    'PipelineEndpointVpcOptionsArgs',
+    'PipelineEndpointVpcOptionsArgsDict',
     'PipelineLogPublishingOptionsArgs',
     'PipelineLogPublishingOptionsArgsDict',
     'PipelineLogPublishingOptionsCloudwatchLogDestinationArgs',
@@ -83,6 +87,103 @@ class PipelineEncryptionAtRestOptionsArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kms_key_arn", value)
+
+
+class PipelineEndpointTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class PipelineEndpointTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+
+class PipelineEndpointVpcOptionsArgsDict(TypedDict):
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs associated with the VPC endpoint.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of security groups associated with the VPC endpoint.
+    """
+
+@pulumi.input_type
+class PipelineEndpointVpcOptionsArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs associated with the VPC endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security groups associated with the VPC endpoint.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of security groups associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
 
 
 class PipelineLogPublishingOptionsArgsDict(TypedDict):

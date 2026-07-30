@@ -16,14 +16,14 @@ public final class GroupAvailabilityZoneDistributionArgs extends com.pulumi.reso
     public static final GroupAvailabilityZoneDistributionArgs Empty = new GroupAvailabilityZoneDistributionArgs();
 
     /**
-     * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+     * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
      * 
      */
     @Import(name="capacityDistributionStrategy")
     private @Nullable Output<String> capacityDistributionStrategy;
 
     /**
-     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
      * 
      */
     public Optional<Output<String>> capacityDistributionStrategy() {
@@ -55,7 +55,7 @@ public final class GroupAvailabilityZoneDistributionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class GroupAvailabilityZoneDistributionArgs extends com.pulumi.reso
         }
 
         /**
-         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+         * @param capacityDistributionStrategy The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
          * 
          * @return builder
          * 

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupAvailabilityZoneDistribution {
     /**
-     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
      * 
      */
     private @Nullable String capacityDistributionStrategy;
 
     private GroupAvailabilityZoneDistribution() {}
     /**
-     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
+     * @return The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only`, `balanced-best-effort`, and `reservations-then-balanced`. Default is `balanced-best-effort`. When `reservations-then-balanced` is set, you must also specify Capacity Reservations to prioritize through `capacityReservationSpecification` (or via a launch template) using a Capacity Reservation ID or Capacity Reservation resource group ARN.
      * 
      */
     public Optional<String> capacityDistributionStrategy() {

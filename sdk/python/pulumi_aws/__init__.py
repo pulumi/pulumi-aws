@@ -301,6 +301,8 @@ if typing.TYPE_CHECKING:
     macie = __macie
     import pulumi_aws.macie2 as __macie2
     macie2 = __macie2
+    import pulumi_aws.mailmanager as __mailmanager
+    mailmanager = __mailmanager
     import pulumi_aws.mediaconvert as __mediaconvert
     mediaconvert = __mediaconvert
     import pulumi_aws.medialive as __medialive
@@ -630,6 +632,7 @@ else:
     m2 = _utilities.lazy_import('pulumi_aws.m2')
     macie = _utilities.lazy_import('pulumi_aws.macie')
     macie2 = _utilities.lazy_import('pulumi_aws.macie2')
+    mailmanager = _utilities.lazy_import('pulumi_aws.mailmanager')
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
     medialive = _utilities.lazy_import('pulumi_aws.medialive')
     mediapackage = _utilities.lazy_import('pulumi_aws.mediapackage')
@@ -2324,6 +2327,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/evaluationJob",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/evaluationJob:EvaluationJob": "EvaluationJob"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/guardrail",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -3184,6 +3195,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource": "LogS3TableIntegrationSource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logStorageTierPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logStorageTierPolicy:LogStorageTierPolicy": "LogStorageTierPolicy"
   }
  },
  {
@@ -8732,6 +8751,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "mailmanager/trafficPolicy",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/trafficPolicy:TrafficPolicy": "TrafficPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mediaconvert/queue",
   "fqn": "pulumi_aws.mediaconvert",
   "classes": {
@@ -9672,6 +9699,22 @@ _utilities.register(
   "fqn": "pulumi_aws.opensearchingest",
   "classes": {
    "aws:opensearchingest/pipeline:Pipeline": "Pipeline"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearchingest/pipelineEndpoint",
+  "fqn": "pulumi_aws.opensearchingest",
+  "classes": {
+   "aws:opensearchingest/pipelineEndpoint:PipelineEndpoint": "PipelineEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearchingest/resourcePolicy",
+  "fqn": "pulumi_aws.opensearchingest",
+  "classes": {
+   "aws:opensearchingest/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {

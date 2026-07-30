@@ -92,6 +92,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` - (String) Desired name of the project.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Rekognition Project using the `name`. For example:
  * 
  * ```sh
@@ -134,14 +145,14 @@ public class Project extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="feature", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> feature;
+    private Output<String> feature;
 
     /**
      * @return Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      * 
      */
-    public Output<Optional<String>> feature() {
-        return Codegen.optional(this.feature);
+    public Output<String> feature() {
+        return this.feature;
     }
     /**
      * Desired name of the project.

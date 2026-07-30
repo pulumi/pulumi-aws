@@ -29,6 +29,53 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### With Inline Session Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.PodIdentityAssociation;
+ * import com.pulumi.aws.eks.PodIdentityAssociationArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new PodIdentityAssociation("example", PodIdentityAssociationArgs.builder()
+ *             .clusterName(exampleAwsEksCluster.name())
+ *             .namespace("example")
+ *             .serviceAccount("example-sa")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .disableSessionTags(true)
+ *             .policy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Action", jsonArray("s3:GetObject")),
+ *                         jsonProperty("Resource", "arn:aws:s3:::my-bucket/*")
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Basic Usage
  * 
  * <pre>
@@ -162,14 +209,14 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
         return this.clusterName;
     }
     /**
-     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      * 
      */
     @Export(name="disableSessionTags", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableSessionTags;
 
     /**
-     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * @return Disable the tags that are automatically added to role session by Amazon EKS. Must be set to `true` when `policy` is specified.
      * 
      */
     public Output<Boolean> disableSessionTags() {
@@ -202,6 +249,20 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
      */
     public Output<String> namespace() {
         return this.namespace;
+    }
+    /**
+     * An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     * 
+     */
+    @Export(name="policy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> policy;
+
+    /**
+     * @return An IAM policy in JSON format (as an escaped string) that applies additional restrictions to this Pod Identity association beyond the IAM policies attached to the IAM role. The effective permissions are the intersection of the role&#39;s policies and this policy, allowing you to enforce least privilege across multiple associations that share the same role. Requires `disableSessionTags = true`.
+     * 
+     */
+    public Output<Optional<String>> policy() {
+        return Codegen.optional(this.policy);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

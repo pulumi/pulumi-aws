@@ -34,7 +34,7 @@ class LogDeliveryArgs:
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -92,7 +92,7 @@ class LogDeliveryArgs:
     @pulumi.getter(name="recordFields")
     def record_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of record fields to be delivered to the destination, in order.
+        The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         """
         return pulumi.get(self, "record_fields")
 
@@ -156,7 +156,7 @@ class _LogDeliveryState:
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,7 +233,7 @@ class _LogDeliveryState:
     @pulumi.getter(name="recordFields")
     def record_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of record fields to be delivered to the destination, in order.
+        The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         """
         return pulumi.get(self, "record_fields")
 
@@ -325,6 +325,37 @@ class LogDelivery(pulumi.CustomResource):
             ])
         ```
 
+        ### CloudFront Standard Logging (v2)
+
+        CloudFront delivers access logs through CloudWatch Logs, so a distribution's standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `record_fields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.LogDeliverySource("example",
+            name="cloudfront-access-logs",
+            log_type="ACCESS_LOGS",
+            resource_arn=example_aws_cloudfront_distribution["arn"])
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="cloudfront-access-logs",
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            record_fields=[
+                "date",
+                "time",
+                "c-ip",
+                "sc-status",
+                "viewer-request-log-data",
+                "viewer-response-log-data",
+            ])
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -350,7 +381,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -379,6 +410,37 @@ class LogDelivery(pulumi.CustomResource):
             record_fields=[
                 "event_timestamp",
                 "event",
+            ])
+        ```
+
+        ### CloudFront Standard Logging (v2)
+
+        CloudFront delivers access logs through CloudWatch Logs, so a distribution's standard logging (v2) configuration is expressed as a delivery source, a delivery destination, and a delivery. The `record_fields` list selects the access log fields, including `viewer-request-log-data` and `viewer-response-log-data`, which carry the custom data that a viewer request or viewer response CloudFront Function logs with `cf.logCustomData()`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudwatch.LogDeliverySource("example",
+            name="cloudfront-access-logs",
+            log_type="ACCESS_LOGS",
+            resource_arn=example_aws_cloudfront_distribution["arn"])
+        example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
+            name="cloudfront-access-logs",
+            output_format="json",
+            delivery_destination_configuration={
+                "destination_resource_arn": example_aws_cloudwatch_log_group["arn"],
+            })
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            delivery_source_name=example.name,
+            delivery_destination_arn=example_log_delivery_destination.arn,
+            record_fields=[
+                "date",
+                "time",
+                "c-ip",
+                "sc-status",
+                "viewer-request-log-data",
+                "viewer-response-log-data",
             ])
         ```
 
@@ -476,7 +538,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] delivery_destination_arn: The ARN of the delivery destination to use for this delivery.
         :param pulumi.Input[_builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[_builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -533,7 +595,7 @@ class LogDelivery(pulumi.CustomResource):
     @pulumi.getter(name="recordFields")
     def record_fields(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The list of record fields to be delivered to the destination, in order.
+        The list of record fields to be delivered to the destination, in order. The valid field names vary by the `log_type` of the delivery source. For a CloudFront `ACCESS_LOGS` source, see [Configure standard logging (v2)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logging.html#standard-logging-real-time-log-selection) for the supported values.
         """
         return pulumi.get(self, "record_fields")
 

@@ -529,6 +529,7 @@ __all__ = [
     'GetVpcIpamsFilterResult',
     'GetVpcIpamsIpamResult',
     'GetVpcIpamsIpamOperatingRegionResult',
+    'GetVpcIpv6CidrBlockAssociationResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
     'GetVpcPeeringConnectionIpv6CidrBlockSetResult',
@@ -7574,6 +7575,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "delete_on_termination"
         elif key == "deviceIndex":
             suggest = "device_index"
+        elif key == "enaQueueCount":
+            suggest = "ena_queue_count"
         elif key == "enaSrdSpecification":
             suggest = "ena_srd_specification"
         elif key == "interfaceType":
@@ -7625,6 +7628,7 @@ class LaunchTemplateNetworkInterface(dict):
                  delete_on_termination: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
                  device_index: Optional[_builtins.int] = None,
+                 ena_queue_count: Optional[_builtins.int] = None,
                  ena_srd_specification: Optional['outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecification'] = None,
                  interface_type: Optional[_builtins.str] = None,
                  ipv4_address_count: Optional[_builtins.int] = None,
@@ -7648,6 +7652,7 @@ class LaunchTemplateNetworkInterface(dict):
         :param _builtins.str delete_on_termination: Whether the network interface should be destroyed on instance termination.
         :param _builtins.str description: Description of the network interface.
         :param _builtins.int device_index: The integer index of the network interface attachment.
+        :param _builtins.int ena_queue_count: The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
         :param 'LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs' ena_srd_specification: Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
         :param _builtins.str interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
         :param _builtins.int ipv4_address_count: The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
@@ -7677,6 +7682,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_queue_count is not None:
+            pulumi.set(__self__, "ena_queue_count", ena_queue_count)
         if ena_srd_specification is not None:
             pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if interface_type is not None:
@@ -7757,6 +7764,14 @@ class LaunchTemplateNetworkInterface(dict):
         The integer index of the network interface attachment.
         """
         return pulumi.get(self, "device_index")
+
+    @_builtins.property
+    @pulumi.getter(name="enaQueueCount")
+    def ena_queue_count(self) -> Optional[_builtins.int]:
+        """
+        The number of ENA queues to be created with the instance. Requires an instance type and operating system that support [ENA queue configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-queues.html).
+        """
+        return pulumi.get(self, "ena_queue_count")
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSpecification")
@@ -22927,6 +22942,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
                  connection_tracking_specifications: Sequence['outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult'],
                  description: _builtins.str,
                  device_index: _builtins.int,
+                 ena_queue_count: _builtins.int,
                  interface_type: _builtins.str,
                  ipv4_address_count: _builtins.int,
                  ipv4_addresses: Sequence[_builtins.str],
@@ -22948,6 +22964,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
         pulumi.set(__self__, "connection_tracking_specifications", connection_tracking_specifications)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "device_index", device_index)
+        pulumi.set(__self__, "ena_queue_count", ena_queue_count)
         pulumi.set(__self__, "interface_type", interface_type)
         pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -22987,6 +23004,11 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> _builtins.int:
         return pulumi.get(self, "device_index")
+
+    @_builtins.property
+    @pulumi.getter(name="enaQueueCount")
+    def ena_queue_count(self) -> _builtins.int:
+        return pulumi.get(self, "ena_queue_count")
 
     @_builtins.property
     @pulumi.getter(name="interfaceType")
@@ -29012,6 +29034,92 @@ class GetVpcIpamsIpamOperatingRegionResult(dict):
     @pulumi.getter(name="regionName")
     def region_name(self) -> _builtins.str:
         return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class GetVpcIpv6CidrBlockAssociationResult(dict):
+    def __init__(__self__, *,
+                 association_id: _builtins.str,
+                 ip_source: _builtins.str,
+                 ipv6_address_attribute: _builtins.str,
+                 ipv6_cidr_block: _builtins.str,
+                 ipv6_pool: _builtins.str,
+                 network_border_group: _builtins.str,
+                 state: _builtins.str):
+        """
+        :param _builtins.str association_id: Association ID for the IPv4 CIDR block.
+        :param _builtins.str ip_source: The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        :param _builtins.str ipv6_address_attribute: Indicates whether the address is `public` or `private`.
+        :param _builtins.str ipv6_cidr_block: IPv6 CIDR block for the association.
+        :param _builtins.str ipv6_pool: Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+        :param _builtins.str network_border_group: Name of association's network border group.
+        :param _builtins.str state: Current state of the desired VPC.
+               Can be either `"pending"` or `"available"`.
+        """
+        pulumi.set(__self__, "association_id", association_id)
+        pulumi.set(__self__, "ip_source", ip_source)
+        pulumi.set(__self__, "ipv6_address_attribute", ipv6_address_attribute)
+        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        pulumi.set(__self__, "ipv6_pool", ipv6_pool)
+        pulumi.set(__self__, "network_border_group", network_border_group)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> _builtins.str:
+        """
+        Association ID for the IPv4 CIDR block.
+        """
+        return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipSource")
+    def ip_source(self) -> _builtins.str:
+        """
+        The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+        """
+        return pulumi.get(self, "ip_source")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6AddressAttribute")
+    def ipv6_address_attribute(self) -> _builtins.str:
+        """
+        Indicates whether the address is `public` or `private`.
+        """
+        return pulumi.get(self, "ipv6_address_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> _builtins.str:
+        """
+        IPv6 CIDR block for the association.
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6Pool")
+    def ipv6_pool(self) -> _builtins.str:
+        """
+        Name of IPv6 address pool from which the IPv6 CIDR block is allocated.
+        """
+        return pulumi.get(self, "ipv6_pool")
+
+    @_builtins.property
+    @pulumi.getter(name="networkBorderGroup")
+    def network_border_group(self) -> _builtins.str:
+        """
+        Name of association's network border group.
+        """
+        return pulumi.get(self, "network_border_group")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        Current state of the desired VPC.
+        Can be either `"pending"` or `"available"`.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type

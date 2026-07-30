@@ -762,8 +762,8 @@ class TableGlobalSecondaryIndexWarmThroughput(dict):
                  read_units_per_second: Optional[_builtins.int] = None,
                  write_units_per_second: Optional[_builtins.int] = None):
         """
-        :param _builtins.int read_units_per_second: Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-        :param _builtins.int write_units_per_second: Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+        :param _builtins.int read_units_per_second: Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
+        :param _builtins.int write_units_per_second: Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
         """
         if read_units_per_second is not None:
             pulumi.set(__self__, "read_units_per_second", read_units_per_second)
@@ -774,7 +774,7 @@ class TableGlobalSecondaryIndexWarmThroughput(dict):
     @pulumi.getter(name="readUnitsPerSecond")
     def read_units_per_second(self) -> Optional[_builtins.int]:
         """
-        Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+        Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
         """
         return pulumi.get(self, "read_units_per_second")
 
@@ -782,7 +782,7 @@ class TableGlobalSecondaryIndexWarmThroughput(dict):
     @pulumi.getter(name="writeUnitsPerSecond")
     def write_units_per_second(self) -> Optional[_builtins.int]:
         """
-        Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+        Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
         """
         return pulumi.get(self, "write_units_per_second")
 
@@ -1253,6 +1253,9 @@ class TableReplica(dict):
         """
         :param _builtins.str region_name: Region name of the replica.
         :param _builtins.str arn: ARN of the table
+               * `replica.*.arn` - ARN of the replica
+               * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+               * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         :param _builtins.str consistency_mode: Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
         :param _builtins.bool deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
         :param _builtins.str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
@@ -1300,6 +1303,9 @@ class TableReplica(dict):
     def arn(self) -> Optional[_builtins.str]:
         """
         ARN of the table
+        * `replica.*.arn` - ARN of the replica
+        * `replica.*.stream_arn` - ARN of the replica Table Stream. Only available when `stream_enabled = true`.
+        * `replica.*.stream_label` - Timestamp, in ISO 8601 format, for the replica stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         """
         return pulumi.get(self, "arn")
 
@@ -1492,8 +1498,8 @@ class TableWarmThroughput(dict):
                  read_units_per_second: Optional[_builtins.int] = None,
                  write_units_per_second: Optional[_builtins.int] = None):
         """
-        :param _builtins.int read_units_per_second: Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-        :param _builtins.int write_units_per_second: Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+        :param _builtins.int read_units_per_second: Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
+        :param _builtins.int write_units_per_second: Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
         """
         if read_units_per_second is not None:
             pulumi.set(__self__, "read_units_per_second", read_units_per_second)
@@ -1504,7 +1510,7 @@ class TableWarmThroughput(dict):
     @pulumi.getter(name="readUnitsPerSecond")
     def read_units_per_second(self) -> Optional[_builtins.int]:
         """
-        Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+        Number of read operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `12000` (default).
         """
         return pulumi.get(self, "read_units_per_second")
 
@@ -1512,7 +1518,7 @@ class TableWarmThroughput(dict):
     @pulumi.getter(name="writeUnitsPerSecond")
     def write_units_per_second(self) -> Optional[_builtins.int]:
         """
-        Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+        Number of write operations a table or index can instantaneously support. For the base table, this value cannot be decreased. For a global secondary index, this value can be increased or decreased. Minimum value of `4000` (default).
         """
         return pulumi.get(self, "write_units_per_second")
 
