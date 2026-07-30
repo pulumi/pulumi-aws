@@ -8,13 +8,13 @@ Allow non-Aurora Multi-AZ DB clusters to change storage type in place. Repeat al
 
 Cover low-storage gp3, reverse gp3-to-io2, unchanged IOPS across provisioned storage types, and explicit gp3 IOPS transitions. The existing gp3 default-IOPS drift remains tracked separately.
 
-Upstream: https://github.com/hashicorp/terraform-provider-aws/pull/48545
+Upstream: https://github.com/hashicorp/terraform-provider-aws/pull/49209
 
-diff --git a/.changelog/48545.txt b/.changelog/48545.txt
+diff --git a/.changelog/49209.txt b/.changelog/49209.txt
 new file mode 100644
 index 00000000000..48d992326af
 --- /dev/null
-+++ b/.changelog/48545.txt
++++ b/.changelog/49209.txt
 @@ -0,0 +1,3 @@
 +```release-note:bug
 +resource/aws_rds_cluster: Fix `storage_type` changes incorrectly forcing resource replacement for non-Aurora clusters

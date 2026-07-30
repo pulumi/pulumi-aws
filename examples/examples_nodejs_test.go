@@ -717,7 +717,7 @@ func TestRegress6549(t *testing.T) {
 // Regress an upstream aws_rds_cluster bug where changing storage_type on a
 // non-Aurora Multi-AZ cluster incorrectly forced a replacement, even though
 // the AWS ModifyDBCluster API supports the change in place. See
-// hashicorp/terraform-provider-aws#48545.
+// hashicorp/terraform-provider-aws#49209.
 func TestRegressRDSClusterStorageTypeUpdateNonAurora(t *testing.T) {
 	dir := filepath.Join("test-programs", "regress-rds-storage-type")
 	opts := nodeProviderUpgradeOpts()
