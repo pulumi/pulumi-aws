@@ -642,6 +642,10 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrock_evaluation_job": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_bedrock_foundation_model_agreement": {
     "hasUsableRegion": true
   },
@@ -1094,6 +1098,9 @@
     "hasUsableRegion": true
   },
   "aws_cloudwatch_log_s3_table_integration_source": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_storage_tier_policy": {
     "hasUsableRegion": true
   },
   "aws_cloudwatch_log_stream": {
@@ -3532,6 +3539,11 @@
   "aws_macie2_organization_configuration": {
     "hasUsableRegion": true
   },
+  "aws_mailmanager_traffic_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_main_route_table_association": {
     "hasUsableRegion": true
   },
@@ -3985,6 +3997,12 @@
   "aws_osis_pipeline": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_osis_pipeline_endpoint": {
+    "hasUsableRegion": true
+  },
+  "aws_osis_resource_policy": {
+    "hasUsableRegion": true
   },
   "aws_outposts_capacity_task": {
     "hasUsableRegion": true
