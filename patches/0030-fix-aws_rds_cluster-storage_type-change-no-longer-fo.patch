@@ -4,13 +4,9 @@ Date: Mon, 20 Jul 2026 09:33:08 +0100
 Subject: [PATCH] fix: aws_rds_cluster storage_type change no longer forces
  replacement
 
-Changing storage_type on a non-Aurora multi-AZ RDS cluster (e.g. postgres
-or mysql) was incorrectly triggering a forced resource replacement. The
-AWS ModifyDBCluster API supports in-place storage_type changes for these
-clusters, and the update handler already sent StorageType in the modify
-call. The customdiff.ForceNewIf guard was incorrect. Removes the guard
-and adds an acceptance test to verify in-place update from io2 to gp3
-without recreation.
+Allow non-Aurora Multi-AZ DB clusters to change storage type in place. Repeat allocation and IOPS when the target storage type requires them, and omit removed IOPS when changing to gp3 below its configurable threshold.
+
+Cover low-storage gp3, reverse gp3-to-io2, unchanged IOPS across provisioned storage types, and explicit gp3 IOPS transitions. The existing gp3 default-IOPS drift remains tracked separately.
 
 Upstream: https://github.com/hashicorp/terraform-provider-aws/pull/48545
 
@@ -24,7 +20,7 @@ index 00000000000..48d992326af
 +resource/aws_rds_cluster: Fix `storage_type` changes incorrectly forcing resource replacement for non-Aurora clusters
 +```
 diff --git a/internal/service/rds/cluster.go b/internal/service/rds/cluster.go
-index 1fcac4a325e..44aabfd644f 100644
+index 1fcac4a325e..dc4731b9ffc 100644
 --- a/internal/service/rds/cluster.go
 +++ b/internal/service/rds/cluster.go
 @@ -20,7 +20,6 @@ import (
@@ -75,15 +71,75 @@ index 1fcac4a325e..44aabfd644f 100644
  	}
  }
  
+@@ -1715,7 +1706,20 @@ func resourceClusterUpdate(ctx context.Context, d *schema.ResourceData, meta any
+ 		}
+ 
+ 		if d.HasChange(names.AttrStorageType) {
+-			input.StorageType = aws.String(d.Get(names.AttrStorageType).(string))
++			input.StorageType = aws.String(storageType)
++
++			gp3BelowAllocatedStorageThreshold := isStorageTypeGP3BelowAllocatedStorageThreshold(d)
++			if gp3BelowAllocatedStorageThreshold && d.HasChange(names.AttrIOPS) && d.Get(names.AttrIOPS).(int) == 0 {
++				// AWS forbids specifying IOPS for gp3 below the configurable-IOPS threshold.
++				input.Iops = nil
++			}
++
++			// AWS requires the current allocation and IOPS when changing to provisioned IOPS
++			// storage or to gp3 at or above its configurable-IOPS threshold.
++			if isProvisionedIOPSStorageType(storageType) || (storageType == storageTypeGP3 && !gp3BelowAllocatedStorageThreshold) {
++				input.AllocatedStorage = aws.Int32(int32(d.Get(names.AttrAllocatedStorage).(int)))
++				input.Iops = aws.Int32(int32(d.Get(names.AttrIOPS).(int)))
++			}
+ 		}
+ 
+ 		if d.HasChange(names.AttrVPCSecurityGroupIDs) {
 diff --git a/internal/service/rds/cluster_test.go b/internal/service/rds/cluster_test.go
-index bce4b647589..d2421a9f104 100644
+index bce4b647589..c68a940ca19 100644
 --- a/internal/service/rds/cluster_test.go
 +++ b/internal/service/rds/cluster_test.go
-@@ -864,6 +864,41 @@ func TestAccRDSCluster_storageTypeAuroraIopt1UpdateAurora(t *testing.T) {
+@@ -864,6 +864,91 @@ func TestAccRDSCluster_storageTypeAuroraIopt1UpdateAurora(t *testing.T) {
  	})
  }
  
-+func TestAccRDSCluster_storageTypeUpdateNonAurora(t *testing.T) {
++type testAccClusterStorageSettings struct {
++	storageType        string
++	allocatedStorage   int
++	iops               int
++	expectNonEmptyPlan bool
++}
++
++func TestAccRDSCluster_storageTypeUpdateNonAurora_io2ToGP3WithoutIOPS(t *testing.T) {
++	// AWS assigns 3000 IOPS to gp3 storage below 400 GiB, so a subsequent plan
++	// still reports drift. This test covers only the in-place storage transition;
++	// the existing drift is tracked in https://github.com/hashicorp/terraform-provider-aws/issues/41203.
++	testAccClusterStorageTypeUpdateNonAurora(t,
++		testAccClusterStorageSettings{storageType: "io2", allocatedStorage: 100, iops: 1000},
++		testAccClusterStorageSettings{storageType: "gp3", allocatedStorage: 100, expectNonEmptyPlan: true},
++	)
++}
++
++func TestAccRDSCluster_storageTypeUpdateNonAurora_gp3ToIO2WithDifferentIOPS(t *testing.T) {
++	testAccClusterStorageTypeUpdateNonAurora(t,
++		testAccClusterStorageSettings{storageType: "gp3", allocatedStorage: 400, iops: 12000},
++		testAccClusterStorageSettings{storageType: "io2", allocatedStorage: 400, iops: 10000},
++	)
++}
++
++func TestAccRDSCluster_storageTypeUpdateNonAurora_io1ToIO2WithSameIOPS(t *testing.T) {
++	testAccClusterStorageTypeUpdateNonAurora(t,
++		testAccClusterStorageSettings{storageType: "io1", allocatedStorage: 400, iops: 10000},
++		testAccClusterStorageSettings{storageType: "io2", allocatedStorage: 400, iops: 10000},
++	)
++}
++
++func TestAccRDSCluster_storageTypeUpdateNonAurora_io2ToGP3WithDifferentIOPS(t *testing.T) {
++	testAccClusterStorageTypeUpdateNonAurora(t,
++		testAccClusterStorageSettings{storageType: "io2", allocatedStorage: 400, iops: 10000},
++		testAccClusterStorageSettings{storageType: "gp3", allocatedStorage: 400, iops: 12000},
++	)
++}
++
++func testAccClusterStorageTypeUpdateNonAurora(t *testing.T, before, after testAccClusterStorageSettings) {
 +	if testing.Short() {
 +		t.Skip("skipping long-running test in short mode")
 +	}
@@ -100,35 +156,47 @@ index bce4b647589..d2421a9f104 100644
 +		CheckDestroy:             testAccCheckClusterDestroy(ctx, t),
 +		Steps: []resource.TestStep{
 +			{
-+				Config: testAccClusterConfig_storageTypeNonAurora(rName, "io2"),
++				Config: testAccClusterConfig_storageTypeNonAurora(rName, before),
 +				Check: resource.ComposeTestCheckFunc(
 +					testAccCheckClusterExists(ctx, t, resourceName, &dbCluster1),
-+					resource.TestCheckResourceAttr(resourceName, names.AttrStorageType, "io2"),
++					testAccCheckClusterStorageSettings(resourceName, before),
 +				),
 +			},
 +			{
-+				Config: testAccClusterConfig_storageTypeNonAurora(rName, "gp3"),
++				Config:             testAccClusterConfig_storageTypeNonAurora(rName, after),
++				ExpectNonEmptyPlan: after.expectNonEmptyPlan,
 +				Check: resource.ComposeTestCheckFunc(
 +					testAccCheckClusterExists(ctx, t, resourceName, &dbCluster2),
 +					testAccCheckClusterNotRecreated(&dbCluster1, &dbCluster2),
-+					resource.TestCheckResourceAttr(resourceName, names.AttrStorageType, "gp3"),
++					testAccCheckClusterStorageSettings(resourceName, after),
 +				),
 +			},
 +		},
 +	})
 +}
 +
++func testAccCheckClusterStorageSettings(resourceName string, settings testAccClusterStorageSettings) resource.TestCheckFunc {
++	checks := []resource.TestCheckFunc{
++		resource.TestCheckResourceAttr(resourceName, names.AttrStorageType, settings.storageType),
++		resource.TestCheckResourceAttr(resourceName, names.AttrAllocatedStorage, strconv.Itoa(settings.allocatedStorage)),
++	}
++	if settings.iops > 0 {
++		checks = append(checks, resource.TestCheckResourceAttr(resourceName, names.AttrIOPS, strconv.Itoa(settings.iops)))
++	}
++	return resource.ComposeAggregateTestCheckFunc(checks...)
++}
++
  func TestAccRDSCluster_iops(t *testing.T) {
  	if testing.Short() {
  		t.Skip("skipping long-running test in short mode")
-@@ -4653,6 +4688,42 @@ resource "aws_rds_cluster" "test" {
+@@ -4653,6 +4738,42 @@ resource "aws_rds_cluster" "test" {
  `, tfrds.ClusterEngineMySQL, mainInstanceClasses, rName, sType))
  }
  
-+func testAccClusterConfig_storageTypeNonAurora(rName, sType string) string {
++func testAccClusterConfig_storageTypeNonAurora(rName string, settings testAccClusterStorageSettings) string {
 +	var iopsConfig string
-+	if sType != "gp3" {
-+		iopsConfig = `  iops = 1000`
++	if settings.iops > 0 {
++		iopsConfig = fmt.Sprintf("  iops = %d", settings.iops)
 +	}
 +
 +	return acctest.ConfigCompose(
@@ -138,11 +206,11 @@ index bce4b647589..d2421a9f104 100644
 +  engine                     = %[1]q
 +  engine_latest_version      = true
 +  preferred_instance_classes = [%[2]s]
-+  storage_type               = "io2"
++  storage_type               = %[3]q
 +  supports_iops              = true
 +  supports_clusters          = true
 +}
-+`, tfrds.ClusterEnginePostgres, mainInstanceClasses),
++`, tfrds.ClusterEnginePostgres, mainInstanceClasses, settings.storageType),
 +		fmt.Sprintf(`
 +resource "aws_rds_cluster" "test" {
 +  apply_immediately         = true
@@ -152,13 +220,13 @@ index bce4b647589..d2421a9f104 100644
 +  engine                    = data.aws_rds_orderable_db_instance.test.engine
 +  engine_version            = data.aws_rds_orderable_db_instance.test.engine_version
 +  storage_type              = %[2]q
-+  allocated_storage         = 100
++  allocated_storage         = %[3]d
 +  master_password           = "mustbeeightcharaters"
 +  master_username           = "test"
 +  skip_final_snapshot       = true
-+%[3]s
++%[4]s
 +}
-+`, rName, sType, iopsConfig))
++`, rName, settings.storageType, settings.allocatedStorage, iopsConfig))
 +}
 +
  func testAccClusterConfig_storageChange(rName string, sType string) string {

@@ -1,8 +1,5 @@
 import * as aws from "@pulumi/aws";
 
-// Baseline state for the provider-upgrade regression. step1 changes this
-// non-Aurora Multi-AZ cluster to gp3 and previews with the local provider.
-
 const vpc = new aws.ec2.Vpc("test", { cidrBlock: "10.99.0.0/16" });
 
 const availabilityZones = ["us-west-2a", "us-west-2b", "us-west-2c"];
@@ -21,9 +18,9 @@ const cluster = new aws.rds.Cluster("test", {
     engine: "postgres",
     dbClusterInstanceClass: "db.r6gd.large",
     dbSubnetGroupName: subnetGroup.name,
-    storageType: "io2",
+    storageType: "gp3",
     allocatedStorage: 400,
-    iops: 10000,
+    iops: 12000,
     masterUsername: "test",
     masterPassword: "mustbeeightcharaters",
     skipFinalSnapshot: true,

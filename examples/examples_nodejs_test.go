@@ -719,23 +719,15 @@ func TestRegress6549(t *testing.T) {
 // the AWS ModifyDBCluster API supports the change in place. See
 // hashicorp/terraform-provider-aws#48545.
 func TestRegressRDSClusterStorageTypeUpdateNonAurora(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-rds-storage-type")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	test := pulumitest.NewPulumiTest(t, dir,
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-	)
-	test.SetConfig(t, "aws:region", getEnvRegion(t))
-	test.SetConfig(t, "storageType", "io1")
-	test.Up(t)
+	opts := nodeProviderUpgradeOpts()
+	opts.baselineVersion = "7.39.0"
+	opts.setEnvRegion = false
+	opts.region = "us-west-2"
+	_, res := testProviderUpgrade(t, dir, opts,
+		optproviderupgrade.NewSourcePath(filepath.Join(dir, "step1")))
 
-	test.SetConfig(t, "storageType", "gp3")
-	res := test.Up(t, optup.Diff())
-
-	assertup.HasNoReplacements(t, res)
-	assert.NotZero(t, (*res.Summary.ResourceChanges)["update"])
+	assert.NotZero(t, res.ChangeSummary["update"])
 }
 
 type expectFailure struct {
