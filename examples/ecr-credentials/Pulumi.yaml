@@ -1,0 +1,35 @@
+name: ecr-credentials
+runtime: yaml
+
+description: Exercise the deprecated ECR credentials data source.
+
+variables:
+  current:
+    fn::invoke:
+      function: aws:getCallerIdentity
+      arguments: {}
+  credentials:
+    fn::invoke:
+      function: aws:ecr:getCredentials
+      arguments:
+        registryId: ${current.accountId}
+  decodedCredentials:
+    fn::fromBase64: ${credentials.authorizationToken}
+  credentialParts:
+    fn::split:
+      - ":"
+      - ${decodedCredentials}
+
+outputs:
+  accountId: ${current.accountId}
+  credentialId: ${credentials.id}
+  proxyEndpoint: ${credentials.proxyEndpoint}
+  userName:
+    fn::select:
+      - 0
+      - ${credentialParts}
+  password:
+    fn::secret:
+      fn::select:
+        - 1
+        - ${credentialParts}

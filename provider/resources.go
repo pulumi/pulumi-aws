@@ -36,6 +36,8 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
 
+	tfdiag "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
@@ -1015,6 +1017,34 @@ func ProviderFromMetaForTfgen(metaInfo *tfbridge.MetadataInfo) *tfbridge.Provide
 	return providerFromMeta(metaInfo, schemaAWSResourceMetadata)
 }
 
+// aws_ecr_credentials was a resource that existing in v6 as an upstream patch.
+// we removed the patch in v7, but we are adding back the resource as a shim/proxy to
+// the newer official aws_ecr_authorization_token resource
+func addLegacyECRCredentialsDataSource(up *tfschema.Provider) {
+	source, ok := up.DataSourcesMap["aws_ecr_authorization_token"]
+	contract.Assertf(ok, "aws_ecr_authorization_token data source not found")
+
+	legacy := *source
+	read := legacy.ReadWithoutTimeout
+	contract.Assertf(read != nil, "aws_ecr_authorization_token has no read function")
+
+	legacy.ReadWithoutTimeout = func(
+		ctx context.Context,
+		d *tfschema.ResourceData,
+		meta any,
+	) tfdiag.Diagnostics {
+		// in v6 this resource set id equal to the registry_id. The aws_ecr_authorization_token resource in v7
+		// sets it equal to the region. This maintains complete backwards compatibility
+		diags := read(ctx, d, meta)
+		if !diags.HasError() {
+			d.SetId(d.Get("registry_id").(string))
+		}
+		return diags
+	}
+
+	up.DataSourcesMap["aws_ecr_credentials"] = &legacy
+}
+
 func providerFromMeta(
 	metaInfo *tfbridge.MetadataInfo,
 	resourceMetadata awsResourceMetadataLookup,
@@ -1025,6 +1055,7 @@ func providerFromMeta(
 	up := upstreamProvider.SDKV2Provider
 	// TODO[pulumi/pulumi-aws#5533] required for the v6-beta
 	up.TerraformVersion = "1.0.0+compatible"
+	addLegacyECRCredentialsDataSource(up)
 	v2p := shimv2.NewProvider(up)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
@@ -4853,6 +4884,23 @@ func providerFromMeta(
 			"aws_ecr_image":               {Tok: awsDataSource(ecrMod, "getImage")},
 			"aws_ecr_repository":          {Tok: awsDataSource(ecrMod, "getRepository")},
 			"aws_ecr_authorization_token": {Tok: awsDataSource(ecrMod, "getAuthorizationToken")},
+			"aws_ecr_credentials": {
+				Tok: awsDataSource(ecrMod, "getCredentials"),
+				Docs: &info.Doc{
+					Source: "ecr_authorization_token.html.markdown",
+				},
+				Fields: map[string]*info.Schema{
+					"registry_id": {
+						MarkAsOptional: new(false),
+					},
+					"region": {
+						Omit: true,
+					},
+					"authorization_token": {
+						Secret: new(false),
+					},
+				},
+			},
 			// ecrpublic
 			"aws_ecrpublic_authorization_token": {Tok: awsDataSource(ecrPublicMod, "getAuthorizationToken")},
 			// Elastic Container Service
@@ -5915,7 +5963,7 @@ func providerFromMeta(
 	}
 	prov.Resources["aws_s3_bucket_v2_compat"] = legacyInfo
 	err := shim.CloneResource(prov.P.ResourcesMap(), "aws_s3_bucket", "aws_s3_bucket_v2_compat")
-	contract.AssertNoErrorf(err, "Failed to rename the resource")
+	contract.AssertNoErrorf(err, "Failed to clone aws_s3_bucket to aws_s3_bucket_v2_compat")
 
 	policyDocumentResources := map[string]map[string]string{
 		cloudwatchMod: {
