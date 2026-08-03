@@ -4887,7 +4887,7 @@ func providerFromMeta(
 			"aws_ecr_credentials": {
 				Tok: awsDataSource(ecrMod, "getCredentials"),
 				Docs: &info.Doc{
-					Source: "ecr_authorization_token.html.markdown",
+					AllowMissing: true,
 				},
 				Fields: map[string]*info.Schema{
 					"registry_id": {

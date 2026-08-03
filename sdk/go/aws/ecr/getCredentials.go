@@ -11,31 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetAuthorizationToken(ctx, &ecr.GetAuthorizationTokenArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulumi.InvokeOption) (*GetCredentialsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCredentialsResult
@@ -48,25 +23,19 @@ func GetCredentials(ctx *pulumi.Context, args *GetCredentialsArgs, opts ...pulum
 
 // A collection of arguments for invoking getCredentials.
 type GetCredentialsArgs struct {
-	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId string `pulumi:"registryId"`
 }
 
 // A collection of values returned by getCredentials.
 type GetCredentialsResult struct {
-	// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 	AuthorizationToken string `pulumi:"authorizationToken"`
-	// Time in UTC RFC3339 format when the authorization token expires.
-	ExpiresAt string `pulumi:"expiresAt"`
+	ExpiresAt          string `pulumi:"expiresAt"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Password decoded from the authorization token.
-	Password string `pulumi:"password"`
-	// Registry URL to use in the docker login command.
+	Id            string `pulumi:"id"`
+	Password      string `pulumi:"password"`
 	ProxyEndpoint string `pulumi:"proxyEndpoint"`
 	RegistryId    string `pulumi:"registryId"`
-	// User name decoded from the authorization token.
-	UserName string `pulumi:"userName"`
+	UserName      string `pulumi:"userName"`
 }
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
@@ -80,7 +49,6 @@ func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, op
 
 // A collection of arguments for invoking getCredentials.
 type GetCredentialsOutputArgs struct {
-	// AWS account ID of the ECR Repository. If not specified the default account is assumed.
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -103,12 +71,10 @@ func (o GetCredentialsResultOutput) ToGetCredentialsResultOutputWithContext(ctx 
 	return o
 }
 
-// Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
 func (o GetCredentialsResultOutput) AuthorizationToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
 }
 
-// Time in UTC RFC3339 format when the authorization token expires.
 func (o GetCredentialsResultOutput) ExpiresAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
 }
@@ -118,12 +84,10 @@ func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Password decoded from the authorization token.
 func (o GetCredentialsResultOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Registry URL to use in the docker login command.
 func (o GetCredentialsResultOutput) ProxyEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
 }
@@ -132,7 +96,6 @@ func (o GetCredentialsResultOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.RegistryId }).(pulumi.StringOutput)
 }
 
-// User name decoded from the authorization token.
 func (o GetCredentialsResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.UserName }).(pulumi.StringOutput)
 }

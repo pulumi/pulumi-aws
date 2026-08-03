@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const token = aws.ecr.getAuthorizationToken({});
- * ```
- */
 export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getCredentials:getCredentials", {
@@ -27,9 +15,6 @@ export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCredentials.
  */
 export interface GetCredentialsArgs {
-    /**
-     * AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     */
     registryId: string;
 }
 
@@ -37,44 +22,17 @@ export interface GetCredentialsArgs {
  * A collection of values returned by getCredentials.
  */
 export interface GetCredentialsResult {
-    /**
-     * Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-     */
     readonly authorizationToken: string;
-    /**
-     * Time in UTC RFC3339 format when the authorization token expires.
-     */
     readonly expiresAt: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Password decoded from the authorization token.
-     */
     readonly password: string;
-    /**
-     * Registry URL to use in the docker login command.
-     */
     readonly proxyEndpoint: string;
     readonly registryId: string;
-    /**
-     * User name decoded from the authorization token.
-     */
     readonly userName: string;
 }
-/**
- * The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const token = aws.ecr.getAuthorizationToken({});
- * ```
- */
 export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getCredentials:getCredentials", {
@@ -86,8 +44,5 @@ export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulu
  * A collection of arguments for invoking getCredentials.
  */
 export interface GetCredentialsOutputArgs {
-    /**
-     * AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     */
     registryId: pulumi.Input<string>;
 }
