@@ -117,6 +117,10 @@ export namespace InstanceTypes {
     export const F1_16XLarge: InstanceType = "f1.16xlarge";
     /** @deprecated Use InstanceType.F1_2XLarge instead. */
     export const F1_2XLarge: InstanceType = "f1.2xlarge";
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const G2_2XLarge = "g2.2xlarge" as InstanceType;
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const G2_8XLarge = "g2.8xlarge" as InstanceType;
     /** @deprecated Use InstanceType.G3_16XLarge instead. */
     export const G3_16XLarge: InstanceType = "g3.16xlarge";
     /** @deprecated Use InstanceType.G3_4XLarge instead. */
@@ -345,4 +349,12 @@ export namespace InstanceTypes {
     export const Z1d_Large: InstanceType = "z1d.large";
     /** @deprecated Use InstanceType.Z1d_XLarge instead. */
     export const Z1d_XLarge: InstanceType = "z1d.xlarge";
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const U_12tb1Metal = "u-12tb1.metal" as InstanceType;
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const U_6tb1Metal = "u-6tb1.metal" as InstanceType;
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const U_9tb1Metal = "u-9tb1.metal" as InstanceType;
+    /** @deprecated No longer a valid InstanceType. Retained for backwards compatibility. */
+    export const Hs1_8XLarge = "hs1.8xlarge" as InstanceType;
 }
