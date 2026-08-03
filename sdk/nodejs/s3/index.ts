@@ -185,6 +185,7 @@ export type BucketWebsiteConfigurationV2 = import("./bucketWebsiteConfigurationV
 export const BucketWebsiteConfigurationV2: typeof import("./bucketWebsiteConfigurationV2").BucketWebsiteConfigurationV2 = null as any;
 utilities.lazyLoad(exports, ["BucketWebsiteConfigurationV2"], () => require("./bucketWebsiteConfigurationV2"));
 
+export * from "./cannedAcl";
 export { DirectoryBucketArgs, DirectoryBucketState } from "./directoryBucket";
 export type DirectoryBucket = import("./directoryBucket").DirectoryBucket;
 export const DirectoryBucket: typeof import("./directoryBucket").DirectoryBucket = null as any;

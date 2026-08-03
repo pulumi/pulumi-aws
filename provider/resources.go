@@ -5421,6 +5421,12 @@ func providerFromMeta(
 					"utils.ts", // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"applicationloadbalancing": {
+						DestFiles: []string{
+							"ipAddressType.ts",    // Deprecated IpAddressType constants
+							"loadBalancerType.ts", // Deprecated LoadBalancerType constants
+						},
+					},
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",
@@ -5436,6 +5442,15 @@ func providerFromMeta(
 					"dynamodb": {
 						DestFiles: []string{
 							"dynamodbMixins.ts",
+						},
+					},
+					"ec2": {
+						DestFiles: []string{
+							"instanceType.ts",      // Deprecated InstanceType constants
+							"instancePlatform.ts",  // Deprecated InstancePlatform constants
+							"placementStrategy.ts", // Deprecated PlacementStrategy constants
+							"protocolType.ts",      // Deprecated ProtocolType constants
+							"tenancy.ts",           // Deprecated Tenancy constants
 						},
 					},
 					"ecr": {
@@ -5462,10 +5477,25 @@ func providerFromMeta(
 					"lambda": {
 						DestFiles: []string{
 							"lambdaMixins.ts",
+							"runtimes.ts",
+						},
+					},
+					"rds": {
+						DestFiles: []string{
+							"engineMode.ts",   // EngineMode constants
+							"engineType.ts",   // EngineType constants
+							"instanceType.ts", // InstanceType constants
+							"storageType.ts",  // StorageType constants
+						},
+					},
+					"route53": {
+						DestFiles: []string{
+							"recordType.ts", // Deprecated RecordType constants
 						},
 					},
 					"s3": {
 						DestFiles: []string{
+							"cannedAcl.ts", // Deprecated CannedAcl constants
 							"routingRules.ts",
 							"s3Mixins.ts",
 						},
@@ -5479,6 +5509,11 @@ func providerFromMeta(
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
+						},
+					},
+					"ssm": {
+						DestFiles: []string{
+							"parameterType.ts", // Deprecated ParameterType constants
 						},
 					},
 				},

@@ -140,6 +140,7 @@ export type Record = import("./record").Record;
 export const Record: typeof import("./record").Record = null as any;
 utilities.lazyLoad(exports, ["Record"], () => require("./record"));
 
+export * from "./recordType";
 export { RecordsExclusiveArgs, RecordsExclusiveState } from "./recordsExclusive";
 export type RecordsExclusive = import("./recordsExclusive").RecordsExclusive;
 export const RecordsExclusive: typeof import("./recordsExclusive").RecordsExclusive = null as any;
