@@ -4897,6 +4897,7 @@ func providerFromMeta(
 						Omit: true,
 					},
 					"authorization_token": {
+						// Intentionally non-secret for v6 compatibility, even though it base64-encodes password.
 						Secret: new(false),
 					},
 				},

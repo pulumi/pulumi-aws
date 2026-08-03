@@ -227,6 +227,7 @@ func validateEcrCreds(t *testing.T, pulumiTest *pulumitest.PulumiTest, result au
 	userName, ok := result.Outputs["userName"].Value.(string)
 	require.Truef(t, ok, "expected decoded userName output to be a string; got %s", userNameValue)
 	assert.Equal(t, "AWS", userName)
+	assert.False(t, result.Outputs["userName"].Secret, "expected decoded userName output to remain non-secret")
 
 	password, ok := result.Outputs["password"].Value.(string)
 	require.True(t, ok, "expected decoded password output to be a string")
@@ -258,7 +259,7 @@ func validateEcrCreds(t *testing.T, pulumiTest *pulumitest.PulumiTest, result au
 
 func TestAccEcrCredentials(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t,
-		filepath.Join(getCwd(t), "ecr-credentials"),
+		filepath.Join(getCwd(t), "test-programs", "ecr-credentials"),
 		opttest.SkipInstall(),
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -270,7 +271,7 @@ func TestAccEcrCredentials(t *testing.T) {
 }
 
 func TestEcrCredentialsUpgrade(t *testing.T) {
-	test, _ := testProviderUpgrade(t, filepath.Join(getCwd(t), "ecr-credentials"), &testProviderUpgradeOptions{
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "ecr-credentials"), &testProviderUpgradeOptions{
 		skipCache:              true,
 		skipDefaultPreviewTest: true,
 	})
