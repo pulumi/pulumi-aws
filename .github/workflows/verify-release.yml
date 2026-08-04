@@ -107,7 +107,7 @@ jobs:
         with:
           environment: logins/pulumi-ci
       - name: Verify nodejs release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         with:
           runtime: nodejs
           directory: examples/release-verification
@@ -117,7 +117,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify python release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         with:
           runtime: python
           directory: examples/webserver-py
@@ -128,7 +128,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify dotnet release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         with:
           runtime: dotnet
           directory: examples/webserver-cs
@@ -138,7 +138,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
       - name: Verify go release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         if: inputs.skipGoSdk == false
         with:
           runtime: go
