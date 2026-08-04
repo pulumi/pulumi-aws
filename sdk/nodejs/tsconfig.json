@@ -1015,6 +1015,7 @@
         "ec2transitgateway/vpcAttachmentAccepter.ts",
         "ecr/accountSetting.ts",
         "ecr/getAuthorizationToken.ts",
+        "ecr/getCredentials.ts",
         "ecr/getImage.ts",
         "ecr/getImages.ts",
         "ecr/getLifecyclePolicyDocument.ts",

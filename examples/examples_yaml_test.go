@@ -20,6 +20,7 @@ import (
 	"io"
 	"maps"
 	"math/rand"
+	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -27,6 +28,7 @@ import (
 	"sort"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
@@ -213,6 +215,69 @@ func TestDynamoTableUpgrade(t *testing.T) {
 
 func TestEcrLifecyclePolicyUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "ecr-lifecyclepolicy"), nil)
+}
+
+func validateEcrCreds(t *testing.T, pulumiTest *pulumitest.PulumiTest, result auto.UpResult) {
+	t.Helper()
+	proxyEndpoint, ok := result.Outputs["proxyEndpoint"].Value.(string)
+	require.True(t, ok, "expected proxyEndpoint output to be a string")
+	assert.Contains(t, proxyEndpoint, "amazonaws.com")
+
+	userNameValue := result.Outputs["userName"].Value
+	userName, ok := result.Outputs["userName"].Value.(string)
+	require.Truef(t, ok, "expected decoded userName output to be a string; got %s", userNameValue)
+	assert.Equal(t, "AWS", userName)
+	assert.False(t, result.Outputs["userName"].Secret, "expected decoded userName output to remain non-secret")
+
+	password, ok := result.Outputs["password"].Value.(string)
+	require.True(t, ok, "expected decoded password output to be a string")
+	assert.NotEmpty(t, password)
+	assert.True(t, result.Outputs["password"].Secret, "expected decoded password output to remain secret")
+
+	account, ok := result.Outputs["accountId"].Value.(string)
+	require.True(t, ok, "expected accountId output to be a string")
+
+	id, ok := result.Outputs["credentialId"].Value.(string)
+	require.True(t, ok, "expected credentialId output to be a string")
+
+	assert.Equal(t, account, id)
+
+	request, err := http.NewRequestWithContext(
+		pulumiTest.Context(),
+		http.MethodGet,
+		strings.TrimSuffix(proxyEndpoint, "/")+"/v2/",
+		nil,
+	)
+	require.NoError(t, err)
+	request.SetBasicAuth(userName, password)
+
+	response, err := (&http.Client{Timeout: 30 * time.Second}).Do(request)
+	require.NoError(t, err)
+	defer response.Body.Close()
+	assert.Equal(t, http.StatusOK, response.StatusCode, "expected ECR registry to accept decoded credentials")
+}
+
+func TestAccEcrCredentials(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t,
+		filepath.Join(getCwd(t), "test-programs", "ecr-credentials"),
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	test.SetConfig(t, "aws:region", getEnvRegion(t))
+
+	runExampleLifecycle(t, test, exampleLifecycleOptions{
+		validate: validateEcrCreds,
+	})
+}
+
+func TestEcrCredentialsUpgrade(t *testing.T) {
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "ecr-credentials"), &testProviderUpgradeOptions{
+		skipCache:              true,
+		skipDefaultPreviewTest: true,
+	})
+
+	result := test.Up(t)
+	validateEcrCreds(t, test, result)
 }
 
 func TestEcrRepositoryUpgrade(t *testing.T) {
