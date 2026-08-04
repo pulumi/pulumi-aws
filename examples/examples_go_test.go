@@ -191,7 +191,6 @@ func TestRandomTagsCombinationsGo(t *testing.T) {
 	t.Logf("random-sampling 100 state transitions")
 
 	for i := range 100 {
-		i := i
 		t.Run(fmt.Sprintf("test-%d", i), func(t *testing.T) {
 			i := rand.Intn(len(states))
 			j := rand.Intn(len(states))
