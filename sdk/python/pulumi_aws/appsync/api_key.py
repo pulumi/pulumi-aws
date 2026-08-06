@@ -103,6 +103,7 @@ class _ApiKeyState:
         Input properties used for looking up and filtering ApiKey resources.
 
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[_builtins.str] api_key_id: ID of the API key.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         :param pulumi.Input[_builtins.str] key: API key
@@ -138,6 +139,9 @@ class _ApiKeyState:
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
     def api_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the API key.
+        """
         return pulumi.get(self, "api_key_id")
 
     @api_key_id.setter
@@ -333,6 +337,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: ID of the associated AppSync API
+        :param pulumi.Input[_builtins.str] api_key_id: ID of the API key.
         :param pulumi.Input[_builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[_builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         :param pulumi.Input[_builtins.str] key: API key
@@ -361,6 +366,9 @@ class ApiKey(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="apiKeyId")
     def api_key_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the API key.
+        """
         return pulumi.get(self, "api_key_id")
 
     @_builtins.property

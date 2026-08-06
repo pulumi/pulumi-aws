@@ -156,11 +156,11 @@ class EventIntegrationEventFilterArgs:
 class ExtensionActionPointArgsDict(TypedDict):
     actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgsDict']]]
     """
-    An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+    Action the extension performs during the AppConfig workflow. Detailed below.
     """
     point: pulumi.Input[_builtins.str]
     """
-    The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+    Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
     """
 
 @pulumi.input_type
@@ -169,8 +169,8 @@ class ExtensionActionPointArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]],
                  point: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-        :param pulumi.Input[_builtins.str] point: The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+        :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]] actions: Action the extension performs during the AppConfig workflow. Detailed below.
+        :param pulumi.Input[_builtins.str] point: Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "point", point)
@@ -179,7 +179,7 @@ class ExtensionActionPointArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]]:
         """
-        An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        Action the extension performs during the AppConfig workflow. Detailed below.
         """
         return pulumi.get(self, "actions")
 
@@ -191,7 +191,7 @@ class ExtensionActionPointArgs:
     @pulumi.getter
     def point(self) -> pulumi.Input[_builtins.str]:
         """
-        The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+        Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         """
         return pulumi.get(self, "point")
 
@@ -203,11 +203,11 @@ class ExtensionActionPointArgs:
 class ExtensionActionPointActionArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The action name.
+    Action name.
     """
     uri: pulumi.Input[_builtins.str]
     """
-    The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+    Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -215,7 +215,7 @@ class ExtensionActionPointActionArgsDict(TypedDict):
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+    Amazon Resource Name (ARN) for an Identity and Access Management assume role.
     """
 
 @pulumi.input_type
@@ -226,10 +226,10 @@ class ExtensionActionPointActionArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The action name.
-        :param pulumi.Input[_builtins.str] uri: The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        :param pulumi.Input[_builtins.str] name: Action name.
+        :param pulumi.Input[_builtins.str] uri: Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         :param pulumi.Input[_builtins.str] description: Information about the action.
-        :param pulumi.Input[_builtins.str] role_arn: An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -242,7 +242,7 @@ class ExtensionActionPointActionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The action name.
+        Action name.
         """
         return pulumi.get(self, "name")
 
@@ -254,7 +254,7 @@ class ExtensionActionPointActionArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
         """
-        The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         """
         return pulumi.get(self, "uri")
 
@@ -278,7 +278,7 @@ class ExtensionActionPointActionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        Amazon Resource Name (ARN) for an Identity and Access Management assume role.
         """
         return pulumi.get(self, "role_arn")
 
@@ -290,7 +290,7 @@ class ExtensionActionPointActionArgs:
 class ExtensionParameterArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The parameter name.
+    Parameter name.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -308,7 +308,7 @@ class ExtensionParameterArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The parameter name.
+        :param pulumi.Input[_builtins.str] name: Parameter name.
         :param pulumi.Input[_builtins.str] description: Information about the parameter.
         :param pulumi.Input[_builtins.bool] required: Determines if a parameter value must be specified in the extension association.
         """
@@ -322,7 +322,7 @@ class ExtensionParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The parameter name.
+        Parameter name.
         """
         return pulumi.get(self, "name")
 

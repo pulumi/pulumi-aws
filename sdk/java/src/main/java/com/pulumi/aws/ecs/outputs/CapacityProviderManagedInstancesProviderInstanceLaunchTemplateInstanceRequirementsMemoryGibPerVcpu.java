@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+    /**
+     * @return Maximum amount of memory per vCPU, in GiB.
+     * 
+     */
     private @Nullable Double max;
+    /**
+     * @return Minimum amount of memory per vCPU, in GiB.
+     * 
+     */
     private @Nullable Double min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryGibPerVcpu() {}
+    /**
+     * @return Maximum amount of memory per vCPU, in GiB.
+     * 
+     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum amount of memory per vCPU, in GiB.
+     * 
+     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

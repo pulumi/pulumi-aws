@@ -196,8 +196,6 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -210,6 +208,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// Name of the KX environment that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -310,14 +310,14 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("kmsKeyId", required: true)]
         public Input<string> KmsKeyId { get; set; } = null!;
 
         /// <summary>
         /// Name of the KX environment that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -404,8 +404,6 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// KMS key ID to encrypt your data in the FinSpace environment.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -418,6 +416,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// Name of the KX environment that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

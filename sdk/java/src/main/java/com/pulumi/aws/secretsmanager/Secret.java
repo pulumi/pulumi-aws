@@ -279,14 +279,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     * Type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
+     * @return Type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
      * 
      */
     public Output<Optional<String>> type() {

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KxDataviewSegmentConfiguration {
     /**
-     * @return The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+     * @return Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
      * 
      */
     private List<String> dbPaths;
@@ -25,14 +25,14 @@ public final class KxDataviewSegmentConfiguration {
      */
     private @Nullable Boolean onDemand;
     /**
-     * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+     * @return Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     private String volumeName;
 
     private KxDataviewSegmentConfiguration() {}
     /**
-     * @return The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+     * @return Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
      * 
      */
     public List<String> dbPaths() {
@@ -46,7 +46,7 @@ public final class KxDataviewSegmentConfiguration {
         return Optional.ofNullable(this.onDemand);
     }
     /**
-     * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+     * @return Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     public String volumeName() {

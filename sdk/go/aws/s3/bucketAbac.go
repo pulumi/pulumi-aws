@@ -73,10 +73,10 @@ type BucketAbac struct {
 	pulumi.CustomResourceState
 
 	// ABAC status configuration. See `abacStatus` Block for details.
-	//
-	// The following arguments are optional:
 	AbacStatus BucketAbacAbacStatusOutput `pulumi:"abacStatus"`
 	// General purpose bucket that you want to create the metadata configuration for.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	//
@@ -123,10 +123,10 @@ func GetBucketAbac(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BucketAbac resources.
 type bucketAbacState struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
-	//
-	// The following arguments are optional:
 	AbacStatus *BucketAbacAbacStatus `pulumi:"abacStatus"`
 	// General purpose bucket that you want to create the metadata configuration for.
+	//
+	// The following arguments are optional:
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	//
@@ -138,10 +138,10 @@ type bucketAbacState struct {
 
 type BucketAbacState struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
-	//
-	// The following arguments are optional:
 	AbacStatus BucketAbacAbacStatusPtrInput
 	// General purpose bucket that you want to create the metadata configuration for.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	//
@@ -157,10 +157,10 @@ func (BucketAbacState) ElementType() reflect.Type {
 
 type bucketAbacArgs struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
-	//
-	// The following arguments are optional:
 	AbacStatus BucketAbacAbacStatus `pulumi:"abacStatus"`
 	// General purpose bucket that you want to create the metadata configuration for.
+	//
+	// The following arguments are optional:
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	//
@@ -173,10 +173,10 @@ type bucketAbacArgs struct {
 // The set of arguments for constructing a BucketAbac resource.
 type BucketAbacArgs struct {
 	// ABAC status configuration. See `abacStatus` Block for details.
-	//
-	// The following arguments are optional:
 	AbacStatus BucketAbacAbacStatusInput
 	// General purpose bucket that you want to create the metadata configuration for.
+	//
+	// The following arguments are optional:
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	//
@@ -274,13 +274,13 @@ func (o BucketAbacOutput) ToBucketAbacOutputWithContext(ctx context.Context) Buc
 }
 
 // ABAC status configuration. See `abacStatus` Block for details.
-//
-// The following arguments are optional:
 func (o BucketAbacOutput) AbacStatus() BucketAbacAbacStatusOutput {
 	return o.ApplyT(func(v *BucketAbac) BucketAbacAbacStatusOutput { return v.AbacStatus }).(BucketAbacAbacStatusOutput)
 }
 
 // General purpose bucket that you want to create the metadata configuration for.
+//
+// The following arguments are optional:
 func (o BucketAbacOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAbac) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

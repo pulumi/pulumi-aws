@@ -68,7 +68,7 @@ type ObservabilityConfiguration struct {
 	Latest pulumi.BoolOutput `pulumi:"latest"`
 	// Name of the observability configuration.
 	ObservabilityConfigurationName pulumi.StringOutput `pulumi:"observabilityConfigurationName"`
-	// The revision of this observability configuration.
+	// Revision of this observability configuration.
 	ObservabilityConfigurationRevision pulumi.IntOutput `pulumi:"observabilityConfigurationRevision"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -78,7 +78,7 @@ type ObservabilityConfiguration struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrOutput `pulumi:"traceConfiguration"`
 }
 
@@ -121,7 +121,7 @@ type observabilityConfigurationState struct {
 	Latest *bool `pulumi:"latest"`
 	// Name of the observability configuration.
 	ObservabilityConfigurationName *string `pulumi:"observabilityConfigurationName"`
-	// The revision of this observability configuration.
+	// Revision of this observability configuration.
 	ObservabilityConfigurationRevision *int `pulumi:"observabilityConfigurationRevision"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -131,7 +131,7 @@ type observabilityConfigurationState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
 }
 
@@ -142,7 +142,7 @@ type ObservabilityConfigurationState struct {
 	Latest pulumi.BoolPtrInput
 	// Name of the observability configuration.
 	ObservabilityConfigurationName pulumi.StringPtrInput
-	// The revision of this observability configuration.
+	// Revision of this observability configuration.
 	ObservabilityConfigurationRevision pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type ObservabilityConfigurationState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
 }
 
@@ -167,7 +167,7 @@ type observabilityConfigurationArgs struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 	TraceConfiguration *ObservabilityConfigurationTraceConfiguration `pulumi:"traceConfiguration"`
 }
 
@@ -179,7 +179,7 @@ type ObservabilityConfigurationArgs struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+	// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 	TraceConfiguration ObservabilityConfigurationTraceConfigurationPtrInput
 }
 
@@ -285,7 +285,7 @@ func (o ObservabilityConfigurationOutput) ObservabilityConfigurationName() pulum
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringOutput { return v.ObservabilityConfigurationName }).(pulumi.StringOutput)
 }
 
-// The revision of this observability configuration.
+// Revision of this observability configuration.
 func (o ObservabilityConfigurationOutput) ObservabilityConfigurationRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.IntOutput { return v.ObservabilityConfigurationRevision }).(pulumi.IntOutput)
 }
@@ -310,7 +310,7 @@ func (o ObservabilityConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+// Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See `traceConfiguration` Block below for more details.
 func (o ObservabilityConfigurationOutput) TraceConfiguration() ObservabilityConfigurationTraceConfigurationPtrOutput {
 	return o.ApplyT(func(v *ObservabilityConfiguration) ObservabilityConfigurationTraceConfigurationPtrOutput {
 		return v.TraceConfiguration

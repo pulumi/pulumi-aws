@@ -16,16 +16,14 @@ public final class StackStreamingExperienceSettingsArgs extends com.pulumi.resou
     public static final StackStreamingExperienceSettingsArgs Empty = new StackStreamingExperienceSettingsArgs();
 
     /**
-     * The preferred protocol that you want to use while streaming your application.
-     * Valid values are `TCP` and `UDP`.
+     * Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
      * 
      */
     @Import(name="preferredProtocol")
     private @Nullable Output<String> preferredProtocol;
 
     /**
-     * @return The preferred protocol that you want to use while streaming your application.
-     * Valid values are `TCP` and `UDP`.
+     * @return Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
      * 
      */
     public Optional<Output<String>> preferredProtocol() {
@@ -57,8 +55,7 @@ public final class StackStreamingExperienceSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preferredProtocol The preferred protocol that you want to use while streaming your application.
-         * Valid values are `TCP` and `UDP`.
+         * @param preferredProtocol Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
          * 
          * @return builder
          * 
@@ -69,8 +66,7 @@ public final class StackStreamingExperienceSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preferredProtocol The preferred protocol that you want to use while streaming your application.
-         * Valid values are `TCP` and `UDP`.
+         * @param preferredProtocol Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
          * 
          * @return builder
          * 

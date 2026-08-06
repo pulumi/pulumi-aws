@@ -13,9 +13,12 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     [OutputType]
     public sealed class ListenerDefaultAction
     {
+        /// <summary>
+        /// Configuration block for returning a fixed response. See `FixedResponse` Block below.
+        /// </summary>
         public readonly Outputs.ListenerDefaultActionFixedResponse? FixedResponse;
         /// <summary>
-        /// Route requests to one or more target groups. See Forward blocks below.
+        /// Route requests to one or more target groups. See `Forward` Block below.
         /// 
         /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `FixedResponse` or `Forward`.
         /// </summary>

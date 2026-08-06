@@ -31,9 +31,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
         return Optional.ofNullable(this.bucketPrefix);
     }
 
+    /**
+     * Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+     * 
+     */
     @Import(name="s3OutputFormatConfig", required=true)
     private Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs> s3OutputFormatConfig;
 
+    /**
+     * @return Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+     * 
+     */
     public Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs> s3OutputFormatConfig() {
         return this.s3OutputFormatConfig;
     }
@@ -82,11 +90,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
+        /**
+         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3OutputFormatConfig(Output<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs> s3OutputFormatConfig) {
             $.s3OutputFormatConfig = s3OutputFormatConfig;
             return this;
         }
 
+        /**
+         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder s3OutputFormatConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs s3OutputFormatConfig) {
             return s3OutputFormatConfig(Output.of(s3OutputFormatConfig));
         }

@@ -58,13 +58,13 @@ import (
 type DomainNameAccessAssociation struct {
 	pulumi.CustomResourceState
 
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource pulumi.StringOutput `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	// Type of the domain name access association source. Valid values are `VPCE`.
 	AccessAssociationSourceType pulumi.StringOutput `pulumi:"accessAssociationSourceType"`
 	// ARN of the domain name access association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the domain name.
+	// ARN of the domain name.
 	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -113,13 +113,13 @@ func GetDomainNameAccessAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainNameAccessAssociation resources.
 type domainNameAccessAssociationState struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource *string `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	// Type of the domain name access association source. Valid values are `VPCE`.
 	AccessAssociationSourceType *string `pulumi:"accessAssociationSourceType"`
 	// ARN of the domain name access association.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the domain name.
+	// ARN of the domain name.
 	DomainNameArn *string `pulumi:"domainNameArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -130,13 +130,13 @@ type domainNameAccessAssociationState struct {
 }
 
 type DomainNameAccessAssociationState struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource pulumi.StringPtrInput
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	// Type of the domain name access association source. Valid values are `VPCE`.
 	AccessAssociationSourceType pulumi.StringPtrInput
 	// ARN of the domain name access association.
 	Arn pulumi.StringPtrInput
-	// The ARN of the domain name.
+	// ARN of the domain name.
 	DomainNameArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -151,11 +151,11 @@ func (DomainNameAccessAssociationState) ElementType() reflect.Type {
 }
 
 type domainNameAccessAssociationArgs struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource string `pulumi:"accessAssociationSource"`
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	// Type of the domain name access association source. Valid values are `VPCE`.
 	AccessAssociationSourceType string `pulumi:"accessAssociationSourceType"`
-	// The ARN of the domain name.
+	// ARN of the domain name.
 	DomainNameArn string `pulumi:"domainNameArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -165,11 +165,11 @@ type domainNameAccessAssociationArgs struct {
 
 // The set of arguments for constructing a DomainNameAccessAssociation resource.
 type DomainNameAccessAssociationArgs struct {
-	// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+	// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 	AccessAssociationSource pulumi.StringInput
-	// The type of the domain name access association source. Valid values are `VPCE`.
+	// Type of the domain name access association source. Valid values are `VPCE`.
 	AccessAssociationSourceType pulumi.StringInput
-	// The ARN of the domain name.
+	// ARN of the domain name.
 	DomainNameArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -264,12 +264,12 @@ func (o DomainNameAccessAssociationOutput) ToDomainNameAccessAssociationOutputWi
 	return o
 }
 
-// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+// Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
 func (o DomainNameAccessAssociationOutput) AccessAssociationSource() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.AccessAssociationSource }).(pulumi.StringOutput)
 }
 
-// The type of the domain name access association source. Valid values are `VPCE`.
+// Type of the domain name access association source. Valid values are `VPCE`.
 func (o DomainNameAccessAssociationOutput) AccessAssociationSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.AccessAssociationSourceType }).(pulumi.StringOutput)
 }
@@ -279,7 +279,7 @@ func (o DomainNameAccessAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the domain name.
+// ARN of the domain name.
 func (o DomainNameAccessAssociationOutput) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameAccessAssociation) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string Behavior;
         /// <summary>
-        /// Integration data source configuration for the handler. See Integration below.
+        /// Integration data source configuration for the handler. See `Integration` below.
         /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration Integration;
 

@@ -30,14 +30,14 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the endpoint policy for KMS access from the ODB network.
+     * Endpoint policy for KMS access from the ODB network.
      * 
      */
     @Import(name="kmsPolicyDocument", required=true)
     private Output<String> kmsPolicyDocument;
 
     /**
-     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * @return Endpoint policy for KMS access from the ODB network.
      * 
      */
     public Output<String> kmsPolicyDocument() {
@@ -45,14 +45,14 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
     }
 
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public Output<String> status() {
@@ -109,7 +109,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * @param kmsPolicyDocument Endpoint policy for KMS access from the ODB network.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * @param kmsPolicyDocument Endpoint policy for KMS access from the ODB network.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class NetworkManagedServiceKmsAccessArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 

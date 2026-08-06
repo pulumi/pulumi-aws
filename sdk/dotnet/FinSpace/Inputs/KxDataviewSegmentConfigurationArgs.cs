@@ -16,7 +16,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         private InputList<string>? _dbPaths;
 
         /// <summary>
-        /// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        /// Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
         /// </summary>
         public InputList<string> DbPaths
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<bool>? OnDemand { get; set; }
 
         /// <summary>
-        /// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        /// Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Input("volumeName", required: true)]
         public Input<string> VolumeName { get; set; } = null!;

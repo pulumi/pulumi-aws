@@ -30,14 +30,14 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * Endpoint policy for Amazon S3 access from the ODB network.
      * 
      */
     @Import(name="s3PolicyDocument", required=true)
     private Output<String> s3PolicyDocument;
 
     /**
-     * @return Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * @return Endpoint policy for Amazon S3 access from the ODB network.
      * 
      */
     public Output<String> s3PolicyDocument() {
@@ -45,14 +45,14 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
     }
 
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public Output<String> status() {
@@ -109,7 +109,7 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
         }
 
         /**
-         * @param s3PolicyDocument Specifies the endpoint policy for Amazon S3 access from the ODB network.
+         * @param s3PolicyDocument Endpoint policy for Amazon S3 access from the ODB network.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
         }
 
         /**
-         * @param s3PolicyDocument Specifies the endpoint policy for Amazon S3 access from the ODB network.
+         * @param s3PolicyDocument Endpoint policy for Amazon S3 access from the ODB network.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class NetworkManagedServiceS3AccessArgs extends com.pulumi.resource
         }
 
         /**
-         * @param status The status of the network resource.
+         * @param status Status of the network resource.
          * 
          * @return builder
          * 

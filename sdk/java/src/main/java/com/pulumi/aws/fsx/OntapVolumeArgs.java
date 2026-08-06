@@ -23,14 +23,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final OntapVolumeArgs Empty = new OntapVolumeArgs();
 
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+     * Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     @Import(name="aggregateConfiguration")
     private @Nullable Output<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+     * @return Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     public Optional<Output<OntapVolumeAggregateConfigurationArgs>> aggregateConfiguration() {
@@ -38,14 +38,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     @Import(name="bypassSnaplockEnterpriseRetention")
     private @Nullable Output<Boolean> bypassSnaplockEnterpriseRetention;
 
     /**
-     * @return Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * @return Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> bypassSnaplockEnterpriseRetention() {
@@ -53,14 +53,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * Whether tags for the volume should be copied to backups. This value defaults to `false`.
      * 
      */
     @Import(name="copyTagsToBackups")
     private @Nullable Output<Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * @return Whether tags for the volume should be copied to backups. This value defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToBackups() {
@@ -68,14 +68,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to apply to the volume&#39;s final backup.
+     * Map of tags to apply to the volume&#39;s final backup.
      * 
      */
     @Import(name="finalBackupTags")
     private @Nullable Output<Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the volume&#39;s final backup.
+     * @return Map of tags to apply to the volume&#39;s final backup.
      * 
      */
     public Optional<Output<Map<String,String>>> finalBackupTags() {
@@ -83,14 +83,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     * Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     @Import(name="junctionPath")
     private @Nullable Output<String> junctionPath;
 
     /**
-     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     * @return Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     public Optional<Output<String>> junctionPath() {
@@ -98,14 +98,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     @Import(name="ontapVolumeType")
     private @Nullable Output<String> ontapVolumeType;
 
     /**
-     * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * @return Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     public Optional<Output<String>> ontapVolumeType() {
@@ -143,14 +143,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+     * Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Import(name="securityStyle")
     private @Nullable Output<String> securityStyle;
 
     /**
-     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+     * @return Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     public Optional<Output<String>> securityStyle() {
@@ -158,14 +158,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Import(name="sizeInBytes")
     private @Nullable Output<String> sizeInBytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Optional<Output<String>> sizeInBytes() {
@@ -173,14 +173,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Import(name="sizeInMegabytes")
     private @Nullable Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Optional<Output<Integer>> sizeInMegabytes() {
@@ -188,14 +188,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     @Import(name="skipFinalBackup")
     private @Nullable Output<Boolean> skipFinalBackup;
 
     /**
-     * @return When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * @return Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> skipFinalBackup() {
@@ -203,14 +203,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+     * SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     @Import(name="snaplockConfiguration")
     private @Nullable Output<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+     * @return SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationArgs>> snaplockConfiguration() {
@@ -218,14 +218,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
     @Import(name="snapshotPolicy")
     private @Nullable Output<String> snapshotPolicy;
 
     /**
-     * @return Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * @return Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
     public Optional<Output<String>> snapshotPolicy() {
@@ -233,14 +233,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
     @Import(name="storageEfficiencyEnabled")
     private @Nullable Output<Boolean> storageEfficiencyEnabled;
 
     /**
-     * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * @return Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
     public Optional<Output<Boolean>> storageEfficiencyEnabled() {
@@ -248,7 +248,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage virtual machine in which to create the volume.
+     * Storage virtual machine in which to create the volume.
      * 
      * The following arguments are optional:
      * 
@@ -257,7 +257,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> storageVirtualMachineId;
 
     /**
-     * @return Specifies the storage virtual machine in which to create the volume.
+     * @return Storage virtual machine in which to create the volume.
      * 
      * The following arguments are optional:
      * 
@@ -267,14 +267,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -282,14 +282,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+     * Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     @Import(name="tieringPolicy")
     private @Nullable Output<OntapVolumeTieringPolicyArgs> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+     * @return Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeTieringPolicyArgs>> tieringPolicy() {
@@ -297,14 +297,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      * 
      */
     @Import(name="volumeStyle")
     private @Nullable Output<String> volumeStyle;
 
     /**
-     * @return Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * @return Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      * 
      */
     public Optional<Output<String>> volumeStyle() {
@@ -312,14 +312,14 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of volume, currently the only valid value is `ONTAP`.
+     * Type of volume, currently the only valid value is `ONTAP`.
      * 
      */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
     /**
-     * @return The type of volume, currently the only valid value is `ONTAP`.
+     * @return Type of volume, currently the only valid value is `ONTAP`.
      * 
      */
     public Optional<Output<String>> volumeType() {
@@ -370,7 +370,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+         * @param aggregateConfiguration Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aggregateConfiguration The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+         * @param aggregateConfiguration Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bypassSnaplockEnterpriseRetention Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * @param bypassSnaplockEnterpriseRetention Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bypassSnaplockEnterpriseRetention Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * @param bypassSnaplockEnterpriseRetention Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+         * @param copyTagsToBackups Whether tags for the volume should be copied to backups. This value defaults to `false`.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+         * @param copyTagsToBackups Whether tags for the volume should be copied to backups. This value defaults to `false`.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the volume&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the volume&#39;s final backup.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the volume&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the volume&#39;s final backup.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+         * @param junctionPath Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param junctionPath Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+         * @param junctionPath Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * @param ontapVolumeType Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * @param ontapVolumeType Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+         * @param securityStyle Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -549,7 +549,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+         * @param securityStyle Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -559,7 +559,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInBytes Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInBytes Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInBytes Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInMegabytes Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeInMegabytes Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+         * @param sizeInMegabytes Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
          * 
          * @return builder
          * 
@@ -601,7 +601,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * @param skipFinalBackup Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * @param skipFinalBackup Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+         * @param snaplockConfiguration SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -633,7 +633,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snaplockConfiguration The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+         * @param snaplockConfiguration SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotPolicy Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+         * @param snapshotPolicy Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotPolicy Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+         * @param snapshotPolicy Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
          * 
          * @return builder
          * 
@@ -664,7 +664,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+         * @param storageEfficiencyEnabled Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
          * 
          * @return builder
          * 
@@ -675,7 +675,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageEfficiencyEnabled Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+         * @param storageEfficiencyEnabled Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
+         * @param storageVirtualMachineId Storage virtual machine in which to create the volume.
          * 
          * The following arguments are optional:
          * 
@@ -698,7 +698,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageVirtualMachineId Specifies the storage virtual machine in which to create the volume.
+         * @param storageVirtualMachineId Storage virtual machine in which to create the volume.
          * 
          * The following arguments are optional:
          * 
@@ -710,7 +710,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -731,7 +731,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+         * @param tieringPolicy Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -742,7 +742,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tieringPolicy The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+         * @param tieringPolicy Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -752,7 +752,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeStyle Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+         * @param volumeStyle Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
          * 
          * @return builder
          * 
@@ -763,7 +763,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeStyle Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+         * @param volumeStyle Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeType The type of volume, currently the only valid value is `ONTAP`.
+         * @param volumeType Type of volume, currently the only valid value is `ONTAP`.
          * 
          * @return builder
          * 
@@ -784,7 +784,7 @@ public final class OntapVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeType The type of volume, currently the only valid value is `ONTAP`.
+         * @param volumeType Type of volume, currently the only valid value is `ONTAP`.
          * 
          * @return builder
          * 

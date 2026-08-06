@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Amazon Data Firehose delivery stream.
+        /// </summary>
         [Input("streamName", required: true)]
         public Input<string> StreamName { get; set; } = null!;
 

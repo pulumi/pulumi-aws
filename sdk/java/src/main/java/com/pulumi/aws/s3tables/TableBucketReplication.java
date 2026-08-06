@@ -134,9 +134,17 @@ public class TableBucketReplication extends com.pulumi.resources.CustomResource 
     public Output<String> tableBucketArn() {
         return this.tableBucketArn;
     }
+    /**
+     * Version token of the replication configuration.
+     * 
+     */
     @Export(name="versionToken", refs={String.class}, tree="[0]")
     private Output<String> versionToken;
 
+    /**
+     * @return Version token of the replication configuration.
+     * 
+     */
     public Output<String> versionToken() {
         return this.versionToken;
     }

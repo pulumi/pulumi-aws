@@ -108,13 +108,13 @@ import (
 type ObjectLambdaAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Indicates whether this access point currently has a policy that allows public access.
+	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolOutput `pulumi:"hasPublicAccessPolicy"`
-	// The name of the Object Lambda Access Point.
+	// Name of the Object Lambda Access Point.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
+	// Object Lambda Access Point resource policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -153,26 +153,26 @@ func GetObjectLambdaAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
 type objectLambdaAccessPointPolicyState struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// Indicates whether this access point currently has a policy that allows public access.
+	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy *bool `pulumi:"hasPublicAccessPolicy"`
-	// The name of the Object Lambda Access Point.
+	// Name of the Object Lambda Access Point.
 	Name *string `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
+	// Object Lambda Access Point resource policy document.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type ObjectLambdaAccessPointPolicyState struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// Indicates whether this access point currently has a policy that allows public access.
+	// Whether this access point currently has a policy that allows public access.
 	HasPublicAccessPolicy pulumi.BoolPtrInput
-	// The name of the Object Lambda Access Point.
+	// Name of the Object Lambda Access Point.
 	Name pulumi.StringPtrInput
-	// The Object Lambda Access Point resource policy document.
+	// Object Lambda Access Point resource policy document.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -183,11 +183,11 @@ func (ObjectLambdaAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type objectLambdaAccessPointPolicyArgs struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The name of the Object Lambda Access Point.
+	// Name of the Object Lambda Access Point.
 	Name *string `pulumi:"name"`
-	// The Object Lambda Access Point resource policy document.
+	// Object Lambda Access Point resource policy document.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -195,11 +195,11 @@ type objectLambdaAccessPointPolicyArgs struct {
 
 // The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
 type ObjectLambdaAccessPointPolicyArgs struct {
-	// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The name of the Object Lambda Access Point.
+	// Name of the Object Lambda Access Point.
 	Name pulumi.StringPtrInput
-	// The Object Lambda Access Point resource policy document.
+	// Object Lambda Access Point resource policy document.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -292,22 +292,22 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 	return o
 }
 
-// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o ObjectLambdaAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Indicates whether this access point currently has a policy that allows public access.
+// Whether this access point currently has a policy that allows public access.
 func (o ObjectLambdaAccessPointPolicyOutput) HasPublicAccessPolicy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.BoolOutput { return v.HasPublicAccessPolicy }).(pulumi.BoolOutput)
 }
 
-// The name of the Object Lambda Access Point.
+// Name of the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Object Lambda Access Point resource policy document.
+// Object Lambda Access Point resource policy document.
 func (o ObjectLambdaAccessPointPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPointPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

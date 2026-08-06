@@ -37,14 +37,14 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Contains information about where to publish the inventory results (documented below).
+     * Where to publish the inventory results. See `destination` Block below.
      * 
      */
     @Import(name="destination", required=true)
     private Output<InventoryDestinationArgs> destination;
 
     /**
-     * @return Contains information about where to publish the inventory results (documented below).
+     * @return Where to publish the inventory results. See `destination` Block below.
      * 
      */
     public Output<InventoryDestinationArgs> destination() {
@@ -52,14 +52,14 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the inventory is enabled or disabled.
+     * Whether to enable the inventory.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether the inventory is enabled or disabled.
+     * @return Whether to enable the inventory.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -67,14 +67,14 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<InventoryFilterArgs> filter;
 
     /**
-     * @return Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * @return Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     public Optional<Output<InventoryFilterArgs>> filter() {
@@ -142,14 +142,18 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the schedule for generating inventory results (documented below).
+     * Schedule for generating inventory results. See `schedule` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="schedule", required=true)
     private Output<InventoryScheduleArgs> schedule;
 
     /**
-     * @return Specifies the schedule for generating inventory results (documented below).
+     * @return Schedule for generating inventory results. See `schedule` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<InventoryScheduleArgs> schedule() {
@@ -210,7 +214,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Contains information about where to publish the inventory results (documented below).
+         * @param destination Where to publish the inventory results. See `destination` Block below.
          * 
          * @return builder
          * 
@@ -221,7 +225,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Contains information about where to publish the inventory results (documented below).
+         * @param destination Where to publish the inventory results. See `destination` Block below.
          * 
          * @return builder
          * 
@@ -231,7 +235,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the inventory is enabled or disabled.
+         * @param enabled Whether to enable the inventory.
          * 
          * @return builder
          * 
@@ -242,7 +246,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether the inventory is enabled or disabled.
+         * @param enabled Whether to enable the inventory.
          * 
          * @return builder
          * 
@@ -252,7 +256,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filter Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+         * @param filter Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -263,7 +267,7 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filter Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+         * @param filter Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
          * 
          * @return builder
          * 
@@ -367,7 +371,9 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule Specifies the schedule for generating inventory results (documented below).
+         * @param schedule Schedule for generating inventory results. See `schedule` Block below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -378,7 +384,9 @@ public final class InventoryArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule Specifies the schedule for generating inventory results (documented below).
+         * @param schedule Schedule for generating inventory results. See `schedule` Block below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

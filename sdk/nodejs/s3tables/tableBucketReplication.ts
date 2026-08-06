@@ -87,6 +87,9 @@ export class TableBucketReplication extends pulumi.CustomResource {
      * ARN referencing the Table Bucket that owns this replication configuration.
      */
     declare public readonly tableBucketArn: pulumi.Output<string>;
+    /**
+     * Version token of the replication configuration.
+     */
     declare public /*out*/ readonly versionToken: pulumi.Output<string>;
 
     /**
@@ -146,6 +149,9 @@ export interface TableBucketReplicationState {
      * ARN referencing the Table Bucket that owns this replication configuration.
      */
     tableBucketArn?: pulumi.Input<string | undefined>;
+    /**
+     * Version token of the replication configuration.
+     */
     versionToken?: pulumi.Input<string | undefined>;
 }
 

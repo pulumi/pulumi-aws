@@ -12,18 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInfrastructureOptimization {
     /**
-     * @return This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-     * * Not set (null) - Uses the default optimization behavior.
-     * * `-1` - Disables automatic infrastructure optimization.
+     * @return Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
      * 
      */
     private @Nullable Integer scaleInAfter;
 
     private CapacityProviderManagedInstancesProviderInfrastructureOptimization() {}
     /**
-     * @return This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are:
-     * * Not set (null) - Uses the default optimization behavior.
-     * * `-1` - Disables automatic infrastructure optimization.
+     * @return Number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are `-1` to disable automatic infrastructure optimization, `0` to `3600` (inclusive) to specify the number of seconds to wait before optimizing instances, or leave unset (null) to use the default optimization behavior.
      * 
      */
     public Optional<Integer> scaleInAfter() {

@@ -17,14 +17,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs();
 
     /**
-     * Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+     * Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
      * 
      */
     @Import(name="prefixFormat")
     private @Nullable Output<String> prefixFormat;
 
     /**
-     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+     * @return Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
      * 
      */
     public Optional<Output<String>> prefixFormat() {
@@ -32,14 +32,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     @Import(name="prefixHierarchies")
     private @Nullable Output<List<String>> prefixHierarchies;
 
     /**
-     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+     * @return Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
      * 
      */
     public Optional<Output<List<String>>> prefixHierarchies() {
@@ -47,14 +47,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+     * Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
      */
     @Import(name="prefixType")
     private @Nullable Output<String> prefixType;
 
     /**
-     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+     * @return Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
      */
     public Optional<Output<String>> prefixType() {
@@ -88,7 +88,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         * @param prefixFormat Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         * @param prefixFormat Level of granularity included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+         * @param prefixHierarchies Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         * @param prefixType Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         * @param prefixType Format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
          * 
          * @return builder
          * 

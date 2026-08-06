@@ -17,14 +17,14 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
     public static final ListenerDefaultActionForwardArgs Empty = new ListenerDefaultActionForwardArgs();
 
     /**
-     * One or more target group blocks.
+     * One or more target group blocks. See `targetGroups` Block below.
      * 
      */
     @Import(name="targetGroups")
     private @Nullable Output<List<ListenerDefaultActionForwardTargetGroupArgs>> targetGroups;
 
     /**
-     * @return One or more target group blocks.
+     * @return One or more target group blocks. See `targetGroups` Block below.
      * 
      */
     public Optional<Output<List<ListenerDefaultActionForwardTargetGroupArgs>>> targetGroups() {
@@ -56,7 +56,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups One or more target group blocks.
+         * @param targetGroups One or more target group blocks. See `targetGroups` Block below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups One or more target group blocks.
+         * @param targetGroups One or more target group blocks. See `targetGroups` Block below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ListenerDefaultActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param targetGroups One or more target group blocks.
+         * @param targetGroups One or more target group blocks. See `targetGroups` Block below.
          * 
          * @return builder
          * 

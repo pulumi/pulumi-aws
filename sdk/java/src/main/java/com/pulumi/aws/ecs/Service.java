@@ -946,14 +946,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -1002,14 +1002,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.volumeConfiguration);
     }
     /**
-     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
     @Export(name="vpcLatticeConfigurations", refs={List.class,ServiceVpcLatticeConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceVpcLatticeConfiguration>> vpcLatticeConfigurations;
 
     /**
-     * @return The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * @return VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
     public Output<Optional<List<ServiceVpcLatticeConfiguration>>> vpcLatticeConfigurations() {

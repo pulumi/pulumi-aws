@@ -38,28 +38,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure")
 public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResource {
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     @Export(name="activatedStorageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> activatedStorageCount;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     public Output<Integer> activatedStorageCount() {
         return this.activatedStorageCount;
     }
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     @Export(name="additionalStorageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> additionalStorageCount;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     public Output<Integer> additionalStorageCount() {
@@ -80,200 +80,196 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.arn;
     }
     /**
-     * The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * @return Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
-     * @return The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * @return AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
     /**
-     * The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+     * Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
      * 
      */
     @Export(name="availableStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> availableStorageSizeInGbs;
 
     /**
-     * @return The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+     * @return Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
      * 
      */
     public Output<Integer> availableStorageSizeInGbs() {
         return this.availableStorageSizeInGbs;
     }
     /**
-     * The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="computeCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> computeCount;
 
     /**
-     * @return The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * @return Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> computeCount() {
         return this.computeCount;
     }
     /**
-     * The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+     * OCI model compute model used when you create or clone an instance: ECPU or OCPU.
      * 
      */
     @Export(name="computeModel", refs={String.class}, tree="[0]")
     private Output<String> computeModel;
 
     /**
-     * @return The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
+     * @return OCI model compute model used when you create or clone an instance: ECPU or OCPU.
      * 
      */
     public Output<String> computeModel() {
         return this.computeModel;
     }
     /**
-     * The total number of CPU cores that are allocated to the Exadata infrastructure.
+     * Total number of CPU cores that are allocated to the Exadata infrastructure.
      * 
      */
     @Export(name="cpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> cpuCount;
 
     /**
-     * @return The total number of CPU cores that are allocated to the Exadata infrastructure.
+     * @return Total number of CPU cores that are allocated to the Exadata infrastructure.
      * 
      */
     public Output<Integer> cpuCount() {
         return this.cpuCount;
     }
     /**
-     * The time when the Exadata infrastructure was created.
+     * Time when the Exadata infrastructure was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The time when the Exadata infrastructure was created.
+     * @return Time when the Exadata infrastructure was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="customerContactsToSendToOcis", refs={List.class,CloudExadataInfrastructureCustomerContactsToSendToOci.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CloudExadataInfrastructureCustomerContactsToSendToOci>> customerContactsToSendToOcis;
 
     /**
-     * @return The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * @return Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<List<CloudExadataInfrastructureCustomerContactsToSendToOci>>> customerContactsToSendToOcis() {
         return Codegen.optional(this.customerContactsToSendToOcis);
     }
     /**
-     * The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
+     * Size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
      * 
      */
     @Export(name="dataStorageSizeInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
+     * @return Size of the Exadata infrastructure&#39;s data disk group, in terabytes (TB).
      * 
      */
     public Output<Double> dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
     /**
-     * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+     * Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="databaseServerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseServerType;
 
     /**
-     * @return The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+     * @return Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> databaseServerType() {
         return Codegen.optional(this.databaseServerType);
     }
     /**
-     * The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
+     * Size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
      * 
      */
     @Export(name="dbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> dbNodeStorageSizeInGbs;
 
     /**
-     * @return The size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
+     * @return Size of the Exadata infrastructure&#39;s local node storage, in gigabytes (GB).
      * 
      */
     public Output<Integer> dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * The software version of the database servers (dom0) in the Exadata infrastructure.
+     * Software version of the database servers (dom0) in the Exadata infrastructure.
      * 
      */
     @Export(name="dbServerVersion", refs={String.class}, tree="[0]")
     private Output<String> dbServerVersion;
 
     /**
-     * @return The software version of the database servers (dom0) in the Exadata infrastructure.
+     * @return Software version of the database servers (dom0) in the Exadata infrastructure.
      * 
      */
     public Output<String> dbServerVersion() {
         return this.dbServerVersion;
     }
     /**
-     * The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+     * User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+     * @return User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+     * Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
      * 
      */
     @Export(name="lastMaintenanceRunId", refs={String.class}, tree="[0]")
     private Output<String> lastMaintenanceRunId;
 
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+     * @return Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
      * 
      */
     public Output<String> lastMaintenanceRunId() {
@@ -294,168 +290,168 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.maintenanceWindow;
     }
     /**
-     * The total number of CPU cores available on the Exadata infrastructure.
+     * Total number of CPU cores available on the Exadata infrastructure.
      * 
      */
     @Export(name="maxCpuCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCpuCount;
 
     /**
-     * @return The total number of CPU cores available on the Exadata infrastructure.
+     * @return Total number of CPU cores available on the Exadata infrastructure.
      * 
      */
     public Output<Integer> maxCpuCount() {
         return this.maxCpuCount;
     }
     /**
-     * The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
+     * Total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
      * 
      */
     @Export(name="maxDataStorageInTbs", refs={Double.class}, tree="[0]")
     private Output<Double> maxDataStorageInTbs;
 
     /**
-     * @return The total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
+     * @return Total amount of data disk group storage, in terabytes (TB), that&#39;s available on the Exadata infrastructure.
      * 
      */
     public Output<Double> maxDataStorageInTbs() {
         return this.maxDataStorageInTbs;
     }
     /**
-     * The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
+     * Total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
      * 
      */
     @Export(name="maxDbNodeStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxDbNodeStorageSizeInGbs;
 
     /**
-     * @return The total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
+     * @return Total amount of local node storage, in gigabytes (GB), that&#39;s available on the Exadata infrastructure.
      * 
      */
     public Output<Integer> maxDbNodeStorageSizeInGbs() {
         return this.maxDbNodeStorageSizeInGbs;
     }
     /**
-     * The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+     * Total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
      * 
      */
     @Export(name="maxMemoryInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxMemoryInGbs;
 
     /**
-     * @return The total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
+     * @return Total amount of memory in gigabytes (GB) available on the Exadata infrastructure.
      * 
      */
     public Output<Integer> maxMemoryInGbs() {
         return this.maxMemoryInGbs;
     }
     /**
-     * The amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure
+     * Amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure.
      * 
      */
     @Export(name="memorySizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated on the Exadata infrastructure.
      * 
      */
     public Output<Integer> memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * The monthly software version of the database servers in the Exadata infrastructure.
+     * Monthly software version of the database servers in the Exadata infrastructure.
      * 
      */
     @Export(name="monthlyDbServerVersion", refs={String.class}, tree="[0]")
     private Output<String> monthlyDbServerVersion;
 
     /**
-     * @return The monthly software version of the database servers in the Exadata infrastructure.
+     * @return Monthly software version of the database servers in the Exadata infrastructure.
      * 
      */
     public Output<String> monthlyDbServerVersion() {
         return this.monthlyDbServerVersion;
     }
     /**
-     * The monthly software version of the storage servers installed on the Exadata infrastructure.
+     * Monthly software version of the storage servers installed on the Exadata infrastructure.
      * 
      */
     @Export(name="monthlyStorageServerVersion", refs={String.class}, tree="[0]")
     private Output<String> monthlyStorageServerVersion;
 
     /**
-     * @return The monthly software version of the storage servers installed on the Exadata infrastructure.
+     * @return Monthly software version of the storage servers installed on the Exadata infrastructure.
      * 
      */
     public Output<String> monthlyStorageServerVersion() {
         return this.monthlyStorageServerVersion;
     }
     /**
-     * The OCID of the next maintenance run for the Exadata infrastructure.
+     * OCID of the next maintenance run for the Exadata infrastructure.
      * 
      */
     @Export(name="nextMaintenanceRunId", refs={String.class}, tree="[0]")
     private Output<String> nextMaintenanceRunId;
 
     /**
-     * @return The OCID of the next maintenance run for the Exadata infrastructure.
+     * @return OCID of the next maintenance run for the Exadata infrastructure.
      * 
      */
     public Output<String> nextMaintenanceRunId() {
         return this.nextMaintenanceRunId;
     }
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * Name of the OCI resource anchor for the Exadata infrastructure.
      * 
      */
     @Export(name="ociResourceAnchorName", refs={String.class}, tree="[0]")
     private Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor for the Exadata infrastructure.
+     * @return Name of the OCI resource anchor for the Exadata infrastructure.
      * 
      */
     public Output<String> ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * The HTTPS link to the Exadata infrastructure in OCI
+     * HTTPS link to the Exadata infrastructure in OCI.
      * 
      */
     @Export(name="ociUrl", refs={String.class}, tree="[0]")
     private Output<String> ociUrl;
 
     /**
-     * @return The HTTPS link to the Exadata infrastructure in OCI
+     * @return HTTPS link to the Exadata infrastructure in OCI.
      * 
      */
     public Output<String> ociUrl() {
         return this.ociUrl;
     }
     /**
-     * The OCID of the Exadata infrastructure.
+     * OCID of the Exadata infrastructure.
      * 
      */
     @Export(name="ocid", refs={String.class}, tree="[0]")
     private Output<String> ocid;
 
     /**
-     * @return The OCID of the Exadata infrastructure.
+     * @return OCID of the Exadata infrastructure.
      * 
      */
     public Output<String> ocid() {
         return this.ocid;
     }
     /**
-     * The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+     * Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
      * 
      */
     @Export(name="percentProgress", refs={Double.class}, tree="[0]")
     private Output<Double> percentProgress;
 
     /**
-     * @return The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
      * 
      */
     public Output<Double> percentProgress() {
@@ -476,28 +472,28 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="shape", refs={String.class}, tree="[0]")
     private Output<String> shape;
 
     /**
-     * @return The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * @return Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> shape() {
         return this.shape;
     }
     /**
-     * The current status of the Exadata infrastructure.
+     * Current status of the Exadata infrastructure.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the Exadata infrastructure.
+     * @return Current status of the Exadata infrastructure.
      * 
      */
     public Output<String> status() {
@@ -518,56 +514,60 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return this.statusReason;
     }
     /**
-     * The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="storageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCount;
 
     /**
-     * @return The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * @return Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> storageCount() {
         return this.storageCount;
     }
     /**
-     * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+     * Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="storageServerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageServerType;
 
     /**
-     * @return The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+     * @return Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> storageServerType() {
         return Codegen.optional(this.storageServerType);
     }
     /**
-     * The software version of the storage servers on the Exadata infrastructure.
+     * Software version of the storage servers on the Exadata infrastructure.
      * 
      */
     @Export(name="storageServerVersion", refs={String.class}, tree="[0]")
     private Output<String> storageServerVersion;
 
     /**
-     * @return The software version of the storage servers on the Exadata infrastructure.
+     * @return Software version of the storage servers on the Exadata infrastructure.
      * 
      */
     public Output<String> storageServerVersion() {
         return this.storageServerVersion;
     }
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -586,14 +586,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+     * Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
      * 
      */
     @Export(name="totalStorageSizeInGbs", refs={Integer.class}, tree="[0]")
     private Output<Integer> totalStorageSizeInGbs;
 
     /**
-     * @return The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+     * @return Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
      * 
      */
     public Output<Integer> totalStorageSizeInGbs() {

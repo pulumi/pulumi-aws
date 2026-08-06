@@ -189,6 +189,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
+        /// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -419,6 +425,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
+
+        /// <summary>
+        /// State of the connection. See [CreateConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html#API_CreateConnection_ResponseSyntax) for list of possible state values.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

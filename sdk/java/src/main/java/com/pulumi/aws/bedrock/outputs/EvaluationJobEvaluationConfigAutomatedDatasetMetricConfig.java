@@ -23,7 +23,7 @@ public final class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
      */
     private List<String> metricNames;
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
      * 
      */
     private String taskType;
@@ -44,7 +44,7 @@ public final class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfig {
         return this.metricNames;
     }
     /**
-     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluatorModelConfig`).
+     * @return Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
      * 
      */
     public String taskType() {

@@ -51,18 +51,14 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * Resource type parameters.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * @return Resource type parameters.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -117,12 +113,16 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     /**
      * Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
      * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * 
      */
     @Import(name="selectionMode", required=true)
     private Output<String> selectionMode;
 
     /**
      * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
      * 
      */
     public Output<String> selectionMode() {
@@ -212,9 +212,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param parameters The resource type parameters.
-         * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+         * @param parameters Resource type parameters.
          * 
          * @return builder
          * 
@@ -225,9 +223,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param parameters The resource type parameters.
-         * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+         * @param parameters Resource type parameters.
          * 
          * @return builder
          * 
@@ -322,6 +318,8 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param selectionMode Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
          * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+         * 
          * @return builder
          * 
          */
@@ -332,6 +330,8 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
 
         /**
          * @param selectionMode Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
          * 
          * @return builder
          * 

@@ -14,28 +14,28 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class NetworkManagedService
     {
         /// <summary>
-        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// List of regions enabled for cross-region restore in the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccess> CrossRegionS3RestoreSourcesAccesses;
         /// <summary>
-        /// Specifies the configuration for KMS access from the ODB network.
+        /// Configuration for KMS access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> KmsAccesses;
         public readonly ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> ManagedS3BackupAccesses;
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
         public readonly string ResourceGatewayArn;
         /// <summary>
-        /// Specifies the configuration for Amazon S3 access from the ODB network.
+        /// Configuration for Amazon S3 access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceS3Access> S3Accesses;
         public readonly string ServiceNetworkArn;
         public readonly ImmutableArray<Outputs.NetworkManagedServiceServiceNetworkEndpoint> ServiceNetworkEndpoints;
         /// <summary>
-        /// Specifies the configuration for STS access from the ODB network.
+        /// Configuration for STS access from the ODB network.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagedServiceStsAccess> StsAccesses;
         /// <summary>
-        /// Specifies the configuration for Zero-ETL access from the ODB network.
+        /// Configuration for Zero-ETL access from the ODB network.
         /// 
         /// The following arguments are optional:
         /// </summary>

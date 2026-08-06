@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLogDestination {
     /**
-     * @return Contains information about an Amazon Data Firehose delivery stream.
+     * @return Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
      * 
      */
     private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream firehoseStream;
     /**
-     * @return Contains information about an Amazon S3 bucket.
+     * @return Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
      * 
      */
     private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket s3Bucket;
 
     private IngestionDestinationDestinationConfigurationAuditLogDestination() {}
     /**
-     * @return Contains information about an Amazon Data Firehose delivery stream.
+     * @return Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
      * 
      */
     public Optional<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream> firehoseStream() {
         return Optional.ofNullable(this.firehoseStream);
     }
     /**
-     * @return Contains information about an Amazon S3 bucket.
+     * @return Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
      * 
      */
     public Optional<IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket> s3Bucket() {

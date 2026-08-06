@@ -65,16 +65,12 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
-     * This configuration block has the following optional arguments (one of the three is required):
-     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
      * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-     * 
-     * This configuration block has the following optional arguments (one of the three is required):
      * 
      */
     public Output<String> type() {
@@ -200,8 +196,6 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param type Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
          * 
-         * This configuration block has the following optional arguments (one of the three is required):
-         * 
          * @return builder
          * 
          */
@@ -212,8 +206,6 @@ public final class ObjectCopyGrantArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param type Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-         * 
-         * This configuration block has the following optional arguments (one of the three is required):
          * 
          * @return builder
          * 

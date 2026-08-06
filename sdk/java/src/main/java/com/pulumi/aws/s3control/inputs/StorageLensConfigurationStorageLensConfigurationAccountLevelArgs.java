@@ -22,14 +22,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelArgs();
 
     /**
-     * S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+     * S3 Storage Lens activity metrics. See `activityMetrics` below for more details.
      * 
      */
     @Import(name="activityMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs> activityMetrics;
 
     /**
-     * @return S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+     * @return S3 Storage Lens activity metrics. See `activityMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs>> activityMetrics() {
@@ -37,14 +37,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
-     * Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+     * Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` below for more details.
      * 
      */
     @Import(name="advancedCostOptimizationMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs> advancedCostOptimizationMetrics;
 
     /**
-     * @return Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+     * @return Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs>> advancedCostOptimizationMetrics() {
@@ -52,14 +52,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
-     * Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+     * Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` below for more details.
      * 
      */
     @Import(name="advancedDataProtectionMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs> advancedDataProtectionMetrics;
 
     /**
-     * @return Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+     * @return Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs>> advancedDataProtectionMetrics() {
@@ -67,14 +67,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
-     * Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+     * Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` below for more details.
      * 
      */
     @Import(name="advancedPerformanceMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs> advancedPerformanceMetrics;
 
     /**
-     * @return Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+     * @return Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs>> advancedPerformanceMetrics() {
@@ -82,14 +82,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
-     * S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+     * S3 Storage Lens bucket-level configuration. See `bucketLevel` below for more details.
      * 
      */
     @Import(name="bucketLevel", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs> bucketLevel;
 
     /**
-     * @return S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+     * @return S3 Storage Lens bucket-level configuration. See `bucketLevel` below for more details.
      * 
      */
     public Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs> bucketLevel() {
@@ -97,14 +97,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
     }
 
     /**
-     * Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+     * Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` below for more details.
      * 
      */
     @Import(name="detailedStatusCodeMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs> detailedStatusCodeMetrics;
 
     /**
-     * @return Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+     * @return Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs>> detailedStatusCodeMetrics() {
@@ -141,7 +141,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param activityMetrics S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+         * @param activityMetrics S3 Storage Lens activity metrics. See `activityMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param activityMetrics S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+         * @param activityMetrics S3 Storage Lens activity metrics. See `activityMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedCostOptimizationMetrics Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+         * @param advancedCostOptimizationMetrics Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedCostOptimizationMetrics Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+         * @param advancedCostOptimizationMetrics Advanced cost-optimization metrics for S3 Storage Lens. See `advancedCostOptimizationMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedDataProtectionMetrics Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+         * @param advancedDataProtectionMetrics Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedDataProtectionMetrics Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+         * @param advancedDataProtectionMetrics Advanced data-protection metrics for S3 Storage Lens. See `advancedDataProtectionMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+         * @param advancedPerformanceMetrics Advanced performance metrics for S3 Storage Lens. See `advancedPerformanceMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param bucketLevel S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+         * @param bucketLevel S3 Storage Lens bucket-level configuration. See `bucketLevel` below for more details.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param bucketLevel S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+         * @param bucketLevel S3 Storage Lens bucket-level configuration. See `bucketLevel` below for more details.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param detailedStatusCodeMetrics Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+         * @param detailedStatusCodeMetrics Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelA
         }
 
         /**
-         * @param detailedStatusCodeMetrics Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+         * @param detailedStatusCodeMetrics Detailed status code metrics for S3 Storage Lens. See `detailedStatusCodeMetrics` below for more details.
          * 
          * @return builder
          * 

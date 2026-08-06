@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/storageLensConfiguration:StorageLensConfiguration")
 public class StorageLensConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
@@ -142,14 +142,14 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
         return this.arn;
     }
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      * 
      */
     @Export(name="configId", refs={String.class}, tree="[0]")
     private Output<String> configId;
 
     /**
-     * @return The ID of the S3 Storage Lens configuration.
+     * @return ID of the S3 Storage Lens configuration.
      * 
      */
     public Output<String> configId() {
@@ -170,14 +170,14 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     @Export(name="storageLensConfiguration", refs={StorageLensConfigurationStorageLensConfiguration.class}, tree="[0]")
     private Output<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration;
 
     /**
-     * @return The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * @return S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     public Output<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration() {
@@ -198,14 +198,14 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

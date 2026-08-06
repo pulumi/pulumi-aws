@@ -157,14 +157,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.apiId;
     }
     /**
-     * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+     * Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     @Export(name="apiKeyRequired", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> apiKeyRequired;
 
     /**
-     * @return Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+     * @return Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     public Output<Optional<Boolean>> apiKeyRequired() {
@@ -185,20 +185,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizationScopes);
     }
     /**
-     * Authorization type for the route.
-     * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * Defaults to `NONE`.
+     * Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
      * 
      */
     @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizationType;
 
     /**
-     * @return Authorization type for the route.
-     * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * Defaults to `NONE`.
+     * @return Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
      * 
      */
     public Output<Optional<String>> authorizationType() {
@@ -219,14 +213,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authorizerId);
     }
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
     @Export(name="modelSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> modelSelectionExpression;
 
     /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * @return [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
     public Output<Optional<String>> modelSelectionExpression() {
@@ -275,14 +269,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requestModels);
     }
     /**
-     * Request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
      * 
      */
     @Export(name="requestParameters", refs={List.class,RouteRequestParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RouteRequestParameter>> requestParameters;
 
     /**
-     * @return Request parameters for the route. Supported only for WebSocket APIs.
+     * @return Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
      * 
      */
     public Output<Optional<List<RouteRequestParameter>>> requestParameters() {
@@ -303,14 +297,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.routeKey;
     }
     /**
-     * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
     @Export(name="routeResponseSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> routeResponseSelectionExpression;
 
     /**
-     * @return The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * @return [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
     public Output<Optional<String>> routeResponseSelectionExpression() {

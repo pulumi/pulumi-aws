@@ -19,14 +19,14 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
     public static final RouteSpecHttpRouteMatchHeaderArgs Empty = new RouteSpecHttpRouteMatchHeaderArgs();
 
     /**
-     * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+     * Whether to match on the opposite of the `match` method and value. Default is `false`.
      * 
      */
     @Import(name="invert")
     private @Nullable Output<Boolean> invert;
 
     /**
-     * @return If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+     * @return Whether to match on the opposite of the `match` method and value. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> invert() {
@@ -34,14 +34,14 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
     }
 
     /**
-     * Method and value to match the header value sent with a request. Specify one match method.
+     * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecHttpRouteMatchHeaderMatchArgs> match;
 
     /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteMatchHeaderMatchArgs>> match() {
@@ -49,14 +49,14 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
     }
 
     /**
-     * Name for the HTTP header in the client request that will be matched on.
+     * Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name for the HTTP header in the client request that will be matched on.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -90,7 +90,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param invert If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         * @param invert Whether to match on the opposite of the `match` method and value. Default is `false`.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param invert If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+         * @param invert Whether to match on the opposite of the `match` method and value. Default is `false`.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param match Method and value to match the header value sent with a request. Specify one match method.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param match Method and value to match the header value sent with a request. Specify one match method.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Name for the HTTP header in the client request that will be matched on.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Name for the HTTP header in the client request that will be matched on.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

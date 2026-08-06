@@ -31,13 +31,13 @@ class OntapStorageVirtualMachineArgs:
         """
         The set of arguments for constructing a OntapStorageVirtualMachine resource.
 
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        :param pulumi.Input[_builtins.str] file_system_id: ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        :param pulumi.Input[_builtins.str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[_builtins.str] name: Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        :param pulumi.Input[_builtins.str] svm_admin_password: Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] root_volume_security_style: Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[_builtins.str] svm_admin_password: Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if active_directory_configuration is not None:
@@ -57,7 +57,7 @@ class OntapStorageVirtualMachineArgs:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -81,7 +81,7 @@ class OntapStorageVirtualMachineArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         """
         return pulumi.get(self, "name")
 
@@ -105,7 +105,7 @@ class OntapStorageVirtualMachineArgs:
     @pulumi.getter(name="rootVolumeSecurityStyle")
     def root_volume_security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         """
         return pulumi.get(self, "root_volume_security_style")
 
@@ -117,7 +117,7 @@ class OntapStorageVirtualMachineArgs:
     @pulumi.getter(name="svmAdminPassword")
     def svm_admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         """
         return pulumi.get(self, "svm_admin_password")
 
@@ -129,7 +129,7 @@ class OntapStorageVirtualMachineArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -158,16 +158,16 @@ class _OntapStorageVirtualMachineState:
 
         :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the storage virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        :param pulumi.Input[_builtins.str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]] endpoints: Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[_builtins.str] file_system_id: ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        :param pulumi.Input[_builtins.str] name: Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        :param pulumi.Input[_builtins.str] subtype: Describes the SVM's subtype, e.g. `DEFAULT`
-        :param pulumi.Input[_builtins.str] svm_admin_password: Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] uuid: The SVM's UUID (universally unique identifier).
+        :param pulumi.Input[_builtins.str] root_volume_security_style: Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[_builtins.str] subtype: SVM's subtype, e.g. `DEFAULT`
+        :param pulumi.Input[_builtins.str] svm_admin_password: Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] uuid: SVM's UUID (universally unique identifier).
         """
         if active_directory_configuration is not None:
             pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
@@ -222,7 +222,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]]]:
         """
-        The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
         return pulumi.get(self, "endpoints")
 
@@ -234,7 +234,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -246,7 +246,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         """
         return pulumi.get(self, "name")
 
@@ -270,7 +270,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter(name="rootVolumeSecurityStyle")
     def root_volume_security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         """
         return pulumi.get(self, "root_volume_security_style")
 
@@ -282,7 +282,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter
     def subtype(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Describes the SVM's subtype, e.g. `DEFAULT`
+        SVM's subtype, e.g. `DEFAULT`
         """
         return pulumi.get(self, "subtype")
 
@@ -294,7 +294,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter(name="svmAdminPassword")
     def svm_admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         """
         return pulumi.get(self, "svm_admin_password")
 
@@ -306,7 +306,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -318,7 +318,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -330,7 +330,7 @@ class _OntapStorageVirtualMachineState:
     @pulumi.getter
     def uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SVM's UUID (universally unique identifier).
+        SVM's UUID (universally unique identifier).
         """
         return pulumi.get(self, "uuid")
 
@@ -416,12 +416,12 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs', 'OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        :param pulumi.Input[_builtins.str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[_builtins.str] file_system_id: ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        :param pulumi.Input[_builtins.str] name: Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        :param pulumi.Input[_builtins.str] svm_admin_password: Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] root_volume_security_style: Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[_builtins.str] svm_admin_password: Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -567,16 +567,16 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs', 'OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the storage virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OntapStorageVirtualMachineEndpointArgs', 'OntapStorageVirtualMachineEndpointArgsDict']]]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-        :param pulumi.Input[_builtins.str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        :param pulumi.Input[_builtins.str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OntapStorageVirtualMachineEndpointArgs', 'OntapStorageVirtualMachineEndpointArgsDict']]]] endpoints: Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[_builtins.str] file_system_id: ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        :param pulumi.Input[_builtins.str] name: Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
-        :param pulumi.Input[_builtins.str] subtype: Describes the SVM's subtype, e.g. `DEFAULT`
-        :param pulumi.Input[_builtins.str] svm_admin_password: Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] uuid: The SVM's UUID (universally unique identifier).
+        :param pulumi.Input[_builtins.str] root_volume_security_style: Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        :param pulumi.Input[_builtins.str] subtype: SVM's subtype, e.g. `DEFAULT`
+        :param pulumi.Input[_builtins.str] svm_admin_password: Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] uuid: SVM's UUID (universally unique identifier).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -616,7 +616,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def endpoints(self) -> pulumi.Output[Sequence['outputs.OntapStorageVirtualMachineEndpoint']]:
         """
-        The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
         return pulumi.get(self, "endpoints")
 
@@ -624,7 +624,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+        ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -632,7 +632,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+        Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         """
         return pulumi.get(self, "name")
 
@@ -648,7 +648,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="rootVolumeSecurityStyle")
     def root_volume_security_style(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+        Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         """
         return pulumi.get(self, "root_volume_security_style")
 
@@ -656,7 +656,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def subtype(self) -> pulumi.Output[_builtins.str]:
         """
-        Describes the SVM's subtype, e.g. `DEFAULT`
+        SVM's subtype, e.g. `DEFAULT`
         """
         return pulumi.get(self, "subtype")
 
@@ -664,7 +664,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="svmAdminPassword")
     def svm_admin_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+        Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         """
         return pulumi.get(self, "svm_admin_password")
 
@@ -672,7 +672,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -680,7 +680,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -688,7 +688,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def uuid(self) -> pulumi.Output[_builtins.str]:
         """
-        The SVM's UUID (universally unique identifier).
+        SVM's UUID (universally unique identifier).
         """
         return pulumi.get(self, "uuid")
 

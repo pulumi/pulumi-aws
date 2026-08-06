@@ -15,44 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatch {
     /**
-     * @return The header matches.
-     * Matches incoming requests with rule based on request header value before applying rule action.
-     * See `headerMatches` Block for details.
+     * @return Header matches that match incoming requests based on the request header value before applying the rule action. See `headerMatches` Block for details.
      * 
      */
     private @Nullable List<ListenerRuleMatchHttpMatchHeaderMatch> headerMatches;
     /**
-     * @return The HTTP method type.
+     * @return HTTP method type.
      * 
      */
     private @Nullable String method;
     /**
-     * @return The path match.
-     * See `pathMatch` Block for details.
+     * @return Path match. See `pathMatch` Block for details.
      * 
      */
     private @Nullable ListenerRuleMatchHttpMatchPathMatch pathMatch;
 
     private ListenerRuleMatchHttpMatch() {}
     /**
-     * @return The header matches.
-     * Matches incoming requests with rule based on request header value before applying rule action.
-     * See `headerMatches` Block for details.
+     * @return Header matches that match incoming requests based on the request header value before applying the rule action. See `headerMatches` Block for details.
      * 
      */
     public List<ListenerRuleMatchHttpMatchHeaderMatch> headerMatches() {
         return this.headerMatches == null ? List.of() : this.headerMatches;
     }
     /**
-     * @return The HTTP method type.
+     * @return HTTP method type.
      * 
      */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return The path match.
-     * See `pathMatch` Block for details.
+     * @return Path match. See `pathMatch` Block for details.
      * 
      */
     public Optional<ListenerRuleMatchHttpMatchPathMatch> pathMatch() {

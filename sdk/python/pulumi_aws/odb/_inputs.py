@@ -68,27 +68,27 @@ __all__ = [
 class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     preference: pulumi.Input[_builtins.str]
     """
-    The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+    Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
     """
     days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgsDict']]]]]
     """
-    The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+    Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
     """
     hours_of_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+    Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
     """
     lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+    Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
     """
     months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgsDict']]]]]
     """
-    The months when maintenance can be performed. Changing this will force terraform to create new resource.
+    Months when maintenance can be performed. Changing this will force terraform to create new resource.
     """
     weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+    Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
     """
 
 @pulumi.input_type
@@ -101,12 +101,12 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
                  months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]] = None,
                  weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] preference: The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_days: The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
-        :param pulumi.Input[_builtins.int] lead_time_in_weeks: The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]] months: The months when maintenance can be performed. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] weeks_of_months: Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] preference: Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_days: Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.int] lead_time_in_weeks: Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]] months: Months when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] weeks_of_months: Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         pulumi.set(__self__, "preference", preference)
         if days_of_weeks is not None:
@@ -124,7 +124,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter
     def preference(self) -> pulumi.Input[_builtins.str]:
         """
-        The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+        Preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "preference")
 
@@ -136,7 +136,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]:
         """
-        The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        Days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -148,7 +148,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter(name="hoursOfDays")
     def hours_of_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+        Hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "hours_of_days")
 
@@ -160,7 +160,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter(name="leadTimeInWeeks")
     def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+        Lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
@@ -172,7 +172,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter
     def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]:
         """
-        The months when maintenance can be performed. Changing this will force terraform to create new resource.
+        Months when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "months")
 
@@ -184,7 +184,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgs:
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
+        Whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "weeks_of_months")
 
@@ -322,39 +322,39 @@ class CloudExadataInfrastructureCustomerContactsToSendToOciArgs:
 class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
     custom_action_timeout_in_mins: pulumi.Input[_builtins.int]
     """
-    The custom action timeout in minutes for the maintenance window.
+    Custom action timeout in minutes for the maintenance window.
     """
     is_custom_action_timeout_enabled: pulumi.Input[_builtins.bool]
     """
-    ndicates whether custom action timeout is enabled for the maintenance window.
+    Whether custom action timeout is enabled for the maintenance window.
     """
     patching_mode: pulumi.Input[_builtins.str]
     """
-    The patching mode for the maintenance window.
+    Patching mode for the maintenance window.
     """
     preference: pulumi.Input[_builtins.str]
     """
-    The preference for the maintenance window scheduling.
+    Preference for the maintenance window scheduling.
     """
     days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgsDict']]]]]
     """
-    The days of the week when maintenance can be performed.
+    Days of the week when maintenance can be performed.
     """
     hours_of_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    The hours of the day when maintenance can be performed.
+    Hours of the day when maintenance can be performed.
     """
     lead_time_in_weeks: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The lead time in weeks before the maintenance window.
+    Lead time in weeks before the maintenance window.
     """
     months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgsDict']]]]]
     """
-    The months when maintenance can be performed.
+    Months when maintenance can be performed.
     """
     weeks_of_months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    The weeks of the month when maintenance can be performed.
+    Weeks of the month when maintenance can be performed.
     """
 
 @pulumi.input_type
@@ -370,15 +370,15 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
                  months: pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]] = None,
                  weeks_of_months: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input[_builtins.int] custom_action_timeout_in_mins: The custom action timeout in minutes for the maintenance window.
-        :param pulumi.Input[_builtins.bool] is_custom_action_timeout_enabled: ndicates whether custom action timeout is enabled for the maintenance window.
-        :param pulumi.Input[_builtins.str] patching_mode: The patching mode for the maintenance window.
-        :param pulumi.Input[_builtins.str] preference: The preference for the maintenance window scheduling.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: The days of the week when maintenance can be performed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_days: The hours of the day when maintenance can be performed.
-        :param pulumi.Input[_builtins.int] lead_time_in_weeks: The lead time in weeks before the maintenance window.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]] months: The months when maintenance can be performed.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] weeks_of_months: The weeks of the month when maintenance can be performed.
+        :param pulumi.Input[_builtins.int] custom_action_timeout_in_mins: Custom action timeout in minutes for the maintenance window.
+        :param pulumi.Input[_builtins.bool] is_custom_action_timeout_enabled: Whether custom action timeout is enabled for the maintenance window.
+        :param pulumi.Input[_builtins.str] patching_mode: Patching mode for the maintenance window.
+        :param pulumi.Input[_builtins.str] preference: Preference for the maintenance window scheduling.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]] days_of_weeks: Days of the week when maintenance can be performed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] hours_of_days: Hours of the day when maintenance can be performed.
+        :param pulumi.Input[_builtins.int] lead_time_in_weeks: Lead time in weeks before the maintenance window.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]] months: Months when maintenance can be performed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] weeks_of_months: Weeks of the month when maintenance can be performed.
         """
         pulumi.set(__self__, "custom_action_timeout_in_mins", custom_action_timeout_in_mins)
         pulumi.set(__self__, "is_custom_action_timeout_enabled", is_custom_action_timeout_enabled)
@@ -399,7 +399,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="customActionTimeoutInMins")
     def custom_action_timeout_in_mins(self) -> pulumi.Input[_builtins.int]:
         """
-        The custom action timeout in minutes for the maintenance window.
+        Custom action timeout in minutes for the maintenance window.
         """
         return pulumi.get(self, "custom_action_timeout_in_mins")
 
@@ -411,7 +411,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="isCustomActionTimeoutEnabled")
     def is_custom_action_timeout_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        ndicates whether custom action timeout is enabled for the maintenance window.
+        Whether custom action timeout is enabled for the maintenance window.
         """
         return pulumi.get(self, "is_custom_action_timeout_enabled")
 
@@ -423,7 +423,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="patchingMode")
     def patching_mode(self) -> pulumi.Input[_builtins.str]:
         """
-        The patching mode for the maintenance window.
+        Patching mode for the maintenance window.
         """
         return pulumi.get(self, "patching_mode")
 
@@ -435,7 +435,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter
     def preference(self) -> pulumi.Input[_builtins.str]:
         """
-        The preference for the maintenance window scheduling.
+        Preference for the maintenance window scheduling.
         """
         return pulumi.get(self, "preference")
 
@@ -447,7 +447,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]:
         """
-        The days of the week when maintenance can be performed.
+        Days of the week when maintenance can be performed.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -459,7 +459,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="hoursOfDays")
     def hours_of_days(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        The hours of the day when maintenance can be performed.
+        Hours of the day when maintenance can be performed.
         """
         return pulumi.get(self, "hours_of_days")
 
@@ -471,7 +471,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="leadTimeInWeeks")
     def lead_time_in_weeks(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The lead time in weeks before the maintenance window.
+        Lead time in weeks before the maintenance window.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
@@ -483,7 +483,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter
     def months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]:
         """
-        The months when maintenance can be performed.
+        Months when maintenance can be performed.
         """
         return pulumi.get(self, "months")
 
@@ -495,7 +495,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgs:
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        The weeks of the month when maintenance can be performed.
+        Weeks of the month when maintenance can be performed.
         """
         return pulumi.get(self, "weeks_of_months")
 
@@ -613,8 +613,17 @@ class CloudExadataInfrastructureTimeoutsArgs:
 
 class CloudVmClusterDataCollectionOptionsArgsDict(TypedDict):
     is_diagnostics_events_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+    """
     is_health_monitoring_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+    """
     is_incident_logs_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+    """
 
 @pulumi.input_type
 class CloudVmClusterDataCollectionOptionsArgs:
@@ -622,6 +631,11 @@ class CloudVmClusterDataCollectionOptionsArgs:
                  is_diagnostics_events_enabled: pulumi.Input[_builtins.bool],
                  is_health_monitoring_enabled: pulumi.Input[_builtins.bool],
                  is_incident_logs_enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] is_diagnostics_events_enabled: Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.bool] is_health_monitoring_enabled: Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input[_builtins.bool] is_incident_logs_enabled: Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+        """
         pulumi.set(__self__, "is_diagnostics_events_enabled", is_diagnostics_events_enabled)
         pulumi.set(__self__, "is_health_monitoring_enabled", is_health_monitoring_enabled)
         pulumi.set(__self__, "is_incident_logs_enabled", is_incident_logs_enabled)
@@ -629,6 +643,9 @@ class CloudVmClusterDataCollectionOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="isDiagnosticsEventsEnabled")
     def is_diagnostics_events_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+        """
         return pulumi.get(self, "is_diagnostics_events_enabled")
 
     @is_diagnostics_events_enabled.setter
@@ -638,6 +655,9 @@ class CloudVmClusterDataCollectionOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="isHealthMonitoringEnabled")
     def is_health_monitoring_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+        """
         return pulumi.get(self, "is_health_monitoring_enabled")
 
     @is_health_monitoring_enabled.setter
@@ -647,6 +667,9 @@ class CloudVmClusterDataCollectionOptionsArgs:
     @_builtins.property
     @pulumi.getter(name="isIncidentLogsEnabled")
     def is_incident_logs_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+        """
         return pulumi.get(self, "is_incident_logs_enabled")
 
     @is_incident_logs_enabled.setter
@@ -824,28 +847,28 @@ class CloudVmClusterTimeoutsArgs:
 class NetworkManagedServiceArgsDict(TypedDict):
     cross_region_s3_restore_sources_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgsDict']]]
     """
-    The list of regions enabled for cross-region restore in the ODB network.
+    List of regions enabled for cross-region restore in the ODB network.
     """
     kms_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgsDict']]]
     """
-    Specifies the configuration for KMS access from the ODB network.
+    Configuration for KMS access from the ODB network.
     """
     managed_s3_backup_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceManagedS3BackupAccessArgsDict']]]
     managed_service_ipv4_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     resource_gateway_arn: pulumi.Input[_builtins.str]
     s3_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgsDict']]]
     """
-    Specifies the configuration for Amazon S3 access from the ODB network.
+    Configuration for Amazon S3 access from the ODB network.
     """
     service_network_arn: pulumi.Input[_builtins.str]
     service_network_endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceServiceNetworkEndpointArgsDict']]]
     sts_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgsDict']]]
     """
-    Specifies the configuration for STS access from the ODB network.
+    Configuration for STS access from the ODB network.
     """
     zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgsDict']]]
     """
-    Specifies the configuration for Zero-ETL access from the ODB network.
+    Configuration for Zero-ETL access from the ODB network.
 
     The following arguments are optional:
     """
@@ -864,11 +887,11 @@ class NetworkManagedServiceArgs:
                  sts_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]],
                  zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs']]] cross_region_s3_restore_sources_accesses: The list of regions enabled for cross-region restore in the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]] kms_accesses: Specifies the configuration for KMS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]] s3_accesses: Specifies the configuration for Amazon S3 access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]] sts_accesses: Specifies the configuration for STS access from the ODB network.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]] zero_etl_accesses: Specifies the configuration for Zero-ETL access from the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs']]] cross_region_s3_restore_sources_accesses: List of regions enabled for cross-region restore in the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]] kms_accesses: Configuration for KMS access from the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]] s3_accesses: Configuration for Amazon S3 access from the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]] sts_accesses: Configuration for STS access from the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]] zero_etl_accesses: Configuration for Zero-ETL access from the ODB network.
                
                The following arguments are optional:
         """
@@ -887,7 +910,7 @@ class NetworkManagedServiceArgs:
     @pulumi.getter(name="crossRegionS3RestoreSourcesAccesses")
     def cross_region_s3_restore_sources_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs']]]:
         """
-        The list of regions enabled for cross-region restore in the ODB network.
+        List of regions enabled for cross-region restore in the ODB network.
         """
         return pulumi.get(self, "cross_region_s3_restore_sources_accesses")
 
@@ -899,7 +922,7 @@ class NetworkManagedServiceArgs:
     @pulumi.getter(name="kmsAccesses")
     def kms_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]]:
         """
-        Specifies the configuration for KMS access from the ODB network.
+        Configuration for KMS access from the ODB network.
         """
         return pulumi.get(self, "kms_accesses")
 
@@ -938,7 +961,7 @@ class NetworkManagedServiceArgs:
     @pulumi.getter(name="s3Accesses")
     def s3_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]]:
         """
-        Specifies the configuration for Amazon S3 access from the ODB network.
+        Configuration for Amazon S3 access from the ODB network.
         """
         return pulumi.get(self, "s3_accesses")
 
@@ -968,7 +991,7 @@ class NetworkManagedServiceArgs:
     @pulumi.getter(name="stsAccesses")
     def sts_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]]:
         """
-        Specifies the configuration for STS access from the ODB network.
+        Configuration for STS access from the ODB network.
         """
         return pulumi.get(self, "sts_accesses")
 
@@ -980,7 +1003,7 @@ class NetworkManagedServiceArgs:
     @pulumi.getter(name="zeroEtlAccesses")
     def zero_etl_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]:
         """
-        Specifies the configuration for Zero-ETL access from the ODB network.
+        Configuration for Zero-ETL access from the ODB network.
 
         The following arguments are optional:
         """
@@ -999,7 +1022,7 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgsDict(TypedDict):
     """
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
 
 @pulumi.input_type
@@ -1010,7 +1033,7 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs:
                  status: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
         """
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "region", region)
@@ -1041,7 +1064,7 @@ class NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -1055,11 +1078,11 @@ class NetworkManagedServiceKmsAccessArgsDict(TypedDict):
     ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     kms_policy_document: pulumi.Input[_builtins.str]
     """
-    Specifies the endpoint policy for KMS access from the ODB network.
+    Endpoint policy for KMS access from the ODB network.
     """
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
 
 @pulumi.input_type
@@ -1070,8 +1093,8 @@ class NetworkManagedServiceKmsAccessArgs:
                  kms_policy_document: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] kms_policy_document: Endpoint policy for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -1100,7 +1123,7 @@ class NetworkManagedServiceKmsAccessArgs:
     @pulumi.getter(name="kmsPolicyDocument")
     def kms_policy_document(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the endpoint policy for KMS access from the ODB network.
+        Endpoint policy for KMS access from the ODB network.
         """
         return pulumi.get(self, "kms_policy_document")
 
@@ -1112,7 +1135,7 @@ class NetworkManagedServiceKmsAccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -1125,7 +1148,7 @@ class NetworkManagedServiceManagedS3BackupAccessArgsDict(TypedDict):
     ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
 
 @pulumi.input_type
@@ -1134,7 +1157,7 @@ class NetworkManagedServiceManagedS3BackupAccessArgs:
                  ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
         """
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "status", status)
@@ -1152,7 +1175,7 @@ class NetworkManagedServiceManagedS3BackupAccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -1166,11 +1189,11 @@ class NetworkManagedServiceS3AccessArgsDict(TypedDict):
     ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     s3_policy_document: pulumi.Input[_builtins.str]
     """
-    Specifies the endpoint policy for Amazon S3 access from the ODB network.
+    Endpoint policy for Amazon S3 access from the ODB network.
     """
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
 
 @pulumi.input_type
@@ -1181,8 +1204,8 @@ class NetworkManagedServiceS3AccessArgs:
                  s3_policy_document: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] s3_policy_document: Endpoint policy for Amazon S3 access from the ODB network.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -1211,7 +1234,7 @@ class NetworkManagedServiceS3AccessArgs:
     @pulumi.getter(name="s3PolicyDocument")
     def s3_policy_document(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        Endpoint policy for Amazon S3 access from the ODB network.
         """
         return pulumi.get(self, "s3_policy_document")
 
@@ -1223,7 +1246,7 @@ class NetworkManagedServiceS3AccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -1268,11 +1291,11 @@ class NetworkManagedServiceStsAccessArgsDict(TypedDict):
     ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
     sts_policy_document: pulumi.Input[_builtins.str]
     """
-    Specifies the endpoint policy for STS access from the ODB network.
+    Endpoint policy for STS access from the ODB network.
     """
 
 @pulumi.input_type
@@ -1283,8 +1306,8 @@ class NetworkManagedServiceStsAccessArgs:
                  status: pulumi.Input[_builtins.str],
                  sts_policy_document: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
-        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Endpoint policy for STS access from the ODB network.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
@@ -1313,7 +1336,7 @@ class NetworkManagedServiceStsAccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -1325,7 +1348,7 @@ class NetworkManagedServiceStsAccessArgs:
     @pulumi.getter(name="stsPolicyDocument")
     def sts_policy_document(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the endpoint policy for STS access from the ODB network.
+        Endpoint policy for STS access from the ODB network.
         """
         return pulumi.get(self, "sts_policy_document")
 
@@ -1338,7 +1361,7 @@ class NetworkManagedServiceZeroEtlAccessArgsDict(TypedDict):
     cidr: pulumi.Input[_builtins.str]
     status: pulumi.Input[_builtins.str]
     """
-    The status of the network resource.
+    Status of the network resource.
     """
 
 @pulumi.input_type
@@ -1347,7 +1370,7 @@ class NetworkManagedServiceZeroEtlAccessArgs:
                  cidr: pulumi.Input[_builtins.str],
                  status: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] status: Status of the network resource.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "status", status)
@@ -1365,7 +1388,7 @@ class NetworkManagedServiceZeroEtlAccessArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[_builtins.str]:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 

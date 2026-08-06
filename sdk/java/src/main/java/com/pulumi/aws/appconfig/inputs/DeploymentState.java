@@ -153,14 +153,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+     * @return KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -198,14 +198,14 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -454,7 +454,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * @param kmsKeyIdentifier KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyIdentifier The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
+         * @param kmsKeyIdentifier KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

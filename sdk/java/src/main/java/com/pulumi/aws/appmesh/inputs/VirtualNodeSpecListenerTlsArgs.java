@@ -19,14 +19,14 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
     public static final VirtualNodeSpecListenerTlsArgs Empty = new VirtualNodeSpecListenerTlsArgs();
 
     /**
-     * Listener&#39;s TLS certificate.
+     * Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
      * 
      */
     @Import(name="certificate", required=true)
     private Output<VirtualNodeSpecListenerTlsCertificateArgs> certificate;
 
     /**
-     * @return Listener&#39;s TLS certificate.
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
      * 
      */
     public Output<VirtualNodeSpecListenerTlsCertificateArgs> certificate() {
@@ -49,14 +49,14 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
+     * Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     @Import(name="validation")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationArgs>> validation() {
@@ -90,7 +90,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param certificate Listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param certificate Listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 

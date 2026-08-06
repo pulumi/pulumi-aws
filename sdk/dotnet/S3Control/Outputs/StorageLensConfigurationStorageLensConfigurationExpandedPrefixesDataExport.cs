@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     {
         /// <summary>
-        /// The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+        /// Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `S3BucketDestination` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination? S3BucketDestination;
         /// <summary>
-        /// S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+        /// S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `StorageLensTableDestination` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestination? StorageLensTableDestination;
 

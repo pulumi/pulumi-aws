@@ -19,14 +19,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs();
 
     /**
-     * The location of the SAPOData resource.
+     * Location of the SAPOData resource.
      * 
      */
     @Import(name="applicationHostUrl", required=true)
     private Output<String> applicationHostUrl;
 
     /**
-     * @return The location of the SAPOData resource.
+     * @return Location of the SAPOData resource.
      * 
      */
     public Output<String> applicationHostUrl() {
@@ -34,14 +34,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The application path to catalog service.
+     * Application path to catalog service.
      * 
      */
     @Import(name="applicationServicePath", required=true)
     private Output<String> applicationServicePath;
 
     /**
-     * @return The application path to catalog service.
+     * @return Application path to catalog service.
      * 
      */
     public Output<String> applicationServicePath() {
@@ -49,14 +49,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The client number for the client creating the connection.
+     * Client number for the client creating the connection.
      * 
      */
     @Import(name="clientNumber", required=true)
     private Output<String> clientNumber;
 
     /**
-     * @return The client number for the client creating the connection.
+     * @return Client number for the client creating the connection.
      * 
      */
     public Output<String> clientNumber() {
@@ -64,14 +64,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The logon language of SAPOData instance.
+     * Logon language of the SAPOData instance.
      * 
      */
     @Import(name="logonLanguage")
     private @Nullable Output<String> logonLanguage;
 
     /**
-     * @return The logon language of SAPOData instance.
+     * @return Logon language of the SAPOData instance.
      * 
      */
     public Optional<Output<String>> logonLanguage() {
@@ -79,14 +79,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The SAPOData OAuth properties required for OAuth type authentication.
+     * SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
      * 
      */
     @Import(name="oauthProperties")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs> oauthProperties;
 
     /**
-     * @return The SAPOData OAuth properties required for OAuth type authentication.
+     * @return SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs>> oauthProperties() {
@@ -94,23 +94,31 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The port number of the SAPOData instance.
+     * Port number of the SAPOData instance.
      * 
      */
     @Import(name="portNumber", required=true)
     private Output<Integer> portNumber;
 
     /**
-     * @return The port number of the SAPOData instance.
+     * @return Port number of the SAPOData instance.
      * 
      */
     public Output<Integer> portNumber() {
         return this.portNumber;
     }
 
+    /**
+     * Snowflake Private Link service name to be used for private data transfers.
+     * 
+     */
     @Import(name="privateLinkServiceName")
     private @Nullable Output<String> privateLinkServiceName;
 
+    /**
+     * @return Snowflake Private Link service name to be used for private data transfers.
+     * 
+     */
     public Optional<Output<String>> privateLinkServiceName() {
         return Optional.ofNullable(this.privateLinkServiceName);
     }
@@ -146,7 +154,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param applicationHostUrl The location of the SAPOData resource.
+         * @param applicationHostUrl Location of the SAPOData resource.
          * 
          * @return builder
          * 
@@ -157,7 +165,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param applicationHostUrl The location of the SAPOData resource.
+         * @param applicationHostUrl Location of the SAPOData resource.
          * 
          * @return builder
          * 
@@ -167,7 +175,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param applicationServicePath The application path to catalog service.
+         * @param applicationServicePath Application path to catalog service.
          * 
          * @return builder
          * 
@@ -178,7 +186,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param applicationServicePath The application path to catalog service.
+         * @param applicationServicePath Application path to catalog service.
          * 
          * @return builder
          * 
@@ -188,7 +196,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param clientNumber The client number for the client creating the connection.
+         * @param clientNumber Client number for the client creating the connection.
          * 
          * @return builder
          * 
@@ -199,7 +207,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param clientNumber The client number for the client creating the connection.
+         * @param clientNumber Client number for the client creating the connection.
          * 
          * @return builder
          * 
@@ -209,7 +217,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param logonLanguage The logon language of SAPOData instance.
+         * @param logonLanguage Logon language of the SAPOData instance.
          * 
          * @return builder
          * 
@@ -220,7 +228,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param logonLanguage The logon language of SAPOData instance.
+         * @param logonLanguage Logon language of the SAPOData instance.
          * 
          * @return builder
          * 
@@ -230,7 +238,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauthProperties The SAPOData OAuth properties required for OAuth type authentication.
+         * @param oauthProperties SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
          * 
          * @return builder
          * 
@@ -241,7 +249,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param oauthProperties The SAPOData OAuth properties required for OAuth type authentication.
+         * @param oauthProperties SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
          * 
          * @return builder
          * 
@@ -251,7 +259,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param portNumber The port number of the SAPOData instance.
+         * @param portNumber Port number of the SAPOData instance.
          * 
          * @return builder
          * 
@@ -262,7 +270,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param portNumber The port number of the SAPOData instance.
+         * @param portNumber Port number of the SAPOData instance.
          * 
          * @return builder
          * 
@@ -271,11 +279,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return portNumber(Output.of(portNumber));
         }
 
+        /**
+         * @param privateLinkServiceName Snowflake Private Link service name to be used for private data transfers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceName(@Nullable Output<String> privateLinkServiceName) {
             $.privateLinkServiceName = privateLinkServiceName;
             return this;
         }
 
+        /**
+         * @param privateLinkServiceName Snowflake Private Link service name to be used for private data transfers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceName(String privateLinkServiceName) {
             return privateLinkServiceName(Output.of(privateLinkServiceName));
         }

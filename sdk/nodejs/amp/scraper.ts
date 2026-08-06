@@ -94,6 +94,34 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### CloudWatch Destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Scraper("example", {
+ *     source: {
+ *         eks: {
+ *             clusterArn: exampleAwsEksCluster.arn,
+ *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
+ *         },
+ *     },
+ *     destination: {
+ *         cloudwatch: {
+ *             datasetArn: "arn:aws:cloudwatch:us-west-2:123456789012:dataset/default",
+ *         },
+ *     },
+ *     scrapeConfiguration: `global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: pod_exporter
+ *     kubernetes_sd_configs:
+ *       - role: pod
+ * `,
+ * });
+ * ```
+ *
  * ### VPC Configuration
  *
  * ```typescript
@@ -233,11 +261,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import the Managed Scraper using its identifier.
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) ID of the scraper.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import scrapers using `id`.
  * For example:
  *
  * ```sh
- * $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+ * $ pulumi import aws:amp/scraper:Scraper example s-b6f487db-4761-4930-9215-e9d588a7efe2
  * ```
  */
 export class Scraper extends pulumi.CustomResource {
@@ -269,15 +308,15 @@ export class Scraper extends pulumi.CustomResource {
     }
 
     /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      */
     declare public readonly alias: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the new scraper.
+     * ARN of the scraper.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
+     * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      */
     declare public readonly destination: pulumi.Output<outputs.amp.ScraperDestination>;
     /**
@@ -285,24 +324,30 @@ export class Scraper extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
     declare public /*out*/ readonly roleArn: pulumi.Output<string>;
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      */
     declare public readonly roleConfiguration: pulumi.Output<outputs.amp.ScraperRoleConfiguration | undefined>;
     /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     declare public readonly scrapeConfiguration: pulumi.Output<string>;
     /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      *
      * The following arguments are optional:
      */
     declare public readonly source: pulumi.Output<outputs.amp.ScraperSource | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
 
@@ -360,15 +405,15 @@ export class Scraper extends pulumi.CustomResource {
  */
 export interface ScraperState {
     /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      */
     alias?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the new scraper.
+     * ARN of the scraper.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
+     * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination | undefined>;
     /**
@@ -376,24 +421,30 @@ export interface ScraperState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      */
     roleConfiguration?: pulumi.Input<inputs.amp.ScraperRoleConfiguration | undefined>;
     /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     scrapeConfiguration?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      *
      * The following arguments are optional:
      */
     source?: pulumi.Input<inputs.amp.ScraperSource | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts | undefined>;
 }
@@ -403,11 +454,11 @@ export interface ScraperState {
  */
 export interface ScraperArgs {
     /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      */
     alias?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
+     * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      */
     destination: pulumi.Input<inputs.amp.ScraperDestination>;
     /**
@@ -415,19 +466,22 @@ export interface ScraperArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      */
     roleConfiguration?: pulumi.Input<inputs.amp.ScraperRoleConfiguration | undefined>;
     /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      */
     scrapeConfiguration: pulumi.Input<string>;
     /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      *
      * The following arguments are optional:
      */
     source?: pulumi.Input<inputs.amp.ScraperSource | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts | undefined>;
 }

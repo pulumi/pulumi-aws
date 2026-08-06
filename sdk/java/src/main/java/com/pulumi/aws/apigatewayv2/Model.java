@@ -92,14 +92,14 @@ public class Model extends com.pulumi.resources.CustomResource {
         return this.apiId;
     }
     /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
     /**
-     * @return The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * @return Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
     public Output<String> contentType() {

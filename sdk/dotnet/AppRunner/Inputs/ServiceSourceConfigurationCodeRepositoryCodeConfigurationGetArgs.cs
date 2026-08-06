@@ -13,17 +13,13 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceSourceConfigurationCodeRepositoryCodeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        /// Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `CodeConfigurationValues` below.
         /// </summary>
         [Input("codeConfigurationValues")]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesGetArgs>? CodeConfigurationValues { get; set; }
 
         /// <summary>
-        /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-        /// * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-        /// source code repository and ignores the CodeConfigurationValues parameter.
-        /// * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-        /// parameter and ignores the apprunner.yaml file in the source code repository.
+        /// Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `CodeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `CodeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
         /// </summary>
         [Input("configurationSource", required: true)]
         public Input<string> ConfigurationSource { get; set; } = null!;

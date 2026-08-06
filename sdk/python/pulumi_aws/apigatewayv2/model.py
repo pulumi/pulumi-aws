@@ -29,7 +29,7 @@ class ModelArgs:
         The set of arguments for constructing a Model resource.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[_builtins.str] content_type: Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
@@ -61,7 +61,7 @@ class ModelArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         """
         return pulumi.get(self, "content_type")
 
@@ -131,7 +131,7 @@ class _ModelState:
         Input properties used for looking up and filtering Model resources.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[_builtins.str] content_type: Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -166,7 +166,7 @@ class _ModelState:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         """
         return pulumi.get(self, "content_type")
 
@@ -276,7 +276,7 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[_builtins.str] content_type: Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -391,7 +391,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input[_builtins.str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        :param pulumi.Input[_builtins.str] content_type: Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the model. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -421,7 +421,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+        Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
         """
         return pulumi.get(self, "content_type")
 

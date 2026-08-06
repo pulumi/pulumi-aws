@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObjectCopyOverrideProvider {
     /**
-     * @return Override the provider `defaultTags` configuration block.
+     * @return Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
      * 
      */
     private @Nullable ObjectCopyOverrideProviderDefaultTags defaultTags;
 
     private ObjectCopyOverrideProvider() {}
     /**
-     * @return Override the provider `defaultTags` configuration block.
+     * @return Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
      * 
      */
     public Optional<ObjectCopyOverrideProviderDefaultTags> defaultTags() {

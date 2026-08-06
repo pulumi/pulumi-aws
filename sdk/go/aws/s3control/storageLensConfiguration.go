@@ -93,19 +93,19 @@ import (
 type StorageLensConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the S3 Storage Lens configuration.
+	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+	// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -145,36 +145,36 @@ func GetStorageLensConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageLensConfiguration resources.
 type storageLensConfigurationState struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn *string `pulumi:"arn"`
-	// The ID of the S3 Storage Lens configuration.
+	// ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+	// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 	StorageLensConfiguration *StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type StorageLensConfigurationState struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
 	Arn pulumi.StringPtrInput
-	// The ID of the S3 Storage Lens configuration.
+	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+	// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -183,13 +183,13 @@ func (StorageLensConfigurationState) ElementType() reflect.Type {
 }
 
 type storageLensConfigurationArgs struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The ID of the S3 Storage Lens configuration.
+	// ID of the S3 Storage Lens configuration.
 	ConfigId string `pulumi:"configId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+	// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -197,13 +197,13 @@ type storageLensConfigurationArgs struct {
 
 // The set of arguments for constructing a StorageLensConfiguration resource.
 type StorageLensConfigurationArgs struct {
-	// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The ID of the S3 Storage Lens configuration.
+	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+	// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -296,7 +296,7 @@ func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithCont
 	return o
 }
 
-// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o StorageLensConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
@@ -306,7 +306,7 @@ func (o StorageLensConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ID of the S3 Storage Lens configuration.
+// ID of the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) ConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.ConfigId }).(pulumi.StringOutput)
 }
@@ -316,7 +316,7 @@ func (o StorageLensConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+// S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
 func (o StorageLensConfigurationOutput) StorageLensConfiguration() StorageLensConfigurationStorageLensConfigurationOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) StorageLensConfigurationStorageLensConfigurationOutput {
 		return v.StorageLensConfiguration
@@ -328,7 +328,7 @@ func (o StorageLensConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StorageLensConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

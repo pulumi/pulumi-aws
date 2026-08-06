@@ -76,7 +76,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      */
     declare public readonly customerOwnedIpv4Pool: pulumi.Output<string | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface EndpointState {
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      */
     customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface EndpointArgs {
      */
     accessType?: pulumi.Input<string | undefined>;
     /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      */
     customerOwnedIpv4Pool?: pulumi.Input<string | undefined>;
     /**

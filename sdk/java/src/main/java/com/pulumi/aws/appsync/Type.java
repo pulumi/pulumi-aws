@@ -91,70 +91,70 @@ public class Type extends com.pulumi.resources.CustomResource {
         return this.apiId;
     }
     /**
-     * The ARN of the type.
+     * ARN of the type.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the type.
+     * @return ARN of the type.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The type definition.
+     * Type definition.
      * 
      */
     @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
     /**
-     * @return The type definition.
+     * @return Type definition.
      * 
      */
     public Output<String> definition() {
         return this.definition;
     }
     /**
-     * The type description.
+     * Type description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The type description.
+     * @return Type description.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The type format: `SDL` or `JSON`.
+     * Type format: `SDL` or `JSON`.
      * 
      */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
-     * @return The type format: `SDL` or `JSON`.
+     * @return Type format: `SDL` or `JSON`.
      * 
      */
     public Output<String> format() {
         return this.format;
     }
     /**
-     * The type name.
+     * Type name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The type name.
+     * @return Type name.
      * 
      */
     public Output<String> name() {

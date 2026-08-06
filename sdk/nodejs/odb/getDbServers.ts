@@ -38,7 +38,7 @@ export function getDbServers(args: GetDbServersArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetDbServersArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */
@@ -91,7 +91,7 @@ export function getDbServersOutput(args: GetDbServersOutputArgs, opts?: pulumi.I
  */
 export interface GetDbServersOutputArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */

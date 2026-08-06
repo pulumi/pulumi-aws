@@ -156,7 +156,7 @@ export class Target extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the scalable target.
+     * ARN of the scalable target.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Target extends pulumi.CustomResource {
      */
     declare public readonly serviceNamespace: pulumi.Output<string>;
     /**
-     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * Whether the scaling activities for a scalable target are in a suspended state.
      */
     declare public readonly suspendedState: pulumi.Output<outputs.appautoscaling.TargetSuspendedState>;
     /**
@@ -263,7 +263,7 @@ export class Target extends pulumi.CustomResource {
  */
 export interface TargetState {
     /**
-     * The ARN of the scalable target.
+     * ARN of the scalable target.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -295,7 +295,7 @@ export interface TargetState {
      */
     serviceNamespace?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * Whether the scaling activities for a scalable target are in a suspended state.
      */
     suspendedState?: pulumi.Input<inputs.appautoscaling.TargetSuspendedState | undefined>;
     /**
@@ -341,7 +341,7 @@ export interface TargetArgs {
      */
     serviceNamespace: pulumi.Input<string>;
     /**
-     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * Whether the scaling activities for a scalable target are in a suspended state.
      */
     suspendedState?: pulumi.Input<inputs.appautoscaling.TargetSuspendedState | undefined>;
     /**

@@ -73,6 +73,9 @@ namespace Pulumi.Aws.Ecs
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN that identifies the account setting.
+        /// </summary>
         [Output("principalArn")]
         public Output<string> PrincipalArn { get; private set; } = null!;
 
@@ -166,6 +169,9 @@ namespace Pulumi.Aws.Ecs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// ARN that identifies the account setting.
+        /// </summary>
         [Input("principalArn")]
         public Input<string>? PrincipalArn { get; set; }
 

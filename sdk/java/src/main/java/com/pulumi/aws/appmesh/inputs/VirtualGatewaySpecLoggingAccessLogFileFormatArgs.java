@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
     public static final VirtualGatewaySpecLoggingAccessLogFileFormatArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileFormatArgs();
 
     /**
-     * The logging format for JSON. See `json` Block for details.
+     * Logging format for JSON. See `json` Block for details.
      * 
      */
     @Import(name="jsons")
     private @Nullable Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>> jsons;
 
     /**
-     * @return The logging format for JSON. See `json` Block for details.
+     * @return Logging format for JSON. See `json` Block for details.
      * 
      */
     public Optional<Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>>> jsons() {
@@ -33,14 +33,14 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
     }
 
     /**
-     * The logging format for text. Must be between 1 and 1000 characters in length.
+     * Logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
     @Import(name="text")
     private @Nullable Output<String> text;
 
     /**
-     * @return The logging format for text. Must be between 1 and 1000 characters in length.
+     * @return Logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
     public Optional<Output<String>> text() {
@@ -73,7 +73,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON. See `json` Block for details.
+         * @param jsons Logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON. See `json` Block for details.
+         * @param jsons Logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON. See `json` Block for details.
+         * @param jsons Logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param text The logging format for text. Must be between 1 and 1000 characters in length.
+         * @param text Logging format for text. Must be between 1 and 1000 characters in length.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param text The logging format for text. Must be between 1 and 1000 characters in length.
+         * @param text Logging format for text. Must be between 1 and 1000 characters in length.
          * 
          * @return builder
          * 

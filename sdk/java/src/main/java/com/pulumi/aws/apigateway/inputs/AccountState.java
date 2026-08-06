@@ -18,14 +18,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     public static final AccountState Empty = new AccountState();
 
     /**
-     * The version of the API keys used for the account.
+     * Version of the API keys used for the account.
      * 
      */
     @Import(name="apiKeyVersion")
     private @Nullable Output<String> apiKeyVersion;
 
     /**
-     * @return The version of the API keys used for the account.
+     * @return Version of the API keys used for the account.
      * 
      */
     public Optional<Output<String>> apiKeyVersion() {
@@ -48,14 +48,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of features supported for the account.
+     * List of features supported for the account.
      * 
      */
     @Import(name="features")
     private @Nullable Output<List<String>> features;
 
     /**
-     * @return A list of features supported for the account.
+     * @return List of features supported for the account.
      * 
      */
     public Optional<Output<List<String>>> features() {
@@ -78,14 +78,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Account-Level throttle settings. See exported fields below.
+     * Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
      * 
      */
     @Import(name="throttleSettings")
     private @Nullable Output<List<AccountThrottleSettingArgs>> throttleSettings;
 
     /**
-     * @return Account-Level throttle settings. See exported fields below.
+     * @return Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
      * 
      */
     public Optional<Output<List<AccountThrottleSettingArgs>>> throttleSettings() {
@@ -121,7 +121,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKeyVersion The version of the API keys used for the account.
+         * @param apiKeyVersion Version of the API keys used for the account.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKeyVersion The version of the API keys used for the account.
+         * @param apiKeyVersion Version of the API keys used for the account.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param features A list of features supported for the account.
+         * @param features List of features supported for the account.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param features A list of features supported for the account.
+         * @param features List of features supported for the account.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param features A list of features supported for the account.
+         * @param features List of features supported for the account.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param throttleSettings Account-Level throttle settings. See exported fields below.
+         * @param throttleSettings Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
          * 
          * @return builder
          * 

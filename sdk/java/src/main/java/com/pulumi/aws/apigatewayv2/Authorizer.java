@@ -125,136 +125,112 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
         return this.apiId;
     }
     /**
-     * Required credentials as an IAM role for API Gateway to invoke the authorizer.
-     * Supported only for `REQUEST` authorizers.
+     * Required credentials as an IAM role for API Gateway to invoke the authorizer. Supported only for `REQUEST` authorizers.
      * 
      */
     @Export(name="authorizerCredentialsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerCredentialsArn;
 
     /**
-     * @return Required credentials as an IAM role for API Gateway to invoke the authorizer.
-     * Supported only for `REQUEST` authorizers.
+     * @return Required credentials as an IAM role for API Gateway to invoke the authorizer. Supported only for `REQUEST` authorizers.
      * 
      */
     public Output<Optional<String>> authorizerCredentialsArn() {
         return Codegen.optional(this.authorizerCredentialsArn);
     }
     /**
-     * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-     * Valid values: `1.0`, `2.0`.
+     * Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Valid values: `1.0`, `2.0`.
      * 
      */
     @Export(name="authorizerPayloadFormatVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerPayloadFormatVersion;
 
     /**
-     * @return Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers.
-     * Valid values: `1.0`, `2.0`.
+     * @return Format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Valid values: `1.0`, `2.0`.
      * 
      */
     public Output<Optional<String>> authorizerPayloadFormatVersion() {
         return Codegen.optional(this.authorizerPayloadFormatVersion);
     }
     /**
-     * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-     * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-     * Supported only for HTTP API Lambda authorizers.
+     * Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`. Supported only for HTTP API Lambda authorizers.
      * 
      */
     @Export(name="authorizerResultTtlInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> authorizerResultTtlInSeconds;
 
     /**
-     * @return Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled.
-     * If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`.
-     * Supported only for HTTP API Lambda authorizers.
+     * @return Time to live (TTL) for cached authorizer results, in seconds. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer responses. The maximum value is 3600, or 1 hour. Defaults to `300`. Supported only for HTTP API Lambda authorizers.
      * 
      */
     public Output<Integer> authorizerResultTtlInSeconds() {
         return this.authorizerResultTtlInSeconds;
     }
     /**
-     * Authorizer type. Valid values: `JWT`, `REQUEST`.
-     * Specify `REQUEST` for a Lambda function using incoming request parameters.
-     * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
+     * Authorizer type. Valid values: `JWT`, `REQUEST`. Specify `REQUEST` for a Lambda function using incoming request parameters. For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
      */
     @Export(name="authorizerType", refs={String.class}, tree="[0]")
     private Output<String> authorizerType;
 
     /**
-     * @return Authorizer type. Valid values: `JWT`, `REQUEST`.
-     * Specify `REQUEST` for a Lambda function using incoming request parameters.
-     * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
+     * @return Authorizer type. Valid values: `JWT`, `REQUEST`. Specify `REQUEST` for a Lambda function using incoming request parameters. For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
      */
     public Output<String> authorizerType() {
         return this.authorizerType;
     }
     /**
-     * Authorizer&#39;s Uniform Resource Identifier (URI).
-     * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
-     * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * Authorizer&#39;s Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
     @Export(name="authorizerUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authorizerUri;
 
     /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
-     * For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource.
-     * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
+     * @return Authorizer&#39;s Uniform Resource Identifier (URI). For `REQUEST` authorizers this must be a well-formed Lambda function URI, such as the `invokeArn` attribute of the `aws.lambda.Function` resource. Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
     public Output<Optional<String>> authorizerUri() {
         return Codegen.optional(this.authorizerUri);
     }
     /**
-     * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-     * Supported only for HTTP APIs.
+     * Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.
      * 
      */
     @Export(name="enableSimpleResponses", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableSimpleResponses;
 
     /**
-     * @return Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
-     * Supported only for HTTP APIs.
+     * @return Whether a Lambda authorizer returns a response in a simple format. If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy. Supported only for HTTP APIs.
      * 
      */
     public Output<Optional<Boolean>> enableSimpleResponses() {
         return Codegen.optional(this.enableSimpleResponses);
     }
     /**
-     * Identity sources for which authorization is requested.
-     * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-     * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
+     * Identity sources for which authorization is requested. For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters. For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
      */
     @Export(name="identitySources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> identitySources;
 
     /**
-     * @return Identity sources for which authorization is requested.
-     * For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
-     * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
+     * @return Identity sources for which authorization is requested. For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters. For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
      */
     public Output<Optional<List<String>>> identitySources() {
         return Codegen.optional(this.identitySources);
     }
     /**
-     * Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-     * Supported only for HTTP APIs.
+     * Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwtConfiguration` Block below.
      * 
      */
     @Export(name="jwtConfiguration", refs={AuthorizerJwtConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AuthorizerJwtConfiguration> jwtConfiguration;
 
     /**
-     * @return Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
-     * Supported only for HTTP APIs.
+     * @return Configuration of a JWT authorizer. Required for the `JWT` authorizer type. Supported only for HTTP APIs. See `jwtConfiguration` Block below.
      * 
      */
     public Output<Optional<AuthorizerJwtConfiguration>> jwtConfiguration() {

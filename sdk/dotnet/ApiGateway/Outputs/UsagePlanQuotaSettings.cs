@@ -22,7 +22,9 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly int? Offset;
         /// <summary>
-        /// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        /// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Period;
 

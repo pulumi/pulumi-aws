@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecGrpcRouteMatch {
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -26,7 +26,7 @@ public final class GatewayRouteSpecGrpcRouteMatch {
 
     private GatewayRouteSpecGrpcRouteMatch() {}
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Integer> port() {

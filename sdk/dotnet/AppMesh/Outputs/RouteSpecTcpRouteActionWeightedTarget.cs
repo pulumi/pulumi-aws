@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecTcpRouteActionWeightedTarget
     {
         /// <summary>
-        /// The targeted port of the weighted object.
+        /// Port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>

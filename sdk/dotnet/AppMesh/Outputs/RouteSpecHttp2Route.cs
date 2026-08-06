@@ -14,19 +14,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2Route
     {
         /// <summary>
-        /// Action to take if a match is determined.
+        /// Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteAction Action;
         /// <summary>
-        /// Criteria for determining an HTTP request match.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatch Match;
         /// <summary>
-        /// Retry policy.
+        /// Retry policy. See `spec.http_route.retry_policy` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteRetryPolicy? RetryPolicy;
         /// <summary>
-        /// Types of timeouts.
+        /// Types of timeouts. See `spec.tcp_route.timeout` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteTimeout? Timeout;
 

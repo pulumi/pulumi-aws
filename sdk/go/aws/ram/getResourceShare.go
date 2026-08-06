@@ -85,7 +85,7 @@ func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opt
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareArgs struct {
-	// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list e.g., by tags. See `filter` Block below.
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name *string `pulumi:"name"`
@@ -93,7 +93,7 @@ type LookupResourceShareArgs struct {
 	Region *string `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
-	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+	// Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
 	ResourceShareStatus *string `pulumi:"resourceShareStatus"`
 	// Tags attached to the resource share.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,7 +110,7 @@ type LookupResourceShareResult struct {
 	// ID of the AWS account that owns the resource share.
 	OwningAccountId string `pulumi:"owningAccountId"`
 	Region          string `pulumi:"region"`
-	// A list of resource ARNs associated with the resource share.
+	// List of resource ARNs associated with the resource share.
 	ResourceArns        []string `pulumi:"resourceArns"`
 	ResourceOwner       string   `pulumi:"resourceOwner"`
 	ResourceShareStatus *string  `pulumi:"resourceShareStatus"`
@@ -131,7 +131,7 @@ func LookupResourceShareOutput(ctx *pulumi.Context, args LookupResourceShareOutp
 
 // A collection of arguments for invoking getResourceShare.
 type LookupResourceShareOutputArgs struct {
-	// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+	// Filter used to scope the list e.g., by tags. See `filter` Block below.
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -139,7 +139,7 @@ type LookupResourceShareOutputArgs struct {
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
-	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+	// Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
 	ResourceShareStatus pulumi.StringPtrInput `pulumi:"resourceShareStatus"`
 	// Tags attached to the resource share.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -191,7 +191,7 @@ func (o LookupResourceShareResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list of resource ARNs associated with the resource share.
+// List of resource ARNs associated with the resource share.
 func (o LookupResourceShareResultOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }

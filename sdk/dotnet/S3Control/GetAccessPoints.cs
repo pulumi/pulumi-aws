@@ -217,7 +217,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class GetAccessPointsResult
     {
         /// <summary>
-        /// A list of access points matching the search criteria. See `AccessPoints` below.
+        /// List of access points matching the search criteria. See `AccessPoints` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointsAccessPointResult> AccessPoints;
         public readonly string? AccountId;

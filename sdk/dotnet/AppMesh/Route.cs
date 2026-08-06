@@ -265,7 +265,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Route specification to apply.
+        /// Route specification to apply. See `Spec` Block for details.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.RouteSpec> Spec { get; private set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Route specification to apply.
+        /// Route specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec", required: true)]
         public Input<Inputs.RouteSpecArgs> Spec { get; set; } = null!;
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// Route specification to apply.
+        /// Route specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.RouteSpecGetArgs>? Spec { get; set; }

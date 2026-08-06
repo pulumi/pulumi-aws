@@ -47,7 +47,7 @@ class GetDbNodesResult:
     @pulumi.getter(name="dbNodes")
     def db_nodes(self) -> Sequence['outputs.GetDbNodesDbNodeResult']:
         """
-        The list of DB nodes along with their properties.
+        List of DB nodes along with their properties.
         """
         return pulumi.get(self, "db_nodes")
 
@@ -88,7 +88,7 @@ def get_db_nodes(cloud_vm_cluster_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
+    :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -123,7 +123,7 @@ def get_db_nodes_output(cloud_vm_cluster_id: pulumi.Input[Optional[_builtins.str
     ```
 
 
-    :param _builtins.str cloud_vm_cluster_id: The unique identifier of the cloud vm cluster.
+    :param _builtins.str cloud_vm_cluster_id: Unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -20,14 +20,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     public static final ServiceNetworkVpcAssociationState Empty = new ServiceNetworkVpcAssociationState();
 
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the Association.
+     * @return ARN of the Association.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The account that created the association.
+     * Account that created the association.
      * 
      */
     @Import(name="createdBy")
     private @Nullable Output<String> createdBy;
 
     /**
-     * @return The account that created the association.
+     * @return Account that created the association.
      * 
      */
     public Optional<Output<String>> createdBy() {
@@ -95,14 +95,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The IDs of the security groups.
+     * @return IDs of the security groups.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -110,16 +110,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Import(name="serviceNetworkIdentifier")
     private @Nullable Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Optional<Output<String>> serviceNetworkIdentifier() {
@@ -127,14 +125,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * @return Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     public Optional<Output<String>> status() {
@@ -172,14 +170,14 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Import(name="vpcIdentifier")
     private @Nullable Output<String> vpcIdentifier;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Optional<Output<String>> vpcIdentifier() {
@@ -221,7 +219,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param arn The ARN of the Association.
+         * @param arn ARN of the Association.
          * 
          * @return builder
          * 
@@ -232,7 +230,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param arn The ARN of the Association.
+         * @param arn ARN of the Association.
          * 
          * @return builder
          * 
@@ -242,7 +240,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param createdBy The account that created the association.
+         * @param createdBy Account that created the association.
          * 
          * @return builder
          * 
@@ -253,7 +251,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param createdBy The account that created the association.
+         * @param createdBy Account that created the association.
          * 
          * @return builder
          * 
@@ -326,7 +324,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -337,7 +335,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -347,7 +345,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -357,8 +355,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -369,8 +366,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -380,7 +376,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param status The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+         * @param status Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
          * 
          * @return builder
          * 
@@ -391,7 +387,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param status The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+         * @param status Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
          * 
          * @return builder
          * 
@@ -443,7 +439,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 
@@ -454,7 +450,7 @@ public final class ServiceNetworkVpcAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
     public static final MultiRegionAccessPointPolicyArgs Empty = new MultiRegionAccessPointPolicyArgs();
 
     /**
-     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -33,14 +33,14 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     @Import(name="details", required=true)
     private Output<MultiRegionAccessPointPolicyDetailsArgs> details;
 
     /**
-     * @return A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     public Output<MultiRegionAccessPointPolicyDetailsArgs> details() {
@@ -89,7 +89,7 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class MultiRegionAccessPointPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
          * 
          * @return builder
          * 

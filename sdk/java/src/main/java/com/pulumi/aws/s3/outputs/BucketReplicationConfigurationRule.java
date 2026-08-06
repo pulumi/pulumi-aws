@@ -22,12 +22,12 @@ public final class BucketReplicationConfigurationRule {
      */
     private @Nullable String deleteMarkerReplicationStatus;
     /**
-     * @return Specifies the destination for the rule (documented below).
+     * @return Destination for the rule. See `destination` Block below for details.
      * 
      */
     private BucketReplicationConfigurationRuleDestination destination;
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
+     * @return Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
      * 
      */
     private @Nullable BucketReplicationConfigurationRuleFilter filter;
@@ -47,7 +47,7 @@ public final class BucketReplicationConfigurationRule {
      */
     private @Nullable Integer priority;
     /**
-     * @return Specifies special object selection criteria (documented below).
+     * @return Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
      * 
      */
     private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
@@ -66,14 +66,14 @@ public final class BucketReplicationConfigurationRule {
         return Optional.ofNullable(this.deleteMarkerReplicationStatus);
     }
     /**
-     * @return Specifies the destination for the rule (documented below).
+     * @return Destination for the rule. See `destination` Block below for details.
      * 
      */
     public BucketReplicationConfigurationRuleDestination destination() {
         return this.destination;
     }
     /**
-     * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
+     * @return Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
      * 
      */
     public Optional<BucketReplicationConfigurationRuleFilter> filter() {
@@ -101,7 +101,7 @@ public final class BucketReplicationConfigurationRule {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return Specifies special object selection criteria (documented below).
+     * @return Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
      * 
      */
     public Optional<BucketReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriteria() {

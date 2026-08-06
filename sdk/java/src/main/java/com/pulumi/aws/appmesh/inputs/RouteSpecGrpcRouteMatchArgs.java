@@ -19,14 +19,14 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     public static final RouteSpecGrpcRouteMatchArgs Empty = new RouteSpecGrpcRouteMatchArgs();
 
     /**
-     * Data to match from the gRPC request.
+     * Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
      * 
      */
     @Import(name="metadatas")
     private @Nullable Output<List<RouteSpecGrpcRouteMatchMetadataArgs>> metadatas;
 
     /**
-     * @return Data to match from the gRPC request.
+     * @return Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
      * 
      */
     public Optional<Output<List<RouteSpecGrpcRouteMatchMetadataArgs>>> metadatas() {
@@ -49,14 +49,14 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The port number to match from the request.
+     * Port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -122,7 +122,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas Data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas Data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param metadatas Data to match from the gRPC request.
+         * @param metadatas Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 

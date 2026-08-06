@@ -14,8 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackStorageConnector {
     /**
-     * @return Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+     * @return Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
      * 
      */
     private String connectorType;
@@ -32,8 +31,7 @@ public final class StackStorageConnector {
 
     private StackStorageConnector() {}
     /**
-     * @return Type of storage connector.
-     * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+     * @return Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
      * 
      */
     public String connectorType() {

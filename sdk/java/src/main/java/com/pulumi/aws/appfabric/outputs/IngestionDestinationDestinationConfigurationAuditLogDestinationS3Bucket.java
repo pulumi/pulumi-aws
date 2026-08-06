@@ -12,19 +12,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
+    /**
+     * @return Name of the Amazon S3 bucket.
+     * 
+     */
     private String bucketName;
     /**
-     * @return The object key to use.
+     * @return Object key to use.
      * 
      */
     private @Nullable String prefix;
 
     private IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket() {}
+    /**
+     * @return Name of the Amazon S3 bucket.
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
     /**
-     * @return The object key to use.
+     * @return Object key to use.
      * 
      */
     public Optional<String> prefix() {

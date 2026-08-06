@@ -15,14 +15,14 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
     public static final ServiceNetworkResourceAssociationDnsEntryArgs Empty = new ServiceNetworkResourceAssociationDnsEntryArgs();
 
     /**
-     * The domain name of the association in the service network.
+     * Domain name of the association in the service network.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The domain name of the association in the service network.
+     * @return Domain name of the association in the service network.
      * 
      */
     public Output<String> domainName() {
@@ -30,14 +30,14 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
     }
 
     /**
-     * The ID of the hosted zone containing the domain name.
+     * ID of the hosted zone containing the domain name.
      * 
      */
     @Import(name="hostedZoneId", required=true)
     private Output<String> hostedZoneId;
 
     /**
-     * @return The ID of the hosted zone containing the domain name.
+     * @return ID of the hosted zone containing the domain name.
      * 
      */
     public Output<String> hostedZoneId() {
@@ -70,7 +70,7 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
         }
 
         /**
-         * @param domainName The domain name of the association in the service network.
+         * @param domainName Domain name of the association in the service network.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
         }
 
         /**
-         * @param domainName The domain name of the association in the service network.
+         * @param domainName Domain name of the association in the service network.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
         }
 
         /**
-         * @param hostedZoneId The ID of the hosted zone containing the domain name.
+         * @param hostedZoneId ID of the hosted zone containing the domain name.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceNetworkResourceAssociationDnsEntryArgs extends com.pul
         }
 
         /**
-         * @param hostedZoneId The ID of the hosted zone containing the domain name.
+         * @param hostedZoneId ID of the hosted zone containing the domain name.
          * 
          * @return builder
          * 

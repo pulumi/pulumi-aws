@@ -127,31 +127,31 @@ namespace Pulumi.Aws.SecretsManager
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
+        /// Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
         /// </summary>
         [Output("rotateImmediately")]
         public Output<bool?> RotateImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether automatic rotation is enabled for this secret.
+        /// Whether automatic rotation is enabled for this secret.
         /// </summary>
         [Output("rotationEnabled")]
         public Output<bool> RotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+        /// ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Output("rotationLambdaArn")]
         public Output<string?> RotationLambdaArn { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// Structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
         [Output("rotationRules")]
         public Output<Outputs.SecretRotationRotationRules> RotationRules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Output("secretId")]
         public Output<string> SecretId { get; private set; } = null!;
@@ -227,25 +227,25 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
+        /// Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
         /// </summary>
         [Input("rotateImmediately")]
         public Input<bool>? RotateImmediately { get; set; }
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+        /// ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Input("rotationLambdaArn")]
         public Input<string>? RotationLambdaArn { get; set; }
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// Structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
         [Input("rotationRules", required: true)]
         public Input<Inputs.SecretRotationRotationRulesArgs> RotationRules { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -283,31 +283,31 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
+        /// Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `RotationRules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `True`.
         /// </summary>
         [Input("rotateImmediately")]
         public Input<bool>? RotateImmediately { get; set; }
 
         /// <summary>
-        /// Specifies whether automatic rotation is enabled for this secret.
+        /// Whether automatic rotation is enabled for this secret.
         /// </summary>
         [Input("rotationEnabled")]
         public Input<bool>? RotationEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+        /// ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Input("rotationLambdaArn")]
         public Input<string>? RotationLambdaArn { get; set; }
 
         /// <summary>
-        /// A structure that defines the rotation configuration for this secret. Defined below.
+        /// Structure that defines the rotation configuration for this secret. Defined below.
         /// </summary>
         [Input("rotationRules")]
         public Input<Inputs.SecretRotationRotationRulesGetArgs>? RotationRules { get; set; }
 
         /// <summary>
-        /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        /// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         /// </summary>
         [Input("secretId")]
         public Input<string>? SecretId { get; set; }

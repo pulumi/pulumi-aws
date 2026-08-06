@@ -13,10 +13,16 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// The unique ID that's assigned to an Amazon Redshift cluster.
+        /// Unique ID that's assigned to an Amazon Redshift cluster.
         /// </summary>
         public readonly string? ClusterIdentifier;
         /// <summary>
@@ -24,11 +30,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? DataApiRoleArn;
         /// <summary>
-        /// The name of an Amazon Redshift database.
+        /// Name of an Amazon Redshift database.
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
-        /// The JDBC URL of the Amazon Redshift cluster.
+        /// JDBC URL of the Amazon Redshift cluster.
         /// </summary>
         public readonly string? DatabaseUrl;
         /// <summary>

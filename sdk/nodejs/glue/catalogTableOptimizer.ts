@@ -25,6 +25,13 @@ import * as utilities from "../utilities";
  *     configuration: {
  *         roleArn: "arn:aws:iam::123456789012:role/example-role",
  *         enabled: true,
+ *         compactionConfiguration: {
+ *             icebergConfiguration: {
+ *                 strategy: "binpack",
+ *                 minInputFiles: 5,
+ *                 deleteFileThreshold: 1,
+ *             },
+ *         },
  *     },
  *     type: "compaction",
  * });

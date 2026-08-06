@@ -18,14 +18,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     public static final DataIntegrationState Empty = new DataIntegrationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Data Integration.
+     * Amazon Resource Name (ARN) of the Data Integration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Data Integration.
+     * @return Amazon Resource Name (ARN) of the Data Integration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the description of the Data Integration.
+     * Description of the Data Integration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Specifies the description of the Data Integration.
+     * @return Description of the Data Integration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key Amazon Resource Name (ARN) for the Data Integration.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * @return KMS key Amazon Resource Name (ARN) for the Data Integration.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -63,14 +63,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the name of the Data Integration.
+     * Name of the Data Integration.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Data Integration.
+     * @return Name of the Data Integration.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+     * Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
      * 
      */
     @Import(name="scheduleConfig")
     private @Nullable Output<DataIntegrationScheduleConfigArgs> scheduleConfig;
 
     /**
-     * @return A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+     * @return Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
      * 
      */
     public Optional<Output<DataIntegrationScheduleConfigArgs>> scheduleConfig() {
@@ -108,14 +108,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+     * URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      * 
      */
     @Import(name="sourceUri")
     private @Nullable Output<String> sourceUri;
 
     /**
-     * @return Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+     * @return URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      * 
      */
     public Optional<Output<String>> sourceUri() {
@@ -138,14 +138,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -185,7 +185,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Data Integration.
+         * @param arn Amazon Resource Name (ARN) of the Data Integration.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Data Integration.
+         * @param arn Amazon Resource Name (ARN) of the Data Integration.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Specifies the description of the Data Integration.
+         * @param description Description of the Data Integration.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param description Specifies the description of the Data Integration.
+         * @param description Description of the Data Integration.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKey Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKey Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the Data Integration.
+         * @param name Name of the Data Integration.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the name of the Data Integration.
+         * @param name Name of the Data Integration.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scheduleConfig A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+         * @param scheduleConfig Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scheduleConfig A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+         * @param scheduleConfig Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceUri Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+         * @param sourceUri URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceUri Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+         * @param sourceUri URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

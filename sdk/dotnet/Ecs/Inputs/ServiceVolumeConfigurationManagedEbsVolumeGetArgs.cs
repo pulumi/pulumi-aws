@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputList<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationGetArgs>? _tagSpecifications;
 
         /// <summary>
-        /// The tags to apply to the volume. See below.
+        /// Tags to apply to the volume. See below.
         /// </summary>
         public InputList<Inputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationGetArgs> TagSpecifications
         {

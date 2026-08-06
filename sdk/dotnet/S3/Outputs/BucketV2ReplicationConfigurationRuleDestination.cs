@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleDestination
     {
         /// <summary>
-        /// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `AccountId` owner override configuration.
+        /// Overrides to use for object owners on replication. See `AccessControlTranslation` Block below for details. Must be used in conjunction with `AccountId` owner override configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
         /// <summary>
@@ -26,20 +26,19 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
-        /// Enables replication metrics (required for S3 RTC) (documented below).
+        /// Enables replication metrics (required for S3 RTC). See `Metrics` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationMetric> Metrics;
         /// <summary>
-        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-        /// `SseKmsEncryptedObjects` source selection criteria.
+        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `SseKmsEncryptedObjects` source selection criteria.
         /// </summary>
         public readonly string? ReplicaKmsKeyId;
         /// <summary>
-        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
+        /// Enables S3 Replication Time Control (S3 RTC). See `ReplicationTime` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTime> ReplicationTimes;
         /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        /// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
         public readonly string? StorageClass;
 

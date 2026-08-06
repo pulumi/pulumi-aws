@@ -19,60 +19,60 @@ namespace Pulumi.Aws.Odb.Outputs
         public readonly string AdditionalDetails;
         public readonly string Arn;
         /// <summary>
-        /// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        /// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         /// </summary>
         public readonly string BackupIpId;
         public readonly string BackupVnic2Id;
         /// <summary>
-        /// The OCID of the backup VNIC for the DB node.
+        /// OCID of the backup VNIC for the DB node.
         /// </summary>
         public readonly string BackupVnicId;
         /// <summary>
-        /// The number of CPU cores enabled on the DB node.
+        /// Number of CPU cores enabled on the DB node.
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// The date and time when the DB node was created.
+        /// Date and time when the DB node was created.
         /// </summary>
         public readonly string CreatedAt;
         public readonly int DbNodeStorageSize;
         /// <summary>
-        /// The unique identifier of the database server that's associated with the DB node.
+        /// Unique identifier of the database server that's associated with the DB node.
         /// </summary>
         public readonly string DbServerId;
         /// <summary>
-        /// The OCID of the DB system.
+        /// OCID of the DB system.
         /// </summary>
         public readonly string DbSystemId;
         /// <summary>
-        /// The name of the fault domain where the DB node is located.
+        /// Name of the fault domain where the DB node is located.
         /// </summary>
         public readonly string FaultDomain;
         /// <summary>
-        /// The OCID of the host IP address that's associated with the DB node.
+        /// OCID of the host IP address that's associated with the DB node.
         /// </summary>
         public readonly string HostIpId;
         /// <summary>
-        /// The host name for the DB node.
+        /// Host name for the DB node.
         /// </summary>
         public readonly string Hostname;
         public readonly string Id;
         /// <summary>
-        /// The type of maintenance the DB node is undergoing.
+        /// Type of maintenance the DB node is undergoing.
         /// </summary>
         public readonly string MaintenanceType;
         public readonly int MemorySize;
         /// <summary>
-        /// The name of the OCI resource anchor for the DB node.
+        /// Name of the OCI resource anchor for the DB node.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The OCID of the DB node.
+        /// OCID of the DB node.
         /// </summary>
         public readonly string Ocid;
         public readonly int SoftwareStorageSize;
         /// <summary>
-        /// The current status of the DB node.
+        /// Current status of the DB node.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -80,20 +80,20 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The end date and time of the maintenance window.
+        /// End date and time of the maintenance window.
         /// </summary>
         public readonly string TimeMaintenanceWindowEnd;
         /// <summary>
-        /// The start date and time of the maintenance window.
+        /// Start date and time of the maintenance window.
         /// </summary>
         public readonly string TimeMaintenanceWindowStart;
         /// <summary>
-        /// The total number of CPU cores reserved on the DB node.
+        /// Total number of CPU cores reserved on the DB node.
         /// </summary>
         public readonly int TotalCpuCoreCount;
         public readonly string Vnic2Id;
         /// <summary>
-        /// The OCID of the VNIC.
+        /// OCID of the VNIC.
         /// </summary>
         public readonly string VnicId;
 

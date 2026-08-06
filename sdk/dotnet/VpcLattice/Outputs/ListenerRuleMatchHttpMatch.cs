@@ -14,18 +14,15 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerRuleMatchHttpMatch
     {
         /// <summary>
-        /// The header matches.
-        /// Matches incoming requests with rule based on request header value before applying rule action.
-        /// See `HeaderMatches` Block for details.
+        /// Header matches that match incoming requests based on the request header value before applying the rule action. See `HeaderMatches` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerRuleMatchHttpMatchHeaderMatch> HeaderMatches;
         /// <summary>
-        /// The HTTP method type.
+        /// HTTP method type.
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// The path match.
-        /// See `PathMatch` Block for details.
+        /// Path match. See `PathMatch` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleMatchHttpMatchPathMatch? PathMatch;
 

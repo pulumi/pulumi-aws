@@ -48,14 +48,14 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
     }
 
     /**
-     * Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<Output<String>> path() {
@@ -63,14 +63,14 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
     }
 
     /**
-     * Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+     * Port used for the port mapping.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+     * @return Port used for the port mapping.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -78,14 +78,14 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
     }
 
     /**
-     * Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
     public Output<String> protocol() {
@@ -195,7 +195,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param path Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param path Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param port Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+         * @param port Port used for the port mapping.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param port Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+         * @param port Port used for the port mapping.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param protocol Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class VirtualNodeSpecListenerHealthCheckArgs extends com.pulumi.res
         }
 
         /**
-         * @param protocol Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+         * @param protocol Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
          * 
          * @return builder
          * 

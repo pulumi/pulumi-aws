@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendVirtualService
     {
         /// <summary>
-        /// Client policy for the backend.
+        /// Default client policy for virtual service backends. See `spec.backend_defaults.client_policy` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy? ClientPolicy;
         /// <summary>

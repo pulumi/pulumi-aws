@@ -95,14 +95,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     @Import(name="checksumAlgorithm")
     private @Nullable Output<String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * @return Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     public Optional<Output<String>> checksumAlgorithm() {
@@ -110,14 +110,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     @Import(name="checksumCrc32")
     private @Nullable Output<String> checksumCrc32;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc32() {
@@ -125,14 +125,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     @Import(name="checksumCrc32c")
     private @Nullable Output<String> checksumCrc32c;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc32c() {
@@ -140,14 +140,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     @Import(name="checksumCrc64nvme")
     private @Nullable Output<String> checksumCrc64nvme;
 
     /**
-     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * @return Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc64nvme() {
@@ -155,14 +155,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     @Import(name="checksumSha1")
     private @Nullable Output<String> checksumSha1;
 
     /**
-     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * @return Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     public Optional<Output<String>> checksumSha1() {
@@ -170,14 +170,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     @Import(name="checksumSha256")
     private @Nullable Output<String> checksumSha256;
 
     /**
-     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * @return Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     public Optional<Output<String>> checksumSha256() {
@@ -399,14 +399,14 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     @Import(name="overrideProvider")
     private @Nullable Output<BucketObjectv2OverrideProviderArgs> overrideProvider;
 
     /**
-     * @return Override provider-level configuration options. See Override Provider below for more details.
+     * @return Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     public Optional<Output<BucketObjectv2OverrideProviderArgs>> overrideProvider() {
@@ -536,7 +536,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -549,7 +549,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -724,7 +724,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * @param checksumCrc32 Base64-encoded, 32-bit CRC32 checksum of the object.
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * @param checksumCrc32 Base64-encoded, 32-bit CRC32 checksum of the object.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * @param checksumCrc32c Base64-encoded, 32-bit CRC32C checksum of the object.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * @param checksumCrc32c Base64-encoded, 32-bit CRC32C checksum of the object.
          * 
          * @return builder
          * 
@@ -787,7 +787,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * @param checksumCrc64nvme Base64-encoded, 64-bit CRC64NVME checksum of the object.
          * 
          * @return builder
          * 
@@ -798,7 +798,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * @param checksumCrc64nvme Base64-encoded, 64-bit CRC64NVME checksum of the object.
          * 
          * @return builder
          * 
@@ -808,7 +808,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * @param checksumSha1 Base64-encoded, 160-bit SHA-1 digest of the object.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * @param checksumSha1 Base64-encoded, 160-bit SHA-1 digest of the object.
          * 
          * @return builder
          * 
@@ -829,7 +829,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * @param checksumSha256 Base64-encoded, 256-bit SHA-256 digest of the object.
          * 
          * @return builder
          * 
@@ -840,7 +840,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * @param checksumSha256 Base64-encoded, 256-bit SHA-256 digest of the object.
          * 
          * @return builder
          * 
@@ -1148,7 +1148,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * @param overrideProvider Override provider-level configuration options. See `overrideProvider` Block below for more details.
          * 
          * @return builder
          * 
@@ -1159,7 +1159,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * @param overrideProvider Override provider-level configuration options. See `overrideProvider` Block below for more details.
          * 
          * @return builder
          * 
@@ -1339,7 +1339,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+         * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 
@@ -1356,7 +1356,7 @@ public final class BucketObjectv2State extends com.pulumi.resources.ResourceArgs
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+         * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 

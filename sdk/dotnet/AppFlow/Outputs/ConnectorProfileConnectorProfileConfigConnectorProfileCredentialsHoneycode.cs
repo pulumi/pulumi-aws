@@ -13,8 +13,17 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
     {
+        /// <summary>
+        /// Credentials used to access protected Zendesk resources.
+        /// </summary>
         public readonly string? AccessToken;
+        /// <summary>
+        /// OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest? OauthRequest;
+        /// <summary>
+        /// Refresh token used to refresh an expired access token.
+        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

@@ -154,7 +154,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly domainVerificationArn: pulumi.Output<string>;
     /**
-     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     * Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
      */
     declare public readonly domainVerificationId: pulumi.Output<string>;
     /**
@@ -281,7 +281,7 @@ export interface ResourceConfigurationState {
      */
     domainVerificationArn?: pulumi.Input<string | undefined>;
     /**
-     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     * Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
      */
     domainVerificationId?: pulumi.Input<string | undefined>;
     /**
@@ -346,7 +346,7 @@ export interface ResourceConfigurationArgs {
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**
-     * The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+     * Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
      */
     domainVerificationId?: pulumi.Input<string | undefined>;
     /**

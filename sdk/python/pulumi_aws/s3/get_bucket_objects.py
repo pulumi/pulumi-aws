@@ -175,7 +175,7 @@ def get_bucket_objects(bucket: Optional[_builtins.str] = None,
     The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 
 
-    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3_get_objects` data source instead.
     :param _builtins.str delimiter: Character used to group keys (Default: none)
     :param _builtins.str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param _builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
@@ -226,7 +226,7 @@ def get_bucket_objects_output(bucket: pulumi.Input[Optional[_builtins.str]] = No
     The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 
 
-    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param _builtins.str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3_get_objects` data source instead.
     :param _builtins.str delimiter: Character used to group keys (Default: none)
     :param _builtins.str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
     :param _builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)

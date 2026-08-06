@@ -144,13 +144,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        /// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Output("fileSystemId")]
         public Output<string?> FileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+        /// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -168,27 +168,25 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the file system backup.
+        /// Type of the file system backup.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// 
-        /// Note - One of `FileSystemId` or `VolumeId` can be specified. `FileSystemId` is used for Lustre and Windows, `VolumeId` is used for ONTAP.
+        /// ID of the volume to back up. Required if backing up a ONTAP Volume.
         /// </summary>
         [Output("volumeId")]
         public Output<string?> VolumeId { get; private set; } = null!;
@@ -240,7 +238,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        /// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
@@ -255,7 +253,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -264,9 +262,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// 
-        /// Note - One of `FileSystemId` or `VolumeId` can be specified. `FileSystemId` is used for Lustre and Windows, `VolumeId` is used for ONTAP.
+        /// ID of the volume to back up. Required if backing up a ONTAP Volume.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
@@ -286,13 +282,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        /// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
         /// <summary>
-        /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+        /// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -313,7 +309,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -325,7 +321,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -334,15 +330,13 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The type of the file system backup.
+        /// Type of the file system backup.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
-        /// 
-        /// Note - One of `FileSystemId` or `VolumeId` can be specified. `FileSystemId` is used for Lustre and Windows, `VolumeId` is used for ONTAP.
+        /// ID of the volume to back up. Required if backing up a ONTAP Volume.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

@@ -13,41 +13,44 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of the SAPOData resource.
+        /// Location of the SAPOData resource.
         /// </summary>
         [Input("applicationHostUrl", required: true)]
         public Input<string> ApplicationHostUrl { get; set; } = null!;
 
         /// <summary>
-        /// The application path to catalog service.
+        /// Application path to catalog service.
         /// </summary>
         [Input("applicationServicePath", required: true)]
         public Input<string> ApplicationServicePath { get; set; } = null!;
 
         /// <summary>
-        /// The client number for the client creating the connection.
+        /// Client number for the client creating the connection.
         /// </summary>
         [Input("clientNumber", required: true)]
         public Input<string> ClientNumber { get; set; } = null!;
 
         /// <summary>
-        /// The logon language of SAPOData instance.
+        /// Logon language of the SAPOData instance.
         /// </summary>
         [Input("logonLanguage")]
         public Input<string>? LogonLanguage { get; set; }
 
         /// <summary>
-        /// The SAPOData OAuth properties required for OAuth type authentication.
+        /// SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
         /// </summary>
         [Input("oauthProperties")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesGetArgs>? OauthProperties { get; set; }
 
         /// <summary>
-        /// The port number of the SAPOData instance.
+        /// Port number of the SAPOData instance.
         /// </summary>
         [Input("portNumber", required: true)]
         public Input<int> PortNumber { get; set; } = null!;
 
+        /// <summary>
+        /// Snowflake Private Link service name to be used for private data transfers.
+        /// </summary>
         [Input("privateLinkServiceName")]
         public Input<string>? PrivateLinkServiceName { get; set; }
 

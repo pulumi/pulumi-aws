@@ -55,14 +55,14 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The experiment options for the experiment template. See experimentOptions below for more details!
+     * Experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     @Import(name="experimentOptions")
     private @Nullable Output<ExperimentTemplateExperimentOptionsArgs> experimentOptions;
 
     /**
-     * @return The experiment options for the experiment template. See experimentOptions below for more details!
+     * @return Experiment options for the experiment template. See experimentOptions below for more details!
      * 
      */
     public Optional<Output<ExperimentTemplateExperimentOptionsArgs>> experimentOptions() {
@@ -70,14 +70,14 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      * 
      */
     @Import(name="experimentReportConfiguration")
     private @Nullable Output<ExperimentTemplateExperimentReportConfigurationArgs> experimentReportConfiguration;
 
     /**
-     * @return The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+     * @return Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
      * 
      */
     public Optional<Output<ExperimentTemplateExperimentReportConfigurationArgs>> experimentReportConfiguration() {
@@ -85,14 +85,14 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The configuration for experiment logging. See below.
+     * Configuration for experiment logging. See below.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<ExperimentTemplateLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return The configuration for experiment logging. See below.
+     * @return Configuration for experiment logging. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateLogConfigurationArgs>> logConfiguration() {
@@ -264,7 +264,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param experimentOptions The experiment options for the experiment template. See experimentOptions below for more details!
+         * @param experimentOptions Experiment options for the experiment template. See experimentOptions below for more details!
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param experimentOptions The experiment options for the experiment template. See experimentOptions below for more details!
+         * @param experimentOptions Experiment options for the experiment template. See experimentOptions below for more details!
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * @param experimentReportConfiguration Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param experimentReportConfiguration The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+         * @param experimentReportConfiguration Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logConfiguration The configuration for experiment logging. See below.
+         * @param logConfiguration Configuration for experiment logging. See below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logConfiguration The configuration for experiment logging. See below.
+         * @param logConfiguration Configuration for experiment logging. See below.
          * 
          * @return builder
          * 

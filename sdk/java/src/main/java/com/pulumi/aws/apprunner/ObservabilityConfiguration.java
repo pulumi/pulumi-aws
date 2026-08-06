@@ -119,14 +119,14 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
         return this.observabilityConfigurationName;
     }
     /**
-     * The revision of this observability configuration.
+     * Revision of this observability configuration.
      * 
      */
     @Export(name="observabilityConfigurationRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> observabilityConfigurationRevision;
 
     /**
-     * @return The revision of this observability configuration.
+     * @return Revision of this observability configuration.
      * 
      */
     public Output<Integer> observabilityConfigurationRevision() {
@@ -189,14 +189,14 @@ public class ObservabilityConfiguration extends com.pulumi.resources.CustomResou
         return this.tagsAll;
     }
     /**
-     * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See `traceConfiguration` Block below for more details.
      * 
      */
     @Export(name="traceConfiguration", refs={ObservabilityConfigurationTraceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ObservabilityConfigurationTraceConfiguration> traceConfiguration;
 
     /**
-     * @return Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
+     * @return Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See `traceConfiguration` Block below for more details.
      * 
      */
     public Output<Optional<ObservabilityConfigurationTraceConfiguration>> traceConfiguration() {

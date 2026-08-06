@@ -84,13 +84,13 @@ namespace Pulumi.Aws.S3Control
     public partial class DirectoryBucketAccessPointScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID that owns the specified access point.
+        /// AWS account ID that owns the specified access point.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the access point that you want to apply the scope to.
+        /// Name of the access point that you want to apply the scope to.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class DirectoryBucketAccessPointScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID that owns the specified access point.
+        /// AWS account ID that owns the specified access point.
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the access point that you want to apply the scope to.
+        /// Name of the access point that you want to apply the scope to.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -186,13 +186,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class DirectoryBucketAccessPointScopeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID that owns the specified access point.
+        /// AWS account ID that owns the specified access point.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the access point that you want to apply the scope to.
+        /// Name of the access point that you want to apply the scope to.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

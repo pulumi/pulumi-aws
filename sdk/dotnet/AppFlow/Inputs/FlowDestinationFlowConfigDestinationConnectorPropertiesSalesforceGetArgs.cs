@@ -15,11 +15,18 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("dataTransferApi")]
         public Input<string>? DataTransferApi { get; set; }
 
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+        /// </summary>
         [Input("errorHandlingConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigGetArgs>? ErrorHandlingConfig { get; set; }
 
         [Input("idFieldNames")]
         private InputList<string>? _idFieldNames;
+
+        /// <summary>
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// </summary>
         public InputList<string> IdFieldNames
         {
             get => _idFieldNames ?? (_idFieldNames = new InputList<string>());
@@ -29,6 +36,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 
+        /// <summary>
+        /// Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `IdFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// </summary>
         [Input("writeOperationType")]
         public Input<string>? WriteOperationType { get; set; }
 

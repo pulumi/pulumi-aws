@@ -45,8 +45,8 @@ class DataIntegrationScheduleConfig(dict):
                  object: _builtins.str,
                  schedule_expression: _builtins.str):
         """
-        :param _builtins.str first_execution_from: The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        :param _builtins.str object: The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+        :param _builtins.str first_execution_from: Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+        :param _builtins.str object: Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
         :param _builtins.str schedule_expression: How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
         """
         pulumi.set(__self__, "first_execution_from", first_execution_from)
@@ -57,7 +57,7 @@ class DataIntegrationScheduleConfig(dict):
     @pulumi.getter(name="firstExecutionFrom")
     def first_execution_from(self) -> _builtins.str:
         """
-        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+        Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
         """
         return pulumi.get(self, "first_execution_from")
 
@@ -65,7 +65,7 @@ class DataIntegrationScheduleConfig(dict):
     @pulumi.getter
     def object(self) -> _builtins.str:
         """
-        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+        Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
         """
         return pulumi.get(self, "object")
 
@@ -83,7 +83,7 @@ class GetEventIntegrationEventFilterResult(dict):
     def __init__(__self__, *,
                  source: _builtins.str):
         """
-        :param _builtins.str source: The source of the events.
+        :param _builtins.str source: Source of the events.
         """
         pulumi.set(__self__, "source", source)
 
@@ -91,7 +91,7 @@ class GetEventIntegrationEventFilterResult(dict):
     @pulumi.getter
     def source(self) -> _builtins.str:
         """
-        The source of the events.
+        Source of the events.
         """
         return pulumi.get(self, "source")
 

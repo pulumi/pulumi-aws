@@ -19,8 +19,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<string> DestinationArn { get; set; } = null!;
 
         /// <summary>
-        /// Formatting and values recorded in the logs.
-        /// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        /// Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;

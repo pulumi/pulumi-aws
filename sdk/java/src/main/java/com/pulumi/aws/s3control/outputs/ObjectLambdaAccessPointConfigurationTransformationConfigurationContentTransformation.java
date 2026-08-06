@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
     /**
-     * @return Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+     * @return Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
      * 
      */
     private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda awsLambda;
 
     private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation() {}
     /**
-     * @return Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+     * @return Configuration for an AWS Lambda function. See `awsLambda` Block below for more details.
      * 
      */
     public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda awsLambda() {

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of vCPUs.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum number of vCPUs.
+        /// </summary>
         [Input("min", required: true)]
         public Input<int> Min { get; set; } = null!;
 

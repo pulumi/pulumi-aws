@@ -87,6 +87,9 @@ export class TableReplication extends pulumi.CustomResource {
      * ARN referencing the Table that owns this replication configuration.
      */
     declare public readonly tableArn: pulumi.Output<string>;
+    /**
+     * Identifier for the current version of the replication configuration.
+     */
     declare public /*out*/ readonly versionToken: pulumi.Output<string>;
 
     /**
@@ -146,6 +149,9 @@ export interface TableReplicationState {
      * ARN referencing the Table that owns this replication configuration.
      */
     tableArn?: pulumi.Input<string | undefined>;
+    /**
+     * Identifier for the current version of the replication configuration.
+     */
     versionToken?: pulumi.Input<string | undefined>;
 }
 

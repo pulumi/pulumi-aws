@@ -16,7 +16,7 @@ public final class GetCloudExadataInfrastructurePlainArgs extends com.pulumi.res
     public static final GetCloudExadataInfrastructurePlainArgs Empty = new GetCloudExadataInfrastructurePlainArgs();
 
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * Unique identifier of the Exadata infrastructure.
      * 
      * The following arguments are optional:
      * 
@@ -25,7 +25,7 @@ public final class GetCloudExadataInfrastructurePlainArgs extends com.pulumi.res
     private String id;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure.
+     * @return Unique identifier of the Exadata infrastructure.
      * 
      * The following arguments are optional:
      * 
@@ -75,7 +75,7 @@ public final class GetCloudExadataInfrastructurePlainArgs extends com.pulumi.res
         }
 
         /**
-         * @param id The unique identifier of the Exadata infrastructure.
+         * @param id Unique identifier of the Exadata infrastructure.
          * 
          * The following arguments are optional:
          * 

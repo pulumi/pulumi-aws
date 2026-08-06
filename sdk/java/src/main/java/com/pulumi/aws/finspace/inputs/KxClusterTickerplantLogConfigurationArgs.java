@@ -15,9 +15,17 @@ public final class KxClusterTickerplantLogConfigurationArgs extends com.pulumi.r
 
     public static final KxClusterTickerplantLogConfigurationArgs Empty = new KxClusterTickerplantLogConfigurationArgs();
 
+    /**
+     * Names of the volumes for tickerplant logs.
+     * 
+     */
     @Import(name="tickerplantLogVolumes", required=true)
     private Output<List<String>> tickerplantLogVolumes;
 
+    /**
+     * @return Names of the volumes for tickerplant logs.
+     * 
+     */
     public Output<List<String>> tickerplantLogVolumes() {
         return this.tickerplantLogVolumes;
     }
@@ -46,15 +54,33 @@ public final class KxClusterTickerplantLogConfigurationArgs extends com.pulumi.r
             $ = new KxClusterTickerplantLogConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tickerplantLogVolumes Names of the volumes for tickerplant logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tickerplantLogVolumes(Output<List<String>> tickerplantLogVolumes) {
             $.tickerplantLogVolumes = tickerplantLogVolumes;
             return this;
         }
 
+        /**
+         * @param tickerplantLogVolumes Names of the volumes for tickerplant logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tickerplantLogVolumes(List<String> tickerplantLogVolumes) {
             return tickerplantLogVolumes(Output.of(tickerplantLogVolumes));
         }
 
+        /**
+         * @param tickerplantLogVolumes Names of the volumes for tickerplant logs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tickerplantLogVolumes(String... tickerplantLogVolumes) {
             return tickerplantLogVolumes(List.of(tickerplantLogVolumes));
         }

@@ -65,14 +65,14 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * Per-retry timeout.
+     * Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     @Import(name="perRetryTimeout", required=true)
     private Output<RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs> perRetryTimeout;
 
     /**
-     * @return Per-retry timeout.
+     * @return Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     public Output<RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs> perRetryTimeout() {
@@ -206,7 +206,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param perRetryTimeout Per-retry timeout.
+         * @param perRetryTimeout Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param perRetryTimeout Per-retry timeout.
+         * @param perRetryTimeout Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
          * 
          * @return builder
          * 

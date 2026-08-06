@@ -47,7 +47,9 @@ class ExpressGatewayServiceArgs:
         :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceScalingTargetArgs']]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -167,6 +169,9 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]]]:
+        """
+        Network configuration for the service. See `network_configuration` Block below.
+        """
         return pulumi.get(self, "network_configurations")
 
     @network_configurations.setter
@@ -188,6 +193,9 @@ class ExpressGatewayServiceArgs:
     @_builtins.property
     @pulumi.getter(name="scalingTargets")
     def scaling_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceScalingTargetArgs']]]]:
+        """
+        Auto-scaling configuration for the service. See `scaling_target` Block below.
+        """
         return pulumi.get(self, "scaling_targets")
 
     @scaling_targets.setter
@@ -288,7 +296,9 @@ class _ExpressGatewayServiceState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]] ingress_paths: List of ingress paths with access type and endpoint information.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
+        :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceScalingTargetArgs']]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_revision_arn: ARN of the service revision.
@@ -443,6 +453,9 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]]]:
+        """
+        Network configuration for the service. See `network_configuration` Block below.
+        """
         return pulumi.get(self, "network_configurations")
 
     @network_configurations.setter
@@ -473,6 +486,9 @@ class _ExpressGatewayServiceState:
     @_builtins.property
     @pulumi.getter(name="scalingTargets")
     def scaling_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressGatewayServiceScalingTargetArgs']]]]:
+        """
+        Auto-scaling configuration for the service. See `scaling_target` Block below.
+        """
         return pulumi.get(self, "scaling_targets")
 
     @scaling_targets.setter
@@ -616,6 +632,66 @@ class ExpressGatewayService(pulumi.CustomResource):
             })
         ```
 
+        ### Container Logging, Environment Variables, and Secrets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health",
+            primary_container={
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
+                "aws_logs_configurations": [{
+                    "log_group": app["name"],
+                }],
+                "environments": [
+                    {
+                        "name": "ENV",
+                        "value": "production",
+                    },
+                    {
+                        "name": "PORT",
+                        "value": "8080",
+                    },
+                ],
+                "secrets": [{
+                    "name": "DB_PASSWORD",
+                    "value_from": db_password["arn"],
+                }],
+            })
+        ```
+
+        ### Custom Networking
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.ExpressGatewayService("example",
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512",
+            primary_container={
+                "image": "nginx:latest",
+                "container_port": 80,
+            },
+            network_configurations=[{
+                "subnets": [
+                    private_a["id"],
+                    private_b["id"],
+                ],
+                "security_groups": [app["id"]],
+            }])
+        ```
+
         ### Service Updates and Deletion
 
         ### Updates
@@ -645,7 +721,9 @@ class ExpressGatewayService(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -676,6 +754,66 @@ class ExpressGatewayService(pulumi.CustomResource):
             primary_container={
                 "image": "nginx:latest",
             })
+        ```
+
+        ### Container Logging, Environment Variables, and Secrets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.ExpressGatewayService("example",
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health",
+            primary_container={
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
+                "aws_logs_configurations": [{
+                    "log_group": app["name"],
+                }],
+                "environments": [
+                    {
+                        "name": "ENV",
+                        "value": "production",
+                    },
+                    {
+                        "name": "PORT",
+                        "value": "8080",
+                    },
+                ],
+                "secrets": [{
+                    "name": "DB_PASSWORD",
+                    "value_from": db_password["arn"],
+                }],
+            })
+        ```
+
+        ### Custom Networking
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ecs.ExpressGatewayService("example",
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512",
+            primary_container={
+                "image": "nginx:latest",
+                "container_port": 80,
+            },
+            network_configurations=[{
+                "subnets": [
+                    private_a["id"],
+                    private_b["id"],
+                ],
+                "security_groups": [app["id"]],
+            }])
         ```
 
         ### Service Updates and Deletion
@@ -809,7 +947,9 @@ class ExpressGatewayService(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths with access type and endpoint information.
         :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]]] network_configurations: Network configuration for the service. See `network_configuration` Block below.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceScalingTargetArgs', 'ExpressGatewayServiceScalingTargetArgsDict']]]] scaling_targets: Auto-scaling configuration for the service. See `scaling_target` Block below.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_revision_arn: ARN of the service revision.
@@ -914,6 +1054,9 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="networkConfigurations")
     def network_configurations(self) -> pulumi.Output[Sequence['outputs.ExpressGatewayServiceNetworkConfiguration']]:
+        """
+        Network configuration for the service. See `network_configuration` Block below.
+        """
         return pulumi.get(self, "network_configurations")
 
     @_builtins.property
@@ -932,6 +1075,9 @@ class ExpressGatewayService(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="scalingTargets")
     def scaling_targets(self) -> pulumi.Output[Sequence['outputs.ExpressGatewayServiceScalingTarget']]:
+        """
+        Auto-scaling configuration for the service. See `scaling_target` Block below.
+        """
         return pulumi.get(self, "scaling_targets")
 
     @_builtins.property

@@ -18,44 +18,36 @@ public final class VirtualGatewaySpecListenerTlsCertificateArgs extends com.pulu
     public static final VirtualGatewaySpecListenerTlsCertificateArgs Empty = new VirtualGatewaySpecListenerTlsCertificateArgs();
 
     /**
-     * An AWS Certificate Manager (ACM) certificate.
+     * AWS Certificate Manager (ACM) certificate.
      * 
      */
     @Import(name="acm")
     private @Nullable Output<VirtualGatewaySpecListenerTlsCertificateAcmArgs> acm;
 
     /**
-     * @return An AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsCertificateAcmArgs>> acm() {
         return Optional.ofNullable(this.acm);
     }
 
-    /**
-     * Local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecListenerTlsCertificateFileArgs> file;
 
-    /**
-     * @return Local file certificate.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecListenerTlsCertificateFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
 
     /**
-     * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualGatewaySpecListenerTlsCertificateSdsArgs> sds;
 
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsCertificateSdsArgs>> sds() {
@@ -89,7 +81,7 @@ public final class VirtualGatewaySpecListenerTlsCertificateArgs extends com.pulu
         }
 
         /**
-         * @param acm An AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -100,7 +92,7 @@ public final class VirtualGatewaySpecListenerTlsCertificateArgs extends com.pulu
         }
 
         /**
-         * @param acm An AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -109,29 +101,17 @@ public final class VirtualGatewaySpecListenerTlsCertificateArgs extends com.pulu
             return acm(Output.of(acm));
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualGatewaySpecListenerTlsCertificateFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualGatewaySpecListenerTlsCertificateFileArgs file) {
             return file(Output.of(file));
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 
@@ -142,7 +122,7 @@ public final class VirtualGatewaySpecListenerTlsCertificateArgs extends com.pulu
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 

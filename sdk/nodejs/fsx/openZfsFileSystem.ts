@@ -75,23 +75,23 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
     declare public readonly automaticBackupRetentionDays: pulumi.Output<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     declare public readonly backupId: pulumi.Output<string | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * Whether tags for the file system should be copied to backups. Default value is false.
      */
     declare public readonly copyTagsToBackups: pulumi.Output<boolean | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      */
     declare public readonly copyTagsToVolumes: pulumi.Output<boolean | undefined>;
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
     declare public readonly dailyAutomaticBackupStartTime: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly deploymentType: pulumi.Output<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      */
     declare public readonly diskIopsConfiguration: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
@@ -119,7 +119,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly endpointIpAddressRange: pulumi.Output<string>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     declare public readonly finalBackupTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -147,7 +147,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
     declare public readonly rootVolumeConfiguration: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
@@ -159,7 +159,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly routeTableIds: pulumi.Output<string[]>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
@@ -167,23 +167,23 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly skipFinalBackup: pulumi.Output<boolean | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     declare public readonly storageCapacity: pulumi.Output<number | undefined>;
     /**
-     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from.
+     * List of IDs for the subnets that the file system will be accessible from.
      */
     declare public readonly subnetIds: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -197,7 +197,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     declare public readonly weeklyMaintenanceStartTime: pulumi.Output<string>;
 
@@ -304,23 +304,23 @@ export interface OpenZfsFileSystemState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
     automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     backupId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * Whether tags for the file system should be copied to backups. Default value is false.
      */
     copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      */
     copyTagsToVolumes?: pulumi.Input<boolean | undefined>;
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
@@ -332,7 +332,7 @@ export interface OpenZfsFileSystemState {
      */
     deploymentType?: pulumi.Input<string | undefined>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration | undefined>;
     /**
@@ -348,7 +348,7 @@ export interface OpenZfsFileSystemState {
      */
     endpointIpAddressRange?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -376,7 +376,7 @@ export interface OpenZfsFileSystemState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration | undefined>;
     /**
@@ -388,7 +388,7 @@ export interface OpenZfsFileSystemState {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -396,23 +396,23 @@ export interface OpenZfsFileSystemState {
      */
     skipFinalBackup?: pulumi.Input<boolean | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     storageCapacity?: pulumi.Input<number | undefined>;
     /**
-     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from.
+     * List of IDs for the subnets that the file system will be accessible from.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -426,7 +426,7 @@ export interface OpenZfsFileSystemState {
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }
@@ -436,23 +436,23 @@ export interface OpenZfsFileSystemState {
  */
 export interface OpenZfsFileSystemArgs {
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      */
     automaticBackupRetentionDays?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      */
     backupId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * Whether tags for the file system should be copied to backups. Default value is false.
      */
     copyTagsToBackups?: pulumi.Input<boolean | undefined>;
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      */
     copyTagsToVolumes?: pulumi.Input<boolean | undefined>;
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string | undefined>;
     /**
@@ -464,7 +464,7 @@ export interface OpenZfsFileSystemArgs {
      */
     deploymentType: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration | undefined>;
     /**
@@ -472,7 +472,7 @@ export interface OpenZfsFileSystemArgs {
      */
     endpointIpAddressRange?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to apply to the file system's final backup.
+     * Map of tags to apply to the file system's final backup.
      */
     finalBackupTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -492,7 +492,7 @@ export interface OpenZfsFileSystemArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration | undefined>;
     /**
@@ -500,7 +500,7 @@ export interface OpenZfsFileSystemArgs {
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -508,19 +508,19 @@ export interface OpenZfsFileSystemArgs {
      */
     skipFinalBackup?: pulumi.Input<boolean | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      */
     storageCapacity?: pulumi.Input<number | undefined>;
     /**
-     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from.
+     * List of IDs for the subnets that the file system will be accessible from.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -530,7 +530,7 @@ export interface OpenZfsFileSystemArgs {
      */
     throughputCapacity: pulumi.Input<number>;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     weeklyMaintenanceStartTime?: pulumi.Input<string | undefined>;
 }

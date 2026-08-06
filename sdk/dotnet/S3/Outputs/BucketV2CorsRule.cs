@@ -30,7 +30,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
         /// <summary>
-        /// Specifies time in seconds that browser can cache the response for a preflight request.
+        /// Time in seconds that browser can cache the response for a preflight request.
         /// </summary>
         public readonly int? MaxAgeSeconds;
 

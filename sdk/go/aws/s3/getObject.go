@@ -130,7 +130,8 @@ type GetObjectArgs struct {
 	// Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
 	DownloadBody *string `pulumi:"downloadBody"`
 	// Full path to the object inside the bucket
-	Key   string  `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
 	Range *string `pulumi:"range"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -149,20 +150,20 @@ type GetObjectResult struct {
 	// Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
 	BodyBase64 string `pulumi:"bodyBase64"`
 	Bucket     string `pulumi:"bucket"`
-	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain.
 	CacheControl string `pulumi:"cacheControl"`
-	// The base64-encoded, 32-bit CRC32 checksum of the object.
+	// Base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 string `pulumi:"checksumCrc32"`
-	// The base64-encoded, 32-bit CRC32C checksum of the object.
+	// Base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c string `pulumi:"checksumCrc32c"`
-	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 	ChecksumCrc64nvme string  `pulumi:"checksumCrc64nvme"`
 	ChecksumMode      *string `pulumi:"checksumMode"`
-	// The base64-encoded, 160-bit SHA-1 digest of the object.
+	// Base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 string `pulumi:"checksumSha1"`
-	// The base64-encoded, 256-bit SHA-256 digest of the object.
+	// Base64-encoded, 256-bit SHA-256 digest of the object.
 	ChecksumSha256 string `pulumi:"checksumSha256"`
 	// Presentational information for the object.
 	ContentDisposition string `pulumi:"contentDisposition"`
@@ -188,11 +189,11 @@ type GetObjectResult struct {
 	LastModified string `pulumi:"lastModified"`
 	// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
-	// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+	// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 	ObjectLockLegalHoldStatus string `pulumi:"objectLockLegalHoldStatus"`
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
 	ObjectLockMode string `pulumi:"objectLockMode"`
-	// The date and time when this object's object lock will expire.
+	// Date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
 	Range                     *string `pulumi:"range"`
 	Region                    string  `pulumi:"region"`
@@ -228,7 +229,8 @@ type GetObjectOutputArgs struct {
 	// Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
 	DownloadBody pulumi.StringPtrInput `pulumi:"downloadBody"`
 	// Full path to the object inside the bucket
-	Key   pulumi.StringInput    `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
 	Range pulumi.StringPtrInput `pulumi:"range"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -276,7 +278,7 @@ func (o GetObjectResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 func (o GetObjectResultOutput) BucketKeyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetObjectResult) bool { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
 }
@@ -286,17 +288,17 @@ func (o GetObjectResultOutput) CacheControl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.CacheControl }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 32-bit CRC32 checksum of the object.
+// Base64-encoded, 32-bit CRC32 checksum of the object.
 func (o GetObjectResultOutput) ChecksumCrc32() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc32 }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 32-bit CRC32C checksum of the object.
+// Base64-encoded, 32-bit CRC32C checksum of the object.
 func (o GetObjectResultOutput) ChecksumCrc32c() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc32c }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 func (o GetObjectResultOutput) ChecksumCrc64nvme() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumCrc64nvme }).(pulumi.StringOutput)
 }
@@ -305,12 +307,12 @@ func (o GetObjectResultOutput) ChecksumMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetObjectResult) *string { return v.ChecksumMode }).(pulumi.StringPtrOutput)
 }
 
-// The base64-encoded, 160-bit SHA-1 digest of the object.
+// Base64-encoded, 160-bit SHA-1 digest of the object.
 func (o GetObjectResultOutput) ChecksumSha1() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumSha1 }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 256-bit SHA-256 digest of the object.
+// Base64-encoded, 256-bit SHA-256 digest of the object.
 func (o GetObjectResultOutput) ChecksumSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ChecksumSha256 }).(pulumi.StringOutput)
 }
@@ -378,7 +380,7 @@ func (o GetObjectResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetObjectResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 func (o GetObjectResultOutput) ObjectLockLegalHoldStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
 }
@@ -388,7 +390,7 @@ func (o GetObjectResultOutput) ObjectLockMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ObjectLockMode }).(pulumi.StringOutput)
 }
 
-// The date and time when this object's object lock will expire.
+// Date and time when this object's object lock will expire.
 func (o GetObjectResultOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
 }

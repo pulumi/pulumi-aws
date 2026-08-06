@@ -15,14 +15,14 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
     public static final GetTaskExecutionOverridesContainerOverrideEnvironmentArgs Empty = new GetTaskExecutionOverridesContainerOverrideEnvironmentArgs();
 
     /**
-     * The name of the key-value pair. For environment variables, this is the name of the environment variable.
+     * Name of the key-value pair. For environment variables, this is the name of the environment variable.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
+     * @return Name of the key-value pair. For environment variables, this is the name of the environment variable.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
     }
 
     /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * Value of the key-value pair. For environment variables, this is the value of the environment variable.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of the key-value pair. For environment variables, this is the value of the environment variable.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
         }
 
         /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
+         * @param key Name of the key-value pair. For environment variables, this is the name of the environment variable.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
         }
 
         /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
+         * @param key Name of the key-value pair. For environment variables, this is the name of the environment variable.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of the key-value pair. For environment variables, this is the value of the environment variable.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs ext
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of the key-value pair. For environment variables, this is the value of the environment variable.
          * 
          * @return builder
          * 

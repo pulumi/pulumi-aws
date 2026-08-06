@@ -69,14 +69,14 @@ public final class RoutingRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+     * Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+     * @return Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -246,7 +246,7 @@ public final class RoutingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+         * @param priority Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class RoutingRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+         * @param priority Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
          * 
          * @return builder
          * 

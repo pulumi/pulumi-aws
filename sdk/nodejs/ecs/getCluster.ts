@@ -68,7 +68,7 @@ export interface GetClusterResult {
     readonly pendingTasksCount: number;
     readonly region: string;
     /**
-     * The number of registered container instances for the ECS Cluster
+     * Number of registered container instances for the ECS Cluster
      */
     readonly registeredContainerInstancesCount: number;
     /**
@@ -76,7 +76,7 @@ export interface GetClusterResult {
      */
     readonly runningTasksCount: number;
     /**
-     * The default Service Connect namespace
+     * Default Service Connect namespace
      */
     readonly serviceConnectDefaults: outputs.ecs.GetClusterServiceConnectDefault[];
     /**

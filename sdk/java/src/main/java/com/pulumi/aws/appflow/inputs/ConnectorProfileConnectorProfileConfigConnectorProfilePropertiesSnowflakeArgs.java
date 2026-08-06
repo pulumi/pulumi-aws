@@ -17,44 +17,67 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs();
 
     /**
-     * The name of the account.
+     * Name of the account.
      * 
      */
     @Import(name="accountName")
     private @Nullable Output<String> accountName;
 
     /**
-     * @return The name of the account.
+     * @return Name of the account.
      * 
      */
     public Optional<Output<String>> accountName() {
         return Optional.ofNullable(this.accountName);
     }
 
+    /**
+     * Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
+    /**
+     * Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
+    /**
+     * @return Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
+    /**
+     * Snowflake Private Link service name to be used for private data transfers.
+     * 
+     */
     @Import(name="privateLinkServiceName")
     private @Nullable Output<String> privateLinkServiceName;
 
+    /**
+     * @return Snowflake Private Link service name to be used for private data transfers.
+     * 
+     */
     public Optional<Output<String>> privateLinkServiceName() {
         return Optional.ofNullable(this.privateLinkServiceName);
     }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     @Import(name="region")
@@ -62,7 +85,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      * 
      */
     public Optional<Output<String>> region() {
@@ -85,14 +107,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The name of the Snowflake warehouse.
+     * Name of the Snowflake warehouse.
      * 
      */
     @Import(name="warehouse", required=true)
     private Output<String> warehouse;
 
     /**
-     * @return The name of the Snowflake warehouse.
+     * @return Name of the Snowflake warehouse.
      * 
      */
     public Output<String> warehouse() {
@@ -130,7 +152,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param accountName The name of the account.
+         * @param accountName Name of the account.
          * 
          * @return builder
          * 
@@ -141,7 +163,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param accountName The name of the account.
+         * @param accountName Name of the account.
          * 
          * @return builder
          * 
@@ -150,36 +172,71 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             return accountName(Output.of(accountName));
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
+        /**
+         * @param bucketPrefix Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
+        /**
+         * @param bucketPrefix Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
+        /**
+         * @param privateLinkServiceName Snowflake Private Link service name to be used for private data transfers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceName(@Nullable Output<String> privateLinkServiceName) {
             $.privateLinkServiceName = privateLinkServiceName;
             return this;
         }
 
+        /**
+         * @param privateLinkServiceName Snowflake Private Link service name to be used for private data transfers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateLinkServiceName(String privateLinkServiceName) {
             return privateLinkServiceName(Output.of(privateLinkServiceName));
         }
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 
@@ -191,7 +248,6 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
         /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-         * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
          * 
          * @return builder
          * 
@@ -222,7 +278,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param warehouse The name of the Snowflake warehouse.
+         * @param warehouse Name of the Snowflake warehouse.
          * 
          * @return builder
          * 
@@ -233,7 +289,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param warehouse The name of the Snowflake warehouse.
+         * @param warehouse Name of the Snowflake warehouse.
          * 
          * @return builder
          * 

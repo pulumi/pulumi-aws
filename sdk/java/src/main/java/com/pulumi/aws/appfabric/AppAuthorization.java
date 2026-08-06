@@ -75,106 +75,112 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appfabric/appAuthorization:AppAuthorization")
 public class AppAuthorization extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+     * Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
      * 
      */
     @Export(name="app", refs={String.class}, tree="[0]")
     private Output<String> app;
 
     /**
-     * @return The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+     * @return Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
      * 
      */
     public Output<String> app() {
         return this.app;
     }
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
         return this.appBundleArn;
     }
     /**
-     * ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * ARN of the App Authorization.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
+     * @return ARN of the App Authorization.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The authorization type for the app authorization valid values are oauth2 and apiKey.
+     * Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
      * 
      */
     @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
     /**
-     * @return The authorization type for the app authorization valid values are oauth2 and apiKey.
+     * @return Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
      * 
      */
     public Output<String> authType() {
         return this.authType;
     }
     /**
-     * The application URL for the OAuth flow.
+     * Application URL for the OAuth flow.
      * 
      */
     @Export(name="authUrl", refs={String.class}, tree="[0]")
     private Output<String> authUrl;
 
     /**
-     * @return The application URL for the OAuth flow.
+     * @return Application URL for the OAuth flow.
      * 
      */
     public Output<String> authUrl() {
         return this.authUrl;
     }
+    /**
+     * Timestamp of when the app authorization was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return Timestamp of when the app authorization was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+     * Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
      * 
      */
     @Export(name="credential", refs={AppAuthorizationCredential.class}, tree="[0]")
     private Output<AppAuthorizationCredential> credential;
 
     /**
-     * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-     * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+     * @return Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
      * 
      */
     public Output<AppAuthorizationCredential> credential() {
         return this.credential;
     }
     /**
-     * The user persona of the app authorization.
+     * User persona of the app authorization.
      * 
      */
     @Export(name="persona", refs={String.class}, tree="[0]")
     private Output<String> persona;
 
     /**
-     * @return The user persona of the app authorization.
+     * @return User persona of the app authorization.
      * 
      */
     public Output<String> persona() {
@@ -194,27 +200,47 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Contains information about an application tenant, such as the application display name and identifier.
+     * Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="tenants", refs={List.class,AppAuthorizationTenant.class}, tree="[0,1]")
     private Output<List<AppAuthorizationTenant>> tenants;
 
     /**
-     * @return Contains information about an application tenant, such as the application display name and identifier.
+     * @return Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<AppAuthorizationTenant>> tenants() {
@@ -226,9 +252,17 @@ public class AppAuthorization extends com.pulumi.resources.CustomResource {
     public Output<Optional<AppAuthorizationTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * Timestamp of when the app authorization was last updated.
+     * 
+     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
+    /**
+     * @return Timestamp of when the app authorization was last updated.
+     * 
+     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

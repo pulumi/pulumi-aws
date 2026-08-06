@@ -20,14 +20,14 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
     public static final RouteSpecHttp2RouteArgs Empty = new RouteSpecHttp2RouteArgs();
 
     /**
-     * Action to take if a match is determined.
+     * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<RouteSpecHttp2RouteActionArgs> action;
 
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     public Output<RouteSpecHttp2RouteActionArgs> action() {
@@ -35,14 +35,14 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Criteria for determining an HTTP request match.
+     * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<RouteSpecHttp2RouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining an HTTP request match.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Output<RouteSpecHttp2RouteMatchArgs> match() {
@@ -50,14 +50,14 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Retry policy.
+     * Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     @Import(name="retryPolicy")
     private @Nullable Output<RouteSpecHttp2RouteRetryPolicyArgs> retryPolicy;
 
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteRetryPolicyArgs>> retryPolicy() {
@@ -65,14 +65,14 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Types of timeouts.
+     * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecHttp2RouteTimeoutArgs> timeout;
 
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteTimeoutArgs>> timeout() {
@@ -107,7 +107,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param match Criteria for determining an HTTP request match.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param match Criteria for determining an HTTP request match.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retryPolicy Retry policy.
+         * @param retryPolicy Retry policy. See `spec.http_route.retry_policy` Block for details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retryPolicy Retry policy.
+         * @param retryPolicy Retry policy. See `spec.http_route.retry_policy` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class RouteSpecHttp2RouteArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          * 
          * @return builder
          * 

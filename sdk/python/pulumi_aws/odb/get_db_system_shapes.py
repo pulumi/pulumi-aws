@@ -47,7 +47,7 @@ class GetDbSystemShapesResult:
     @pulumi.getter(name="dbSystemShapes")
     def db_system_shapes(self) -> Sequence['outputs.GetDbSystemShapesDbSystemShapeResult']:
         """
-        The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+        List of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
         """
         return pulumi.get(self, "db_system_shapes")
 
@@ -88,7 +88,7 @@ def get_db_system_shapes(availability_zone_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str availability_zone_id: The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+    :param _builtins.str availability_zone_id: Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -121,7 +121,7 @@ def get_db_system_shapes_output(availability_zone_id: pulumi.Input[Optional[Opti
     ```
 
 
-    :param _builtins.str availability_zone_id: The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+    :param _builtins.str availability_zone_id: Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

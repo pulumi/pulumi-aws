@@ -27,8 +27,8 @@ class MultiRegionAccessPointArgs:
         """
         The set of arguments for constructing a MultiRegionAccessPoint resource.
 
-        :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "details", details)
@@ -41,7 +41,7 @@ class MultiRegionAccessPointArgs:
     @pulumi.getter
     def details(self) -> pulumi.Input['MultiRegionAccessPointDetailsArgs']:
         """
-        A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         """
         return pulumi.get(self, "details")
 
@@ -53,7 +53,7 @@ class MultiRegionAccessPointArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -88,10 +88,10 @@ class _MultiRegionAccessPointState:
         """
         Input properties used for looking up and filtering MultiRegionAccessPoint resources.
 
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Multi-Region Access Point.
-        :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         :param pulumi.Input[_builtins.str] domain_name: DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -118,7 +118,7 @@ class _MultiRegionAccessPointState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -154,7 +154,7 @@ class _MultiRegionAccessPointState:
     @pulumi.getter
     def details(self) -> pulumi.Input[Optional['MultiRegionAccessPointDetailsArgs']]:
         """
-        A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         """
         return pulumi.get(self, "details")
 
@@ -226,6 +226,8 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         > This resource cannot be used with S3 directory buckets.
 
+        For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+
         ## Example Usage
 
         ### Multiple AWS Buckets in Different Regions
@@ -271,8 +273,8 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[Union['MultiRegionAccessPointDetailsArgs', 'MultiRegionAccessPointDetailsArgsDict']] details: A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[Union['MultiRegionAccessPointDetailsArgs', 'MultiRegionAccessPointDetailsArgsDict']] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -285,6 +287,8 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
 
         > This resource cannot be used with S3 directory buckets.
+
+        For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
 
         ## Example Usage
 
@@ -391,10 +395,10 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias for the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Multi-Region Access Point.
-        :param pulumi.Input[Union['MultiRegionAccessPointDetailsArgs', 'MultiRegionAccessPointDetailsArgsDict']] details: A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[Union['MultiRegionAccessPointDetailsArgs', 'MultiRegionAccessPointDetailsArgsDict']] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         :param pulumi.Input[_builtins.str] domain_name: DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -418,7 +422,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -442,7 +446,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def details(self) -> pulumi.Output['outputs.MultiRegionAccessPointDetails']:
         """
-        A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         """
         return pulumi.get(self, "details")
 

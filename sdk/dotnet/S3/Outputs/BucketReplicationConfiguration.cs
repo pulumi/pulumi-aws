@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// Specifies the rules managing the replication (documented below).
+        /// Rules managing the replication. See `Rules` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketReplicationConfigurationRule> Rules;
 

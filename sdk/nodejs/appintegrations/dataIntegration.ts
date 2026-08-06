@@ -69,19 +69,19 @@ export class DataIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Data Integration.
+     * Amazon Resource Name (ARN) of the Data Integration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies the description of the Data Integration.
+     * Description of the Data Integration.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
     declare public readonly kmsKey: pulumi.Output<string>;
     /**
-     * Specifies the name of the Data Integration.
+     * Name of the Data Integration.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -89,11 +89,11 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+     * Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
      */
     declare public readonly scheduleConfig: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
     /**
-     * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+     * URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
     declare public readonly sourceUri: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -158,19 +158,19 @@ export class DataIntegration extends pulumi.CustomResource {
  */
 export interface DataIntegrationState {
     /**
-     * The Amazon Resource Name (ARN) of the Data Integration.
+     * Amazon Resource Name (ARN) of the Data Integration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the description of the Data Integration.
+     * Description of the Data Integration.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the Data Integration.
+     * Name of the Data Integration.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -178,11 +178,11 @@ export interface DataIntegrationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+     * Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
      */
     scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig | undefined>;
     /**
-     * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+     * URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
     sourceUri?: pulumi.Input<string | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface DataIntegrationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -200,15 +200,15 @@ export interface DataIntegrationState {
  */
 export interface DataIntegrationArgs {
     /**
-     * Specifies the description of the Data Integration.
+     * Description of the Data Integration.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key Amazon Resource Name (ARN) for the Data Integration.
      */
     kmsKey: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Integration.
+     * Name of the Data Integration.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -216,11 +216,11 @@ export interface DataIntegrationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+     * Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
      */
     scheduleConfig: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig>;
     /**
-     * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+     * URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      */
     sourceUri: pulumi.Input<string>;
     /**

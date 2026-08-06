@@ -116,19 +116,19 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the extension defined in the association.
+        /// ARN of the extension defined in the association.
         /// </summary>
         [Output("extensionArn")]
         public Output<string> ExtensionArn { get; private set; } = null!;
 
         /// <summary>
-        /// The version number for the extension defined in the association.
+        /// Version number for the extension defined in the association.
         /// </summary>
         [Output("extensionVersion")]
         public Output<int> ExtensionVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The parameter names and values defined for the association.
+        /// Parameter names and values defined for the association.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
+        /// ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.AppConfig
     public sealed class ExtensionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the extension defined in the association.
+        /// ARN of the extension defined in the association.
         /// </summary>
         [Input("extensionArn", required: true)]
         public Input<string> ExtensionArn { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// The parameter names and values defined for the association.
+        /// Parameter names and values defined for the association.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
+        /// ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -236,13 +236,13 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ARN of the extension defined in the association.
+        /// ARN of the extension defined in the association.
         /// </summary>
         [Input("extensionArn")]
         public Input<string>? ExtensionArn { get; set; }
 
         /// <summary>
-        /// The version number for the extension defined in the association.
+        /// Version number for the extension defined in the association.
         /// </summary>
         [Input("extensionVersion")]
         public Input<int>? ExtensionVersion { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.AppConfig
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// The parameter names and values defined for the association.
+        /// Parameter names and values defined for the association.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ARN of the application, configuration profile, or environment to associate with the extension.
+        /// ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

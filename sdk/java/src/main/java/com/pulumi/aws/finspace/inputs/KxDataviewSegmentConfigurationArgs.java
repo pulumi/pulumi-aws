@@ -19,14 +19,14 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
     public static final KxDataviewSegmentConfigurationArgs Empty = new KxDataviewSegmentConfigurationArgs();
 
     /**
-     * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+     * Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
      * 
      */
     @Import(name="dbPaths", required=true)
     private Output<List<String>> dbPaths;
 
     /**
-     * @return The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+     * @return Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
      * 
      */
     public Output<List<String>> dbPaths() {
@@ -49,14 +49,14 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
-     * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+     * Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     @Import(name="volumeName", required=true)
     private Output<String> volumeName;
 
     /**
-     * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+     * @return Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     public Output<String> volumeName() {
@@ -90,7 +90,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         * @param dbPaths Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         * @param dbPaths Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param dbPaths The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+         * @param dbPaths Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param volumeName The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+         * @param volumeName Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param volumeName The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+         * @param volumeName Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
          * 
          * @return builder
          * 

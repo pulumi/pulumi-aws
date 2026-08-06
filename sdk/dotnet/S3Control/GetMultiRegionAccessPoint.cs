@@ -88,13 +88,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class GetMultiRegionAccessPointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public string? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the Multi-Region Access Point.
+        /// Name of the Multi-Region Access Point.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -114,13 +114,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class GetMultiRegionAccessPointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the Multi-Region Access Point.
+        /// Name of the Multi-Region Access Point.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.S3Control
     {
         public readonly string AccountId;
         /// <summary>
-        /// The alias for the Multi-Region Access Point.
+        /// Alias for the Multi-Region Access Point.
         /// </summary>
         public readonly string Alias;
         /// <summary>
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The DNS domain name of the S3 Multi-Region Access Point in the format _`Alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        /// DNS domain name of the S3 Multi-Region Access Point in the format _`Alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         /// </summary>
         public readonly string DomainName;
         /// <summary>
@@ -168,15 +168,15 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointPublicAccessBlockResult> PublicAccessBlocks;
         /// <summary>
-        /// The name of the region.
+        /// Name of the region.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// A collection of the regions and buckets associated with the Multi-Region Access Point.
+        /// Collection of the regions and buckets associated with the Multi-Region Access Point.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointRegionResult> Regions;
         /// <summary>
-        /// The current status of the Multi-Region Access Point.
+        /// Current status of the Multi-Region Access Point.
         /// </summary>
         public readonly string Status;
 

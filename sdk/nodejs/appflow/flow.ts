@@ -161,23 +161,23 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Description of the flow you want to create.
+     * Description of the flow.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      */
     declare public readonly destinationFlowConfigs: pulumi.Output<outputs.appflow.FlowDestinationFlowConfig[]>;
     /**
-     * The current status of the flow.
+     * Current status of the flow.
      */
     declare public /*out*/ readonly flowStatus: pulumi.Output<string>;
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     declare public readonly kmsArn: pulumi.Output<string>;
     /**
-     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      */
     declare public readonly metadataCatalogConfig: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig>;
     /**
@@ -189,7 +189,7 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      */
     declare public readonly sourceFlowConfig: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
     /**
@@ -201,11 +201,11 @@ export class Flow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      */
     declare public readonly tasks: pulumi.Output<outputs.appflow.FlowTask[]>;
     /**
-     * A Trigger that determine how and when the flow runs.
+     * Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      */
     declare public readonly triggerConfig: pulumi.Output<outputs.appflow.FlowTriggerConfig>;
 
@@ -277,23 +277,23 @@ export interface FlowState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Description of the flow you want to create.
+     * Description of the flow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      */
     destinationFlowConfigs?: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[] | undefined>;
     /**
-     * The current status of the flow.
+     * Current status of the flow.
      */
     flowStatus?: pulumi.Input<string | undefined>;
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**
-     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      */
     metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig | undefined>;
     /**
@@ -305,7 +305,7 @@ export interface FlowState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      */
     sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig | undefined>;
     /**
@@ -317,11 +317,11 @@ export interface FlowState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      */
     tasks?: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[] | undefined>;
     /**
-     * A Trigger that determine how and when the flow runs.
+     * Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      */
     triggerConfig?: pulumi.Input<inputs.appflow.FlowTriggerConfig | undefined>;
 }
@@ -331,19 +331,19 @@ export interface FlowState {
  */
 export interface FlowArgs {
     /**
-     * Description of the flow you want to create.
+     * Description of the flow.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      */
     destinationFlowConfigs: pulumi.Input<pulumi.Input<inputs.appflow.FlowDestinationFlowConfig>[]>;
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**
-     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      */
     metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfig | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface FlowArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      */
     sourceFlowConfig: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
     /**
@@ -363,11 +363,11 @@ export interface FlowArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      */
     tasks: pulumi.Input<pulumi.Input<inputs.appflow.FlowTask>[]>;
     /**
-     * A Trigger that determine how and when the flow runs.
+     * Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      */
     triggerConfig: pulumi.Input<inputs.appflow.FlowTriggerConfig>;
 }

@@ -16,14 +16,14 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
     public static final RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs Empty = new RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs();
 
     /**
-     * Retry unit. Valid values: `ms`, `s`.
+     * Unit of time. Valid values: `ms`, `s`.
      * 
      */
     @Import(name="unit", required=true)
     private Output<String> unit;
 
     /**
-     * @return Retry unit. Valid values: `ms`, `s`.
+     * @return Unit of time. Valid values: `ms`, `s`.
      * 
      */
     public Output<String> unit() {
@@ -31,14 +31,14 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
     }
 
     /**
-     * Retry value.
+     * Number of time units. Minimum value of `0`.
      * 
      */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
     /**
-     * @return Retry value.
+     * @return Number of time units. Minimum value of `0`.
      * 
      */
     public Output<Integer> value() {
@@ -71,7 +71,7 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
         }
 
         /**
-         * @param unit Retry unit. Valid values: `ms`, `s`.
+         * @param unit Unit of time. Valid values: `ms`, `s`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
         }
 
         /**
-         * @param unit Retry unit. Valid values: `ms`, `s`.
+         * @param unit Unit of time. Valid values: `ms`, `s`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
         }
 
         /**
-         * @param value Retry value.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs extends com.
         }
 
         /**
-         * @param value Retry value.
+         * @param value Number of time units. Minimum value of `0`.
          * 
          * @return builder
          * 

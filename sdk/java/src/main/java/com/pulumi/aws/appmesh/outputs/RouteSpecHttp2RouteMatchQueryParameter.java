@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2RouteMatchQueryParameter {
     /**
-     * @return The query parameter to match on.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     private @Nullable RouteSpecHttp2RouteMatchQueryParameterMatch match;
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     private String name;
 
     private RouteSpecHttp2RouteMatchQueryParameter() {}
     /**
-     * @return The query parameter to match on.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Optional<RouteSpecHttp2RouteMatchQueryParameterMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     public String name() {

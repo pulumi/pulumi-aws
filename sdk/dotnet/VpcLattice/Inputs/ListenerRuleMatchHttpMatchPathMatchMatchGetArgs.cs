@@ -13,14 +13,13 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerRuleMatchHttpMatchPathMatchMatchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies an exact type match.
+        /// Exact type match.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// Specifies a prefix type match.
-        /// Matches the value with the prefix.
+        /// Prefix type match. Matches the value with the prefix.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

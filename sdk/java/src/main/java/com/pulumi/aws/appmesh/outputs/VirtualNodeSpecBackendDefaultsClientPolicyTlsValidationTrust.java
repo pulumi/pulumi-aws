@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
     /**
-     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm;
     /**
-     * @return TLS validation context trust for a local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile file;
     /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds sds;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust() {}
     /**
-     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm> acm() {
         return Optional.ofNullable(this.acm);
     }
     /**
-     * @return TLS validation context trust for a local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile> file() {
         return Optional.ofNullable(this.file);
     }
     /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds> sds() {

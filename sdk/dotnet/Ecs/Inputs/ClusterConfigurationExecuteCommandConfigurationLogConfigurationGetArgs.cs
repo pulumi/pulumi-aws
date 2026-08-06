@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<bool>? CloudWatchEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// The name of the CloudWatch log group to send logs to.
+        /// Name of the CloudWatch log group to send logs to.
         /// </summary>
         [Input("cloudWatchLogGroupName")]
         public Input<string>? CloudWatchLogGroupName { get; set; }

@@ -17,14 +17,14 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
     public static final InventoryDestinationBucketEncryptionArgs Empty = new InventoryDestinationBucketEncryptionArgs();
 
     /**
-     * Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+     * Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
      * 
      */
     @Import(name="sseKms")
     private @Nullable Output<InventoryDestinationBucketEncryptionSseKmsArgs> sseKms;
 
     /**
-     * @return Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+     * @return Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
      * 
      */
     public Optional<Output<InventoryDestinationBucketEncryptionSseKmsArgs>> sseKms() {
@@ -32,14 +32,14 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+     * Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
      * 
      */
     @Import(name="sseS3")
     private @Nullable Output<InventoryDestinationBucketEncryptionSseS3Args> sseS3;
 
     /**
-     * @return Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+     * @return Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
      * 
      */
     public Optional<Output<InventoryDestinationBucketEncryptionSseS3Args>> sseS3() {
@@ -72,7 +72,7 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param sseKms Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+         * @param sseKms Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param sseKms Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+         * @param sseKms Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param sseS3 Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+         * @param sseS3 Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class InventoryDestinationBucketEncryptionArgs extends com.pulumi.r
         }
 
         /**
-         * @param sseS3 Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+         * @param sseS3 Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
     public static final OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs Empty = new OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs();
 
     /**
-     * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+     * Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+     * @return Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -32,14 +32,14 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
     }
 
     /**
-     * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
     /**
-     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * @return Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     public Optional<Output<Integer>> value() {
@@ -72,7 +72,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
         }
 
         /**
-         * @param type The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         * @param type Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
         }
 
         /**
-         * @param type The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+         * @param type Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
         }
 
         /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * @param value Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
         }
 
         /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * @param value Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          * 
          * @return builder
          * 

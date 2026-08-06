@@ -125,18 +125,14 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of the API models used for the request&#39;s content type
-     * where key is the content type (e.g., `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
+     * Map of the API models used for the request&#39;s content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
      */
     @Import(name="requestModels")
     private @Nullable Output<Map<String,String>> requestModels;
 
     /**
-     * @return Map of the API models used for the request&#39;s content type
-     * where key is the content type (e.g., `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
+     * @return Map of the API models used for the request&#39;s content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
      */
     public Optional<Output<Map<String,String>>> requestModels() {
@@ -144,16 +140,14 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-     * For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
     @Import(name="requestParameters")
     private @Nullable Output<Map<String,Boolean>> requestParameters;
 
     /**
-     * @return Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-     * For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+     * @return Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
     public Optional<Output<Map<String,Boolean>>> requestParameters() {
@@ -398,9 +392,7 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels Map of the API models used for the request&#39;s content type
-         * where key is the content type (e.g., `application/json`)
-         * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
+         * @param requestModels Map of the API models used for the request&#39;s content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
          * 
          * @return builder
          * 
@@ -411,9 +403,7 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestModels Map of the API models used for the request&#39;s content type
-         * where key is the content type (e.g., `application/json`)
-         * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
+         * @param requestModels Map of the API models used for the request&#39;s content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
          * 
          * @return builder
          * 
@@ -423,8 +413,7 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-         * For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
          * 
          * @return builder
          * 
@@ -435,8 +424,7 @@ public final class MethodArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-         * For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+         * @param requestParameters Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
          * 
          * @return builder
          * 

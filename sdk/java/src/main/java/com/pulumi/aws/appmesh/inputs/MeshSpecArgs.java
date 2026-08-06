@@ -32,14 +32,14 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+     * Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
      * 
      */
     @Import(name="serviceDiscovery")
     private @Nullable Output<MeshSpecServiceDiscoveryArgs> serviceDiscovery;
 
     /**
-     * @return The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+     * @return Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
      * 
      */
     public Optional<Output<MeshSpecServiceDiscoveryArgs>> serviceDiscovery() {
@@ -93,7 +93,7 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscovery The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+         * @param serviceDiscovery Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class MeshSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscovery The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+         * @param serviceDiscovery Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
          * 
          * @return builder
          * 

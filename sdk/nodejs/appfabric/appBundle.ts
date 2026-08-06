@@ -70,7 +70,7 @@ export class AppBundle extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      */
     declare public readonly customerManagedKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -126,7 +126,7 @@ export interface AppBundleState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      */
     customerManagedKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface AppBundleState {
  */
 export interface AppBundleArgs {
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      */
     customerManagedKeyArn?: pulumi.Input<string | undefined>;
     /**

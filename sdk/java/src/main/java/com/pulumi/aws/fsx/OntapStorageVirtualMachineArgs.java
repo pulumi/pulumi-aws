@@ -34,14 +34,14 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * @return ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
     public Output<String> fileSystemId() {
@@ -49,14 +49,14 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
     @Import(name="rootVolumeSecurityStyle")
     private @Nullable Output<String> rootVolumeSecurityStyle;
 
     /**
-     * @return Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * @return Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
     public Optional<Output<String>> rootVolumeSecurityStyle() {
@@ -94,14 +94,14 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
     @Import(name="svmAdminPassword")
     private @Nullable Output<String> svmAdminPassword;
 
     /**
-     * @return Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * @return Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
     public Optional<Output<String>> svmAdminPassword() {
@@ -109,14 +109,14 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -175,7 +175,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param fileSystemId The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+         * @param fileSystemId ID of the Amazon FSx ONTAP File System that this SVM will be created on.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param fileSystemId The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+         * @param fileSystemId ID of the Amazon FSx ONTAP File System that this SVM will be created on.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+         * @param name Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param rootVolumeSecurityStyle Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+         * @param rootVolumeSecurityStyle Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param rootVolumeSecurityStyle Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+         * @param rootVolumeSecurityStyle Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param svmAdminPassword Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+         * @param svmAdminPassword Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param svmAdminPassword Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+         * @param svmAdminPassword Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tags A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class OntapStorageVirtualMachineArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tags A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

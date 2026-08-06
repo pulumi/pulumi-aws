@@ -76,7 +76,7 @@ import (
 type VectorsVectorBucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -122,7 +122,7 @@ func GetVectorsVectorBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VectorsVectorBucketPolicy resources.
 type vectorsVectorBucketPolicyState struct {
-	// The policy document.
+	// Policy document.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -133,7 +133,7 @@ type vectorsVectorBucketPolicyState struct {
 }
 
 type VectorsVectorBucketPolicyState struct {
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -148,7 +148,7 @@ func (VectorsVectorBucketPolicyState) ElementType() reflect.Type {
 }
 
 type vectorsVectorBucketPolicyArgs struct {
-	// The policy document.
+	// Policy document.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -160,7 +160,7 @@ type vectorsVectorBucketPolicyArgs struct {
 
 // The set of arguments for constructing a VectorsVectorBucketPolicy resource.
 type VectorsVectorBucketPolicyArgs struct {
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -257,7 +257,7 @@ func (o VectorsVectorBucketPolicyOutput) ToVectorsVectorBucketPolicyOutputWithCo
 	return o
 }
 
-// The policy document.
+// Policy document.
 func (o VectorsVectorBucketPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VectorsVectorBucketPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

@@ -48,6 +48,108 @@ import (
 //
 // ```
 //
+// ### Container Logging, Environment Variables, and Secrets
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
+//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
+//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
+//				HealthCheckPath:       pulumi.String("/health"),
+//				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
+//					Image:         pulumi.String("my-app:latest"),
+//					ContainerPort: pulumi.Int(8080),
+//					Commands: pulumi.StringArray{
+//						pulumi.String("./start.sh"),
+//					},
+//					AwsLogsConfigurations: ecs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArray{
+//						&ecs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs{
+//							LogGroup: pulumi.Any(app.Name),
+//						},
+//					},
+//					Environments: ecs.ExpressGatewayServicePrimaryContainerEnvironmentArray{
+//						&ecs.ExpressGatewayServicePrimaryContainerEnvironmentArgs{
+//							Name:  pulumi.String("ENV"),
+//							Value: pulumi.String("production"),
+//						},
+//						&ecs.ExpressGatewayServicePrimaryContainerEnvironmentArgs{
+//							Name:  pulumi.String("PORT"),
+//							Value: pulumi.String("8080"),
+//						},
+//					},
+//					Secrets: ecs.ExpressGatewayServicePrimaryContainerSecretArray{
+//						&ecs.ExpressGatewayServicePrimaryContainerSecretArgs{
+//							Name:      pulumi.String("DB_PASSWORD"),
+//							ValueFrom: pulumi.Any(dbPassword.Arn),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Custom Networking
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ecs.NewExpressGatewayService(ctx, "example", &ecs.ExpressGatewayServiceArgs{
+//				ServiceName:           pulumi.String("my-express-service"),
+//				Cluster:               pulumi.Any(main.Name),
+//				ExecutionRoleArn:      pulumi.Any(execution.Arn),
+//				InfrastructureRoleArn: pulumi.Any(infrastructure.Arn),
+//				Cpu:                   pulumi.String("256"),
+//				Memory:                pulumi.String("512"),
+//				PrimaryContainer: &ecs.ExpressGatewayServicePrimaryContainerArgs{
+//					Image:         pulumi.String("nginx:latest"),
+//					ContainerPort: pulumi.Int(80),
+//				},
+//				NetworkConfigurations: ecs.ExpressGatewayServiceNetworkConfigurationArray{
+//					&ecs.ExpressGatewayServiceNetworkConfigurationArgs{
+//						Subnets: pulumi.StringArray{
+//							privateA.Id,
+//							privateB.Id,
+//						},
+//						SecurityGroups: pulumi.StringArray{
+//							app.Id,
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Service Updates and Deletion
 //
 // ### Updates
@@ -87,11 +189,13 @@ type ExpressGatewayService struct {
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths ExpressGatewayServiceIngressPathArrayOutput `pulumi:"ingressPaths"`
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-	Memory                pulumi.StringOutput                                  `pulumi:"memory"`
+	Memory pulumi.StringOutput `pulumi:"memory"`
+	// Network configuration for the service. See `networkConfiguration` Block below.
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayOutput `pulumi:"networkConfigurations"`
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerOutput          `pulumi:"primaryContainer"`
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringOutput                           `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 	ScalingTargets ExpressGatewayServiceScalingTargetArrayOutput `pulumi:"scalingTargets"`
 	// ARN of the Express Gateway Service.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
@@ -168,11 +272,13 @@ type expressGatewayServiceState struct {
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths []ExpressGatewayServiceIngressPath `pulumi:"ingressPaths"`
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-	Memory                *string                                     `pulumi:"memory"`
+	Memory *string `pulumi:"memory"`
+	// Network configuration for the service. See `networkConfiguration` Block below.
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      *ExpressGatewayServicePrimaryContainer      `pulumi:"primaryContainer"`
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         *string                              `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 	ScalingTargets []ExpressGatewayServiceScalingTarget `pulumi:"scalingTargets"`
 	// ARN of the Express Gateway Service.
 	ServiceArn *string `pulumi:"serviceArn"`
@@ -211,11 +317,13 @@ type ExpressGatewayServiceState struct {
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths ExpressGatewayServiceIngressPathArrayInput
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-	Memory                pulumi.StringPtrInput
+	Memory pulumi.StringPtrInput
+	// Network configuration for the service. See `networkConfiguration` Block below.
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrInput
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 	ScalingTargets ExpressGatewayServiceScalingTargetArrayInput
 	// ARN of the Express Gateway Service.
 	ServiceArn pulumi.StringPtrInput
@@ -252,11 +360,13 @@ type expressGatewayServiceArgs struct {
 	// The following arguments are optional:
 	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-	Memory                *string                                     `pulumi:"memory"`
+	Memory *string `pulumi:"memory"`
+	// Network configuration for the service. See `networkConfiguration` Block below.
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      ExpressGatewayServicePrimaryContainer       `pulumi:"primaryContainer"`
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         *string                              `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 	ScalingTargets []ExpressGatewayServiceScalingTarget `pulumi:"scalingTargets"`
 	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
 	ServiceName *string `pulumi:"serviceName"`
@@ -284,11 +394,13 @@ type ExpressGatewayServiceArgs struct {
 	// The following arguments are optional:
 	InfrastructureRoleArn pulumi.StringInput
 	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
-	Memory                pulumi.StringPtrInput
+	Memory pulumi.StringPtrInput
+	// Network configuration for the service. See `networkConfiguration` Block below.
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerInput
 	// AWS region where the service will be created. If not specified, the region configured in the provider will be used.
-	Region         pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 	ScalingTargets ExpressGatewayServiceScalingTargetArrayInput
 	// Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
 	ServiceName pulumi.StringPtrInput
@@ -432,6 +544,7 @@ func (o ExpressGatewayServiceOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Memory }).(pulumi.StringOutput)
 }
 
+// Network configuration for the service. See `networkConfiguration` Block below.
 func (o ExpressGatewayServiceOutput) NetworkConfigurations() ExpressGatewayServiceNetworkConfigurationArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceNetworkConfigurationArrayOutput {
 		return v.NetworkConfigurations
@@ -447,6 +560,7 @@ func (o ExpressGatewayServiceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Auto-scaling configuration for the service. See `scalingTarget` Block below.
 func (o ExpressGatewayServiceOutput) ScalingTargets() ExpressGatewayServiceScalingTargetArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceScalingTargetArrayOutput { return v.ScalingTargets }).(ExpressGatewayServiceScalingTargetArrayOutput)
 }

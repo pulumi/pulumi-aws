@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult
     {
         /// <summary>
-        /// A detailed message.
+        /// Detailed message.
         /// </summary>
         public readonly string Message;
 

@@ -125,7 +125,7 @@ class _VpcConnectorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_connector_name: Name for the VPC connector.
-        :param pulumi.Input[_builtins.int] vpc_connector_revision: The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        :param pulumi.Input[_builtins.int] vpc_connector_revision: Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -246,7 +246,7 @@ class _VpcConnectorState:
     @pulumi.getter(name="vpcConnectorRevision")
     def vpc_connector_revision(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """
         return pulumi.get(self, "vpc_connector_revision")
 
@@ -431,7 +431,7 @@ class VpcConnector(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_connector_name: Name for the VPC connector.
-        :param pulumi.Input[_builtins.int] vpc_connector_revision: The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        :param pulumi.Input[_builtins.int] vpc_connector_revision: Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -516,7 +516,7 @@ class VpcConnector(pulumi.CustomResource):
     @pulumi.getter(name="vpcConnectorRevision")
     def vpc_connector_revision(self) -> pulumi.Output[_builtins.int]:
         """
-        The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         """
         return pulumi.get(self, "vpc_connector_revision")
 

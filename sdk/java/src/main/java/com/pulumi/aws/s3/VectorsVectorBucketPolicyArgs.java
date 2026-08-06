@@ -17,14 +17,14 @@ public final class VectorsVectorBucketPolicyArgs extends com.pulumi.resources.Re
     public static final VectorsVectorBucketPolicyArgs Empty = new VectorsVectorBucketPolicyArgs();
 
     /**
-     * The policy document.
+     * Policy document.
      * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
-     * @return The policy document.
+     * @return Policy document.
      * 
      */
     public Output<String> policy() {
@@ -92,7 +92,7 @@ public final class VectorsVectorBucketPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VectorsVectorBucketPolicyArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 

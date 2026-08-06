@@ -18,31 +18,23 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs();
 
     /**
-     * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * AWS Certificate Manager (ACM) certificate.
      * 
      */
     @Import(name="acm")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs> acm;
 
     /**
-     * @return TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs>> acm() {
         return Optional.ofNullable(this.acm);
     }
 
-    /**
-     * TLS validation context trust for a local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs> file;
 
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
@@ -89,7 +81,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param acm TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -100,7 +92,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
         }
 
         /**
-         * @param acm TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+         * @param acm AWS Certificate Manager (ACM) certificate.
          * 
          * @return builder
          * 
@@ -109,23 +101,11 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
             return acm(Output.of(acm));
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs file) {
             return file(Output.of(file));
         }

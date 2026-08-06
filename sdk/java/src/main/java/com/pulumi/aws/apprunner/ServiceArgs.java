@@ -39,14 +39,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<ServiceEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * @return Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      * 
      */
     public Optional<Output<ServiceEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -54,14 +54,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      * 
      */
     @Import(name="healthCheckConfiguration")
     private @Nullable Output<ServiceHealthCheckConfigurationArgs> healthCheckConfiguration;
 
     /**
-     * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * @return Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      * 
      */
     public Optional<Output<ServiceHealthCheckConfigurationArgs>> healthCheckConfiguration() {
@@ -69,14 +69,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      * 
      */
     @Import(name="instanceConfiguration")
     private @Nullable Output<ServiceInstanceConfigurationArgs> instanceConfiguration;
 
     /**
-     * @return The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * @return Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      * 
      */
     public Optional<Output<ServiceInstanceConfigurationArgs>> instanceConfiguration() {
@@ -84,14 +84,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      * 
      */
     public Optional<Output<ServiceNetworkConfigurationArgs>> networkConfiguration() {
@@ -99,14 +99,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
+     * Observability configuration of your service. See `observabilityConfiguration` below.
      * 
      */
     @Import(name="observabilityConfiguration")
     private @Nullable Output<ServiceObservabilityConfigurationArgs> observabilityConfiguration;
 
     /**
-     * @return The observability configuration of your service. See Observability Configuration below for more details.
+     * @return Observability configuration of your service. See `observabilityConfiguration` below.
      * 
      */
     public Optional<Output<ServiceObservabilityConfigurationArgs>> observabilityConfiguration() {
@@ -144,18 +144,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
+     * Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      * 
      */
     @Import(name="sourceConfiguration", required=true)
     private Output<ServiceSourceConfigurationArgs> sourceConfiguration;
 
     /**
-     * @return The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     * 
-     * The following arguments are optional:
+     * @return Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      * 
      */
     public Output<ServiceSourceConfigurationArgs> sourceConfiguration() {
@@ -232,7 +228,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+         * @param encryptionConfiguration Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -243,7 +239,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+         * @param encryptionConfiguration Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -253,7 +249,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfiguration Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+         * @param healthCheckConfiguration Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
          * 
          * @return builder
          * 
@@ -264,7 +260,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfiguration Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+         * @param healthCheckConfiguration Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
          * 
          * @return builder
          * 
@@ -274,7 +270,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceConfiguration The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+         * @param instanceConfiguration Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -285,7 +281,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceConfiguration The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+         * @param instanceConfiguration Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -295,7 +291,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
          * 
          * @return builder
          * 
@@ -306,7 +302,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
          * 
          * @return builder
          * 
@@ -316,7 +312,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param observabilityConfiguration The observability configuration of your service. See Observability Configuration below for more details.
+         * @param observabilityConfiguration Observability configuration of your service. See `observabilityConfiguration` below.
          * 
          * @return builder
          * 
@@ -327,7 +323,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param observabilityConfiguration The observability configuration of your service. See Observability Configuration below for more details.
+         * @param observabilityConfiguration Observability configuration of your service. See `observabilityConfiguration` below.
          * 
          * @return builder
          * 
@@ -379,9 +375,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceConfiguration The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-         * 
-         * The following arguments are optional:
+         * @param sourceConfiguration Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
          * 
          * @return builder
          * 
@@ -392,9 +386,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceConfiguration The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-         * 
-         * The following arguments are optional:
+         * @param sourceConfiguration Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
          * 
          * @return builder
          * 

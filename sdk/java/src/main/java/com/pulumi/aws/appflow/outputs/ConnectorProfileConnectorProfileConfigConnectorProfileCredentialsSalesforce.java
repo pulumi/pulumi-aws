@@ -12,45 +12,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     private @Nullable String accessToken;
     /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * @return Secret manager ARN, which contains the client ID and client secret of the connected app.
      * 
      */
     private @Nullable String clientCredentialsArn;
     /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * @return JSON web token (JWT) that authorizes access to Salesforce records.
      * 
      */
     private @Nullable String jwtToken;
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     private @Nullable String oauth2GrantType;
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest;
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce() {}
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
     /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * @return Secret manager ARN, which contains the client ID and client secret of the connected app.
      * 
      */
     public Optional<String> clientCredentialsArn() {
         return Optional.ofNullable(this.clientCredentialsArn);
     }
     /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * @return JSON web token (JWT) that authorizes access to Salesforce records.
      * 
      */
     public Optional<String> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     public Optional<String> oauth2GrantType() {
         return Optional.ofNullable(this.oauth2GrantType);
     }
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

@@ -18,17 +18,17 @@ public final class ExtensionActionPointAction {
      */
     private @Nullable String description;
     /**
-     * @return The action name.
+     * @return Action name.
      * 
      */
     private String name;
     /**
-     * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+     * @return Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+     * @return Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
      * 
      */
     private String uri;
@@ -42,21 +42,21 @@ public final class ExtensionActionPointAction {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The action name.
+     * @return Action name.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+     * @return Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+     * @return Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
      * 
      */
     public String uri() {

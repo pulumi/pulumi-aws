@@ -102,14 +102,14 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      * 
      */
     @Export(name="configurationProfileId", refs={String.class}, tree="[0]")
     private Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID.
+     * @return Configuration profile ID.
      * 
      */
     public Output<String> configurationProfileId() {
@@ -130,14 +130,14 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
     /**
-     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * @return Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
@@ -242,14 +242,14 @@ public class ConfigurationProfile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.type);
     }
     /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      * 
      */
     @Export(name="validators", refs={List.class,ConfigurationProfileValidator.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationProfileValidator>> validators;
 
     /**
-     * @return Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * @return Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      * 
      */
     public Output<Optional<List<ConfigurationProfileValidator>>> validators() {

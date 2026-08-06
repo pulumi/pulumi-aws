@@ -32,14 +32,14 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Highest number of nodes to scale. Cannot be greater than 5
+     * Highest number of nodes to scale. Cannot be greater than 5.
      * 
      */
     @Import(name="maxNodeCount", required=true)
     private Output<Integer> maxNodeCount;
 
     /**
-     * @return Highest number of nodes to scale. Cannot be greater than 5
+     * @return Highest number of nodes to scale. Cannot be greater than 5.
      * 
      */
     public Output<Integer> maxNodeCount() {
@@ -157,7 +157,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param maxNodeCount Highest number of nodes to scale. Cannot be greater than 5
+         * @param maxNodeCount Highest number of nodes to scale. Cannot be greater than 5.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class KxClusterAutoScalingConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param maxNodeCount Highest number of nodes to scale. Cannot be greater than 5
+         * @param maxNodeCount Highest number of nodes to scale. Cannot be greater than 5.
          * 
          * @return builder
          * 

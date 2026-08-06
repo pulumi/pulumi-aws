@@ -48,14 +48,14 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
     }
 
     /**
-     * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+     * Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
      * 
      */
     @Import(name="expiredObjectDeleteMarker")
     private @Nullable Output<Boolean> expiredObjectDeleteMarker;
 
     /**
-     * @return Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+     * @return Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
      * 
      */
     public Optional<Output<Boolean>> expiredObjectDeleteMarker() {
@@ -131,7 +131,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param expiredObjectDeleteMarker Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+         * @param expiredObjectDeleteMarker Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs extends com.
         }
 
         /**
-         * @param expiredObjectDeleteMarker Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+         * @param expiredObjectDeleteMarker Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
          * 
          * @return builder
          * 

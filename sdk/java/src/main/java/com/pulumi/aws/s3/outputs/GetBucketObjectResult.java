@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBucketObjectResult {
+    /**
+     * @return ARN of the object.
+     * 
+     */
     private String arn;
     /**
      * @return Object data (see **limitations above** to understand cases in which this field is actually available)
@@ -29,7 +33,7 @@ public final class GetBucketObjectResult {
     @Deprecated /* bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead. */
     private String bucket;
     /**
-     * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
     private Boolean bucketKeyEnabled;
@@ -95,7 +99,7 @@ public final class GetBucketObjectResult {
      */
     private Map<String,String> metadata;
     /**
-     * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
+     * @return Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
     private String objectLockLegalHoldStatus;
@@ -105,7 +109,7 @@ public final class GetBucketObjectResult {
      */
     private String objectLockMode;
     /**
-     * @return The date and time when this object&#39;s object lock will expire.
+     * @return Date and time when this object&#39;s object lock will expire.
      * 
      */
     private String objectLockRetainUntilDate;
@@ -143,6 +147,10 @@ public final class GetBucketObjectResult {
     private String websiteRedirectLocation;
 
     private GetBucketObjectResult() {}
+    /**
+     * @return ARN of the object.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
@@ -163,7 +171,7 @@ public final class GetBucketObjectResult {
         return this.bucket;
     }
     /**
-     * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
     public Boolean bucketKeyEnabled() {
@@ -257,7 +265,7 @@ public final class GetBucketObjectResult {
         return this.metadata;
     }
     /**
-     * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
+     * @return Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
     public String objectLockLegalHoldStatus() {
@@ -271,7 +279,7 @@ public final class GetBucketObjectResult {
         return this.objectLockMode;
     }
     /**
-     * @return The date and time when this object&#39;s object lock will expire.
+     * @return Date and time when this object&#39;s object lock will expire.
      * 
      */
     public String objectLockRetainUntilDate() {

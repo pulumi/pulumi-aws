@@ -103,13 +103,13 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// </summary>
         [Input("cloudExadataInfrastructureId", required: true)]
         public string CloudExadataInfrastructureId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of db node associated with vm cluster.
+        /// Unique identifier of db node associated with vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// </summary>
         [Input("cloudExadataInfrastructureId", required: true)]
         public Input<string> CloudExadataInfrastructureId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of db node associated with vm cluster.
+        /// Unique identifier of db node associated with vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -161,74 +161,74 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbServerResult
     {
         /// <summary>
-        /// The list of unique identifiers for the Autonomous VMs associated with this database server.
+        /// List of unique identifiers for the Autonomous VMs associated with this database server.
         /// </summary>
         public readonly ImmutableArray<string> AutonomousVirtualMachineIds;
         /// <summary>
-        /// The OCID of the autonomous VM clusters that are associated with the database server.
+        /// OCID of the autonomous VM clusters that are associated with the database server.
         /// </summary>
         public readonly ImmutableArray<string> AutonomousVmClusterIds;
         public readonly string CloudExadataInfrastructureId;
         /// <summary>
-        /// The compute model of the database server.
+        /// Compute model of the database server.
         /// </summary>
         public readonly string ComputeModel;
         /// <summary>
-        /// The number of CPU cores enabled on the database server.
+        /// Number of CPU cores enabled on the database server.
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// The date and time when the database server was created.
+        /// Date and time when the database server was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The allocated local node storage in GBs on the database server.
+        /// Allocated local node storage in GBs on the database server.
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
         /// <summary>
-        /// The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+        /// Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbServerDbServerPatchingDetailResult> DbServerPatchingDetails;
         /// <summary>
-        /// The display name of the database server.
+        /// Display name of the database server.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The exadata infrastructure ID of the database server.
+        /// Exadata infrastructure ID of the database server.
         /// </summary>
         public readonly string ExadataInfrastructureId;
         public readonly string Id;
         /// <summary>
-        /// The total number of CPU cores available.
+        /// Total number of CPU cores available.
         /// </summary>
         public readonly int MaxCpuCount;
         /// <summary>
-        /// The total local node storage available in GBs.
+        /// Total local node storage available in GBs.
         /// </summary>
         public readonly int MaxDbNodeStorageInGbs;
         /// <summary>
-        /// The total memory available in GBs.
+        /// Total memory available in GBs.
         /// </summary>
         public readonly int MaxMemoryInGbs;
         /// <summary>
-        /// The allocated memory in GBs on the database server.
+        /// Allocated memory in GBs on the database server.
         /// </summary>
         public readonly int MemorySizeInGbs;
         /// <summary>
-        /// The name of the OCI resource anchor.
+        /// Name of the OCI resource anchor.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The OCID of the database server to retrieve information about.
+        /// OCID of the database server to retrieve information about.
         /// </summary>
         public readonly string Ocid;
         public readonly string Region;
         /// <summary>
-        /// The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
+        /// Shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
         /// </summary>
         public readonly string Shape;
         /// <summary>
-        /// The status of the database server.
+        /// Status of the database server.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The OCID of the VM clusters that are associated with the database server.
+        /// OCID of the VM clusters that are associated with the database server.
         /// </summary>
         public readonly ImmutableArray<string> VmClusterIds;
 

@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScraperSource {
     /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
+     * @return Configuration block for an EKS cluster source. See `eks` Block for details.
      * 
      */
     private @Nullable ScraperSourceEks eks;
     /**
-     * @return Configuration block for a VPC source. See `vpc`.
+     * @return Configuration block for a VPC source. See `vpc` Block for details.
      * 
      * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
      * 
@@ -27,14 +27,14 @@ public final class ScraperSource {
 
     private ScraperSource() {}
     /**
-     * @return Configuration block for an EKS cluster source. See `eks`.
+     * @return Configuration block for an EKS cluster source. See `eks` Block for details.
      * 
      */
     public Optional<ScraperSourceEks> eks() {
         return Optional.ofNullable(this.eks);
     }
     /**
-     * @return Configuration block for a VPC source. See `vpc`.
+     * @return Configuration block for a VPC source. See `vpc` Block for details.
      * 
      * &gt; **NOTE:** Either `eks` or `vpc` must be specified, but not both.
      * 

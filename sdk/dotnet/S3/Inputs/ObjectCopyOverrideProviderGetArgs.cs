@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class ObjectCopyOverrideProviderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Override the provider `DefaultTags` configuration block.
+        /// Configuration block to override the provider `DefaultTags` configuration block. See `DefaultTags` Block below.
         /// </summary>
         [Input("defaultTags")]
         public Input<Inputs.ObjectCopyOverrideProviderDefaultTagsGetArgs>? DefaultTags { get; set; }

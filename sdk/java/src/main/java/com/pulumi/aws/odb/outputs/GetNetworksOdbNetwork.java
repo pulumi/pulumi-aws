@@ -26,17 +26,17 @@ public final class GetNetworksOdbNetwork {
      */
     private String id;
     /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
+     * @return Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     private String ociNetworkAnchorId;
     /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * @return Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     private String ociVcnId;
     /**
-     * @return The URL of the OCI VCN for the ODB network.
+     * @return URL of the OCI VCN for the ODB network.
      * 
      */
     private String ociVcnUrl;
@@ -64,21 +64,21 @@ public final class GetNetworksOdbNetwork {
         return this.id;
     }
     /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
+     * @return Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     public String ociNetworkAnchorId() {
         return this.ociNetworkAnchorId;
     }
     /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * @return Unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     public String ociVcnId() {
         return this.ociVcnId;
     }
     /**
-     * @return The URL of the OCI VCN for the ODB network.
+     * @return URL of the OCI VCN for the ODB network.
      * 
      */
     public String ociVcnUrl() {

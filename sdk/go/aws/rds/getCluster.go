@@ -73,6 +73,7 @@ type LookupClusterResult struct {
 	DbClusterParameterGroupName      string   `pulumi:"dbClusterParameterGroupName"`
 	DbSubnetGroupName                string   `pulumi:"dbSubnetGroupName"`
 	DbSystemId                       string   `pulumi:"dbSystemId"`
+	DeletionProtection               bool     `pulumi:"deletionProtection"`
 	EnabledCloudwatchLogsExports     []string `pulumi:"enabledCloudwatchLogsExports"`
 	Endpoint                         string   `pulumi:"endpoint"`
 	Engine                           string   `pulumi:"engine"`
@@ -191,6 +192,10 @@ func (o LookupClusterResultOutput) DbSubnetGroupName() pulumi.StringOutput {
 
 func (o LookupClusterResultOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSystemId }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
 func (o LookupClusterResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {

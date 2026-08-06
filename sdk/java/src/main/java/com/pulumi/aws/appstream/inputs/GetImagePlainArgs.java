@@ -91,14 +91,14 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+     * Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      * 
      */
     @Import(name="type")
     private @Nullable String type;
 
     /**
-     * @return The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+     * @return Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      * 
      */
     public Optional<String> type() {
@@ -190,7 +190,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param type The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+         * @param type Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
          * 
          * @return builder
          * 

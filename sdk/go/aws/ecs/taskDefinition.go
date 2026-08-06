@@ -420,17 +420,17 @@ type TaskDefinition struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
 	ArnWithoutRevision pulumi.StringOutput `pulumi:"arnWithoutRevision"`
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolOutput `pulumi:"enableFaultInjection"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
+	// Unique name for your task definition.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringOutput `pulumi:"family"`
@@ -512,17 +512,17 @@ type taskDefinitionState struct {
 	Arn *string `pulumi:"arn"`
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
 	ArnWithoutRevision *string `pulumi:"arnWithoutRevision"`
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
+	// Unique name for your task definition.
 	//
 	// The following arguments are optional:
 	Family *string `pulumi:"family"`
@@ -569,17 +569,17 @@ type TaskDefinitionState struct {
 	Arn pulumi.StringPtrInput
 	// ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn't specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
 	ArnWithoutRevision pulumi.StringPtrInput
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringPtrInput
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolPtrInput
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// A unique name for your task definition.
+	// Unique name for your task definition.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringPtrInput
@@ -626,17 +626,17 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions string `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// A unique name for your task definition.
+	// Unique name for your task definition.
 	//
 	// The following arguments are optional:
 	Family string `pulumi:"family"`
@@ -676,17 +676,17 @@ type taskDefinitionArgs struct {
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+	// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 	ContainerDefinitions pulumi.StringInput
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
 	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
 	EnableFaultInjection pulumi.BoolPtrInput
-	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// A unique name for your task definition.
+	// Unique name for your task definition.
 	//
 	// The following arguments are optional:
 	Family pulumi.StringInput
@@ -821,7 +821,7 @@ func (o TaskDefinitionOutput) ArnWithoutRevision() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ArnWithoutRevision }).(pulumi.StringOutput)
 }
 
-// A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+// List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
 func (o TaskDefinitionOutput) ContainerDefinitions() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringOutput { return v.ContainerDefinitions }).(pulumi.StringOutput)
 }
@@ -836,7 +836,7 @@ func (o TaskDefinitionOutput) EnableFaultInjection() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolOutput { return v.EnableFaultInjection }).(pulumi.BoolOutput)
 }
 
-// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
 func (o TaskDefinitionOutput) EphemeralStorage() TaskDefinitionEphemeralStoragePtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionEphemeralStoragePtrOutput { return v.EphemeralStorage }).(TaskDefinitionEphemeralStoragePtrOutput)
 }
@@ -846,7 +846,7 @@ func (o TaskDefinitionOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A unique name for your task definition.
+// Unique name for your task definition.
 //
 // The following arguments are optional:
 func (o TaskDefinitionOutput) Family() pulumi.StringOutput {

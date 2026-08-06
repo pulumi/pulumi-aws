@@ -162,8 +162,7 @@ namespace Pulumi.Aws.S3
         public Output<string> BucketAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com.
-        /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -175,7 +174,7 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableDictionary<string, string>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
@@ -189,7 +188,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+        /// Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         /// </summary>
         [Output("networkOrigin")]
         public Output<string> NetworkOrigin { get; private set; } = null!;
@@ -377,8 +376,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? BucketAccountId { get; set; }
 
         /// <summary>
-        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com.
-        /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+        /// DNS domain name of the S3 Access Point in the format _`Name`_-_`AccountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn't supported.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -396,7 +394,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
@@ -410,7 +408,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+        /// Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
         /// </summary>
         [Input("networkOrigin")]
         public Input<string>? NetworkOrigin { get; set; }

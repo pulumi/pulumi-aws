@@ -57,7 +57,7 @@ class GetEventIntegrationResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The ARN of the AppIntegrations Event Integration.
+        ARN of the AppIntegrations Event Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -65,7 +65,7 @@ class GetEventIntegrationResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The description of the Event Integration.
+        Description of the Event Integration.
         """
         return pulumi.get(self, "description")
 
@@ -73,7 +73,7 @@ class GetEventIntegrationResult:
     @pulumi.getter(name="eventFilters")
     def event_filters(self) -> Sequence['outputs.GetEventIntegrationEventFilterResult']:
         """
-        A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         """
         return pulumi.get(self, "event_filters")
 
@@ -81,7 +81,7 @@ class GetEventIntegrationResult:
     @pulumi.getter(name="eventbridgeBus")
     def eventbridge_bus(self) -> _builtins.str:
         """
-        The EventBridge bus.
+        EventBridge bus.
         """
         return pulumi.get(self, "eventbridge_bus")
 
@@ -145,7 +145,7 @@ def get_event_integration(name: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str name: The AppIntegrations Event Integration name.
+    :param _builtins.str name: AppIntegrations Event Integration name.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """
@@ -182,7 +182,7 @@ def get_event_integration_output(name: pulumi.Input[Optional[_builtins.str]] = N
     ```
 
 
-    :param _builtins.str name: The AppIntegrations Event Integration name.
+    :param _builtins.str name: AppIntegrations Event Integration name.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """

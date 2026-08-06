@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The version of the API keys used for the account.
+        /// Version of the API keys used for the account.
         /// </summary>
         [Output("apiKeyVersion")]
         public Output<string> ApiKeyVersion { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> CloudwatchRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of features supported for the account.
+        /// List of features supported for the account.
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Account-Level throttle settings. See exported fields below.
+        /// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         /// </summary>
         [Output("throttleSettings")]
         public Output<ImmutableArray<Outputs.AccountThrottleSetting>> ThrottleSettings { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The version of the API keys used for the account.
+        /// Version of the API keys used for the account.
         /// </summary>
         [Input("apiKeyVersion")]
         public Input<string>? ApiKeyVersion { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<string>? _features;
 
         /// <summary>
-        /// A list of features supported for the account.
+        /// List of features supported for the account.
         /// </summary>
         public InputList<string> Features
         {
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;
 
         /// <summary>
-        /// Account-Level throttle settings. See exported fields below.
+        /// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
         /// </summary>
         public InputList<Inputs.AccountThrottleSettingGetArgs> ThrottleSettings
         {

@@ -109,56 +109,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")
 public class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasPublicAccessPolicy;
 
     /**
-     * @return Indicates whether this access point currently has a policy that allows public access.
+     * @return Whether this access point currently has a policy that allows public access.
      * 
      */
     public Output<Boolean> hasPublicAccessPolicy() {
         return this.hasPublicAccessPolicy;
     }
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Object Lambda Access Point.
+     * @return Name of the Object Lambda Access Point.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The Object Lambda Access Point resource policy document.
+     * @return Object Lambda Access Point resource policy document.
      * 
      */
     public Output<String> policy() {

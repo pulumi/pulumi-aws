@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
     public sealed class PolicyPredictiveScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
+        /// Behavior applied if the forecast capacity approaches or exceeds the maximum capacity. Valid values are `HonorMaxCapacity` and `IncreaseMaxCapacity`.
         /// </summary>
         [Input("maxCapacityBreachBehavior")]
         public Input<string>? MaxCapacityBreachBehavior { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         private InputList<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs>? _metricSpecifications;
 
         /// <summary>
-        /// Metrics and target utilization to use for predictive scaling. See supported fields below.
+        /// Metrics and target utilization to use for predictive scaling. See `predictive_scaling_policy_configuration.metric_specification` Block for details.
         /// </summary>
         public InputList<Inputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs> MetricSpecifications
         {

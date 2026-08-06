@@ -15,14 +15,14 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
     public static final DataIntegrationScheduleConfigArgs Empty = new DataIntegrationScheduleConfigArgs();
 
     /**
-     * The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+     * Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
      * 
      */
     @Import(name="firstExecutionFrom", required=true)
     private Output<String> firstExecutionFrom;
 
     /**
-     * @return The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+     * @return Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
      * 
      */
     public Output<String> firstExecutionFrom() {
@@ -30,14 +30,14 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
     }
 
     /**
-     * The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+     * Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
      * 
      */
     @Import(name="object", required=true)
     private Output<String> object;
 
     /**
-     * @return The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+     * @return Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
      * 
      */
     public Output<String> object() {
@@ -86,7 +86,7 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param firstExecutionFrom The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+         * @param firstExecutionFrom Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param firstExecutionFrom The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+         * @param firstExecutionFrom Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param object The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+         * @param object Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DataIntegrationScheduleConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param object The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+         * @param object Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
          * 
          * @return builder
          * 

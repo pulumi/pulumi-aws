@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class GetTaskExecutionOverridesContainerOverrideEnvironmentResult
     {
         /// <summary>
-        /// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        /// Name of the key-value pair. For environment variables, this is the name of the environment variable.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        /// Value of the key-value pair. For environment variables, this is the value of the environment variable.
         /// </summary>
         public readonly string Value;
 

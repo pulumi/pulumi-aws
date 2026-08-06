@@ -66,8 +66,7 @@ export interface GetExperimentTemplatesArgs {
      */
     region?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      */
     tags?: {[key: string]: string};
 }
@@ -145,8 +144,7 @@ export interface GetExperimentTemplatesOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

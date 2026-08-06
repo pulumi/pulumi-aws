@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")
 public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
@@ -133,28 +133,28 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
         return this.arn;
     }
     /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      * 
      */
     @Export(name="configuration", refs={ObjectLambdaAccessPointConfiguration.class}, tree="[0]")
     private Output<ObjectLambdaAccessPointConfiguration> configuration;
 
     /**
-     * @return A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * @return Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      * 
      */
     public Output<ObjectLambdaAccessPointConfiguration> configuration() {
         return this.configuration;
     }
     /**
-     * The name for this Object Lambda Access Point.
+     * Name for this Object Lambda Access Point.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for this Object Lambda Access Point.
+     * @return Name for this Object Lambda Access Point.
      * 
      */
     public Output<String> name() {

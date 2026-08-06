@@ -22,15 +22,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int IntervalMillis;
         /// <summary>
-        /// Destination path for the health check request. This is only required if the specified protocol is `Http` or `Http2`.
+        /// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Destination port for the health check request. This port must match the port defined in the `PortMapping` for the listener.
+        /// Port used for the port mapping.
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Protocol for the health check request. Valid values are `Http`, `Http2`, `Tcp` and `Grpc`.
+        /// Protocol used for the port mapping. Valid values are `Http`, `Http2`, `Tcp` and `Grpc`.
         /// </summary>
         public readonly string Protocol;
         /// <summary>

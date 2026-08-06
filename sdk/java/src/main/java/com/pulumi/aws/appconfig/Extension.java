@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appconfig/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
     /**
-     * The action points defined in the extension. Detailed below.
+     * Action points defined in the extension. Detailed below.
      * 
      */
     @Export(name="actionPoints", refs={List.class,ExtensionActionPoint.class}, tree="[0,1]")
     private Output<List<ExtensionActionPoint>> actionPoints;
 
     /**
-     * @return The action points defined in the extension. Detailed below.
+     * @return Action points defined in the extension. Detailed below.
      * 
      */
     public Output<List<ExtensionActionPoint>> actionPoints() {
@@ -148,28 +148,28 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * @return Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
     @Export(name="parameters", refs={List.class,ExtensionParameter.class}, tree="[0,1]")
     private Output<List<ExtensionParameter>> parameters;
 
     /**
-     * @return The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * @return Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
     public Output<List<ExtensionParameter>> parameters() {
@@ -210,14 +210,14 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The version number for the extension.
+     * Version number for the extension.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**
-     * @return The version number for the extension.
+     * @return Version number for the extension.
      * 
      */
     public Output<Integer> version() {

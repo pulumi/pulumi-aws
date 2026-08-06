@@ -24,14 +24,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     public static final CloudVmClusterState Empty = new CloudVmClusterState();
 
     /**
-     * The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -39,14 +39,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="cloudExadataInfrastructureArn")
     private @Nullable Output<String> cloudExadataInfrastructureArn;
 
     /**
-     * @return The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> cloudExadataInfrastructureArn() {
@@ -54,14 +54,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="cloudExadataInfrastructureId")
     private @Nullable Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> cloudExadataInfrastructureId() {
@@ -69,14 +69,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+     * Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
     /**
-     * @return The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+     * @return Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<String>> clusterName() {
@@ -84,14 +84,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+     * Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
      * 
      */
     @Import(name="computeModel")
     private @Nullable Output<String> computeModel;
 
     /**
-     * @return The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+     * @return Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
      * 
      */
     public Optional<Output<String>> computeModel() {
@@ -99,14 +99,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+     * Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="cpuCoreCount")
     private @Nullable Output<Integer> cpuCoreCount;
 
     /**
-     * @return The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+     * @return Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Integer>> cpuCoreCount() {
@@ -114,14 +114,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The timestamp when the VM cluster was created.
+     * Timestamp when the VM cluster was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The timestamp when the VM cluster was created.
+     * @return Timestamp when the VM cluster was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -129,14 +129,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The set of preferences for the various diagnostic collection options for the VM cluster.
+     * Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
      * 
      */
     @Import(name="dataCollectionOptions")
     private @Nullable Output<CloudVmClusterDataCollectionOptionsArgs> dataCollectionOptions;
 
     /**
-     * @return The set of preferences for the various diagnostic collection options for the VM cluster.
+     * @return Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
      * 
      */
     public Optional<Output<CloudVmClusterDataCollectionOptionsArgs>> dataCollectionOptions() {
@@ -144,18 +144,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     * 
-     * The following arguments are optional:
+     * Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="dataStorageSizeInTbs")
     private @Nullable Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     * 
-     * The following arguments are optional:
+     * @return Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Double>> dataStorageSizeInTbs() {
@@ -163,14 +159,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="dbNodeStorageSizeInGbs")
     private @Nullable Output<Integer> dbNodeStorageSizeInGbs;
 
     /**
-     * @return The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * @return Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Integer>> dbNodeStorageSizeInGbs() {
@@ -178,14 +174,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The list of database servers for the VM cluster. Changing this will create a new resource.
+     * List of database servers for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="dbServers")
     private @Nullable Output<List<String>> dbServers;
 
     /**
-     * @return The list of database servers for the VM cluster. Changing this will create a new resource.
+     * @return List of database servers for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<List<String>>> dbServers() {
@@ -193,16 +189,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
+     * Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
      * 
      */
     @Import(name="diskRedundancy")
     private @Nullable Output<String> diskRedundancy;
 
     /**
-     * @return The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
+     * @return Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
      * 
      */
     public Optional<Output<String>> diskRedundancy() {
@@ -210,14 +204,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * User-friendly name for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * @return User-friendly name for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -225,14 +219,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The domain name associated with the VM cluster.
+     * Domain name associated with the VM cluster.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The domain name associated with the VM cluster.
+     * @return Domain name associated with the VM cluster.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -240,14 +234,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+     * Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      * 
      */
     @Import(name="giVersion")
     private @Nullable Output<String> giVersion;
 
     /**
-     * @return A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+     * @return Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      * 
      */
     public Optional<Output<String>> giVersion() {
@@ -255,14 +249,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A complete software version of Oracle Grid Infrastructure (GI).
+     * Complete software version of Oracle Grid Infrastructure (GI).
      * 
      */
     @Import(name="giVersionComputed")
     private @Nullable Output<String> giVersionComputed;
 
     /**
-     * @return A complete software version of Oracle Grid Infrastructure (GI).
+     * @return Complete software version of Oracle Grid Infrastructure (GI).
      * 
      */
     public Optional<Output<String>> giVersionComputed() {
@@ -270,14 +264,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * Host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
      * 
      */
     @Import(name="hostnamePrefix")
     private @Nullable Output<String> hostnamePrefix;
 
     /**
-     * @return The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * @return Host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
      * 
      */
     public Optional<Output<String>> hostnamePrefix() {
@@ -285,14 +279,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+     * Host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
      * 
      */
     @Import(name="hostnamePrefixComputed")
     private @Nullable Output<String> hostnamePrefixComputed;
 
     /**
-     * @return The host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+     * @return Host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
      * 
      */
     public Optional<Output<String>> hostnamePrefixComputed() {
@@ -300,14 +294,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      * 
      */
     @Import(name="iormConfigCaches")
     private @Nullable Output<List<CloudVmClusterIormConfigCacheArgs>> iormConfigCaches;
 
     /**
-     * @return The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * @return Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      * 
      */
     public Optional<Output<List<CloudVmClusterIormConfigCacheArgs>>> iormConfigCaches() {
@@ -315,14 +309,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+     * Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="isLocalBackupEnabled")
     private @Nullable Output<Boolean> isLocalBackupEnabled;
 
     /**
-     * @return Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+     * @return Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Boolean>> isLocalBackupEnabled() {
@@ -330,14 +324,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+     * Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="isSparseDiskgroupEnabled")
     private @Nullable Output<Boolean> isSparseDiskgroupEnabled;
 
     /**
-     * @return Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+     * @return Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Boolean>> isSparseDiskgroupEnabled() {
@@ -345,14 +339,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The OCID of the most recent maintenance update history entry.
+     * OCID of the most recent maintenance update history entry.
      * 
      */
     @Import(name="lastUpdateHistoryEntryId")
     private @Nullable Output<String> lastUpdateHistoryEntryId;
 
     /**
-     * @return The OCID of the most recent maintenance update history entry.
+     * @return OCID of the most recent maintenance update history entry.
      * 
      */
     public Optional<Output<String>> lastUpdateHistoryEntryId() {
@@ -360,14 +354,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+     * Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      * 
      */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
     /**
-     * @return The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+     * @return Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      * 
      */
     public Optional<Output<String>> licenseModel() {
@@ -375,14 +369,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The listener port number configured on the VM cluster.
+     * Listener port number configured on the VM cluster.
      * 
      */
     @Import(name="listenerPort")
     private @Nullable Output<Integer> listenerPort;
 
     /**
-     * @return The listener port number configured on the VM cluster.
+     * @return Listener port number configured on the VM cluster.
      * 
      */
     public Optional<Output<Integer>> listenerPort() {
@@ -390,14 +384,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="memorySizeInGbs")
     private @Nullable Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * @return Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Integer>> memorySizeInGbs() {
@@ -405,14 +399,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The total number of nodes in the VM cluster.
+     * Total number of nodes in the VM cluster.
      * 
      */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
     /**
-     * @return The total number of nodes in the VM cluster.
+     * @return Total number of nodes in the VM cluster.
      * 
      */
     public Optional<Output<Integer>> nodeCount() {
@@ -420,14 +414,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the OCI resource anchor associated with the VM cluster.
+     * Name of the OCI resource anchor associated with the VM cluster.
      * 
      */
     @Import(name="ociResourceAnchorName")
     private @Nullable Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor associated with the VM cluster.
+     * @return Name of the OCI resource anchor associated with the VM cluster.
      * 
      */
     public Optional<Output<String>> ociResourceAnchorName() {
@@ -435,14 +429,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The HTTPS link to the VM cluster resource in OCI.
+     * HTTPS link to the VM cluster resource in OCI.
      * 
      */
     @Import(name="ociUrl")
     private @Nullable Output<String> ociUrl;
 
     /**
-     * @return The HTTPS link to the VM cluster resource in OCI.
+     * @return HTTPS link to the VM cluster resource in OCI.
      * 
      */
     public Optional<Output<String>> ociUrl() {
@@ -450,14 +444,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The OCID (Oracle Cloud Identifier) of the VM cluster.
+     * OCID (Oracle Cloud Identifier) of the VM cluster.
      * 
      */
     @Import(name="ocid")
     private @Nullable Output<String> ocid;
 
     /**
-     * @return The OCID (Oracle Cloud Identifier) of the VM cluster.
+     * @return OCID (Oracle Cloud Identifier) of the VM cluster.
      * 
      */
     public Optional<Output<String>> ocid() {
@@ -465,14 +459,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="odbNetworkArn")
     private @Nullable Output<String> odbNetworkArn;
 
     /**
-     * @return The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> odbNetworkArn() {
@@ -480,14 +474,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * @return Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      * 
      */
     public Optional<Output<String>> odbNetworkId() {
@@ -495,14 +489,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The percentage of progress made on the current operation for the VM cluster.
+     * Percentage of progress made on the current operation for the VM cluster.
      * 
      */
     @Import(name="percentProgress")
     private @Nullable Output<Double> percentProgress;
 
     /**
-     * @return The percentage of progress made on the current operation for the VM cluster.
+     * @return Percentage of progress made on the current operation for the VM cluster.
      * 
      */
     public Optional<Output<Double>> percentProgress() {
@@ -525,14 +519,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+     * Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
      * 
      */
     @Import(name="scanDnsName")
     private @Nullable Output<String> scanDnsName;
 
     /**
-     * @return The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+     * @return Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
      * 
      */
     public Optional<Output<String>> scanDnsName() {
@@ -540,14 +534,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+     * OCID of the DNS record for the SCAN IPs linked to the VM cluster.
      * 
      */
     @Import(name="scanDnsRecordId")
     private @Nullable Output<String> scanDnsRecordId;
 
     /**
-     * @return The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+     * @return OCID of the DNS record for the SCAN IPs linked to the VM cluster.
      * 
      */
     public Optional<Output<String>> scanDnsRecordId() {
@@ -555,14 +549,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+     * List of OCIDs for SCAN IP addresses associated with the VM cluster.
      * 
      */
     @Import(name="scanIpIds")
     private @Nullable Output<List<String>> scanIpIds;
 
     /**
-     * @return The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+     * @return List of OCIDs for SCAN IP addresses associated with the VM cluster.
      * 
      */
     public Optional<Output<List<String>>> scanIpIds() {
@@ -570,14 +564,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      * 
      */
     @Import(name="scanListenerPortTcp")
     private @Nullable Output<Integer> scanListenerPortTcp;
 
     /**
-     * @return The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * @return Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      * 
      */
     public Optional<Output<Integer>> scanListenerPortTcp() {
@@ -585,14 +579,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The hardware model name of the Exadata infrastructure running the VM cluster.
+     * Hardware model name of the Exadata infrastructure running the VM cluster.
      * 
      */
     @Import(name="shape")
     private @Nullable Output<String> shape;
 
     /**
-     * @return The hardware model name of the Exadata infrastructure running the VM cluster.
+     * @return Hardware model name of the Exadata infrastructure running the VM cluster.
      * 
      */
     public Optional<Output<String>> shape() {
@@ -600,14 +594,18 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="sshPublicKeys")
     private @Nullable Output<List<String>> sshPublicKeys;
 
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * @return Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> sshPublicKeys() {
@@ -615,14 +613,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The current lifecycle status of the VM cluster.
+     * Current lifecycle status of the VM cluster.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current lifecycle status of the VM cluster.
+     * @return Current lifecycle status of the VM cluster.
      * 
      */
     public Optional<Output<String>> status() {
@@ -645,14 +643,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The local node storage allocated to the VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the VM cluster, in gigabytes (GB).
      * 
      */
     @Import(name="storageSizeInGbs")
     private @Nullable Output<Integer> storageSizeInGbs;
 
     /**
-     * @return The local node storage allocated to the VM cluster, in gigabytes (GB).
+     * @return Local node storage allocated to the VM cluster, in gigabytes (GB).
      * 
      */
     public Optional<Output<Integer>> storageSizeInGbs() {
@@ -660,14 +658,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The operating system version of the image chosen for the VM cluster.
+     * Operating system version of the image chosen for the VM cluster.
      * 
      */
     @Import(name="systemVersion")
     private @Nullable Output<String> systemVersion;
 
     /**
-     * @return The operating system version of the image chosen for the VM cluster.
+     * @return Operating system version of the image chosen for the VM cluster.
      * 
      */
     public Optional<Output<String>> systemVersion() {
@@ -675,14 +673,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -690,14 +688,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The combined set of user-defined and provider-defined tags.
+     * Combined set of user-defined and provider-defined tags.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return The combined set of user-defined and provider-defined tags.
+     * @return Combined set of user-defined and provider-defined tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -712,14 +710,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The configured time zone of the VM cluster. Changing this will create a new resource.
+     * Configured time zone of the VM cluster. Changing this will create a new resource.
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return The configured time zone of the VM cluster. Changing this will create a new resource.
+     * @return Configured time zone of the VM cluster. Changing this will create a new resource.
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -727,14 +725,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+     * Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
      * 
      */
     @Import(name="vipIds")
     private @Nullable Output<List<String>> vipIds;
 
     /**
-     * @return The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+     * @return Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
      * 
      */
     public Optional<Output<List<String>>> vipIds() {
@@ -813,7 +811,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the cloud vm cluster.
+         * @param arn Amazon Resource Name (ARN) for the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -824,7 +822,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the cloud vm cluster.
+         * @param arn Amazon Resource Name (ARN) for the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -834,7 +832,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureArn The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param cloudExadataInfrastructureArn ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -845,7 +843,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureArn The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param cloudExadataInfrastructureArn ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -855,7 +853,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param cloudExadataInfrastructureId Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -866,7 +864,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param cloudExadataInfrastructureId Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -876,7 +874,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterName The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+         * @param clusterName Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -887,7 +885,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterName The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+         * @param clusterName Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -897,7 +895,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param computeModel The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+         * @param computeModel Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
          * 
          * @return builder
          * 
@@ -908,7 +906,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param computeModel The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+         * @param computeModel Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
          * 
          * @return builder
          * 
@@ -918,7 +916,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cpuCoreCount The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+         * @param cpuCoreCount Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -929,7 +927,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cpuCoreCount The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+         * @param cpuCoreCount Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -939,7 +937,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createdAt The timestamp when the VM cluster was created.
+         * @param createdAt Timestamp when the VM cluster was created.
          * 
          * @return builder
          * 
@@ -950,7 +948,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param createdAt The timestamp when the VM cluster was created.
+         * @param createdAt Timestamp when the VM cluster was created.
          * 
          * @return builder
          * 
@@ -960,7 +958,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
+         * @param dataCollectionOptions Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -971,7 +969,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataCollectionOptions The set of preferences for the various diagnostic collection options for the VM cluster.
+         * @param dataCollectionOptions Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -981,9 +979,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-         * 
-         * The following arguments are optional:
+         * @param dataStorageSizeInTbs Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -994,9 +990,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dataStorageSizeInTbs The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-         * 
-         * The following arguments are optional:
+         * @param dataStorageSizeInTbs Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1006,7 +1000,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbNodeStorageSizeInGbs The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * @param dbNodeStorageSizeInGbs Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1017,7 +1011,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbNodeStorageSizeInGbs The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * @param dbNodeStorageSizeInGbs Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1027,7 +1021,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbServers The list of database servers for the VM cluster. Changing this will create a new resource.
+         * @param dbServers List of database servers for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1038,7 +1032,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbServers The list of database servers for the VM cluster. Changing this will create a new resource.
+         * @param dbServers List of database servers for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1048,7 +1042,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbServers The list of database servers for the VM cluster. Changing this will create a new resource.
+         * @param dbServers List of database servers for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1058,8 +1052,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param diskRedundancy The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-         * * `AttrDomain` - The domain name associated with the VM cluster.
+         * @param diskRedundancy Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
          * 
          * @return builder
          * 
@@ -1070,8 +1063,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param diskRedundancy The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-         * * `AttrDomain` - The domain name associated with the VM cluster.
+         * @param diskRedundancy Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
          * 
          * @return builder
          * 
@@ -1081,7 +1073,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param displayName A user-friendly name for the VM cluster. Changing this will create a new resource.
+         * @param displayName User-friendly name for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1092,7 +1084,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param displayName A user-friendly name for the VM cluster. Changing this will create a new resource.
+         * @param displayName User-friendly name for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1102,7 +1094,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param domain The domain name associated with the VM cluster.
+         * @param domain Domain name associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1113,7 +1105,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param domain The domain name associated with the VM cluster.
+         * @param domain Domain name associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1123,7 +1115,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+         * @param giVersion Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
          * 
          * @return builder
          * 
@@ -1134,7 +1126,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param giVersion A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+         * @param giVersion Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
          * 
          * @return builder
          * 
@@ -1144,7 +1136,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param giVersionComputed A complete software version of Oracle Grid Infrastructure (GI).
+         * @param giVersionComputed Complete software version of Oracle Grid Infrastructure (GI).
          * 
          * @return builder
          * 
@@ -1155,7 +1147,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param giVersionComputed A complete software version of Oracle Grid Infrastructure (GI).
+         * @param giVersionComputed Complete software version of Oracle Grid Infrastructure (GI).
          * 
          * @return builder
          * 
@@ -1165,7 +1157,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param hostnamePrefix The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+         * @param hostnamePrefix Host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1176,7 +1168,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param hostnamePrefix The host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+         * @param hostnamePrefix Host name prefix for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1186,7 +1178,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param hostnamePrefixComputed The host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+         * @param hostnamePrefixComputed Host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
          * 
          * @return builder
          * 
@@ -1197,7 +1189,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param hostnamePrefixComputed The host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+         * @param hostnamePrefixComputed Host name for the VM cluster. Constraints: - Can&#39;t be &#34;localhost&#34; or &#34;hostname&#34;. - Can&#39;t contain &#34;-version&#34;. - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
          * 
          * @return builder
          * 
@@ -1207,7 +1199,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
          * 
          * @return builder
          * 
@@ -1218,7 +1210,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
          * 
          * @return builder
          * 
@@ -1228,7 +1220,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param iormConfigCaches The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+         * @param iormConfigCaches Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
          * 
          * @return builder
          * 
@@ -1238,7 +1230,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isLocalBackupEnabled Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+         * @param isLocalBackupEnabled Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1249,7 +1241,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isLocalBackupEnabled Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+         * @param isLocalBackupEnabled Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1259,7 +1251,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isSparseDiskgroupEnabled Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+         * @param isSparseDiskgroupEnabled Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1270,7 +1262,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param isSparseDiskgroupEnabled Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+         * @param isSparseDiskgroupEnabled Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1280,7 +1272,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lastUpdateHistoryEntryId The OCID of the most recent maintenance update history entry.
+         * @param lastUpdateHistoryEntryId OCID of the most recent maintenance update history entry.
          * 
          * @return builder
          * 
@@ -1291,7 +1283,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lastUpdateHistoryEntryId The OCID of the most recent maintenance update history entry.
+         * @param lastUpdateHistoryEntryId OCID of the most recent maintenance update history entry.
          * 
          * @return builder
          * 
@@ -1301,7 +1293,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param licenseModel The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+         * @param licenseModel Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1312,7 +1304,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param licenseModel The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+         * @param licenseModel Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1322,7 +1314,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listenerPort The listener port number configured on the VM cluster.
+         * @param listenerPort Listener port number configured on the VM cluster.
          * 
          * @return builder
          * 
@@ -1333,7 +1325,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listenerPort The listener port number configured on the VM cluster.
+         * @param listenerPort Listener port number configured on the VM cluster.
          * 
          * @return builder
          * 
@@ -1343,7 +1335,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param memorySizeInGbs The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * @param memorySizeInGbs Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1354,7 +1346,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param memorySizeInGbs The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+         * @param memorySizeInGbs Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1364,7 +1356,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param nodeCount The total number of nodes in the VM cluster.
+         * @param nodeCount Total number of nodes in the VM cluster.
          * 
          * @return builder
          * 
@@ -1375,7 +1367,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param nodeCount The total number of nodes in the VM cluster.
+         * @param nodeCount Total number of nodes in the VM cluster.
          * 
          * @return builder
          * 
@@ -1385,7 +1377,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ociResourceAnchorName The name of the OCI resource anchor associated with the VM cluster.
+         * @param ociResourceAnchorName Name of the OCI resource anchor associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1396,7 +1388,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ociResourceAnchorName The name of the OCI resource anchor associated with the VM cluster.
+         * @param ociResourceAnchorName Name of the OCI resource anchor associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1406,7 +1398,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ociUrl The HTTPS link to the VM cluster resource in OCI.
+         * @param ociUrl HTTPS link to the VM cluster resource in OCI.
          * 
          * @return builder
          * 
@@ -1417,7 +1409,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ociUrl The HTTPS link to the VM cluster resource in OCI.
+         * @param ociUrl HTTPS link to the VM cluster resource in OCI.
          * 
          * @return builder
          * 
@@ -1427,7 +1419,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ocid The OCID (Oracle Cloud Identifier) of the VM cluster.
+         * @param ocid OCID (Oracle Cloud Identifier) of the VM cluster.
          * 
          * @return builder
          * 
@@ -1438,7 +1430,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ocid The OCID (Oracle Cloud Identifier) of the VM cluster.
+         * @param ocid OCID (Oracle Cloud Identifier) of the VM cluster.
          * 
          * @return builder
          * 
@@ -1448,7 +1440,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkArn The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param odbNetworkArn ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1459,7 +1451,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkArn The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param odbNetworkArn ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1469,7 +1461,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param odbNetworkId Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1480,7 +1472,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkId The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+         * @param odbNetworkId Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
          * 
          * @return builder
          * 
@@ -1490,7 +1482,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param percentProgress The percentage of progress made on the current operation for the VM cluster.
+         * @param percentProgress Percentage of progress made on the current operation for the VM cluster.
          * 
          * @return builder
          * 
@@ -1501,7 +1493,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param percentProgress The percentage of progress made on the current operation for the VM cluster.
+         * @param percentProgress Percentage of progress made on the current operation for the VM cluster.
          * 
          * @return builder
          * 
@@ -1532,7 +1524,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanDnsName The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+         * @param scanDnsName Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1543,7 +1535,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanDnsName The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+         * @param scanDnsName Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1553,7 +1545,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanDnsRecordId The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+         * @param scanDnsRecordId OCID of the DNS record for the SCAN IPs linked to the VM cluster.
          * 
          * @return builder
          * 
@@ -1564,7 +1556,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanDnsRecordId The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+         * @param scanDnsRecordId OCID of the DNS record for the SCAN IPs linked to the VM cluster.
          * 
          * @return builder
          * 
@@ -1574,7 +1566,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanIpIds The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+         * @param scanIpIds List of OCIDs for SCAN IP addresses associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1585,7 +1577,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanIpIds The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+         * @param scanIpIds List of OCIDs for SCAN IP addresses associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1595,7 +1587,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanIpIds The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+         * @param scanIpIds List of OCIDs for SCAN IP addresses associated with the VM cluster.
          * 
          * @return builder
          * 
@@ -1605,7 +1597,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanListenerPortTcp The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+         * @param scanListenerPortTcp Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1616,7 +1608,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scanListenerPortTcp The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+         * @param scanListenerPortTcp Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1626,7 +1618,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param shape The hardware model name of the Exadata infrastructure running the VM cluster.
+         * @param shape Hardware model name of the Exadata infrastructure running the VM cluster.
          * 
          * @return builder
          * 
@@ -1637,7 +1629,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param shape The hardware model name of the Exadata infrastructure running the VM cluster.
+         * @param shape Hardware model name of the Exadata infrastructure running the VM cluster.
          * 
          * @return builder
          * 
@@ -1647,7 +1639,9 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * @param sshPublicKeys Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1658,7 +1652,9 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * @param sshPublicKeys Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1668,7 +1664,9 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sshPublicKeys The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * @param sshPublicKeys Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1678,7 +1676,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status The current lifecycle status of the VM cluster.
+         * @param status Current lifecycle status of the VM cluster.
          * 
          * @return builder
          * 
@@ -1689,7 +1687,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param status The current lifecycle status of the VM cluster.
+         * @param status Current lifecycle status of the VM cluster.
          * 
          * @return builder
          * 
@@ -1720,7 +1718,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageSizeInGbs The local node storage allocated to the VM cluster, in gigabytes (GB).
+         * @param storageSizeInGbs Local node storage allocated to the VM cluster, in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -1731,7 +1729,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageSizeInGbs The local node storage allocated to the VM cluster, in gigabytes (GB).
+         * @param storageSizeInGbs Local node storage allocated to the VM cluster, in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -1741,7 +1739,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemVersion The operating system version of the image chosen for the VM cluster.
+         * @param systemVersion Operating system version of the image chosen for the VM cluster.
          * 
          * @return builder
          * 
@@ -1752,7 +1750,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param systemVersion The operating system version of the image chosen for the VM cluster.
+         * @param systemVersion Operating system version of the image chosen for the VM cluster.
          * 
          * @return builder
          * 
@@ -1762,7 +1760,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1773,7 +1771,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1783,7 +1781,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
+         * @param tagsAll Combined set of user-defined and provider-defined tags.
          * 
          * @return builder
          * 
@@ -1794,7 +1792,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
+         * @param tagsAll Combined set of user-defined and provider-defined tags.
          * 
          * @return builder
          * 
@@ -1813,7 +1811,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param timezone The configured time zone of the VM cluster. Changing this will create a new resource.
+         * @param timezone Configured time zone of the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1824,7 +1822,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param timezone The configured time zone of the VM cluster. Changing this will create a new resource.
+         * @param timezone Configured time zone of the VM cluster. Changing this will create a new resource.
          * 
          * @return builder
          * 
@@ -1834,7 +1832,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param vipIds The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+         * @param vipIds Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
          * 
          * @return builder
          * 
@@ -1845,7 +1843,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param vipIds The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+         * @param vipIds Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
          * 
          * @return builder
          * 
@@ -1855,7 +1853,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param vipIds The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+         * @param vipIds Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
          * 
          * @return builder
          * 

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RoutingRuleCondition {
     /**
-     * @return The base path to be matched. See below.
+     * @return Base path to be matched. See below.
      * 
      */
     private @Nullable RoutingRuleConditionMatchBasePaths matchBasePaths;
     /**
-     * @return The headers to be matched. See below.
+     * @return Headers to be matched. See below.
      * 
      */
     private @Nullable RoutingRuleConditionMatchHeaders matchHeaders;
 
     private RoutingRuleCondition() {}
     /**
-     * @return The base path to be matched. See below.
+     * @return Base path to be matched. See below.
      * 
      */
     public Optional<RoutingRuleConditionMatchBasePaths> matchBasePaths() {
         return Optional.ofNullable(this.matchBasePaths);
     }
     /**
-     * @return The headers to be matched. See below.
+     * @return Headers to be matched. See below.
      * 
      */
     public Optional<RoutingRuleConditionMatchHeaders> matchHeaders() {

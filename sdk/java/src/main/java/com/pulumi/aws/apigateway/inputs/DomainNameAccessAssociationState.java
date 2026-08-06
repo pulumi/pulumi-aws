@@ -17,14 +17,14 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
     public static final DomainNameAccessAssociationState Empty = new DomainNameAccessAssociationState();
 
     /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
     @Import(name="accessAssociationSource")
     private @Nullable Output<String> accessAssociationSource;
 
     /**
-     * @return The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * @return Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
     public Optional<Output<String>> accessAssociationSource() {
@@ -32,14 +32,14 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
     }
 
     /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
+     * Type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
     @Import(name="accessAssociationSourceType")
     private @Nullable Output<String> accessAssociationSourceType;
 
     /**
-     * @return The type of the domain name access association source. Valid values are `VPCE`.
+     * @return Type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
     public Optional<Output<String>> accessAssociationSourceType() {
@@ -62,14 +62,14 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
     }
 
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      * 
      */
     @Import(name="domainNameArn")
     private @Nullable Output<String> domainNameArn;
 
     /**
-     * @return The ARN of the domain name.
+     * @return ARN of the domain name.
      * 
      */
     public Optional<Output<String>> domainNameArn() {
@@ -152,7 +152,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param accessAssociationSource The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+         * @param accessAssociationSource Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param accessAssociationSource The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+         * @param accessAssociationSource Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param accessAssociationSourceType The type of the domain name access association source. Valid values are `VPCE`.
+         * @param accessAssociationSourceType Type of the domain name access association source. Valid values are `VPCE`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param accessAssociationSourceType The type of the domain name access association source. Valid values are `VPCE`.
+         * @param accessAssociationSourceType Type of the domain name access association source. Valid values are `VPCE`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param domainNameArn The ARN of the domain name.
+         * @param domainNameArn ARN of the domain name.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class DomainNameAccessAssociationState extends com.pulumi.resources
         }
 
         /**
-         * @param domainNameArn The ARN of the domain name.
+         * @param domainNameArn ARN of the domain name.
          * 
          * @return builder
          * 

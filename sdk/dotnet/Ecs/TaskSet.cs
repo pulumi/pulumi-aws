@@ -78,25 +78,25 @@ namespace Pulumi.Aws.Ecs
     public partial class TaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the task set.
+        /// Amazon Resource Name (ARN) that identifies the task set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// Capacity provider strategy to use for the service. Can be one or more. Defined below.
         /// </summary>
         [Output("capacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.TaskSetCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// The short name or ARN of the cluster that hosts the service to create the task set in.
+        /// Short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// The external ID associated with the task set.
+        /// External ID associated with the task set.
         /// </summary>
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> ForceDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Output("launchType")]
         public Output<string> LaunchType { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. Required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Output("platformVersion")]
         public Output<string> PlatformVersion { get; private set; } = null!;
@@ -138,49 +138,49 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        /// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Output("scale")]
         public Output<Outputs.TaskSetScale> Scale { get; private set; } = null!;
 
         /// <summary>
-        /// The short name or ARN of the ECS service.
+        /// Short name or ARN of the ECS service.
         /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Output("serviceRegistries")]
         public Output<Outputs.TaskSetServiceRegistries?> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// The stability status. This indicates whether the task set has reached a steady state.
+        /// Stability status. This indicates whether the task set has reached a steady state.
         /// </summary>
         [Output("stabilityStatus")]
         public Output<string> StabilityStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the task set.
+        /// Status of the task set.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> TaskDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the task set.
+        /// ID of the task set.
         /// </summary>
         [Output("taskSetId")]
         public Output<string> TaskSetId { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskSetCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// Capacity provider strategy to use for the service. Can be one or more. Defined below.
         /// </summary>
         public InputList<Inputs.TaskSetCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
@@ -264,13 +264,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The short name or ARN of the cluster that hosts the service to create the task set in.
+        /// Short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
-        /// The external ID associated with the task set.
+        /// External ID associated with the task set.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -300,13 +300,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. Required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -318,19 +318,19 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        /// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.TaskSetScaleArgs>? Scale { get; set; }
 
         /// <summary>
-        /// The short name or ARN of the ECS service.
+        /// Short name or ARN of the ECS service.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.TaskSetServiceRegistriesArgs>? ServiceRegistries { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class TaskSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the task set.
+        /// Amazon Resource Name (ARN) that identifies the task set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -385,7 +385,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.TaskSetCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        /// Capacity provider strategy to use for the service. Can be one or more. Defined below.
         /// </summary>
         public InputList<Inputs.TaskSetCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
@@ -394,13 +394,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The short name or ARN of the cluster that hosts the service to create the task set in.
+        /// Short name or ARN of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// The external ID associated with the task set.
+        /// External ID associated with the task set.
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
-        /// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+        /// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -430,13 +430,13 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The network configuration for the service. This parameter is required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. Required for task definitions that use the `Awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        /// Platform version on which to run your service. Only applicable for `LaunchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
@@ -448,31 +448,31 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        /// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.TaskSetScaleGetArgs>? Scale { get; set; }
 
         /// <summary>
-        /// The short name or ARN of the ECS service.
+        /// Short name or ARN of the ECS service.
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }
 
         /// <summary>
-        /// The service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `ServiceRegistries` blocks is `1`. Detailed below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.TaskSetServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
 
         /// <summary>
-        /// The stability status. This indicates whether the task set has reached a steady state.
+        /// Stability status. This indicates whether the task set has reached a steady state.
         /// </summary>
         [Input("stabilityStatus")]
         public Input<string>? StabilityStatus { get; set; }
 
         /// <summary>
-        /// The status of the task set.
+        /// Status of the task set.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -481,7 +481,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `CopyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -502,7 +502,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+        /// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? TaskDefinition { get; set; }
 
         /// <summary>
-        /// The ID of the task set.
+        /// ID of the task set.
         /// </summary>
         [Input("taskSetId")]
         public Input<string>? TaskSetId { get; set; }

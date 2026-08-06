@@ -18,14 +18,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     public static final MethodResponseState Empty = new MethodResponseState();
 
     /**
-     * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+     * HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     @Import(name="httpMethod")
     private @Nullable Output<String> httpMethod;
 
     /**
-     * @return The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+     * @return HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     public Optional<Output<String>> httpMethod() {
@@ -48,14 +48,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Resource identifier for the method resource.
+     * Resource identifier for the method resource.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The Resource identifier for the method resource.
+     * @return Resource identifier for the method resource.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -63,14 +63,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+     * Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     @Import(name="responseModels")
     private @Nullable Output<Map<String,String>> responseModels;
 
     /**
-     * @return A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+     * @return Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     public Optional<Output<Map<String,String>>> responseModels() {
@@ -78,18 +78,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-     * 
-     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+     * Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     @Import(name="responseParameters")
     private @Nullable Output<Map<String,Boolean>> responseParameters;
 
     /**
-     * @return A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-     * 
-     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+     * @return Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     public Optional<Output<Map<String,Boolean>>> responseParameters() {
@@ -97,14 +93,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      * 
      */
     @Import(name="restApi")
     private @Nullable Output<String> restApi;
 
     /**
-     * @return The string identifier of the associated REST API.
+     * @return String identifier of the associated REST API.
      * 
      */
     public Optional<Output<String>> restApi() {
@@ -112,14 +108,14 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The method response&#39;s status code.
+     * Method response&#39;s status code.
      * 
      */
     @Import(name="statusCode")
     private @Nullable Output<String> statusCode;
 
     /**
-     * @return The method response&#39;s status code.
+     * @return Method response&#39;s status code.
      * 
      */
     public Optional<Output<String>> statusCode() {
@@ -157,7 +153,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpMethod The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+         * @param httpMethod HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
          * 
          * @return builder
          * 
@@ -168,7 +164,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param httpMethod The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+         * @param httpMethod HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
          * 
          * @return builder
          * 
@@ -199,7 +195,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId The Resource identifier for the method resource.
+         * @param resourceId Resource identifier for the method resource.
          * 
          * @return builder
          * 
@@ -210,7 +206,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceId The Resource identifier for the method resource.
+         * @param resourceId Resource identifier for the method resource.
          * 
          * @return builder
          * 
@@ -220,7 +216,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseModels A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+         * @param responseModels Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
          * 
          * @return builder
          * 
@@ -231,7 +227,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseModels A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+         * @param responseModels Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
          * 
          * @return builder
          * 
@@ -241,9 +237,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseParameters A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-         * 
-         * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+         * @param responseParameters Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
          * 
          * @return builder
          * 
@@ -254,9 +248,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param responseParameters A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-         * 
-         * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+         * @param responseParameters Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
          * 
          * @return builder
          * 
@@ -266,7 +258,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restApi The string identifier of the associated REST API.
+         * @param restApi String identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -277,7 +269,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param restApi The string identifier of the associated REST API.
+         * @param restApi String identifier of the associated REST API.
          * 
          * @return builder
          * 
@@ -287,7 +279,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param statusCode The method response&#39;s status code.
+         * @param statusCode Method response&#39;s status code.
          * 
          * @return builder
          * 
@@ -298,7 +290,7 @@ public final class MethodResponseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param statusCode The method response&#39;s status code.
+         * @param statusCode Method response&#39;s status code.
          * 
          * @return builder
          * 

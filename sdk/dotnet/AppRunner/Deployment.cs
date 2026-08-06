@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppRunner
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The unique ID of the operation associated with deployment.
+        /// Unique ID of the operation associated with deployment.
         /// </summary>
         [Output("operationId")]
         public Output<string> OperationId { get; private set; } = null!;
@@ -46,13 +46,13 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the App Runner service deployment.
+        /// Current status of the App Runner service deployment.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique ID of the operation associated with deployment.
+        /// Unique ID of the operation associated with deployment.
         /// </summary>
         [Input("operationId")]
         public Input<string>? OperationId { get; set; }
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }
 
         /// <summary>
-        /// The current status of the App Runner service deployment.
+        /// Current status of the App Runner service deployment.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+    /**
+     * @return Maximum total local storage, in GB.
+     * 
+     */
     private @Nullable Double max;
+    /**
+     * @return Minimum total local storage, in GB.
+     * 
+     */
     private @Nullable Double min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsTotalLocalStorageGb() {}
+    /**
+     * @return Maximum total local storage, in GB.
+     * 
+     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum total local storage, in GB.
+     * 
+     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

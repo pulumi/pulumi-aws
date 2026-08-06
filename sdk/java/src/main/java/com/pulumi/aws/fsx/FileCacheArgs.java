@@ -23,14 +23,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     public static final FileCacheArgs Empty = new FileCacheArgs();
 
     /**
-     * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+     * Whether to copy tags for the cache to data repository associations. Defaults to `false`.
      * 
      */
     @Import(name="copyTagsToDataRepositoryAssociations")
     private @Nullable Output<Boolean> copyTagsToDataRepositoryAssociations;
 
     /**
-     * @return A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+     * @return Whether to copy tags for the cache to data repository associations. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToDataRepositoryAssociations() {
@@ -38,16 +38,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * See the `dataRepositoryAssociation` configuration block. Max of 8.
-     * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+     * Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
      * 
      */
     @Import(name="dataRepositoryAssociations")
     private @Nullable Output<List<FileCacheDataRepositoryAssociationArgs>> dataRepositoryAssociations;
 
     /**
-     * @return See the `dataRepositoryAssociation` configuration block. Max of 8.
-     * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+     * @return Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
      * 
      */
     public Optional<Output<List<FileCacheDataRepositoryAssociationArgs>>> dataRepositoryAssociations() {
@@ -55,14 +53,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+     * Type of cache to create. The only supported value is `LUSTRE`.
      * 
      */
     @Import(name="fileCacheType", required=true)
     private Output<String> fileCacheType;
 
     /**
-     * @return The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+     * @return Type of cache to create. The only supported value is `LUSTRE`.
      * 
      */
     public Output<String> fileCacheType() {
@@ -70,14 +68,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+     * Version for the type of cache to create. The only supported value is `2.12`.
      * 
      */
     @Import(name="fileCacheTypeVersion", required=true)
     private Output<String> fileCacheTypeVersion;
 
     /**
-     * @return The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+     * @return Version for the type of cache to create. The only supported value is `2.12`.
      * 
      */
     public Output<String> fileCacheTypeVersion() {
@@ -85,14 +83,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+     * ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+     * @return ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -100,14 +98,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
+     * Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
      * 
      */
     @Import(name="lustreConfigurations")
     private @Nullable Output<List<FileCacheLustreConfigurationArgs>> lustreConfigurations;
 
     /**
-     * @return See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
+     * @return Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
      * 
      */
     public Optional<Output<List<FileCacheLustreConfigurationArgs>>> lustreConfigurations() {
@@ -130,14 +128,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+     * IDs of the security groups to apply to all network interfaces created for cache access.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+     * @return IDs of the security groups to apply to all network interfaces created for cache access.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -145,14 +143,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * Storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
     @Import(name="storageCapacity", required=true)
     private Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+     * @return Storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
     public Output<Integer> storageCapacity() {
@@ -160,18 +158,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-     * 
-     * The following arguments are optional:
+     * Subnet IDs that the cache is accessible from. You can specify only one subnet ID.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-     * 
-     * The following arguments are optional:
+     * @return Subnet IDs that the cache is accessible from. You can specify only one subnet ID.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -179,14 +173,14 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -228,7 +222,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyTagsToDataRepositoryAssociations A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+         * @param copyTagsToDataRepositoryAssociations Whether to copy tags for the cache to data repository associations. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -239,7 +233,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyTagsToDataRepositoryAssociations A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
+         * @param copyTagsToDataRepositoryAssociations Whether to copy tags for the cache to data repository associations. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -249,8 +243,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRepositoryAssociations See the `dataRepositoryAssociation` configuration block. Max of 8.
-         * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+         * @param dataRepositoryAssociations Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
          * 
          * @return builder
          * 
@@ -261,8 +254,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRepositoryAssociations See the `dataRepositoryAssociation` configuration block. Max of 8.
-         * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+         * @param dataRepositoryAssociations Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
          * 
          * @return builder
          * 
@@ -272,8 +264,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRepositoryAssociations See the `dataRepositoryAssociation` configuration block. Max of 8.
-         * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
+         * @param dataRepositoryAssociations Configurations for up to 8 data repository associations (DRAs) to create during cache creation. All configurations must be of the same data repository type, either all S3 or all NFS. Maximum of 8. See `dataRepositoryAssociation` Block below.
          * 
          * @return builder
          * 
@@ -283,7 +274,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileCacheType The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+         * @param fileCacheType Type of cache to create. The only supported value is `LUSTRE`.
          * 
          * @return builder
          * 
@@ -294,7 +285,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileCacheType The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
+         * @param fileCacheType Type of cache to create. The only supported value is `LUSTRE`.
          * 
          * @return builder
          * 
@@ -304,7 +295,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileCacheTypeVersion The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+         * @param fileCacheTypeVersion Version for the type of cache to create. The only supported value is `2.12`.
          * 
          * @return builder
          * 
@@ -315,7 +306,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileCacheTypeVersion The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
+         * @param fileCacheTypeVersion Version for the type of cache to create. The only supported value is `2.12`.
          * 
          * @return builder
          * 
@@ -325,7 +316,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+         * @param kmsKeyId ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
          * 
          * @return builder
          * 
@@ -336,7 +327,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
+         * @param kmsKeyId ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
          * 
          * @return builder
          * 
@@ -346,7 +337,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lustreConfigurations See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
+         * @param lustreConfigurations Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -357,7 +348,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lustreConfigurations See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
+         * @param lustreConfigurations Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -367,7 +358,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lustreConfigurations See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
+         * @param lustreConfigurations Configuration for the Lustre cache. Required when `fileCacheType` is `LUSTRE`. See `lustreConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -398,7 +389,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+         * @param securityGroupIds IDs of the security groups to apply to all network interfaces created for cache access.
          * 
          * @return builder
          * 
@@ -409,7 +400,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+         * @param securityGroupIds IDs of the security groups to apply to all network interfaces created for cache access.
          * 
          * @return builder
          * 
@@ -419,7 +410,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
+         * @param securityGroupIds IDs of the security groups to apply to all network interfaces created for cache access.
          * 
          * @return builder
          * 
@@ -429,7 +420,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * @param storageCapacity Storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
          * 
          * @return builder
          * 
@@ -440,7 +431,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageCapacity The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * @param storageCapacity Storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
          * 
          * @return builder
          * 
@@ -450,9 +441,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds Subnet IDs that the cache is accessible from. You can specify only one subnet ID.
          * 
          * @return builder
          * 
@@ -463,9 +452,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds Subnet IDs that the cache is accessible from. You can specify only one subnet ID.
          * 
          * @return builder
          * 
@@ -475,9 +462,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-         * 
-         * The following arguments are optional:
+         * @param subnetIds Subnet IDs that the cache is accessible from. You can specify only one subnet ID.
          * 
          * @return builder
          * 
@@ -487,7 +472,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -498,7 +483,7 @@ public final class FileCacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

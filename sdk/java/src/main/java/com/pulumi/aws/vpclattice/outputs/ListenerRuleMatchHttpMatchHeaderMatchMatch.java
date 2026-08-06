@@ -12,40 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
     /**
-     * @return Specifies a contains type match.
+     * @return Contains type match.
      * 
      */
     private @Nullable String contains;
     /**
-     * @return Specifies an exact type match.
+     * @return Exact type match.
      * 
      */
     private @Nullable String exact;
     /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * @return Prefix type match. Matches the value with the prefix.
      * 
      */
     private @Nullable String prefix;
 
     private ListenerRuleMatchHttpMatchHeaderMatchMatch() {}
     /**
-     * @return Specifies a contains type match.
+     * @return Contains type match.
      * 
      */
     public Optional<String> contains() {
         return Optional.ofNullable(this.contains);
     }
     /**
-     * @return Specifies an exact type match.
+     * @return Exact type match.
      * 
      */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * @return Prefix type match. Matches the value with the prefix.
      * 
      */
     public Optional<String> prefix() {

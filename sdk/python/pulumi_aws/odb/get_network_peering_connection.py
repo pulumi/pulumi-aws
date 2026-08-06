@@ -71,7 +71,7 @@ class GetNetworkPeeringConnectionResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the  ODB network peering connection.
+        Amazon Resource Name (ARN) for the  ODB network peering connection.
         """
         return pulumi.get(self, "arn")
 
@@ -207,7 +207,7 @@ def get_network_peering_connection(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: The unique identifier of the ODB network peering connection.
+    :param _builtins.str id: Unique identifier of the ODB network peering connection.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -252,7 +252,7 @@ def get_network_peering_connection_output(id: pulumi.Input[Optional[_builtins.st
     ```
 
 
-    :param _builtins.str id: The unique identifier of the ODB network peering connection.
+    :param _builtins.str id: Unique identifier of the ODB network peering connection.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

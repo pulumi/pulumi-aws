@@ -86,7 +86,7 @@ class GetListenerResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The date and time that the listener was created.
+        Date and time that the listener was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -94,7 +94,7 @@ class GetListenerResult:
     @pulumi.getter(name="defaultActions")
     def default_actions(self) -> Sequence['outputs.GetListenerDefaultActionResult']:
         """
-        The actions for the default listener rule.
+        Actions for the default listener rule.
         """
         return pulumi.get(self, "default_actions")
 
@@ -110,7 +110,7 @@ class GetListenerResult:
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> _builtins.str:
         """
-        The date and time the listener was last updated.
+        Date and time the listener was last updated.
         """
         return pulumi.get(self, "last_updated_at")
 
@@ -118,7 +118,7 @@ class GetListenerResult:
     @pulumi.getter(name="listenerId")
     def listener_id(self) -> _builtins.str:
         """
-        The ID of the listener.
+        ID of the listener.
         """
         return pulumi.get(self, "listener_id")
 
@@ -131,7 +131,7 @@ class GetListenerResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the listener.
+        Name of the listener.
         """
         return pulumi.get(self, "name")
 
@@ -139,7 +139,7 @@ class GetListenerResult:
     @pulumi.getter
     def port(self) -> _builtins.int:
         """
-        The listener port.
+        Listener port.
         """
         return pulumi.get(self, "port")
 
@@ -147,7 +147,7 @@ class GetListenerResult:
     @pulumi.getter
     def protocol(self) -> _builtins.str:
         """
-        The listener protocol. Either `HTTPS` or `HTTP`.
+        Listener protocol. Either `HTTPS` or `HTTP`.
         """
         return pulumi.get(self, "protocol")
 
@@ -160,7 +160,7 @@ class GetListenerResult:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> _builtins.str:
         """
-        The ARN of the service.
+        ARN of the service.
         """
         return pulumi.get(self, "service_arn")
 
@@ -168,7 +168,7 @@ class GetListenerResult:
     @pulumi.getter(name="serviceId")
     def service_id(self) -> _builtins.str:
         """
-        The ID of the service.
+        ID of the service.
         """
         return pulumi.get(self, "service_id")
 

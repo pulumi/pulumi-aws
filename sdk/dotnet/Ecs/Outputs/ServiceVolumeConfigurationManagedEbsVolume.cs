@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// The tags to apply to the volume. See below.
+        /// Tags to apply to the volume. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> TagSpecifications;
         /// <summary>

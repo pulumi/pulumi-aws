@@ -86,7 +86,7 @@ export class VectorsIndex extends pulumi.CustomResource {
      */
     declare public readonly distanceMetric: pulumi.Output<string>;
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.s3.VectorsIndexEncryptionConfiguration[]>;
     /**
@@ -98,7 +98,7 @@ export class VectorsIndex extends pulumi.CustomResource {
      */
     declare public readonly indexName: pulumi.Output<string>;
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**
@@ -110,7 +110,7 @@ export class VectorsIndex extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -201,7 +201,7 @@ export interface VectorsIndexState {
      */
     distanceMetric?: pulumi.Input<string | undefined>;
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[] | undefined>;
     /**
@@ -213,7 +213,7 @@ export interface VectorsIndexState {
      */
     indexName?: pulumi.Input<string | undefined>;
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface VectorsIndexState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface VectorsIndexArgs {
      */
     distanceMetric: pulumi.Input<string>;
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.s3.VectorsIndexEncryptionConfiguration>[] | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface VectorsIndexArgs {
      */
     indexName: pulumi.Input<string>;
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.s3.VectorsIndexMetadataConfiguration | undefined>;
     /**

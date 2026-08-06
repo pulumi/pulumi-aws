@@ -336,7 +336,7 @@ type AgentcoreMemoryStrategy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
-	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn pulumi.StringPtrOutput `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringOutput `pulumi:"memoryId"`
@@ -403,7 +403,7 @@ type agentcoreMemoryStrategyState struct {
 	Description *string `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
-	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId *string `pulumi:"memoryId"`
@@ -435,7 +435,7 @@ type AgentcoreMemoryStrategyState struct {
 	Description pulumi.StringPtrInput
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
-	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringPtrInput
@@ -471,7 +471,7 @@ type agentcoreMemoryStrategyArgs struct {
 	Description *string `pulumi:"description"`
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
-	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn *string `pulumi:"memoryExecutionRoleArn"`
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId string `pulumi:"memoryId"`
@@ -502,7 +502,7 @@ type AgentcoreMemoryStrategyArgs struct {
 	Description pulumi.StringPtrInput
 	// ARN of the IAM role that the memory service assumes to perform operations.
 	//
-	// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+	// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 	MemoryExecutionRoleArn pulumi.StringPtrInput
 	// ID of the memory to associate with this strategy. Changing this forces a new resource.
 	MemoryId pulumi.StringInput
@@ -624,7 +624,7 @@ func (o AgentcoreMemoryStrategyOutput) Description() pulumi.StringPtrOutput {
 
 // ARN of the IAM role that the memory service assumes to perform operations.
 //
-// Deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+// Deprecated: memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the bedrock.AgentcoreMemory resource instead.
 func (o AgentcoreMemoryStrategyOutput) MemoryExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreMemoryStrategy) pulumi.StringPtrOutput { return v.MemoryExecutionRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -32,11 +32,11 @@ class AccessGrantArgs:
         """
         The set of arguments for constructing a AccessGrant resource.
 
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -59,7 +59,7 @@ class AccessGrantArgs:
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
+        ID of the S3 Access Grants location to with the access grant is giving access.
         """
         return pulumi.get(self, "access_grants_location_id")
 
@@ -71,7 +71,7 @@ class AccessGrantArgs:
     @pulumi.getter
     def grantee(self) -> pulumi.Input['AccessGrantGranteeArgs']:
         """
-        See Grantee below for more details.
+        See `grantee` Block below for more details.
         """
         return pulumi.get(self, "grantee")
 
@@ -83,7 +83,7 @@ class AccessGrantArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[_builtins.str]:
         """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         """
         return pulumi.get(self, "permission")
 
@@ -95,7 +95,7 @@ class AccessGrantArgs:
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> pulumi.Input[Optional['AccessGrantAccessGrantsLocationConfigurationArgs']]:
         """
-        See Location Configuration below for more details.
+        See `access_grants_location_configuration` Block below for more details.
         """
         return pulumi.get(self, "access_grants_location_configuration")
 
@@ -107,7 +107,7 @@ class AccessGrantArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -172,16 +172,16 @@ class _AccessGrantState:
 
         :param pulumi.Input[_builtins.str] access_grant_arn: Amazon Resource Name (ARN) of the S3 Access Grant.
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
-        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
-        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] grant_scope: Access grant's scope.
+        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_grant_arn is not None:
             pulumi.set(__self__, "access_grant_arn", access_grant_arn)
@@ -236,7 +236,7 @@ class _AccessGrantState:
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> pulumi.Input[Optional['AccessGrantAccessGrantsLocationConfigurationArgs']]:
         """
-        See Location Configuration below for more details.
+        See `access_grants_location_configuration` Block below for more details.
         """
         return pulumi.get(self, "access_grants_location_configuration")
 
@@ -248,7 +248,7 @@ class _AccessGrantState:
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
+        ID of the S3 Access Grants location to with the access grant is giving access.
         """
         return pulumi.get(self, "access_grants_location_id")
 
@@ -260,7 +260,7 @@ class _AccessGrantState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -272,7 +272,7 @@ class _AccessGrantState:
     @pulumi.getter(name="grantScope")
     def grant_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The access grant's scope.
+        Access grant's scope.
         """
         return pulumi.get(self, "grant_scope")
 
@@ -284,7 +284,7 @@ class _AccessGrantState:
     @pulumi.getter
     def grantee(self) -> pulumi.Input[Optional['AccessGrantGranteeArgs']]:
         """
-        See Grantee below for more details.
+        See `grantee` Block below for more details.
         """
         return pulumi.get(self, "grantee")
 
@@ -296,7 +296,7 @@ class _AccessGrantState:
     @pulumi.getter
     def permission(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         """
         return pulumi.get(self, "permission")
 
@@ -344,7 +344,7 @@ class _AccessGrantState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -407,11 +407,11 @@ class AccessGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -540,16 +540,16 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_grant_arn: Amazon Resource Name (ARN) of the S3 Access Grant.
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
-        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
-        :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        :param pulumi.Input[_builtins.str] grant_scope: Access grant's scope.
+        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -589,7 +589,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter(name="accessGrantsLocationConfiguration")
     def access_grants_location_configuration(self) -> pulumi.Output[Optional['outputs.AccessGrantAccessGrantsLocationConfiguration']]:
         """
-        See Location Configuration below for more details.
+        See `access_grants_location_configuration` Block below for more details.
         """
         return pulumi.get(self, "access_grants_location_configuration")
 
@@ -597,7 +597,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter(name="accessGrantsLocationId")
     def access_grants_location_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the S3 Access Grants location to with the access grant is giving access.
+        ID of the S3 Access Grants location to with the access grant is giving access.
         """
         return pulumi.get(self, "access_grants_location_id")
 
@@ -605,7 +605,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         """
         return pulumi.get(self, "account_id")
 
@@ -613,7 +613,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter(name="grantScope")
     def grant_scope(self) -> pulumi.Output[_builtins.str]:
         """
-        The access grant's scope.
+        Access grant's scope.
         """
         return pulumi.get(self, "grant_scope")
 
@@ -621,7 +621,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter
     def grantee(self) -> pulumi.Output['outputs.AccessGrantGrantee']:
         """
-        See Grantee below for more details.
+        See `grantee` Block below for more details.
         """
         return pulumi.get(self, "grantee")
 
@@ -629,7 +629,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter
     def permission(self) -> pulumi.Output[_builtins.str]:
         """
-        The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+        Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         """
         return pulumi.get(self, "permission")
 
@@ -661,7 +661,7 @@ class AccessGrant(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

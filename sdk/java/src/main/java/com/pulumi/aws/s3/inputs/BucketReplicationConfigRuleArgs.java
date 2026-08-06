@@ -38,14 +38,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the destination for the rule. See below.
+     * Destination for the rule. See below.
      * 
      */
     @Import(name="destination", required=true)
     private Output<BucketReplicationConfigRuleDestinationArgs> destination;
 
     /**
-     * @return Specifies the destination for the rule. See below.
+     * @return Destination for the rule. See below.
      * 
      */
     public Output<BucketReplicationConfigRuleDestinationArgs> destination() {
@@ -136,14 +136,14 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies special object selection criteria. See below.
+     * Special object selection criteria. See below.
      * 
      */
     @Import(name="sourceSelectionCriteria")
     private @Nullable Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
 
     /**
-     * @return Specifies special object selection criteria. See below.
+     * @return Special object selection criteria. See below.
      * 
      */
     public Optional<Output<BucketReplicationConfigRuleSourceSelectionCriteriaArgs>> sourceSelectionCriteria() {
@@ -219,7 +219,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param destination Specifies the destination for the rule. See below.
+         * @param destination Destination for the rule. See below.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param destination Specifies the destination for the rule. See below.
+         * @param destination Destination for the rule. See below.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria. See below.
+         * @param sourceSelectionCriteria Special object selection criteria. See below.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class BucketReplicationConfigRuleArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceSelectionCriteria Specifies special object selection criteria. See below.
+         * @param sourceSelectionCriteria Special object selection criteria. See below.
          * 
          * @return builder
          * 

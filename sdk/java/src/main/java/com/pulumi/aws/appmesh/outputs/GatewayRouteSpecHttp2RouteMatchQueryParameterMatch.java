@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
     /**
-     * @return The exact query parameter to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
 
     private GatewayRouteSpecHttp2RouteMatchQueryParameterMatch() {}
     /**
-     * @return The exact query parameter to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {

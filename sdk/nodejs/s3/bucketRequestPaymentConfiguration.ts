@@ -80,7 +80,7 @@ export class BucketRequestPaymentConfiguration extends pulumi.CustomResource {
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     declare public readonly payer: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export interface BucketRequestPaymentConfigurationState {
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     payer?: pulumi.Input<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export interface BucketRequestPaymentConfigurationArgs {
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     payer: pulumi.Input<string>;
     /**

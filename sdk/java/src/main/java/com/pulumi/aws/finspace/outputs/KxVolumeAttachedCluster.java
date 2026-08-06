@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class KxVolumeAttachedCluster {
+    /**
+     * @return Name of the KX cluster.
+     * 
+     */
     private String clusterName;
+    /**
+     * @return Status of the KX cluster.
+     * 
+     */
     private String clusterStatus;
+    /**
+     * @return Type of the KX cluster.
+     * 
+     */
     private String clusterType;
 
     private KxVolumeAttachedCluster() {}
+    /**
+     * @return Name of the KX cluster.
+     * 
+     */
     public String clusterName() {
         return this.clusterName;
     }
+    /**
+     * @return Status of the KX cluster.
+     * 
+     */
     public String clusterStatus() {
         return this.clusterStatus;
     }
+    /**
+     * @return Type of the KX cluster.
+     * 
+     */
     public String clusterType() {
         return this.clusterType;
     }

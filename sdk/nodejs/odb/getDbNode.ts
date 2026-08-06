@@ -37,11 +37,11 @@ export function getDbNode(args: GetDbNodeArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetDbNodeArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      */
     cloudVmClusterId: string;
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      *
      * The following arguments are optional:
      */
@@ -60,87 +60,90 @@ export interface GetDbNodeResult {
      * Additional information about the planned maintenance.
      */
     readonly additionalDetails: string;
+    /**
+     * ARN of the DB node.
+     */
     readonly arn: string;
     /**
-     * The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+     * Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
      */
     readonly backupIpId: string;
     /**
-     * The OCID of the second backup VNIC.
+     * OCID of the second backup VNIC.
      */
     readonly backupVnic2Id: string;
     /**
-     * The OCID of the backup VNIC.
+     * OCID of the backup VNIC.
      */
     readonly backupVnicId: string;
     /**
-     * The ID of the cloud VM cluster.
+     * ID of the cloud VM cluster.
      */
     readonly cloudVmClusterId: string;
     /**
-     * The number of CPU cores enabled on the DB node.
+     * Number of CPU cores enabled on the DB node.
      */
     readonly cpuCoreCount: number;
     /**
-     * The date and time when the DB node was created.
+     * Date and time when the DB node was created.
      */
     readonly createdAt: string;
     /**
-     * The unique identifier of the DB server that is associated with the DB node.
+     * Unique identifier of the DB server that is associated with the DB node.
      */
     readonly dbServerId: string;
     /**
-     * The amount of local node storage, in gigabytes (GB), allocated on the DB node.
+     * Amount of local node storage, in gigabytes (GB), allocated on the DB node.
      */
     readonly dbStorageSizeInGbs: number;
     /**
-     * The OCID of the DB system.
+     * OCID of the DB system.
      */
     readonly dbSystemId: string;
     /**
-     * The name of the fault domain the instance is contained in.
+     * Name of the fault domain the instance is contained in.
      */
     readonly faultDomain: string;
     /**
-     * The floating IP address assigned to the DB node.
+     * Floating IP address assigned to the DB node.
      */
     readonly floatingIpAddress: string;
     /**
-     * The OCID of the host IP address that's associated with the DB node.
+     * OCID of the host IP address that's associated with the DB node.
      */
     readonly hostIpId: string;
     /**
-     * The host name for the DB node.
+     * Host name for the DB node.
      */
     readonly hostname: string;
     readonly id: string;
     /**
-     * The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
+     * Type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
      */
     readonly maintenanceType: string;
     /**
-     * The allocated memory in GBs on the DB node.
+     * Allocated memory in GBs on the DB node.
      */
     readonly memorySizeInGbs: number;
     /**
-     * The name of the OCI resource anchor for the DB node.
+     * Name of the OCI resource anchor for the DB node.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The OCID of the DB node.
+     * OCID of the DB node.
      */
     readonly ocid: string;
     /**
-     * The private IP address assigned to the DB node.
+     * Private IP address assigned to the DB node.
      */
     readonly privateIpAddress: string;
     readonly region: string;
     /**
-     * The size (in GB) of the block storage volume allocation for the DB system.
+     * Size (in GB) of the block storage volume allocation for the DB system.
      */
     readonly softwareStorageSizeInGbs: number;
     /**
-     * The current status of the DB node.
+     * Current status of the DB node.
      */
     readonly status: string;
     /**
@@ -148,23 +151,23 @@ export interface GetDbNodeResult {
      */
     readonly statusReason: string;
     /**
-     * The end date and time of the maintenance window.
+     * End date and time of the maintenance window.
      */
     readonly timeMaintenanceWindowEnd: string;
     /**
-     * The start date and time of the maintenance window.
+     * Start date and time of the maintenance window.
      */
     readonly timeMaintenanceWindowStart: string;
     /**
-     * The total number of CPU cores reserved on the DB node.
+     * Total number of CPU cores reserved on the DB node.
      */
     readonly totalCpuCoreCount: number;
     /**
-     * The OCID of the second VNIC.
+     * OCID of the second VNIC.
      */
     readonly vnic2Id: string;
     /**
-     * The OCID of the VNIC.
+     * OCID of the VNIC.
      */
     readonly vnicId: string;
 }
@@ -201,11 +204,11 @@ export function getDbNodeOutput(args: GetDbNodeOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetDbNodeOutputArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      */
     cloudVmClusterId: pulumi.Input<string>;
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      *
      * The following arguments are optional:
      */

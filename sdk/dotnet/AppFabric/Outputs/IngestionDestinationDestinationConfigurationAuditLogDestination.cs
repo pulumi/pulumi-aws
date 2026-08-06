@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFabric.Outputs
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestination
     {
         /// <summary>
-        /// Contains information about an Amazon Data Firehose delivery stream.
+        /// Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
         /// </summary>
         public readonly Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream? FirehoseStream;
         /// <summary>
-        /// Contains information about an Amazon S3 bucket.
+        /// Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
         /// </summary>
         public readonly Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket? S3Bucket;
 

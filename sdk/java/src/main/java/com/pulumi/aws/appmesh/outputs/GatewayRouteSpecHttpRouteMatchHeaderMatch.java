@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
     /**
-     * @return The exact query parameter to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
@@ -23,24 +23,24 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
      */
     private @Nullable String prefix;
     /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHeaderMatchRange range;
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return Regex used to match the path.
      * 
      */
     private @Nullable String regex;
     /**
-     * @return Header value sent by the client must end with the specified characters.
+     * @return Specified ending characters of the host name to match on.
      * 
      */
     private @Nullable String suffix;
 
     private GatewayRouteSpecHttpRouteMatchHeaderMatch() {}
     /**
-     * @return The exact query parameter to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {
@@ -54,21 +54,21 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatch {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchHeaderMatchRange> range() {
         return Optional.ofNullable(this.range);
     }
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return Regex used to match the path.
      * 
      */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
     /**
-     * @return Header value sent by the client must end with the specified characters.
+     * @return Specified ending characters of the host name to match on.
      * 
      */
     public Optional<String> suffix() {

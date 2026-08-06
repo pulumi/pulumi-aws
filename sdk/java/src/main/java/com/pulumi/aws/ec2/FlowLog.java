@@ -401,14 +401,14 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deliverCrossAccountRole);
     }
     /**
-     * Describes the destination options for a flow log. More details below.
+     * Destination options for a flow log. More details below.
      * 
      */
     @Export(name="destinationOptions", refs={FlowLogDestinationOptions.class}, tree="[0]")
     private Output</* @Nullable */ FlowLogDestinationOptions> destinationOptions;
 
     /**
-     * @return Describes the destination options for a flow log. More details below.
+     * @return Destination options for a flow log. More details below.
      * 
      */
     public Output<Optional<FlowLogDestinationOptions>> destinationOptions() {
@@ -471,32 +471,28 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logDestinationType);
     }
     /**
-     * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
+     * Fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     @Export(name="logFormat", refs={String.class}, tree="[0]")
     private Output<String> logFormat;
 
     /**
-     * @return The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
+     * @return Fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
     public Output<String> logFormat() {
         return this.logFormat;
     }
     /**
-     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+     * Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      * 
      */
     @Export(name="maxAggregationInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAggregationInterval;
 
     /**
-     * @return The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+     * @return Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      * 
      */
     public Output<Optional<Integer>> maxAggregationInterval() {
@@ -573,28 +569,28 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
+     * Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     @Export(name="trafficType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> trafficType;
 
     /**
-     * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
+     * @return Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      * 
      */
     public Output<Optional<String>> trafficType() {

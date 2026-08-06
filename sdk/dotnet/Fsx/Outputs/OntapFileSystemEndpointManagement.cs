@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class OntapFileSystemEndpointManagement
     {
         /// <summary>
-        /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        /// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
         public readonly string? DnsName;
         /// <summary>

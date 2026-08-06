@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the access point allows access from the public Internet.
+        /// Whether the access point allows access from the public Internet.
         /// </summary>
         public readonly string NetworkOrigin;
         /// <summary>

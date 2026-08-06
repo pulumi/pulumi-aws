@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class IngestionDestinationDestinationConfigurationAuditLog {
     /**
-     * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+     * @return Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
      * 
      */
     private IngestionDestinationDestinationConfigurationAuditLogDestination destination;
 
     private IngestionDestinationDestinationConfigurationAuditLog() {}
     /**
-     * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+     * @return Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
      * 
      */
     public IngestionDestinationDestinationConfigurationAuditLogDestination destination() {

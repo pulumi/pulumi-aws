@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowMetadataCatalogConfig {
+    /**
+     * @return Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+     * 
+     */
     private @Nullable FlowMetadataCatalogConfigGlueDataCatalog glueDataCatalog;
 
     private FlowMetadataCatalogConfig() {}
+    /**
+     * @return Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+     * 
+     */
     public Optional<FlowMetadataCatalogConfigGlueDataCatalog> glueDataCatalog() {
         return Optional.ofNullable(this.glueDataCatalog);
     }

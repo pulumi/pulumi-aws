@@ -24,12 +24,14 @@ public final class InventoryDestinationBucket {
      */
     private String bucketArn;
     /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+     * @return Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
      * 
      */
     private @Nullable InventoryDestinationBucketEncryption encryption;
     /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+     * @return Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+     * 
+     * The following arguments are optional:
      * 
      */
     private String format;
@@ -55,14 +57,16 @@ public final class InventoryDestinationBucket {
         return this.bucketArn;
     }
     /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+     * @return Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
      * 
      */
     public Optional<InventoryDestinationBucketEncryption> encryption() {
         return Optional.ofNullable(this.encryption);
     }
     /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+     * @return Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+     * 
+     * The following arguments are optional:
      * 
      */
     public String format() {

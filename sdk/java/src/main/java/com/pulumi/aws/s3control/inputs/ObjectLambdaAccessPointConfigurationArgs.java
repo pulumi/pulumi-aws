@@ -65,14 +65,14 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+     * List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
      * 
      */
     @Import(name="transformationConfigurations", required=true)
     private Output<List<ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>> transformationConfigurations;
 
     /**
-     * @return List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+     * @return List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
      * 
      */
     public Output<List<ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs>> transformationConfigurations() {
@@ -180,7 +180,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ObjectLambdaAccessPointConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+         * @param transformationConfigurations List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
          * 
          * @return builder
          * 

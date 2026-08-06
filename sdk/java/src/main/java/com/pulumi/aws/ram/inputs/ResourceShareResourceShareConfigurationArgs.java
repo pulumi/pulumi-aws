@@ -16,14 +16,14 @@ public final class ResourceShareResourceShareConfigurationArgs extends com.pulum
     public static final ResourceShareResourceShareConfigurationArgs Empty = new ResourceShareResourceShareConfigurationArgs();
 
     /**
-     * Specifies whether consumer account retains access to resource share after leaving AWS organization.
+     * Whether consumer account retains access to resource share after leaving AWS organization.
      * 
      */
     @Import(name="retainSharingOnAccountLeaveOrganization")
     private @Nullable Output<Boolean> retainSharingOnAccountLeaveOrganization;
 
     /**
-     * @return Specifies whether consumer account retains access to resource share after leaving AWS organization.
+     * @return Whether consumer account retains access to resource share after leaving AWS organization.
      * 
      */
     public Optional<Output<Boolean>> retainSharingOnAccountLeaveOrganization() {
@@ -55,7 +55,7 @@ public final class ResourceShareResourceShareConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param retainSharingOnAccountLeaveOrganization Specifies whether consumer account retains access to resource share after leaving AWS organization.
+         * @param retainSharingOnAccountLeaveOrganization Whether consumer account retains access to resource share after leaving AWS organization.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ResourceShareResourceShareConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param retainSharingOnAccountLeaveOrganization Specifies whether consumer account retains access to resource share after leaving AWS organization.
+         * @param retainSharingOnAccountLeaveOrganization Whether consumer account retains access to resource share after leaving AWS organization.
          * 
          * @return builder
          * 

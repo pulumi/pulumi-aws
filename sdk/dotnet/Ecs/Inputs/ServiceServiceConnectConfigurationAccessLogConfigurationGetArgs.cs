@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class ServiceServiceConnectConfigurationAccessLogConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+        /// Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+        /// Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
         /// 
         /// &gt; **NOTE:** Access logs are delivered to the destination log group specified in the `LogConfiguration` block. You must configure `LogConfiguration` to enable access logs.
         /// 

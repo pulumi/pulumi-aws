@@ -2521,7 +2521,7 @@ class ListenerRuleConditionHostHeaderArgsDict(TypedDict):
     """
     values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+    List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regex_values`. Conflicts with `regex_values`.
     """
 
 @pulumi.input_type
@@ -2531,7 +2531,7 @@ class ListenerRuleConditionHostHeaderArgs:
                  values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regex_values`. Conflicts with `regex_values`.
         """
         if regex_values is not None:
             pulumi.set(__self__, "regex_values", regex_values)
@@ -2554,7 +2554,7 @@ class ListenerRuleConditionHostHeaderArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regex_values`.
+        List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regex_values`. Conflicts with `regex_values`.
         """
         return pulumi.get(self, "values")
 

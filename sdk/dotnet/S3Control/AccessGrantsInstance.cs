@@ -72,19 +72,19 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccessGrantsInstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+        /// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         /// </summary>
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        /// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
         [Output("identityCenterArn")]
         public Output<string?> IdentityCenterArn { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.S3Control
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantsInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        /// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
         [Input("identityCenterArn")]
         public Input<string>? IdentityCenterArn { get; set; }
@@ -204,19 +204,19 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? AccessGrantsInstanceId { get; set; }
 
         /// <summary>
-        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+        /// ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         /// </summary>
         [Input("identityCenterApplicationArn")]
         public Input<string>? IdentityCenterApplicationArn { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+        /// ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
         [Input("identityCenterArn")]
         public Input<string>? IdentityCenterArn { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.S3Control
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

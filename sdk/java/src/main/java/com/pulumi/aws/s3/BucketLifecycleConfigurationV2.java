@@ -698,14 +698,14 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+     * Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      * 
      */
     @Export(name="transitionDefaultMinimumObjectSize", refs={String.class}, tree="[0]")
     private Output<String> transitionDefaultMinimumObjectSize;
 
     /**
-     * @return The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
+     * @return Default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `variesByStorageClass`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `objectSizeGreaterThan` or `objectSizeLessThan` value. Custom filters always take precedence over the default transition behavior.
      * 
      */
     public Output<String> transitionDefaultMinimumObjectSize() {

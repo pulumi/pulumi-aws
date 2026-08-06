@@ -117,14 +117,14 @@ public class BucketLifecycleConfiguration extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
+     * Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      * 
      */
     @Export(name="rules", refs={List.class,BucketLifecycleConfigurationRule.class}, tree="[0,1]")
     private Output<List<BucketLifecycleConfigurationRule>> rules;
 
     /**
-     * @return Configuration block(s) containing lifecycle rules for the bucket.
+     * @return Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      * 
      */
     public Output<List<BucketLifecycleConfigurationRule>> rules() {

@@ -17,14 +17,14 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
     public static final BackupArgs Empty = new BackupArgs();
 
     /**
-     * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
     /**
-     * @return The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * @return ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
     public Optional<Output<String>> fileSystemId() {
@@ -47,14 +47,14 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -62,18 +62,14 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     * 
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
     @Import(name="volumeId")
     private @Nullable Output<String> volumeId;
 
     /**
-     * @return The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     * 
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * @return ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
     public Optional<Output<String>> volumeId() {
@@ -108,7 +104,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemId The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+         * @param fileSystemId ID of the file system to back up. Required if backing up Lustre or Windows file systems.
          * 
          * @return builder
          * 
@@ -119,7 +115,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemId The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+         * @param fileSystemId ID of the file system to back up. Required if backing up Lustre or Windows file systems.
          * 
          * @return builder
          * 
@@ -150,7 +146,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -161,7 +157,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -171,9 +167,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeId The ID of the volume to back up. Required if backing up a ONTAP Volume.
-         * 
-         * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+         * @param volumeId ID of the volume to back up. Required if backing up a ONTAP Volume.
          * 
          * @return builder
          * 
@@ -184,9 +178,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param volumeId The ID of the volume to back up. Required if backing up a ONTAP Volume.
-         * 
-         * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+         * @param volumeId ID of the volume to back up. Required if backing up a ONTAP Volume.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OAuth 2.0 properties required for OAuth 2.0 authentication.
+        /// OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
         /// </summary>
         [Input("oauth2Properties")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs>? Oauth2Properties { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputMap<string>? _profileProperties;
 
         /// <summary>
-        /// A map of properties that are required to create a profile for the custom connector.
+        /// Map of properties that are required to create a profile for the custom connector.
         /// </summary>
         public InputMap<string> ProfileProperties
         {

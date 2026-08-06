@@ -18,16 +18,14 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
     public static final IngestionArgs Empty = new IngestionArgs();
 
     /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      * 
      */
     @Import(name="app", required=true)
     private Output<String> app;
 
     /**
-     * @return Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * @return Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      * 
      */
     public Output<String> app() {
@@ -139,8 +137,7 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param app Name of the application.
-         * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+         * @param app Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
          * 
          * @return builder
          * 
@@ -151,8 +148,7 @@ public final class IngestionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param app Name of the application.
-         * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+         * @param app Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
          * 
          * @return builder
          * 

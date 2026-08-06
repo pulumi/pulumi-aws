@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchHostname {
     /**
-     * @return Exact host name to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
@@ -24,7 +24,7 @@ public final class GatewayRouteSpecHttpRouteMatchHostname {
 
     private GatewayRouteSpecHttpRouteMatchHostname() {}
     /**
-     * @return Exact host name to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {

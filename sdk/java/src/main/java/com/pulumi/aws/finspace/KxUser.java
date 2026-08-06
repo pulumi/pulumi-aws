@@ -130,8 +130,6 @@ public class KxUser extends com.pulumi.resources.CustomResource {
     /**
      * IAM role ARN to be associated with the user.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="iamRole", refs={String.class}, tree="[0]")
     private Output<String> iamRole;
@@ -139,21 +137,23 @@ public class KxUser extends com.pulumi.resources.CustomResource {
     /**
      * @return IAM role ARN to be associated with the user.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> iamRole() {
         return this.iamRole;
     }
     /**
-     * A unique identifier for the user.
+     * Unique identifier for the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A unique identifier for the user.
+     * @return Unique identifier for the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {

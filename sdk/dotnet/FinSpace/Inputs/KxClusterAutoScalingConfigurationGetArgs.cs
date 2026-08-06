@@ -19,7 +19,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<string> AutoScalingMetric { get; set; } = null!;
 
         /// <summary>
-        /// Highest number of nodes to scale. Cannot be greater than 5
+        /// Highest number of nodes to scale. Cannot be greater than 5.
         /// </summary>
         [Input("maxNodeCount", required: true)]
         public Input<int> MaxNodeCount { get; set; } = null!;

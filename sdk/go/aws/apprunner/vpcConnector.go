@@ -80,7 +80,7 @@ type VpcConnector struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Name for the VPC connector.
 	VpcConnectorName pulumi.StringOutput `pulumi:"vpcConnectorName"`
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+	// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
 	VpcConnectorRevision pulumi.IntOutput `pulumi:"vpcConnectorRevision"`
 }
 
@@ -139,7 +139,7 @@ type vpcConnectorState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Name for the VPC connector.
 	VpcConnectorName *string `pulumi:"vpcConnectorName"`
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+	// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
 	VpcConnectorRevision *int `pulumi:"vpcConnectorRevision"`
 }
 
@@ -160,7 +160,7 @@ type VpcConnectorState struct {
 	TagsAll pulumi.StringMapInput
 	// Name for the VPC connector.
 	VpcConnectorName pulumi.StringPtrInput
-	// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+	// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
 	VpcConnectorRevision pulumi.IntPtrInput
 }
 
@@ -322,7 +322,7 @@ func (o VpcConnectorOutput) VpcConnectorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringOutput { return v.VpcConnectorName }).(pulumi.StringOutput)
 }
 
-// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
 func (o VpcConnectorOutput) VpcConnectorRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.IntOutput { return v.VpcConnectorRevision }).(pulumi.IntOutput)
 }

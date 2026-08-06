@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
-    /**
-     * @return Math expression to perform on the returned data, if this object is performing a math expression.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return Short name that identifies the object&#39;s results in the response.
-     * 
-     */
     private String id;
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     private @Nullable String label;
-    /**
-     * @return Information about the metric data to return. See supported fields below.
-     * 
-     */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat metricStat;
-    /**
-     * @return Whether to return the timestamps and raw data values of this metric.
-     * 
-     */
     private @Nullable Boolean returnData;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery() {}
-    /**
-     * @return Math expression to perform on the returned data, if this object is performing a math expression.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return Short name that identifies the object&#39;s results in the response.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
-    /**
-     * @return Information about the metric data to return. See supported fields below.
-     * 
-     */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat> metricStat() {
         return Optional.ofNullable(this.metricStat);
     }
-    /**
-     * @return Whether to return the timestamps and raw data values of this metric.
-     * 
-     */
     public Optional<Boolean> returnData() {
         return Optional.ofNullable(this.returnData);
     }

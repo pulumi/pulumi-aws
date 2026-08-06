@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `False`.
+        /// Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `False`.
         /// </summary>
         [Input("hiveCompatiblePartitions")]
         public Input<bool>? HiveCompatiblePartitions { get; set; }
 
         /// <summary>
-        /// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `False`.
+        /// Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `False`.
         /// </summary>
         [Input("perHourPartition")]
         public Input<bool>? PerHourPartition { get; set; }

@@ -62,31 +62,31 @@ namespace Pulumi.Aws.AppSync
         public Output<string> ApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the type.
+        /// ARN of the type.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The type definition.
+        /// Type definition.
         /// </summary>
         [Output("definition")]
         public Output<string> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// The type description.
+        /// Type description.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The type format: `SDL` or `JSON`.
+        /// Type format: `SDL` or `JSON`.
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
 
         /// <summary>
-        /// The type name.
+        /// Type name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The type definition.
+        /// Type definition.
         /// </summary>
         [Input("definition", required: true)]
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
-        /// The type format: `SDL` or `JSON`.
+        /// Type format: `SDL` or `JSON`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -182,31 +182,31 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The ARN of the type.
+        /// ARN of the type.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The type definition.
+        /// Type definition.
         /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
 
         /// <summary>
-        /// The type description.
+        /// Type description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type format: `SDL` or `JSON`.
+        /// Type format: `SDL` or `JSON`.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
 
         /// <summary>
-        /// The type name.
+        /// Type name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

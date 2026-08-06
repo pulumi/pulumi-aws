@@ -32,14 +32,14 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
     }
 
     /**
-     * The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
      * 
      */
     @Import(name="ipPreference")
     private @Nullable Output<String> ipPreference;
 
     /**
-     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * @return Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
      * 
      */
     public Optional<Output<String>> ipPreference() {
@@ -47,14 +47,14 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
     }
 
     /**
-     * The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
      * 
      */
     @Import(name="responseType")
     private @Nullable Output<String> responseType;
 
     /**
-     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * @return DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
      * 
      */
     public Optional<Output<String>> responseType() {
@@ -109,7 +109,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param ipPreference The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+         * @param ipPreference Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param ipPreference The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+         * @param ipPreference Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param responseType The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+         * @param responseType DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs extends com.pulumi.res
         }
 
         /**
-         * @param responseType The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+         * @param responseType DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
          * 
          * @return builder
          * 

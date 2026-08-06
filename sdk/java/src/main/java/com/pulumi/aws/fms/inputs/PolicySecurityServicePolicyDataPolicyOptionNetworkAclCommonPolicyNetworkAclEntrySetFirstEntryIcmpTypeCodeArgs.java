@@ -16,14 +16,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs();
 
     /**
-     * An integer value containing ICMP code.
+     * ICMP code.
      * 
      */
     @Import(name="code")
     private @Nullable Output<Integer> code;
 
     /**
-     * @return An integer value containing ICMP code.
+     * @return ICMP code.
      * 
      */
     public Optional<Output<Integer>> code() {
@@ -31,14 +31,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * An integer value containing ICMP type.
+     * ICMP type.
      * 
      */
     @Import(name="type")
     private @Nullable Output<Integer> type;
 
     /**
-     * @return An integer value containing ICMP type.
+     * @return ICMP type.
      * 
      */
     public Optional<Output<Integer>> type() {
@@ -71,7 +71,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param code An integer value containing ICMP code.
+         * @param code ICMP code.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param code An integer value containing ICMP code.
+         * @param code ICMP code.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param type An integer value containing ICMP type.
+         * @param type ICMP type.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param type An integer value containing ICMP type.
+         * @param type ICMP type.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportSto
     public static final StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs();
 
     /**
-     * SSE-KMS encryption. See SSE KMS below for more details.
+     * SSE-KMS encryption. See `sseKms` below for more details.
      * 
      */
     @Import(name="sseKms")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs> sseKms;
 
     /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
+     * @return SSE-KMS encryption. See `sseKms` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs>> sseKms() {
@@ -73,7 +73,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportSto
         }
 
         /**
-         * @param sseKms SSE-KMS encryption. See SSE KMS below for more details.
+         * @param sseKms SSE-KMS encryption. See `sseKms` below for more details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportSto
         }
 
         /**
-         * @param sseKms SSE-KMS encryption. See SSE KMS below for more details.
+         * @param sseKms SSE-KMS encryption. See `sseKms` below for more details.
          * 
          * @return builder
          * 

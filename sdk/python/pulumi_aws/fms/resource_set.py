@@ -29,7 +29,8 @@ class ResourceSetArgs:
         The set of arguments for constructing a ResourceSet resource.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -56,7 +57,7 @@ class ResourceSetArgs:
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]]:
         """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        Details about the resource set to be created or updated. See `resource_set` Block below.
         """
         return pulumi.get(self, "resource_sets")
 
@@ -67,6 +68,9 @@ class ResourceSetArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -97,7 +101,8 @@ class _ResourceSetState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Resource Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,7 +145,7 @@ class _ResourceSetState:
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceSetResourceSetArgs']]]]:
         """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        Details about the resource set to be created or updated. See `resource_set` Block below.
         """
         return pulumi.get(self, "resource_sets")
 
@@ -151,6 +156,9 @@ class _ResourceSetState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -216,7 +224,8 @@ class ResourceSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -309,7 +318,8 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Resource Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Block below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,13 +353,16 @@ class ResourceSet(pulumi.CustomResource):
     @pulumi.getter(name="resourceSets")
     def resource_sets(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceSetResourceSet']]]:
         """
-        Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        Details about the resource set to be created or updated. See `resource_set` Block below.
         """
         return pulumi.get(self, "resource_sets")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

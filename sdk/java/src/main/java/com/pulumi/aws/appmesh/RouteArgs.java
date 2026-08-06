@@ -79,14 +79,14 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Route specification to apply.
+     * Route specification to apply. See `spec` Block for details.
      * 
      */
     @Import(name="spec", required=true)
     private Output<RouteSpecArgs> spec;
 
     /**
-     * @return Route specification to apply.
+     * @return Route specification to apply. See `spec` Block for details.
      * 
      */
     public Output<RouteSpecArgs> spec() {
@@ -238,7 +238,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Route specification to apply.
+         * @param spec Route specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Route specification to apply.
+         * @param spec Route specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 

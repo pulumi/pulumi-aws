@@ -135,14 +135,14 @@ public class VectorsIndex extends com.pulumi.resources.CustomResource {
         return this.distanceMetric;
     }
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     @Export(name="encryptionConfigurations", refs={List.class,VectorsIndexEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<VectorsIndexEncryptionConfiguration>> encryptionConfigurations;
 
     /**
-     * @return Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * @return Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     public Output<List<VectorsIndexEncryptionConfiguration>> encryptionConfigurations() {
@@ -177,14 +177,14 @@ public class VectorsIndex extends com.pulumi.resources.CustomResource {
         return this.indexName;
     }
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     @Export(name="metadataConfiguration", refs={VectorsIndexMetadataConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ VectorsIndexMetadataConfiguration> metadataConfiguration;
 
     /**
-     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     public Output<Optional<VectorsIndexMetadataConfiguration>> metadataConfiguration() {
@@ -219,14 +219,14 @@ public class VectorsIndex extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

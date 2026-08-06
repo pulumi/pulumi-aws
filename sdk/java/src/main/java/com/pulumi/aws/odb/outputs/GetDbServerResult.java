@@ -14,90 +14,90 @@ import java.util.Objects;
 @CustomType
 public final class GetDbServerResult {
     /**
-     * @return The list of unique identifiers for the Autonomous VMs associated with this database server.
+     * @return List of unique identifiers for the Autonomous VMs associated with this database server.
      * 
      */
     private List<String> autonomousVirtualMachineIds;
     /**
-     * @return The OCID of the autonomous VM clusters that are associated with the database server.
+     * @return OCID of the autonomous VM clusters that are associated with the database server.
      * 
      */
     private List<String> autonomousVmClusterIds;
     private String cloudExadataInfrastructureId;
     /**
-     * @return The compute model of the database server.
+     * @return Compute model of the database server.
      * 
      */
     private String computeModel;
     /**
-     * @return The number of CPU cores enabled on the database server.
+     * @return Number of CPU cores enabled on the database server.
      * 
      */
     private Integer cpuCoreCount;
     /**
-     * @return The date and time when the database server was created.
+     * @return Date and time when the database server was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The allocated local node storage in GBs on the database server.
+     * @return Allocated local node storage in GBs on the database server.
      * 
      */
     private Integer dbNodeStorageSizeInGbs;
     /**
-     * @return The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+     * @return Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
      * 
      */
     private List<GetDbServerDbServerPatchingDetail> dbServerPatchingDetails;
     /**
-     * @return The display name of the database server.
+     * @return Display name of the database server.
      * 
      */
     private String displayName;
     /**
-     * @return The exadata infrastructure ID of the database server.
+     * @return Exadata infrastructure ID of the database server.
      * 
      */
     private String exadataInfrastructureId;
     private String id;
     /**
-     * @return The total number of CPU cores available.
+     * @return Total number of CPU cores available.
      * 
      */
     private Integer maxCpuCount;
     /**
-     * @return The total local node storage available in GBs.
+     * @return Total local node storage available in GBs.
      * 
      */
     private Integer maxDbNodeStorageInGbs;
     /**
-     * @return The total memory available in GBs.
+     * @return Total memory available in GBs.
      * 
      */
     private Integer maxMemoryInGbs;
     /**
-     * @return The allocated memory in GBs on the database server.
+     * @return Allocated memory in GBs on the database server.
      * 
      */
     private Integer memorySizeInGbs;
     /**
-     * @return The name of the OCI resource anchor.
+     * @return Name of the OCI resource anchor.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The OCID of the database server to retrieve information about.
+     * @return OCID of the database server to retrieve information about.
      * 
      */
     private String ocid;
     private String region;
     /**
-     * @return The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
+     * @return Shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
      * 
      */
     private String shape;
     /**
-     * @return The status of the database server.
+     * @return Status of the database server.
      * 
      */
     private String status;
@@ -107,21 +107,21 @@ public final class GetDbServerResult {
      */
     private String statusReason;
     /**
-     * @return The OCID of the VM clusters that are associated with the database server.
+     * @return OCID of the VM clusters that are associated with the database server.
      * 
      */
     private List<String> vmClusterIds;
 
     private GetDbServerResult() {}
     /**
-     * @return The list of unique identifiers for the Autonomous VMs associated with this database server.
+     * @return List of unique identifiers for the Autonomous VMs associated with this database server.
      * 
      */
     public List<String> autonomousVirtualMachineIds() {
         return this.autonomousVirtualMachineIds;
     }
     /**
-     * @return The OCID of the autonomous VM clusters that are associated with the database server.
+     * @return OCID of the autonomous VM clusters that are associated with the database server.
      * 
      */
     public List<String> autonomousVmClusterIds() {
@@ -131,49 +131,49 @@ public final class GetDbServerResult {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * @return The compute model of the database server.
+     * @return Compute model of the database server.
      * 
      */
     public String computeModel() {
         return this.computeModel;
     }
     /**
-     * @return The number of CPU cores enabled on the database server.
+     * @return Number of CPU cores enabled on the database server.
      * 
      */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * @return The date and time when the database server was created.
+     * @return Date and time when the database server was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The allocated local node storage in GBs on the database server.
+     * @return Allocated local node storage in GBs on the database server.
      * 
      */
     public Integer dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * @return The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+     * @return Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
      * 
      */
     public List<GetDbServerDbServerPatchingDetail> dbServerPatchingDetails() {
         return this.dbServerPatchingDetails;
     }
     /**
-     * @return The display name of the database server.
+     * @return Display name of the database server.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The exadata infrastructure ID of the database server.
+     * @return Exadata infrastructure ID of the database server.
      * 
      */
     public String exadataInfrastructureId() {
@@ -183,42 +183,42 @@ public final class GetDbServerResult {
         return this.id;
     }
     /**
-     * @return The total number of CPU cores available.
+     * @return Total number of CPU cores available.
      * 
      */
     public Integer maxCpuCount() {
         return this.maxCpuCount;
     }
     /**
-     * @return The total local node storage available in GBs.
+     * @return Total local node storage available in GBs.
      * 
      */
     public Integer maxDbNodeStorageInGbs() {
         return this.maxDbNodeStorageInGbs;
     }
     /**
-     * @return The total memory available in GBs.
+     * @return Total memory available in GBs.
      * 
      */
     public Integer maxMemoryInGbs() {
         return this.maxMemoryInGbs;
     }
     /**
-     * @return The allocated memory in GBs on the database server.
+     * @return Allocated memory in GBs on the database server.
      * 
      */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * @return The name of the OCI resource anchor.
+     * @return Name of the OCI resource anchor.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The OCID of the database server to retrieve information about.
+     * @return OCID of the database server to retrieve information about.
      * 
      */
     public String ocid() {
@@ -228,14 +228,14 @@ public final class GetDbServerResult {
         return this.region;
     }
     /**
-     * @return The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
+     * @return Shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
      * 
      */
     public String shape() {
         return this.shape;
     }
     /**
-     * @return The status of the database server.
+     * @return Status of the database server.
      * 
      */
     public String status() {
@@ -249,7 +249,7 @@ public final class GetDbServerResult {
         return this.statusReason;
     }
     /**
-     * @return The OCID of the VM clusters that are associated with the database server.
+     * @return OCID of the VM clusters that are associated with the database server.
      * 
      */
     public List<String> vmClusterIds() {

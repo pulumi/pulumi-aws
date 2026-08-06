@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecGrpcRouteActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Target that traffic is routed to when a request matches the gateway route. See `Target` Block for details.
+        /// Target that traffic is routed to when a request matches the gateway route. See `spec.http2_route.action.target` Block for details.
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.GatewayRouteSpecGrpcRouteActionTargetGetArgs> Target { get; set; } = null!;

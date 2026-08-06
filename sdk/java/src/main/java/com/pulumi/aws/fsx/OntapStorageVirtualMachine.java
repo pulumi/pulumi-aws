@@ -180,42 +180,42 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return this.arn;
     }
     /**
-     * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     @Export(name="endpoints", refs={List.class,OntapStorageVirtualMachineEndpoint.class}, tree="[0,1]")
     private Output<List<OntapStorageVirtualMachineEndpoint>> endpoints;
 
     /**
-     * @return The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * @return Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
     public Output<List<OntapStorageVirtualMachineEndpoint>> endpoints() {
         return this.endpoints;
     }
     /**
-     * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
-     * @return The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * @return ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Output<String> name() {
@@ -236,84 +236,84 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
     @Export(name="rootVolumeSecurityStyle", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rootVolumeSecurityStyle;
 
     /**
-     * @return Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * @return Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
     public Output<Optional<String>> rootVolumeSecurityStyle() {
         return Codegen.optional(this.rootVolumeSecurityStyle);
     }
     /**
-     * Describes the SVM&#39;s subtype, e.g. `DEFAULT`
+     * SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
     @Export(name="subtype", refs={String.class}, tree="[0]")
     private Output<String> subtype;
 
     /**
-     * @return Describes the SVM&#39;s subtype, e.g. `DEFAULT`
+     * @return SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
     public Output<String> subtype() {
         return this.subtype;
     }
     /**
-     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
     @Export(name="svmAdminPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> svmAdminPassword;
 
     /**
-     * @return Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
+     * @return Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
     public Output<Optional<String>> svmAdminPassword() {
         return Codegen.optional(this.svmAdminPassword);
     }
     /**
-     * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The SVM&#39;s UUID (universally unique identifier).
+     * SVM&#39;s UUID (universally unique identifier).
      * 
      */
     @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
     /**
-     * @return The SVM&#39;s UUID (universally unique identifier).
+     * @return SVM&#39;s UUID (universally unique identifier).
      * 
      */
     public Output<String> uuid() {

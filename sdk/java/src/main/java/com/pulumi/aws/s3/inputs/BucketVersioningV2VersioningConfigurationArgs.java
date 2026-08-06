@@ -17,14 +17,14 @@ public final class BucketVersioningV2VersioningConfigurationArgs extends com.pul
     public static final BucketVersioningV2VersioningConfigurationArgs Empty = new BucketVersioningV2VersioningConfigurationArgs();
 
     /**
-     * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     @Import(name="mfaDelete")
     private @Nullable Output<String> mfaDelete;
 
     /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * @return Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     public Optional<Output<String>> mfaDelete() {
@@ -72,7 +72,7 @@ public final class BucketVersioningV2VersioningConfigurationArgs extends com.pul
         }
 
         /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * @param mfaDelete Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketVersioningV2VersioningConfigurationArgs extends com.pul
         }
 
         /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * @param mfaDelete Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          * 
          * @return builder
          * 

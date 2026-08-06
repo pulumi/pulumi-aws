@@ -31,7 +31,7 @@ public final class GetSecretRotationResult {
     private String id;
     private String region;
     /**
-     * @return Specifies whether automatic rotation is enabled for this secret.
+     * @return Whether automatic rotation is enabled for this secret.
      * 
      */
     private Boolean rotationEnabled;
@@ -73,7 +73,7 @@ public final class GetSecretRotationResult {
         return this.region;
     }
     /**
-     * @return Specifies whether automatic rotation is enabled for this secret.
+     * @return Whether automatic rotation is enabled for this secret.
      * 
      */
     public Boolean rotationEnabled() {

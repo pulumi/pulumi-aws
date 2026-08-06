@@ -14,10 +14,8 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountThrottleSetting struct {
-	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit int `pulumi:"burstLimit"`
-	// Number of times API Gateway allows the API to be called per second on average (RPS).
-	RateLimit float64 `pulumi:"rateLimit"`
+	BurstLimit int     `pulumi:"burstLimit"`
+	RateLimit  float64 `pulumi:"rateLimit"`
 }
 
 // AccountThrottleSettingInput is an input type that accepts AccountThrottleSettingArgs and AccountThrottleSettingOutput values.
@@ -32,10 +30,8 @@ type AccountThrottleSettingInput interface {
 }
 
 type AccountThrottleSettingArgs struct {
-	// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit pulumi.IntInput `pulumi:"burstLimit"`
-	// Number of times API Gateway allows the API to be called per second on average (RPS).
-	RateLimit pulumi.Float64Input `pulumi:"rateLimit"`
+	BurstLimit pulumi.IntInput     `pulumi:"burstLimit"`
+	RateLimit  pulumi.Float64Input `pulumi:"rateLimit"`
 }
 
 func (AccountThrottleSettingArgs) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o AccountThrottleSettingOutput) ToAccountThrottleSettingOutputWithContext(
 	return o
 }
 
-// Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 func (o AccountThrottleSettingOutput) BurstLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountThrottleSetting) int { return v.BurstLimit }).(pulumi.IntOutput)
 }
 
-// Number of times API Gateway allows the API to be called per second on average (RPS).
 func (o AccountThrottleSettingOutput) RateLimit() pulumi.Float64Output {
 	return o.ApplyT(func(v AccountThrottleSetting) float64 { return v.RateLimit }).(pulumi.Float64Output)
 }
@@ -1404,8 +1398,7 @@ func (o RestApiPutTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
 type StageAccessLogSettings struct {
 	// ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 	DestinationArn string `pulumi:"destinationArn"`
-	// Formatting and values recorded in the logs.
-	// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+	// Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 	Format string `pulumi:"format"`
 }
 
@@ -1423,8 +1416,7 @@ type StageAccessLogSettingsInput interface {
 type StageAccessLogSettingsArgs struct {
 	// ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
-	// Formatting and values recorded in the logs.
-	// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+	// Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 	Format pulumi.StringInput `pulumi:"format"`
 }
 
@@ -1510,8 +1502,7 @@ func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// Formatting and values recorded in the logs.
-// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+// Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 func (o StageAccessLogSettingsOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -1550,8 +1541,7 @@ func (o StageAccessLogSettingsPtrOutput) DestinationArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting and values recorded in the logs.
-// For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+// Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
 func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageAccessLogSettings) *string {
 		if v == nil {
@@ -1756,11 +1746,13 @@ func (o StageCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
 }
 
 type UsagePlanApiStage struct {
-	// API Id of the associated API stage in a usage plan.
+	// API ID of the associated API stage in a usage plan.
 	ApiId string `pulumi:"apiId"`
 	// API stage name of the associated API stage in a usage plan.
+	//
+	// The following arguments are optional:
 	Stage string `pulumi:"stage"`
-	// The throttling limits of the usage plan.
+	// Throttling limits applied to the API stage. See `throttle` Block below.
 	Throttles []UsagePlanApiStageThrottle `pulumi:"throttles"`
 }
 
@@ -1776,11 +1768,13 @@ type UsagePlanApiStageInput interface {
 }
 
 type UsagePlanApiStageArgs struct {
-	// API Id of the associated API stage in a usage plan.
+	// API ID of the associated API stage in a usage plan.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// API stage name of the associated API stage in a usage plan.
+	//
+	// The following arguments are optional:
 	Stage pulumi.StringInput `pulumi:"stage"`
-	// The throttling limits of the usage plan.
+	// Throttling limits applied to the API stage. See `throttle` Block below.
 	Throttles UsagePlanApiStageThrottleArrayInput `pulumi:"throttles"`
 }
 
@@ -1835,17 +1829,19 @@ func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx contex
 	return o
 }
 
-// API Id of the associated API stage in a usage plan.
+// API ID of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
 // API stage name of the associated API stage in a usage plan.
+//
+// The following arguments are optional:
 func (o UsagePlanApiStageOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// The throttling limits of the usage plan.
+// Throttling limits applied to the API stage. See `throttle` Block below.
 func (o UsagePlanApiStageOutput) Throttles() UsagePlanApiStageThrottleArrayOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) []UsagePlanApiStageThrottle { return v.Throttles }).(UsagePlanApiStageThrottleArrayOutput)
 }
@@ -1871,11 +1867,13 @@ func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStage
 }
 
 type UsagePlanApiStageThrottle struct {
-	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 	BurstLimit *int `pulumi:"burstLimit"`
-	// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+	// Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+	//
+	// The following arguments are optional:
 	Path string `pulumi:"path"`
-	// The API request steady-state rate limit.
+	// API request steady-state rate limit.
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
@@ -1891,11 +1889,13 @@ type UsagePlanApiStageThrottleInput interface {
 }
 
 type UsagePlanApiStageThrottleArgs struct {
-	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
-	// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+	// Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+	//
+	// The following arguments are optional:
 	Path pulumi.StringInput `pulumi:"path"`
-	// The API request steady-state rate limit.
+	// API request steady-state rate limit.
 	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
@@ -1950,17 +1950,19 @@ func (o UsagePlanApiStageThrottleOutput) ToUsagePlanApiStageThrottleOutputWithCo
 	return o
 }
 
-// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 func (o UsagePlanApiStageThrottleOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStageThrottle) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+// Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+//
+// The following arguments are optional:
 func (o UsagePlanApiStageThrottleOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStageThrottle) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The API request steady-state rate limit.
+// API request steady-state rate limit.
 func (o UsagePlanApiStageThrottleOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStageThrottle) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -1990,7 +1992,9 @@ type UsagePlanQuotaSettings struct {
 	Limit int `pulumi:"limit"`
 	// Number of requests subtracted from the given limit in the initial time period.
 	Offset *int `pulumi:"offset"`
-	// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+	// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+	//
+	// The following arguments are optional:
 	Period string `pulumi:"period"`
 }
 
@@ -2010,7 +2014,9 @@ type UsagePlanQuotaSettingsArgs struct {
 	Limit pulumi.IntInput `pulumi:"limit"`
 	// Number of requests subtracted from the given limit in the initial time period.
 	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+	// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+	//
+	// The following arguments are optional:
 	Period pulumi.StringInput `pulumi:"period"`
 }
 
@@ -2101,7 +2107,9 @@ func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
-// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+//
+// The following arguments are optional:
 func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) string { return v.Period }).(pulumi.StringOutput)
 }
@@ -2150,7 +2158,9 @@ func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+//
+// The following arguments are optional:
 func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
 		if v == nil {
@@ -2161,8 +2171,10 @@ func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 }
 
 type UsagePlanThrottleSettings struct {
-	BurstLimit *int     `pulumi:"burstLimit"`
-	RateLimit  *float64 `pulumi:"rateLimit"`
+	// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit *int `pulumi:"burstLimit"`
+	// API request steady-state rate limit.
+	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
 // UsagePlanThrottleSettingsInput is an input type that accepts UsagePlanThrottleSettingsArgs and UsagePlanThrottleSettingsOutput values.
@@ -2177,8 +2189,10 @@ type UsagePlanThrottleSettingsInput interface {
 }
 
 type UsagePlanThrottleSettingsArgs struct {
-	BurstLimit pulumi.IntPtrInput     `pulumi:"burstLimit"`
-	RateLimit  pulumi.Float64PtrInput `pulumi:"rateLimit"`
+	// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
+	// API request steady-state rate limit.
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
 func (UsagePlanThrottleSettingsArgs) ElementType() reflect.Type {
@@ -2258,10 +2272,12 @@ func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWit
 	}).(UsagePlanThrottleSettingsPtrOutput)
 }
 
+// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
+// API request steady-state rate limit.
 func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -2290,6 +2306,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutp
 	}).(UsagePlanThrottleSettingsOutput)
 }
 
+// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
 		if v == nil {
@@ -2299,6 +2316,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// API request steady-state rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
 		if v == nil {

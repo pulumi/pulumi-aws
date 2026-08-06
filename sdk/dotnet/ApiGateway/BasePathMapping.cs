@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Output("domainNameId")]
         public Output<string?> DomainNameId { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
         public Input<string>? DomainNameId { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
         public Input<string>? DomainNameId { get; set; }

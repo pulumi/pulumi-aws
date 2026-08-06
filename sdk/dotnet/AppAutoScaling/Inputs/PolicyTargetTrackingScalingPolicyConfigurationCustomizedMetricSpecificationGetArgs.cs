@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         private InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionGetArgs>? _dimensions;
 
         /// <summary>
-        /// Dimensions of the metric.
+        /// Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
         /// </summary>
         public InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionGetArgs> Dimensions
         {
@@ -24,9 +24,6 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
             set => _dimensions = value;
         }
 
-        /// <summary>
-        /// Name of the metric.
-        /// </summary>
         [Input("metricName")]
         public Input<string>? MetricName { get; set; }
 
@@ -34,7 +31,7 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
         private InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricGetArgs>? _metrics;
 
         /// <summary>
-        /// Metrics to include, as a metric data query.
+        /// Metrics to include, as a metric data query. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics` Block for details.
         /// </summary>
         public InputList<Inputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricGetArgs> Metrics
         {
@@ -42,21 +39,15 @@ namespace Pulumi.Aws.AppAutoScaling.Inputs
             set => _metrics = value;
         }
 
-        /// <summary>
-        /// Namespace of the metric.
-        /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        /// Statistic of the metric. Valid values are `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }
 
-        /// <summary>
-        /// Unit of the metrics to return.
-        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

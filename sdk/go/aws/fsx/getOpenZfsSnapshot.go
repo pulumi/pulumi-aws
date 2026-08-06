@@ -60,8 +60,7 @@ func LookupOpenZfsSnapshot(ctx *pulumi.Context, args *LookupOpenZfsSnapshotArgs,
 
 // A collection of arguments for invoking getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotArgs struct {
-	// One or more name/value pairs to filter off of. The
-	// supported names are file-system-id or volume-id.
+	// Configuration block. Detailed below.
 	Filters []GetOpenZfsSnapshotFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
@@ -108,8 +107,7 @@ func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshot
 
 // A collection of arguments for invoking getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotOutputArgs struct {
-	// One or more name/value pairs to filter off of. The
-	// supported names are file-system-id or volume-id.
+	// Configuration block. Detailed below.
 	Filters GetOpenZfsSnapshotFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`

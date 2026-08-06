@@ -90,7 +90,7 @@ type GetAccessPointsArgs struct {
 
 // A collection of values returned by getAccessPoints.
 type GetAccessPointsResult struct {
-	// A list of access points matching the search criteria. See `accessPoints` below.
+	// List of access points matching the search criteria. See `accessPoints` below.
 	AccessPoints []GetAccessPointsAccessPoint `pulumi:"accessPoints"`
 	AccountId    *string                      `pulumi:"accountId"`
 	// Name of the bucket associated with the access point.
@@ -144,7 +144,7 @@ func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ct
 	return o
 }
 
-// A list of access points matching the search criteria. See `accessPoints` below.
+// List of access points matching the search criteria. See `accessPoints` below.
 func (o GetAccessPointsResultOutput) AccessPoints() GetAccessPointsAccessPointArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []GetAccessPointsAccessPoint { return v.AccessPoints }).(GetAccessPointsAccessPointArrayOutput)
 }

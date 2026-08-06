@@ -69,9 +69,12 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Block below.
      */
     declare public readonly resourceSets: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.fms.ResourceSetTimeouts | undefined>;
@@ -122,9 +125,12 @@ export interface ResourceSetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Block below.
      */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[] | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts | undefined>;
@@ -139,9 +145,12 @@ export interface ResourceSetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Block below.
      */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[] | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts | undefined>;
 }

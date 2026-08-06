@@ -72,11 +72,11 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The policy document.
+     * Policy document.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -119,11 +119,11 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
  */
 export interface AccessGrantsInstanceResourcePolicyState {
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The policy document.
+     * Policy document.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -137,11 +137,11 @@ export interface AccessGrantsInstanceResourcePolicyState {
  */
 export interface AccessGrantsInstanceResourcePolicyArgs {
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The policy document.
+     * Policy document.
      */
     policy: pulumi.Input<string>;
     /**

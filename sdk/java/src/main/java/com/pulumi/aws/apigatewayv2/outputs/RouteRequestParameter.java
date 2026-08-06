@@ -17,7 +17,7 @@ public final class RouteRequestParameter {
      */
     private String requestParameterKey;
     /**
-     * @return Boolean whether or not the parameter is required.
+     * @return Whether the parameter is required.
      * 
      */
     private Boolean required;
@@ -31,7 +31,7 @@ public final class RouteRequestParameter {
         return this.requestParameterKey;
     }
     /**
-     * @return Boolean whether or not the parameter is required.
+     * @return Whether the parameter is required.
      * 
      */
     public Boolean required() {

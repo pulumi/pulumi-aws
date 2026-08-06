@@ -61,19 +61,19 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The account that created the association.
+     * Account that created the association.
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * The custom domain name of the service.
+     * Custom domain name of the service.
      */
     declare public /*out*/ readonly customDomainName: pulumi.Output<string>;
     /**
-     * The DNS name of the service.
+     * DNS name of the service.
      */
     declare public /*out*/ readonly dnsEntries: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry[]>;
     /**
@@ -81,15 +81,15 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      */
     declare public readonly serviceIdentifier: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -153,19 +153,19 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
  */
 export interface ServiceNetworkServiceAssociationState {
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The account that created the association.
+     * Account that created the association.
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
-     * The custom domain name of the service.
+     * Custom domain name of the service.
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**
-     * The DNS name of the service.
+     * DNS name of the service.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[] | undefined>;
     /**
@@ -173,15 +173,15 @@ export interface ServiceNetworkServiceAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      */
     serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -203,11 +203,11 @@ export interface ServiceNetworkServiceAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      */
     serviceIdentifier: pulumi.Input<string>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
     /**

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppRunner.Outputs
     public sealed class VpcIngressConnectionIngressVpcConfiguration
     {
         /// <summary>
-        /// The ID of the VPC endpoint that your App Runner service connects to.
+        /// ID of the VPC endpoint that your App Runner service connects to.
         /// </summary>
         public readonly string? VpcEndpointId;
         /// <summary>
-        /// The ID of the VPC that is used for the VPC endpoint.
+        /// ID of the VPC that is used for the VPC endpoint.
         /// </summary>
         public readonly string? VpcId;
 

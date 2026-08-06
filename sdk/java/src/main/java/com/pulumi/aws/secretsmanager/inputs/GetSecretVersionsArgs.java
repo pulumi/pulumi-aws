@@ -18,18 +18,14 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
     public static final GetSecretVersionsArgs Empty = new GetSecretVersionsArgs();
 
     /**
-     * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response.
-     * If no value is specified, the default value is `false`.
+     * If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      * 
      */
     @Import(name="includeDeprecated")
     private @Nullable Output<Boolean> includeDeprecated;
 
     /**
-     * @return If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response.
-     * If no value is specified, the default value is `false`.
+     * @return If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeDeprecated() {
@@ -52,14 +48,14 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
     /**
-     * @return Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * @return Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
     public Output<String> secretId() {
@@ -93,9 +89,7 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response.
-         * If no value is specified, the default value is `false`.
+         * @param includeDeprecated If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 
@@ -106,9 +100,7 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response.
-         * If no value is specified, the default value is `false`.
+         * @param includeDeprecated If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 
@@ -139,7 +131,7 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+         * @param secretId Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 
@@ -150,7 +142,7 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param secretId Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+         * @param secretId Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
          * 
          * @return builder
          * 

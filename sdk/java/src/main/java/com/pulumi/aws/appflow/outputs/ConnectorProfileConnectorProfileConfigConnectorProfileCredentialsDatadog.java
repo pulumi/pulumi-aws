@@ -10,19 +10,27 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     private String apiKey;
     /**
-     * @return Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * @return Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
      * 
      */
     private String applicationKey;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog() {}
+    /**
+     * @return Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+     * 
+     */
     public String apiKey() {
         return this.apiKey;
     }
     /**
-     * @return Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * @return Application key, used in conjunction with your API key, that gives you full access to Datadog&#39;s programmatic API. Application keys are associated with the user account that created them and are used to log all requests made to the API.
      * 
      */
     public String applicationKey() {

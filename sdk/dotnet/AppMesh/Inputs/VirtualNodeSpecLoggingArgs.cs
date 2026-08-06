@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecLoggingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access log configuration for a virtual node. See `AccessLog` Block for details.
+        /// Access log configuration for a virtual node. See `spec.logging.access_log` Block for details.
         /// </summary>
         [Input("accessLog")]
         public Input<Inputs.VirtualNodeSpecLoggingAccessLogArgs>? AccessLog { get; set; }

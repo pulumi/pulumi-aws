@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? DocumentType;
         /// <summary>
-        /// Boolean value to include All Versions of files in Veeva document extract flow.
+        /// Whether to include all versions of files in the Veeva document extract flow.
         /// </summary>
         public readonly bool? IncludeAllVersions;
         /// <summary>
-        /// Boolean value to include file renditions in Veeva document extract flow.
+        /// Whether to include file renditions in the Veeva document extract flow.
         /// </summary>
         public readonly bool? IncludeRenditions;
         /// <summary>
-        /// Boolean value to include source files in Veeva document extract flow.
+        /// Whether to include source files in the Veeva document extract flow.
         /// </summary>
         public readonly bool? IncludeSourceFiles;
         public readonly string Object;

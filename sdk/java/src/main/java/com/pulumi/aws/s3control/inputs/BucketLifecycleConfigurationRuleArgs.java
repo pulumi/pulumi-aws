@@ -20,14 +20,14 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
     public static final BucketLifecycleConfigurationRuleArgs Empty = new BucketLifecycleConfigurationRuleArgs();
 
     /**
-     * Configuration block containing settings for abort incomplete multipart upload.
+     * Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
      * 
      */
     @Import(name="abortIncompleteMultipartUpload")
     private @Nullable Output<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs> abortIncompleteMultipartUpload;
 
     /**
-     * @return Configuration block containing settings for abort incomplete multipart upload.
+     * @return Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs>> abortIncompleteMultipartUpload() {
@@ -35,14 +35,14 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * Configuration block containing settings for expiration of objects.
+     * Configuration block containing settings for expiration of objects. See `expiration` below.
      * 
      */
     @Import(name="expiration")
     private @Nullable Output<BucketLifecycleConfigurationRuleExpirationArgs> expiration;
 
     /**
-     * @return Configuration block containing settings for expiration of objects.
+     * @return Configuration block containing settings for expiration of objects. See `expiration` below.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationRuleExpirationArgs>> expiration() {
@@ -50,14 +50,14 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * Configuration block containing settings for filtering.
+     * Configuration block containing settings for filtering. See `filter` below.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigurationRuleFilterArgs> filter;
 
     /**
-     * @return Configuration block containing settings for filtering.
+     * @return Configuration block containing settings for filtering. See `filter` below.
      * 
      */
     public Optional<Output<BucketLifecycleConfigurationRuleFilterArgs>> filter() {
@@ -123,7 +123,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param abortIncompleteMultipartUpload Configuration block containing settings for abort incomplete multipart upload.
+         * @param abortIncompleteMultipartUpload Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param abortIncompleteMultipartUpload Configuration block containing settings for abort incomplete multipart upload.
+         * @param abortIncompleteMultipartUpload Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param expiration Configuration block containing settings for expiration of objects.
+         * @param expiration Configuration block containing settings for expiration of objects. See `expiration` below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param expiration Configuration block containing settings for expiration of objects.
+         * @param expiration Configuration block containing settings for expiration of objects. See `expiration` below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filter Configuration block containing settings for filtering.
+         * @param filter Configuration block containing settings for filtering. See `filter` below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class BucketLifecycleConfigurationRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filter Configuration block containing settings for filtering.
+         * @param filter Configuration block containing settings for filtering. See `filter` below.
          * 
          * @return builder
          * 

@@ -23,14 +23,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     public static final CloudAutonomousVmClusterState Empty = new CloudAutonomousVmClusterState();
 
     /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -38,14 +38,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     @Import(name="autonomousDataStoragePercentage")
     private @Nullable Output<Double> autonomousDataStoragePercentage;
 
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     public Optional<Output<Double>> autonomousDataStoragePercentage() {
@@ -53,14 +53,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="autonomousDataStorageSizeInTbs")
     private @Nullable Output<Double> autonomousDataStorageSizeInTbs;
 
     /**
-     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * @return Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Double>> autonomousDataStorageSizeInTbs() {
@@ -68,14 +68,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     @Import(name="availableAutonomousDataStorageSizeInTbs")
     private @Nullable Output<Double> availableAutonomousDataStorageSizeInTbs;
 
     /**
-     * @return The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     public Optional<Output<Double>> availableAutonomousDataStorageSizeInTbs() {
@@ -83,14 +83,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of Autonomous CDBs that you can create with the currently available storage.
+     * Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     @Import(name="availableContainerDatabases")
     private @Nullable Output<Integer> availableContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that you can create with the currently available storage.
+     * @return Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     public Optional<Output<Integer>> availableContainerDatabases() {
@@ -98,14 +98,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPU cores available for allocation to Autonomous Databases.
+     * Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     @Import(name="availableCpus")
     private @Nullable Output<Double> availableCpus;
 
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     public Optional<Output<Double>> availableCpus() {
@@ -143,14 +143,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     @Import(name="computeModel")
     private @Nullable Output<String> computeModel;
 
     /**
-     * @return The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * @return Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     public Optional<Output<String>> computeModel() {
@@ -158,14 +158,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The total number of CPU cores in the Autonomous VM cluster.
+     * Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     @Import(name="cpuCoreCount")
     private @Nullable Output<Integer> cpuCoreCount;
 
     /**
-     * @return The total number of CPU cores in the Autonomous VM cluster.
+     * @return Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Integer>> cpuCoreCount() {
@@ -173,14 +173,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="cpuCoreCountPerNode")
     private @Nullable Output<Integer> cpuCoreCountPerNode;
 
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> cpuCoreCountPerNode() {
@@ -188,14 +188,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     @Import(name="cpuPercentage")
     private @Nullable Output<Double> cpuPercentage;
 
     /**
-     * @return The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * @return Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Double>> cpuPercentage() {
@@ -203,14 +203,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The date and time when the Autonomous VM cluster was created.
+     * Date and time when the Autonomous VM cluster was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The date and time when the Autonomous VM cluster was created.
+     * @return Date and time when the Autonomous VM cluster was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -218,14 +218,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in GB.
+     * Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     @Import(name="dataStorageSizeInGbs")
     private @Nullable Output<Double> dataStorageSizeInGbs;
 
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in GB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     public Optional<Output<Double>> dataStorageSizeInGbs() {
@@ -233,14 +233,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The total data storage allocated to the Autonomous VM cluster, in TB.
+     * Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     @Import(name="dataStorageSizeInTbs")
     private @Nullable Output<Double> dataStorageSizeInTbs;
 
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in TB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     public Optional<Output<Double>> dataStorageSizeInTbs() {
@@ -248,14 +248,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="dbServers")
     private @Nullable Output<List<String>> dbServers;
 
     /**
-     * @return The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<List<String>>> dbServers() {
@@ -263,14 +263,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The description of the Autonomous VM cluster.
+     * Description of the Autonomous VM cluster.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Autonomous VM cluster.
+     * @return Description of the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> description() {
@@ -278,14 +278,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -293,14 +293,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The domain name of the Autonomous VM cluster.
+     * Domain name of the Autonomous VM cluster.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The domain name of the Autonomous VM cluster.
+     * @return Domain name of the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -308,14 +308,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The minimum value to which you can scale down the Exadata storage, in TB.
+     * Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     @Import(name="exadataStorageInTbsLowestScaledValue")
     private @Nullable Output<Double> exadataStorageInTbsLowestScaledValue;
 
     /**
-     * @return The minimum value to which you can scale down the Exadata storage, in TB.
+     * @return Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     public Optional<Output<Double>> exadataStorageInTbsLowestScaledValue() {
@@ -323,14 +323,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The hostname of the Autonomous VM cluster.
+     * Hostname of the Autonomous VM cluster.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<String> hostname;
 
     /**
-     * @return The hostname of the Autonomous VM cluster.
+     * @return Hostname of the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> hostname() {
@@ -338,14 +338,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="isMtlsEnabledVmCluster")
     private @Nullable Output<Boolean> isMtlsEnabledVmCluster;
 
     /**
-     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Boolean>> isMtlsEnabledVmCluster() {
@@ -353,14 +353,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
     /**
-     * @return The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * @return License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> licenseModel() {
@@ -368,18 +368,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="maintenanceWindow")
     private @Nullable Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * @return Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<CloudAutonomousVmClusterMaintenanceWindowArgs>> maintenanceWindow() {
@@ -387,14 +383,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     @Import(name="maxAcdsLowestScaledValue")
     private @Nullable Output<Integer> maxAcdsLowestScaledValue;
 
     /**
-     * @return The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * @return Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     public Optional<Output<Integer>> maxAcdsLowestScaledValue() {
@@ -402,14 +398,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="memoryPerOracleComputeUnitInGbs")
     private @Nullable Output<Integer> memoryPerOracleComputeUnitInGbs;
 
     /**
-     * @return The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * @return Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> memoryPerOracleComputeUnitInGbs() {
@@ -417,14 +413,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+     * Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
      * 
      */
     @Import(name="memorySizeInGbs")
     private @Nullable Output<Integer> memorySizeInGbs;
 
     /**
-     * @return The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+     * @return Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
      * 
      */
     public Optional<Output<Integer>> memorySizeInGbs() {
@@ -432,14 +428,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of database server nodes in the Autonomous VM cluster.
+     * Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     @Import(name="nodeCount")
     private @Nullable Output<Integer> nodeCount;
 
     /**
-     * @return The number of database server nodes in the Autonomous VM cluster.
+     * @return Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Integer>> nodeCount() {
@@ -447,14 +443,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+     * Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     @Import(name="nonProvisionableAutonomousContainerDatabases")
     private @Nullable Output<Integer> nonProvisionableAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+     * @return Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     public Optional<Output<Integer>> nonProvisionableAutonomousContainerDatabases() {
@@ -462,14 +458,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     @Import(name="ociResourceAnchorName")
     private @Nullable Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> ociResourceAnchorName() {
@@ -477,14 +473,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     @Import(name="ociUrl")
     private @Nullable Output<String> ociUrl;
 
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> ociUrl() {
@@ -492,14 +488,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     @Import(name="ocid")
     private @Nullable Output<String> ocid;
 
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> ocid() {
@@ -537,14 +533,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     @Import(name="odbNodeStorageSizeInGbs")
     private @Nullable Output<Integer> odbNodeStorageSizeInGbs;
 
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     public Optional<Output<Integer>> odbNodeStorageSizeInGbs() {
@@ -552,14 +548,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     @Import(name="percentProgress")
     private @Nullable Output<Double> percentProgress;
 
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     public Optional<Output<Double>> percentProgress() {
@@ -567,14 +563,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     @Import(name="provisionableAutonomousContainerDatabases")
     private @Nullable Output<Integer> provisionableAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Integer>> provisionableAutonomousContainerDatabases() {
@@ -582,14 +578,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     @Import(name="provisionedAutonomousContainerDatabases")
     private @Nullable Output<Integer> provisionedAutonomousContainerDatabases;
 
     /**
-     * @return The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Integer>> provisionedAutonomousContainerDatabases() {
@@ -597,14 +593,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPUs provisioned in the Autonomous VM cluster.
+     * Number of CPUs provisioned in the Autonomous VM cluster.
      * 
      */
     @Import(name="provisionedCpus")
     private @Nullable Output<Double> provisionedCpus;
 
     /**
-     * @return The number of CPUs provisioned in the Autonomous VM cluster.
+     * @return Number of CPUs provisioned in the Autonomous VM cluster.
      * 
      */
     public Optional<Output<Double>> provisionedCpus() {
@@ -612,14 +608,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     @Import(name="reclaimableCpus")
     private @Nullable Output<Double> reclaimableCpus;
 
     /**
-     * @return The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * @return Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     public Optional<Output<Double>> reclaimableCpus() {
@@ -642,14 +638,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of CPU cores reserved for system operations and redundancy.
+     * Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     @Import(name="reservedCpus")
     private @Nullable Output<Double> reservedCpus;
 
     /**
-     * @return The number of CPU cores reserved for system operations and redundancy.
+     * @return Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     public Optional<Output<Double>> reservedCpus() {
@@ -657,14 +653,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="scanListenerPortNonTls")
     private @Nullable Output<Integer> scanListenerPortNonTls;
 
     /**
-     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> scanListenerPortNonTls() {
@@ -672,14 +668,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="scanListenerPortTls")
     private @Nullable Output<Integer> scanListenerPortTls;
 
     /**
-     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> scanListenerPortTls() {
@@ -687,14 +683,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     @Import(name="shape")
     private @Nullable Output<String> shape;
 
     /**
-     * @return The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * @return Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> shape() {
@@ -702,14 +698,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+     * @return Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
      * 
      */
     public Optional<Output<String>> status() {
@@ -732,14 +728,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -747,14 +743,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The combined set of user-defined and provider-defined tags.
+     * Combined set of user-defined and provider-defined tags.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return The combined set of user-defined and provider-defined tags.
+     * @return Combined set of user-defined and provider-defined tags.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -762,14 +758,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The expiration date and time of the database SSL certificate.
+     * Expiration date and time of the database SSL certificate.
      * 
      */
     @Import(name="timeDatabaseSslCertificateExpires")
     private @Nullable Output<String> timeDatabaseSslCertificateExpires;
 
     /**
-     * @return The expiration date and time of the database SSL certificate.
+     * @return Expiration date and time of the database SSL certificate.
      * 
      */
     public Optional<Output<String>> timeDatabaseSslCertificateExpires() {
@@ -777,14 +773,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The expiration date and time of the ORDS certificate.
+     * Expiration date and time of the ORDS certificate.
      * 
      */
     @Import(name="timeOrdsCertificateExpires")
     private @Nullable Output<String> timeOrdsCertificateExpires;
 
     /**
-     * @return The expiration date and time of the ORDS certificate.
+     * @return Expiration date and time of the ORDS certificate.
      * 
      */
     public Optional<Output<String>> timeOrdsCertificateExpires() {
@@ -792,14 +788,14 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -814,14 +810,18 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
     }
 
     /**
-     * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="totalContainerDatabases")
     private @Nullable Output<Integer> totalContainerDatabases;
 
     /**
-     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * @return Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> totalContainerDatabases() {
@@ -906,7 +906,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * @param arn Amazon Resource Name (ARN) for the Exadata infrastructure.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * @param arn Amazon Resource Name (ARN) for the Exadata infrastructure.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autonomousDataStoragePercentage The progress of the current operation on the Autonomous VM cluster, as a percentage.
+         * @param autonomousDataStoragePercentage Progress of the current operation on the Autonomous VM cluster, as a percentage.
          * 
          * @return builder
          * 
@@ -938,7 +938,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autonomousDataStoragePercentage The progress of the current operation on the Autonomous VM cluster, as a percentage.
+         * @param autonomousDataStoragePercentage Progress of the current operation on the Autonomous VM cluster, as a percentage.
          * 
          * @return builder
          * 
@@ -948,7 +948,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * @param autonomousDataStorageSizeInTbs Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -959,7 +959,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * @param autonomousDataStorageSizeInTbs Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -969,7 +969,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableAutonomousDataStorageSizeInTbs The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+         * @param availableAutonomousDataStorageSizeInTbs Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
          * 
          * @return builder
          * 
@@ -980,7 +980,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableAutonomousDataStorageSizeInTbs The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+         * @param availableAutonomousDataStorageSizeInTbs Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
          * 
          * @return builder
          * 
@@ -990,7 +990,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableContainerDatabases The number of Autonomous CDBs that you can create with the currently available storage.
+         * @param availableContainerDatabases Number of Autonomous CDBs that you can create with the currently available storage.
          * 
          * @return builder
          * 
@@ -1001,7 +1001,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableContainerDatabases The number of Autonomous CDBs that you can create with the currently available storage.
+         * @param availableContainerDatabases Number of Autonomous CDBs that you can create with the currently available storage.
          * 
          * @return builder
          * 
@@ -1011,7 +1011,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases.
+         * @param availableCpus Number of CPU cores available for allocation to Autonomous Databases.
          * 
          * @return builder
          * 
@@ -1022,7 +1022,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param availableCpus The number of CPU cores available for allocation to Autonomous Databases.
+         * @param availableCpus Number of CPU cores available for allocation to Autonomous Databases.
          * 
          * @return builder
          * 
@@ -1074,7 +1074,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param computeModel The compute model of the Autonomous VM cluster: ECPU or OCPU.
+         * @param computeModel Compute model of the Autonomous VM cluster: ECPU or OCPU.
          * 
          * @return builder
          * 
@@ -1085,7 +1085,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param computeModel The compute model of the Autonomous VM cluster: ECPU or OCPU.
+         * @param computeModel Compute model of the Autonomous VM cluster: ECPU or OCPU.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuCoreCount The total number of CPU cores in the Autonomous VM cluster.
+         * @param cpuCoreCount Total number of CPU cores in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuCoreCount The total number of CPU cores in the Autonomous VM cluster.
+         * @param cpuCoreCount Total number of CPU cores in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param cpuCoreCountPerNode Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1127,7 +1127,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param cpuCoreCountPerNode Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1137,7 +1137,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuPercentage The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+         * @param cpuPercentage Percentage of total CPU cores currently in use in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1148,7 +1148,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cpuPercentage The percentage of total CPU cores currently in use in the Autonomous VM cluster.
+         * @param cpuPercentage Percentage of total CPU cores currently in use in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1158,7 +1158,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt The date and time when the Autonomous VM cluster was created.
+         * @param createdAt Date and time when the Autonomous VM cluster was created.
          * 
          * @return builder
          * 
@@ -1169,7 +1169,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param createdAt The date and time when the Autonomous VM cluster was created.
+         * @param createdAt Date and time when the Autonomous VM cluster was created.
          * 
          * @return builder
          * 
@@ -1179,7 +1179,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataStorageSizeInGbs The total data storage allocated to the Autonomous VM cluster, in GB.
+         * @param dataStorageSizeInGbs Total data storage allocated to the Autonomous VM cluster, in GB.
          * 
          * @return builder
          * 
@@ -1190,7 +1190,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataStorageSizeInGbs The total data storage allocated to the Autonomous VM cluster, in GB.
+         * @param dataStorageSizeInGbs Total data storage allocated to the Autonomous VM cluster, in GB.
          * 
          * @return builder
          * 
@@ -1200,7 +1200,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataStorageSizeInTbs The total data storage allocated to the Autonomous VM cluster, in TB.
+         * @param dataStorageSizeInTbs Total data storage allocated to the Autonomous VM cluster, in TB.
          * 
          * @return builder
          * 
@@ -1211,7 +1211,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataStorageSizeInTbs The total data storage allocated to the Autonomous VM cluster, in TB.
+         * @param dataStorageSizeInTbs Total data storage allocated to the Autonomous VM cluster, in TB.
          * 
          * @return builder
          * 
@@ -1221,7 +1221,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1232,7 +1232,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1242,7 +1242,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1252,7 +1252,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description of the Autonomous VM cluster.
+         * @param description Description of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1263,7 +1263,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description of the Autonomous VM cluster.
+         * @param description Description of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1273,7 +1273,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param displayName Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1284,7 +1284,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param displayName Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domain The domain name of the Autonomous VM cluster.
+         * @param domain Domain name of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1305,7 +1305,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param domain The domain name of the Autonomous VM cluster.
+         * @param domain Domain name of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1315,7 +1315,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param exadataStorageInTbsLowestScaledValue The minimum value to which you can scale down the Exadata storage, in TB.
+         * @param exadataStorageInTbsLowestScaledValue Minimum value to which you can scale down the Exadata storage, in TB.
          * 
          * @return builder
          * 
@@ -1326,7 +1326,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param exadataStorageInTbsLowestScaledValue The minimum value to which you can scale down the Exadata storage, in TB.
+         * @param exadataStorageInTbsLowestScaledValue Minimum value to which you can scale down the Exadata storage, in TB.
          * 
          * @return builder
          * 
@@ -1336,7 +1336,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostname The hostname of the Autonomous VM cluster.
+         * @param hostname Hostname of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1347,7 +1347,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hostname The hostname of the Autonomous VM cluster.
+         * @param hostname Hostname of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1357,7 +1357,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param isMtlsEnabledVmCluster Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1368,7 +1368,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param isMtlsEnabledVmCluster Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1378,7 +1378,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * @param licenseModel License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1389,7 +1389,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * @param licenseModel License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1399,9 +1399,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-         * 
-         * The following arguments are optional:
+         * @param maintenanceWindow Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1412,9 +1410,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-         * 
-         * The following arguments are optional:
+         * @param maintenanceWindow Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1424,7 +1420,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxAcdsLowestScaledValue The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+         * @param maxAcdsLowestScaledValue Minimum value to which you can scale down the maximum number of Autonomous CDBs.
          * 
          * @return builder
          * 
@@ -1435,7 +1431,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maxAcdsLowestScaledValue The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+         * @param maxAcdsLowestScaledValue Minimum value to which you can scale down the maximum number of Autonomous CDBs.
          * 
          * @return builder
          * 
@@ -1445,7 +1441,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * @param memoryPerOracleComputeUnitInGbs Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1456,7 +1452,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * @param memoryPerOracleComputeUnitInGbs Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1466,7 +1462,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memorySizeInGbs The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+         * @param memorySizeInGbs Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
          * 
          * @return builder
          * 
@@ -1477,7 +1473,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param memorySizeInGbs The total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
+         * @param memorySizeInGbs Total amount of memory allocated to the Autonomous VM cluster, in gigabytes(GB).
          * 
          * @return builder
          * 
@@ -1487,7 +1483,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeCount The number of database server nodes in the Autonomous VM cluster.
+         * @param nodeCount Number of database server nodes in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1498,7 +1494,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nodeCount The number of database server nodes in the Autonomous VM cluster.
+         * @param nodeCount Number of database server nodes in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1508,7 +1504,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nonProvisionableAutonomousContainerDatabases The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+         * @param nonProvisionableAutonomousContainerDatabases Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
          * 
          * @return builder
          * 
@@ -1519,7 +1515,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nonProvisionableAutonomousContainerDatabases The number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
+         * @param nonProvisionableAutonomousContainerDatabases Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
          * 
          * @return builder
          * 
@@ -1529,7 +1525,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ociResourceAnchorName The name of the OCI resource anchor associated with this Autonomous VM cluster.
+         * @param ociResourceAnchorName Name of the OCI resource anchor associated with this Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1540,7 +1536,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ociResourceAnchorName The name of the OCI resource anchor associated with this Autonomous VM cluster.
+         * @param ociResourceAnchorName Name of the OCI resource anchor associated with this Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1550,7 +1546,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ociUrl The URL for accessing the OCI console page for this Autonomous VM cluster.
+         * @param ociUrl URL for accessing the OCI console page for this Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1561,7 +1557,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ociUrl The URL for accessing the OCI console page for this Autonomous VM cluster.
+         * @param ociUrl URL for accessing the OCI console page for this Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1571,7 +1567,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ocid The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+         * @param ocid Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1582,7 +1578,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ocid The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+         * @param ocid Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1634,7 +1630,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+         * @param odbNodeStorageSizeInGbs Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -1645,7 +1641,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNodeStorageSizeInGbs The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+         * @param odbNodeStorageSizeInGbs Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -1655,7 +1651,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param percentProgress The progress of the current operation on the Autonomous VM cluster, as a percentage.
+         * @param percentProgress Progress of the current operation on the Autonomous VM cluster, as a percentage.
          * 
          * @return builder
          * 
@@ -1666,7 +1662,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param percentProgress The progress of the current operation on the Autonomous VM cluster, as a percentage.
+         * @param percentProgress Progress of the current operation on the Autonomous VM cluster, as a percentage.
          * 
          * @return builder
          * 
@@ -1676,7 +1672,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionableAutonomousContainerDatabases The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+         * @param provisionableAutonomousContainerDatabases Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1687,7 +1683,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionableAutonomousContainerDatabases The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+         * @param provisionableAutonomousContainerDatabases Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1697,7 +1693,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionedAutonomousContainerDatabases The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+         * @param provisionedAutonomousContainerDatabases Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1708,7 +1704,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionedAutonomousContainerDatabases The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+         * @param provisionedAutonomousContainerDatabases Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1718,7 +1714,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionedCpus The number of CPUs provisioned in the Autonomous VM cluster.
+         * @param provisionedCpus Number of CPUs provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1729,7 +1725,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param provisionedCpus The number of CPUs provisioned in the Autonomous VM cluster.
+         * @param provisionedCpus Number of CPUs provisioned in the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1739,7 +1735,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param reclaimableCpus The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+         * @param reclaimableCpus Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
          * 
          * @return builder
          * 
@@ -1750,7 +1746,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param reclaimableCpus The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+         * @param reclaimableCpus Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
          * 
          * @return builder
          * 
@@ -1781,7 +1777,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param reservedCpus The number of CPU cores reserved for system operations and redundancy.
+         * @param reservedCpus Number of CPU cores reserved for system operations and redundancy.
          * 
          * @return builder
          * 
@@ -1792,7 +1788,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param reservedCpus The number of CPU cores reserved for system operations and redundancy.
+         * @param reservedCpus Number of CPU cores reserved for system operations and redundancy.
          * 
          * @return builder
          * 
@@ -1802,7 +1798,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * @param scanListenerPortNonTls SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1813,7 +1809,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * @param scanListenerPortNonTls SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1823,7 +1819,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * @param scanListenerPortTls SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1834,7 +1830,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * @param scanListenerPortTls SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -1844,7 +1840,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param shape The shape of the Exadata infrastructure for the Autonomous VM cluster.
+         * @param shape Shape of the Exadata infrastructure for the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1855,7 +1851,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param shape The shape of the Exadata infrastructure for the Autonomous VM cluster.
+         * @param shape Shape of the Exadata infrastructure for the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -1865,7 +1861,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+         * @param status Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
          * 
          * @return builder
          * 
@@ -1876,7 +1872,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param status The status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
+         * @param status Status of the Autonomous VM cluster. Possible values include CREATING, AVAILABLE, UPDATING, DELETING, DELETED, FAILED.
          * 
          * @return builder
          * 
@@ -1907,7 +1903,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1918,7 +1914,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1928,7 +1924,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
+         * @param tagsAll Combined set of user-defined and provider-defined tags.
          * 
          * @return builder
          * 
@@ -1939,7 +1935,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll The combined set of user-defined and provider-defined tags.
+         * @param tagsAll Combined set of user-defined and provider-defined tags.
          * 
          * @return builder
          * 
@@ -1949,7 +1945,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeDatabaseSslCertificateExpires The expiration date and time of the database SSL certificate.
+         * @param timeDatabaseSslCertificateExpires Expiration date and time of the database SSL certificate.
          * 
          * @return builder
          * 
@@ -1960,7 +1956,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeDatabaseSslCertificateExpires The expiration date and time of the database SSL certificate.
+         * @param timeDatabaseSslCertificateExpires Expiration date and time of the database SSL certificate.
          * 
          * @return builder
          * 
@@ -1970,7 +1966,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeOrdsCertificateExpires The expiration date and time of the ORDS certificate.
+         * @param timeOrdsCertificateExpires Expiration date and time of the ORDS certificate.
          * 
          * @return builder
          * 
@@ -1981,7 +1977,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeOrdsCertificateExpires The expiration date and time of the ORDS certificate.
+         * @param timeOrdsCertificateExpires Expiration date and time of the ORDS certificate.
          * 
          * @return builder
          * 
@@ -1991,7 +1987,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param timeZone Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -2002,7 +1998,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param timeZone Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -2021,7 +2017,9 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * @param totalContainerDatabases Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -2032,7 +2030,9 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * @param totalContainerDatabases Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

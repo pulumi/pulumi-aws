@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputList<Inputs.FlowTaskConnectorOperatorGetArgs>? _connectorOperators;
 
         /// <summary>
-        /// Operation to be performed on the provided source fields. See Connector Operator for details.
+        /// Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
         /// </summary>
         public InputList<Inputs.FlowTaskConnectorOperatorGetArgs> ConnectorOperators
         {

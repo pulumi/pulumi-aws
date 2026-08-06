@@ -28,17 +28,13 @@ namespace Pulumi.Aws.S3Tables
     public partial class TablePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
@@ -108,17 +104,13 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TablePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
@@ -150,17 +142,13 @@ namespace Pulumi.Aws.S3Tables
     public sealed class TablePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of the namespace for this table.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

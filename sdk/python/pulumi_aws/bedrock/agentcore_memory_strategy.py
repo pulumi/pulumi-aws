@@ -55,8 +55,8 @@ class AgentcoreMemoryStrategyArgs:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if memory_execution_role_arn is not None:
-            warnings.warn("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""", DeprecationWarning)
-            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+            warnings.warn("""memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""")
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if name is not None:
@@ -127,7 +127,7 @@ class AgentcoreMemoryStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the memory service assumes to perform operations.
@@ -246,8 +246,8 @@ class _AgentcoreMemoryStrategyState:
         if description is not None:
             pulumi.set(__self__, "description", description)
         if memory_execution_role_arn is not None:
-            warnings.warn("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""", DeprecationWarning)
-            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+            warnings.warn("""memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""", DeprecationWarning)
+            pulumi.log.warn("""memory_execution_role_arn is deprecated: memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""")
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if memory_id is not None:
@@ -298,7 +298,7 @@ class _AgentcoreMemoryStrategyState:
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the memory service assumes to perform operations.
@@ -935,7 +935,7 @@ class AgentcoreMemoryStrategy(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    @_utilities.deprecated("""memory_execution_role_arn is deprecated. The attribute can be removed from configuration.""")
+    @_utilities.deprecated("""memory_execution_role_arn is deprecated. Use memory_execution_role_arn on the bedrock.AgentcoreMemory resource instead.""")
     def memory_execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         ARN of the IAM role that the memory service assumes to perform operations.

@@ -95,14 +95,14 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
         return this.createdDate;
     }
     /**
-     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
     @Export(name="customerId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerId;
 
     /**
-     * @return An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
     public Output<Optional<String>> customerId() {

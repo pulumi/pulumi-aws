@@ -119,14 +119,14 @@ public class ClientCertificate extends com.pulumi.resources.CustomResource {
         return this.expirationDate;
     }
     /**
-     * The PEM-encoded public key of the client certificate.
+     * PEM-encoded public key of the client certificate.
      * 
      */
     @Export(name="pemEncodedCertificate", refs={String.class}, tree="[0]")
     private Output<String> pemEncodedCertificate;
 
     /**
-     * @return The PEM-encoded public key of the client certificate.
+     * @return PEM-encoded public key of the client certificate.
      * 
      */
     public Output<String> pemEncodedCertificate() {

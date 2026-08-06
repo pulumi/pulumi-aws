@@ -64,9 +64,7 @@ export function getSecretVersions(args: GetSecretVersionsArgs, opts?: pulumi.Inv
  */
 export interface GetSecretVersionsArgs {
     /**
-     * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response.
-     * If no value is specified, the default value is `false`.
+     * If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: boolean;
     /**
@@ -74,7 +72,7 @@ export interface GetSecretVersionsArgs {
      */
     region?: string;
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: string;
 }
@@ -84,23 +82,21 @@ export interface GetSecretVersionsArgs {
  */
 export interface GetSecretVersionsResult {
     /**
-     * (**Deprecated**) The ARN of the secret.
-     * Use `secretArn` instead.
+     * (**Deprecated**) ARN of the secret. Use `secretArn` instead.
      *
      * @deprecated arn is deprecated. Use secretArn instead.
      */
     readonly arn: string;
     readonly includeDeprecated?: boolean;
     /**
-     * (**Deprecated**) Name of the secret.
-     * Use `secretName` instead.
+     * (**Deprecated**) Name of the secret. Use `secretName` instead.
      *
      * @deprecated name is deprecated. Use secretName instead.
      */
     readonly name: string;
     readonly region: string;
     /**
-     * The ARN of the secret.
+     * ARN of the secret.
      */
     readonly secretArn: string;
     readonly secretId: string;
@@ -170,9 +166,7 @@ export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?
  */
 export interface GetSecretVersionsOutputArgs {
     /**
-     * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response.
-     * If no value is specified, the default value is `false`.
+     * If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
@@ -180,7 +174,7 @@ export interface GetSecretVersionsOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: pulumi.Input<string>;
 }

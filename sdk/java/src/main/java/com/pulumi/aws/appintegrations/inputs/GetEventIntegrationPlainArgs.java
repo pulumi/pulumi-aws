@@ -17,14 +17,14 @@ public final class GetEventIntegrationPlainArgs extends com.pulumi.resources.Inv
     public static final GetEventIntegrationPlainArgs Empty = new GetEventIntegrationPlainArgs();
 
     /**
-     * The AppIntegrations Event Integration name.
+     * AppIntegrations Event Integration name.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The AppIntegrations Event Integration name.
+     * @return AppIntegrations Event Integration name.
      * 
      */
     public String name() {
@@ -88,7 +88,7 @@ public final class GetEventIntegrationPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param name The AppIntegrations Event Integration name.
+         * @param name AppIntegrations Event Integration name.
          * 
          * @return builder
          * 

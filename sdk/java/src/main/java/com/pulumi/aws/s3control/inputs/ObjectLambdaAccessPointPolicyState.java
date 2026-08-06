@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
     public static final ObjectLambdaAccessPointPolicyState Empty = new ObjectLambdaAccessPointPolicyState();
 
     /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
     }
 
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      * 
      */
     @Import(name="hasPublicAccessPolicy")
     private @Nullable Output<Boolean> hasPublicAccessPolicy;
 
     /**
-     * @return Indicates whether this access point currently has a policy that allows public access.
+     * @return Whether this access point currently has a policy that allows public access.
      * 
      */
     public Optional<Output<Boolean>> hasPublicAccessPolicy() {
@@ -47,14 +47,14 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
     }
 
     /**
-     * The name of the Object Lambda Access Point.
+     * Name of the Object Lambda Access Point.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Object Lambda Access Point.
+     * @return Name of the Object Lambda Access Point.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
     }
 
     /**
-     * The Object Lambda Access Point resource policy document.
+     * Object Lambda Access Point resource policy document.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The Object Lambda Access Point resource policy document.
+     * @return Object Lambda Access Point resource policy document.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -120,7 +120,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param accountId The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param hasPublicAccessPolicy Indicates whether this access point currently has a policy that allows public access.
+         * @param hasPublicAccessPolicy Whether this access point currently has a policy that allows public access.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param hasPublicAccessPolicy Indicates whether this access point currently has a policy that allows public access.
+         * @param hasPublicAccessPolicy Whether this access point currently has a policy that allows public access.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the Object Lambda Access Point.
+         * @param name Name of the Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the Object Lambda Access Point.
+         * @param name Name of the Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param policy The Object Lambda Access Point resource policy document.
+         * @param policy Object Lambda Access Point resource policy document.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ObjectLambdaAccessPointPolicyState extends com.pulumi.resourc
         }
 
         /**
-         * @param policy The Object Lambda Access Point resource policy document.
+         * @param policy Object Lambda Access Point resource policy document.
          * 
          * @return builder
          * 

@@ -18,9 +18,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Name of the settings group.
-        /// Required when `Enabled` is `True`.
-        /// Can be up to 100 characters.
+        /// Name of the settings group. Required when `Enabled` is `True`. Can be up to 100 characters.
         /// </summary>
         public readonly string? SettingsGroup;
 

@@ -62,9 +62,7 @@ namespace Pulumi.Aws.S3Tables
         public Output<string> CreatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Output("namespace")]
         public Output<string> NameSpace { get; private set; } = null!;
@@ -134,9 +132,7 @@ namespace Pulumi.Aws.S3Tables
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> NameSpace { get; set; } = null!;
@@ -174,9 +170,7 @@ namespace Pulumi.Aws.S3Tables
         public Input<string>? CreatedBy { get; set; }
 
         /// <summary>
-        /// Name of the namespace.
-        /// Must be between 1 and 255 characters in length.
-        /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        /// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
         [Input("namespace")]
         public Input<string>? NameSpace { get; set; }

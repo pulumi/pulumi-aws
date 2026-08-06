@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetImageResult {
     /**
-     * @return A application object that contains the following:
+     * @return Application object that contains the following:
      * 
      */
     private List<GetImageApplication> applications;
@@ -53,7 +53,7 @@ public final class GetImageResult {
      */
     private String displayName;
     /**
-     * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * @return Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      * 
      */
     private String imageBuilderName;
@@ -99,7 +99,7 @@ public final class GetImageResult {
 
     private GetImageResult() {}
     /**
-     * @return A application object that contains the following:
+     * @return Application object that contains the following:
      * 
      */
     public List<GetImageApplication> applications() {
@@ -148,7 +148,7 @@ public final class GetImageResult {
         return this.displayName;
     }
     /**
-     * @return The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * @return Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      * 
      */
     public String imageBuilderName() {

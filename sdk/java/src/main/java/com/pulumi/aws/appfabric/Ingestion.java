@@ -69,16 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appfabric/ingestion:Ingestion")
 public class Ingestion extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      * 
      */
     @Export(name="app", refs={String.class}, tree="[0]")
     private Output<String> app;
 
     /**
-     * @return Name of the application.
-     * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
+     * @return Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
      * 
      */
     public Output<String> app() {

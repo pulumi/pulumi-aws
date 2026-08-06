@@ -71,20 +71,20 @@ export class KxVolume extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) identifier of the KX volume.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Clusters attached to the volume. See `attachedClusters` Block below.
+     */
     declare public /*out*/ readonly attachedClusters: pulumi.Output<outputs.finspace.KxVolumeAttachedCluster[]>;
     /**
-     * The identifier of the AWS Availability Zone IDs.
-     *
-     * The following arguments are optional:
+     * Identifier of the AWS Availability Zone IDs.
      */
     declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
-     * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-     * * `SINGLE` - Assigns one availability zone per volume.
+     * Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
      */
     declare public readonly azMode: pulumi.Output<string>;
     /**
-     * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
@@ -92,7 +92,7 @@ export class KxVolume extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A unique identifier for the kdb environment, whose clusters can attach to the volume.
+     * Unique identifier for the kdb environment, whose clusters can attach to the volume.
      */
     declare public readonly environmentId: pulumi.Output<string>;
     /**
@@ -100,11 +100,11 @@ export class KxVolume extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
-     * Unique name for the volumr that you want to create.
+     * Unique name for the volume that you want to create.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+     * Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
      */
     declare public readonly nas1Configurations: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
     /**
@@ -112,29 +112,22 @@ export class KxVolume extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of volume creation.
-     * * `CREATING` - The volume creation is in progress.
-     * * `CREATE_FAILED` - The volume creation has failed.
-     * * `ACTIVE` - The volume is active.
-     * * `UPDATING` - The volume is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `UPDATED` - The volume is successfully updated.
-     * * `DELETING` - The volume is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the volume.
-     * * `DELETED` - The volume is successfully deleted.
+     * Status of volume creation. Values are `CREATING` (volume creation is in progress), `CREATE_FAILED` (volume creation has failed), `ACTIVE` (volume is active), `UPDATING` (volume is in the process of being updated), `UPDATE_FAILED` (update action failed), `UPDATED` (volume is successfully updated), `DELETING` (volume is in the process of being deleted), `DELETE_FAILED` (system failed to delete the volume), and `DELETED` (volume is successfully deleted).
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The error message when a failed state occurs.
+     * Error message when a failed state occurs.
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
-     * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+     * Key-value pairs to label the volume. You can add up to 50 tags to a volume.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -211,20 +204,20 @@ export interface KxVolumeState {
      * Amazon Resource Name (ARN) identifier of the KX volume.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Clusters attached to the volume. See `attachedClusters` Block below.
+     */
     attachedClusters?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeAttachedCluster>[] | undefined>;
     /**
-     * The identifier of the AWS Availability Zone IDs.
-     *
-     * The following arguments are optional:
+     * Identifier of the AWS Availability Zone IDs.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-     * * `SINGLE` - Assigns one availability zone per volume.
+     * Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
      */
     azMode?: pulumi.Input<string | undefined>;
     /**
-     * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
     createdTimestamp?: pulumi.Input<string | undefined>;
     /**
@@ -232,7 +225,7 @@ export interface KxVolumeState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier for the kdb environment, whose clusters can attach to the volume.
+     * Unique identifier for the kdb environment, whose clusters can attach to the volume.
      */
     environmentId?: pulumi.Input<string | undefined>;
     /**
@@ -240,11 +233,11 @@ export interface KxVolumeState {
      */
     lastModifiedTimestamp?: pulumi.Input<string | undefined>;
     /**
-     * Unique name for the volumr that you want to create.
+     * Unique name for the volume that you want to create.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+     * Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[] | undefined>;
     /**
@@ -252,29 +245,22 @@ export interface KxVolumeState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of volume creation.
-     * * `CREATING` - The volume creation is in progress.
-     * * `CREATE_FAILED` - The volume creation has failed.
-     * * `ACTIVE` - The volume is active.
-     * * `UPDATING` - The volume is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `UPDATED` - The volume is successfully updated.
-     * * `DELETING` - The volume is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the volume.
-     * * `DELETED` - The volume is successfully deleted.
+     * Status of volume creation. Values are `CREATING` (volume creation is in progress), `CREATE_FAILED` (volume creation has failed), `ACTIVE` (volume is active), `UPDATING` (volume is in the process of being updated), `UPDATE_FAILED` (update action failed), `UPDATED` (volume is successfully updated), `DELETING` (volume is in the process of being deleted), `DELETE_FAILED` (system failed to delete the volume), and `DELETED` (volume is successfully deleted).
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * The error message when a failed state occurs.
+     * Error message when a failed state occurs.
      */
     statusReason?: pulumi.Input<string | undefined>;
     /**
-     * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+     * Key-value pairs to label the volume. You can add up to 50 tags to a volume.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -284,14 +270,11 @@ export interface KxVolumeState {
  */
 export interface KxVolumeArgs {
     /**
-     * The identifier of the AWS Availability Zone IDs.
-     *
-     * The following arguments are optional:
+     * Identifier of the AWS Availability Zone IDs.
      */
     availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-     * * `SINGLE` - Assigns one availability zone per volume.
+     * Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
      */
     azMode: pulumi.Input<string>;
     /**
@@ -299,15 +282,15 @@ export interface KxVolumeArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier for the kdb environment, whose clusters can attach to the volume.
+     * Unique identifier for the kdb environment, whose clusters can attach to the volume.
      */
     environmentId: pulumi.Input<string>;
     /**
-     * Unique name for the volumr that you want to create.
+     * Unique name for the volume that you want to create.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+     * Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[] | undefined>;
     /**
@@ -315,11 +298,13 @@ export interface KxVolumeArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+     * Key-value pairs to label the volume. You can add up to 50 tags to a volume.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

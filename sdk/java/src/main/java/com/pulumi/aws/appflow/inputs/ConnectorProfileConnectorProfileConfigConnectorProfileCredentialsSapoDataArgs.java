@@ -17,14 +17,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs();
 
     /**
-     * The SAPOData basic authentication credentials.
+     * SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
      * 
      */
     @Import(name="basicAuthCredentials")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs> basicAuthCredentials;
 
     /**
-     * @return The SAPOData basic authentication credentials.
+     * @return SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs>> basicAuthCredentials() {
@@ -32,14 +32,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The SAPOData OAuth type authentication credentials.
+     * SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
      * 
      */
     @Import(name="oauthCredentials")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs> oauthCredentials;
 
     /**
-     * @return The SAPOData OAuth type authentication credentials.
+     * @return SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs>> oauthCredentials() {
@@ -72,7 +72,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basicAuthCredentials The SAPOData basic authentication credentials.
+         * @param basicAuthCredentials SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param basicAuthCredentials The SAPOData basic authentication credentials.
+         * @param basicAuthCredentials SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthCredentials The SAPOData OAuth type authentication credentials.
+         * @param oauthCredentials SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param oauthCredentials The SAPOData OAuth type authentication credentials.
+         * @param oauthCredentials SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
          * 
          * @return builder
          * 

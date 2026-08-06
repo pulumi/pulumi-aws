@@ -47,14 +47,14 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     @Import(name="domainNameId")
     private @Nullable Output<String> domainNameId;
 
     /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * @return Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     public Optional<Output<String>> domainNameId() {
@@ -178,7 +178,7 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * @param domainNameId Identifier for the domain name resource. Supported only for private custom domain names.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class BasePathMappingArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * @param domainNameId Identifier for the domain name resource. Supported only for private custom domain names.
          * 
          * @return builder
          * 

@@ -16,29 +16,45 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs();
 
+    /**
+     * Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
+    /**
+     * Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
+    /**
+     * @return Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
     /**
-     * The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * Unique ID that&#39;s assigned to an Amazon Redshift cluster.
      * 
      */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
     /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * @return Unique ID that&#39;s assigned to an Amazon Redshift cluster.
      * 
      */
     public Optional<Output<String>> clusterIdentifier() {
@@ -61,14 +77,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The name of an Amazon Redshift database.
+     * Name of an Amazon Redshift database.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return The name of an Amazon Redshift database.
+     * @return Name of an Amazon Redshift database.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -76,14 +92,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The JDBC URL of the Amazon Redshift cluster.
+     * JDBC URL of the Amazon Redshift cluster.
      * 
      */
     @Import(name="databaseUrl")
     private @Nullable Output<String> databaseUrl;
 
     /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
+     * @return JDBC URL of the Amazon Redshift cluster.
      * 
      */
     public Optional<Output<String>> databaseUrl() {
@@ -135,26 +151,50 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
+        /**
+         * @param bucketPrefix Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
+        /**
+         * @param bucketPrefix Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
         /**
-         * @param clusterIdentifier The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+         * @param clusterIdentifier Unique ID that&#39;s assigned to an Amazon Redshift cluster.
          * 
          * @return builder
          * 
@@ -165,7 +205,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param clusterIdentifier The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+         * @param clusterIdentifier Unique ID that&#39;s assigned to an Amazon Redshift cluster.
          * 
          * @return builder
          * 
@@ -196,7 +236,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param databaseName The name of an Amazon Redshift database.
+         * @param databaseName Name of an Amazon Redshift database.
          * 
          * @return builder
          * 
@@ -207,7 +247,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param databaseName The name of an Amazon Redshift database.
+         * @param databaseName Name of an Amazon Redshift database.
          * 
          * @return builder
          * 
@@ -217,7 +257,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param databaseUrl The JDBC URL of the Amazon Redshift cluster.
+         * @param databaseUrl JDBC URL of the Amazon Redshift cluster.
          * 
          * @return builder
          * 
@@ -228,7 +268,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param databaseUrl The JDBC URL of the Amazon Redshift cluster.
+         * @param databaseUrl JDBC URL of the Amazon Redshift cluster.
          * 
          * @return builder
          * 

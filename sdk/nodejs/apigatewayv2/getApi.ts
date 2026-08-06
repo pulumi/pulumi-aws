@@ -58,7 +58,7 @@ export interface GetApiResult {
     readonly apiEndpoint: string;
     readonly apiId: string;
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+     * [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      */
     readonly apiKeySelectionExpression: string;
     /**
@@ -86,7 +86,7 @@ export interface GetApiResult {
      */
     readonly id: string;
     /**
-     * The IP address types that can invoke an API.
+     * IP address types that can invoke an API.
      */
     readonly ipAddressType: string;
     /**
@@ -99,7 +99,7 @@ export interface GetApiResult {
     readonly protocolType: string;
     readonly region: string;
     /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+     * [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
      */
     readonly routeSelectionExpression: string;
     /**

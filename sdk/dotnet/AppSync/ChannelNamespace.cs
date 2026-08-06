@@ -63,7 +63,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> CodeHandlers { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See Handler Configs below.
+        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See `HandlerConfigs` below.
         /// </summary>
         [Output("handlerConfigs")]
         public Output<Outputs.ChannelNamespaceHandlerConfigs?> HandlerConfigs { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `PublishAuthMode` below.
         /// </summary>
         [Output("publishAuthModes")]
         public Output<ImmutableArray<Outputs.ChannelNamespacePublishAuthMode>> PublishAuthModes { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `SubscribeAuthMode` below.
         /// </summary>
         [Output("subscribeAuthModes")]
         public Output<ImmutableArray<Outputs.ChannelNamespaceSubscribeAuthMode>> SubscribeAuthModes { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? CodeHandlers { get; set; }
 
         /// <summary>
-        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See Handler Configs below.
+        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See `HandlerConfigs` below.
         /// </summary>
         [Input("handlerConfigs")]
         public Input<Inputs.ChannelNamespaceHandlerConfigsArgs>? HandlerConfigs { get; set; }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.ChannelNamespacePublishAuthModeArgs>? _publishAuthModes;
 
         /// <summary>
-        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `PublishAuthMode` below.
         /// </summary>
         public InputList<Inputs.ChannelNamespacePublishAuthModeArgs> PublishAuthModes
         {
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.ChannelNamespaceSubscribeAuthModeArgs>? _subscribeAuthModes;
 
         /// <summary>
-        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `SubscribeAuthMode` below.
         /// </summary>
         public InputList<Inputs.ChannelNamespaceSubscribeAuthModeArgs> SubscribeAuthModes
         {
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? CodeHandlers { get; set; }
 
         /// <summary>
-        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See Handler Configs below.
+        /// Configuration for the `OnPublish` and `OnSubscribe` handlers. See `HandlerConfigs` below.
         /// </summary>
         [Input("handlerConfigs")]
         public Input<Inputs.ChannelNamespaceHandlerConfigsGetArgs>? HandlerConfigs { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.ChannelNamespacePublishAuthModeGetArgs>? _publishAuthModes;
 
         /// <summary>
-        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `PublishAuthMode` below.
         /// </summary>
         public InputList<Inputs.ChannelNamespacePublishAuthModeGetArgs> PublishAuthModes
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.ChannelNamespaceSubscribeAuthModeGetArgs>? _subscribeAuthModes;
 
         /// <summary>
-        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+        /// Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `SubscribeAuthMode` below.
         /// </summary>
         public InputList<Inputs.ChannelNamespaceSubscribeAuthModeGetArgs> SubscribeAuthModes
         {

@@ -14,54 +14,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TaskSetLoadBalancer {
     /**
-     * @return The name of the container to associate with the load balancer (as it appears in a container definition).
+     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
     private String containerName;
     /**
-     * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-     * 
-     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+     * @return Port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
      */
     private @Nullable Integer containerPort;
     /**
-     * @return The name of the ELB (Classic) to associate with the service.
+     * @return Name of the ELB (Classic) to associate with the service.
      * 
      */
     private @Nullable String loadBalancerName;
     /**
-     * @return The ARN of the Load Balancer target group to associate with the service.
+     * @return ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     private @Nullable String targetGroupArn;
 
     private TaskSetLoadBalancer() {}
     /**
-     * @return The name of the container to associate with the load balancer (as it appears in a container definition).
+     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
     public String containerName() {
         return this.containerName;
     }
     /**
-     * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-     * 
-     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+     * @return Port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
      */
     public Optional<Integer> containerPort() {
         return Optional.ofNullable(this.containerPort);
     }
     /**
-     * @return The name of the ELB (Classic) to associate with the service.
+     * @return Name of the ELB (Classic) to associate with the service.
      * 
      */
     public Optional<String> loadBalancerName() {
         return Optional.ofNullable(this.loadBalancerName);
     }
     /**
-     * @return The ARN of the Load Balancer target group to associate with the service.
+     * @return ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     public Optional<String> targetGroupArn() {

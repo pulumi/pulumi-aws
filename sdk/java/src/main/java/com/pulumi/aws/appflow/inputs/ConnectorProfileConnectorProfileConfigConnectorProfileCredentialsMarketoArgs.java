@@ -17,30 +17,62 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs();
 
+    /**
+     * Credentials used to access protected Zendesk resources.
+     * 
+     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
+    /**
+     * Identifier for the desired client.
+     * 
+     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
+    /**
+     * @return Identifier for the desired client.
+     * 
+     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
+    /**
+     * Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
+    /**
+     * @return Client secret used by the OAuth client to authenticate to the authorization server.
+     * 
+     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
+    /**
+     * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs> oauthRequest;
 
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
@@ -72,38 +104,86 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
+        /**
+         * @param clientId Identifier for the desired client.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId Identifier for the desired client.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret Client secret used by the OAuth client to authenticate to the authorization server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret Client secret used by the OAuth client to authenticate to the authorization server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }

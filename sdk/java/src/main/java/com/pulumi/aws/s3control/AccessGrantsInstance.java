@@ -124,42 +124,42 @@ public class AccessGrantsInstance extends com.pulumi.resources.CustomResource {
         return this.accessGrantsInstanceId;
     }
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+     * ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      * 
      */
     @Export(name="identityCenterApplicationArn", refs={String.class}, tree="[0]")
     private Output<String> identityCenterApplicationArn;
 
     /**
-     * @return The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
+     * @return ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      * 
      */
     public Output<String> identityCenterApplicationArn() {
         return this.identityCenterApplicationArn;
     }
     /**
-     * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
     @Export(name="identityCenterArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> identityCenterArn;
 
     /**
-     * @return The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
+     * @return ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
     public Output<Optional<String>> identityCenterArn() {
@@ -194,14 +194,14 @@ public class AccessGrantsInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

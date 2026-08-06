@@ -18,14 +18,14 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
     public static final OpenZfsSnapshotArgs Empty = new OpenZfsSnapshotArgs();
 
     /**
-     * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+     * Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+     * @return Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -63,14 +63,14 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the volume to snapshot. This can be the root volume or a child volume.
+     * ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
     @Import(name="volumeId", required=true)
     private Output<String> volumeId;
 
     /**
-     * @return The ID of the volume to snapshot. This can be the root volume or a child volume.
+     * @return ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
     public Output<String> volumeId() {
@@ -105,7 +105,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+         * @param name Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+         * @param name Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumeId The ID of the volume to snapshot. This can be the root volume or a child volume.
+         * @param volumeId ID of the volume to snapshot. This can be the root volume or a child volume.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumeId The ID of the volume to snapshot. This can be the root volume or a child volume.
+         * @param volumeId ID of the volume to snapshot. This can be the root volume or a child volume.
          * 
          * @return builder
          * 

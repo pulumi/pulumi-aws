@@ -46,30 +46,30 @@ class WindowsFileSystemArgs:
         """
         The set of arguments for constructing a WindowsFileSystem resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
-        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
-        :param pulumi.Input[_builtins.str] backup_id: The ID of the source backup to create the filesystem from.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
+        :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether to copy tags on the file system to backups. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] deployment_type: File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        :param pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "throughput_capacity", throughput_capacity)
@@ -118,7 +118,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -144,7 +144,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
 
@@ -156,7 +156,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter
     def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         """
         return pulumi.get(self, "aliases")
 
@@ -168,7 +168,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="auditLogConfiguration")
     def audit_log_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]:
         """
-        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         """
         return pulumi.get(self, "audit_log_configuration")
 
@@ -180,7 +180,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
@@ -192,7 +192,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="backupId")
     def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the source backup to create the filesystem from.
+        ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
@@ -204,7 +204,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        Whether to copy tags on the file system to backups. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
@@ -216,7 +216,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
@@ -228,7 +228,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -240,7 +240,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="diskIopsConfiguration")
     def disk_iops_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]:
         """
-        The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
@@ -252,7 +252,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="finalBackupTags")
     def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to apply to the file system's final backup.
+        Map of tags to apply to the file system's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
@@ -276,7 +276,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -300,7 +300,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -348,7 +348,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -360,7 +360,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -372,7 +372,7 @@ class WindowsFileSystemArgs:
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
@@ -417,38 +417,38 @@ class _WindowsFileSystemState:
         """
         Input properties used for looking up and filtering WindowsFileSystem resources.
 
-        :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
-        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
-        :param pulumi.Input[_builtins.str] backup_id: The ID of the source backup to create the filesystem from.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether to copy tags on the file system to backups. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] deployment_type: File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        :param pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[_builtins.str] dns_name: DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] preferred_file_server_ip: The IP address of the primary, or preferred, file server.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[_builtins.str] preferred_file_server_ip: IP address of the primary, or preferred, file server.
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] remote_administration_endpoint: For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -515,7 +515,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
 
@@ -527,7 +527,7 @@ class _WindowsFileSystemState:
     @pulumi.getter
     def aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         """
         return pulumi.get(self, "aliases")
 
@@ -551,7 +551,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="auditLogConfiguration")
     def audit_log_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemAuditLogConfigurationArgs']]:
         """
-        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         """
         return pulumi.get(self, "audit_log_configuration")
 
@@ -563,7 +563,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
@@ -575,7 +575,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="backupId")
     def backup_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the source backup to create the filesystem from.
+        ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
@@ -587,7 +587,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        Whether to copy tags on the file system to backups. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
@@ -599,7 +599,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
@@ -611,7 +611,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -623,7 +623,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="diskIopsConfiguration")
     def disk_iops_configuration(self) -> pulumi.Input[Optional['WindowsFileSystemDiskIopsConfigurationArgs']]:
         """
-        The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
@@ -647,7 +647,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="finalBackupTags")
     def final_backup_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to apply to the file system's final backup.
+        Map of tags to apply to the file system's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
@@ -695,7 +695,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="preferredFileServerIp")
     def preferred_file_server_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address of the primary, or preferred, file server.
+        IP address of the primary, or preferred, file server.
         """
         return pulumi.get(self, "preferred_file_server_ip")
 
@@ -707,7 +707,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -743,7 +743,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -791,7 +791,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -803,7 +803,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -815,7 +815,7 @@ class _WindowsFileSystemState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -827,7 +827,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -865,7 +865,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
@@ -991,30 +991,30 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
-        :param pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
-        :param pulumi.Input[_builtins.str] backup_id: The ID of the source backup to create the filesystem from.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
+        :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        :param pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether to copy tags on the file system to backups. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] deployment_type: File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        :param pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         ...
     @overload
@@ -1235,38 +1235,38 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        :param pulumi.Input[_builtins.str] active_directory_id: ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
-        :param pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
-        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
-        :param pulumi.Input[_builtins.str] backup_id: The ID of the source backup to create the filesystem from.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
-        :param pulumi.Input[_builtins.str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        :param pulumi.Input[Union['WindowsFileSystemAuditLogConfigurationArgs', 'WindowsFileSystemAuditLogConfigurationArgsDict']] audit_log_configuration: Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether to copy tags on the file system to backups. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] deployment_type: File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        :param pulumi.Input[Union['WindowsFileSystemDiskIopsConfigurationArgs', 'WindowsFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         :param pulumi.Input[_builtins.str] dns_name: DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] final_backup_tags: Map of tags to apply to the file system's final backup.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] preferred_file_server_ip: The IP address of the primary, or preferred, file server.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[_builtins.str] preferred_file_server_ip: IP address of the primary, or preferred, file server.
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] remote_administration_endpoint: For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
-        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1308,7 +1308,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="activeDirectoryId")
     def active_directory_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
 
@@ -1316,7 +1316,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         """
         return pulumi.get(self, "aliases")
 
@@ -1332,7 +1332,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="auditLogConfiguration")
     def audit_log_configuration(self) -> pulumi.Output['outputs.WindowsFileSystemAuditLogConfiguration']:
         """
-        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
+        Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         """
         return pulumi.get(self, "audit_log_configuration")
 
@@ -1340,7 +1340,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="automaticBackupRetentionDays")
     def automatic_backup_retention_days(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
 
@@ -1348,7 +1348,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="backupId")
     def backup_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the source backup to create the filesystem from.
+        ID of the source backup to create the filesystem from.
         """
         return pulumi.get(self, "backup_id")
 
@@ -1356,7 +1356,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+        Whether to copy tags on the file system to backups. Defaults to `false`.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
@@ -1364,7 +1364,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="dailyAutomaticBackupStartTime")
     def daily_automatic_backup_start_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
 
@@ -1372,7 +1372,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+        File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -1380,7 +1380,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="diskIopsConfiguration")
     def disk_iops_configuration(self) -> pulumi.Output['outputs.WindowsFileSystemDiskIopsConfiguration']:
         """
-        The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
+        SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
@@ -1396,7 +1396,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="finalBackupTags")
     def final_backup_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to apply to the file system's final backup.
+        Map of tags to apply to the file system's final backup.
         """
         return pulumi.get(self, "final_backup_tags")
 
@@ -1428,7 +1428,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="preferredFileServerIp")
     def preferred_file_server_ip(self) -> pulumi.Output[_builtins.str]:
         """
-        The IP address of the primary, or preferred, file server.
+        IP address of the primary, or preferred, file server.
         """
         return pulumi.get(self, "preferred_file_server_ip")
 
@@ -1436,7 +1436,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -1460,7 +1460,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1492,7 +1492,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+        Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1500,7 +1500,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
+        List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -1508,7 +1508,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1516,7 +1516,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1542,7 +1542,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 

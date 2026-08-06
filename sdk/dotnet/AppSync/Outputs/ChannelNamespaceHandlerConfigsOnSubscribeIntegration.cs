@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string DataSourceName;
         /// <summary>
-        /// Configuration for a Lambda data source. See Lambda Config below.
+        /// Configuration for a Lambda data source. See `LambdaConfig` below.
         /// </summary>
         public readonly Outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig? LambdaConfig;
 

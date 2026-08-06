@@ -67,7 +67,7 @@ type IntegrationResponse struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapOutput `pulumi:"responseTemplates"`
-	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+	// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 	TemplateSelectionExpression pulumi.StringPtrOutput `pulumi:"templateSelectionExpression"`
 }
 
@@ -122,7 +122,7 @@ type integrationResponseState struct {
 	Region *string `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
-	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+	// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 }
 
@@ -139,7 +139,7 @@ type IntegrationResponseState struct {
 	Region pulumi.StringPtrInput
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapInput
-	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+	// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 	TemplateSelectionExpression pulumi.StringPtrInput
 }
 
@@ -160,7 +160,7 @@ type integrationResponseArgs struct {
 	Region *string `pulumi:"region"`
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
-	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+	// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 	TemplateSelectionExpression *string `pulumi:"templateSelectionExpression"`
 }
 
@@ -178,7 +178,7 @@ type IntegrationResponseArgs struct {
 	Region pulumi.StringPtrInput
 	// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
 	ResponseTemplates pulumi.StringMapInput
-	// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+	// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 	TemplateSelectionExpression pulumi.StringPtrInput
 }
 
@@ -299,7 +299,7 @@ func (o IntegrationResponseOutput) ResponseTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringMapOutput { return v.ResponseTemplates }).(pulumi.StringMapOutput)
 }
 
-// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
 func (o IntegrationResponseOutput) TemplateSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationResponse) pulumi.StringPtrOutput { return v.TemplateSelectionExpression }).(pulumi.StringPtrOutput)
 }

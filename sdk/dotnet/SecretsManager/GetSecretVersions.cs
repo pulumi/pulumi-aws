@@ -223,9 +223,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response.
-        /// If no value is specified, the default value is `False`.
+        /// If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
@@ -237,7 +235,7 @@ namespace Pulumi.Aws.SecretsManager
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
@@ -251,9 +249,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response.
-        /// If no value is specified, the default value is `False`.
+        /// If true, all deprecated secret versions are included in the response. If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
@@ -265,7 +261,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -281,19 +277,17 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionsResult
     {
         /// <summary>
-        /// (**Deprecated**) The ARN of the secret.
-        /// Use `SecretArn` instead.
+        /// (**Deprecated**) ARN of the secret. Use `SecretArn` instead.
         /// </summary>
         public readonly string Arn;
         public readonly bool? IncludeDeprecated;
         /// <summary>
-        /// (**Deprecated**) Name of the secret.
-        /// Use `SecretName` instead.
+        /// (**Deprecated**) Name of the secret. Use `SecretName` instead.
         /// </summary>
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// The ARN of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string SecretArn;
         public readonly string SecretId;

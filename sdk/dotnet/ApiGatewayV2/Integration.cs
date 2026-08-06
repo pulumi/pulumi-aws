@@ -204,7 +204,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> IntegrationMethod { get; private set; } = null!;
 
         /// <summary>
-        /// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
+        /// [Integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         /// </summary>
         [Output("integrationResponseSelectionExpression")]
         public Output<string> IntegrationResponseSelectionExpression { get; private set; } = null!;
@@ -216,28 +216,25 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> IntegrationSubtype { get; private set; } = null!;
 
         /// <summary>
-        /// Integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+        /// Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Output("integrationType")]
         public Output<string> IntegrationType { get; private set; } = null!;
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
-        /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Output("integrationUri")]
         public Output<string?> IntegrationUri { get; private set; } = null!;
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
-        /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Output("passthroughBehavior")]
         public Output<string?> PassthroughBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        /// [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         /// </summary>
         [Output("payloadFormatVersion")]
         public Output<string?> PayloadFormatVersion { get; private set; } = null!;
@@ -249,10 +246,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         [Output("requestParameters")]
         public Output<ImmutableDictionary<string, string>?> RequestParameters { get; private set; } = null!;
@@ -270,15 +264,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableArray<Outputs.IntegrationResponseParameter>> ResponseParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         /// </summary>
         [Output("templateSelectionExpression")]
         public Output<string?> TemplateSelectionExpression { get; private set; } = null!;
 
         /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Output("timeoutMilliseconds")]
         public Output<int> TimeoutMilliseconds { get; private set; } = null!;
@@ -384,28 +376,25 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationSubtype { get; set; }
 
         /// <summary>
-        /// Integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+        /// Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Input("integrationType", required: true)]
         public Input<string> IntegrationType { get; set; } = null!;
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
-        /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Input("integrationUri")]
         public Input<string>? IntegrationUri { get; set; }
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
-        /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
 
         /// <summary>
-        /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        /// [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         /// </summary>
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
@@ -420,10 +409,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestParameters;
 
         /// <summary>
-        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -456,15 +442,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
         /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }
@@ -526,7 +510,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationMethod { get; set; }
 
         /// <summary>
-        /// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
+        /// [Integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
         /// </summary>
         [Input("integrationResponseSelectionExpression")]
         public Input<string>? IntegrationResponseSelectionExpression { get; set; }
@@ -538,28 +522,25 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? IntegrationSubtype { get; set; }
 
         /// <summary>
-        /// Integration type of an integration.
-        /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+        /// Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         /// </summary>
         [Input("integrationType")]
         public Input<string>? IntegrationType { get; set; }
 
         /// <summary>
-        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`.
-        /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+        /// URI of the Lambda function for a Lambda proxy integration, when `IntegrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         /// </summary>
         [Input("integrationUri")]
         public Input<string>? IntegrationUri { get; set; }
 
         /// <summary>
-        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute.
-        /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+        /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `RequestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         /// </summary>
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
 
         /// <summary>
-        /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        /// [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         /// </summary>
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
@@ -574,10 +555,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _requestParameters;
 
         /// <summary>
-        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-        /// For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-        /// For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `IntegrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `IntegrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         /// </summary>
         public InputMap<string> RequestParameters
         {
@@ -610,15 +588,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+        /// [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         /// </summary>
         [Input("templateSelectionExpression")]
         public Input<string>? TemplateSelectionExpression { get; set; }
 
         /// <summary>
-        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-        /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-        /// this provider will only perform drift detection of its value when present in a configuration.
+        /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
         /// </summary>
         [Input("timeoutMilliseconds")]
         public Input<int>? TimeoutMilliseconds { get; set; }

@@ -141,7 +141,9 @@ class _AutoScalingConfigurationVersionState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of this auto scaling configuration version.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: Name of the auto scaling configuration.
-        :param pulumi.Input[_builtins.int] auto_scaling_configuration_revision: The revision of this auto scaling configuration.
+        :param pulumi.Input[_builtins.int] auto_scaling_configuration_revision: Revision of this auto scaling configuration.
+        :param pulumi.Input[_builtins.bool] has_associated_service: Whether there is an App Runner service associated with this auto scaling configuration.
+        :param pulumi.Input[_builtins.bool] is_default: Whether the auto scaling configuration is the default for the AWS account and Region.
         :param pulumi.Input[_builtins.bool] latest: Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         :param pulumi.Input[_builtins.int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         :param pulumi.Input[_builtins.int] max_size: Maximal number of instances that App Runner provisions for your service.
@@ -206,7 +208,7 @@ class _AutoScalingConfigurationVersionState:
     @pulumi.getter(name="autoScalingConfigurationRevision")
     def auto_scaling_configuration_revision(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The revision of this auto scaling configuration.
+        Revision of this auto scaling configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration_revision")
 
@@ -217,6 +219,9 @@ class _AutoScalingConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="hasAssociatedService")
     def has_associated_service(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether there is an App Runner service associated with this auto scaling configuration.
+        """
         return pulumi.get(self, "has_associated_service")
 
     @has_associated_service.setter
@@ -226,6 +231,9 @@ class _AutoScalingConfigurationVersionState:
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the auto scaling configuration is the default for the AWS account and Region.
+        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -502,7 +510,9 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of this auto scaling configuration version.
         :param pulumi.Input[_builtins.str] auto_scaling_configuration_name: Name of the auto scaling configuration.
-        :param pulumi.Input[_builtins.int] auto_scaling_configuration_revision: The revision of this auto scaling configuration.
+        :param pulumi.Input[_builtins.int] auto_scaling_configuration_revision: Revision of this auto scaling configuration.
+        :param pulumi.Input[_builtins.bool] has_associated_service: Whether there is an App Runner service associated with this auto scaling configuration.
+        :param pulumi.Input[_builtins.bool] is_default: Whether the auto scaling configuration is the default for the AWS account and Region.
         :param pulumi.Input[_builtins.bool] latest: Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         :param pulumi.Input[_builtins.int] max_concurrency: Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         :param pulumi.Input[_builtins.int] max_size: Maximal number of instances that App Runner provisions for your service.
@@ -551,18 +561,24 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingConfigurationRevision")
     def auto_scaling_configuration_revision(self) -> pulumi.Output[_builtins.int]:
         """
-        The revision of this auto scaling configuration.
+        Revision of this auto scaling configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration_revision")
 
     @_builtins.property
     @pulumi.getter(name="hasAssociatedService")
     def has_associated_service(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether there is an App Runner service associated with this auto scaling configuration.
+        """
         return pulumi.get(self, "has_associated_service")
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the auto scaling configuration is the default for the AWS account and Region.
+        """
         return pulumi.get(self, "is_default")
 
     @_builtins.property

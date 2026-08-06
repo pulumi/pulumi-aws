@@ -22,48 +22,15 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
         /// </summary>
         public readonly int? Cooldown;
         /// <summary>
-        /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        /// Aggregation type for the policy's metrics. Valid values are `Minimum`, `Maximum`, and `Average`. Without a value, AWS treats the aggregation type as `Average`.
         /// </summary>
         public readonly string? MetricAggregationType;
         /// <summary>
-        /// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        /// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is `PercentChangeInCapacity`, the scaling policy changes the scalable dimension of the scalable target by this amount.
         /// </summary>
         public readonly int? MinAdjustmentMagnitude;
         /// <summary>
-        /// Set of adjustments that manage scaling. These have the following structure:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var ecsPolicy = new Aws.AppAutoScaling.Policy("ecs_policy", new()
-        ///     {
-        ///         StepScalingPolicyConfiguration = new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationArgs
-        ///         {
-        ///             StepAdjustments = new[]
-        ///             {
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-        ///                 {
-        ///                     MetricIntervalLowerBound = "1",
-        ///                     MetricIntervalUpperBound = "2",
-        ///                     ScalingAdjustment = -1,
-        ///                 },
-        ///                 new Aws.AppAutoScaling.Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs
-        ///                 {
-        ///                     MetricIntervalLowerBound = "2",
-        ///                     MetricIntervalUpperBound = "3",
-        ///                     ScalingAdjustment = 1,
-        ///                 },
-        ///             },
-        ///         },
-        ///     });
-        /// 
-        /// });
-        /// ```
+        /// Set of adjustments that manage scaling. See `step_scaling_policy_configuration.step_adjustment` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyStepScalingPolicyConfigurationStepAdjustment> StepAdjustments;
 

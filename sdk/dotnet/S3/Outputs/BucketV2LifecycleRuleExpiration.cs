@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2LifecycleRuleExpiration
     {
         /// <summary>
-        /// Specifies the date after which you want the corresponding action to take effect.
+        /// Date after which you want the corresponding action to take effect.
         /// </summary>
         public readonly string? Date;
         /// <summary>
-        /// Specifies the number of days after object creation when the specific rule action takes effect.
+        /// Number of days after object creation when the specific rule action takes effect.
         /// </summary>
         public readonly int? Days;
         /// <summary>

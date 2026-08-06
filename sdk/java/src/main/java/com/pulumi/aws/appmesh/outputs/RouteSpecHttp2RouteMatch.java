@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2RouteMatch {
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http_route.match.header` Block for details.
      * 
      */
     private @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
@@ -27,12 +27,12 @@ public final class RouteSpecHttp2RouteMatch {
      */
     private @Nullable String method;
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http_route.match.path` Block for details.
      * 
      */
     private @Nullable RouteSpecHttp2RouteMatchPath path;
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -42,7 +42,7 @@ public final class RouteSpecHttp2RouteMatch {
      */
     private @Nullable String prefix;
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
      * 
      */
     private @Nullable List<RouteSpecHttp2RouteMatchQueryParameter> queryParameters;
@@ -54,7 +54,7 @@ public final class RouteSpecHttp2RouteMatch {
 
     private RouteSpecHttp2RouteMatch() {}
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http_route.match.header` Block for details.
      * 
      */
     public List<RouteSpecHttp2RouteMatchHeader> headers() {
@@ -68,14 +68,14 @@ public final class RouteSpecHttp2RouteMatch {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http_route.match.path` Block for details.
      * 
      */
     public Optional<RouteSpecHttp2RouteMatchPath> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Integer> port() {
@@ -89,7 +89,7 @@ public final class RouteSpecHttp2RouteMatch {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
      * 
      */
     public List<RouteSpecHttp2RouteMatchQueryParameter> queryParameters() {

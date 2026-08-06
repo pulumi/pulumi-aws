@@ -144,17 +144,13 @@ type Table struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
+	// Format of the table. Must be `ICEBERG`.
 	Format pulumi.StringOutput `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrOutput `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation pulumi.StringOutput `pulumi:"metadataLocation"`
@@ -162,14 +158,9 @@ type Table struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// Account ID of the account that last modified the namespace.
 	ModifiedBy pulumi.StringOutput `pulumi:"modifiedBy"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -181,10 +172,9 @@ type Table struct {
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Type of the table.
-	// One of `customer` or `aws`.
+	// Type of the table. One of `customer` or `aws`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Identifier for the current version of table data.
 	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
@@ -237,17 +227,13 @@ type tableState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy *string `pulumi:"createdBy"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
+	// Format of the table. Must be `ICEBERG`.
 	Format *string `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata *TableMetadata `pulumi:"metadata"`
 	// Location of table metadata.
 	MetadataLocation *string `pulumi:"metadataLocation"`
@@ -255,14 +241,9 @@ type tableState struct {
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// Account ID of the account that last modified the namespace.
 	ModifiedBy *string `pulumi:"modifiedBy"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace *string `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -274,10 +255,9 @@ type tableState struct {
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Type of the table.
-	// One of `customer` or `aws`.
+	// Type of the table. One of `customer` or `aws`.
 	Type *string `pulumi:"type"`
 	// Identifier for the current version of table data.
 	VersionToken *string `pulumi:"versionToken"`
@@ -292,17 +272,13 @@ type TableState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringPtrInput
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableEncryptionConfigurationPtrInput
-	// Format of the table.
-	// Must be `ICEBERG`.
+	// Format of the table. Must be `ICEBERG`.
 	Format pulumi.StringPtrInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrInput
 	// Location of table metadata.
 	MetadataLocation pulumi.StringPtrInput
@@ -310,14 +286,9 @@ type TableState struct {
 	ModifiedAt pulumi.StringPtrInput
 	// Account ID of the account that last modified the namespace.
 	ModifiedBy pulumi.StringPtrInput
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringPtrInput
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringPtrInput
@@ -329,10 +300,9 @@ type TableState struct {
 	TableBucketArn pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Type of the table.
-	// One of `customer` or `aws`.
+	// Type of the table. One of `customer` or `aws`.
 	Type pulumi.StringPtrInput
 	// Identifier for the current version of table data.
 	VersionToken pulumi.StringPtrInput
@@ -345,26 +315,17 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration *TableEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// Format of the table.
-	// Must be `ICEBERG`.
+	// Format of the table. Must be `ICEBERG`.
 	Format string `pulumi:"format"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata *TableMetadata `pulumi:"metadata"`
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -378,26 +339,17 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableEncryptionConfigurationPtrInput
-	// Format of the table.
-	// Must be `ICEBERG`.
+	// Format of the table. Must be `ICEBERG`.
 	Format pulumi.StringInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableMaintenanceConfigurationPtrInput
-	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-	// See `metadata` below.
+	// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 	Metadata TableMetadataPtrInput
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-	// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -511,26 +463,22 @@ func (o TableOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// A single table bucket encryption configuration object.
-// See `encryptionConfiguration` below.
+// Single table bucket encryption configuration object. See `encryptionConfiguration` below.
 func (o TableOutput) EncryptionConfiguration() TableEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(TableEncryptionConfigurationOutput)
 }
 
-// Format of the table.
-// Must be `ICEBERG`.
+// Format of the table. Must be `ICEBERG`.
 func (o TableOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// A single table bucket maintenance configuration object.
-// See `maintenanceConfiguration` below.
+// Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
 func (o TableOutput) MaintenanceConfiguration() TableMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *Table) TableMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableMaintenanceConfigurationOutput)
 }
 
-// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-// See `metadata` below.
+// Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
 func (o TableOutput) Metadata() TableMetadataPtrOutput {
 	return o.ApplyT(func(v *Table) TableMetadataPtrOutput { return v.Metadata }).(TableMetadataPtrOutput)
 }
@@ -550,17 +498,12 @@ func (o TableOutput) ModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ModifiedBy }).(pulumi.StringOutput)
 }
 
-// Name of the table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
 func (o TableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the namespace for this table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TableOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -587,13 +530,12 @@ func (o TableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Type of the table.
-// One of `customer` or `aws`.
+// Type of the table. One of `customer` or `aws`.
 func (o TableOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

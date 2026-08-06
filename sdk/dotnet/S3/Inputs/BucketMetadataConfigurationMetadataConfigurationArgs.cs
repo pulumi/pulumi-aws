@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketMetadataConfigurationMetadataConfigurationDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Destination information for the S3 Metadata configuration.
+        /// Destination information for the S3 Metadata configuration. See `Destination` Block for details.
         /// </summary>
         public InputList<Inputs.BucketMetadataConfigurationMetadataConfigurationDestinationArgs> Destinations
         {

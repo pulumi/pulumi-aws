@@ -21,17 +21,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleRule {
     /**
-     * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+     * @return Number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
     private @Nullable Integer abortIncompleteMultipartUploadDays;
     /**
-     * @return Specifies lifecycle rule status.
+     * @return Lifecycle rule status.
      * 
      */
     private Boolean enabled;
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Configuration of the object expiration. See `expiration` Block below for details.
      * 
      */
     private @Nullable BucketLifecycleRuleExpiration expiration;
@@ -41,12 +41,12 @@ public final class BucketLifecycleRule {
      */
     private @Nullable String id;
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
      * 
      */
     private @Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration;
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
      * 
      */
     private @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions;
@@ -56,33 +56,33 @@ public final class BucketLifecycleRule {
      */
     private @Nullable String prefix;
     /**
-     * @return Specifies object tags key and value.
+     * @return Object tags key and value.
      * 
      */
     private @Nullable Map<String,String> tags;
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Configuration of the object transition. See `transition` Block below for details.
      * 
      */
     private @Nullable List<BucketLifecycleRuleTransition> transitions;
 
     private BucketLifecycleRule() {}
     /**
-     * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+     * @return Number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
     public Optional<Integer> abortIncompleteMultipartUploadDays() {
         return Optional.ofNullable(this.abortIncompleteMultipartUploadDays);
     }
     /**
-     * @return Specifies lifecycle rule status.
+     * @return Lifecycle rule status.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Configuration of the object expiration. See `expiration` Block below for details.
      * 
      */
     public Optional<BucketLifecycleRuleExpiration> expiration() {
@@ -96,14 +96,14 @@ public final class BucketLifecycleRule {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
      * 
      */
     public Optional<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpiration() {
         return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
      * 
      */
     public List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
@@ -117,14 +117,14 @@ public final class BucketLifecycleRule {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Specifies object tags key and value.
+     * @return Object tags key and value.
      * 
      */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Configuration of the object transition. See `transition` Block below for details.
      * 
      */
     public List<BucketLifecycleRuleTransition> transitions() {

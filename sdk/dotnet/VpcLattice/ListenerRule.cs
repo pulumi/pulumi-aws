@@ -132,41 +132,37 @@ namespace Pulumi.Aws.VpcLattice
     public partial class ListenerRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action for the listener rule.
-        /// See `Action` Block for details.
+        /// Action for the listener rule. See `Action` Block for details.
         /// </summary>
         [Output("action")]
         public Output<Outputs.ListenerRuleAction> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the listener rule.
+        /// ARN for the listener rule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Output("listenerIdentifier")]
         public Output<string> ListenerIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The rule match.
-        /// See `Match` Block
+        /// Rule match. See `Match` Block for details.
         /// </summary>
         [Output("match")]
         public Output<Outputs.ListenerRuleMatch> Match { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        /// 
-        /// The following arguments are optional:
+        /// Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -184,7 +180,9 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service.
+        /// ID or Amazon Resource Name (ARN) of the service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceIdentifier")]
         public Output<string> ServiceIdentifier { get; private set; } = null!;
@@ -248,35 +246,31 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ListenerRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for the listener rule.
-        /// See `Action` Block for details.
+        /// Action for the listener rule. See `Action` Block for details.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The rule match.
-        /// See `Match` Block
+        /// Rule match. See `Match` Block for details.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.ListenerRuleMatchArgs> Match { get; set; } = null!;
 
         /// <summary>
-        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        /// 
-        /// The following arguments are optional:
+        /// Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -288,7 +282,9 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service.
+        /// ID or Amazon Resource Name (ARN) of the service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceIdentifier", required: true)]
         public Input<string> ServiceIdentifier { get; set; } = null!;
@@ -314,41 +310,37 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ListenerRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action for the listener rule.
-        /// See `Action` Block for details.
+        /// Action for the listener rule. See `Action` Block for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.ListenerRuleActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// The ARN for the listener rule.
+        /// ARN for the listener rule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
         [Input("listenerIdentifier")]
         public Input<string>? ListenerIdentifier { get; set; }
 
         /// <summary>
-        /// The rule match.
-        /// See `Match` Block
+        /// Rule match. See `Match` Block for details.
         /// </summary>
         [Input("match")]
         public Input<Inputs.ListenerRuleMatchGetArgs>? Match { get; set; }
 
         /// <summary>
-        /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        /// 
-        /// The following arguments are optional:
+        /// Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
@@ -366,7 +358,9 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service.
+        /// ID or Amazon Resource Name (ARN) of the service.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }

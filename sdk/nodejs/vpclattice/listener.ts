@@ -155,6 +155,9 @@ export class Listener extends pulumi.CustomResource {
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
     declare public readonly defaultAction: pulumi.Output<outputs.vpclattice.ListenerDefaultAction>;
+    /**
+     * Date and time that the listener was last updated, specified in ISO-8601 format.
+     */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
@@ -186,7 +189,7 @@ export class Listener extends pulumi.CustomResource {
      */
     declare public readonly serviceIdentifier: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -260,6 +263,9 @@ export interface ListenerState {
      * Default action block for the default listener rule. Default action blocks are defined below.
      */
     defaultAction?: pulumi.Input<inputs.vpclattice.ListenerDefaultAction | undefined>;
+    /**
+     * Date and time that the listener was last updated, specified in ISO-8601 format.
+     */
     lastUpdatedAt?: pulumi.Input<string | undefined>;
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
@@ -291,7 +297,7 @@ export interface ListenerState {
      */
     serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -331,7 +337,7 @@ export interface ListenerArgs {
      */
     serviceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

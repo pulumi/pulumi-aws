@@ -145,14 +145,11 @@ export class Method extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Map of the API models used for the request's content type
-     * where key is the content type (e.g., `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+     * Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     declare public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     declare public readonly requestParameters: pulumi.Output<{[key: string]: boolean} | undefined>;
     /**
@@ -258,14 +255,11 @@ export interface MethodState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of the API models used for the request's content type
-     * where key is the content type (e.g., `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+     * Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>} | undefined>;
     /**
@@ -315,14 +309,11 @@ export interface MethodArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of the API models used for the request's content type
-     * where key is the content type (e.g., `application/json`)
-     * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
+     * Map of the API models used for the request's content type where key is the content type (e.g., `application/json`) and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
-     * For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
+     * Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`). For example: `requestParameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      */
     requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean>} | undefined>;
     /**

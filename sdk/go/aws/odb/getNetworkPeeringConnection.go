@@ -54,7 +54,7 @@ func LookupNetworkPeeringConnection(ctx *pulumi.Context, args *LookupNetworkPeer
 
 // A collection of arguments for invoking getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionArgs struct {
-	// The unique identifier of the ODB network peering connection.
+	// Unique identifier of the ODB network peering connection.
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
@@ -64,7 +64,7 @@ type LookupNetworkPeeringConnectionArgs struct {
 
 // A collection of values returned by getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionResult struct {
-	// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+	// Amazon Resource Name (ARN) for the  ODB network peering connection.
 	Arn string `pulumi:"arn"`
 	// Created time of the ODB network peering connection.
 	CreatedAt string `pulumi:"createdAt"`
@@ -101,7 +101,7 @@ func LookupNetworkPeeringConnectionOutput(ctx *pulumi.Context, args LookupNetwor
 
 // A collection of arguments for invoking getNetworkPeeringConnection.
 type LookupNetworkPeeringConnectionOutputArgs struct {
-	// The unique identifier of the ODB network peering connection.
+	// Unique identifier of the ODB network peering connection.
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
@@ -128,7 +128,7 @@ func (o LookupNetworkPeeringConnectionResultOutput) ToLookupNetworkPeeringConnec
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the  ODB network peering connection.
+// Amazon Resource Name (ARN) for the  ODB network peering connection.
 func (o LookupNetworkPeeringConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkPeeringConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -155,18 +155,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
     @Import(name="executionArn")
     private @Nullable Output<String> executionArn;
 
     /**
-     * @return Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * @return Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
     public Optional<Output<String>> executionArn() {
@@ -174,16 +170,14 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     @Import(name="invokeUrl")
     private @Nullable Output<String> invokeUrl;
 
     /**
-     * @return URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * @return URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     public Optional<Output<String>> invokeUrl() {
@@ -542,9 +536,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-         * when allowing API Gateway to invoke a Lambda function,
-         * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+         * @param executionArn Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
          * @return builder
          * 
@@ -555,9 +547,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executionArn Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-         * when allowing API Gateway to invoke a Lambda function,
-         * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+         * @param executionArn Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
          * 
          * @return builder
          * 
@@ -567,8 +557,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeUrl URL to invoke the API pointing to the stage,
-         * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+         * @param invokeUrl URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 
@@ -579,8 +568,7 @@ public final class StageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeUrl URL to invoke the API pointing to the stage,
-         * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+         * @param invokeUrl URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
          * 
          * @return builder
          * 

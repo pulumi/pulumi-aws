@@ -14,7 +14,7 @@ import java.util.Objects;
 public final class GetDbNodesResult {
     private String cloudVmClusterId;
     /**
-     * @return The list of DB nodes along with their properties.
+     * @return List of DB nodes along with their properties.
      * 
      */
     private List<GetDbNodesDbNode> dbNodes;
@@ -25,7 +25,7 @@ public final class GetDbNodesResult {
         return this.cloudVmClusterId;
     }
     /**
-     * @return The list of DB nodes along with their properties.
+     * @return List of DB nodes along with their properties.
      * 
      */
     public List<GetDbNodesDbNode> dbNodes() {

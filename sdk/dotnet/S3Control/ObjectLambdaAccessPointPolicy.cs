@@ -97,25 +97,25 @@ namespace Pulumi.Aws.S3Control
     public partial class ObjectLambdaAccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Object Lambda Access Point.
+        /// Name of the Object Lambda Access Point.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Object Lambda Access Point resource policy document.
+        /// Object Lambda Access Point resource policy document.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -173,19 +173,19 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of the Object Lambda Access Point.
+        /// Name of the Object Lambda Access Point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Object Lambda Access Point resource policy document.
+        /// Object Lambda Access Point resource policy document.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -205,25 +205,25 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
         /// <summary>
-        /// The name of the Object Lambda Access Point.
+        /// Name of the Object Lambda Access Point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Object Lambda Access Point resource policy document.
+        /// Object Lambda Access Point resource policy document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

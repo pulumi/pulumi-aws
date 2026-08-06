@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceSourceConfigurationCodeRepository {
     /**
-     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * @return Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
      * 
      */
     private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration;
@@ -25,19 +25,19 @@ public final class ServiceSourceConfigurationCodeRepository {
      */
     private String repositoryUrl;
     /**
-     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See `sourceCodeVersion` below.
      * 
      */
     private ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion;
     /**
-     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * @return Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
     private @Nullable String sourceDirectory;
 
     private ServiceSourceConfigurationCodeRepository() {}
     /**
-     * @return Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+     * @return Configuration for building and running the service from a source code repository. See `codeConfiguration` below.
      * 
      */
     public Optional<ServiceSourceConfigurationCodeRepositoryCodeConfiguration> codeConfiguration() {
@@ -51,14 +51,14 @@ public final class ServiceSourceConfigurationCodeRepository {
         return this.repositoryUrl;
     }
     /**
-     * @return Version that should be used within the source code repository. See Source Code Version below for more details.
+     * @return Version that should be used within the source code repository. See `sourceCodeVersion` below.
      * 
      */
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion() {
         return this.sourceCodeVersion;
     }
     /**
-     * @return The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+     * @return Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
     public Optional<String> sourceDirectory() {

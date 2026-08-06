@@ -76,7 +76,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="activeDirectoryConfigurations")
     def active_directory_configurations(self) -> Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult']:
         """
-        The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+        Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
         """
         return pulumi.get(self, "active_directory_configurations")
 
@@ -92,7 +92,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> _builtins.str:
         """
-        The time that the SVM was created.
+        Time that the SVM was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -100,7 +100,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointResult']:
         """
-        The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+        Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
         """
         return pulumi.get(self, "endpoints")
 
@@ -121,7 +121,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The SVM's system generated unique ID.
+        SVM's system generated unique ID.
         """
         return pulumi.get(self, "id")
 
@@ -129,7 +129,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="lifecycleStatus")
     def lifecycle_status(self) -> _builtins.str:
         """
-        The SVM's lifecycle status.
+        SVM's lifecycle status.
         """
         return pulumi.get(self, "lifecycle_status")
 
@@ -137,7 +137,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter(name="lifecycleTransitionReasons")
     def lifecycle_transition_reasons(self) -> Sequence['outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult']:
         """
-        Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+        Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
         """
         return pulumi.get(self, "lifecycle_transition_reasons")
 
@@ -145,7 +145,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the SVM, if provisioned.
+        Name of the SVM, if provisioned.
         """
         return pulumi.get(self, "name")
 
@@ -158,20 +158,23 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def subtype(self) -> _builtins.str:
         """
-        The SVM's subtype.
+        SVM's subtype.
         """
         return pulumi.get(self, "subtype")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def uuid(self) -> _builtins.str:
         """
-        The SVM's UUID.
+        SVM's UUID.
         """
         return pulumi.get(self, "uuid")
 
@@ -206,6 +209,8 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
     """
     Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 
+    The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+
     ## Example Usage
 
     ### Basic Usage
@@ -232,9 +237,8 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
 
     :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param _builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
-           
-           The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -267,6 +271,8 @@ def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Opti
     """
     Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 
+    The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+
     ## Example Usage
 
     ### Basic Usage
@@ -293,9 +299,8 @@ def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Opti
 
     :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param _builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
-           
-           The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters

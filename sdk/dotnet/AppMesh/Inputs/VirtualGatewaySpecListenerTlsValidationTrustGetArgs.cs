@@ -12,9 +12,6 @@ namespace Pulumi.Aws.AppMesh.Inputs
 
     public sealed class VirtualGatewaySpecListenerTlsValidationTrustGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// TLS validation context trust for a local file certificate.
-        /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualGatewaySpecListenerTlsValidationTrustFileGetArgs>? File { get; set; }
 

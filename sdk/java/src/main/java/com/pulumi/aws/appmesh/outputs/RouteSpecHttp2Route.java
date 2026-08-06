@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttp2Route {
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     private RouteSpecHttp2RouteAction action;
     /**
-     * @return Criteria for determining an HTTP request match.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     private RouteSpecHttp2RouteMatch match;
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     private @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy;
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     private @Nullable RouteSpecHttp2RouteTimeout timeout;
 
     private RouteSpecHttp2Route() {}
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     public RouteSpecHttp2RouteAction action() {
         return this.action;
     }
     /**
-     * @return Criteria for determining an HTTP request match.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public RouteSpecHttp2RouteMatch match() {
         return this.match;
     }
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     public Optional<RouteSpecHttp2RouteRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     public Optional<RouteSpecHttp2RouteTimeout> timeout() {

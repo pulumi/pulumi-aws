@@ -18,12 +18,12 @@ public final class FlowLogDestinationOptions {
      */
     private @Nullable String fileFormat;
     /**
-     * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+     * @return Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
     private @Nullable Boolean hiveCompatiblePartitions;
     /**
-     * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+     * @return Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
     private @Nullable Boolean perHourPartition;
@@ -37,14 +37,14 @@ public final class FlowLogDestinationOptions {
         return Optional.ofNullable(this.fileFormat);
     }
     /**
-     * @return Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+     * @return Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
     public Optional<Boolean> hiveCompatiblePartitions() {
         return Optional.ofNullable(this.hiveCompatiblePartitions);
     }
     /**
-     * @return Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+     * @return Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
     public Optional<Boolean> perHourPartition() {

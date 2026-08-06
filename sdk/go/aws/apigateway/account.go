@@ -108,15 +108,15 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The version of the API keys used for the account.
+	// Version of the API keys used for the account.
 	ApiKeyVersion pulumi.StringOutput `pulumi:"apiKeyVersion"`
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringOutput `pulumi:"cloudwatchRoleArn"`
-	// A list of features supported for the account.
+	// List of features supported for the account.
 	Features pulumi.StringArrayOutput `pulumi:"features"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Account-Level throttle settings. See exported fields below.
+	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
 	ThrottleSettings AccountThrottleSettingArrayOutput `pulumi:"throttleSettings"`
 }
 
@@ -150,28 +150,28 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// The version of the API keys used for the account.
+	// Version of the API keys used for the account.
 	ApiKeyVersion *string `pulumi:"apiKeyVersion"`
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn *string `pulumi:"cloudwatchRoleArn"`
-	// A list of features supported for the account.
+	// List of features supported for the account.
 	Features []string `pulumi:"features"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Account-Level throttle settings. See exported fields below.
+	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
 	ThrottleSettings []AccountThrottleSetting `pulumi:"throttleSettings"`
 }
 
 type AccountState struct {
-	// The version of the API keys used for the account.
+	// Version of the API keys used for the account.
 	ApiKeyVersion pulumi.StringPtrInput
 	// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
 	CloudwatchRoleArn pulumi.StringPtrInput
-	// A list of features supported for the account.
+	// List of features supported for the account.
 	Features pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Account-Level throttle settings. See exported fields below.
+	// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
 	ThrottleSettings AccountThrottleSettingArrayInput
 }
 
@@ -281,7 +281,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The version of the API keys used for the account.
+// Version of the API keys used for the account.
 func (o AccountOutput) ApiKeyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ApiKeyVersion }).(pulumi.StringOutput)
 }
@@ -291,7 +291,7 @@ func (o AccountOutput) CloudwatchRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CloudwatchRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of features supported for the account.
+// List of features supported for the account.
 func (o AccountOutput) Features() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.Features }).(pulumi.StringArrayOutput)
 }
@@ -301,7 +301,7 @@ func (o AccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Account-Level throttle settings. See exported fields below.
+// Account-Level throttle settings, including the burst limit (absolute maximum number of times API Gateway allows the API to be called per second) and the rate limit (number of times API Gateway allows the API to be called per second on average).
 func (o AccountOutput) ThrottleSettings() AccountThrottleSettingArrayOutput {
 	return o.ApplyT(func(v *Account) AccountThrottleSettingArrayOutput { return v.ThrottleSettings }).(AccountThrottleSettingArrayOutput)
 }

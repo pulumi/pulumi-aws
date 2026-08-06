@@ -115,13 +115,13 @@ import (
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsOutput `pulumi:"details"`
-	// The last established policy for the Multi-Region Access Point.
+	// Last established policy for the Multi-Region Access Point.
 	Established pulumi.StringOutput `pulumi:"established"`
-	// The proposed policy for the Multi-Region Access Point.
+	// Proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringOutput `pulumi:"proposed"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -160,26 +160,26 @@ func GetMultiRegionAccessPointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultiRegionAccessPointPolicy resources.
 type multiRegionAccessPointPolicyState struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details *MultiRegionAccessPointPolicyDetails `pulumi:"details"`
-	// The last established policy for the Multi-Region Access Point.
+	// Last established policy for the Multi-Region Access Point.
 	Established *string `pulumi:"established"`
-	// The proposed policy for the Multi-Region Access Point.
+	// Proposed policy for the Multi-Region Access Point.
 	Proposed *string `pulumi:"proposed"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type MultiRegionAccessPointPolicyState struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsPtrInput
-	// The last established policy for the Multi-Region Access Point.
+	// Last established policy for the Multi-Region Access Point.
 	Established pulumi.StringPtrInput
-	// The proposed policy for the Multi-Region Access Point.
+	// Proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -190,9 +190,9 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type multiRegionAccessPointPolicyArgs struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetails `pulumi:"details"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -200,9 +200,9 @@ type multiRegionAccessPointPolicyArgs struct {
 
 // The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
 type MultiRegionAccessPointPolicyArgs struct {
-	// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+	// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+	// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -295,22 +295,22 @@ func (o MultiRegionAccessPointPolicyOutput) ToMultiRegionAccessPointPolicyOutput
 	return o
 }
 
-// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+// AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o MultiRegionAccessPointPolicyOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+// Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
 func (o MultiRegionAccessPointPolicyOutput) Details() MultiRegionAccessPointPolicyDetailsOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) MultiRegionAccessPointPolicyDetailsOutput { return v.Details }).(MultiRegionAccessPointPolicyDetailsOutput)
 }
 
-// The last established policy for the Multi-Region Access Point.
+// Last established policy for the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyOutput) Established() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Established }).(pulumi.StringOutput)
 }
 
-// The proposed policy for the Multi-Region Access Point.
+// Proposed policy for the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Proposed }).(pulumi.StringOutput)
 }

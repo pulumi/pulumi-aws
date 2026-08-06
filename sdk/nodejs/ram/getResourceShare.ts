@@ -54,7 +54,7 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
  */
 export interface GetResourceShareArgs {
     /**
-     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See `filter` Block below.
      */
     filters?: inputs.ram.GetResourceShareFilter[];
     /**
@@ -70,7 +70,7 @@ export interface GetResourceShareArgs {
      */
     resourceOwner: string;
     /**
-     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     * Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
      */
     resourceShareStatus?: string;
     /**
@@ -99,7 +99,7 @@ export interface GetResourceShareResult {
     readonly owningAccountId: string;
     readonly region: string;
     /**
-     * A list of resource ARNs associated with the resource share.
+     * List of resource ARNs associated with the resource share.
      */
     readonly resourceArns: string[];
     readonly resourceOwner: string;
@@ -160,7 +160,7 @@ export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: 
  */
 export interface GetResourceShareOutputArgs {
     /**
-     * Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * Filter used to scope the list e.g., by tags. See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[] | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface GetResourceShareOutputArgs {
      */
     resourceOwner: pulumi.Input<string>;
     /**
-     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     * Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
      */
     resourceShareStatus?: pulumi.Input<string | undefined>;
     /**

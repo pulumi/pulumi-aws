@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class AppAuthorizationTenant {
     /**
-     * @return The display name of the tenant.
+     * @return Display name of the tenant.
      * 
      */
     private String tenantDisplayName;
     /**
-     * @return The ID of the application tenant.
+     * @return ID of the application tenant.
      * 
      */
     private String tenantIdentifier;
 
     private AppAuthorizationTenant() {}
     /**
-     * @return The display name of the tenant.
+     * @return Display name of the tenant.
      * 
      */
     public String tenantDisplayName() {
         return this.tenantDisplayName;
     }
     /**
-     * @return The ID of the application tenant.
+     * @return ID of the application tenant.
      * 
      */
     public String tenantIdentifier() {

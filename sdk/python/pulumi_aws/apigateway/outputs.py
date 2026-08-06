@@ -59,27 +59,17 @@ class AccountThrottleSetting(dict):
     def __init__(__self__, *,
                  burst_limit: _builtins.int,
                  rate_limit: _builtins.float):
-        """
-        :param _builtins.int burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        :param _builtins.float rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
-        """
         pulumi.set(__self__, "burst_limit", burst_limit)
         pulumi.set(__self__, "rate_limit", rate_limit)
 
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> _builtins.int:
-        """
-        Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        """
         return pulumi.get(self, "burst_limit")
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> _builtins.float:
-        """
-        Number of times API Gateway allows the API to be called per second on average (RPS).
-        """
         return pulumi.get(self, "rate_limit")
 
 
@@ -564,8 +554,7 @@ class StageAccessLogSettings(dict):
                  format: _builtins.str):
         """
         :param _builtins.str destination_arn: ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-        :param _builtins.str format: Formatting and values recorded in the logs.
-               For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        :param _builtins.str format: Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "format", format)
@@ -582,8 +571,7 @@ class StageAccessLogSettings(dict):
     @pulumi.getter
     def format(self) -> _builtins.str:
         """
-        Formatting and values recorded in the logs.
-        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         return pulumi.get(self, "format")
 
@@ -689,9 +677,11 @@ class UsagePlanApiStage(dict):
                  stage: _builtins.str,
                  throttles: Optional[Sequence['outputs.UsagePlanApiStageThrottle']] = None):
         """
-        :param _builtins.str api_id: API Id of the associated API stage in a usage plan.
+        :param _builtins.str api_id: API ID of the associated API stage in a usage plan.
         :param _builtins.str stage: API stage name of the associated API stage in a usage plan.
-        :param Sequence['UsagePlanApiStageThrottleArgs'] throttles: The throttling limits of the usage plan.
+               
+               The following arguments are optional:
+        :param Sequence['UsagePlanApiStageThrottleArgs'] throttles: Throttling limits applied to the API stage. See `throttle` Block below.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
@@ -702,7 +692,7 @@ class UsagePlanApiStage(dict):
     @pulumi.getter(name="apiId")
     def api_id(self) -> _builtins.str:
         """
-        API Id of the associated API stage in a usage plan.
+        API ID of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "api_id")
 
@@ -711,6 +701,8 @@ class UsagePlanApiStage(dict):
     def stage(self) -> _builtins.str:
         """
         API stage name of the associated API stage in a usage plan.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stage")
 
@@ -718,7 +710,7 @@ class UsagePlanApiStage(dict):
     @pulumi.getter
     def throttles(self) -> Optional[Sequence['outputs.UsagePlanApiStageThrottle']]:
         """
-        The throttling limits of the usage plan.
+        Throttling limits applied to the API stage. See `throttle` Block below.
         """
         return pulumi.get(self, "throttles")
 
@@ -749,9 +741,11 @@ class UsagePlanApiStageThrottle(dict):
                  burst_limit: Optional[_builtins.int] = None,
                  rate_limit: Optional[_builtins.float] = None):
         """
-        :param _builtins.str path: Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-        :param _builtins.int burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        :param _builtins.float rate_limit: The API request steady-state rate limit.
+        :param _builtins.str path: Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+               
+               The following arguments are optional:
+        :param _builtins.int burst_limit: API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param _builtins.float rate_limit: API request steady-state rate limit.
         """
         pulumi.set(__self__, "path", path)
         if burst_limit is not None:
@@ -763,7 +757,9 @@ class UsagePlanApiStageThrottle(dict):
     @pulumi.getter
     def path(self) -> _builtins.str:
         """
-        Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "path")
 
@@ -771,7 +767,7 @@ class UsagePlanApiStageThrottle(dict):
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[_builtins.int]:
         """
-        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         """
         return pulumi.get(self, "burst_limit")
 
@@ -779,7 +775,7 @@ class UsagePlanApiStageThrottle(dict):
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[_builtins.float]:
         """
-        The API request steady-state rate limit.
+        API request steady-state rate limit.
         """
         return pulumi.get(self, "rate_limit")
 
@@ -792,7 +788,9 @@ class UsagePlanQuotaSettings(dict):
                  offset: Optional[_builtins.int] = None):
         """
         :param _builtins.int limit: Maximum number of requests that can be made in a given time period.
-        :param _builtins.str period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        :param _builtins.str period: Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+               
+               The following arguments are optional:
         :param _builtins.int offset: Number of requests subtracted from the given limit in the initial time period.
         """
         pulumi.set(__self__, "limit", limit)
@@ -812,7 +810,9 @@ class UsagePlanQuotaSettings(dict):
     @pulumi.getter
     def period(self) -> _builtins.str:
         """
-        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "period")
 
@@ -849,6 +849,10 @@ class UsagePlanThrottleSettings(dict):
     def __init__(__self__, *,
                  burst_limit: Optional[_builtins.int] = None,
                  rate_limit: Optional[_builtins.float] = None):
+        """
+        :param _builtins.int burst_limit: API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param _builtins.float rate_limit: API request steady-state rate limit.
+        """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
         if rate_limit is not None:
@@ -857,11 +861,17 @@ class UsagePlanThrottleSettings(dict):
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[_builtins.int]:
+        """
+        API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
         return pulumi.get(self, "burst_limit")
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[_builtins.float]:
+        """
+        API request steady-state rate limit.
+        """
         return pulumi.get(self, "rate_limit")
 
 

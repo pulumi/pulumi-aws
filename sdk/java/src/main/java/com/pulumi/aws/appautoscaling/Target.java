@@ -273,14 +273,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appautoscaling/target:Target")
 public class Target extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the scalable target.
+     * ARN of the scalable target.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the scalable target.
+     * @return ARN of the scalable target.
      * 
      */
     public Output<String> arn() {
@@ -385,14 +385,14 @@ public class Target extends com.pulumi.resources.CustomResource {
         return this.serviceNamespace;
     }
     /**
-     * Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * Whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
     @Export(name="suspendedState", refs={TargetSuspendedState.class}, tree="[0]")
     private Output<TargetSuspendedState> suspendedState;
 
     /**
-     * @return Specifies whether the scaling activities for a scalable target are in a suspended state.
+     * @return Whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
     public Output<TargetSuspendedState> suspendedState() {

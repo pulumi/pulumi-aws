@@ -17,14 +17,14 @@ public final class BucketVersioningVersioningConfigurationArgs extends com.pulum
     public static final BucketVersioningVersioningConfigurationArgs Empty = new BucketVersioningVersioningConfigurationArgs();
 
     /**
-     * Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     @Import(name="mfaDelete")
     private @Nullable Output<String> mfaDelete;
 
     /**
-     * @return Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+     * @return Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
      * 
      */
     public Optional<Output<String>> mfaDelete() {
@@ -72,7 +72,7 @@ public final class BucketVersioningVersioningConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * @param mfaDelete Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BucketVersioningVersioningConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param mfaDelete Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+         * @param mfaDelete Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
          * 
          * @return builder
          * 

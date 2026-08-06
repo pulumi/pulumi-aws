@@ -37,11 +37,9 @@ class StageArgs:
         The set of arguments for constructing a Stage resource.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier.
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Settings for logging access in this stage.
-               Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[_builtins.bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-               Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         :param pulumi.Input['StageDefaultRouteSettingsArgs'] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[_builtins.str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[_builtins.str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
@@ -93,8 +91,7 @@ class StageArgs:
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Input[Optional['StageAccessLogSettingsArgs']]:
         """
-        Settings for logging access in this stage.
-        Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -118,8 +115,7 @@ class StageArgs:
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-        Supported only for WebSocket APIs.
+        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -248,21 +244,16 @@ class _StageState:
         """
         Input properties used for looking up and filtering Stage resources.
 
-        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Settings for logging access in this stage.
-               Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        :param pulumi.Input['StageAccessLogSettingsArgs'] access_log_settings: Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] arn: ARN of the stage.
         :param pulumi.Input[_builtins.bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-               Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         :param pulumi.Input['StageDefaultRouteSettingsArgs'] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[_builtins.str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[_builtins.str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[_builtins.str] execution_arn: ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute.
-               For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-               See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        :param pulumi.Input[_builtins.str] execution_arn: ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute. For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[_builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
@@ -309,8 +300,7 @@ class _StageState:
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Input[Optional['StageAccessLogSettingsArgs']]:
         """
-        Settings for logging access in this stage.
-        Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -358,8 +348,7 @@ class _StageState:
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-        Supported only for WebSocket APIs.
+        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -407,9 +396,7 @@ class _StageState:
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute.
-        For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute. For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         """
         return pulumi.get(self, "execution_arn")
 
@@ -421,8 +408,7 @@ class _StageState:
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        URL to invoke the API pointing to the stage,
-        e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         """
         return pulumi.get(self, "invoke_url")
 
@@ -554,12 +540,10 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
-               Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-               Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         :param pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[_builtins.str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[_builtins.str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
@@ -692,21 +676,16 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
-               Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[_builtins.str] api_id: API identifier.
         :param pulumi.Input[_builtins.str] arn: ARN of the stage.
         :param pulumi.Input[_builtins.bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-               Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         :param pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[_builtins.str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[_builtins.str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[_builtins.str] execution_arn: ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute.
-               For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-               See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        :param pulumi.Input[_builtins.str] execution_arn: ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute. For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[_builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
@@ -742,8 +721,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="accessLogSettings")
     def access_log_settings(self) -> pulumi.Output[Optional['outputs.StageAccessLogSettings']]:
         """
-        Settings for logging access in this stage.
-        Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+        Settings for logging access in this stage. Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         """
         return pulumi.get(self, "access_log_settings")
 
@@ -775,8 +753,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
-        Supported only for WebSocket APIs.
+        Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -808,9 +785,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute.
-        For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute. For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         """
         return pulumi.get(self, "execution_arn")
 
@@ -818,8 +793,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Output[_builtins.str]:
         """
-        URL to invoke the API pointing to the stage,
-        e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         """
         return pulumi.get(self, "invoke_url")
 

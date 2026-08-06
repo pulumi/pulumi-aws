@@ -48,14 +48,14 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Last time that the reosurce set was changed.
+     * Last time that the resource set was changed.
      * 
      */
     @Import(name="lastUpdateTime")
     private @Nullable Output<String> lastUpdateTime;
 
     /**
-     * @return Last time that the reosurce set was changed.
+     * @return Last time that the resource set was changed.
      * 
      */
     public Optional<Output<String>> lastUpdateTime() {
@@ -65,6 +65,8 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
     /**
      * Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -72,20 +74,22 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
     /**
      * @return Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
 
     /**
-     * Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+     * Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     @Import(name="resourceSetStatus")
     private @Nullable Output<String> resourceSetStatus;
 
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+     * @return Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     public Optional<Output<String>> resourceSetStatus() {
@@ -107,9 +111,17 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.resourceTypeLists);
     }
 
+    /**
+     * Unique identifier for each update to the resource set.
+     * 
+     */
     @Import(name="updateToken")
     private @Nullable Output<String> updateToken;
 
+    /**
+     * @return Unique identifier for each update to the resource set.
+     * 
+     */
     public Optional<Output<String>> updateToken() {
         return Optional.ofNullable(this.updateToken);
     }
@@ -187,7 +199,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param lastUpdateTime Last time that the reosurce set was changed.
+         * @param lastUpdateTime Last time that the resource set was changed.
          * 
          * @return builder
          * 
@@ -198,7 +210,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param lastUpdateTime Last time that the reosurce set was changed.
+         * @param lastUpdateTime Last time that the resource set was changed.
          * 
          * @return builder
          * 
@@ -209,6 +221,8 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
 
         /**
          * @param name Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -221,6 +235,8 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         /**
          * @param name Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -229,7 +245,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+         * @param resourceSetStatus Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
          * 
          * @return builder
          * 
@@ -240,7 +256,7 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceSetStatus Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+         * @param resourceSetStatus Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
          * 
          * @return builder
          * 
@@ -280,11 +296,23 @@ public final class ResourceSetResourceSetArgs extends com.pulumi.resources.Resou
             return resourceTypeLists(List.of(resourceTypeLists));
         }
 
+        /**
+         * @param updateToken Unique identifier for each update to the resource set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateToken(@Nullable Output<String> updateToken) {
             $.updateToken = updateToken;
             return this;
         }
 
+        /**
+         * @param updateToken Unique identifier for each update to the resource set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder updateToken(String updateToken) {
             return updateToken(Output.of(updateToken));
         }

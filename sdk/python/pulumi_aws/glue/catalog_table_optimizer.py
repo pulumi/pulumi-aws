@@ -254,6 +254,13 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             configuration={
                 "role_arn": "arn:aws:iam::123456789012:role/example-role",
                 "enabled": True,
+                "compaction_configuration": {
+                    "iceberg_configuration": {
+                        "strategy": "binpack",
+                        "min_input_files": 5,
+                        "delete_file_threshold": 1,
+                    },
+                },
             },
             type="compaction")
         ```
@@ -347,6 +354,13 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             configuration={
                 "role_arn": "arn:aws:iam::123456789012:role/example-role",
                 "enabled": True,
+                "compaction_configuration": {
+                    "iceberg_configuration": {
+                        "strategy": "binpack",
+                        "min_input_files": 5,
+                        "delete_file_threshold": 1,
+                    },
+                },
             },
             type="compaction")
         ```

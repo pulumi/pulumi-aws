@@ -21,16 +21,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableArgs Empty = new TableArgs();
 
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<TableEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * @return Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      * 
      */
     public Optional<Output<TableEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -38,16 +36,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Format of the table.
-     * Must be `ICEBERG`.
+     * Format of the table. Must be `ICEBERG`.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return Format of the table.
-     * Must be `ICEBERG`.
+     * @return Format of the table. Must be `ICEBERG`.
      * 
      */
     public Output<String> format() {
@@ -55,16 +51,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      * 
      */
     @Import(name="maintenanceConfiguration")
     private @Nullable Output<TableMaintenanceConfigurationArgs> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * @return Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      * 
      */
     public Optional<Output<TableMaintenanceConfigurationArgs>> maintenanceConfiguration() {
@@ -72,16 +66,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     @Import(name="metadata")
     private @Nullable Output<TableMetadataArgs> metadata;
 
     /**
-     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     public Optional<Output<TableMetadataArgs>> metadata() {
@@ -89,20 +81,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * @return Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     public Optional<Output<String>> name() {
@@ -110,18 +96,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
     /**
-     * @return Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * @return Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     public Output<String> namespace() {
@@ -210,8 +192,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
+         * @param encryptionConfiguration Single table bucket encryption configuration object. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -222,8 +203,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
+         * @param encryptionConfiguration Single table bucket encryption configuration object. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -233,8 +213,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format Format of the table.
-         * Must be `ICEBERG`.
+         * @param format Format of the table. Must be `ICEBERG`.
          * 
          * @return builder
          * 
@@ -245,8 +224,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format Format of the table.
-         * Must be `ICEBERG`.
+         * @param format Format of the table. Must be `ICEBERG`.
          * 
          * @return builder
          * 
@@ -256,8 +234,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
+         * @param maintenanceConfiguration Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -268,8 +245,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
+         * @param maintenanceConfiguration Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -279,8 +255,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-         * See `metadata` below.
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
          * 
          * @return builder
          * 
@@ -291,8 +266,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-         * See `metadata` below.
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
          * 
          * @return builder
          * 
@@ -302,10 +276,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+         * @param name Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
          * 
          * @return builder
          * 
@@ -316,10 +287,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-         * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+         * @param name Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
          * 
          * @return builder
          * 
@@ -329,9 +297,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 
@@ -342,9 +308,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespace Name of the namespace for this table.
-         * Must be between 1 and 255 characters in length.
-         * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+         * @param namespace Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
          * 
          * @return builder
          * 

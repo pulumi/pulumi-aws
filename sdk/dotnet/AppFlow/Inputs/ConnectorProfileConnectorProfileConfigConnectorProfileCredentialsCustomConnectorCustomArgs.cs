@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private InputMap<string>? _credentialsMap;
 
         /// <summary>
-        /// A map that holds custom authentication credentials.
+        /// Map that holds custom authentication credentials.
         /// </summary>
         public InputMap<string> CredentialsMap
         {
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The custom authentication type that the connector uses.
+        /// Custom authentication type that the connector uses.
         /// </summary>
         [Input("customAuthenticationType", required: true)]
         public Input<string> CustomAuthenticationType { get; set; } = null!;

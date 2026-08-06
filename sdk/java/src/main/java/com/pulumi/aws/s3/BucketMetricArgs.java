@@ -33,14 +33,14 @@ public final class BucketMetricArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
      * 
      */
     @Import(name="filter")
     private @Nullable Output<BucketMetricFilterArgs> filter;
 
     /**
-     * @return [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * @return [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
      * 
      */
     public Optional<Output<BucketMetricFilterArgs>> filter() {
@@ -126,7 +126,7 @@ public final class BucketMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filter [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+         * @param filter [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class BucketMetricArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param filter [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+         * @param filter [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
          * 
          * @return builder
          * 

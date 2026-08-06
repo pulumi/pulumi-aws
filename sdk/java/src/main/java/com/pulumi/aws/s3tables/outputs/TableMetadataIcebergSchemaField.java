@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableMetadataIcebergSchemaField {
     /**
-     * @return The name of the field.
+     * @return Name of the field.
      * 
      */
     private String name;
     /**
-     * @return A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * @return Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
      * 
      */
     private @Nullable Boolean required;
     /**
-     * @return The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * @return Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
      * 
      */
     private String type;
 
     private TableMetadataIcebergSchemaField() {}
     /**
-     * @return The name of the field.
+     * @return Name of the field.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * @return Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
      * 
      */
     public Optional<Boolean> required() {
         return Optional.ofNullable(this.required);
     }
     /**
-     * @return The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * @return Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
      * 
      */
     public String type() {

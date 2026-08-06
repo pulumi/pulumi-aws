@@ -23,92 +23,64 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorProperties {
-    /**
-     * @return Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector;
     /**
-     * @return Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+     * @return Properties required to query Amazon Connect Customer Profiles. See the `destination_flow_config.destination_connector_properties.customer_profiles` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles;
     /**
-     * @return Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+     * @return Properties required to query Amazon EventBridge. See the `destination_flow_config.destination_connector_properties.event_bridge` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge;
     /**
-     * @return Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+     * @return Properties required to query Amazon Honeycode. See the `destination_flow_config.destination_connector_properties.honeycode` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode;
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics;
-    /**
-     * @return Properties that are required to query Marketo. See Generic Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo;
     /**
-     * @return Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+     * @return Properties required to query Amazon Redshift. See the `destination_flow_config.destination_connector_properties.redshift` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift;
-    /**
-     * @return Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3;
-    /**
-     * @return Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce;
-    /**
-     * @return Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData;
     /**
-     * @return Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+     * @return Properties required to query Snowflake. See the `destination_flow_config.destination_connector_properties.snowflake` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake;
     /**
-     * @return Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+     * @return Properties required to query Upsolver. See the `destination_flow_config.destination_connector_properties.upsolver` Block for details.
      * 
      */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver;
-    /**
-     * @return Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk;
 
     private FlowDestinationFlowConfigDestinationConnectorProperties() {}
-    /**
-     * @return Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
     /**
-     * @return Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+     * @return Properties required to query Amazon Connect Customer Profiles. See the `destination_flow_config.destination_connector_properties.customer_profiles` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles> customerProfiles() {
         return Optional.ofNullable(this.customerProfiles);
     }
     /**
-     * @return Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+     * @return Properties required to query Amazon EventBridge. See the `destination_flow_config.destination_connector_properties.event_bridge` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge> eventBridge() {
         return Optional.ofNullable(this.eventBridge);
     }
     /**
-     * @return Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+     * @return Properties required to query Amazon Honeycode. See the `destination_flow_config.destination_connector_properties.honeycode` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode> honeycode() {
@@ -117,59 +89,39 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics> lookoutMetrics() {
         return Optional.ofNullable(this.lookoutMetrics);
     }
-    /**
-     * @return Properties that are required to query Marketo. See Generic Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
     /**
-     * @return Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+     * @return Properties required to query Amazon Redshift. See the `destination_flow_config.destination_connector_properties.redshift` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3> s3() {
         return Optional.ofNullable(this.s3);
     }
-    /**
-     * @return Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
-    /**
-     * @return Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
     /**
-     * @return Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+     * @return Properties required to query Snowflake. See the `destination_flow_config.destination_connector_properties.snowflake` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
     /**
-     * @return Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+     * @return Properties required to query Upsolver. See the `destination_flow_config.destination_connector_properties.upsolver` Block for details.
      * 
      */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver> upsolver() {
         return Optional.ofNullable(this.upsolver);
     }
-    /**
-     * @return Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }

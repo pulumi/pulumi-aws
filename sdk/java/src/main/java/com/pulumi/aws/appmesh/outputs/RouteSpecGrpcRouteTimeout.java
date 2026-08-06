@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRouteTimeout {
     /**
-     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteTimeoutIdle idle;
     /**
-     * @return Per request timeout. See `perRequest` Block for details.
+     * @return Per request timeout. See `spec.http_route.timeout.per_request` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteTimeoutPerRequest perRequest;
 
     private RouteSpecGrpcRouteTimeout() {}
     /**
-     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `idle` Block for details.
+     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `spec.tcp_route.timeout.idle` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteTimeoutIdle> idle() {
         return Optional.ofNullable(this.idle);
     }
     /**
-     * @return Per request timeout. See `perRequest` Block for details.
+     * @return Per request timeout. See `spec.http_route.timeout.per_request` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteTimeoutPerRequest> perRequest() {

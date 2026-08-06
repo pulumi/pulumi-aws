@@ -39,6 +39,106 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
+    /// ### Container Logging, Environment Variables, and Secrets
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.ExpressGatewayService("example", new()
+    ///     {
+    ///         ExecutionRoleArn = execution.Arn,
+    ///         InfrastructureRoleArn = infrastructure.Arn,
+    ///         HealthCheckPath = "/health",
+    ///         PrimaryContainer = new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerArgs
+    ///         {
+    ///             Image = "my-app:latest",
+    ///             ContainerPort = 8080,
+    ///             Commands = new[]
+    ///             {
+    ///                 "./start.sh",
+    ///             },
+    ///             AwsLogsConfigurations = new[]
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs
+    ///                 {
+    ///                     LogGroup = app.Name,
+    ///                 },
+    ///             },
+    ///             Environments = new[]
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerEnvironmentArgs
+    ///                 {
+    ///                     Name = "ENV",
+    ///                     Value = "production",
+    ///                 },
+    ///                 new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerEnvironmentArgs
+    ///                 {
+    ///                     Name = "PORT",
+    ///                     Value = "8080",
+    ///                 },
+    ///             },
+    ///             Secrets = new[]
+    ///             {
+    ///                 new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerSecretArgs
+    ///                 {
+    ///                     Name = "DB_PASSWORD",
+    ///                     ValueFrom = dbPassword.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Custom Networking
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ecs.ExpressGatewayService("example", new()
+    ///     {
+    ///         ServiceName = "my-express-service",
+    ///         Cluster = main.Name,
+    ///         ExecutionRoleArn = execution.Arn,
+    ///         InfrastructureRoleArn = infrastructure.Arn,
+    ///         Cpu = "256",
+    ///         Memory = "512",
+    ///         PrimaryContainer = new Aws.Ecs.Inputs.ExpressGatewayServicePrimaryContainerArgs
+    ///         {
+    ///             Image = "nginx:latest",
+    ///             ContainerPort = 80,
+    ///         },
+    ///         NetworkConfigurations = new[]
+    ///         {
+    ///             new Aws.Ecs.Inputs.ExpressGatewayServiceNetworkConfigurationArgs
+    ///             {
+    ///                 Subnets = new[]
+    ///                 {
+    ///                     privateA.Id,
+    ///                     privateB.Id,
+    ///                 },
+    ///                 SecurityGroups = new[]
+    ///                 {
+    ///                     app.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Service Updates and Deletion
     /// 
     /// ### Updates
@@ -110,6 +210,9 @@ namespace Pulumi.Aws.Ecs
         [Output("memory")]
         public Output<string> Memory { get; private set; } = null!;
 
+        /// <summary>
+        /// Network configuration for the service. See `NetworkConfiguration` Block below.
+        /// </summary>
         [Output("networkConfigurations")]
         public Output<ImmutableArray<Outputs.ExpressGatewayServiceNetworkConfiguration>> NetworkConfigurations { get; private set; } = null!;
 
@@ -122,6 +225,9 @@ namespace Pulumi.Aws.Ecs
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Auto-scaling configuration for the service. See `ScalingTarget` Block below.
+        /// </summary>
         [Output("scalingTargets")]
         public Output<ImmutableArray<Outputs.ExpressGatewayServiceScalingTarget>> ScalingTargets { get; private set; } = null!;
 
@@ -256,6 +362,10 @@ namespace Pulumi.Aws.Ecs
 
         [Input("networkConfigurations")]
         private InputList<Inputs.ExpressGatewayServiceNetworkConfigurationArgs>? _networkConfigurations;
+
+        /// <summary>
+        /// Network configuration for the service. See `NetworkConfiguration` Block below.
+        /// </summary>
         public InputList<Inputs.ExpressGatewayServiceNetworkConfigurationArgs> NetworkConfigurations
         {
             get => _networkConfigurations ?? (_networkConfigurations = new InputList<Inputs.ExpressGatewayServiceNetworkConfigurationArgs>());
@@ -273,6 +383,10 @@ namespace Pulumi.Aws.Ecs
 
         [Input("scalingTargets")]
         private InputList<Inputs.ExpressGatewayServiceScalingTargetArgs>? _scalingTargets;
+
+        /// <summary>
+        /// Auto-scaling configuration for the service. See `ScalingTarget` Block below.
+        /// </summary>
         public InputList<Inputs.ExpressGatewayServiceScalingTargetArgs> ScalingTargets
         {
             get => _scalingTargets ?? (_scalingTargets = new InputList<Inputs.ExpressGatewayServiceScalingTargetArgs>());
@@ -378,6 +492,10 @@ namespace Pulumi.Aws.Ecs
 
         [Input("networkConfigurations")]
         private InputList<Inputs.ExpressGatewayServiceNetworkConfigurationGetArgs>? _networkConfigurations;
+
+        /// <summary>
+        /// Network configuration for the service. See `NetworkConfiguration` Block below.
+        /// </summary>
         public InputList<Inputs.ExpressGatewayServiceNetworkConfigurationGetArgs> NetworkConfigurations
         {
             get => _networkConfigurations ?? (_networkConfigurations = new InputList<Inputs.ExpressGatewayServiceNetworkConfigurationGetArgs>());
@@ -395,6 +513,10 @@ namespace Pulumi.Aws.Ecs
 
         [Input("scalingTargets")]
         private InputList<Inputs.ExpressGatewayServiceScalingTargetGetArgs>? _scalingTargets;
+
+        /// <summary>
+        /// Auto-scaling configuration for the service. See `ScalingTarget` Block below.
+        /// </summary>
         public InputList<Inputs.ExpressGatewayServiceScalingTargetGetArgs> ScalingTargets
         {
             get => _scalingTargets ?? (_scalingTargets = new InputList<Inputs.ExpressGatewayServiceScalingTargetGetArgs>());

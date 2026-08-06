@@ -14,7 +14,7 @@ public final class GetNetworkManagedServiceStsAccess {
     private String domainName;
     private List<String> ipv4Addresses;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -28,7 +28,7 @@ public final class GetNetworkManagedServiceStsAccess {
         return this.ipv4Addresses;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {

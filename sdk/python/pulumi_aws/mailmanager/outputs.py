@@ -16,6 +16,52 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'RuleSetRule',
+    'RuleSetRuleAction',
+    'RuleSetRuleActionAddHeader',
+    'RuleSetRuleActionArchive',
+    'RuleSetRuleActionBounce',
+    'RuleSetRuleActionDeliverToMailbox',
+    'RuleSetRuleActionDeliverToQBusiness',
+    'RuleSetRuleActionDrop',
+    'RuleSetRuleActionInvokeLambda',
+    'RuleSetRuleActionPublishToSns',
+    'RuleSetRuleActionRelay',
+    'RuleSetRuleActionReplaceRecipient',
+    'RuleSetRuleActionSend',
+    'RuleSetRuleActionWriteToS3',
+    'RuleSetRuleCondition',
+    'RuleSetRuleConditionBooleanExpression',
+    'RuleSetRuleConditionBooleanExpressionEvaluate',
+    'RuleSetRuleConditionBooleanExpressionEvaluateAnalysis',
+    'RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList',
+    'RuleSetRuleConditionDmarcExpression',
+    'RuleSetRuleConditionIpExpression',
+    'RuleSetRuleConditionIpExpressionEvaluate',
+    'RuleSetRuleConditionNumberExpression',
+    'RuleSetRuleConditionNumberExpressionEvaluate',
+    'RuleSetRuleConditionStringExpression',
+    'RuleSetRuleConditionStringExpressionEvaluate',
+    'RuleSetRuleConditionStringExpressionEvaluateAnalysis',
+    'RuleSetRuleConditionVerdictExpression',
+    'RuleSetRuleConditionVerdictExpressionEvaluate',
+    'RuleSetRuleConditionVerdictExpressionEvaluateAnalysis',
+    'RuleSetRuleUnless',
+    'RuleSetRuleUnlessBooleanExpression',
+    'RuleSetRuleUnlessBooleanExpressionEvaluate',
+    'RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis',
+    'RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList',
+    'RuleSetRuleUnlessDmarcExpression',
+    'RuleSetRuleUnlessIpExpression',
+    'RuleSetRuleUnlessIpExpressionEvaluate',
+    'RuleSetRuleUnlessNumberExpression',
+    'RuleSetRuleUnlessNumberExpressionEvaluate',
+    'RuleSetRuleUnlessStringExpression',
+    'RuleSetRuleUnlessStringExpressionEvaluate',
+    'RuleSetRuleUnlessStringExpressionEvaluateAnalysis',
+    'RuleSetRuleUnlessVerdictExpression',
+    'RuleSetRuleUnlessVerdictExpressionEvaluate',
+    'RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis',
     'TrafficPolicyPolicyStatement',
     'TrafficPolicyPolicyStatementCondition',
     'TrafficPolicyPolicyStatementConditionBooleanExpression',
@@ -32,6 +78,2433 @@ __all__ = [
     'TrafficPolicyPolicyStatementConditionTlsExpression',
     'TrafficPolicyPolicyStatementConditionTlsExpressionEvaluate',
 ]
+
+@pulumi.output_type
+class RuleSetRule(dict):
+    def __init__(__self__, *,
+                 actions: Optional[Sequence['outputs.RuleSetRuleAction']] = None,
+                 conditions: Optional[Sequence['outputs.RuleSetRuleCondition']] = None,
+                 name: Optional[_builtins.str] = None,
+                 unlesses: Optional[Sequence['outputs.RuleSetRuleUnless']] = None):
+        """
+        :param Sequence['RuleSetRuleActionArgs'] actions: One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+        :param Sequence['RuleSetRuleConditionArgs'] conditions: One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+        :param _builtins.str name: Name of the rule.
+        :param Sequence['RuleSetRuleUnlessArgs'] unlesses: One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if unlesses is not None:
+            pulumi.set(__self__, "unlesses", unlesses)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.RuleSetRuleAction']]:
+        """
+        One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.RuleSetRuleCondition']]:
+        """
+        One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+        """
+        return pulumi.get(self, "conditions")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def unlesses(self) -> Optional[Sequence['outputs.RuleSetRuleUnless']]:
+        """
+        One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+        """
+        return pulumi.get(self, "unlesses")
+
+
+@pulumi.output_type
+class RuleSetRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addHeader":
+            suggest = "add_header"
+        elif key == "deliverToMailbox":
+            suggest = "deliver_to_mailbox"
+        elif key == "deliverToQBusiness":
+            suggest = "deliver_to_q_business"
+        elif key == "invokeLambda":
+            suggest = "invoke_lambda"
+        elif key == "publishToSns":
+            suggest = "publish_to_sns"
+        elif key == "replaceRecipient":
+            suggest = "replace_recipient"
+        elif key == "writeToS3":
+            suggest = "write_to_s3"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_header: Optional['outputs.RuleSetRuleActionAddHeader'] = None,
+                 archive: Optional['outputs.RuleSetRuleActionArchive'] = None,
+                 bounce: Optional['outputs.RuleSetRuleActionBounce'] = None,
+                 deliver_to_mailbox: Optional['outputs.RuleSetRuleActionDeliverToMailbox'] = None,
+                 deliver_to_q_business: Optional['outputs.RuleSetRuleActionDeliverToQBusiness'] = None,
+                 drop: Optional['outputs.RuleSetRuleActionDrop'] = None,
+                 invoke_lambda: Optional['outputs.RuleSetRuleActionInvokeLambda'] = None,
+                 publish_to_sns: Optional['outputs.RuleSetRuleActionPublishToSns'] = None,
+                 relay: Optional['outputs.RuleSetRuleActionRelay'] = None,
+                 replace_recipient: Optional['outputs.RuleSetRuleActionReplaceRecipient'] = None,
+                 send: Optional['outputs.RuleSetRuleActionSend'] = None,
+                 write_to_s3: Optional['outputs.RuleSetRuleActionWriteToS3'] = None):
+        """
+        :param 'RuleSetRuleActionAddHeaderArgs' add_header: Adds a header to the email. See `add_header` Block.
+        :param 'RuleSetRuleActionArchiveArgs' archive: Archives the email. See `archive` Block.
+        :param 'RuleSetRuleActionBounceArgs' bounce: Sends a bounce response. See `bounce` Block.
+        :param 'RuleSetRuleActionDeliverToMailboxArgs' deliver_to_mailbox: Delivers the email to a WorkMail mailbox. See `deliver_to_mailbox` Block.
+        :param 'RuleSetRuleActionDeliverToQBusinessArgs' deliver_to_q_business: Delivers the email to an Amazon Q Business application. See `deliver_to_q_business` Block.
+        :param 'RuleSetRuleActionDropArgs' drop: Stops rule evaluation and drops the email.
+        :param 'RuleSetRuleActionInvokeLambdaArgs' invoke_lambda: Invokes a Lambda function. See `invoke_lambda` Block.
+        :param 'RuleSetRuleActionPublishToSnsArgs' publish_to_sns: Publishes the email to an SNS topic. See `publish_to_sns` Block.
+        :param 'RuleSetRuleActionRelayArgs' relay: Relays the email to an SMTP server. See `relay` Block.
+        :param 'RuleSetRuleActionReplaceRecipientArgs' replace_recipient: Replaces envelope recipients. See `replace_recipient` Block.
+        :param 'RuleSetRuleActionSendArgs' send: Sends the email to the internet. See `send` Block.
+        :param 'RuleSetRuleActionWriteToS3Args' write_to_s3: Writes the email MIME content to an S3 bucket. See `write_to_s3` Block.
+        """
+        if add_header is not None:
+            pulumi.set(__self__, "add_header", add_header)
+        if archive is not None:
+            pulumi.set(__self__, "archive", archive)
+        if bounce is not None:
+            pulumi.set(__self__, "bounce", bounce)
+        if deliver_to_mailbox is not None:
+            pulumi.set(__self__, "deliver_to_mailbox", deliver_to_mailbox)
+        if deliver_to_q_business is not None:
+            pulumi.set(__self__, "deliver_to_q_business", deliver_to_q_business)
+        if drop is not None:
+            pulumi.set(__self__, "drop", drop)
+        if invoke_lambda is not None:
+            pulumi.set(__self__, "invoke_lambda", invoke_lambda)
+        if publish_to_sns is not None:
+            pulumi.set(__self__, "publish_to_sns", publish_to_sns)
+        if relay is not None:
+            pulumi.set(__self__, "relay", relay)
+        if replace_recipient is not None:
+            pulumi.set(__self__, "replace_recipient", replace_recipient)
+        if send is not None:
+            pulumi.set(__self__, "send", send)
+        if write_to_s3 is not None:
+            pulumi.set(__self__, "write_to_s3", write_to_s3)
+
+    @_builtins.property
+    @pulumi.getter(name="addHeader")
+    def add_header(self) -> Optional['outputs.RuleSetRuleActionAddHeader']:
+        """
+        Adds a header to the email. See `add_header` Block.
+        """
+        return pulumi.get(self, "add_header")
+
+    @_builtins.property
+    @pulumi.getter
+    def archive(self) -> Optional['outputs.RuleSetRuleActionArchive']:
+        """
+        Archives the email. See `archive` Block.
+        """
+        return pulumi.get(self, "archive")
+
+    @_builtins.property
+    @pulumi.getter
+    def bounce(self) -> Optional['outputs.RuleSetRuleActionBounce']:
+        """
+        Sends a bounce response. See `bounce` Block.
+        """
+        return pulumi.get(self, "bounce")
+
+    @_builtins.property
+    @pulumi.getter(name="deliverToMailbox")
+    def deliver_to_mailbox(self) -> Optional['outputs.RuleSetRuleActionDeliverToMailbox']:
+        """
+        Delivers the email to a WorkMail mailbox. See `deliver_to_mailbox` Block.
+        """
+        return pulumi.get(self, "deliver_to_mailbox")
+
+    @_builtins.property
+    @pulumi.getter(name="deliverToQBusiness")
+    def deliver_to_q_business(self) -> Optional['outputs.RuleSetRuleActionDeliverToQBusiness']:
+        """
+        Delivers the email to an Amazon Q Business application. See `deliver_to_q_business` Block.
+        """
+        return pulumi.get(self, "deliver_to_q_business")
+
+    @_builtins.property
+    @pulumi.getter
+    def drop(self) -> Optional['outputs.RuleSetRuleActionDrop']:
+        """
+        Stops rule evaluation and drops the email.
+        """
+        return pulumi.get(self, "drop")
+
+    @_builtins.property
+    @pulumi.getter(name="invokeLambda")
+    def invoke_lambda(self) -> Optional['outputs.RuleSetRuleActionInvokeLambda']:
+        """
+        Invokes a Lambda function. See `invoke_lambda` Block.
+        """
+        return pulumi.get(self, "invoke_lambda")
+
+    @_builtins.property
+    @pulumi.getter(name="publishToSns")
+    def publish_to_sns(self) -> Optional['outputs.RuleSetRuleActionPublishToSns']:
+        """
+        Publishes the email to an SNS topic. See `publish_to_sns` Block.
+        """
+        return pulumi.get(self, "publish_to_sns")
+
+    @_builtins.property
+    @pulumi.getter
+    def relay(self) -> Optional['outputs.RuleSetRuleActionRelay']:
+        """
+        Relays the email to an SMTP server. See `relay` Block.
+        """
+        return pulumi.get(self, "relay")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceRecipient")
+    def replace_recipient(self) -> Optional['outputs.RuleSetRuleActionReplaceRecipient']:
+        """
+        Replaces envelope recipients. See `replace_recipient` Block.
+        """
+        return pulumi.get(self, "replace_recipient")
+
+    @_builtins.property
+    @pulumi.getter
+    def send(self) -> Optional['outputs.RuleSetRuleActionSend']:
+        """
+        Sends the email to the internet. See `send` Block.
+        """
+        return pulumi.get(self, "send")
+
+    @_builtins.property
+    @pulumi.getter(name="writeToS3")
+    def write_to_s3(self) -> Optional['outputs.RuleSetRuleActionWriteToS3']:
+        """
+        Writes the email MIME content to an S3 bucket. See `write_to_s3` Block.
+        """
+        return pulumi.get(self, "write_to_s3")
+
+
+@pulumi.output_type
+class RuleSetRuleActionAddHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionAddHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionAddHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionAddHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str,
+                 header_value: _builtins.str):
+        """
+        :param _builtins.str header_name: Header name. Must begin with `X-`.
+        :param _builtins.str header_value: Header value.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        """
+        Header name. Must begin with `X-`.
+        """
+        return pulumi.get(self, "header_name")
+
+    @_builtins.property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> _builtins.str:
+        """
+        Header value.
+        """
+        return pulumi.get(self, "header_value")
+
+
+@pulumi.output_type
+class RuleSetRuleActionArchive(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetArchive":
+            suggest = "target_archive"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionArchive. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionArchive.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionArchive.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_archive: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str target_archive: Identifier of the archive.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        """
+        pulumi.set(__self__, "target_archive", target_archive)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="targetArchive")
+    def target_archive(self) -> _builtins.str:
+        """
+        Identifier of the archive.
+        """
+        return pulumi.get(self, "target_archive")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class RuleSetRuleActionBounce(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diagnosticMessage":
+            suggest = "diagnostic_message"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "smtpReplyCode":
+            suggest = "smtp_reply_code"
+        elif key == "statusCode":
+            suggest = "status_code"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionBounce. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionBounce.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionBounce.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 diagnostic_message: _builtins.str,
+                 role_arn: _builtins.str,
+                 sender: _builtins.str,
+                 smtp_reply_code: _builtins.str,
+                 status_code: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None,
+                 message: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str diagnostic_message: Diagnostic message included in the bounce.
+        :param _builtins.str role_arn: ARN of the IAM role used to send the bounce.
+        :param _builtins.str sender: Sender address of the bounce.
+        :param _builtins.str smtp_reply_code: SMTP reply code.
+        :param _builtins.str status_code: Enhanced status code.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        :param _builtins.str message: Human-readable bounce message.
+        """
+        pulumi.set(__self__, "diagnostic_message", diagnostic_message)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "sender", sender)
+        pulumi.set(__self__, "smtp_reply_code", smtp_reply_code)
+        pulumi.set(__self__, "status_code", status_code)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter(name="diagnosticMessage")
+    def diagnostic_message(self) -> _builtins.str:
+        """
+        Diagnostic message included in the bounce.
+        """
+        return pulumi.get(self, "diagnostic_message")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to send the bounce.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def sender(self) -> _builtins.str:
+        """
+        Sender address of the bounce.
+        """
+        return pulumi.get(self, "sender")
+
+    @_builtins.property
+    @pulumi.getter(name="smtpReplyCode")
+    def smtp_reply_code(self) -> _builtins.str:
+        """
+        SMTP reply code.
+        """
+        return pulumi.get(self, "smtp_reply_code")
+
+    @_builtins.property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> _builtins.str:
+        """
+        Enhanced status code.
+        """
+        return pulumi.get(self, "status_code")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        """
+        Human-readable bounce message.
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class RuleSetRuleActionDeliverToMailbox(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mailboxArn":
+            suggest = "mailbox_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionDeliverToMailbox. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionDeliverToMailbox.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionDeliverToMailbox.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mailbox_arn: _builtins.str,
+                 role_arn: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str mailbox_arn: ARN of the WorkMail organization.
+        :param _builtins.str role_arn: ARN of the IAM role used to deliver the email.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        """
+        pulumi.set(__self__, "mailbox_arn", mailbox_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="mailboxArn")
+    def mailbox_arn(self) -> _builtins.str:
+        """
+        ARN of the WorkMail organization.
+        """
+        return pulumi.get(self, "mailbox_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to deliver the email.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class RuleSetRuleActionDeliverToQBusiness(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "indexId":
+            suggest = "index_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionDeliverToQBusiness. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionDeliverToQBusiness.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionDeliverToQBusiness.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: _builtins.str,
+                 index_id: _builtins.str,
+                 role_arn: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str application_id: Q Business application identifier.
+        :param _builtins.str index_id: Q Business index identifier.
+        :param _builtins.str role_arn: ARN of the IAM role used to deliver the email.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        """
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> _builtins.str:
+        """
+        Q Business application identifier.
+        """
+        return pulumi.get(self, "application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="indexId")
+    def index_id(self) -> _builtins.str:
+        """
+        Q Business index identifier.
+        """
+        return pulumi.get(self, "index_id")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to deliver the email.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class RuleSetRuleActionDrop(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class RuleSetRuleActionInvokeLambda(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionArn":
+            suggest = "function_arn"
+        elif key == "invocationType":
+            suggest = "invocation_type"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "retryTimeMinutes":
+            suggest = "retry_time_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionInvokeLambda. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionInvokeLambda.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionInvokeLambda.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_arn: _builtins.str,
+                 invocation_type: _builtins.str,
+                 role_arn: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None,
+                 retry_time_minutes: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str function_arn: ARN of the Lambda function.
+        :param _builtins.str invocation_type: Lambda invocation type.
+        :param _builtins.str role_arn: ARN of the IAM role used to invoke the function.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        :param _builtins.int retry_time_minutes: Maximum retry time in minutes.
+        """
+        pulumi.set(__self__, "function_arn", function_arn)
+        pulumi.set(__self__, "invocation_type", invocation_type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if retry_time_minutes is not None:
+            pulumi.set(__self__, "retry_time_minutes", retry_time_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="invocationType")
+    def invocation_type(self) -> _builtins.str:
+        """
+        Lambda invocation type.
+        """
+        return pulumi.get(self, "invocation_type")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to invoke the function.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="retryTimeMinutes")
+    def retry_time_minutes(self) -> Optional[_builtins.int]:
+        """
+        Maximum retry time in minutes.
+        """
+        return pulumi.get(self, "retry_time_minutes")
+
+
+@pulumi.output_type
+class RuleSetRuleActionPublishToSns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "payloadType":
+            suggest = "payload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionPublishToSns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionPublishToSns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionPublishToSns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 topic_arn: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 payload_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str role_arn: ARN of the IAM role used to publish the email.
+        :param _builtins.str topic_arn: ARN of the SNS topic.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        :param _builtins.str encoding: Email encoding in the notification.
+        :param _builtins.str payload_type: Notification payload type.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if payload_type is not None:
+            pulumi.set(__self__, "payload_type", payload_type)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to publish the email.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        """
+        ARN of the SNS topic.
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        """
+        Email encoding in the notification.
+        """
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="payloadType")
+    def payload_type(self) -> Optional[_builtins.str]:
+        """
+        Notification payload type.
+        """
+        return pulumi.get(self, "payload_type")
+
+
+@pulumi.output_type
+class RuleSetRuleActionRelay(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "mailFrom":
+            suggest = "mail_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionRelay. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionRelay.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionRelay.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relay: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None,
+                 mail_from: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str relay: Identifier of the relay resource.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        :param _builtins.str mail_from: Whether to preserve or replace the original MAIL FROM address.
+        """
+        pulumi.set(__self__, "relay", relay)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if mail_from is not None:
+            pulumi.set(__self__, "mail_from", mail_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def relay(self) -> _builtins.str:
+        """
+        Identifier of the relay resource.
+        """
+        return pulumi.get(self, "relay")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="mailFrom")
+    def mail_from(self) -> Optional[_builtins.str]:
+        """
+        Whether to preserve or replace the original MAIL FROM address.
+        """
+        return pulumi.get(self, "mail_from")
+
+
+@pulumi.output_type
+class RuleSetRuleActionReplaceRecipient(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replaceWiths":
+            suggest = "replace_withs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionReplaceRecipient. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionReplaceRecipient.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionReplaceRecipient.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replace_withs: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] replace_withs: Replacement envelope recipient addresses.
+        """
+        if replace_withs is not None:
+            pulumi.set(__self__, "replace_withs", replace_withs)
+
+    @_builtins.property
+    @pulumi.getter(name="replaceWiths")
+    def replace_withs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Replacement envelope recipient addresses.
+        """
+        return pulumi.get(self, "replace_withs")
+
+
+@pulumi.output_type
+class RuleSetRuleActionSend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionSend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionSend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionSend.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str role_arn: ARN of the IAM role used to send the email.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to send the email.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
+class RuleSetRuleActionWriteToS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+        elif key == "s3SseKmsKeyId":
+            suggest = "s3_sse_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleActionWriteToS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleActionWriteToS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleActionWriteToS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 s3_bucket: _builtins.str,
+                 action_failure_policy: Optional[_builtins.str] = None,
+                 s3_prefix: Optional[_builtins.str] = None,
+                 s3_sse_kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str role_arn: ARN of the IAM role used to write to S3.
+        :param _builtins.str s3_bucket: Name of the S3 bucket.
+        :param _builtins.str action_failure_policy: Policy applied when the action fails.
+        :param _builtins.str s3_prefix: S3 object key prefix.
+        :param _builtins.str s3_sse_kms_key_id: KMS key identifier used to encrypt the email.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+        if s3_sse_kms_key_id is not None:
+            pulumi.set(__self__, "s3_sse_kms_key_id", s3_sse_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used to write to S3.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> _builtins.str:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[_builtins.str]:
+        """
+        Policy applied when the action fails.
+        """
+        return pulumi.get(self, "action_failure_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[_builtins.str]:
+        """
+        S3 object key prefix.
+        """
+        return pulumi.get(self, "s3_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="s3SseKmsKeyId")
+    def s3_sse_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        KMS key identifier used to encrypt the email.
+        """
+        return pulumi.get(self, "s3_sse_kms_key_id")
+
+
+@pulumi.output_type
+class RuleSetRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanExpression":
+            suggest = "boolean_expression"
+        elif key == "dmarcExpression":
+            suggest = "dmarc_expression"
+        elif key == "ipExpression":
+            suggest = "ip_expression"
+        elif key == "numberExpression":
+            suggest = "number_expression"
+        elif key == "stringExpression":
+            suggest = "string_expression"
+        elif key == "verdictExpression":
+            suggest = "verdict_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_expression: Optional['outputs.RuleSetRuleConditionBooleanExpression'] = None,
+                 dmarc_expression: Optional['outputs.RuleSetRuleConditionDmarcExpression'] = None,
+                 ip_expression: Optional['outputs.RuleSetRuleConditionIpExpression'] = None,
+                 number_expression: Optional['outputs.RuleSetRuleConditionNumberExpression'] = None,
+                 string_expression: Optional['outputs.RuleSetRuleConditionStringExpression'] = None,
+                 verdict_expression: Optional['outputs.RuleSetRuleConditionVerdictExpression'] = None):
+        """
+        :param 'RuleSetRuleConditionBooleanExpressionArgs' boolean_expression: Boolean expression evaluated against an email attribute or Add On result. See `boolean_expression` Block.
+        :param 'RuleSetRuleConditionDmarcExpressionArgs' dmarc_expression: DMARC policy expression evaluated against the email's DMARC result. See `dmarc_expression` Block.
+        :param 'RuleSetRuleConditionIpExpressionArgs' ip_expression: IP CIDR expression evaluated against the sender IP address. See `ip_expression` Block.
+        :param 'RuleSetRuleConditionNumberExpressionArgs' number_expression: Numeric expression evaluated against an email attribute such as message size. See `number_expression` Block.
+        :param 'RuleSetRuleConditionStringExpressionArgs' string_expression: String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `string_expression` Block.
+        :param 'RuleSetRuleConditionVerdictExpressionArgs' verdict_expression: Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdict_expression` Block.
+        """
+        if boolean_expression is not None:
+            pulumi.set(__self__, "boolean_expression", boolean_expression)
+        if dmarc_expression is not None:
+            pulumi.set(__self__, "dmarc_expression", dmarc_expression)
+        if ip_expression is not None:
+            pulumi.set(__self__, "ip_expression", ip_expression)
+        if number_expression is not None:
+            pulumi.set(__self__, "number_expression", number_expression)
+        if string_expression is not None:
+            pulumi.set(__self__, "string_expression", string_expression)
+        if verdict_expression is not None:
+            pulumi.set(__self__, "verdict_expression", verdict_expression)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanExpression")
+    def boolean_expression(self) -> Optional['outputs.RuleSetRuleConditionBooleanExpression']:
+        """
+        Boolean expression evaluated against an email attribute or Add On result. See `boolean_expression` Block.
+        """
+        return pulumi.get(self, "boolean_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="dmarcExpression")
+    def dmarc_expression(self) -> Optional['outputs.RuleSetRuleConditionDmarcExpression']:
+        """
+        DMARC policy expression evaluated against the email's DMARC result. See `dmarc_expression` Block.
+        """
+        return pulumi.get(self, "dmarc_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="ipExpression")
+    def ip_expression(self) -> Optional['outputs.RuleSetRuleConditionIpExpression']:
+        """
+        IP CIDR expression evaluated against the sender IP address. See `ip_expression` Block.
+        """
+        return pulumi.get(self, "ip_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="numberExpression")
+    def number_expression(self) -> Optional['outputs.RuleSetRuleConditionNumberExpression']:
+        """
+        Numeric expression evaluated against an email attribute such as message size. See `number_expression` Block.
+        """
+        return pulumi.get(self, "number_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="stringExpression")
+    def string_expression(self) -> Optional['outputs.RuleSetRuleConditionStringExpression']:
+        """
+        String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `string_expression` Block.
+        """
+        return pulumi.get(self, "string_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="verdictExpression")
+    def verdict_expression(self) -> Optional['outputs.RuleSetRuleConditionVerdictExpression']:
+        """
+        Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdict_expression` Block.
+        """
+        return pulumi.get(self, "verdict_expression")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionBooleanExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 evaluate: Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+        :param 'RuleSetRuleConditionBooleanExpressionEvaluateArgs' evaluate: Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `is_in_address_list` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluate']:
+        """
+        Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `is_in_address_list` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionBooleanExpressionEvaluate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isInAddressList":
+            suggest = "is_in_address_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionBooleanExpressionEvaluate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None,
+                 is_in_address_list: Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList'] = None):
+        """
+        :param 'RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        :param 'RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs' is_in_address_list: Address-list membership expression.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if is_in_address_list is not None:
+            pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> Optional['outputs.RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList']:
+        """
+        Address-list membership expression.
+        """
+        return pulumi.get(self, "is_in_address_list")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionBooleanExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionBooleanExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressLists":
+            suggest = "address_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_lists: Sequence[_builtins.str],
+                 attribute: _builtins.str):
+        """
+        :param Sequence[_builtins.str] address_lists: List containing exactly one address list ARN or identifier.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> Sequence[_builtins.str]:
+        """
+        List containing exactly one address list ARN or identifier.
+        """
+        return pulumi.get(self, "address_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionDmarcExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str operator: DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        :param Sequence[_builtins.str] values: List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionIpExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleConditionIpExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+        :param Sequence[_builtins.str] values: List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+        :param 'RuleSetRuleConditionIpExpressionEvaluateArgs' evaluate: Left-hand operand of the expression.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleConditionIpExpressionEvaluate']:
+        """
+        Left-hand operand of the expression.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionIpExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 attribute: _builtins.str):
+        """
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionNumberExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 value: _builtins.float,
+                 evaluate: Optional['outputs.RuleSetRuleConditionNumberExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+        :param _builtins.float value: Numeric value to compare against.
+        :param 'RuleSetRuleConditionNumberExpressionEvaluateArgs' evaluate: Left-hand operand of the expression.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        """
+        Numeric value to compare against.
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleConditionNumberExpressionEvaluate']:
+        """
+        Left-hand operand of the expression.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionNumberExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 attribute: _builtins.str):
+        """
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionStringExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleConditionStringExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+        :param Sequence[_builtins.str] values: List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+        :param 'RuleSetRuleConditionStringExpressionEvaluateArgs' evaluate: Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `client_certificate_attribute`, or `mime_header_attribute` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleConditionStringExpressionEvaluate']:
+        """
+        Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `client_certificate_attribute`, or `mime_header_attribute` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionStringExpressionEvaluate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateAttribute":
+            suggest = "client_certificate_attribute"
+        elif key == "mimeHeaderAttribute":
+            suggest = "mime_header_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionStringExpressionEvaluate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionStringExpressionEvaluate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionStringExpressionEvaluate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleConditionStringExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None,
+                 client_certificate_attribute: Optional[_builtins.str] = None,
+                 mime_header_attribute: Optional[_builtins.str] = None):
+        """
+        :param 'RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        :param _builtins.str client_certificate_attribute: Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+        :param _builtins.str mime_header_attribute: MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if client_certificate_attribute is not None:
+            pulumi.set(__self__, "client_certificate_attribute", client_certificate_attribute)
+        if mime_header_attribute is not None:
+            pulumi.set(__self__, "mime_header_attribute", mime_header_attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleConditionStringExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateAttribute")
+    def client_certificate_attribute(self) -> Optional[_builtins.str]:
+        """
+        Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+        """
+        return pulumi.get(self, "client_certificate_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="mimeHeaderAttribute")
+    def mime_header_attribute(self) -> Optional[_builtins.str]:
+        """
+        MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+        """
+        return pulumi.get(self, "mime_header_attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionStringExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionStringExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionStringExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionStringExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionVerdictExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleConditionVerdictExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        :param Sequence[_builtins.str] values: List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+        :param 'RuleSetRuleConditionVerdictExpressionEvaluateArgs' evaluate: Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleConditionVerdictExpressionEvaluate']:
+        """
+        Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionVerdictExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleConditionVerdictExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None):
+        """
+        :param 'RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleConditionVerdictExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleConditionVerdictExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleConditionVerdictExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleConditionVerdictExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleConditionVerdictExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class RuleSetRuleUnless(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanExpression":
+            suggest = "boolean_expression"
+        elif key == "dmarcExpression":
+            suggest = "dmarc_expression"
+        elif key == "ipExpression":
+            suggest = "ip_expression"
+        elif key == "numberExpression":
+            suggest = "number_expression"
+        elif key == "stringExpression":
+            suggest = "string_expression"
+        elif key == "verdictExpression":
+            suggest = "verdict_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnless. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnless.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnless.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_expression: Optional['outputs.RuleSetRuleUnlessBooleanExpression'] = None,
+                 dmarc_expression: Optional['outputs.RuleSetRuleUnlessDmarcExpression'] = None,
+                 ip_expression: Optional['outputs.RuleSetRuleUnlessIpExpression'] = None,
+                 number_expression: Optional['outputs.RuleSetRuleUnlessNumberExpression'] = None,
+                 string_expression: Optional['outputs.RuleSetRuleUnlessStringExpression'] = None,
+                 verdict_expression: Optional['outputs.RuleSetRuleUnlessVerdictExpression'] = None):
+        """
+        :param 'RuleSetRuleUnlessBooleanExpressionArgs' boolean_expression: Boolean expression evaluated against an email attribute or Add On result. See `boolean_expression` Block.
+        :param 'RuleSetRuleUnlessDmarcExpressionArgs' dmarc_expression: DMARC policy expression evaluated against the email's DMARC result. See `dmarc_expression` Block.
+        :param 'RuleSetRuleUnlessIpExpressionArgs' ip_expression: IP CIDR expression evaluated against the sender IP address. See `ip_expression` Block.
+        :param 'RuleSetRuleUnlessNumberExpressionArgs' number_expression: Numeric expression evaluated against an email attribute such as message size. See `number_expression` Block.
+        :param 'RuleSetRuleUnlessStringExpressionArgs' string_expression: String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `string_expression` Block.
+        :param 'RuleSetRuleUnlessVerdictExpressionArgs' verdict_expression: Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdict_expression` Block.
+        """
+        if boolean_expression is not None:
+            pulumi.set(__self__, "boolean_expression", boolean_expression)
+        if dmarc_expression is not None:
+            pulumi.set(__self__, "dmarc_expression", dmarc_expression)
+        if ip_expression is not None:
+            pulumi.set(__self__, "ip_expression", ip_expression)
+        if number_expression is not None:
+            pulumi.set(__self__, "number_expression", number_expression)
+        if string_expression is not None:
+            pulumi.set(__self__, "string_expression", string_expression)
+        if verdict_expression is not None:
+            pulumi.set(__self__, "verdict_expression", verdict_expression)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanExpression")
+    def boolean_expression(self) -> Optional['outputs.RuleSetRuleUnlessBooleanExpression']:
+        """
+        Boolean expression evaluated against an email attribute or Add On result. See `boolean_expression` Block.
+        """
+        return pulumi.get(self, "boolean_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="dmarcExpression")
+    def dmarc_expression(self) -> Optional['outputs.RuleSetRuleUnlessDmarcExpression']:
+        """
+        DMARC policy expression evaluated against the email's DMARC result. See `dmarc_expression` Block.
+        """
+        return pulumi.get(self, "dmarc_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="ipExpression")
+    def ip_expression(self) -> Optional['outputs.RuleSetRuleUnlessIpExpression']:
+        """
+        IP CIDR expression evaluated against the sender IP address. See `ip_expression` Block.
+        """
+        return pulumi.get(self, "ip_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="numberExpression")
+    def number_expression(self) -> Optional['outputs.RuleSetRuleUnlessNumberExpression']:
+        """
+        Numeric expression evaluated against an email attribute such as message size. See `number_expression` Block.
+        """
+        return pulumi.get(self, "number_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="stringExpression")
+    def string_expression(self) -> Optional['outputs.RuleSetRuleUnlessStringExpression']:
+        """
+        String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `string_expression` Block.
+        """
+        return pulumi.get(self, "string_expression")
+
+    @_builtins.property
+    @pulumi.getter(name="verdictExpression")
+    def verdict_expression(self) -> Optional['outputs.RuleSetRuleUnlessVerdictExpression']:
+        """
+        Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdict_expression` Block.
+        """
+        return pulumi.get(self, "verdict_expression")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessBooleanExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 evaluate: Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+        :param 'RuleSetRuleUnlessBooleanExpressionEvaluateArgs' evaluate: Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `is_in_address_list` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluate']:
+        """
+        Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `is_in_address_list` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessBooleanExpressionEvaluate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isInAddressList":
+            suggest = "is_in_address_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessBooleanExpressionEvaluate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None,
+                 is_in_address_list: Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList'] = None):
+        """
+        :param 'RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        :param 'RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs' is_in_address_list: Address-list membership expression.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if is_in_address_list is not None:
+            pulumi.set(__self__, "is_in_address_list", is_in_address_list)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="isInAddressList")
+    def is_in_address_list(self) -> Optional['outputs.RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList']:
+        """
+        Address-list membership expression.
+        """
+        return pulumi.get(self, "is_in_address_list")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressLists":
+            suggest = "address_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_lists: Sequence[_builtins.str],
+                 attribute: _builtins.str):
+        """
+        :param Sequence[_builtins.str] address_lists: List containing exactly one address list ARN or identifier.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "address_lists", address_lists)
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter(name="addressLists")
+    def address_lists(self) -> Sequence[_builtins.str]:
+        """
+        List containing exactly one address list ARN or identifier.
+        """
+        return pulumi.get(self, "address_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessDmarcExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str operator: DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        :param Sequence[_builtins.str] values: List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessIpExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleUnlessIpExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+        :param Sequence[_builtins.str] values: List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+        :param 'RuleSetRuleUnlessIpExpressionEvaluateArgs' evaluate: Left-hand operand of the expression.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleUnlessIpExpressionEvaluate']:
+        """
+        Left-hand operand of the expression.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessIpExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 attribute: _builtins.str):
+        """
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessNumberExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 value: _builtins.float,
+                 evaluate: Optional['outputs.RuleSetRuleUnlessNumberExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+        :param _builtins.float value: Numeric value to compare against.
+        :param 'RuleSetRuleUnlessNumberExpressionEvaluateArgs' evaluate: Left-hand operand of the expression.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.float:
+        """
+        Numeric value to compare against.
+        """
+        return pulumi.get(self, "value")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleUnlessNumberExpressionEvaluate']:
+        """
+        Left-hand operand of the expression.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessNumberExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 attribute: _builtins.str):
+        """
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> _builtins.str:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessStringExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleUnlessStringExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+        :param Sequence[_builtins.str] values: List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+        :param 'RuleSetRuleUnlessStringExpressionEvaluateArgs' evaluate: Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `client_certificate_attribute`, or `mime_header_attribute` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleUnlessStringExpressionEvaluate']:
+        """
+        Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `client_certificate_attribute`, or `mime_header_attribute` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessStringExpressionEvaluate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateAttribute":
+            suggest = "client_certificate_attribute"
+        elif key == "mimeHeaderAttribute":
+            suggest = "mime_header_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessStringExpressionEvaluate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessStringExpressionEvaluate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessStringExpressionEvaluate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleUnlessStringExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None,
+                 client_certificate_attribute: Optional[_builtins.str] = None,
+                 mime_header_attribute: Optional[_builtins.str] = None):
+        """
+        :param 'RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        :param _builtins.str client_certificate_attribute: Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+        :param _builtins.str mime_header_attribute: MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if client_certificate_attribute is not None:
+            pulumi.set(__self__, "client_certificate_attribute", client_certificate_attribute)
+        if mime_header_attribute is not None:
+            pulumi.set(__self__, "mime_header_attribute", mime_header_attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleUnlessStringExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateAttribute")
+    def client_certificate_attribute(self) -> Optional[_builtins.str]:
+        """
+        Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+        """
+        return pulumi.get(self, "client_certificate_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="mimeHeaderAttribute")
+    def mime_header_attribute(self) -> Optional[_builtins.str]:
+        """
+        MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+        """
+        return pulumi.get(self, "mime_header_attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessStringExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessStringExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessStringExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessStringExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessVerdictExpression(dict):
+    def __init__(__self__, *,
+                 operator: _builtins.str,
+                 values: Sequence[_builtins.str],
+                 evaluate: Optional['outputs.RuleSetRuleUnlessVerdictExpressionEvaluate'] = None):
+        """
+        :param _builtins.str operator: Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        :param Sequence[_builtins.str] values: List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+        :param 'RuleSetRuleUnlessVerdictExpressionEvaluateArgs' evaluate: Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+        if evaluate is not None:
+            pulumi.set(__self__, "evaluate", evaluate)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+        """
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluate(self) -> Optional['outputs.RuleSetRuleUnlessVerdictExpressionEvaluate']:
+        """
+        Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+        """
+        return pulumi.get(self, "evaluate")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessVerdictExpressionEvaluate(dict):
+    def __init__(__self__, *,
+                 analysis: Optional['outputs.RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis'] = None,
+                 attribute: Optional[_builtins.str] = None):
+        """
+        :param 'RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs' analysis: Add On result to evaluate. See `analysis` Block.
+        :param _builtins.str attribute: Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis']:
+        """
+        Add On result to evaluate. See `analysis` Block.
+        """
+        return pulumi.get(self, "analysis")
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        """
+        Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+        """
+        return pulumi.get(self, "attribute")
+
+
+@pulumi.output_type
+class RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultField":
+            suggest = "result_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analyzer: _builtins.str,
+                 result_field: _builtins.str):
+        """
+        :param _builtins.str analyzer: ARN of the Mail Manager Add On.
+        :param _builtins.str result_field: Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        pulumi.set(__self__, "analyzer", analyzer)
+        pulumi.set(__self__, "result_field", result_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> _builtins.str:
+        """
+        ARN of the Mail Manager Add On.
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="resultField")
+    def result_field(self) -> _builtins.str:
+        """
+        Result field returned by the Add On. Must contain between 1 and 256 characters.
+        """
+        return pulumi.get(self, "result_field")
+
 
 @pulumi.output_type
 class TrafficPolicyPolicyStatement(dict):

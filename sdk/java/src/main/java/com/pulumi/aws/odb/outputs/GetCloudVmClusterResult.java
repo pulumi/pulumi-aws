@@ -18,176 +18,184 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudVmClusterResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     private String arn;
+    /**
+     * @return ARN of the Cloud Exadata Infrastructure.
+     * 
+     */
     private String cloudExadataInfrastructureArn;
     /**
-     * @return The ID of the Cloud Exadata Infrastructure.
+     * @return ID of the Cloud Exadata Infrastructure.
      * 
      */
     private String cloudExadataInfrastructureId;
     /**
-     * @return The name of the Grid Infrastructure (GI) cluster.
+     * @return Name of the Grid Infrastructure (GI) cluster.
      * 
      */
     private String clusterName;
     /**
-     * @return The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * @return OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      * 
      */
     private String computeModel;
     /**
-     * @return The number of CPU cores enabled on the VM cluster.
+     * @return Number of CPU cores enabled on the VM cluster.
      * 
      */
     private Integer cpuCoreCount;
     /**
-     * @return The time when the VM cluster was created.
+     * @return Time when the VM cluster was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The set of diagnostic collection options enabled for the VM cluster.
+     * @return Set of diagnostic collection options enabled for the VM cluster.
      * 
      */
     private List<GetCloudVmClusterDataCollectionOption> dataCollectionOptions;
     /**
-     * @return The size of the data disk group, in terabytes (TB), that&#39;s allocated for the VM cluster.
+     * @return Size of the data disk group, in terabytes (TB), that&#39;s allocated for the VM cluster.
      * 
      */
     private Double dataStorageSizeInTbs;
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated for the VM cluster.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated for the VM cluster.
      * 
      */
     private Integer dbNodeStorageSizeInGbs;
     /**
-     * @return The list of database servers for the VM cluster.
+     * @return List of database servers for the VM cluster.
      * 
      */
     private List<String> dbServers;
     /**
-     * @return The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
+     * @return Type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
      * 
      */
     private String diskRedundancy;
     /**
-     * @return The display name of the VM cluster.
+     * @return Display name of the VM cluster.
      * 
      */
     private String displayName;
     /**
-     * @return The domain name of the VM cluster.
+     * @return Domain name of the VM cluster.
      * 
      */
     private String domain;
     /**
-     * @return The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
+     * @return Software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
      * 
      */
     private String giVersion;
     /**
-     * @return The computed hostname prefix for the VM cluster.
+     * @return Computed hostname prefix for the VM cluster.
      * 
      */
     private String hostnamePrefixComputed;
     private String id;
     /**
-     * @return The ExadataIormConfig cache details for the VM cluster.
+     * @return ExadataIormConfig cache details for the VM cluster.
      * 
      */
     private List<GetCloudVmClusterIormConfigCache> iormConfigCaches;
     /**
-     * @return Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
+     * @return Whether database backups to local Exadata storage is enabled for the VM cluster.
      * 
      */
     private Boolean isLocalBackupEnabled;
     /**
-     * @return Indicates whether the VM cluster is configured with a sparse disk group.
+     * @return Whether the VM cluster is configured with a sparse disk group.
      * 
      */
     private Boolean isSparseDiskGroupEnabled;
     /**
-     * @return The Oracle Cloud ID (OCID) of the last maintenance update history entry.
+     * @return Oracle Cloud ID (OCID) of the last maintenance update history entry.
      * 
      */
     private String lastUpdateHistoryEntryId;
     /**
-     * @return The Oracle license model applied to the VM cluster.
+     * @return Oracle license model applied to the VM cluster.
      * 
      */
     private String licenseModel;
     /**
-     * @return The port number configured for the listener on the VM cluster.
+     * @return Port number configured for the listener on the VM cluster.
      * 
      */
     private Integer listenerPort;
     /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated for the VM cluster.
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated for the VM cluster.
      * 
      */
     private Integer memorySizeInGbs;
     /**
-     * @return The number of nodes in the VM cluster.
+     * @return Number of nodes in the VM cluster.
      * 
      */
     private Integer nodeCount;
     /**
-     * @return The name of the OCI Resource Anchor.
+     * @return Name of the OCI Resource Anchor.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The HTTPS link to the VM cluster in OCI.
+     * @return HTTPS link to the VM cluster in OCI.
      * 
      */
     private String ociUrl;
     /**
-     * @return The OCID of the VM cluster.
+     * @return OCID of the VM cluster.
      * 
      */
     private String ocid;
+    /**
+     * @return ARN of the ODB network.
+     * 
+     */
     private String odbNetworkArn;
     /**
-     * @return The ID of the ODB network.
+     * @return ID of the ODB network.
      * 
      */
     private String odbNetworkId;
     /**
-     * @return The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the VM cluster, expressed as a percentage.
      * 
      */
     private Double percentProgress;
     private String region;
     /**
-     * @return The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
+     * @return FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
      * 
      */
     private String scanDnsName;
     /**
-     * @return The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
+     * @return OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
      * 
      */
     private String scanDnsRecordId;
     /**
-     * @return The OCID of the SCAN IP addresses that are associated with the VM cluster.
+     * @return OCID of the SCAN IP addresses that are associated with the VM cluster.
      * 
      */
     private List<String> scanIpIds;
     /**
-     * @return The hardware model name of the Exadata infrastructure that&#39;s running the VM cluster.
+     * @return Hardware model name of the Exadata infrastructure that&#39;s running the VM cluster.
      * 
      */
     private String shape;
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the VM cluster.
+     * @return Public key portion of one or more key pairs used for SSH access to the VM cluster.
      * 
      */
     private List<String> sshPublicKeys;
     /**
-     * @return The status of the VM cluster.
+     * @return Status of the VM cluster.
      * 
      */
     private String status;
@@ -197,131 +205,139 @@ public final class GetCloudVmClusterResult {
      */
     private String statusReason;
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated to the VM cluster.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated to the VM cluster.
      * 
      */
     private Integer storageSizeInGbs;
     /**
-     * @return The operating system version of the image chosen for the VM cluster.
+     * @return Operating system version of the image chosen for the VM cluster.
      * 
      */
     private String systemVersion;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
     /**
-     * @return The time zone of the VM cluster.
+     * @return Time zone of the VM cluster.
      * 
      */
     private String timezone;
     /**
-     * @return The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle&#39;s Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
+     * @return Virtual IP (VIP) addresses that are associated with the VM cluster. Oracle&#39;s Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
      * 
      */
     private List<String> vipIds;
 
     private GetCloudVmClusterResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return ARN of the Cloud Exadata Infrastructure.
+     * 
+     */
     public String cloudExadataInfrastructureArn() {
         return this.cloudExadataInfrastructureArn;
     }
     /**
-     * @return The ID of the Cloud Exadata Infrastructure.
+     * @return ID of the Cloud Exadata Infrastructure.
      * 
      */
     public String cloudExadataInfrastructureId() {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * @return The name of the Grid Infrastructure (GI) cluster.
+     * @return Name of the Grid Infrastructure (GI) cluster.
      * 
      */
     public String clusterName() {
         return this.clusterName;
     }
     /**
-     * @return The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * @return OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      * 
      */
     public String computeModel() {
         return this.computeModel;
     }
     /**
-     * @return The number of CPU cores enabled on the VM cluster.
+     * @return Number of CPU cores enabled on the VM cluster.
      * 
      */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * @return The time when the VM cluster was created.
+     * @return Time when the VM cluster was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The set of diagnostic collection options enabled for the VM cluster.
+     * @return Set of diagnostic collection options enabled for the VM cluster.
      * 
      */
     public List<GetCloudVmClusterDataCollectionOption> dataCollectionOptions() {
         return this.dataCollectionOptions;
     }
     /**
-     * @return The size of the data disk group, in terabytes (TB), that&#39;s allocated for the VM cluster.
+     * @return Size of the data disk group, in terabytes (TB), that&#39;s allocated for the VM cluster.
      * 
      */
     public Double dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated for the VM cluster.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated for the VM cluster.
      * 
      */
     public Integer dbNodeStorageSizeInGbs() {
         return this.dbNodeStorageSizeInGbs;
     }
     /**
-     * @return The list of database servers for the VM cluster.
+     * @return List of database servers for the VM cluster.
      * 
      */
     public List<String> dbServers() {
         return this.dbServers;
     }
     /**
-     * @return The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
+     * @return Type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
      * 
      */
     public String diskRedundancy() {
         return this.diskRedundancy;
     }
     /**
-     * @return The display name of the VM cluster.
+     * @return Display name of the VM cluster.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The domain name of the VM cluster.
+     * @return Domain name of the VM cluster.
      * 
      */
     public String domain() {
         return this.domain;
     }
     /**
-     * @return The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
+     * @return Software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
      * 
      */
     public String giVersion() {
         return this.giVersion;
     }
     /**
-     * @return The computed hostname prefix for the VM cluster.
+     * @return Computed hostname prefix for the VM cluster.
      * 
      */
     public String hostnamePrefixComputed() {
@@ -331,94 +347,98 @@ public final class GetCloudVmClusterResult {
         return this.id;
     }
     /**
-     * @return The ExadataIormConfig cache details for the VM cluster.
+     * @return ExadataIormConfig cache details for the VM cluster.
      * 
      */
     public List<GetCloudVmClusterIormConfigCache> iormConfigCaches() {
         return this.iormConfigCaches;
     }
     /**
-     * @return Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
+     * @return Whether database backups to local Exadata storage is enabled for the VM cluster.
      * 
      */
     public Boolean isLocalBackupEnabled() {
         return this.isLocalBackupEnabled;
     }
     /**
-     * @return Indicates whether the VM cluster is configured with a sparse disk group.
+     * @return Whether the VM cluster is configured with a sparse disk group.
      * 
      */
     public Boolean isSparseDiskGroupEnabled() {
         return this.isSparseDiskGroupEnabled;
     }
     /**
-     * @return The Oracle Cloud ID (OCID) of the last maintenance update history entry.
+     * @return Oracle Cloud ID (OCID) of the last maintenance update history entry.
      * 
      */
     public String lastUpdateHistoryEntryId() {
         return this.lastUpdateHistoryEntryId;
     }
     /**
-     * @return The Oracle license model applied to the VM cluster.
+     * @return Oracle license model applied to the VM cluster.
      * 
      */
     public String licenseModel() {
         return this.licenseModel;
     }
     /**
-     * @return The port number configured for the listener on the VM cluster.
+     * @return Port number configured for the listener on the VM cluster.
      * 
      */
     public Integer listenerPort() {
         return this.listenerPort;
     }
     /**
-     * @return The amount of memory, in gigabytes (GB), that&#39;s allocated for the VM cluster.
+     * @return Amount of memory, in gigabytes (GB), that&#39;s allocated for the VM cluster.
      * 
      */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * @return The number of nodes in the VM cluster.
+     * @return Number of nodes in the VM cluster.
      * 
      */
     public Integer nodeCount() {
         return this.nodeCount;
     }
     /**
-     * @return The name of the OCI Resource Anchor.
+     * @return Name of the OCI Resource Anchor.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The HTTPS link to the VM cluster in OCI.
+     * @return HTTPS link to the VM cluster in OCI.
      * 
      */
     public String ociUrl() {
         return this.ociUrl;
     }
     /**
-     * @return The OCID of the VM cluster.
+     * @return OCID of the VM cluster.
      * 
      */
     public String ocid() {
         return this.ocid;
     }
+    /**
+     * @return ARN of the ODB network.
+     * 
+     */
     public String odbNetworkArn() {
         return this.odbNetworkArn;
     }
     /**
-     * @return The ID of the ODB network.
+     * @return ID of the ODB network.
      * 
      */
     public String odbNetworkId() {
         return this.odbNetworkId;
     }
     /**
-     * @return The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the VM cluster, expressed as a percentage.
      * 
      */
     public Double percentProgress() {
@@ -428,42 +448,42 @@ public final class GetCloudVmClusterResult {
         return this.region;
     }
     /**
-     * @return The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
+     * @return FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
      * 
      */
     public String scanDnsName() {
         return this.scanDnsName;
     }
     /**
-     * @return The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
+     * @return OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
      * 
      */
     public String scanDnsRecordId() {
         return this.scanDnsRecordId;
     }
     /**
-     * @return The OCID of the SCAN IP addresses that are associated with the VM cluster.
+     * @return OCID of the SCAN IP addresses that are associated with the VM cluster.
      * 
      */
     public List<String> scanIpIds() {
         return this.scanIpIds;
     }
     /**
-     * @return The hardware model name of the Exadata infrastructure that&#39;s running the VM cluster.
+     * @return Hardware model name of the Exadata infrastructure that&#39;s running the VM cluster.
      * 
      */
     public String shape() {
         return this.shape;
     }
     /**
-     * @return The public key portion of one or more key pairs used for SSH access to the VM cluster.
+     * @return Public key portion of one or more key pairs used for SSH access to the VM cluster.
      * 
      */
     public List<String> sshPublicKeys() {
         return this.sshPublicKeys;
     }
     /**
-     * @return The status of the VM cluster.
+     * @return Status of the VM cluster.
      * 
      */
     public String status() {
@@ -477,31 +497,35 @@ public final class GetCloudVmClusterResult {
         return this.statusReason;
     }
     /**
-     * @return The amount of local node storage, in gigabytes (GB), that&#39;s allocated to the VM cluster.
+     * @return Amount of local node storage, in gigabytes (GB), that&#39;s allocated to the VM cluster.
      * 
      */
     public Integer storageSizeInGbs() {
         return this.storageSizeInGbs;
     }
     /**
-     * @return The operating system version of the image chosen for the VM cluster.
+     * @return Operating system version of the image chosen for the VM cluster.
      * 
      */
     public String systemVersion() {
         return this.systemVersion;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The time zone of the VM cluster.
+     * @return Time zone of the VM cluster.
      * 
      */
     public String timezone() {
         return this.timezone;
     }
     /**
-     * @return The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle&#39;s Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
+     * @return Virtual IP (VIP) addresses that are associated with the VM cluster. Oracle&#39;s Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
      * 
      */
     public List<String> vipIds() {

@@ -417,7 +417,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.GraphQLApiOpenidConnectConfig?> OpenidConnectConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
         /// 
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
         [Output("resolverCountLimit")]
         public Output<int?> ResolverCountLimit { get; private set; } = null!;
@@ -593,7 +593,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiOpenidConnectConfigArgs>? OpenidConnectConfig { get; set; }
 
         /// <summary>
-        /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
         /// 
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
@@ -607,7 +607,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
         [Input("resolverCountLimit")]
         public Input<int>? ResolverCountLimit { get; set; }
@@ -731,7 +731,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiOpenidConnectConfigGetArgs>? OpenidConnectConfig { get; set; }
 
         /// <summary>
-        /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
         /// 
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
@@ -745,7 +745,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
+        /// Maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
         [Input("resolverCountLimit")]
         public Input<int>? ResolverCountLimit { get; set; }

@@ -40,7 +40,7 @@ class TargetArgs:
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
-        :param pulumi.Input['TargetSuspendedStateArgs'] suspended_state: Specifies whether the scaling activities for a scalable target are in a suspended state.
+        :param pulumi.Input['TargetSuspendedStateArgs'] suspended_state: Whether the scaling activities for a scalable target are in a suspended state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "max_capacity", max_capacity)
@@ -145,7 +145,7 @@ class TargetArgs:
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> pulumi.Input[Optional['TargetSuspendedStateArgs']]:
         """
-        Specifies whether the scaling activities for a scalable target are in a suspended state.
+        Whether the scaling activities for a scalable target are in a suspended state.
         """
         return pulumi.get(self, "suspended_state")
 
@@ -183,7 +183,7 @@ class _TargetState:
         """
         Input properties used for looking up and filtering Target resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the scalable target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scalable target.
         :param pulumi.Input[_builtins.int] max_capacity: Max capacity of the scalable target.
         :param pulumi.Input[_builtins.int] min_capacity: Min capacity of the scalable target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,7 +191,7 @@ class _TargetState:
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        :param pulumi.Input['TargetSuspendedStateArgs'] suspended_state: Specifies whether the scaling activities for a scalable target are in a suspended state.
+        :param pulumi.Input['TargetSuspendedStateArgs'] suspended_state: Whether the scaling activities for a scalable target are in a suspended state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -222,7 +222,7 @@ class _TargetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the scalable target.
+        ARN of the scalable target.
         """
         return pulumi.get(self, "arn")
 
@@ -318,7 +318,7 @@ class _TargetState:
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> pulumi.Input[Optional['TargetSuspendedStateArgs']]:
         """
-        Specifies whether the scaling activities for a scalable target are in a suspended state.
+        Whether the scaling activities for a scalable target are in a suspended state.
         """
         return pulumi.get(self, "suspended_state")
 
@@ -491,7 +491,7 @@ class Target(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        :param pulumi.Input[Union['TargetSuspendedStateArgs', 'TargetSuspendedStateArgsDict']] suspended_state: Specifies whether the scaling activities for a scalable target are in a suspended state.
+        :param pulumi.Input[Union['TargetSuspendedStateArgs', 'TargetSuspendedStateArgsDict']] suspended_state: Whether the scaling activities for a scalable target are in a suspended state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -697,7 +697,7 @@ class Target(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the scalable target.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scalable target.
         :param pulumi.Input[_builtins.int] max_capacity: Max capacity of the scalable target.
         :param pulumi.Input[_builtins.int] min_capacity: Min capacity of the scalable target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -705,7 +705,7 @@ class Target(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
         :param pulumi.Input[_builtins.str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
         :param pulumi.Input[_builtins.str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-        :param pulumi.Input[Union['TargetSuspendedStateArgs', 'TargetSuspendedStateArgsDict']] suspended_state: Specifies whether the scaling activities for a scalable target are in a suspended state.
+        :param pulumi.Input[Union['TargetSuspendedStateArgs', 'TargetSuspendedStateArgsDict']] suspended_state: Whether the scaling activities for a scalable target are in a suspended state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -730,7 +730,7 @@ class Target(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the scalable target.
+        ARN of the scalable target.
         """
         return pulumi.get(self, "arn")
 
@@ -794,7 +794,7 @@ class Target(pulumi.CustomResource):
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> pulumi.Output['outputs.TargetSuspendedState']:
         """
-        Specifies whether the scaling activities for a scalable target are in a suspended state.
+        Whether the scaling activities for a scalable target are in a suspended state.
         """
         return pulumi.get(self, "suspended_state")
 

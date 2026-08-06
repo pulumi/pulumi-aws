@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> BucketPrefix { get; set; } = null!;
 
         /// <summary>
-        /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+        /// When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
         /// </summary>
         [Input("s3InputFormatConfig")]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs>? S3InputFormatConfig { get; set; }

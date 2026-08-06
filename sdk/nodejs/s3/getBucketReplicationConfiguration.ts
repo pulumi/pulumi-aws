@@ -36,7 +36,7 @@ export function getBucketReplicationConfiguration(args: GetBucketReplicationConf
  */
 export interface GetBucketReplicationConfigurationArgs {
     /**
-     * The name of the bucket to get the replication configuration for.
+     * Name of the bucket to get the replication configuration for.
      */
     bucket: string;
     /**
@@ -52,11 +52,11 @@ export interface GetBucketReplicationConfigurationResult {
     readonly bucket: string;
     readonly region: string;
     /**
-     * The ARN of the IAM role that Amazon S3 assumes when replicating objects.
+     * ARN of the IAM role that Amazon S3 assumes when replicating objects.
      */
     readonly role: string;
     /**
-     * An unordered list of configuration blocks that define the rules managing replication.
+     * Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
      */
     readonly rules: outputs.s3.GetBucketReplicationConfigurationRule[];
 }
@@ -89,7 +89,7 @@ export function getBucketReplicationConfigurationOutput(args: GetBucketReplicati
  */
 export interface GetBucketReplicationConfigurationOutputArgs {
     /**
-     * The name of the bucket to get the replication configuration for.
+     * Name of the bucket to get the replication configuration for.
      */
     bucket: pulumi.Input<string>;
     /**

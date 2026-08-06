@@ -48,14 +48,14 @@ public final class GetWindowsFileSystemArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * The tags to associate with the file system.
+     * Tags to associate with the file system.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags to associate with the file system.
+     * @return Tags to associate with the file system.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,7 +131,7 @@ public final class GetWindowsFileSystemArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags The tags to associate with the file system.
+         * @param tags Tags to associate with the file system.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetWindowsFileSystemArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param tags The tags to associate with the file system.
+         * @param tags Tags to associate with the file system.
          * 
          * @return builder
          * 

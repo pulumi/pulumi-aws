@@ -17,14 +17,14 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     public static final MultiRegionAccessPointState Empty = new MultiRegionAccessPointState();
 
     /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -62,14 +62,14 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     @Import(name="details")
     private @Nullable Output<MultiRegionAccessPointDetailsArgs> details;
 
     /**
-     * @return A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     public Optional<Output<MultiRegionAccessPointDetailsArgs>> details() {
@@ -168,7 +168,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
          * 
          * @return builder
          * 

@@ -83,22 +83,11 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// * `ResourceArn` (String) ARN of the resource the policy is attached to.
     /// 
-    /// #### Optional
-    /// 
-    /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `Region` (String) Region where this resource is managed.
-    /// 
     /// Using `pulumi import`, import OpenSearch Ingestion Resource Policy using the `ResourceArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearchingest/resourcePolicy:ResourcePolicy example arn:aws:osis:us-east-1:123456789012:pipeline/example
     /// ```
-    /// 
-    /// ### Identity Schema
-    /// 
-    /// Use the following attributes for import:
-    /// 
-    /// * `ResourceArn` - (Required) ARN of the resource the policy is attached to.
     /// </summary>
     [AwsResourceType("aws:opensearchingest/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource

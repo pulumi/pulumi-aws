@@ -17,32 +17,32 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudAutonomousVmClusterResult {
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     private String arn;
     /**
-     * @return The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
+     * @return Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
      * 
      */
     private Double autonomousDataStoragePercentage;
     /**
-     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     private Double autonomousDataStorageSizeInTbs;
     /**
-     * @return The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     private Double availableAutonomousDataStorageSizeInTbs;
     /**
-     * @return The number of Autonomous CDBs that you can create with the currently available storage.
+     * @return Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     private Integer availableContainerDatabases;
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     private Double availableCpus;
@@ -57,189 +57,189 @@ public final class GetCloudAutonomousVmClusterResult {
      */
     private String cloudExadataInfrastructureId;
     /**
-     * @return The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * @return Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     private String computeModel;
     /**
-     * @return The total number of CPU cores in the Autonomous VM cluster.
+     * @return Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     private Integer cpuCoreCount;
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster.
+     * @return Number of CPU cores enabled per node in the Autonomous VM cluster.
      * 
      */
     private Integer cpuCoreCountPerNode;
     /**
-     * @return he percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * @return Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     private Double cpuPercentage;
     /**
-     * @return The date and time when the Autonomous VM cluster was created.
+     * @return Date and time when the Autonomous VM cluster was created.
      * 
      */
     private String createdAt;
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in GB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     private Double dataStorageSizeInGbs;
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in TB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     private Double dataStorageSizeInTbs;
     /**
-     * @return The list of database servers associated with the Autonomous VM cluster.
+     * @return List of database servers associated with the Autonomous VM cluster.
      * 
      */
     private List<String> dbServers;
     /**
-     * @return The user-provided description of the Autonomous VM cluster.
+     * @return User-provided description of the Autonomous VM cluster.
      * 
      */
     private String description;
     /**
-     * @return The display name of the Autonomous VM cluster.
+     * @return Display name of the Autonomous VM cluster.
      * 
      */
     private String displayName;
     /**
-     * @return The domain name of the Autonomous VM cluster.
+     * @return Domain name of the Autonomous VM cluster.
      * 
      */
     private String domain;
     /**
-     * @return The minimum value to which you can scale down the Exadata storage, in TB.
+     * @return Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     private Double exadataStorageInTbsLowestScaledValue;
     /**
-     * @return The hostname of the Autonomous VM cluster.
+     * @return Hostname of the Autonomous VM cluster.
      * 
      */
     private String hostname;
     private String id;
     /**
-     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
+     * @return Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      * 
      */
     private Boolean isMtlsEnabledVmCluster;
     /**
-     * @return The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
+     * @return Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
      * 
      */
     private String licenseModel;
     /**
-     * @return The maintenance window for the Autonomous VM cluster.
+     * @return Maintenance window for the Autonomous VM cluster.
      * 
      */
     private List<GetCloudAutonomousVmClusterMaintenanceWindow> maintenanceWindows;
     /**
-     * @return The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * @return Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     private Integer maxAcdsLowestScaledValue;
     /**
-     * @return The amount of memory allocated per Oracle Compute Unit, in GB.
+     * @return Amount of memory allocated per Oracle Compute Unit, in GB.
      * 
      */
     private Integer memoryPerOracleComputeUnitInGbs;
     /**
-     * @return The total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     private Integer memorySizeInGbs;
     /**
-     * @return The number of database server nodes in the Autonomous VM cluster.
+     * @return Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     private Integer nodeCount;
     /**
-     * @return The number of Autonomous CDBs that can&#39;t be provisioned because of resource  constraints.
+     * @return Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     private Integer nonProvisionableAutonomousContainerDatabases;
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     private String ociUrl;
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     private String ocid;
     /**
-     * @return The arn of the ODB network associated with this Autonomous VM cluster.
+     * @return ARN of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     private String odbNetworkArn;
     /**
-     * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
+     * @return Unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     private String odbNetworkId;
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     private Integer odbNodeStorageSizeInGbs;
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     private Double percentProgress;
     /**
-     * @return The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     private Integer provisionableAutonomousContainerDatabases;
     /**
-     * @return The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     private Integer provisionedAutonomousContainerDatabases;
     /**
-     * @return The number of CPU cores currently provisioned in the Autonomous VM cluster.
+     * @return Number of CPU cores currently provisioned in the Autonomous VM cluster.
      * 
      */
     private Double provisionedCpus;
     /**
-     * @return The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * @return Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     private Double reclaimableCpus;
     private String region;
     /**
-     * @return The number of CPU cores reserved for system operations and redundancy.
+     * @return Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     private Double reservedCpus;
     /**
-     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
+     * @return SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
      * 
      */
     private Integer scanListenerPortNonTls;
     /**
-     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484.
+     * @return SCAN listener port for TLS (TCP) protocol. The default is 2484.
      * 
      */
     private Integer scanListenerPortTls;
     /**
-     * @return The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * @return Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     private String shape;
     /**
-     * @return The status of the Autonomous VM cluster.
+     * @return Status of the Autonomous VM cluster.
      * 
      */
     private String status;
@@ -249,69 +249,69 @@ public final class GetCloudAutonomousVmClusterResult {
      */
     private String statusReason;
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The expiration date and time of the database SSL certificate.
+     * @return Expiration date and time of the database SSL certificate.
      * 
      */
     private String timeDatabaseSslCertificateExpires;
     /**
-     * @return The expiration date and time of the Oracle REST Data Services (ORDS)certificate.
+     * @return Expiration date and time of the Oracle REST Data Services (ORDS) certificate.
      * 
      */
     private String timeOrdsCertificateExpires;
     /**
-     * @return The time zone of the Autonomous VM cluster.
+     * @return Time zone of the Autonomous VM cluster.
      * 
      */
     private String timeZone;
     /**
-     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage.
+     * @return Total number of Autonomous Container Databases that can be created with the allocated local storage.
      * 
      */
     private Integer totalContainerDatabases;
 
     private GetCloudAutonomousVmClusterResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
+     * @return Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
      * 
      */
     public Double autonomousDataStoragePercentage() {
         return this.autonomousDataStoragePercentage;
     }
     /**
-     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     public Double autonomousDataStorageSizeInTbs() {
         return this.autonomousDataStorageSizeInTbs;
     }
     /**
-     * @return The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+     * @return Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
      * 
      */
     public Double availableAutonomousDataStorageSizeInTbs() {
         return this.availableAutonomousDataStorageSizeInTbs;
     }
     /**
-     * @return The number of Autonomous CDBs that you can create with the currently available storage.
+     * @return Number of Autonomous CDBs that you can create with the currently available storage.
      * 
      */
     public Integer availableContainerDatabases() {
         return this.availableContainerDatabases;
     }
     /**
-     * @return The number of CPU cores available for allocation to Autonomous Databases.
+     * @return Number of CPU cores available for allocation to Autonomous Databases.
      * 
      */
     public Double availableCpus() {
@@ -332,91 +332,91 @@ public final class GetCloudAutonomousVmClusterResult {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * @return The compute model of the Autonomous VM cluster: ECPU or OCPU.
+     * @return Compute model of the Autonomous VM cluster: ECPU or OCPU.
      * 
      */
     public String computeModel() {
         return this.computeModel;
     }
     /**
-     * @return The total number of CPU cores in the Autonomous VM cluster.
+     * @return Total number of CPU cores in the Autonomous VM cluster.
      * 
      */
     public Integer cpuCoreCount() {
         return this.cpuCoreCount;
     }
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster.
+     * @return Number of CPU cores enabled per node in the Autonomous VM cluster.
      * 
      */
     public Integer cpuCoreCountPerNode() {
         return this.cpuCoreCountPerNode;
     }
     /**
-     * @return he percentage of total CPU cores currently in use in the Autonomous VM cluster.
+     * @return Percentage of total CPU cores currently in use in the Autonomous VM cluster.
      * 
      */
     public Double cpuPercentage() {
         return this.cpuPercentage;
     }
     /**
-     * @return The date and time when the Autonomous VM cluster was created.
+     * @return Date and time when the Autonomous VM cluster was created.
      * 
      */
     public String createdAt() {
         return this.createdAt;
     }
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in GB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in GB.
      * 
      */
     public Double dataStorageSizeInGbs() {
         return this.dataStorageSizeInGbs;
     }
     /**
-     * @return The total data storage allocated to the Autonomous VM cluster, in TB.
+     * @return Total data storage allocated to the Autonomous VM cluster, in TB.
      * 
      */
     public Double dataStorageSizeInTbs() {
         return this.dataStorageSizeInTbs;
     }
     /**
-     * @return The list of database servers associated with the Autonomous VM cluster.
+     * @return List of database servers associated with the Autonomous VM cluster.
      * 
      */
     public List<String> dbServers() {
         return this.dbServers;
     }
     /**
-     * @return The user-provided description of the Autonomous VM cluster.
+     * @return User-provided description of the Autonomous VM cluster.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return The display name of the Autonomous VM cluster.
+     * @return Display name of the Autonomous VM cluster.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The domain name of the Autonomous VM cluster.
+     * @return Domain name of the Autonomous VM cluster.
      * 
      */
     public String domain() {
         return this.domain;
     }
     /**
-     * @return The minimum value to which you can scale down the Exadata storage, in TB.
+     * @return Minimum value to which you can scale down the Exadata storage, in TB.
      * 
      */
     public Double exadataStorageInTbsLowestScaledValue() {
         return this.exadataStorageInTbsLowestScaledValue;
     }
     /**
-     * @return The hostname of the Autonomous VM cluster.
+     * @return Hostname of the Autonomous VM cluster.
      * 
      */
     public String hostname() {
@@ -426,133 +426,133 @@ public final class GetCloudAutonomousVmClusterResult {
         return this.id;
     }
     /**
-     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
+     * @return Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
      * 
      */
     public Boolean isMtlsEnabledVmCluster() {
         return this.isMtlsEnabledVmCluster;
     }
     /**
-     * @return The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
+     * @return Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
      * 
      */
     public String licenseModel() {
         return this.licenseModel;
     }
     /**
-     * @return The maintenance window for the Autonomous VM cluster.
+     * @return Maintenance window for the Autonomous VM cluster.
      * 
      */
     public List<GetCloudAutonomousVmClusterMaintenanceWindow> maintenanceWindows() {
         return this.maintenanceWindows;
     }
     /**
-     * @return The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+     * @return Minimum value to which you can scale down the maximum number of Autonomous CDBs.
      * 
      */
     public Integer maxAcdsLowestScaledValue() {
         return this.maxAcdsLowestScaledValue;
     }
     /**
-     * @return The amount of memory allocated per Oracle Compute Unit, in GB.
+     * @return Amount of memory allocated per Oracle Compute Unit, in GB.
      * 
      */
     public Integer memoryPerOracleComputeUnitInGbs() {
         return this.memoryPerOracleComputeUnitInGbs;
     }
     /**
-     * @return The total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     public Integer memorySizeInGbs() {
         return this.memorySizeInGbs;
     }
     /**
-     * @return The number of database server nodes in the Autonomous VM cluster.
+     * @return Number of database server nodes in the Autonomous VM cluster.
      * 
      */
     public Integer nodeCount() {
         return this.nodeCount;
     }
     /**
-     * @return The number of Autonomous CDBs that can&#39;t be provisioned because of resource  constraints.
+     * @return Number of Autonomous CDBs that can&#39;t be provisioned because of resource constraints.
      * 
      */
     public Integer nonProvisionableAutonomousContainerDatabases() {
         return this.nonProvisionableAutonomousContainerDatabases;
     }
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     public String ociUrl() {
         return this.ociUrl;
     }
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     public String ocid() {
         return this.ocid;
     }
     /**
-     * @return The arn of the ODB network associated with this Autonomous VM cluster.
+     * @return ARN of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     public String odbNetworkArn() {
         return this.odbNetworkArn;
     }
     /**
-     * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
+     * @return Unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     public String odbNetworkId() {
         return this.odbNetworkId;
     }
     /**
-     * @return The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+     * @return Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
      * 
      */
     public Integer odbNodeStorageSizeInGbs() {
         return this.odbNodeStorageSizeInGbs;
     }
     /**
-     * @return The progress of the current operation on the Autonomous VM cluster, as a percentage.
+     * @return Progress of the current operation on the Autonomous VM cluster, as a percentage.
      * 
      */
     public Double percentProgress() {
         return this.percentProgress;
     }
     /**
-     * @return The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
      * 
      */
     public Integer provisionableAutonomousContainerDatabases() {
         return this.provisionableAutonomousContainerDatabases;
     }
     /**
-     * @return The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+     * @return Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
      * 
      */
     public Integer provisionedAutonomousContainerDatabases() {
         return this.provisionedAutonomousContainerDatabases;
     }
     /**
-     * @return The number of CPU cores currently provisioned in the Autonomous VM cluster.
+     * @return Number of CPU cores currently provisioned in the Autonomous VM cluster.
      * 
      */
     public Double provisionedCpus() {
         return this.provisionedCpus;
     }
     /**
-     * @return The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+     * @return Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
      * 
      */
     public Double reclaimableCpus() {
@@ -562,35 +562,35 @@ public final class GetCloudAutonomousVmClusterResult {
         return this.region;
     }
     /**
-     * @return The number of CPU cores reserved for system operations and redundancy.
+     * @return Number of CPU cores reserved for system operations and redundancy.
      * 
      */
     public Double reservedCpus() {
         return this.reservedCpus;
     }
     /**
-     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
+     * @return SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
      * 
      */
     public Integer scanListenerPortNonTls() {
         return this.scanListenerPortNonTls;
     }
     /**
-     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484.
+     * @return SCAN listener port for TLS (TCP) protocol. The default is 2484.
      * 
      */
     public Integer scanListenerPortTls() {
         return this.scanListenerPortTls;
     }
     /**
-     * @return The shape of the Exadata infrastructure for the Autonomous VM cluster.
+     * @return Shape of the Exadata infrastructure for the Autonomous VM cluster.
      * 
      */
     public String shape() {
         return this.shape;
     }
     /**
-     * @return The status of the Autonomous VM cluster.
+     * @return Status of the Autonomous VM cluster.
      * 
      */
     public String status() {
@@ -604,35 +604,35 @@ public final class GetCloudAutonomousVmClusterResult {
         return this.statusReason;
     }
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The expiration date and time of the database SSL certificate.
+     * @return Expiration date and time of the database SSL certificate.
      * 
      */
     public String timeDatabaseSslCertificateExpires() {
         return this.timeDatabaseSslCertificateExpires;
     }
     /**
-     * @return The expiration date and time of the Oracle REST Data Services (ORDS)certificate.
+     * @return Expiration date and time of the Oracle REST Data Services (ORDS) certificate.
      * 
      */
     public String timeOrdsCertificateExpires() {
         return this.timeOrdsCertificateExpires;
     }
     /**
-     * @return The time zone of the Autonomous VM cluster.
+     * @return Time zone of the Autonomous VM cluster.
      * 
      */
     public String timeZone() {
         return this.timeZone;
     }
     /**
-     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage.
+     * @return Total number of Autonomous Container Databases that can be created with the allocated local storage.
      * 
      */
     public Integer totalContainerDatabases() {

@@ -78,24 +78,24 @@ type Permission struct {
 
 	// ARN of the permission.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+	// Whether this is the default version of the managed permission.
 	DefaultVersion pulumi.BoolOutput `pulumi:"defaultVersion"`
-	// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+	// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 	PolicyTemplate pulumi.StringOutput `pulumi:"policyTemplate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+	// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// The current status of the permission.
+	// Current status of the permission.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
 	Timeouts PermissionTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The version of the permission associated with this resource share.
+	// Version of the permission associated with this resource share.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -137,48 +137,48 @@ func GetPermission(ctx *pulumi.Context,
 type permissionState struct {
 	// ARN of the permission.
 	Arn *string `pulumi:"arn"`
-	// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+	// Whether this is the default version of the managed permission.
 	DefaultVersion *bool `pulumi:"defaultVersion"`
-	// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name *string `pulumi:"name"`
-	// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+	// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 	PolicyTemplate *string `pulumi:"policyTemplate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+	// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 	ResourceType *string `pulumi:"resourceType"`
-	// The current status of the permission.
+	// Current status of the permission.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string   `pulumi:"tagsAll"`
 	Timeouts *PermissionTimeouts `pulumi:"timeouts"`
-	// The version of the permission associated with this resource share.
+	// Version of the permission associated with this resource share.
 	Version *string `pulumi:"version"`
 }
 
 type PermissionState struct {
 	// ARN of the permission.
 	Arn pulumi.StringPtrInput
-	// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+	// Whether this is the default version of the managed permission.
 	DefaultVersion pulumi.BoolPtrInput
-	// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name pulumi.StringPtrInput
-	// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+	// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 	PolicyTemplate pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+	// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 	ResourceType pulumi.StringPtrInput
-	// The current status of the permission.
+	// Current status of the permission.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts PermissionTimeoutsPtrInput
-	// The version of the permission associated with this resource share.
+	// Version of the permission associated with this resource share.
 	Version pulumi.StringPtrInput
 }
 
@@ -187,30 +187,30 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name *string `pulumi:"name"`
-	// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+	// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 	PolicyTemplate string `pulumi:"policyTemplate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+	// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 	ResourceType string `pulumi:"resourceType"`
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string   `pulumi:"tags"`
 	Timeouts *PermissionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+	// Name of the customer managed permission. The name must be unique within the AWS Region.
 	Name pulumi.StringPtrInput
-	// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+	// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 	PolicyTemplate pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+	// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 	ResourceType pulumi.StringInput
-	// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts PermissionTimeoutsPtrInput
 }
@@ -307,17 +307,17 @@ func (o PermissionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+// Whether this is the default version of the managed permission.
 func (o PermissionOutput) DefaultVersion() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Permission) pulumi.BoolOutput { return v.DefaultVersion }).(pulumi.BoolOutput)
 }
 
-// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+// Name of the customer managed permission. The name must be unique within the AWS Region.
 func (o PermissionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
 func (o PermissionOutput) PolicyTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.PolicyTemplate }).(pulumi.StringOutput)
 }
@@ -327,22 +327,22 @@ func (o PermissionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+// Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
 func (o PermissionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// The current status of the permission.
+// Current status of the permission.
 func (o PermissionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PermissionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o PermissionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -351,7 +351,7 @@ func (o PermissionOutput) Timeouts() PermissionTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Permission) PermissionTimeoutsPtrOutput { return v.Timeouts }).(PermissionTimeoutsPtrOutput)
 }
 
-// The version of the permission associated with this resource share.
+// Version of the permission associated with this resource share.
 func (o PermissionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

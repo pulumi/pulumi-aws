@@ -17,14 +17,14 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
     public static final OntapVolumeSnaplockConfigurationAutocommitPeriodArgs Empty = new OntapVolumeSnaplockConfigurationAutocommitPeriodArgs();
 
     /**
-     * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+     * Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+     * @return Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -32,14 +32,14 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
     }
 
     /**
-     * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
     /**
-     * @return The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+     * @return Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
     public Optional<Output<Integer>> value() {
@@ -72,7 +72,7 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
         }
 
         /**
-         * @param type The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         * @param type Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
         }
 
         /**
-         * @param type The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+         * @param type Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
         }
 
         /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * @param value Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs extends 
         }
 
         /**
-         * @param value The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * @param value Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
          * 
          * @return builder
          * 

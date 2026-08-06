@@ -76,7 +76,7 @@ type LookupAccessPointResult struct {
 	// VPC endpoint for the access point.
 	Endpoints map[string]string `pulumi:"endpoints"`
 	Name      string            `pulumi:"name"`
-	// Indicates whether the access point allows access from the public Internet.
+	// Whether the access point allows access from the public Internet.
 	NetworkOrigin string `pulumi:"networkOrigin"`
 	// `PublicAccessBlock` configuration for the access point.
 	PublicAccessBlockConfigurations []GetAccessPointPublicAccessBlockConfiguration `pulumi:"publicAccessBlockConfigurations"`
@@ -168,7 +168,7 @@ func (o LookupAccessPointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether the access point allows access from the public Internet.
+// Whether the access point allows access from the public Internet.
 func (o LookupAccessPointResultOutput) NetworkOrigin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) string { return v.NetworkOrigin }).(pulumi.StringOutput)
 }

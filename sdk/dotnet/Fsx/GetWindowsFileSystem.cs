@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Fsx
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags to associate with the file system.
+        /// Tags to associate with the file system.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags to associate with the file system.
+        /// Tags to associate with the file system.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -160,11 +160,11 @@ namespace Pulumi.Aws.Fsx
     public sealed class GetWindowsFileSystemResult
     {
         /// <summary>
-        /// The ID for Microsoft Active Directory instance that the file system is join to.
+        /// ID for Microsoft Active Directory instance that the file system is joined to.
         /// </summary>
         public readonly string ActiveDirectoryId;
         /// <summary>
-        /// An array DNS alias names associated with the Amazon FSx file system.
+        /// Set of DNS alias names associated with the Amazon FSx file system.
         /// </summary>
         public readonly ImmutableArray<string> Aliases;
         /// <summary>
@@ -172,28 +172,31 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
+        /// Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFileSystemAuditLogConfigurationResult> AuditLogConfigurations;
         /// <summary>
-        /// The number of days to retain automatic backups.
+        /// Number of days to retain automatic backups.
         /// </summary>
         public readonly int AutomaticBackupRetentionDays;
+        /// <summary>
+        /// Identifier of the source backup used to create the file system.
+        /// </summary>
         public readonly string BackupId;
         /// <summary>
-        /// A boolean flag indicating whether tags on the file system should be copied to backups.
+        /// Whether tags on the file system are copied to backups.
         /// </summary>
         public readonly bool CopyTagsToBackups;
         /// <summary>
-        /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        /// Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
         public readonly string DailyAutomaticBackupStartTime;
         /// <summary>
-        /// The file system deployment type.
+        /// File system deployment type.
         /// </summary>
         public readonly string DeploymentType;
         /// <summary>
-        /// The SSD IOPS configuration for the file system.
+        /// SSD IOPS configuration for the file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetWindowsFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
         /// <summary>
@@ -208,36 +211,45 @@ namespace Pulumi.Aws.Fsx
         /// ARN for the KMS Key to encrypt the file system at rest.
         /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// Set of network interface identifiers for the file system.
+        /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// The IP address of the primary, or preferred, file server.
+        /// IP address of the primary, or preferred, file server.
         /// </summary>
         public readonly string PreferredFileServerIp;
         /// <summary>
-        /// Specifies the subnet in which you want the preferred file server to be located.
+        /// Subnet in which the preferred file server is located.
         /// </summary>
         public readonly string PreferredSubnetId;
         public readonly string Region;
+        /// <summary>
+        /// Set of security group identifiers associated with the file system.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// Whether a final backup is skipped when the file system is deleted.
+        /// </summary>
         public readonly bool SkipFinalBackup;
         /// <summary>
-        /// The storage capacity of the file system in gibibytes (GiB).
+        /// Storage capacity of the file system in gibibytes (GiB).
         /// </summary>
         public readonly int StorageCapacity;
         /// <summary>
-        /// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+        /// Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         /// </summary>
         public readonly string StorageType;
         /// <summary>
-        /// Specifies the IDs of the subnets that the file system is accessible from.
+        /// IDs of the subnets that the file system is accessible from.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The tags to associate with the file system.
+        /// Tags to associate with the file system.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -245,11 +257,11 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly int ThroughputCapacity;
         /// <summary>
-        /// The ID of the primary virtual private cloud (VPC) for the file system.
+        /// ID of the primary virtual private cloud (VPC) for the file system.
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         public readonly string WeeklyMaintenanceStartTime;
 

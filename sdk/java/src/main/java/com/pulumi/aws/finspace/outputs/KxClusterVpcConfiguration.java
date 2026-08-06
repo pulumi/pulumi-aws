@@ -18,13 +18,16 @@ public final class KxClusterVpcConfiguration {
     private String ipAddressType;
     /**
      * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     private List<String> securityGroupIds;
+    /**
+     * @return Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+     * 
+     */
     private List<String> subnetIds;
     /**
-     * @return Identifier of the VPC endpoint
+     * @return Identifier of the VPC endpoint.
      * 
      */
     private String vpcId;
@@ -39,17 +42,20 @@ public final class KxClusterVpcConfiguration {
     }
     /**
      * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
+    /**
+     * @return Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * @return Identifier of the VPC endpoint
+     * @return Identifier of the VPC endpoint.
      * 
      */
     public String vpcId() {

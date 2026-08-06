@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * > **Note:** If the `body` argument is provided, the OpenAPI specification will be used to configure the integrations and routes for the HTTP API, and the `aws.apigatewayv2.Integration` and `aws.apigatewayv2.Route` resources should not be managed as separate ones, as updates may cause manual resource updates to be overwritten. The `name`, `description`, `corsConfiguration`, `tags`, and `version` fields should be specified in the Terraform configuration and their values will override any values specified in the OpenAPI document.
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -91,9 +93,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly apiEndpoint: pulumi.Output<string>;
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-     * Applicable for WebSocket APIs.
+     * [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
      */
     declare public readonly apiKeySelectionExpression: pulumi.Output<string | undefined>;
     /**
@@ -101,11 +101,11 @@ export class Api extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     * OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      */
     declare public readonly body: pulumi.Output<string | undefined>;
     /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `corsConfiguration` Block below.
      */
     declare public readonly corsConfiguration: pulumi.Output<outputs.apigatewayv2.ApiCorsConfiguration | undefined>;
     /**
@@ -117,15 +117,11 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Whether clients can invoke the API by using the default `execute-api` endpoint.
-     * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-     * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+     * Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      */
     declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean | undefined>;
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
@@ -133,7 +129,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
-     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      */
     declare public readonly ipAddressType: pulumi.Output<string>;
     /**
@@ -142,6 +138,8 @@ export class Api extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly protocolType: pulumi.Output<string>;
     /**
@@ -153,8 +151,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public readonly routeKey: pulumi.Output<string | undefined>;
     /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     * Defaults to `$request.method $request.path`.
+     * [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
      */
     declare public readonly routeSelectionExpression: pulumi.Output<string | undefined>;
     /**
@@ -166,9 +163,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-     * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-     * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      */
     declare public readonly target: pulumi.Output<string | undefined>;
     /**
@@ -249,9 +244,7 @@ export interface ApiState {
      */
     apiEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-     * Applicable for WebSocket APIs.
+     * [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
      */
     apiKeySelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -259,11 +252,11 @@ export interface ApiState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     * OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      */
     body?: pulumi.Input<string | undefined>;
     /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `corsConfiguration` Block below.
      */
     corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration | undefined>;
     /**
@@ -275,15 +268,11 @@ export interface ApiState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Whether clients can invoke the API by using the default `execute-api` endpoint.
-     * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-     * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+     * Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean | undefined>;
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     executionArn?: pulumi.Input<string | undefined>;
     /**
@@ -291,7 +280,7 @@ export interface ApiState {
      */
     failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
-     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
@@ -300,6 +289,8 @@ export interface ApiState {
     name?: pulumi.Input<string | undefined>;
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     *
+     * The following arguments are optional:
      */
     protocolType?: pulumi.Input<string | undefined>;
     /**
@@ -311,8 +302,7 @@ export interface ApiState {
      */
     routeKey?: pulumi.Input<string | undefined>;
     /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     * Defaults to `$request.method $request.path`.
+     * [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
      */
     routeSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -324,9 +314,7 @@ export interface ApiState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-     * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-     * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      */
     target?: pulumi.Input<string | undefined>;
     /**
@@ -340,17 +328,15 @@ export interface ApiState {
  */
 export interface ApiArgs {
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-     * Applicable for WebSocket APIs.
+     * [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
      */
     apiKeySelectionExpression?: pulumi.Input<string | undefined>;
     /**
-     * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+     * OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      */
     body?: pulumi.Input<string | undefined>;
     /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `corsConfiguration` Block below.
      */
     corsConfiguration?: pulumi.Input<inputs.apigatewayv2.ApiCorsConfiguration | undefined>;
     /**
@@ -362,9 +348,7 @@ export interface ApiArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Whether clients can invoke the API by using the default `execute-api` endpoint.
-     * By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-     * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+     * Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean | undefined>;
     /**
@@ -372,7 +356,7 @@ export interface ApiArgs {
      */
     failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
-     * The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
+     * IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
@@ -381,6 +365,8 @@ export interface ApiArgs {
     name?: pulumi.Input<string | undefined>;
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+     *
+     * The following arguments are optional:
      */
     protocolType: pulumi.Input<string>;
     /**
@@ -392,8 +378,7 @@ export interface ApiArgs {
      */
     routeKey?: pulumi.Input<string | undefined>;
     /**
-     * The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-     * Defaults to `$request.method $request.path`.
+     * [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
      */
     routeSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -401,9 +386,7 @@ export interface ApiArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-     * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-     * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+     * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      */
     target?: pulumi.Input<string | undefined>;
     /**

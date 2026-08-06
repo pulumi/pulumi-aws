@@ -56,7 +56,7 @@ type LookupOntapFileSystemArgs struct {
 	Id string `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The tags associated with the file system.
+	// Tags associated with the file system.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -64,50 +64,50 @@ type LookupOntapFileSystemArgs struct {
 type LookupOntapFileSystemResult struct {
 	// Amazon Resource Name of the file system.
 	Arn string `pulumi:"arn"`
-	// The number of days to retain automatic backups.
+	// Number of days to retain automatic backups.
 	AutomaticBackupRetentionDays int `pulumi:"automaticBackupRetentionDays"`
-	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+	// Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 	DailyAutomaticBackupStartTime string `pulumi:"dailyAutomaticBackupStartTime"`
-	// The file system deployment type.
+	// File system deployment type.
 	DeploymentType string `pulumi:"deploymentType"`
-	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+	// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
 	DiskIopsConfigurations []GetOntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
 	// DNS name for the file system.
 	DnsName string `pulumi:"dnsName"`
-	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+	// (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
 	EndpointIpAddressRange string `pulumi:"endpointIpAddressRange"`
-	// The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+	// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
 	Endpoints []GetOntapFileSystemEndpoint `pulumi:"endpoints"`
-	// The number of HA pairs for the file system.
+	// Number of HA pairs for the file system.
 	HaPairs int `pulumi:"haPairs"`
 	// Identifier of the file system (e.g. `fs-12345678`).
 	Id string `pulumi:"id"`
 	// ARN for the KMS Key to encrypt the file system at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The IDs of the elastic network interfaces from which a specific file system is accessible.
+	// IDs of the elastic network interfaces from which a specific file system is accessible.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// AWS account identifier that created the file system.
 	OwnerId string `pulumi:"ownerId"`
-	// Specifies the subnet in which you want the preferred file server to be located.
+	// Subnet in which you want the preferred file server to be located.
 	PreferredSubnetId string `pulumi:"preferredSubnetId"`
 	Region            string `pulumi:"region"`
-	// (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
+	// (Multi-AZ only) VPC route tables in which your file system's endpoints exist.
 	RouteTableIds []string `pulumi:"routeTableIds"`
-	// The storage capacity of the file system in gibibytes (GiB).
+	// Storage capacity of the file system in gibibytes (GiB).
 	StorageCapacity int `pulumi:"storageCapacity"`
-	// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+	// Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
 	StorageType string `pulumi:"storageType"`
-	// Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
+	// IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The tags associated with the file system.
+	// Tags associated with the file system.
 	Tags map[string]string `pulumi:"tags"`
-	// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
+	// Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
 	ThroughputCapacity int `pulumi:"throughputCapacity"`
-	// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+	// Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
 	ThroughputCapacityPerHaPair int `pulumi:"throughputCapacityPerHaPair"`
-	// The ID of the primary virtual private cloud (VPC) for the file system.
+	// ID of the primary virtual private cloud (VPC) for the file system.
 	VpcId string `pulumi:"vpcId"`
-	// The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+	// Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime string `pulumi:"weeklyMaintenanceStartTime"`
 }
 
@@ -126,7 +126,7 @@ type LookupOntapFileSystemOutputArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The tags associated with the file system.
+	// Tags associated with the file system.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -154,22 +154,22 @@ func (o LookupOntapFileSystemResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The number of days to retain automatic backups.
+// Number of days to retain automatic backups.
 func (o LookupOntapFileSystemResultOutput) AutomaticBackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.AutomaticBackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+// Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
 func (o LookupOntapFileSystemResultOutput) DailyAutomaticBackupStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DailyAutomaticBackupStartTime }).(pulumi.StringOutput)
 }
 
-// The file system deployment type.
+// File system deployment type.
 func (o LookupOntapFileSystemResultOutput) DeploymentType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DeploymentType }).(pulumi.StringOutput)
 }
 
-// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
 func (o LookupOntapFileSystemResultOutput) DiskIopsConfigurations() GetOntapFileSystemDiskIopsConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []GetOntapFileSystemDiskIopsConfiguration {
 		return v.DiskIopsConfigurations
@@ -181,17 +181,17 @@ func (o LookupOntapFileSystemResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+// (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
 func (o LookupOntapFileSystemResultOutput) EndpointIpAddressRange() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.EndpointIpAddressRange }).(pulumi.StringOutput)
 }
 
-// The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
 func (o LookupOntapFileSystemResultOutput) Endpoints() GetOntapFileSystemEndpointArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []GetOntapFileSystemEndpoint { return v.Endpoints }).(GetOntapFileSystemEndpointArrayOutput)
 }
 
-// The number of HA pairs for the file system.
+// Number of HA pairs for the file system.
 func (o LookupOntapFileSystemResultOutput) HaPairs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.HaPairs }).(pulumi.IntOutput)
 }
@@ -206,7 +206,7 @@ func (o LookupOntapFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The IDs of the elastic network interfaces from which a specific file system is accessible.
+// IDs of the elastic network interfaces from which a specific file system is accessible.
 func (o LookupOntapFileSystemResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
@@ -216,7 +216,7 @@ func (o LookupOntapFileSystemResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.OwnerId }).(pulumi.StringOutput)
 }
 
-// Specifies the subnet in which you want the preferred file server to be located.
+// Subnet in which you want the preferred file server to be located.
 func (o LookupOntapFileSystemResultOutput) PreferredSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.PreferredSubnetId }).(pulumi.StringOutput)
 }
@@ -225,47 +225,47 @@ func (o LookupOntapFileSystemResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
+// (Multi-AZ only) VPC route tables in which your file system's endpoints exist.
 func (o LookupOntapFileSystemResultOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
 
-// The storage capacity of the file system in gibibytes (GiB).
+// Storage capacity of the file system in gibibytes (GiB).
 func (o LookupOntapFileSystemResultOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.StorageCapacity }).(pulumi.IntOutput)
 }
 
-// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+// Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
 func (o LookupOntapFileSystemResultOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
+// IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
 func (o LookupOntapFileSystemResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The tags associated with the file system.
+// Tags associated with the file system.
 func (o LookupOntapFileSystemResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
+// Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
 func (o LookupOntapFileSystemResultOutput) ThroughputCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.ThroughputCapacity }).(pulumi.IntOutput)
 }
 
-// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+// Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
 func (o LookupOntapFileSystemResultOutput) ThroughputCapacityPerHaPair() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) int { return v.ThroughputCapacityPerHaPair }).(pulumi.IntOutput)
 }
 
-// The ID of the primary virtual private cloud (VPC) for the file system.
+// ID of the primary virtual private cloud (VPC) for the file system.
 func (o LookupOntapFileSystemResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+// Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 func (o LookupOntapFileSystemResultOutput) WeeklyMaintenanceStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringOutput)
 }

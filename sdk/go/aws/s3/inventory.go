@@ -130,11 +130,11 @@ type Inventory struct {
 
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// Contains information about where to publish the inventory results (documented below).
+	// Where to publish the inventory results. See `destination` Block below.
 	Destination InventoryDestinationOutput `pulumi:"destination"`
-	// Specifies whether the inventory is enabled or disabled.
+	// Whether to enable the inventory.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter InventoryFilterPtrOutput `pulumi:"filter"`
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions pulumi.StringOutput `pulumi:"includedObjectVersions"`
@@ -144,7 +144,9 @@ type Inventory struct {
 	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the schedule for generating inventory results (documented below).
+	// Schedule for generating inventory results. See `schedule` Block below.
+	//
+	// The following arguments are optional:
 	Schedule InventoryScheduleOutput `pulumi:"schedule"`
 }
 
@@ -192,11 +194,11 @@ func GetInventory(ctx *pulumi.Context,
 type inventoryState struct {
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket *string `pulumi:"bucket"`
-	// Contains information about where to publish the inventory results (documented below).
+	// Where to publish the inventory results. See `destination` Block below.
 	Destination *InventoryDestination `pulumi:"destination"`
-	// Specifies whether the inventory is enabled or disabled.
+	// Whether to enable the inventory.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter *InventoryFilter `pulumi:"filter"`
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions *string `pulumi:"includedObjectVersions"`
@@ -206,18 +208,20 @@ type inventoryState struct {
 	OptionalFields []string `pulumi:"optionalFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the schedule for generating inventory results (documented below).
+	// Schedule for generating inventory results. See `schedule` Block below.
+	//
+	// The following arguments are optional:
 	Schedule *InventorySchedule `pulumi:"schedule"`
 }
 
 type InventoryState struct {
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringPtrInput
-	// Contains information about where to publish the inventory results (documented below).
+	// Where to publish the inventory results. See `destination` Block below.
 	Destination InventoryDestinationPtrInput
-	// Specifies whether the inventory is enabled or disabled.
+	// Whether to enable the inventory.
 	Enabled pulumi.BoolPtrInput
-	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter InventoryFilterPtrInput
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions pulumi.StringPtrInput
@@ -227,7 +231,9 @@ type InventoryState struct {
 	OptionalFields pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the schedule for generating inventory results (documented below).
+	// Schedule for generating inventory results. See `schedule` Block below.
+	//
+	// The following arguments are optional:
 	Schedule InventorySchedulePtrInput
 }
 
@@ -238,11 +244,11 @@ func (InventoryState) ElementType() reflect.Type {
 type inventoryArgs struct {
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket string `pulumi:"bucket"`
-	// Contains information about where to publish the inventory results (documented below).
+	// Where to publish the inventory results. See `destination` Block below.
 	Destination InventoryDestination `pulumi:"destination"`
-	// Specifies whether the inventory is enabled or disabled.
+	// Whether to enable the inventory.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter *InventoryFilter `pulumi:"filter"`
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions string `pulumi:"includedObjectVersions"`
@@ -252,7 +258,9 @@ type inventoryArgs struct {
 	OptionalFields []string `pulumi:"optionalFields"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the schedule for generating inventory results (documented below).
+	// Schedule for generating inventory results. See `schedule` Block below.
+	//
+	// The following arguments are optional:
 	Schedule InventorySchedule `pulumi:"schedule"`
 }
 
@@ -260,11 +268,11 @@ type inventoryArgs struct {
 type InventoryArgs struct {
 	// Name of the source bucket that inventory lists the objects for. Both general purpose and directory buckets are supported.
 	Bucket pulumi.StringInput
-	// Contains information about where to publish the inventory results (documented below).
+	// Where to publish the inventory results. See `destination` Block below.
 	Destination InventoryDestinationInput
-	// Specifies whether the inventory is enabled or disabled.
+	// Whether to enable the inventory.
 	Enabled pulumi.BoolPtrInput
-	// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+	// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 	Filter InventoryFilterPtrInput
 	// Object versions to include in the inventory list. Valid values: `All`, `Current`.
 	IncludedObjectVersions pulumi.StringInput
@@ -274,7 +282,9 @@ type InventoryArgs struct {
 	OptionalFields pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Specifies the schedule for generating inventory results (documented below).
+	// Schedule for generating inventory results. See `schedule` Block below.
+	//
+	// The following arguments are optional:
 	Schedule InventoryScheduleInput
 }
 
@@ -370,17 +380,17 @@ func (o InventoryOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Contains information about where to publish the inventory results (documented below).
+// Where to publish the inventory results. See `destination` Block below.
 func (o InventoryOutput) Destination() InventoryDestinationOutput {
 	return o.ApplyT(func(v *Inventory) InventoryDestinationOutput { return v.Destination }).(InventoryDestinationOutput)
 }
 
-// Specifies whether the inventory is enabled or disabled.
+// Whether to enable the inventory.
 func (o InventoryOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+// Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
 func (o InventoryOutput) Filter() InventoryFilterPtrOutput {
 	return o.ApplyT(func(v *Inventory) InventoryFilterPtrOutput { return v.Filter }).(InventoryFilterPtrOutput)
 }
@@ -405,7 +415,9 @@ func (o InventoryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the schedule for generating inventory results (documented below).
+// Schedule for generating inventory results. See `schedule` Block below.
+//
+// The following arguments are optional:
 func (o InventoryOutput) Schedule() InventoryScheduleOutput {
 	return o.ApplyT(func(v *Inventory) InventoryScheduleOutput { return v.Schedule }).(InventoryScheduleOutput)
 }

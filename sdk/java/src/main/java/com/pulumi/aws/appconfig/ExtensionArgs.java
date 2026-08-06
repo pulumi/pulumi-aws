@@ -21,14 +21,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ExtensionArgs Empty = new ExtensionArgs();
 
     /**
-     * The action points defined in the extension. Detailed below.
+     * Action points defined in the extension. Detailed below.
      * 
      */
     @Import(name="actionPoints", required=true)
     private Output<List<ExtensionActionPointArgs>> actionPoints;
 
     /**
-     * @return The action points defined in the extension. Detailed below.
+     * @return Action points defined in the extension. Detailed below.
      * 
      */
     public Output<List<ExtensionActionPointArgs>> actionPoints() {
@@ -51,14 +51,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * @return Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -66,14 +66,14 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<List<ExtensionParameterArgs>> parameters;
 
     /**
-     * @return The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * @return Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
     public Optional<Output<List<ExtensionParameterArgs>>> parameters() {
@@ -140,7 +140,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
+         * @param actionPoints Action points defined in the extension. Detailed below.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
+         * @param actionPoints Action points defined in the extension. Detailed below.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param actionPoints The action points defined in the extension. Detailed below.
+         * @param actionPoints Action points defined in the extension. Detailed below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+         * @param name Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+         * @param name Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+         * @param parameters Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+         * @param parameters Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+         * @param parameters Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
          * 
          * @return builder
          * 

@@ -13,17 +13,20 @@ namespace Pulumi.Aws.Fms.Inputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines NACL rules across accounts in their AWS Organization. See the `NetworkAclCommonPolicy` block.
+        /// Network ACL rules applied across accounts in the AWS Organization. See the `NetworkAclCommonPolicy` block.
         /// </summary>
         [Input("networkAclCommonPolicy")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyGetArgs>? NetworkAclCommonPolicy { get; set; }
 
         /// <summary>
-        /// Defines the deployment model to use for the firewall policy.  See the `NetworkFirewallPolicy` block.
+        /// Network Firewall policy options that configure a centralized deployment model. See the `NetworkFirewallPolicy` block.
         /// </summary>
         [Input("networkFirewallPolicy")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyGetArgs>? NetworkFirewallPolicy { get; set; }
 
+        /// <summary>
+        /// Third-party firewall policy options. See the `ThirdPartyFirewallPolicy` block.
+        /// </summary>
         [Input("thirdPartyFirewallPolicy")]
         public Input<Inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyGetArgs>? ThirdPartyFirewallPolicy { get; set; }
 

@@ -31,8 +31,6 @@ public final class ObjectCopyGrant {
     /**
      * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
      * 
-     * This configuration block has the following optional arguments (one of the three is required):
-     * 
      */
     private String type;
     /**
@@ -65,8 +63,6 @@ public final class ObjectCopyGrant {
     }
     /**
      * @return Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-     * 
-     * This configuration block has the following optional arguments (one of the three is required):
      * 
      */
     public String type() {

@@ -19,7 +19,7 @@ public final class ExtensionParameter {
      */
     private @Nullable String description;
     /**
-     * @return The parameter name.
+     * @return Parameter name.
      * 
      */
     private String name;
@@ -38,7 +38,7 @@ public final class ExtensionParameter {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The parameter name.
+     * @return Parameter name.
      * 
      */
     public String name() {

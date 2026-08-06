@@ -196,7 +196,7 @@ type Api struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// DNS configuration for the Event API.
 	Dns pulumi.StringMapOutput `pulumi:"dns"`
-	// Configuration for the Event API. See Event Config below.
+	// Configuration for the Event API. See `eventConfig` Block below.
 	EventConfig ApiEventConfigOutput `pulumi:"eventConfig"`
 	// Name of the Event API.
 	//
@@ -212,7 +212,8 @@ type Api struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of the associated WAF web ACL.
 	WafWebAclArn pulumi.StringOutput `pulumi:"wafWebAclArn"`
-	XrayEnabled  pulumi.BoolOutput   `pulumi:"xrayEnabled"`
+	// Whether X-Ray tracing is enabled for the Event API.
+	XrayEnabled pulumi.BoolOutput `pulumi:"xrayEnabled"`
 }
 
 // NewApi registers a new resource with the given unique name, arguments, and options.
@@ -254,7 +255,7 @@ type apiState struct {
 	ApiId *string `pulumi:"apiId"`
 	// DNS configuration for the Event API.
 	Dns map[string]string `pulumi:"dns"`
-	// Configuration for the Event API. See Event Config below.
+	// Configuration for the Event API. See `eventConfig` Block below.
 	EventConfig *ApiEventConfig `pulumi:"eventConfig"`
 	// Name of the Event API.
 	//
@@ -270,7 +271,8 @@ type apiState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of the associated WAF web ACL.
 	WafWebAclArn *string `pulumi:"wafWebAclArn"`
-	XrayEnabled  *bool   `pulumi:"xrayEnabled"`
+	// Whether X-Ray tracing is enabled for the Event API.
+	XrayEnabled *bool `pulumi:"xrayEnabled"`
 }
 
 type ApiState struct {
@@ -280,7 +282,7 @@ type ApiState struct {
 	ApiId pulumi.StringPtrInput
 	// DNS configuration for the Event API.
 	Dns pulumi.StringMapInput
-	// Configuration for the Event API. See Event Config below.
+	// Configuration for the Event API. See `eventConfig` Block below.
 	EventConfig ApiEventConfigPtrInput
 	// Name of the Event API.
 	//
@@ -296,7 +298,8 @@ type ApiState struct {
 	TagsAll pulumi.StringMapInput
 	// ARN of the associated WAF web ACL.
 	WafWebAclArn pulumi.StringPtrInput
-	XrayEnabled  pulumi.BoolPtrInput
+	// Whether X-Ray tracing is enabled for the Event API.
+	XrayEnabled pulumi.BoolPtrInput
 }
 
 func (ApiState) ElementType() reflect.Type {
@@ -304,7 +307,7 @@ func (ApiState) ElementType() reflect.Type {
 }
 
 type apiArgs struct {
-	// Configuration for the Event API. See Event Config below.
+	// Configuration for the Event API. See `eventConfig` Block below.
 	EventConfig ApiEventConfig `pulumi:"eventConfig"`
 	// Name of the Event API.
 	//
@@ -320,7 +323,7 @@ type apiArgs struct {
 
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
-	// Configuration for the Event API. See Event Config below.
+	// Configuration for the Event API. See `eventConfig` Block below.
 	EventConfig ApiEventConfigInput
 	// Name of the Event API.
 	//
@@ -436,7 +439,7 @@ func (o ApiOutput) Dns() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringMapOutput { return v.Dns }).(pulumi.StringMapOutput)
 }
 
-// Configuration for the Event API. See Event Config below.
+// Configuration for the Event API. See `eventConfig` Block below.
 func (o ApiOutput) EventConfig() ApiEventConfigOutput {
 	return o.ApplyT(func(v *Api) ApiEventConfigOutput { return v.EventConfig }).(ApiEventConfigOutput)
 }
@@ -473,6 +476,7 @@ func (o ApiOutput) WafWebAclArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.WafWebAclArn }).(pulumi.StringOutput)
 }
 
+// Whether X-Ray tracing is enabled for the Event API.
 func (o ApiOutput) XrayEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.XrayEnabled }).(pulumi.BoolOutput)
 }

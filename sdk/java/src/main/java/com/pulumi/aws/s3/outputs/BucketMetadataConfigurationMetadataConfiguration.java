@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketMetadataConfigurationMetadataConfiguration {
     /**
-     * @return Destination information for the S3 Metadata configuration.
+     * @return Destination information for the S3 Metadata configuration. See `destination` Block for details.
      * 
      */
     private @Nullable List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations;
@@ -32,7 +32,7 @@ public final class BucketMetadataConfigurationMetadataConfiguration {
 
     private BucketMetadataConfigurationMetadataConfiguration() {}
     /**
-     * @return Destination information for the S3 Metadata configuration.
+     * @return Destination information for the S3 Metadata configuration. See `destination` Block for details.
      * 
      */
     public List<BucketMetadataConfigurationMetadataConfigurationDestination> destinations() {

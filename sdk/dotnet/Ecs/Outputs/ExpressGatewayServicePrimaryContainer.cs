@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class ExpressGatewayServicePrimaryContainer
     {
+        /// <summary>
+        /// CloudWatch Logs configuration for the container. See `AwsLogsConfiguration` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> AwsLogsConfigurations;
         /// <summary>
         /// Command to run in the container. Overrides the default command from the Docker image.

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// </summary>
         public readonly ImmutableArray<string> RegexValues;
         /// <summary>
-        /// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `RegexValues`.
+        /// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `RegexValues`. Conflicts with `RegexValues`.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

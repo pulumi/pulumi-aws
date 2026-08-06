@@ -61,22 +61,11 @@ import * as utilities from "../utilities";
  *
  * * `resourceArn` (String) ARN of the resource the policy is attached to.
  *
- * #### Optional
- *
- * * `accountId` (String) AWS Account where this resource is managed.
- * * `region` (String) Region where this resource is managed.
- *
  * Using `pulumi import`, import OpenSearch Ingestion Resource Policy using the `resourceArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearchingest/resourcePolicy:ResourcePolicy example arn:aws:osis:us-east-1:123456789012:pipeline/example
  * ```
- *
- * ### Identity Schema
- *
- * Use the following attributes for import:
- *
- * * `resourceArn` - (Required) ARN of the resource the policy is attached to.
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**

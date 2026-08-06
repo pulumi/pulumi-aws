@@ -19,14 +19,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApplicationArgs Empty = new ApplicationArgs();
 
     /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * Whether to automatically configure unmonitored resources in the resource group.
      * 
      */
     @Import(name="autoConfigEnabled")
     private @Nullable Output<Boolean> autoConfigEnabled;
 
     /**
-     * @return Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * @return Whether to automatically configure unmonitored resources in the resource group.
      * 
      */
     public Optional<Output<Boolean>> autoConfigEnabled() {
@@ -49,14 +49,14 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
     @Import(name="cweMonitorEnabled")
     private @Nullable Output<Boolean> cweMonitorEnabled;
 
     /**
-     * @return Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * @return Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
     public Optional<Output<Boolean>> cweMonitorEnabled() {
@@ -190,7 +190,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoConfigEnabled Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+         * @param autoConfigEnabled Whether to automatically configure unmonitored resources in the resource group.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoConfigEnabled Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+         * @param autoConfigEnabled Whether to automatically configure unmonitored resources in the resource group.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cweMonitorEnabled Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+         * @param cweMonitorEnabled Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cweMonitorEnabled Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+         * @param cweMonitorEnabled Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
          * 
          * @return builder
          * 

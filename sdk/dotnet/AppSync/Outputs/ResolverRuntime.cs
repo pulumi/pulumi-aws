@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class ResolverRuntime
     {
         /// <summary>
-        /// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        /// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        /// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         /// </summary>
         public readonly string RuntimeVersion;
 

@@ -18,14 +18,14 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
     public static final DataSourceDynamodbConfigDeltaSyncConfigArgs Empty = new DataSourceDynamodbConfigDeltaSyncConfigArgs();
 
     /**
-     * The number of minutes that an Item is stored in the data source.
+     * Number of minutes that an Item is stored in the data source.
      * 
      */
     @Import(name="baseTableTtl")
     private @Nullable Output<Integer> baseTableTtl;
 
     /**
-     * @return The number of minutes that an Item is stored in the data source.
+     * @return Number of minutes that an Item is stored in the data source.
      * 
      */
     public Optional<Output<Integer>> baseTableTtl() {
@@ -33,14 +33,14 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
     }
 
     /**
-     * The table name.
+     * Table name.
      * 
      */
     @Import(name="deltaSyncTableName", required=true)
     private Output<String> deltaSyncTableName;
 
     /**
-     * @return The table name.
+     * @return Table name.
      * 
      */
     public Output<String> deltaSyncTableName() {
@@ -48,14 +48,14 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
     }
 
     /**
-     * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+     * Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
      * 
      */
     @Import(name="deltaSyncTableTtl")
     private @Nullable Output<Integer> deltaSyncTableTtl;
 
     /**
-     * @return The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+     * @return Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
      * 
      */
     public Optional<Output<Integer>> deltaSyncTableTtl() {
@@ -89,7 +89,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param baseTableTtl The number of minutes that an Item is stored in the data source.
+         * @param baseTableTtl Number of minutes that an Item is stored in the data source.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param baseTableTtl The number of minutes that an Item is stored in the data source.
+         * @param baseTableTtl Number of minutes that an Item is stored in the data source.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param deltaSyncTableName The table name.
+         * @param deltaSyncTableName Table name.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param deltaSyncTableName The table name.
+         * @param deltaSyncTableName Table name.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param deltaSyncTableTtl The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+         * @param deltaSyncTableTtl Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs extends com.pulum
         }
 
         /**
-         * @param deltaSyncTableTtl The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+         * @param deltaSyncTableTtl Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
          * 
          * @return builder
          * 

@@ -14,6 +14,8 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
+    /// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+    /// 
     /// ## Example Usage
     /// 
     /// ### Multiple AWS Buckets in Different Regions
@@ -81,7 +83,7 @@ namespace Pulumi.Aws.S3Control
     public partial class MultiRegionAccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -99,7 +101,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the Multi-Region Access Point. See `Details` Block below.
         /// </summary>
         [Output("details")]
         public Output<Outputs.MultiRegionAccessPointDetails> Details { get; private set; } = null!;
@@ -175,13 +177,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class MultiRegionAccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the Multi-Region Access Point. See `Details` Block below.
         /// </summary>
         [Input("details", required: true)]
         public Input<Inputs.MultiRegionAccessPointDetailsArgs> Details { get; set; } = null!;
@@ -201,7 +203,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class MultiRegionAccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -219,7 +221,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+        /// Configuration block containing details about the Multi-Region Access Point. See `Details` Block below.
         /// </summary>
         [Input("details")]
         public Input<Inputs.MultiRegionAccessPointDetailsGetArgs>? Details { get; set; }

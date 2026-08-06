@@ -20,16 +20,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     public static final ListenerRuleState Empty = new ListenerRuleState();
 
     /**
-     * The action for the listener rule.
-     * See `action` Block for details.
+     * Action for the listener rule. See `action` Block for details.
      * 
      */
     @Import(name="action")
     private @Nullable Output<ListenerRuleActionArgs> action;
 
     /**
-     * @return The action for the listener rule.
-     * See `action` Block for details.
+     * @return Action for the listener rule. See `action` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleActionArgs>> action() {
@@ -37,14 +35,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the listener rule.
+     * ARN for the listener rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN for the listener rule.
+     * @return ARN for the listener rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -52,14 +50,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
     @Import(name="listenerIdentifier")
     private @Nullable Output<String> listenerIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the listener.
+     * @return ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
     public Optional<Output<String>> listenerIdentifier() {
@@ -67,16 +65,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The rule match.
-     * See `match` Block
+     * Rule match. See `match` Block for details.
      * 
      */
     @Import(name="match")
     private @Nullable Output<ListenerRuleMatchArgs> match;
 
     /**
-     * @return The rule match.
-     * See `match` Block
+     * @return Rule match. See `match` Block for details.
      * 
      */
     public Optional<Output<ListenerRuleMatchArgs>> match() {
@@ -84,14 +80,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * @return Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -99,18 +95,14 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
+     * Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-     * 
-     * The following arguments are optional:
+     * @return Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -148,14 +140,18 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Name (ARN) of the service.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="serviceIdentifier")
     private @Nullable Output<String> serviceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
+     * @return ID or Amazon Resource Name (ARN) of the service.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> serviceIdentifier() {
@@ -227,8 +223,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the listener rule.
-         * See `action` Block for details.
+         * @param action Action for the listener rule. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -239,8 +234,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param action The action for the listener rule.
-         * See `action` Block for details.
+         * @param action Action for the listener rule. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -250,7 +244,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN for the listener rule.
+         * @param arn ARN for the listener rule.
          * 
          * @return builder
          * 
@@ -261,7 +255,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN for the listener rule.
+         * @param arn ARN for the listener rule.
          * 
          * @return builder
          * 
@@ -271,7 +265,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerIdentifier The ID or Amazon Resource Name (ARN) of the listener.
+         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener.
          * 
          * @return builder
          * 
@@ -282,7 +276,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerIdentifier The ID or Amazon Resource Name (ARN) of the listener.
+         * @param listenerIdentifier ID or Amazon Resource Name (ARN) of the listener.
          * 
          * @return builder
          * 
@@ -292,8 +286,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param match The rule match.
-         * See `match` Block
+         * @param match Rule match. See `match` Block for details.
          * 
          * @return builder
          * 
@@ -304,8 +297,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param match The rule match.
-         * See `match` Block
+         * @param match Rule match. See `match` Block for details.
          * 
          * @return builder
          * 
@@ -315,7 +307,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+         * @param name Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
          * 
          * @return builder
          * 
@@ -326,7 +318,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+         * @param name Name of the rule. Must be unique within the listener. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
          * 
          * @return builder
          * 
@@ -336,9 +328,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-         * 
-         * The following arguments are optional:
+         * @param priority Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
          * 
          * @return builder
          * 
@@ -349,9 +339,7 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param priority The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-         * 
-         * The following arguments are optional:
+         * @param priority Priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
          * 
          * @return builder
          * 
@@ -403,7 +391,9 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -414,7 +404,9 @@ public final class ListenerRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

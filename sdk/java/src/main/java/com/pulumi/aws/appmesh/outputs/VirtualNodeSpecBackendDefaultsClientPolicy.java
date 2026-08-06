@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicy {
     /**
-     * @return Transport Layer Security (TLS) client policy.
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTls tls;
 
     private VirtualNodeSpecBackendDefaultsClientPolicy() {}
     /**
-     * @return Transport Layer Security (TLS) client policy.
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTls> tls() {

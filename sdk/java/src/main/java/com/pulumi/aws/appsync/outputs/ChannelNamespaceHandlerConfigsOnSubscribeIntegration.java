@@ -19,7 +19,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
      */
     private String dataSourceName;
     /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
+     * @return Configuration for a Lambda data source. See `lambdaConfig` below.
      * 
      */
     private @Nullable ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig lambdaConfig;
@@ -33,7 +33,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
         return this.dataSourceName;
     }
     /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
+     * @return Configuration for a Lambda data source. See `lambdaConfig` below.
      * 
      */
     public Optional<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig> lambdaConfig() {

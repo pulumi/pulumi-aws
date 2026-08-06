@@ -62,11 +62,12 @@ type ResourceSet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+	// Details about the resource set to be created or updated. See `resourceSet` Block below.
 	ResourceSets ResourceSetResourceSetArrayOutput `pulumi:"resourceSets"`
-	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput            `pulumi:"tagsAll"`
-	Timeouts     ResourceSetTimeoutsPtrOutput      `pulumi:"timeouts"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapOutput       `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
+	Timeouts ResourceSetTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -103,11 +104,12 @@ type resourceSetState struct {
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+	// Details about the resource set to be created or updated. See `resourceSet` Block below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
-	Tags         map[string]string        `pulumi:"tags"`
-	TagsAll      map[string]string        `pulumi:"tagsAll"`
-	Timeouts     *ResourceSetTimeouts     `pulumi:"timeouts"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     map[string]string    `pulumi:"tags"`
+	TagsAll  map[string]string    `pulumi:"tagsAll"`
+	Timeouts *ResourceSetTimeouts `pulumi:"timeouts"`
 }
 
 type ResourceSetState struct {
@@ -115,11 +117,12 @@ type ResourceSetState struct {
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+	// Details about the resource set to be created or updated. See `resourceSet` Block below.
 	ResourceSets ResourceSetResourceSetArrayInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
-	Timeouts     ResourceSetTimeoutsPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts ResourceSetTimeoutsPtrInput
 }
 
 func (ResourceSetState) ElementType() reflect.Type {
@@ -129,20 +132,22 @@ func (ResourceSetState) ElementType() reflect.Type {
 type resourceSetArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+	// Details about the resource set to be created or updated. See `resourceSet` Block below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
-	Tags         map[string]string        `pulumi:"tags"`
-	Timeouts     *ResourceSetTimeouts     `pulumi:"timeouts"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     map[string]string    `pulumi:"tags"`
+	Timeouts *ResourceSetTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+	// Details about the resource set to be created or updated. See `resourceSet` Block below.
 	ResourceSets ResourceSetResourceSetArrayInput
-	Tags         pulumi.StringMapInput
-	Timeouts     ResourceSetTimeoutsPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags     pulumi.StringMapInput
+	Timeouts ResourceSetTimeoutsPtrInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -242,11 +247,12 @@ func (o ResourceSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+// Details about the resource set to be created or updated. See `resourceSet` Block below.
 func (o ResourceSetOutput) ResourceSets() ResourceSetResourceSetArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceSetArrayOutput { return v.ResourceSets }).(ResourceSetResourceSetArrayOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResourceSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

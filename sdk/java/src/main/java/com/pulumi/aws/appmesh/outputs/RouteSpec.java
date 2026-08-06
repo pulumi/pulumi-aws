@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpec {
     /**
-     * @return GRPC routing information for the route. See `grpcRoute` Block for details.
+     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRoute grpcRoute;
     /**
-     * @return HTTP/2 routing information for the route. See `http2Route` Block for details.
+     * @return HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
      * 
      */
     private @Nullable RouteSpecHttp2Route http2Route;
     /**
-     * @return HTTP routing information for the route. See `httpRoute` Block for details.
+     * @return HTTP routing information for the route. See `spec.http_route` Block for details.
      * 
      */
     private @Nullable RouteSpecHttpRoute httpRoute;
@@ -36,28 +36,28 @@ public final class RouteSpec {
      */
     private @Nullable Integer priority;
     /**
-     * @return TCP routing information for the route. See `tcpRoute` Block for details.
+     * @return TCP routing information for the route. See `spec.tcp_route` Block for details.
      * 
      */
     private @Nullable RouteSpecTcpRoute tcpRoute;
 
     private RouteSpec() {}
     /**
-     * @return GRPC routing information for the route. See `grpcRoute` Block for details.
+     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRoute> grpcRoute() {
         return Optional.ofNullable(this.grpcRoute);
     }
     /**
-     * @return HTTP/2 routing information for the route. See `http2Route` Block for details.
+     * @return HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
      * 
      */
     public Optional<RouteSpecHttp2Route> http2Route() {
         return Optional.ofNullable(this.http2Route);
     }
     /**
-     * @return HTTP routing information for the route. See `httpRoute` Block for details.
+     * @return HTTP routing information for the route. See `spec.http_route` Block for details.
      * 
      */
     public Optional<RouteSpecHttpRoute> httpRoute() {
@@ -71,7 +71,7 @@ public final class RouteSpec {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return TCP routing information for the route. See `tcpRoute` Block for details.
+     * @return TCP routing information for the route. See `spec.tcp_route` Block for details.
      * 
      */
     public Optional<RouteSpecTcpRoute> tcpRoute() {

@@ -79,7 +79,7 @@ export class VectorsVectorBucketPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The policy document.
+     * Policy document.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class VectorsVectorBucketPolicy extends pulumi.CustomResource {
  */
 export interface VectorsVectorBucketPolicyState {
     /**
-     * The policy document.
+     * Policy document.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface VectorsVectorBucketPolicyState {
  */
 export interface VectorsVectorBucketPolicyArgs {
     /**
-     * The policy document.
+     * Policy document.
      */
     policy: pulumi.Input<string>;
     /**

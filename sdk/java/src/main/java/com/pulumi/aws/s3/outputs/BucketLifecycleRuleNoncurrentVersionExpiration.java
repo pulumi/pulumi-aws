@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleRuleNoncurrentVersionExpiration {
     /**
-     * @return Specifies the number of days noncurrent object versions expire.
+     * @return Number of days noncurrent object versions expire.
      * 
      */
     private @Nullable Integer days;
 
     private BucketLifecycleRuleNoncurrentVersionExpiration() {}
     /**
-     * @return Specifies the number of days noncurrent object versions expire.
+     * @return Number of days noncurrent object versions expire.
      * 
      */
     public Optional<Integer> days() {

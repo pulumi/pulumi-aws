@@ -16,14 +16,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
     public static final OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs Empty = new OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs();
 
     /**
-     * The ID of the user or group. Valid values between `0` and `2147483647`
+     * ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
     @Import(name="id", required=true)
     private Output<Integer> id;
 
     /**
-     * @return The ID of the user or group. Valid values between `0` and `2147483647`
+     * @return ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
     public Output<Integer> id() {
@@ -31,14 +31,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
     }
 
     /**
-     * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
     @Import(name="storageCapacityQuotaGib", required=true)
     private Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+     * @return Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
     public Output<Integer> storageCapacityQuotaGib() {
@@ -46,14 +46,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
     }
 
     /**
-     * A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * @return Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     public Output<String> type() {
@@ -87,7 +87,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param id The ID of the user or group. Valid values between `0` and `2147483647`
+         * @param id ID of the user or group. Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param id The ID of the user or group. Valid values between `0` and `2147483647`
+         * @param id ID of the user or group. Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+         * @param storageCapacityQuotaGib Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param type A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * @param type Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         }
 
         /**
-         * @param type A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * @param type Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          * 
          * @return builder
          * 

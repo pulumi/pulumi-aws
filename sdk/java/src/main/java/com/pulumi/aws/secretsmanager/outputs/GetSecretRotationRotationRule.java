@@ -22,7 +22,7 @@ public final class GetSecretRotationRotationRule {
      */
     private String duration;
     /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+     * @return `cron()` or `rate()` expression that defines the schedule for rotating the secret.
      * 
      */
     private String scheduleExpression;
@@ -43,7 +43,7 @@ public final class GetSecretRotationRotationRule {
         return this.duration;
     }
     /**
-     * @return A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+     * @return `cron()` or `rate()` expression that defines the schedule for rotating the secret.
      * 
      */
     public String scheduleExpression() {

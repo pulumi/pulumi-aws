@@ -17,14 +17,14 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
     public static final GetMultiRegionAccessPointArgs Empty = new GetMultiRegionAccessPointArgs();
 
     /**
-     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The name of the Multi-Region Access Point.
+     * Name of the Multi-Region Access Point.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Multi-Region Access Point.
+     * @return Name of the Multi-Region Access Point.
      * 
      */
     public Output<String> name() {
@@ -88,7 +88,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of the Multi-Region Access Point.
+         * @param name Name of the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param name The name of the Multi-Region Access Point.
+         * @param name Name of the Multi-Region Access Point.
          * 
          * @return builder
          * 

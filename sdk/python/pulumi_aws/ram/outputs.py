@@ -61,7 +61,7 @@ class ResourceShareResourceShareConfiguration(dict):
     def __init__(__self__, *,
                  retain_sharing_on_account_leave_organization: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool retain_sharing_on_account_leave_organization: Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        :param _builtins.bool retain_sharing_on_account_leave_organization: Whether consumer account retains access to resource share after leaving AWS organization.
         """
         if retain_sharing_on_account_leave_organization is not None:
             pulumi.set(__self__, "retain_sharing_on_account_leave_organization", retain_sharing_on_account_leave_organization)
@@ -70,7 +70,7 @@ class ResourceShareResourceShareConfiguration(dict):
     @pulumi.getter(name="retainSharingOnAccountLeaveOrganization")
     def retain_sharing_on_account_leave_organization(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        Whether consumer account retains access to resource share after leaving AWS organization.
         """
         return pulumi.get(self, "retain_sharing_on_account_leave_organization")
 

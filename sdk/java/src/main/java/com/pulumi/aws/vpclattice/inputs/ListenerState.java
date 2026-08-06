@@ -63,9 +63,17 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultAction);
     }
 
+    /**
+     * Date and time that the listener was last updated, specified in ISO-8601 format.
+     * 
+     */
     @Import(name="lastUpdatedAt")
     private @Nullable Output<String> lastUpdatedAt;
 
+    /**
+     * @return Date and time that the listener was last updated, specified in ISO-8601 format.
+     * 
+     */
     public Optional<Output<String>> lastUpdatedAt() {
         return Optional.ofNullable(this.lastUpdatedAt);
     }
@@ -178,14 +186,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -298,11 +306,23 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
             return defaultAction(Output.of(defaultAction));
         }
 
+        /**
+         * @param lastUpdatedAt Date and time that the listener was last updated, specified in ISO-8601 format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastUpdatedAt(@Nullable Output<String> lastUpdatedAt) {
             $.lastUpdatedAt = lastUpdatedAt;
             return this;
         }
 
+        /**
+         * @param lastUpdatedAt Date and time that the listener was last updated, specified in ISO-8601 format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastUpdatedAt(String lastUpdatedAt) {
             return lastUpdatedAt(Output.of(lastUpdatedAt));
         }
@@ -457,7 +477,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -468,7 +488,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

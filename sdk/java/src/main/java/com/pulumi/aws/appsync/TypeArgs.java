@@ -32,14 +32,14 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type definition.
+     * Type definition.
      * 
      */
     @Import(name="definition", required=true)
     private Output<String> definition;
 
     /**
-     * @return The type definition.
+     * @return Type definition.
      * 
      */
     public Output<String> definition() {
@@ -47,14 +47,14 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type format: `SDL` or `JSON`.
+     * Type format: `SDL` or `JSON`.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The type format: `SDL` or `JSON`.
+     * @return Type format: `SDL` or `JSON`.
      * 
      */
     public Output<String> format() {
@@ -125,7 +125,7 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The type definition.
+         * @param definition Type definition.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The type definition.
+         * @param definition Type definition.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The type format: `SDL` or `JSON`.
+         * @param format Type format: `SDL` or `JSON`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class TypeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param format The type format: `SDL` or `JSON`.
+         * @param format Type format: `SDL` or `JSON`.
          * 
          * @return builder
          * 

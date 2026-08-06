@@ -14,25 +14,19 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class GetMultiRegionAccessPointPublicAccessBlockResult
     {
         /// <summary>
-        /// Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `True` causes the following behavior:
-        /// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-        /// * PUT Object calls fail if the request includes a public ACL.
-        /// * PUT Bucket calls fail if the request includes a public ACL.
+        /// Whether Amazon S3 should block public access control lists (ACLs). When set to `True`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         /// </summary>
         public readonly bool BlockPublicAcls;
         /// <summary>
-        /// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. When set to `True` causes Amazon S3 to:
-        /// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        /// Whether Amazon S3 should block public bucket policies for buckets in this account. When set to `True`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
         /// </summary>
         public readonly bool BlockPublicPolicy;
         /// <summary>
-        /// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `True` causes Amazon S3 to:
-        /// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        /// Whether Amazon S3 should ignore public ACLs for buckets in this account. When set to `True`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
         /// </summary>
         public readonly bool IgnorePublicAcls;
         /// <summary>
-        /// Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `True`:
-        /// * Only the bucket owner and AWS Services can access buckets with public policies.
+        /// Whether Amazon S3 should restrict public bucket policies for buckets in this account. When set to `True`, only the bucket owner and AWS Services can access buckets with public policies.
         /// </summary>
         public readonly bool RestrictPublicBuckets;
 

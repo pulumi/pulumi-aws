@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class ResolverCachingConfig
     {
         /// <summary>
-        /// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        /// Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         /// </summary>
         public readonly ImmutableArray<string> CachingKeys;
         /// <summary>
-        /// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+        /// TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         /// </summary>
         public readonly int? Ttl;
 

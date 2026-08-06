@@ -15,8 +15,17 @@ namespace Pulumi.Aws.AppFlow.Outputs
     {
         public readonly ImmutableDictionary<string, string>? CustomProperties;
         public readonly string EntityName;
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? ErrorHandlingConfig;
+        /// <summary>
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
+        /// <summary>
+        /// Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `IdFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// </summary>
         public readonly string? WriteOperationType;
 
         [OutputConstructor]

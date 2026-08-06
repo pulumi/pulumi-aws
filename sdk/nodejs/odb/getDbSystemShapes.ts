@@ -37,7 +37,7 @@ export function getDbSystemShapes(args?: GetDbSystemShapesArgs, opts?: pulumi.In
  */
 export interface GetDbSystemShapesArgs {
     /**
-     * The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+     * Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
      */
     availabilityZoneId?: string;
     /**
@@ -52,7 +52,7 @@ export interface GetDbSystemShapesArgs {
 export interface GetDbSystemShapesResult {
     readonly availabilityZoneId?: string;
     /**
-     * The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+     * List of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
      */
     readonly dbSystemShapes: outputs.odb.GetDbSystemShapesDbSystemShape[];
     readonly region: string;
@@ -87,7 +87,7 @@ export function getDbSystemShapesOutput(args?: GetDbSystemShapesOutputArgs, opts
  */
 export interface GetDbSystemShapesOutputArgs {
     /**
-     * The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+     * Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
      */
     availabilityZoneId?: pulumi.Input<string | undefined>;
     /**

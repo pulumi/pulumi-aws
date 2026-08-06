@@ -16,14 +16,14 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
     public static final DirectoryConfigCertificateBasedAuthPropertiesArgs Empty = new DirectoryConfigCertificateBasedAuthPropertiesArgs();
 
     /**
-     * The ARN of the AWS Certificate Manager Private CA resource.
+     * ARN of the AWS Certificate Manager Private CA resource.
      * 
      */
     @Import(name="certificateAuthorityArn")
     private @Nullable Output<String> certificateAuthorityArn;
 
     /**
-     * @return The ARN of the AWS Certificate Manager Private CA resource.
+     * @return ARN of the AWS Certificate Manager Private CA resource.
      * 
      */
     public Optional<Output<String>> certificateAuthorityArn() {
@@ -31,14 +31,14 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
     }
 
     /**
-     * The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
+     * Status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
+     * @return Status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
      * 
      */
     public Optional<Output<String>> status() {
@@ -71,7 +71,7 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
         }
 
         /**
-         * @param certificateAuthorityArn The ARN of the AWS Certificate Manager Private CA resource.
+         * @param certificateAuthorityArn ARN of the AWS Certificate Manager Private CA resource.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
         }
 
         /**
-         * @param certificateAuthorityArn The ARN of the AWS Certificate Manager Private CA resource.
+         * @param certificateAuthorityArn ARN of the AWS Certificate Manager Private CA resource.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
         }
 
         /**
-         * @param status The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
+         * @param status Status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DirectoryConfigCertificateBasedAuthPropertiesArgs extends com
         }
 
         /**
-         * @param status The status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
+         * @param status Status of the certificate-based authentication properties. Valid values - [&#34;DISABLED&#34;, &#34;ENABLED&#34;, &#34;ENABLED_NO_DIRECTORY_LOGIN_FALLBACK&#34;].
          * 
          * @return builder
          * 

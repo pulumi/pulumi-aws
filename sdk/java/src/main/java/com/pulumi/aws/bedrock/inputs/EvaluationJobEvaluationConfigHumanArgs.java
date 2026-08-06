@@ -35,14 +35,14 @@ public final class EvaluationJobEvaluationConfigHumanArgs extends com.pulumi.res
     }
 
     /**
-     * One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+     * One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
      * 
      */
     @Import(name="datasetMetricConfigs", required=true)
     private Output<List<EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs>> datasetMetricConfigs;
 
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
      * 
      */
     public Output<List<EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs>> datasetMetricConfigs() {
@@ -122,7 +122,7 @@ public final class EvaluationJobEvaluationConfigHumanArgs extends com.pulumi.res
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class EvaluationJobEvaluationConfigHumanArgs extends com.pulumi.res
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class EvaluationJobEvaluationConfigHumanArgs extends com.pulumi.res
         }
 
         /**
-         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+         * @param datasetMetricConfigs One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
          * 
          * @return builder
          * 

@@ -146,7 +146,7 @@ export class Api extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dns: pulumi.Output<{[key: string]: string}>;
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      */
     declare public readonly eventConfig: pulumi.Output<outputs.appsync.ApiEventConfig>;
     /**
@@ -175,6 +175,9 @@ export class Api extends pulumi.CustomResource {
      * ARN of the associated WAF web ACL.
      */
     declare public /*out*/ readonly wafWebAclArn: pulumi.Output<string>;
+    /**
+     * Whether X-Ray tracing is enabled for the Event API.
+     */
     declare public /*out*/ readonly xrayEnabled: pulumi.Output<boolean>;
 
     /**
@@ -240,7 +243,7 @@ export interface ApiState {
      */
     dns?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      */
     eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfig | undefined>;
     /**
@@ -269,6 +272,9 @@ export interface ApiState {
      * ARN of the associated WAF web ACL.
      */
     wafWebAclArn?: pulumi.Input<string | undefined>;
+    /**
+     * Whether X-Ray tracing is enabled for the Event API.
+     */
     xrayEnabled?: pulumi.Input<boolean | undefined>;
 }
 
@@ -277,7 +283,7 @@ export interface ApiState {
  */
 export interface ApiArgs {
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      */
     eventConfig: pulumi.Input<inputs.appsync.ApiEventConfig>;
     /**

@@ -79,15 +79,15 @@ export class AccessPointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      */
     declare public readonly accessPointArn: pulumi.Output<string>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     declare public /*out*/ readonly hasPublicAccessPolicy: pulumi.Output<boolean>;
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -135,15 +135,15 @@ export class AccessPointPolicy extends pulumi.CustomResource {
  */
 export interface AccessPointPolicyState {
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      */
     accessPointArn?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     hasPublicAccessPolicy?: pulumi.Input<boolean | undefined>;
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -157,11 +157,11 @@ export interface AccessPointPolicyState {
  */
 export interface AccessPointPolicyArgs {
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      */
     accessPointArn: pulumi.Input<string>;
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      */
     policy: pulumi.Input<string>;
     /**

@@ -46,11 +46,11 @@ __all__ = [
 class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
     certificate_authority_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the AWS Certificate Manager Private CA resource.
+    ARN of the AWS Certificate Manager Private CA resource.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+    Status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
     """
 
 @pulumi.input_type
@@ -59,8 +59,8 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
-        :param pulumi.Input[_builtins.str] status: The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the AWS Certificate Manager Private CA resource.
+        :param pulumi.Input[_builtins.str] status: Status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
         """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -71,7 +71,7 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the AWS Certificate Manager Private CA resource.
+        ARN of the AWS Certificate Manager Private CA resource.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -83,7 +83,7 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
+        Status of the certificate-based authentication properties. Valid values - ["DISABLED", "ENABLED", "ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"].
         """
         return pulumi.get(self, "status")
 
@@ -495,8 +495,7 @@ class ImageBuilderVpcConfigArgs:
 class StackAccessEndpointArgsDict(TypedDict):
     endpoint_type: pulumi.Input[_builtins.str]
     """
-    Type of the interface endpoint.
-    See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+    Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
     """
     vpce_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -509,8 +508,7 @@ class StackAccessEndpointArgs:
                  endpoint_type: pulumi.Input[_builtins.str],
                  vpce_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] endpoint_type: Type of the interface endpoint.
-               See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        :param pulumi.Input[_builtins.str] endpoint_type: Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         :param pulumi.Input[_builtins.str] vpce_id: ID of the VPC in which the interface endpoint is used.
         """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
@@ -521,8 +519,7 @@ class StackAccessEndpointArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the interface endpoint.
-        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        Type of the interface endpoint. See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -550,9 +547,7 @@ class StackApplicationSettingsArgsDict(TypedDict):
     """
     settings_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the settings group.
-    Required when `enabled` is `true`.
-    Can be up to 100 characters.
+    Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
     """
 
 @pulumi.input_type
@@ -562,9 +557,7 @@ class StackApplicationSettingsArgs:
                  settings_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether application settings should be persisted.
-        :param pulumi.Input[_builtins.str] settings_group: Name of the settings group.
-               Required when `enabled` is `true`.
-               Can be up to 100 characters.
+        :param pulumi.Input[_builtins.str] settings_group: Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
         """
         pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
@@ -586,9 +579,7 @@ class StackApplicationSettingsArgs:
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the settings group.
-        Required when `enabled` is `true`.
-        Can be up to 100 characters.
+        Name of the settings group. Required when `enabled` is `true`. Can be up to 100 characters.
         """
         return pulumi.get(self, "settings_group")
 
@@ -600,8 +591,7 @@ class StackApplicationSettingsArgs:
 class StackStorageConnectorArgsDict(TypedDict):
     connector_type: pulumi.Input[_builtins.str]
     """
-    Type of storage connector.
-    Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+    Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
     """
     domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -619,8 +609,7 @@ class StackStorageConnectorArgs:
                  domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] connector_type: Type of storage connector.
-               Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+        :param pulumi.Input[_builtins.str] connector_type: Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domains: Names of the domains for the account.
         :param pulumi.Input[_builtins.str] resource_identifier: ARN of the storage connector.
         """
@@ -634,8 +623,7 @@ class StackStorageConnectorArgs:
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of storage connector.
-        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+        Type of storage connector. Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
         """
         return pulumi.get(self, "connector_type")
 
@@ -671,8 +659,7 @@ class StackStorageConnectorArgs:
 class StackStreamingExperienceSettingsArgsDict(TypedDict):
     preferred_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The preferred protocol that you want to use while streaming your application.
-    Valid values are `TCP` and `UDP`.
+    Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
     """
 
 @pulumi.input_type
@@ -680,8 +667,7 @@ class StackStreamingExperienceSettingsArgs:
     def __init__(__self__, *,
                  preferred_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] preferred_protocol: The preferred protocol that you want to use while streaming your application.
-               Valid values are `TCP` and `UDP`.
+        :param pulumi.Input[_builtins.str] preferred_protocol: Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
         """
         if preferred_protocol is not None:
             pulumi.set(__self__, "preferred_protocol", preferred_protocol)
@@ -690,8 +676,7 @@ class StackStreamingExperienceSettingsArgs:
     @pulumi.getter(name="preferredProtocol")
     def preferred_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The preferred protocol that you want to use while streaming your application.
-        Valid values are `TCP` and `UDP`.
+        Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
         """
         return pulumi.get(self, "preferred_protocol")
 
@@ -703,13 +688,11 @@ class StackStreamingExperienceSettingsArgs:
 class StackUserSettingArgsDict(TypedDict):
     action: pulumi.Input[_builtins.str]
     """
-    Action that is enabled or disabled.
-    Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+    Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
     """
     permission: pulumi.Input[_builtins.str]
     """
-    Whether the action is enabled or disabled.
-    Valid values are `ENABLED` or `DISABLED`.
+    Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
     """
 
 @pulumi.input_type
@@ -718,10 +701,8 @@ class StackUserSettingArgs:
                  action: pulumi.Input[_builtins.str],
                  permission: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] action: Action that is enabled or disabled.
-               Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
-        :param pulumi.Input[_builtins.str] permission: Whether the action is enabled or disabled.
-               Valid values are `ENABLED` or `DISABLED`.
+        :param pulumi.Input[_builtins.str] action: Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+        :param pulumi.Input[_builtins.str] permission: Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
@@ -730,8 +711,7 @@ class StackUserSettingArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
         """
-        Action that is enabled or disabled.
-        Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+        Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
         """
         return pulumi.get(self, "action")
 
@@ -743,8 +723,7 @@ class StackUserSettingArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[_builtins.str]:
         """
-        Whether the action is enabled or disabled.
-        Valid values are `ENABLED` or `DISABLED`.
+        Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
         """
         return pulumi.get(self, "permission")
 

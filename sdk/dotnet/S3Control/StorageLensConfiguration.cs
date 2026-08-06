@@ -95,7 +95,7 @@ namespace Pulumi.Aws.S3Control
     public partial class StorageLensConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
+        /// ID of the S3 Storage Lens configuration.
         /// </summary>
         [Output("configId")]
         public Output<string> ConfigId { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        /// S3 Storage Lens configuration. See `StorageLensConfiguration` below for more details.
         /// </summary>
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensConfigurationStorageLensConfiguration> StorageLensConfigurationDetail { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.S3Control
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -183,13 +183,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class StorageLensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
+        /// ID of the S3 Storage Lens configuration.
         /// </summary>
         [Input("configId", required: true)]
         public Input<string> ConfigId { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        /// S3 Storage Lens configuration. See `StorageLensConfiguration` below for more details.
         /// </summary>
         [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationArgs> StorageLensConfigurationDetail { get; set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class StorageLensConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID of the S3 Storage Lens configuration.
+        /// ID of the S3 Storage Lens configuration.
         /// </summary>
         [Input("configId")]
         public Input<string>? ConfigId { get; set; }
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        /// S3 Storage Lens configuration. See `StorageLensConfiguration` below for more details.
         /// </summary>
         [Input("storageLensConfiguration")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationGetArgs>? StorageLensConfigurationDetail { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.S3Control
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

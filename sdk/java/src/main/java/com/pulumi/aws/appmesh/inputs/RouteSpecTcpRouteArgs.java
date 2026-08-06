@@ -19,36 +19,44 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
     public static final RouteSpecTcpRouteArgs Empty = new RouteSpecTcpRouteArgs();
 
     /**
-     * Action to take if a match is determined.
+     * Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<RouteSpecTcpRouteActionArgs> action;
 
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     public Output<RouteSpecTcpRouteActionArgs> action() {
         return this.action;
     }
 
+    /**
+     * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     @Import(name="match")
     private @Nullable Output<RouteSpecTcpRouteMatchArgs> match;
 
+    /**
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     public Optional<Output<RouteSpecTcpRouteMatchArgs>> match() {
         return Optional.ofNullable(this.match);
     }
 
     /**
-     * Types of timeouts.
+     * Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecTcpRouteTimeoutArgs> timeout;
 
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     public Optional<Output<RouteSpecTcpRouteTimeoutArgs>> timeout() {
@@ -82,7 +90,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +101,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -102,17 +110,29 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
             return action(Output.of(action));
         }
 
+        /**
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder match(@Nullable Output<RouteSpecTcpRouteMatchArgs> match) {
             $.match = match;
             return this;
         }
 
+        /**
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder match(RouteSpecTcpRouteMatchArgs match) {
             return match(Output.of(match));
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          * 
          * @return builder
          * 
@@ -123,7 +143,7 @@ public final class RouteSpecTcpRouteArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `spec.tcp_route.timeout` Block for details.
          * 
          * @return builder
          * 

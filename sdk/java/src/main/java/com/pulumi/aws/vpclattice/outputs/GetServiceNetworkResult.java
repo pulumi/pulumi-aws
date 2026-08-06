@@ -54,6 +54,10 @@ public final class GetServiceNetworkResult {
     private Integer numberOfAssociatedVpcs;
     private String region;
     private String serviceNetworkIdentifier;
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetServiceNetworkResult() {}
@@ -119,6 +123,10 @@ public final class GetServiceNetworkResult {
     public String serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowMetadataCatalogConfigGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration that determines how Amazon AppFlow catalogs data with the AWS Glue Data Catalog. See the `metadata_catalog_config.glue_data_catalog` Block for details.
+        /// </summary>
         [Input("glueDataCatalog")]
         public Input<Inputs.FlowMetadataCatalogConfigGlueDataCatalogGetArgs>? GlueDataCatalog { get; set; }
 

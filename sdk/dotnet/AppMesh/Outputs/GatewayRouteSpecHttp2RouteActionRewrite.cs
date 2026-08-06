@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttp2RouteActionRewrite
     {
         /// <summary>
-        /// Host name to rewrite. See `Hostname` Block for details.
+        /// Host name to match on. See `spec.http2_route.match.hostname` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname? Hostname;
         /// <summary>
-        /// Exact path to rewrite. See `Path` Block for details.
+        /// Client request path to match on. See `spec.http2_route.match.path` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewritePath? Path;
         /// <summary>
-        /// Specified beginning characters to rewrite. See `Prefix` Block for details.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix? Prefix;
 

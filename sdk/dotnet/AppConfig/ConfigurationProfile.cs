@@ -69,7 +69,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration profile ID.
+        /// Configuration profile ID.
         /// </summary>
         [Output("configurationProfileId")]
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        /// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        /// Set of methods for validating the configuration. Maximum of 2. See `Validator` Block below for more details.
         /// </summary>
         [Output("validators")]
         public Output<ImmutableArray<Outputs.ConfigurationProfileValidator>> Validators { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        /// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ConfigurationProfileValidatorArgs>? _validators;
 
         /// <summary>
-        /// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        /// Set of methods for validating the configuration. Maximum of 2. See `Validator` Block below for more details.
         /// </summary>
         public InputList<Inputs.ConfigurationProfileValidatorArgs> Validators
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration profile ID.
+        /// Configuration profile ID.
         /// </summary>
         [Input("configurationProfileId")]
         public Input<string>? ConfigurationProfileId { get; set; }
@@ -285,7 +285,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        /// Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ConfigurationProfileValidatorGetArgs>? _validators;
 
         /// <summary>
-        /// Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        /// Set of methods for validating the configuration. Maximum of 2. See `Validator` Block below for more details.
         /// </summary>
         public InputList<Inputs.ConfigurationProfileValidatorGetArgs> Validators
         {

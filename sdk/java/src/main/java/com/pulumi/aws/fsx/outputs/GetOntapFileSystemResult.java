@@ -21,22 +21,22 @@ public final class GetOntapFileSystemResult {
      */
     private String arn;
     /**
-     * @return The number of days to retain automatic backups.
+     * @return Number of days to retain automatic backups.
      * 
      */
     private Integer automaticBackupRetentionDays;
     /**
-     * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * @return Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     private String dailyAutomaticBackupStartTime;
     /**
-     * @return The file system deployment type.
+     * @return File system deployment type.
      * 
      */
     private String deploymentType;
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      * 
      */
     private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
@@ -46,17 +46,17 @@ public final class GetOntapFileSystemResult {
      */
     private String dnsName;
     /**
-     * @return (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+     * @return (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
      * 
      */
     private String endpointIpAddressRange;
     /**
-     * @return The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      * 
      */
     private List<GetOntapFileSystemEndpoint> endpoints;
     /**
-     * @return The number of HA pairs for the file system.
+     * @return Number of HA pairs for the file system.
      * 
      */
     private Integer haPairs;
@@ -71,7 +71,7 @@ public final class GetOntapFileSystemResult {
      */
     private String kmsKeyId;
     /**
-     * @return The IDs of the elastic network interfaces from which a specific file system is accessible.
+     * @return IDs of the elastic network interfaces from which a specific file system is accessible.
      * 
      */
     private List<String> networkInterfaceIds;
@@ -81,53 +81,53 @@ public final class GetOntapFileSystemResult {
      */
     private String ownerId;
     /**
-     * @return Specifies the subnet in which you want the preferred file server to be located.
+     * @return Subnet in which you want the preferred file server to be located.
      * 
      */
     private String preferredSubnetId;
     private String region;
     /**
-     * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
+     * @return (Multi-AZ only) VPC route tables in which your file system&#39;s endpoints exist.
      * 
      */
     private List<String> routeTableIds;
     /**
-     * @return The storage capacity of the file system in gibibytes (GiB).
+     * @return Storage capacity of the file system in gibibytes (GiB).
      * 
      */
     private Integer storageCapacity;
     /**
-     * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+     * @return Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
     private String storageType;
     /**
-     * @return Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
+     * @return IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
      * 
      */
     private List<String> subnetIds;
     /**
-     * @return The tags associated with the file system.
+     * @return Tags associated with the file system.
      * 
      */
     private Map<String,String> tags;
     /**
-     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
+     * @return Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
      * 
      */
     private Integer throughputCapacity;
     /**
-     * @return The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     * @return Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
      * 
      */
     private Integer throughputCapacityPerHaPair;
     /**
-     * @return The ID of the primary virtual private cloud (VPC) for the file system.
+     * @return ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
     private String vpcId;
     /**
-     * @return The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     private String weeklyMaintenanceStartTime;
@@ -141,28 +141,28 @@ public final class GetOntapFileSystemResult {
         return this.arn;
     }
     /**
-     * @return The number of days to retain automatic backups.
+     * @return Number of days to retain automatic backups.
      * 
      */
     public Integer automaticBackupRetentionDays() {
         return this.automaticBackupRetentionDays;
     }
     /**
-     * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * @return Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     public String dailyAutomaticBackupStartTime() {
         return this.dailyAutomaticBackupStartTime;
     }
     /**
-     * @return The file system deployment type.
+     * @return File system deployment type.
      * 
      */
     public String deploymentType() {
         return this.deploymentType;
     }
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * @return SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
      * 
      */
     public List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations() {
@@ -176,21 +176,21 @@ public final class GetOntapFileSystemResult {
         return this.dnsName;
     }
     /**
-     * @return (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+     * @return (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
      * 
      */
     public String endpointIpAddressRange() {
         return this.endpointIpAddressRange;
     }
     /**
-     * @return The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
      * 
      */
     public List<GetOntapFileSystemEndpoint> endpoints() {
         return this.endpoints;
     }
     /**
-     * @return The number of HA pairs for the file system.
+     * @return Number of HA pairs for the file system.
      * 
      */
     public Integer haPairs() {
@@ -211,7 +211,7 @@ public final class GetOntapFileSystemResult {
         return this.kmsKeyId;
     }
     /**
-     * @return The IDs of the elastic network interfaces from which a specific file system is accessible.
+     * @return IDs of the elastic network interfaces from which a specific file system is accessible.
      * 
      */
     public List<String> networkInterfaceIds() {
@@ -225,7 +225,7 @@ public final class GetOntapFileSystemResult {
         return this.ownerId;
     }
     /**
-     * @return Specifies the subnet in which you want the preferred file server to be located.
+     * @return Subnet in which you want the preferred file server to be located.
      * 
      */
     public String preferredSubnetId() {
@@ -235,63 +235,63 @@ public final class GetOntapFileSystemResult {
         return this.region;
     }
     /**
-     * @return (Multi-AZ only) The VPC route tables in which your file system&#39;s endpoints exist.
+     * @return (Multi-AZ only) VPC route tables in which your file system&#39;s endpoints exist.
      * 
      */
     public List<String> routeTableIds() {
         return this.routeTableIds;
     }
     /**
-     * @return The storage capacity of the file system in gibibytes (GiB).
+     * @return Storage capacity of the file system in gibibytes (GiB).
      * 
      */
     public Integer storageCapacity() {
         return this.storageCapacity;
     }
     /**
-     * @return The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+     * @return Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      * 
      */
     public String storageType() {
         return this.storageType;
     }
     /**
-     * @return Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
+     * @return IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `preferredSubnetId` property.
      * 
      */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * @return The tags associated with the file system.
+     * @return Tags associated with the file system.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
+     * @return Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal throuthputCapacityPerHaPair x ha_pairs
      * 
      */
     public Integer throughputCapacity() {
         return this.throughputCapacity;
     }
     /**
-     * @return The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+     * @return Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
      * 
      */
     public Integer throughputCapacityPerHaPair() {
         return this.throughputCapacityPerHaPair;
     }
     /**
-     * @return The ID of the primary virtual private cloud (VPC) for the file system.
+     * @return ID of the primary virtual private cloud (VPC) for the file system.
      * 
      */
     public String vpcId() {
         return this.vpcId;
     }
     /**
-     * @return The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public String weeklyMaintenanceStartTime() {

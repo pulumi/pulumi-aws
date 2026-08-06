@@ -16,32 +16,16 @@ public final class ExperimentTemplateLogConfigurationS3ConfigurationArgs extends
 
     public static final ExperimentTemplateLogConfigurationS3ConfigurationArgs Empty = new ExperimentTemplateLogConfigurationS3ConfigurationArgs();
 
-    /**
-     * The name of the destination bucket.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The name of the destination bucket.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The bucket prefix.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -71,44 +55,20 @@ public final class ExperimentTemplateLogConfigurationS3ConfigurationArgs extends
             $ = new ExperimentTemplateLogConfigurationS3ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The name of the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The name of the destination bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param prefix The bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix The bucket prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

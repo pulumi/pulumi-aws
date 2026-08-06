@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class FlowTriggerConfigTriggerPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+        /// </summary>
         [Input("scheduled")]
         public Input<Inputs.FlowTriggerConfigTriggerPropertiesScheduledGetArgs>? Scheduled { get; set; }
 

@@ -28,11 +28,12 @@ class AccessLogSubscriptionArgs:
         The set of arguments for constructing a AccessLogSubscription resource.
 
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -59,7 +60,7 @@ class AccessLogSubscriptionArgs:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 
         The following arguments are optional:
         """
@@ -96,6 +97,9 @@ class AccessLogSubscriptionArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -121,10 +125,11 @@ class _AccessLogSubscriptionState:
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -195,7 +200,7 @@ class _AccessLogSubscriptionState:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 
         The following arguments are optional:
         """
@@ -220,6 +225,9 @@ class _AccessLogSubscriptionState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -277,10 +285,11 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -383,10 +392,11 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[_builtins.str] resource_identifier: The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] service_network_log_type: Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -438,7 +448,7 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
+        ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 
         The following arguments are optional:
         """
@@ -455,6 +465,9 @@ class AccessLogSubscription(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property

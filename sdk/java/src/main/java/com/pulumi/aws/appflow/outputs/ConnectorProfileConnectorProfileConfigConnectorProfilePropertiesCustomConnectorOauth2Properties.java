@@ -12,23 +12,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     private String oauth2GrantType;
+    /**
+     * @return Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     private String tokenUrl;
     /**
-     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * @return Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
      * 
      */
     private @Nullable Map<String,String> tokenUrlCustomProperties;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties() {}
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     public String oauth2GrantType() {
         return this.oauth2GrantType;
     }
+    /**
+     * @return Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     public String tokenUrl() {
         return this.tokenUrl;
     }
     /**
-     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * @return Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
      * 
      */
     public Map<String,String> tokenUrlCustomProperties() {

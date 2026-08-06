@@ -13,15 +13,13 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A single Iceberg compaction settings object.
-        /// See `IcebergCompaction` below.
+        /// Single Iceberg compaction settings object. See `IcebergCompaction` below.
         /// </summary>
         [Input("icebergCompaction", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergCompactionArgs> IcebergCompaction { get; set; } = null!;
 
         /// <summary>
-        /// A single Iceberg snapshot management settings object.
-        /// See `IcebergSnapshotManagement` below.
+        /// Single Iceberg snapshot management settings object. See `IcebergSnapshotManagement` below.
         /// </summary>
         [Input("icebergSnapshotManagement", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs> IcebergSnapshotManagement { get; set; } = null!;

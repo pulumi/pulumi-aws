@@ -16,23 +16,31 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
     public static final GetOpenZfsSnapshotFilterArgs Empty = new GetOpenZfsSnapshotFilterArgs();
 
     /**
-     * Name of the snapshot.
+     * Name of the field to filter by.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the snapshot.
+     * @return Name of the field to filter by.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -63,7 +71,7 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the snapshot.
+         * @param name Name of the field to filter by.
          * 
          * @return builder
          * 
@@ -74,7 +82,7 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Name of the snapshot.
+         * @param name Name of the field to filter by.
          * 
          * @return builder
          * 
@@ -83,15 +91,33 @@ public final class GetOpenZfsSnapshotFilterArgs extends com.pulumi.resources.Res
             return name(Output.of(name));
         }
 
+        /**
+         * @param values Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

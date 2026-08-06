@@ -16,16 +16,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs();
 
+    /**
+     * Maximum number of vCPUs.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
+    /**
+     * @return Maximum number of vCPUs.
+     * 
+     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum number of vCPUs.
+     * 
+     */
     @Import(name="min", required=true)
     private Output<Integer> min;
 
+    /**
+     * @return Minimum number of vCPUs.
+     * 
+     */
     public Output<Integer> min() {
         return this.min;
     }
@@ -55,20 +71,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCountArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum number of vCPUs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum number of vCPUs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum number of vCPUs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Output<Integer> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum number of vCPUs.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

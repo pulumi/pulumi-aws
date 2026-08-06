@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionRewritePath {
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     private String exact;
 
     private GatewayRouteSpecHttp2RouteActionRewritePath() {}
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public String exact() {

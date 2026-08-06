@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? OpenidConnectConfig;
         /// <summary>
-        /// Amazon Cognito User Pool configuration. See `UserPoolConfig` Block for details.
+        /// Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? UserPoolConfig;
 

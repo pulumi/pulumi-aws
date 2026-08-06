@@ -18,14 +18,14 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
     public static final MultiRegionAccessPointArgs Empty = new MultiRegionAccessPointArgs();
 
     /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -33,14 +33,14 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     @Import(name="details", required=true)
     private Output<MultiRegionAccessPointDetailsArgs> details;
 
     /**
-     * @return A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
      * 
      */
     public Output<MultiRegionAccessPointDetailsArgs> details() {
@@ -89,7 +89,7 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param details A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
          * 
          * @return builder
          * 

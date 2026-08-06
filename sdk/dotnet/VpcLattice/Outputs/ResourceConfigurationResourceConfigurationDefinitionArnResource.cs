@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ResourceConfigurationResourceConfigurationDefinitionArnResource
     {
         /// <summary>
-        /// The ARN of the Resource for this configuration.
+        /// ARN of the Resource for this configuration.
         /// </summary>
         public readonly string Arn;
 

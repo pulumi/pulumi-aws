@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { RuleSetArgs, RuleSetState } from "./ruleSet";
+export type RuleSet = import("./ruleSet").RuleSet;
+export const RuleSet: typeof import("./ruleSet").RuleSet = null as any;
+utilities.lazyLoad(exports, ["RuleSet"], () => require("./ruleSet"));
+
 export { TrafficPolicyArgs, TrafficPolicyState } from "./trafficPolicy";
 export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
 export const TrafficPolicy: typeof import("./trafficPolicy").TrafficPolicy = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:mailmanager/ruleSet:RuleSet":
+                return new RuleSet(name, <any>undefined, { urn })
             case "aws:mailmanager/trafficPolicy:TrafficPolicy":
                 return new TrafficPolicy(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "mailmanager/ruleSet", _module)
 pulumi.runtime.registerResourceModule("aws", "mailmanager/trafficPolicy", _module)

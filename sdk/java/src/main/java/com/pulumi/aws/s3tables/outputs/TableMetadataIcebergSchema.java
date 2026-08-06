@@ -12,16 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class TableMetadataIcebergSchema {
     /**
-     * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-     * See `field` below.
+     * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
      * 
      */
     private List<TableMetadataIcebergSchemaField> fields;
 
     private TableMetadataIcebergSchema() {}
     /**
-     * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-     * See `field` below.
+     * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema. See `field` below.
      * 
      */
     public List<TableMetadataIcebergSchemaField> fields() {

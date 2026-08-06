@@ -13,6 +13,1013 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnomalyDetectorConfiguration struct {
+	// Configuration block for the Random Cut Forest anomaly detection algorithm. See `randomCutForest` below.
+	RandomCutForest AnomalyDetectorConfigurationRandomCutForest `pulumi:"randomCutForest"`
+}
+
+// AnomalyDetectorConfigurationInput is an input type that accepts AnomalyDetectorConfigurationArgs and AnomalyDetectorConfigurationOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationInput` via:
+//
+//	AnomalyDetectorConfigurationArgs{...}
+type AnomalyDetectorConfigurationInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput
+	ToAnomalyDetectorConfigurationOutputWithContext(context.Context) AnomalyDetectorConfigurationOutput
+}
+
+type AnomalyDetectorConfigurationArgs struct {
+	// Configuration block for the Random Cut Forest anomaly detection algorithm. See `randomCutForest` below.
+	RandomCutForest AnomalyDetectorConfigurationRandomCutForestInput `pulumi:"randomCutForest"`
+}
+
+func (AnomalyDetectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput {
+	return i.ToAnomalyDetectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationOutput)
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
+	return i.ToAnomalyDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationOutput).ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorConfigurationPtrInput is an input type that accepts AnomalyDetectorConfigurationArgs, AnomalyDetectorConfigurationPtr and AnomalyDetectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationPtrInput` via:
+//
+//	        AnomalyDetectorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput
+	ToAnomalyDetectorConfigurationPtrOutputWithContext(context.Context) AnomalyDetectorConfigurationPtrOutput
+}
+
+type anomalyDetectorConfigurationPtrType AnomalyDetectorConfigurationArgs
+
+func AnomalyDetectorConfigurationPtr(v *AnomalyDetectorConfigurationArgs) AnomalyDetectorConfigurationPtrInput {
+	return (*anomalyDetectorConfigurationPtrType)(v)
+}
+
+func (*anomalyDetectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (i *anomalyDetectorConfigurationPtrType) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
+	return i.ToAnomalyDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorConfigurationPtrType) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationPtrOutput)
+}
+
+type AnomalyDetectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationOutput() AnomalyDetectorConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
+	return o.ToAnomalyDetectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorConfiguration) *AnomalyDetectorConfiguration {
+		return &v
+	}).(AnomalyDetectorConfigurationPtrOutput)
+}
+
+// Configuration block for the Random Cut Forest anomaly detection algorithm. See `randomCutForest` below.
+func (o AnomalyDetectorConfigurationOutput) RandomCutForest() AnomalyDetectorConfigurationRandomCutForestOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfiguration) AnomalyDetectorConfigurationRandomCutForest {
+		return v.RandomCutForest
+	}).(AnomalyDetectorConfigurationRandomCutForestOutput)
+}
+
+type AnomalyDetectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfiguration)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationPtrOutput) Elem() AnomalyDetectorConfigurationOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfiguration) AnomalyDetectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfiguration
+		return ret
+	}).(AnomalyDetectorConfigurationOutput)
+}
+
+// Configuration block for the Random Cut Forest anomaly detection algorithm. See `randomCutForest` below.
+func (o AnomalyDetectorConfigurationPtrOutput) RandomCutForest() AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfiguration) *AnomalyDetectorConfigurationRandomCutForest {
+		if v == nil {
+			return nil
+		}
+		return &v.RandomCutForest
+	}).(AnomalyDetectorConfigurationRandomCutForestPtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForest struct {
+	// Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignoreNearExpectedFromAbove` below.
+	IgnoreNearExpectedFromAbove *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove `pulumi:"ignoreNearExpectedFromAbove"`
+	// Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignoreNearExpectedFromBelow` below.
+	IgnoreNearExpectedFromBelow *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow `pulumi:"ignoreNearExpectedFromBelow"`
+	// PromQL query used to select the time series for anomaly detection.
+	Query string `pulumi:"query"`
+	// Number of data points used to train the model. Must be at least `256`.
+	SampleSize *int `pulumi:"sampleSize"`
+	// Number of consecutive data points that form a single input to the model. Must be at least `2`.
+	ShingleSize *int `pulumi:"shingleSize"`
+}
+
+// AnomalyDetectorConfigurationRandomCutForestInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestArgs and AnomalyDetectorConfigurationRandomCutForestOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestInput` via:
+//
+//	AnomalyDetectorConfigurationRandomCutForestArgs{...}
+type AnomalyDetectorConfigurationRandomCutForestInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestOutput() AnomalyDetectorConfigurationRandomCutForestOutput
+	ToAnomalyDetectorConfigurationRandomCutForestOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestOutput
+}
+
+type AnomalyDetectorConfigurationRandomCutForestArgs struct {
+	// Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignoreNearExpectedFromAbove` below.
+	IgnoreNearExpectedFromAbove AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput `pulumi:"ignoreNearExpectedFromAbove"`
+	// Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignoreNearExpectedFromBelow` below.
+	IgnoreNearExpectedFromBelow AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput `pulumi:"ignoreNearExpectedFromBelow"`
+	// PromQL query used to select the time series for anomaly detection.
+	Query pulumi.StringInput `pulumi:"query"`
+	// Number of data points used to train the model. Must be at least `256`.
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
+	// Number of consecutive data points that form a single input to the model. Must be at least `2`.
+	ShingleSize pulumi.IntPtrInput `pulumi:"shingleSize"`
+}
+
+func (AnomalyDetectorConfigurationRandomCutForestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForest)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestArgs) ToAnomalyDetectorConfigurationRandomCutForestOutput() AnomalyDetectorConfigurationRandomCutForestOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestArgs) ToAnomalyDetectorConfigurationRandomCutForestOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestOutput)
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestArgs) ToAnomalyDetectorConfigurationRandomCutForestPtrOutput() AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestArgs) ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestOutput).ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorConfigurationRandomCutForestPtrInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestArgs, AnomalyDetectorConfigurationRandomCutForestPtr and AnomalyDetectorConfigurationRandomCutForestPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestPtrInput` via:
+//
+//	        AnomalyDetectorConfigurationRandomCutForestArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorConfigurationRandomCutForestPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestPtrOutput() AnomalyDetectorConfigurationRandomCutForestPtrOutput
+	ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestPtrOutput
+}
+
+type anomalyDetectorConfigurationRandomCutForestPtrType AnomalyDetectorConfigurationRandomCutForestArgs
+
+func AnomalyDetectorConfigurationRandomCutForestPtr(v *AnomalyDetectorConfigurationRandomCutForestArgs) AnomalyDetectorConfigurationRandomCutForestPtrInput {
+	return (*anomalyDetectorConfigurationRandomCutForestPtrType)(v)
+}
+
+func (*anomalyDetectorConfigurationRandomCutForestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForest)(nil)).Elem()
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestPtrType) ToAnomalyDetectorConfigurationRandomCutForestPtrOutput() AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestPtrType) ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestPtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForest)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) ToAnomalyDetectorConfigurationRandomCutForestOutput() AnomalyDetectorConfigurationRandomCutForestOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) ToAnomalyDetectorConfigurationRandomCutForestOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) ToAnomalyDetectorConfigurationRandomCutForestPtrOutput() AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return o.ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorConfigurationRandomCutForest) *AnomalyDetectorConfigurationRandomCutForest {
+		return &v
+	}).(AnomalyDetectorConfigurationRandomCutForestPtrOutput)
+}
+
+// Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignoreNearExpectedFromAbove` below.
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForest) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove {
+		return v.IgnoreNearExpectedFromAbove
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput)
+}
+
+// Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignoreNearExpectedFromBelow` below.
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForest) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow {
+		return v.IgnoreNearExpectedFromBelow
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput)
+}
+
+// PromQL query used to select the time series for anomaly detection.
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForest) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// Number of data points used to train the model. Must be at least `256`.
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForest) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
+}
+
+// Number of consecutive data points that form a single input to the model. Must be at least `2`.
+func (o AnomalyDetectorConfigurationRandomCutForestOutput) ShingleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForest) *int { return v.ShingleSize }).(pulumi.IntPtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForest)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) ToAnomalyDetectorConfigurationRandomCutForestPtrOutput() AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) ToAnomalyDetectorConfigurationRandomCutForestPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) Elem() AnomalyDetectorConfigurationRandomCutForestOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) AnomalyDetectorConfigurationRandomCutForest {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfigurationRandomCutForest
+		return ret
+	}).(AnomalyDetectorConfigurationRandomCutForestOutput)
+}
+
+// Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignoreNearExpectedFromAbove` below.
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) IgnoreNearExpectedFromAbove() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreNearExpectedFromAbove
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput)
+}
+
+// Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignoreNearExpectedFromBelow` below.
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) IgnoreNearExpectedFromBelow() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreNearExpectedFromBelow
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput)
+}
+
+// PromQL query used to select the time series for anomaly detection.
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of data points used to train the model. Must be at least `256`.
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SampleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of consecutive data points that form a single input to the model. Must be at least `2`.
+func (o AnomalyDetectorConfigurationRandomCutForestPtrOutput) ShingleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForest) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ShingleSize
+	}).(pulumi.IntPtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove struct {
+	// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+	Amount *float64 `pulumi:"amount"`
+	// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+	Ratio *float64 `pulumi:"ratio"`
+}
+
+// AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs and AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveInput` via:
+//
+//	AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs{...}
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs struct {
+	// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+	Amount pulumi.Float64PtrInput `pulumi:"amount"`
+	// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+	Ratio pulumi.Float64PtrInput `pulumi:"ratio"`
+}
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput)
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput).ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs, AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtr and AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput` via:
+//
+//	        AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput
+}
+
+type anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrType AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs
+
+func AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtr(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput {
+	return (*anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrType)(v)
+}
+
+func (*anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove)(nil)).Elem()
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrType) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrType) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove {
+		return &v
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput)
+}
+
+// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) *float64 {
+		return v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) *float64 {
+		return v.Ratio
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) Elem() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove
+		return ret
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput)
+}
+
+// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Ratio
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow struct {
+	// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+	Amount *float64 `pulumi:"amount"`
+	// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+	Ratio *float64 `pulumi:"ratio"`
+}
+
+// AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs and AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowInput` via:
+//
+//	AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs{...}
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs struct {
+	// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+	Amount pulumi.Float64PtrInput `pulumi:"amount"`
+	// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+	Ratio pulumi.Float64PtrInput `pulumi:"ratio"`
+}
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow)(nil)).Elem()
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput)
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput).ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput is an input type that accepts AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs, AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtr and AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput` via:
+//
+//	        AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput
+	ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput
+}
+
+type anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrType AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs
+
+func AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtr(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput {
+	return (*anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrType)(v)
+}
+
+func (*anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow)(nil)).Elem()
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrType) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return i.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrType) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o.ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow {
+		return &v
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput)
+}
+
+// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) *float64 {
+		return v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) *float64 {
+		return v.Ratio
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow)(nil)).Elem()
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) ToAnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) Elem() AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow
+		return ret
+	}).(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput)
+}
+
+// Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) Amount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Amount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+func (o AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput) Ratio() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Ratio
+	}).(pulumi.Float64PtrOutput)
+}
+
+type AnomalyDetectorMissingDataAction struct {
+	// Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+	MarkAsAnomaly *bool `pulumi:"markAsAnomaly"`
+	// Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `markAsAnomaly`.
+	Skip *bool `pulumi:"skip"`
+}
+
+// AnomalyDetectorMissingDataActionInput is an input type that accepts AnomalyDetectorMissingDataActionArgs and AnomalyDetectorMissingDataActionOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMissingDataActionInput` via:
+//
+//	AnomalyDetectorMissingDataActionArgs{...}
+type AnomalyDetectorMissingDataActionInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput
+	ToAnomalyDetectorMissingDataActionOutputWithContext(context.Context) AnomalyDetectorMissingDataActionOutput
+}
+
+type AnomalyDetectorMissingDataActionArgs struct {
+	// Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+	MarkAsAnomaly pulumi.BoolPtrInput `pulumi:"markAsAnomaly"`
+	// Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `markAsAnomaly`.
+	Skip pulumi.BoolPtrInput `pulumi:"skip"`
+}
+
+func (AnomalyDetectorMissingDataActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput {
+	return i.ToAnomalyDetectorMissingDataActionOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionOutput)
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return i.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorMissingDataActionArgs) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionOutput).ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorMissingDataActionPtrInput is an input type that accepts AnomalyDetectorMissingDataActionArgs, AnomalyDetectorMissingDataActionPtr and AnomalyDetectorMissingDataActionPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorMissingDataActionPtrInput` via:
+//
+//	        AnomalyDetectorMissingDataActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorMissingDataActionPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput
+	ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Context) AnomalyDetectorMissingDataActionPtrOutput
+}
+
+type anomalyDetectorMissingDataActionPtrType AnomalyDetectorMissingDataActionArgs
+
+func AnomalyDetectorMissingDataActionPtr(v *AnomalyDetectorMissingDataActionArgs) AnomalyDetectorMissingDataActionPtrInput {
+	return (*anomalyDetectorMissingDataActionPtrType)(v)
+}
+
+func (*anomalyDetectorMissingDataActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (i *anomalyDetectorMissingDataActionPtrType) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return i.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorMissingDataActionPtrType) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMissingDataActionPtrOutput)
+}
+
+type AnomalyDetectorMissingDataActionOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMissingDataActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionOutput() AnomalyDetectorMissingDataActionOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return o.ToAnomalyDetectorMissingDataActionPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorMissingDataActionOutput) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMissingDataAction) *AnomalyDetectorMissingDataAction {
+		return &v
+	}).(AnomalyDetectorMissingDataActionPtrOutput)
+}
+
+// Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+func (o AnomalyDetectorMissingDataActionOutput) MarkAsAnomaly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMissingDataAction) *bool { return v.MarkAsAnomaly }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `markAsAnomaly`.
+func (o AnomalyDetectorMissingDataActionOutput) Skip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorMissingDataAction) *bool { return v.Skip }).(pulumi.BoolPtrOutput)
+}
+
+type AnomalyDetectorMissingDataActionPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorMissingDataActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorMissingDataAction)(nil)).Elem()
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) ToAnomalyDetectorMissingDataActionPtrOutput() AnomalyDetectorMissingDataActionPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) ToAnomalyDetectorMissingDataActionPtrOutputWithContext(ctx context.Context) AnomalyDetectorMissingDataActionPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorMissingDataActionPtrOutput) Elem() AnomalyDetectorMissingDataActionOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) AnomalyDetectorMissingDataAction {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorMissingDataAction
+		return ret
+	}).(AnomalyDetectorMissingDataActionOutput)
+}
+
+// Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+func (o AnomalyDetectorMissingDataActionPtrOutput) MarkAsAnomaly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MarkAsAnomaly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `markAsAnomaly`.
+func (o AnomalyDetectorMissingDataActionPtrOutput) Skip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorMissingDataAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Skip
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AnomalyDetectorTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AnomalyDetectorTimeoutsInput is an input type that accepts AnomalyDetectorTimeoutsArgs and AnomalyDetectorTimeoutsOutput values.
+// You can construct a concrete instance of `AnomalyDetectorTimeoutsInput` via:
+//
+//	AnomalyDetectorTimeoutsArgs{...}
+type AnomalyDetectorTimeoutsInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorTimeoutsOutput() AnomalyDetectorTimeoutsOutput
+	ToAnomalyDetectorTimeoutsOutputWithContext(context.Context) AnomalyDetectorTimeoutsOutput
+}
+
+type AnomalyDetectorTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AnomalyDetectorTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorTimeouts)(nil)).Elem()
+}
+
+func (i AnomalyDetectorTimeoutsArgs) ToAnomalyDetectorTimeoutsOutput() AnomalyDetectorTimeoutsOutput {
+	return i.ToAnomalyDetectorTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorTimeoutsArgs) ToAnomalyDetectorTimeoutsOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimeoutsOutput)
+}
+
+func (i AnomalyDetectorTimeoutsArgs) ToAnomalyDetectorTimeoutsPtrOutput() AnomalyDetectorTimeoutsPtrOutput {
+	return i.ToAnomalyDetectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AnomalyDetectorTimeoutsArgs) ToAnomalyDetectorTimeoutsPtrOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimeoutsOutput).ToAnomalyDetectorTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AnomalyDetectorTimeoutsPtrInput is an input type that accepts AnomalyDetectorTimeoutsArgs, AnomalyDetectorTimeoutsPtr and AnomalyDetectorTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AnomalyDetectorTimeoutsPtrInput` via:
+//
+//	        AnomalyDetectorTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnomalyDetectorTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAnomalyDetectorTimeoutsPtrOutput() AnomalyDetectorTimeoutsPtrOutput
+	ToAnomalyDetectorTimeoutsPtrOutputWithContext(context.Context) AnomalyDetectorTimeoutsPtrOutput
+}
+
+type anomalyDetectorTimeoutsPtrType AnomalyDetectorTimeoutsArgs
+
+func AnomalyDetectorTimeoutsPtr(v *AnomalyDetectorTimeoutsArgs) AnomalyDetectorTimeoutsPtrInput {
+	return (*anomalyDetectorTimeoutsPtrType)(v)
+}
+
+func (*anomalyDetectorTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorTimeouts)(nil)).Elem()
+}
+
+func (i *anomalyDetectorTimeoutsPtrType) ToAnomalyDetectorTimeoutsPtrOutput() AnomalyDetectorTimeoutsPtrOutput {
+	return i.ToAnomalyDetectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *anomalyDetectorTimeoutsPtrType) ToAnomalyDetectorTimeoutsPtrOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimeoutsPtrOutput)
+}
+
+type AnomalyDetectorTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalyDetectorTimeouts)(nil)).Elem()
+}
+
+func (o AnomalyDetectorTimeoutsOutput) ToAnomalyDetectorTimeoutsOutput() AnomalyDetectorTimeoutsOutput {
+	return o
+}
+
+func (o AnomalyDetectorTimeoutsOutput) ToAnomalyDetectorTimeoutsOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsOutput {
+	return o
+}
+
+func (o AnomalyDetectorTimeoutsOutput) ToAnomalyDetectorTimeoutsPtrOutput() AnomalyDetectorTimeoutsPtrOutput {
+	return o.ToAnomalyDetectorTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AnomalyDetectorTimeoutsOutput) ToAnomalyDetectorTimeoutsPtrOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorTimeouts) *AnomalyDetectorTimeouts {
+		return &v
+	}).(AnomalyDetectorTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnomalyDetectorTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AnomalyDetectorTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnomalyDetectorTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnomalyDetectorTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AnomalyDetectorTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnomalyDetectorTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnomalyDetectorTimeouts)(nil)).Elem()
+}
+
+func (o AnomalyDetectorTimeoutsPtrOutput) ToAnomalyDetectorTimeoutsPtrOutput() AnomalyDetectorTimeoutsPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorTimeoutsPtrOutput) ToAnomalyDetectorTimeoutsPtrOutputWithContext(ctx context.Context) AnomalyDetectorTimeoutsPtrOutput {
+	return o
+}
+
+func (o AnomalyDetectorTimeoutsPtrOutput) Elem() AnomalyDetectorTimeoutsOutput {
+	return o.ApplyT(func(v *AnomalyDetectorTimeouts) AnomalyDetectorTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AnomalyDetectorTimeouts
+		return ret
+	}).(AnomalyDetectorTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnomalyDetectorTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AnomalyDetectorTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnomalyDetectorTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalyDetectorTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type QueryLoggingConfigurationDestination struct {
 	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
 	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -578,8 +1585,12 @@ func (o ResourcePolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type ScraperDestination struct {
-	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
 	Amp *ScraperDestinationAmp `pulumi:"amp"`
+	// Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+	//
+	// > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+	Cloudwatch *ScraperDestinationCloudwatch `pulumi:"cloudwatch"`
 }
 
 // ScraperDestinationInput is an input type that accepts ScraperDestinationArgs and ScraperDestinationOutput values.
@@ -594,8 +1605,12 @@ type ScraperDestinationInput interface {
 }
 
 type ScraperDestinationArgs struct {
-	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+	// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
 	Amp ScraperDestinationAmpPtrInput `pulumi:"amp"`
+	// Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+	//
+	// > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+	Cloudwatch ScraperDestinationCloudwatchPtrInput `pulumi:"cloudwatch"`
 }
 
 func (ScraperDestinationArgs) ElementType() reflect.Type {
@@ -675,9 +1690,16 @@ func (o ScraperDestinationOutput) ToScraperDestinationPtrOutputWithContext(ctx c
 	}).(ScraperDestinationPtrOutput)
 }
 
-// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
 func (o ScraperDestinationOutput) Amp() ScraperDestinationAmpPtrOutput {
 	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationAmp { return v.Amp }).(ScraperDestinationAmpPtrOutput)
+}
+
+// Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+//
+// > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+func (o ScraperDestinationOutput) Cloudwatch() ScraperDestinationCloudwatchPtrOutput {
+	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationCloudwatch { return v.Cloudwatch }).(ScraperDestinationCloudwatchPtrOutput)
 }
 
 type ScraperDestinationPtrOutput struct{ *pulumi.OutputState }
@@ -704,7 +1726,7 @@ func (o ScraperDestinationPtrOutput) Elem() ScraperDestinationOutput {
 	}).(ScraperDestinationOutput)
 }
 
-// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+// Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
 func (o ScraperDestinationPtrOutput) Amp() ScraperDestinationAmpPtrOutput {
 	return o.ApplyT(func(v *ScraperDestination) *ScraperDestinationAmp {
 		if v == nil {
@@ -714,8 +1736,20 @@ func (o ScraperDestinationPtrOutput) Amp() ScraperDestinationAmpPtrOutput {
 	}).(ScraperDestinationAmpPtrOutput)
 }
 
+// Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+//
+// > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+func (o ScraperDestinationPtrOutput) Cloudwatch() ScraperDestinationCloudwatchPtrOutput {
+	return o.ApplyT(func(v *ScraperDestination) *ScraperDestinationCloudwatch {
+		if v == nil {
+			return nil
+		}
+		return v.Cloudwatch
+	}).(ScraperDestinationCloudwatchPtrOutput)
+}
+
 type ScraperDestinationAmp struct {
-	// The Amazon Resource Name (ARN) of the prometheus workspace.
+	// ARN of the prometheus workspace.
 	WorkspaceArn string `pulumi:"workspaceArn"`
 }
 
@@ -731,7 +1765,7 @@ type ScraperDestinationAmpInput interface {
 }
 
 type ScraperDestinationAmpArgs struct {
-	// The Amazon Resource Name (ARN) of the prometheus workspace.
+	// ARN of the prometheus workspace.
 	WorkspaceArn pulumi.StringInput `pulumi:"workspaceArn"`
 }
 
@@ -812,7 +1846,7 @@ func (o ScraperDestinationAmpOutput) ToScraperDestinationAmpPtrOutputWithContext
 	}).(ScraperDestinationAmpPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prometheus workspace.
+// ARN of the prometheus workspace.
 func (o ScraperDestinationAmpOutput) WorkspaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScraperDestinationAmp) string { return v.WorkspaceArn }).(pulumi.StringOutput)
 }
@@ -841,7 +1875,7 @@ func (o ScraperDestinationAmpPtrOutput) Elem() ScraperDestinationAmpOutput {
 	}).(ScraperDestinationAmpOutput)
 }
 
-// The Amazon Resource Name (ARN) of the prometheus workspace.
+// ARN of the prometheus workspace.
 func (o ScraperDestinationAmpPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperDestinationAmp) *string {
 		if v == nil {
@@ -851,10 +1885,598 @@ func (o ScraperDestinationAmpPtrOutput) WorkspaceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScraperDestinationCloudwatch struct {
+	// ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+	DatasetArn string `pulumi:"datasetArn"`
+}
+
+// ScraperDestinationCloudwatchInput is an input type that accepts ScraperDestinationCloudwatchArgs and ScraperDestinationCloudwatchOutput values.
+// You can construct a concrete instance of `ScraperDestinationCloudwatchInput` via:
+//
+//	ScraperDestinationCloudwatchArgs{...}
+type ScraperDestinationCloudwatchInput interface {
+	pulumi.Input
+
+	ToScraperDestinationCloudwatchOutput() ScraperDestinationCloudwatchOutput
+	ToScraperDestinationCloudwatchOutputWithContext(context.Context) ScraperDestinationCloudwatchOutput
+}
+
+type ScraperDestinationCloudwatchArgs struct {
+	// ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+	DatasetArn pulumi.StringInput `pulumi:"datasetArn"`
+}
+
+func (ScraperDestinationCloudwatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationCloudwatch)(nil)).Elem()
+}
+
+func (i ScraperDestinationCloudwatchArgs) ToScraperDestinationCloudwatchOutput() ScraperDestinationCloudwatchOutput {
+	return i.ToScraperDestinationCloudwatchOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationCloudwatchArgs) ToScraperDestinationCloudwatchOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudwatchOutput)
+}
+
+func (i ScraperDestinationCloudwatchArgs) ToScraperDestinationCloudwatchPtrOutput() ScraperDestinationCloudwatchPtrOutput {
+	return i.ToScraperDestinationCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperDestinationCloudwatchArgs) ToScraperDestinationCloudwatchPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudwatchOutput).ToScraperDestinationCloudwatchPtrOutputWithContext(ctx)
+}
+
+// ScraperDestinationCloudwatchPtrInput is an input type that accepts ScraperDestinationCloudwatchArgs, ScraperDestinationCloudwatchPtr and ScraperDestinationCloudwatchPtrOutput values.
+// You can construct a concrete instance of `ScraperDestinationCloudwatchPtrInput` via:
+//
+//	        ScraperDestinationCloudwatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperDestinationCloudwatchPtrInput interface {
+	pulumi.Input
+
+	ToScraperDestinationCloudwatchPtrOutput() ScraperDestinationCloudwatchPtrOutput
+	ToScraperDestinationCloudwatchPtrOutputWithContext(context.Context) ScraperDestinationCloudwatchPtrOutput
+}
+
+type scraperDestinationCloudwatchPtrType ScraperDestinationCloudwatchArgs
+
+func ScraperDestinationCloudwatchPtr(v *ScraperDestinationCloudwatchArgs) ScraperDestinationCloudwatchPtrInput {
+	return (*scraperDestinationCloudwatchPtrType)(v)
+}
+
+func (*scraperDestinationCloudwatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationCloudwatch)(nil)).Elem()
+}
+
+func (i *scraperDestinationCloudwatchPtrType) ToScraperDestinationCloudwatchPtrOutput() ScraperDestinationCloudwatchPtrOutput {
+	return i.ToScraperDestinationCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperDestinationCloudwatchPtrType) ToScraperDestinationCloudwatchPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperDestinationCloudwatchPtrOutput)
+}
+
+type ScraperDestinationCloudwatchOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationCloudwatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperDestinationCloudwatch)(nil)).Elem()
+}
+
+func (o ScraperDestinationCloudwatchOutput) ToScraperDestinationCloudwatchOutput() ScraperDestinationCloudwatchOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudwatchOutput) ToScraperDestinationCloudwatchOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudwatchOutput) ToScraperDestinationCloudwatchPtrOutput() ScraperDestinationCloudwatchPtrOutput {
+	return o.ToScraperDestinationCloudwatchPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperDestinationCloudwatchOutput) ToScraperDestinationCloudwatchPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperDestinationCloudwatch) *ScraperDestinationCloudwatch {
+		return &v
+	}).(ScraperDestinationCloudwatchPtrOutput)
+}
+
+// ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+func (o ScraperDestinationCloudwatchOutput) DatasetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperDestinationCloudwatch) string { return v.DatasetArn }).(pulumi.StringOutput)
+}
+
+type ScraperDestinationCloudwatchPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationCloudwatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestinationCloudwatch)(nil)).Elem()
+}
+
+func (o ScraperDestinationCloudwatchPtrOutput) ToScraperDestinationCloudwatchPtrOutput() ScraperDestinationCloudwatchPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudwatchPtrOutput) ToScraperDestinationCloudwatchPtrOutputWithContext(ctx context.Context) ScraperDestinationCloudwatchPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationCloudwatchPtrOutput) Elem() ScraperDestinationCloudwatchOutput {
+	return o.ApplyT(func(v *ScraperDestinationCloudwatch) ScraperDestinationCloudwatch {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperDestinationCloudwatch
+		return ret
+	}).(ScraperDestinationCloudwatchOutput)
+}
+
+// ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+func (o ScraperDestinationCloudwatchPtrOutput) DatasetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperDestinationCloudwatch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestination struct {
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
+	CloudwatchLogs ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
+}
+
+// ScraperLoggingConfigurationLoggingDestinationInput is an input type that accepts ScraperLoggingConfigurationLoggingDestinationArgs and ScraperLoggingConfigurationLoggingDestinationOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationLoggingDestinationInput` via:
+//
+//	ScraperLoggingConfigurationLoggingDestinationArgs{...}
+type ScraperLoggingConfigurationLoggingDestinationInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationLoggingDestinationOutput() ScraperLoggingConfigurationLoggingDestinationOutput
+	ToScraperLoggingConfigurationLoggingDestinationOutputWithContext(context.Context) ScraperLoggingConfigurationLoggingDestinationOutput
+}
+
+type ScraperLoggingConfigurationLoggingDestinationArgs struct {
+	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
+	CloudwatchLogs ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput `pulumi:"cloudwatchLogs"`
+}
+
+func (ScraperLoggingConfigurationLoggingDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestination)(nil)).Elem()
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationArgs) ToScraperLoggingConfigurationLoggingDestinationOutput() ScraperLoggingConfigurationLoggingDestinationOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationArgs) ToScraperLoggingConfigurationLoggingDestinationOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationOutput)
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationArgs) ToScraperLoggingConfigurationLoggingDestinationPtrOutput() ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationArgs) ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationOutput).ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(ctx)
+}
+
+// ScraperLoggingConfigurationLoggingDestinationPtrInput is an input type that accepts ScraperLoggingConfigurationLoggingDestinationArgs, ScraperLoggingConfigurationLoggingDestinationPtr and ScraperLoggingConfigurationLoggingDestinationPtrOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationLoggingDestinationPtrInput` via:
+//
+//	        ScraperLoggingConfigurationLoggingDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperLoggingConfigurationLoggingDestinationPtrInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationLoggingDestinationPtrOutput() ScraperLoggingConfigurationLoggingDestinationPtrOutput
+	ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(context.Context) ScraperLoggingConfigurationLoggingDestinationPtrOutput
+}
+
+type scraperLoggingConfigurationLoggingDestinationPtrType ScraperLoggingConfigurationLoggingDestinationArgs
+
+func ScraperLoggingConfigurationLoggingDestinationPtr(v *ScraperLoggingConfigurationLoggingDestinationArgs) ScraperLoggingConfigurationLoggingDestinationPtrInput {
+	return (*scraperLoggingConfigurationLoggingDestinationPtrType)(v)
+}
+
+func (*scraperLoggingConfigurationLoggingDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationLoggingDestination)(nil)).Elem()
+}
+
+func (i *scraperLoggingConfigurationLoggingDestinationPtrType) ToScraperLoggingConfigurationLoggingDestinationPtrOutput() ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperLoggingConfigurationLoggingDestinationPtrType) ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationPtrOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestinationOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationLoggingDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestination)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationOutput) ToScraperLoggingConfigurationLoggingDestinationOutput() ScraperLoggingConfigurationLoggingDestinationOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationOutput) ToScraperLoggingConfigurationLoggingDestinationOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationOutput) ToScraperLoggingConfigurationLoggingDestinationPtrOutput() ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return o.ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationOutput) ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperLoggingConfigurationLoggingDestination) *ScraperLoggingConfigurationLoggingDestination {
+		return &v
+	}).(ScraperLoggingConfigurationLoggingDestinationPtrOutput)
+}
+
+// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
+func (o ScraperLoggingConfigurationLoggingDestinationOutput) CloudwatchLogs() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return o.ApplyT(func(v ScraperLoggingConfigurationLoggingDestination) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationLoggingDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationLoggingDestination)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationPtrOutput) ToScraperLoggingConfigurationLoggingDestinationPtrOutput() ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationPtrOutput) ToScraperLoggingConfigurationLoggingDestinationPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationPtrOutput) Elem() ScraperLoggingConfigurationLoggingDestinationOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationLoggingDestination) ScraperLoggingConfigurationLoggingDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperLoggingConfigurationLoggingDestination
+		return ret
+	}).(ScraperLoggingConfigurationLoggingDestinationOutput)
+}
+
+// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block below.
+func (o ScraperLoggingConfigurationLoggingDestinationPtrOutput) CloudwatchLogs() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationLoggingDestination) *ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudwatchLogs
+	}).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs struct {
+	// ARN of the CloudWatch Logs log group. Must end with `:*`.
+	LogGroupArn string `pulumi:"logGroupArn"`
+}
+
+// ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput is an input type that accepts ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs and ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput` via:
+//
+//	ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{...}
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput
+	ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutputWithContext(context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput
+}
+
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs struct {
+	// ARN of the CloudWatch Logs log group. Must end with `:*`.
+	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
+}
+
+func (ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput)
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput).ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrInput is an input type that accepts ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs, ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtr and ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrInput` via:
+//
+//	        ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput
+	ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput
+}
+
+type scraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrType ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs
+
+func ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtr(v *ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrInput {
+	return (*scraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrType)(v)
+}
+
+func (*scraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *scraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrType) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return i.ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrType) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return o.ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs) *ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs {
+		return &v
+	}).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput)
+}
+
+// ARN of the CloudWatch Logs log group. Must end with `:*`.
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
+}
+
+type ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput) ToScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput) Elem() ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs) ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs
+		return ret
+	}).(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput)
+}
+
+// ARN of the CloudWatch Logs log group. Must end with `:*`.
+func (o ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScraperLoggingConfigurationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ScraperLoggingConfigurationTimeoutsInput is an input type that accepts ScraperLoggingConfigurationTimeoutsArgs and ScraperLoggingConfigurationTimeoutsOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationTimeoutsInput` via:
+//
+//	ScraperLoggingConfigurationTimeoutsArgs{...}
+type ScraperLoggingConfigurationTimeoutsInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationTimeoutsOutput() ScraperLoggingConfigurationTimeoutsOutput
+	ToScraperLoggingConfigurationTimeoutsOutputWithContext(context.Context) ScraperLoggingConfigurationTimeoutsOutput
+}
+
+type ScraperLoggingConfigurationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ScraperLoggingConfigurationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i ScraperLoggingConfigurationTimeoutsArgs) ToScraperLoggingConfigurationTimeoutsOutput() ScraperLoggingConfigurationTimeoutsOutput {
+	return i.ToScraperLoggingConfigurationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationTimeoutsArgs) ToScraperLoggingConfigurationTimeoutsOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationTimeoutsOutput)
+}
+
+func (i ScraperLoggingConfigurationTimeoutsArgs) ToScraperLoggingConfigurationTimeoutsPtrOutput() ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return i.ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperLoggingConfigurationTimeoutsArgs) ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationTimeoutsOutput).ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ScraperLoggingConfigurationTimeoutsPtrInput is an input type that accepts ScraperLoggingConfigurationTimeoutsArgs, ScraperLoggingConfigurationTimeoutsPtr and ScraperLoggingConfigurationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ScraperLoggingConfigurationTimeoutsPtrInput` via:
+//
+//	        ScraperLoggingConfigurationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperLoggingConfigurationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToScraperLoggingConfigurationTimeoutsPtrOutput() ScraperLoggingConfigurationTimeoutsPtrOutput
+	ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(context.Context) ScraperLoggingConfigurationTimeoutsPtrOutput
+}
+
+type scraperLoggingConfigurationTimeoutsPtrType ScraperLoggingConfigurationTimeoutsArgs
+
+func ScraperLoggingConfigurationTimeoutsPtr(v *ScraperLoggingConfigurationTimeoutsArgs) ScraperLoggingConfigurationTimeoutsPtrInput {
+	return (*scraperLoggingConfigurationTimeoutsPtrType)(v)
+}
+
+func (*scraperLoggingConfigurationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (i *scraperLoggingConfigurationTimeoutsPtrType) ToScraperLoggingConfigurationTimeoutsPtrOutput() ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return i.ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperLoggingConfigurationTimeoutsPtrType) ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperLoggingConfigurationTimeoutsPtrOutput)
+}
+
+type ScraperLoggingConfigurationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationTimeoutsOutput) ToScraperLoggingConfigurationTimeoutsOutput() ScraperLoggingConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationTimeoutsOutput) ToScraperLoggingConfigurationTimeoutsOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationTimeoutsOutput) ToScraperLoggingConfigurationTimeoutsPtrOutput() ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return o.ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperLoggingConfigurationTimeoutsOutput) ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperLoggingConfigurationTimeouts) *ScraperLoggingConfigurationTimeouts {
+		return &v
+	}).(ScraperLoggingConfigurationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperLoggingConfigurationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperLoggingConfigurationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ScraperLoggingConfigurationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperLoggingConfigurationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperLoggingConfigurationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScraperLoggingConfigurationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ScraperLoggingConfigurationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperLoggingConfigurationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperLoggingConfigurationTimeouts)(nil)).Elem()
+}
+
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) ToScraperLoggingConfigurationTimeoutsPtrOutput() ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) ToScraperLoggingConfigurationTimeoutsPtrOutputWithContext(ctx context.Context) ScraperLoggingConfigurationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) Elem() ScraperLoggingConfigurationTimeoutsOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationTimeouts) ScraperLoggingConfigurationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperLoggingConfigurationTimeouts
+		return ret
+	}).(ScraperLoggingConfigurationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ScraperLoggingConfigurationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperLoggingConfigurationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ScraperRoleConfiguration struct {
-	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+	// ARN of the source role configuration. Must be an IAM role ARN.
 	SourceRoleArn *string `pulumi:"sourceRoleArn"`
-	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+	// ARN of the target role configuration. Must be an IAM role ARN.
 	TargetRoleArn *string `pulumi:"targetRoleArn"`
 }
 
@@ -870,9 +2492,9 @@ type ScraperRoleConfigurationInput interface {
 }
 
 type ScraperRoleConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+	// ARN of the source role configuration. Must be an IAM role ARN.
 	SourceRoleArn pulumi.StringPtrInput `pulumi:"sourceRoleArn"`
-	// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+	// ARN of the target role configuration. Must be an IAM role ARN.
 	TargetRoleArn pulumi.StringPtrInput `pulumi:"targetRoleArn"`
 }
 
@@ -953,12 +2575,12 @@ func (o ScraperRoleConfigurationOutput) ToScraperRoleConfigurationPtrOutputWithC
 	}).(ScraperRoleConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+// ARN of the source role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.SourceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+// ARN of the target role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperRoleConfiguration) *string { return v.TargetRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -987,7 +2609,7 @@ func (o ScraperRoleConfigurationPtrOutput) Elem() ScraperRoleConfigurationOutput
 	}).(ScraperRoleConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+// ARN of the source role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationPtrOutput) SourceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
 		if v == nil {
@@ -997,7 +2619,7 @@ func (o ScraperRoleConfigurationPtrOutput) SourceRoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+// ARN of the target role configuration. Must be an IAM role ARN.
 func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperRoleConfiguration) *string {
 		if v == nil {
@@ -1008,9 +2630,9 @@ func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutpu
 }
 
 type ScraperSource struct {
-	// Configuration block for an EKS cluster source. See `eks`.
+	// Configuration block for an EKS cluster source. See `eks` Block for details.
 	Eks *ScraperSourceEks `pulumi:"eks"`
-	// Configuration block for a VPC source. See `vpc`.
+	// Configuration block for a VPC source. See `vpc` Block for details.
 	//
 	// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
 	Vpc *ScraperSourceVpc `pulumi:"vpc"`
@@ -1028,9 +2650,9 @@ type ScraperSourceInput interface {
 }
 
 type ScraperSourceArgs struct {
-	// Configuration block for an EKS cluster source. See `eks`.
+	// Configuration block for an EKS cluster source. See `eks` Block for details.
 	Eks ScraperSourceEksPtrInput `pulumi:"eks"`
-	// Configuration block for a VPC source. See `vpc`.
+	// Configuration block for a VPC source. See `vpc` Block for details.
 	//
 	// > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
 	Vpc ScraperSourceVpcPtrInput `pulumi:"vpc"`
@@ -1113,12 +2735,12 @@ func (o ScraperSourceOutput) ToScraperSourcePtrOutputWithContext(ctx context.Con
 	}).(ScraperSourcePtrOutput)
 }
 
-// Configuration block for an EKS cluster source. See `eks`.
+// Configuration block for an EKS cluster source. See `eks` Block for details.
 func (o ScraperSourceOutput) Eks() ScraperSourceEksPtrOutput {
 	return o.ApplyT(func(v ScraperSource) *ScraperSourceEks { return v.Eks }).(ScraperSourceEksPtrOutput)
 }
 
-// Configuration block for a VPC source. See `vpc`.
+// Configuration block for a VPC source. See `vpc` Block for details.
 //
 // > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
 func (o ScraperSourceOutput) Vpc() ScraperSourceVpcPtrOutput {
@@ -1149,7 +2771,7 @@ func (o ScraperSourcePtrOutput) Elem() ScraperSourceOutput {
 	}).(ScraperSourceOutput)
 }
 
-// Configuration block for an EKS cluster source. See `eks`.
+// Configuration block for an EKS cluster source. See `eks` Block for details.
 func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 	return o.ApplyT(func(v *ScraperSource) *ScraperSourceEks {
 		if v == nil {
@@ -1159,7 +2781,7 @@ func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 	}).(ScraperSourceEksPtrOutput)
 }
 
-// Configuration block for a VPC source. See `vpc`.
+// Configuration block for a VPC source. See `vpc` Block for details.
 //
 // > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
 func (o ScraperSourcePtrOutput) Vpc() ScraperSourceVpcPtrOutput {
@@ -1172,7 +2794,7 @@ func (o ScraperSourcePtrOutput) Vpc() ScraperSourceVpcPtrOutput {
 }
 
 type ScraperSourceEks struct {
-	// The Amazon Resource Name (ARN) of the source EKS cluster.
+	// ARN of the source EKS cluster.
 	ClusterArn string `pulumi:"clusterArn"`
 	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -1192,7 +2814,7 @@ type ScraperSourceEksInput interface {
 }
 
 type ScraperSourceEksArgs struct {
-	// The Amazon Resource Name (ARN) of the source EKS cluster.
+	// ARN of the source EKS cluster.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
 	// List of the security group IDs for the Amazon EKS cluster VPC configuration.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -1277,7 +2899,7 @@ func (o ScraperSourceEksOutput) ToScraperSourceEksPtrOutputWithContext(ctx conte
 	}).(ScraperSourceEksPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source EKS cluster.
+// ARN of the source EKS cluster.
 func (o ScraperSourceEksOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScraperSourceEks) string { return v.ClusterArn }).(pulumi.StringOutput)
 }
@@ -1316,7 +2938,7 @@ func (o ScraperSourceEksPtrOutput) Elem() ScraperSourceEksOutput {
 	}).(ScraperSourceEksOutput)
 }
 
-// The Amazon Resource Name (ARN) of the source EKS cluster.
+// ARN of the source EKS cluster.
 func (o ScraperSourceEksPtrOutput) ClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScraperSourceEks) *string {
 		if v == nil {
@@ -2131,6 +3753,18 @@ func (o WorkspaceLoggingConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationInput)(nil)).Elem(), AnomalyDetectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationPtrInput)(nil)).Elem(), AnomalyDetectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestPtrInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrInput)(nil)).Elem(), AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMissingDataActionInput)(nil)).Elem(), AnomalyDetectorMissingDataActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorMissingDataActionPtrInput)(nil)).Elem(), AnomalyDetectorMissingDataActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorTimeoutsInput)(nil)).Elem(), AnomalyDetectorTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalyDetectorTimeoutsPtrInput)(nil)).Elem(), AnomalyDetectorTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationArrayInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogsInput)(nil)).Elem(), QueryLoggingConfigurationDestinationCloudwatchLogsArgs{})
@@ -2143,6 +3777,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationPtrInput)(nil)).Elem(), ScraperDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationAmpPtrInput)(nil)).Elem(), ScraperDestinationAmpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudwatchInput)(nil)).Elem(), ScraperDestinationCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperDestinationCloudwatchPtrInput)(nil)).Elem(), ScraperDestinationCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationPtrInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrInput)(nil)).Elem(), ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationTimeoutsInput)(nil)).Elem(), ScraperLoggingConfigurationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperLoggingConfigurationTimeoutsPtrInput)(nil)).Elem(), ScraperLoggingConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperRoleConfigurationPtrInput)(nil)).Elem(), ScraperRoleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
@@ -2160,6 +3802,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsPtrInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbovePtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMissingDataActionOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorMissingDataActionPtrOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorTimeoutsOutput{})
+	pulumi.RegisterOutputType(AnomalyDetectorTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationCloudwatchLogsOutput{})
@@ -2172,6 +3826,14 @@ func init() {
 	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpPtrOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationCloudwatchOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationCloudwatchPtrOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ScraperLoggingConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ScraperRoleConfigurationOutput{})
 	pulumi.RegisterOutputType(ScraperRoleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperSourceOutput{})

@@ -100,7 +100,7 @@ class GetClusterResult:
     @pulumi.getter(name="registeredContainerInstancesCount")
     def registered_container_instances_count(self) -> _builtins.int:
         """
-        The number of registered container instances for the ECS Cluster
+        Number of registered container instances for the ECS Cluster
         """
         return pulumi.get(self, "registered_container_instances_count")
 
@@ -116,7 +116,7 @@ class GetClusterResult:
     @pulumi.getter(name="serviceConnectDefaults")
     def service_connect_defaults(self) -> Sequence['outputs.GetClusterServiceConnectDefaultResult']:
         """
-        The default Service Connect namespace
+        Default Service Connect namespace
         """
         return pulumi.get(self, "service_connect_defaults")
 

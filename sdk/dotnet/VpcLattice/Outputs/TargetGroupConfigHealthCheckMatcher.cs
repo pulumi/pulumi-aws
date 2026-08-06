@@ -14,7 +14,7 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class TargetGroupConfigHealthCheckMatcher
     {
         /// <summary>
-        /// The HTTP codes to use when checking for a successful response from a target.
+        /// HTTP codes to use when checking for a successful response from a target.
         /// </summary>
         public readonly string? Value;
 

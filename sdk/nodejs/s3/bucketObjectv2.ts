@@ -231,27 +231,27 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     declare public readonly cacheControl: pulumi.Output<string | undefined>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      */
     declare public readonly checksumAlgorithm: pulumi.Output<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc32: pulumi.Output<string>;
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc32c: pulumi.Output<string>;
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      */
     declare public /*out*/ readonly checksumCrc64nvme: pulumi.Output<string>;
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      */
     declare public /*out*/ readonly checksumSha1: pulumi.Output<string>;
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      */
     declare public /*out*/ readonly checksumSha256: pulumi.Output<string>;
     /**
@@ -313,7 +313,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     declare public readonly objectLockRetainUntilDate: pulumi.Output<string | undefined>;
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      */
     declare public readonly overrideProvider: pulumi.Output<outputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
@@ -351,7 +351,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      *
@@ -480,27 +480,27 @@ export interface BucketObjectv2State {
      */
     cacheControl?: pulumi.Input<string | undefined>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      */
     checksumCrc32?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      */
     checksumCrc32c?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      */
     checksumCrc64nvme?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      */
     checksumSha1?: pulumi.Input<string | undefined>;
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      */
     checksumSha256?: pulumi.Input<string | undefined>;
     /**
@@ -562,7 +562,7 @@ export interface BucketObjectv2State {
      */
     objectLockRetainUntilDate?: pulumi.Input<string | undefined>;
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
@@ -600,7 +600,7 @@ export interface BucketObjectv2State {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      *
@@ -630,7 +630,7 @@ export interface BucketObjectv2Args {
      */
     cacheControl?: pulumi.Input<string | undefined>;
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      */
     checksumAlgorithm?: pulumi.Input<string | undefined>;
     /**
@@ -692,7 +692,7 @@ export interface BucketObjectv2Args {
      */
     objectLockRetainUntilDate?: pulumi.Input<string | undefined>;
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
@@ -722,7 +722,7 @@ export interface BucketObjectv2Args {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      *

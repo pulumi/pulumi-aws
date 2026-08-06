@@ -76,9 +76,17 @@ public final class TableBucketReplicationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.tableBucketArn);
     }
 
+    /**
+     * Version token of the replication configuration.
+     * 
+     */
     @Import(name="versionToken")
     private @Nullable Output<String> versionToken;
 
+    /**
+     * @return Version token of the replication configuration.
+     * 
+     */
     public Optional<Output<String>> versionToken() {
         return Optional.ofNullable(this.versionToken);
     }
@@ -195,11 +203,23 @@ public final class TableBucketReplicationState extends com.pulumi.resources.Reso
             return tableBucketArn(Output.of(tableBucketArn));
         }
 
+        /**
+         * @param versionToken Version token of the replication configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionToken(@Nullable Output<String> versionToken) {
             $.versionToken = versionToken;
             return this;
         }
 
+        /**
+         * @param versionToken Version token of the replication configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionToken(String versionToken) {
             return versionToken(Output.of(versionToken));
         }

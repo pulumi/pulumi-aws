@@ -16,14 +16,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs();
 
     /**
-     * One or more metric data queries to provide data points for a metric specification. See supported fields below.
+     * One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
      * 
      */
     @Import(name="metricDataQueries", required=true)
     private Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries;
 
     /**
-     * @return One or more metric data queries to provide data points for a metric specification. See supported fields below.
+     * @return One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
      * 
      */
     public Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries() {
@@ -55,7 +55,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See supported fields below.
+         * @param metricDataQueries One or more metric data queries to provide data points for a metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query` Block for details.
          * 
          * @return builder
          * 

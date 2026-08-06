@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        /// Encryption of the metrics exports in this S3 tables bucket. See `Encryption` below for more details.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionGetArgs>? Encryption { get; set; }

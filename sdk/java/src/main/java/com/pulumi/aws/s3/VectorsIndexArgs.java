@@ -67,14 +67,14 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<VectorsIndexEncryptionConfigurationArgs>> encryptionConfigurations;
 
     /**
-     * @return Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+     * @return Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
      * 
      */
     public Optional<Output<List<VectorsIndexEncryptionConfigurationArgs>>> encryptionConfigurations() {
@@ -97,14 +97,14 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     @Import(name="metadataConfiguration")
     private @Nullable Output<VectorsIndexMetadataConfigurationArgs> metadataConfiguration;
 
     /**
-     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+     * @return Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
      * 
      */
     public Optional<Output<VectorsIndexMetadataConfigurationArgs>> metadataConfiguration() {
@@ -256,7 +256,7 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encyptionConfiguration` block below.
+         * @param encryptionConfigurations Block for encryption configuration for the vector index. See `encryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class VectorsIndexArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` block below.
+         * @param metadataConfiguration Block for metadata configuration for the vector index. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 

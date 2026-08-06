@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowSourceFlowConfig {
     /**
-     * @return API version that the destination connector uses.
+     * @return API version that the source connector uses.
      * 
      */
     private @Nullable String apiVersion;
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     private @Nullable String connectorProfileName;
@@ -30,26 +30,26 @@ public final class FlowSourceFlowConfig {
      */
     private String connectorType;
     /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+     * @return Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
      * 
      */
     private @Nullable FlowSourceFlowConfigIncrementalPullConfig incrementalPullConfig;
     /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
+     * @return Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
      * 
      */
     private FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties;
 
     private FlowSourceFlowConfig() {}
     /**
-     * @return API version that the destination connector uses.
+     * @return API version that the source connector uses.
      * 
      */
     public Optional<String> apiVersion() {
         return Optional.ofNullable(this.apiVersion);
     }
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     public Optional<String> connectorProfileName() {
@@ -63,14 +63,14 @@ public final class FlowSourceFlowConfig {
         return this.connectorType;
     }
     /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+     * @return Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
      * 
      */
     public Optional<FlowSourceFlowConfigIncrementalPullConfig> incrementalPullConfig() {
         return Optional.ofNullable(this.incrementalPullConfig);
     }
     /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
+     * @return Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
      * 
      */
     public FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties() {

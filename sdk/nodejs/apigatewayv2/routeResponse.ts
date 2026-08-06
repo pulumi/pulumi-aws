@@ -66,7 +66,7 @@ export class RouteResponse extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
     declare public readonly modelSelectionExpression: pulumi.Output<string | undefined>;
     /**
@@ -137,7 +137,7 @@ export interface RouteResponseState {
      */
     apiId?: pulumi.Input<string | undefined>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
     modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface RouteResponseArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
     modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**

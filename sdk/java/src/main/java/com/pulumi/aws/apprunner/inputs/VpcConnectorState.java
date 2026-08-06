@@ -139,14 +139,14 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+     * Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
     @Import(name="vpcConnectorRevision")
     private @Nullable Output<Integer> vpcConnectorRevision;
 
     /**
-     * @return The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+     * @return Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
     public Optional<Output<Integer>> vpcConnectorRevision() {
@@ -374,7 +374,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorRevision The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+         * @param vpcConnectorRevision Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VpcConnectorState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectorRevision The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
+         * @param vpcConnectorRevision Revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
          * 
          * @return builder
          * 

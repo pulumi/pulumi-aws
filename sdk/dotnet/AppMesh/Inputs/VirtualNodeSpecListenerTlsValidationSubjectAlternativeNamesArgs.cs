@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Criteria for determining a SAN's match.
+        /// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> Match { get; set; } = null!;

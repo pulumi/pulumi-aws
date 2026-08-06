@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs>? _datasetMetricConfigs;
 
         /// <summary>
-        /// One or more configurations for the prompt datasets and metrics to use. See `DatasetMetricConfig` Block below.
+        /// One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
         /// </summary>
         public InputList<Inputs.EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs> DatasetMetricConfigs
         {

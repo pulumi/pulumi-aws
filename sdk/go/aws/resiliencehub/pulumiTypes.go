@@ -1014,6 +1014,630 @@ func (o ResiliencyPolicyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type V2PolicyAvailabilitySlo struct {
+	// Availability target as a percentage (e.g., `99.9`).
+	Target float64 `pulumi:"target"`
+}
+
+// V2PolicyAvailabilitySloInput is an input type that accepts V2PolicyAvailabilitySloArgs and V2PolicyAvailabilitySloOutput values.
+// You can construct a concrete instance of `V2PolicyAvailabilitySloInput` via:
+//
+//	V2PolicyAvailabilitySloArgs{...}
+type V2PolicyAvailabilitySloInput interface {
+	pulumi.Input
+
+	ToV2PolicyAvailabilitySloOutput() V2PolicyAvailabilitySloOutput
+	ToV2PolicyAvailabilitySloOutputWithContext(context.Context) V2PolicyAvailabilitySloOutput
+}
+
+type V2PolicyAvailabilitySloArgs struct {
+	// Availability target as a percentage (e.g., `99.9`).
+	Target pulumi.Float64Input `pulumi:"target"`
+}
+
+func (V2PolicyAvailabilitySloArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (i V2PolicyAvailabilitySloArgs) ToV2PolicyAvailabilitySloOutput() V2PolicyAvailabilitySloOutput {
+	return i.ToV2PolicyAvailabilitySloOutputWithContext(context.Background())
+}
+
+func (i V2PolicyAvailabilitySloArgs) ToV2PolicyAvailabilitySloOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyAvailabilitySloOutput)
+}
+
+func (i V2PolicyAvailabilitySloArgs) ToV2PolicyAvailabilitySloPtrOutput() V2PolicyAvailabilitySloPtrOutput {
+	return i.ToV2PolicyAvailabilitySloPtrOutputWithContext(context.Background())
+}
+
+func (i V2PolicyAvailabilitySloArgs) ToV2PolicyAvailabilitySloPtrOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyAvailabilitySloOutput).ToV2PolicyAvailabilitySloPtrOutputWithContext(ctx)
+}
+
+// V2PolicyAvailabilitySloPtrInput is an input type that accepts V2PolicyAvailabilitySloArgs, V2PolicyAvailabilitySloPtr and V2PolicyAvailabilitySloPtrOutput values.
+// You can construct a concrete instance of `V2PolicyAvailabilitySloPtrInput` via:
+//
+//	        V2PolicyAvailabilitySloArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2PolicyAvailabilitySloPtrInput interface {
+	pulumi.Input
+
+	ToV2PolicyAvailabilitySloPtrOutput() V2PolicyAvailabilitySloPtrOutput
+	ToV2PolicyAvailabilitySloPtrOutputWithContext(context.Context) V2PolicyAvailabilitySloPtrOutput
+}
+
+type v2policyAvailabilitySloPtrType V2PolicyAvailabilitySloArgs
+
+func V2PolicyAvailabilitySloPtr(v *V2PolicyAvailabilitySloArgs) V2PolicyAvailabilitySloPtrInput {
+	return (*v2policyAvailabilitySloPtrType)(v)
+}
+
+func (*v2policyAvailabilitySloPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (i *v2policyAvailabilitySloPtrType) ToV2PolicyAvailabilitySloPtrOutput() V2PolicyAvailabilitySloPtrOutput {
+	return i.ToV2PolicyAvailabilitySloPtrOutputWithContext(context.Background())
+}
+
+func (i *v2policyAvailabilitySloPtrType) ToV2PolicyAvailabilitySloPtrOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyAvailabilitySloPtrOutput)
+}
+
+type V2PolicyAvailabilitySloOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyAvailabilitySloOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (o V2PolicyAvailabilitySloOutput) ToV2PolicyAvailabilitySloOutput() V2PolicyAvailabilitySloOutput {
+	return o
+}
+
+func (o V2PolicyAvailabilitySloOutput) ToV2PolicyAvailabilitySloOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloOutput {
+	return o
+}
+
+func (o V2PolicyAvailabilitySloOutput) ToV2PolicyAvailabilitySloPtrOutput() V2PolicyAvailabilitySloPtrOutput {
+	return o.ToV2PolicyAvailabilitySloPtrOutputWithContext(context.Background())
+}
+
+func (o V2PolicyAvailabilitySloOutput) ToV2PolicyAvailabilitySloPtrOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2PolicyAvailabilitySlo) *V2PolicyAvailabilitySlo {
+		return &v
+	}).(V2PolicyAvailabilitySloPtrOutput)
+}
+
+// Availability target as a percentage (e.g., `99.9`).
+func (o V2PolicyAvailabilitySloOutput) Target() pulumi.Float64Output {
+	return o.ApplyT(func(v V2PolicyAvailabilitySlo) float64 { return v.Target }).(pulumi.Float64Output)
+}
+
+type V2PolicyAvailabilitySloPtrOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyAvailabilitySloPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyAvailabilitySlo)(nil)).Elem()
+}
+
+func (o V2PolicyAvailabilitySloPtrOutput) ToV2PolicyAvailabilitySloPtrOutput() V2PolicyAvailabilitySloPtrOutput {
+	return o
+}
+
+func (o V2PolicyAvailabilitySloPtrOutput) ToV2PolicyAvailabilitySloPtrOutputWithContext(ctx context.Context) V2PolicyAvailabilitySloPtrOutput {
+	return o
+}
+
+func (o V2PolicyAvailabilitySloPtrOutput) Elem() V2PolicyAvailabilitySloOutput {
+	return o.ApplyT(func(v *V2PolicyAvailabilitySlo) V2PolicyAvailabilitySlo {
+		if v != nil {
+			return *v
+		}
+		var ret V2PolicyAvailabilitySlo
+		return ret
+	}).(V2PolicyAvailabilitySloOutput)
+}
+
+// Availability target as a percentage (e.g., `99.9`).
+func (o V2PolicyAvailabilitySloPtrOutput) Target() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *V2PolicyAvailabilitySlo) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Target
+	}).(pulumi.Float64PtrOutput)
+}
+
+type V2PolicyDataRecovery struct {
+	// Maximum time between backups in minutes.
+	TimeBetweenBackupsInMinutes int `pulumi:"timeBetweenBackupsInMinutes"`
+}
+
+// V2PolicyDataRecoveryInput is an input type that accepts V2PolicyDataRecoveryArgs and V2PolicyDataRecoveryOutput values.
+// You can construct a concrete instance of `V2PolicyDataRecoveryInput` via:
+//
+//	V2PolicyDataRecoveryArgs{...}
+type V2PolicyDataRecoveryInput interface {
+	pulumi.Input
+
+	ToV2PolicyDataRecoveryOutput() V2PolicyDataRecoveryOutput
+	ToV2PolicyDataRecoveryOutputWithContext(context.Context) V2PolicyDataRecoveryOutput
+}
+
+type V2PolicyDataRecoveryArgs struct {
+	// Maximum time between backups in minutes.
+	TimeBetweenBackupsInMinutes pulumi.IntInput `pulumi:"timeBetweenBackupsInMinutes"`
+}
+
+func (V2PolicyDataRecoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (i V2PolicyDataRecoveryArgs) ToV2PolicyDataRecoveryOutput() V2PolicyDataRecoveryOutput {
+	return i.ToV2PolicyDataRecoveryOutputWithContext(context.Background())
+}
+
+func (i V2PolicyDataRecoveryArgs) ToV2PolicyDataRecoveryOutputWithContext(ctx context.Context) V2PolicyDataRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyDataRecoveryOutput)
+}
+
+func (i V2PolicyDataRecoveryArgs) ToV2PolicyDataRecoveryPtrOutput() V2PolicyDataRecoveryPtrOutput {
+	return i.ToV2PolicyDataRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i V2PolicyDataRecoveryArgs) ToV2PolicyDataRecoveryPtrOutputWithContext(ctx context.Context) V2PolicyDataRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyDataRecoveryOutput).ToV2PolicyDataRecoveryPtrOutputWithContext(ctx)
+}
+
+// V2PolicyDataRecoveryPtrInput is an input type that accepts V2PolicyDataRecoveryArgs, V2PolicyDataRecoveryPtr and V2PolicyDataRecoveryPtrOutput values.
+// You can construct a concrete instance of `V2PolicyDataRecoveryPtrInput` via:
+//
+//	        V2PolicyDataRecoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2PolicyDataRecoveryPtrInput interface {
+	pulumi.Input
+
+	ToV2PolicyDataRecoveryPtrOutput() V2PolicyDataRecoveryPtrOutput
+	ToV2PolicyDataRecoveryPtrOutputWithContext(context.Context) V2PolicyDataRecoveryPtrOutput
+}
+
+type v2policyDataRecoveryPtrType V2PolicyDataRecoveryArgs
+
+func V2PolicyDataRecoveryPtr(v *V2PolicyDataRecoveryArgs) V2PolicyDataRecoveryPtrInput {
+	return (*v2policyDataRecoveryPtrType)(v)
+}
+
+func (*v2policyDataRecoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (i *v2policyDataRecoveryPtrType) ToV2PolicyDataRecoveryPtrOutput() V2PolicyDataRecoveryPtrOutput {
+	return i.ToV2PolicyDataRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *v2policyDataRecoveryPtrType) ToV2PolicyDataRecoveryPtrOutputWithContext(ctx context.Context) V2PolicyDataRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyDataRecoveryPtrOutput)
+}
+
+type V2PolicyDataRecoveryOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyDataRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (o V2PolicyDataRecoveryOutput) ToV2PolicyDataRecoveryOutput() V2PolicyDataRecoveryOutput {
+	return o
+}
+
+func (o V2PolicyDataRecoveryOutput) ToV2PolicyDataRecoveryOutputWithContext(ctx context.Context) V2PolicyDataRecoveryOutput {
+	return o
+}
+
+func (o V2PolicyDataRecoveryOutput) ToV2PolicyDataRecoveryPtrOutput() V2PolicyDataRecoveryPtrOutput {
+	return o.ToV2PolicyDataRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (o V2PolicyDataRecoveryOutput) ToV2PolicyDataRecoveryPtrOutputWithContext(ctx context.Context) V2PolicyDataRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2PolicyDataRecovery) *V2PolicyDataRecovery {
+		return &v
+	}).(V2PolicyDataRecoveryPtrOutput)
+}
+
+// Maximum time between backups in minutes.
+func (o V2PolicyDataRecoveryOutput) TimeBetweenBackupsInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v V2PolicyDataRecovery) int { return v.TimeBetweenBackupsInMinutes }).(pulumi.IntOutput)
+}
+
+type V2PolicyDataRecoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyDataRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyDataRecovery)(nil)).Elem()
+}
+
+func (o V2PolicyDataRecoveryPtrOutput) ToV2PolicyDataRecoveryPtrOutput() V2PolicyDataRecoveryPtrOutput {
+	return o
+}
+
+func (o V2PolicyDataRecoveryPtrOutput) ToV2PolicyDataRecoveryPtrOutputWithContext(ctx context.Context) V2PolicyDataRecoveryPtrOutput {
+	return o
+}
+
+func (o V2PolicyDataRecoveryPtrOutput) Elem() V2PolicyDataRecoveryOutput {
+	return o.ApplyT(func(v *V2PolicyDataRecovery) V2PolicyDataRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret V2PolicyDataRecovery
+		return ret
+	}).(V2PolicyDataRecoveryOutput)
+}
+
+// Maximum time between backups in minutes.
+func (o V2PolicyDataRecoveryPtrOutput) TimeBetweenBackupsInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *V2PolicyDataRecovery) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeBetweenBackupsInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type V2PolicyMultiAz struct {
+	// Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+	DisasterRecoveryApproach string `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes *int `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes *int `pulumi:"rtoInMinutes"`
+}
+
+// V2PolicyMultiAzInput is an input type that accepts V2PolicyMultiAzArgs and V2PolicyMultiAzOutput values.
+// You can construct a concrete instance of `V2PolicyMultiAzInput` via:
+//
+//	V2PolicyMultiAzArgs{...}
+type V2PolicyMultiAzInput interface {
+	pulumi.Input
+
+	ToV2PolicyMultiAzOutput() V2PolicyMultiAzOutput
+	ToV2PolicyMultiAzOutputWithContext(context.Context) V2PolicyMultiAzOutput
+}
+
+type V2PolicyMultiAzArgs struct {
+	// Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+	DisasterRecoveryApproach pulumi.StringInput `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes pulumi.IntPtrInput `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes pulumi.IntPtrInput `pulumi:"rtoInMinutes"`
+}
+
+func (V2PolicyMultiAzArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyMultiAz)(nil)).Elem()
+}
+
+func (i V2PolicyMultiAzArgs) ToV2PolicyMultiAzOutput() V2PolicyMultiAzOutput {
+	return i.ToV2PolicyMultiAzOutputWithContext(context.Background())
+}
+
+func (i V2PolicyMultiAzArgs) ToV2PolicyMultiAzOutputWithContext(ctx context.Context) V2PolicyMultiAzOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiAzOutput)
+}
+
+func (i V2PolicyMultiAzArgs) ToV2PolicyMultiAzPtrOutput() V2PolicyMultiAzPtrOutput {
+	return i.ToV2PolicyMultiAzPtrOutputWithContext(context.Background())
+}
+
+func (i V2PolicyMultiAzArgs) ToV2PolicyMultiAzPtrOutputWithContext(ctx context.Context) V2PolicyMultiAzPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiAzOutput).ToV2PolicyMultiAzPtrOutputWithContext(ctx)
+}
+
+// V2PolicyMultiAzPtrInput is an input type that accepts V2PolicyMultiAzArgs, V2PolicyMultiAzPtr and V2PolicyMultiAzPtrOutput values.
+// You can construct a concrete instance of `V2PolicyMultiAzPtrInput` via:
+//
+//	        V2PolicyMultiAzArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2PolicyMultiAzPtrInput interface {
+	pulumi.Input
+
+	ToV2PolicyMultiAzPtrOutput() V2PolicyMultiAzPtrOutput
+	ToV2PolicyMultiAzPtrOutputWithContext(context.Context) V2PolicyMultiAzPtrOutput
+}
+
+type v2policyMultiAzPtrType V2PolicyMultiAzArgs
+
+func V2PolicyMultiAzPtr(v *V2PolicyMultiAzArgs) V2PolicyMultiAzPtrInput {
+	return (*v2policyMultiAzPtrType)(v)
+}
+
+func (*v2policyMultiAzPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyMultiAz)(nil)).Elem()
+}
+
+func (i *v2policyMultiAzPtrType) ToV2PolicyMultiAzPtrOutput() V2PolicyMultiAzPtrOutput {
+	return i.ToV2PolicyMultiAzPtrOutputWithContext(context.Background())
+}
+
+func (i *v2policyMultiAzPtrType) ToV2PolicyMultiAzPtrOutputWithContext(ctx context.Context) V2PolicyMultiAzPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiAzPtrOutput)
+}
+
+type V2PolicyMultiAzOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyMultiAzOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyMultiAz)(nil)).Elem()
+}
+
+func (o V2PolicyMultiAzOutput) ToV2PolicyMultiAzOutput() V2PolicyMultiAzOutput {
+	return o
+}
+
+func (o V2PolicyMultiAzOutput) ToV2PolicyMultiAzOutputWithContext(ctx context.Context) V2PolicyMultiAzOutput {
+	return o
+}
+
+func (o V2PolicyMultiAzOutput) ToV2PolicyMultiAzPtrOutput() V2PolicyMultiAzPtrOutput {
+	return o.ToV2PolicyMultiAzPtrOutputWithContext(context.Background())
+}
+
+func (o V2PolicyMultiAzOutput) ToV2PolicyMultiAzPtrOutputWithContext(ctx context.Context) V2PolicyMultiAzPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2PolicyMultiAz) *V2PolicyMultiAz {
+		return &v
+	}).(V2PolicyMultiAzPtrOutput)
+}
+
+// Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+func (o V2PolicyMultiAzOutput) DisasterRecoveryApproach() pulumi.StringOutput {
+	return o.ApplyT(func(v V2PolicyMultiAz) string { return v.DisasterRecoveryApproach }).(pulumi.StringOutput)
+}
+
+// Recovery point objective in minutes.
+func (o V2PolicyMultiAzOutput) RpoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v V2PolicyMultiAz) *int { return v.RpoInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Recovery time objective in minutes.
+func (o V2PolicyMultiAzOutput) RtoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v V2PolicyMultiAz) *int { return v.RtoInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type V2PolicyMultiAzPtrOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyMultiAzPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyMultiAz)(nil)).Elem()
+}
+
+func (o V2PolicyMultiAzPtrOutput) ToV2PolicyMultiAzPtrOutput() V2PolicyMultiAzPtrOutput {
+	return o
+}
+
+func (o V2PolicyMultiAzPtrOutput) ToV2PolicyMultiAzPtrOutputWithContext(ctx context.Context) V2PolicyMultiAzPtrOutput {
+	return o
+}
+
+func (o V2PolicyMultiAzPtrOutput) Elem() V2PolicyMultiAzOutput {
+	return o.ApplyT(func(v *V2PolicyMultiAz) V2PolicyMultiAz {
+		if v != nil {
+			return *v
+		}
+		var ret V2PolicyMultiAz
+		return ret
+	}).(V2PolicyMultiAzOutput)
+}
+
+// Multi-AZ disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+func (o V2PolicyMultiAzPtrOutput) DisasterRecoveryApproach() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiAz) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisasterRecoveryApproach
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recovery point objective in minutes.
+func (o V2PolicyMultiAzPtrOutput) RpoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiAz) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RpoInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Recovery time objective in minutes.
+func (o V2PolicyMultiAzPtrOutput) RtoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiAz) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RtoInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type V2PolicyMultiRegion struct {
+	// Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+	DisasterRecoveryApproach string `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes *int `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes *int `pulumi:"rtoInMinutes"`
+}
+
+// V2PolicyMultiRegionInput is an input type that accepts V2PolicyMultiRegionArgs and V2PolicyMultiRegionOutput values.
+// You can construct a concrete instance of `V2PolicyMultiRegionInput` via:
+//
+//	V2PolicyMultiRegionArgs{...}
+type V2PolicyMultiRegionInput interface {
+	pulumi.Input
+
+	ToV2PolicyMultiRegionOutput() V2PolicyMultiRegionOutput
+	ToV2PolicyMultiRegionOutputWithContext(context.Context) V2PolicyMultiRegionOutput
+}
+
+type V2PolicyMultiRegionArgs struct {
+	// Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+	DisasterRecoveryApproach pulumi.StringInput `pulumi:"disasterRecoveryApproach"`
+	// Recovery point objective in minutes.
+	RpoInMinutes pulumi.IntPtrInput `pulumi:"rpoInMinutes"`
+	// Recovery time objective in minutes.
+	RtoInMinutes pulumi.IntPtrInput `pulumi:"rtoInMinutes"`
+}
+
+func (V2PolicyMultiRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (i V2PolicyMultiRegionArgs) ToV2PolicyMultiRegionOutput() V2PolicyMultiRegionOutput {
+	return i.ToV2PolicyMultiRegionOutputWithContext(context.Background())
+}
+
+func (i V2PolicyMultiRegionArgs) ToV2PolicyMultiRegionOutputWithContext(ctx context.Context) V2PolicyMultiRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiRegionOutput)
+}
+
+func (i V2PolicyMultiRegionArgs) ToV2PolicyMultiRegionPtrOutput() V2PolicyMultiRegionPtrOutput {
+	return i.ToV2PolicyMultiRegionPtrOutputWithContext(context.Background())
+}
+
+func (i V2PolicyMultiRegionArgs) ToV2PolicyMultiRegionPtrOutputWithContext(ctx context.Context) V2PolicyMultiRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiRegionOutput).ToV2PolicyMultiRegionPtrOutputWithContext(ctx)
+}
+
+// V2PolicyMultiRegionPtrInput is an input type that accepts V2PolicyMultiRegionArgs, V2PolicyMultiRegionPtr and V2PolicyMultiRegionPtrOutput values.
+// You can construct a concrete instance of `V2PolicyMultiRegionPtrInput` via:
+//
+//	        V2PolicyMultiRegionArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2PolicyMultiRegionPtrInput interface {
+	pulumi.Input
+
+	ToV2PolicyMultiRegionPtrOutput() V2PolicyMultiRegionPtrOutput
+	ToV2PolicyMultiRegionPtrOutputWithContext(context.Context) V2PolicyMultiRegionPtrOutput
+}
+
+type v2policyMultiRegionPtrType V2PolicyMultiRegionArgs
+
+func V2PolicyMultiRegionPtr(v *V2PolicyMultiRegionArgs) V2PolicyMultiRegionPtrInput {
+	return (*v2policyMultiRegionPtrType)(v)
+}
+
+func (*v2policyMultiRegionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (i *v2policyMultiRegionPtrType) ToV2PolicyMultiRegionPtrOutput() V2PolicyMultiRegionPtrOutput {
+	return i.ToV2PolicyMultiRegionPtrOutputWithContext(context.Background())
+}
+
+func (i *v2policyMultiRegionPtrType) ToV2PolicyMultiRegionPtrOutputWithContext(ctx context.Context) V2PolicyMultiRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2PolicyMultiRegionPtrOutput)
+}
+
+type V2PolicyMultiRegionOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyMultiRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (o V2PolicyMultiRegionOutput) ToV2PolicyMultiRegionOutput() V2PolicyMultiRegionOutput {
+	return o
+}
+
+func (o V2PolicyMultiRegionOutput) ToV2PolicyMultiRegionOutputWithContext(ctx context.Context) V2PolicyMultiRegionOutput {
+	return o
+}
+
+func (o V2PolicyMultiRegionOutput) ToV2PolicyMultiRegionPtrOutput() V2PolicyMultiRegionPtrOutput {
+	return o.ToV2PolicyMultiRegionPtrOutputWithContext(context.Background())
+}
+
+func (o V2PolicyMultiRegionOutput) ToV2PolicyMultiRegionPtrOutputWithContext(ctx context.Context) V2PolicyMultiRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2PolicyMultiRegion) *V2PolicyMultiRegion {
+		return &v
+	}).(V2PolicyMultiRegionPtrOutput)
+}
+
+// Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+func (o V2PolicyMultiRegionOutput) DisasterRecoveryApproach() pulumi.StringOutput {
+	return o.ApplyT(func(v V2PolicyMultiRegion) string { return v.DisasterRecoveryApproach }).(pulumi.StringOutput)
+}
+
+// Recovery point objective in minutes.
+func (o V2PolicyMultiRegionOutput) RpoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v V2PolicyMultiRegion) *int { return v.RpoInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Recovery time objective in minutes.
+func (o V2PolicyMultiRegionOutput) RtoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v V2PolicyMultiRegion) *int { return v.RtoInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type V2PolicyMultiRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (V2PolicyMultiRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2PolicyMultiRegion)(nil)).Elem()
+}
+
+func (o V2PolicyMultiRegionPtrOutput) ToV2PolicyMultiRegionPtrOutput() V2PolicyMultiRegionPtrOutput {
+	return o
+}
+
+func (o V2PolicyMultiRegionPtrOutput) ToV2PolicyMultiRegionPtrOutputWithContext(ctx context.Context) V2PolicyMultiRegionPtrOutput {
+	return o
+}
+
+func (o V2PolicyMultiRegionPtrOutput) Elem() V2PolicyMultiRegionOutput {
+	return o.ApplyT(func(v *V2PolicyMultiRegion) V2PolicyMultiRegion {
+		if v != nil {
+			return *v
+		}
+		var ret V2PolicyMultiRegion
+		return ret
+	}).(V2PolicyMultiRegionOutput)
+}
+
+// Multi-region disaster recovery approach. Valid values: `ACTIVE_ACTIVE`, `HOT_STANDBY`, `WARM_STANDBY`, `PILOT_LIGHT`, `BACKUP_AND_RESTORE`.
+func (o V2PolicyMultiRegionPtrOutput) DisasterRecoveryApproach() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiRegion) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DisasterRecoveryApproach
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recovery point objective in minutes.
+func (o V2PolicyMultiRegionPtrOutput) RpoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiRegion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RpoInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Recovery time objective in minutes.
+func (o V2PolicyMultiRegionPtrOutput) RtoInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *V2PolicyMultiRegion) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RtoInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyInput)(nil)).Elem(), ResiliencyPolicyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicyPtrInput)(nil)).Elem(), ResiliencyPolicyPolicyArgs{})
@@ -1027,6 +1651,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyPolicySoftwarePtrInput)(nil)).Elem(), ResiliencyPolicyPolicySoftwareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTimeoutsInput)(nil)).Elem(), ResiliencyPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResiliencyPolicyTimeoutsPtrInput)(nil)).Elem(), ResiliencyPolicyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyAvailabilitySloInput)(nil)).Elem(), V2PolicyAvailabilitySloArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyAvailabilitySloPtrInput)(nil)).Elem(), V2PolicyAvailabilitySloArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyDataRecoveryInput)(nil)).Elem(), V2PolicyDataRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyDataRecoveryPtrInput)(nil)).Elem(), V2PolicyDataRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiAzInput)(nil)).Elem(), V2PolicyMultiAzArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiAzPtrInput)(nil)).Elem(), V2PolicyMultiAzArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2PolicyMultiRegionPtrInput)(nil)).Elem(), V2PolicyMultiRegionArgs{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicyAzOutput{})
@@ -1039,4 +1671,12 @@ func init() {
 	pulumi.RegisterOutputType(ResiliencyPolicyPolicySoftwarePtrOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTimeoutsOutput{})
 	pulumi.RegisterOutputType(ResiliencyPolicyTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(V2PolicyAvailabilitySloOutput{})
+	pulumi.RegisterOutputType(V2PolicyAvailabilitySloPtrOutput{})
+	pulumi.RegisterOutputType(V2PolicyDataRecoveryOutput{})
+	pulumi.RegisterOutputType(V2PolicyDataRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(V2PolicyMultiAzOutput{})
+	pulumi.RegisterOutputType(V2PolicyMultiAzPtrOutput{})
+	pulumi.RegisterOutputType(V2PolicyMultiRegionOutput{})
+	pulumi.RegisterOutputType(V2PolicyMultiRegionPtrOutput{})
 }

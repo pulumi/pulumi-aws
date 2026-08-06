@@ -18,14 +18,14 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
     public static final TableMetadataIcebergSchemaFieldArgs Empty = new TableMetadataIcebergSchemaFieldArgs();
 
     /**
-     * The name of the field.
+     * Name of the field.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the field.
+     * @return Name of the field.
      * 
      */
     public Output<String> name() {
@@ -33,14 +33,14 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
     }
 
     /**
-     * A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
      * 
      */
     @Import(name="required")
     private @Nullable Output<Boolean> required;
 
     /**
-     * @return A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+     * @return Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> required() {
@@ -48,14 +48,14 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
     }
 
     /**
-     * The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+     * @return Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
      * 
      */
     public Output<String> type() {
@@ -89,7 +89,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the field.
+         * @param name Name of the field.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name of the field.
+         * @param name Name of the field.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param required A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+         * @param required Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param required A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+         * @param required Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+         * @param type Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class TableMetadataIcebergSchemaFieldArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+         * @param type Field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
          * 
          * @return builder
          * 

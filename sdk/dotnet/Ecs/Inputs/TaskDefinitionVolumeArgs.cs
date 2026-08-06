@@ -43,8 +43,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<string>? HostPath { get; set; }
 
         /// <summary>
-        /// Name of the volume. This name is referenced in the `sourceVolume`
-        /// parameter of container definition in the `mountPoints` section.
+        /// Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

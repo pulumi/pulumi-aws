@@ -63,18 +63,14 @@ public final class BucketLifecycleConfigurationRuleFilterAndArgs extends com.pul
     }
 
     /**
-     * Key-value map of resource tags.
-     * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * If set, must contain at least one key-value pair.
+     * Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply. If set, must contain at least one key-value pair.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags.
-     * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * If set, must contain at least one key-value pair.
+     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply. If set, must contain at least one key-value pair.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -172,9 +168,7 @@ public final class BucketLifecycleConfigurationRuleFilterAndArgs extends com.pul
         }
 
         /**
-         * @param tags Key-value map of resource tags.
-         * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-         * If set, must contain at least one key-value pair.
+         * @param tags Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply. If set, must contain at least one key-value pair.
          * 
          * @return builder
          * 
@@ -185,9 +179,7 @@ public final class BucketLifecycleConfigurationRuleFilterAndArgs extends com.pul
         }
 
         /**
-         * @param tags Key-value map of resource tags.
-         * All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-         * If set, must contain at least one key-value pair.
+         * @param tags Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply. If set, must contain at least one key-value pair.
          * 
          * @return builder
          * 

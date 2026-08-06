@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
     /**
-     * @return The NetBIOS name of the AD computer object to which the SVM is joined.
+     * @return NetBIOS name of the AD computer object to which the SVM is joined.
      * 
      */
     private String netbiosName;
@@ -21,7 +21,7 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
 
     private GetOntapStorageVirtualMachineActiveDirectoryConfiguration() {}
     /**
-     * @return The NetBIOS name of the AD computer object to which the SVM is joined.
+     * @return NetBIOS name of the AD computer object to which the SVM is joined.
      * 
      */
     public String netbiosName() {

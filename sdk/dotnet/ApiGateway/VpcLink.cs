@@ -60,6 +60,9 @@ namespace Pulumi.Aws.ApiGateway
     [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]
     public partial class VpcLink : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the VPC link.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -189,6 +192,9 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class VpcLinkState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the VPC link.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class GetOpenZfsSnapshotFilterResult
     {
         /// <summary>
-        /// Name of the snapshot.
+        /// Name of the field to filter by.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

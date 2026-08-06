@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFabric.Inputs
     public sealed class AppAuthorizationCredentialOauth2CredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client ID of the client application.
+        /// Client ID of the client application.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppFabric.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// The client secret of the client application.
+        /// Client secret of the client application.
         /// </summary>
         public Input<string>? ClientSecret
         {

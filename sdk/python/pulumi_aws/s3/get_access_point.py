@@ -141,7 +141,7 @@ class GetAccessPointResult:
     @pulumi.getter(name="networkOrigin")
     def network_origin(self) -> _builtins.str:
         """
-        Indicates whether the access point allows access from the public Internet.
+        Whether the access point allows access from the public Internet.
         """
         return pulumi.get(self, "network_origin")
 

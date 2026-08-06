@@ -32,14 +32,14 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
-     * @return The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * @return Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
     public Output<String> contentType() {
@@ -157,7 +157,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+         * @param contentType Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ModelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentType The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+         * @param contentType Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
          * 
          * @return builder
          * 

@@ -14,17 +14,15 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ListenerRuleMatchHttpMatchHeaderMatch
     {
         /// <summary>
-        /// Indicates whether the match is case sensitive.
-        /// Default is `False`.
+        /// Whether the match is case sensitive. Default is `False`.
         /// </summary>
         public readonly bool? CaseSensitive;
         /// <summary>
-        /// The header match type.
-        /// See Header Match `Match` Block for details.
+        /// Header match type. See `match.http_match.header_matches.match` Block for details.
         /// </summary>
         public readonly Outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch Match;
         /// <summary>
-        /// The name of the header.
+        /// Name of the header.
         /// </summary>
         public readonly string Name;
 

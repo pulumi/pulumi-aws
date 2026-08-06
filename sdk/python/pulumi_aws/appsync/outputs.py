@@ -100,11 +100,11 @@ class ApiEventConfig(dict):
                  default_subscribe_auth_modes: Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode'],
                  log_config: Optional['outputs.ApiEventConfigLogConfig'] = None):
         """
-        :param Sequence['ApiEventConfigAuthProviderArgs'] auth_providers: List of authentication providers. See Auth Providers below.
-        :param Sequence['ApiEventConfigConnectionAuthModeArgs'] connection_auth_modes: List of authentication modes for connections. See Auth Modes below.
-        :param Sequence['ApiEventConfigDefaultPublishAuthModeArgs'] default_publish_auth_modes: List of default authentication modes for publishing. See Auth Modes below.
-        :param Sequence['ApiEventConfigDefaultSubscribeAuthModeArgs'] default_subscribe_auth_modes: List of default authentication modes for subscribing. See Auth Modes below.
-        :param 'ApiEventConfigLogConfigArgs' log_config: Logging configuration. See Log Config below.
+        :param Sequence['ApiEventConfigAuthProviderArgs'] auth_providers: List of authentication providers. See `event_config.auth_provider` Block below.
+        :param Sequence['ApiEventConfigConnectionAuthModeArgs'] connection_auth_modes: List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
+        :param Sequence['ApiEventConfigDefaultPublishAuthModeArgs'] default_publish_auth_modes: List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
+        :param Sequence['ApiEventConfigDefaultSubscribeAuthModeArgs'] default_subscribe_auth_modes: List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
+        :param 'ApiEventConfigLogConfigArgs' log_config: Logging configuration. See `log_config` Block below.
         """
         pulumi.set(__self__, "auth_providers", auth_providers)
         pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
@@ -117,7 +117,7 @@ class ApiEventConfig(dict):
     @pulumi.getter(name="authProviders")
     def auth_providers(self) -> Sequence['outputs.ApiEventConfigAuthProvider']:
         """
-        List of authentication providers. See Auth Providers below.
+        List of authentication providers. See `event_config.auth_provider` Block below.
         """
         return pulumi.get(self, "auth_providers")
 
@@ -125,7 +125,7 @@ class ApiEventConfig(dict):
     @pulumi.getter(name="connectionAuthModes")
     def connection_auth_modes(self) -> Sequence['outputs.ApiEventConfigConnectionAuthMode']:
         """
-        List of authentication modes for connections. See Auth Modes below.
+        List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
         """
         return pulumi.get(self, "connection_auth_modes")
 
@@ -133,7 +133,7 @@ class ApiEventConfig(dict):
     @pulumi.getter(name="defaultPublishAuthModes")
     def default_publish_auth_modes(self) -> Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']:
         """
-        List of default authentication modes for publishing. See Auth Modes below.
+        List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
         """
         return pulumi.get(self, "default_publish_auth_modes")
 
@@ -141,7 +141,7 @@ class ApiEventConfig(dict):
     @pulumi.getter(name="defaultSubscribeAuthModes")
     def default_subscribe_auth_modes(self) -> Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']:
         """
-        List of default authentication modes for subscribing. See Auth Modes below.
+        List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
         """
         return pulumi.get(self, "default_subscribe_auth_modes")
 
@@ -149,7 +149,7 @@ class ApiEventConfig(dict):
     @pulumi.getter(name="logConfig")
     def log_config(self) -> Optional['outputs.ApiEventConfigLogConfig']:
         """
-        Logging configuration. See Log Config below.
+        Logging configuration. See `log_config` Block below.
         """
         return pulumi.get(self, "log_config")
 
@@ -186,9 +186,9 @@ class ApiEventConfigAuthProvider(dict):
                  openid_connect_config: Optional['outputs.ApiEventConfigAuthProviderOpenidConnectConfig'] = None):
         """
         :param _builtins.str auth_type: Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        :param 'ApiEventConfigAuthProviderCognitoConfigArgs' cognito_config: Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-        :param 'ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-        :param 'ApiEventConfigAuthProviderOpenidConnectConfigArgs' openid_connect_config: Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+        :param 'ApiEventConfigAuthProviderCognitoConfigArgs' cognito_config: Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See `cognito_config` Block below.
+        :param 'ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See `lambda_authorizer_config` Block below.
+        :param 'ApiEventConfigAuthProviderOpenidConnectConfigArgs' openid_connect_config: Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See `openid_connect_config` Block below.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         if cognito_config is not None:
@@ -210,7 +210,7 @@ class ApiEventConfigAuthProvider(dict):
     @pulumi.getter(name="cognitoConfig")
     def cognito_config(self) -> Optional['outputs.ApiEventConfigAuthProviderCognitoConfig']:
         """
-        Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+        Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See `cognito_config` Block below.
         """
         return pulumi.get(self, "cognito_config")
 
@@ -218,7 +218,7 @@ class ApiEventConfigAuthProvider(dict):
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional['outputs.ApiEventConfigAuthProviderLambdaAuthorizerConfig']:
         """
-        Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+        Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See `lambda_authorizer_config` Block below.
         """
         return pulumi.get(self, "lambda_authorizer_config")
 
@@ -226,7 +226,7 @@ class ApiEventConfigAuthProvider(dict):
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> Optional['outputs.ApiEventConfigAuthProviderOpenidConnectConfig']:
         """
-        Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+        Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See `openid_connect_config` Block below.
         """
         return pulumi.get(self, "openid_connect_config")
 
@@ -609,8 +609,8 @@ class ChannelNamespaceHandlerConfigs(dict):
                  on_publish: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublish'] = None,
                  on_subscribe: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribe'] = None):
         """
-        :param 'ChannelNamespaceHandlerConfigsOnPublishArgs' on_publish: Handler configuration. See Handler Config below.
-        :param 'ChannelNamespaceHandlerConfigsOnSubscribeArgs' on_subscribe: Handler configuration. See Handler Config below.
+        :param 'ChannelNamespaceHandlerConfigsOnPublishArgs' on_publish: Handler configuration for published events. See `on_publish` below.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeArgs' on_subscribe: Handler configuration for subscribe requests. See `on_subscribe` below.
         """
         if on_publish is not None:
             pulumi.set(__self__, "on_publish", on_publish)
@@ -621,7 +621,7 @@ class ChannelNamespaceHandlerConfigs(dict):
     @pulumi.getter(name="onPublish")
     def on_publish(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublish']:
         """
-        Handler configuration. See Handler Config below.
+        Handler configuration for published events. See `on_publish` below.
         """
         return pulumi.get(self, "on_publish")
 
@@ -629,7 +629,7 @@ class ChannelNamespaceHandlerConfigs(dict):
     @pulumi.getter(name="onSubscribe")
     def on_subscribe(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribe']:
         """
-        Handler configuration. See Handler Config below.
+        Handler configuration for subscribe requests. See `on_subscribe` below.
         """
         return pulumi.get(self, "on_subscribe")
 
@@ -641,7 +641,7 @@ class ChannelNamespaceHandlerConfigsOnPublish(dict):
                  integration: 'outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration'):
         """
         :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
+        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs' integration: Integration data source configuration for the handler. See `integration` below.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "integration", integration)
@@ -658,7 +658,7 @@ class ChannelNamespaceHandlerConfigsOnPublish(dict):
     @pulumi.getter
     def integration(self) -> 'outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration':
         """
-        Integration data source configuration for the handler. See Integration below.
+        Integration data source configuration for the handler. See `integration` below.
         """
         return pulumi.get(self, "integration")
 
@@ -689,7 +689,7 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegration(dict):
                  lambda_config: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig'] = None):
         """
         :param _builtins.str data_source_name: Unique name of the data source that has been configured on the API.
-        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See Lambda Config below.
+        :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See `lambda_config` below.
         """
         pulumi.set(__self__, "data_source_name", data_source_name)
         if lambda_config is not None:
@@ -707,7 +707,7 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegration(dict):
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig']:
         """
-        Configuration for a Lambda data source. See Lambda Config below.
+        Configuration for a Lambda data source. See `lambda_config` below.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -755,7 +755,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribe(dict):
                  integration: 'outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration'):
         """
         :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs' integration: Integration data source configuration for the handler. See `integration` below.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "integration", integration)
@@ -772,7 +772,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribe(dict):
     @pulumi.getter
     def integration(self) -> 'outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration':
         """
-        Integration data source configuration for the handler. See Integration below.
+        Integration data source configuration for the handler. See `integration` below.
         """
         return pulumi.get(self, "integration")
 
@@ -803,7 +803,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribeIntegration(dict):
                  lambda_config: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig'] = None):
         """
         :param _builtins.str data_source_name: Unique name of the data source that has been configured on the API.
-        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See Lambda Config below.
+        :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs' lambda_config: Configuration for a Lambda data source. See `lambda_config` below.
         """
         pulumi.set(__self__, "data_source_name", data_source_name)
         if lambda_config is not None:
@@ -821,7 +821,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribeIntegration(dict):
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig']:
         """
-        Configuration for a Lambda data source. See Lambda Config below.
+        Configuration for a Lambda data source. See `lambda_config` below.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -963,7 +963,7 @@ class DataSourceDynamodbConfig(dict):
                  versioned: Optional[_builtins.bool] = None):
         """
         :param _builtins.str table_name: Name of the DynamoDB table.
-        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         :param _builtins.str region: AWS region of the DynamoDB table. Defaults to current region.
         :param _builtins.bool use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         :param _builtins.bool versioned: Detects Conflict Detection and Resolution with this data source.
@@ -990,7 +990,7 @@ class DataSourceDynamodbConfig(dict):
     @pulumi.getter(name="deltaSyncConfig")
     def delta_sync_config(self) -> Optional['outputs.DataSourceDynamodbConfigDeltaSyncConfig']:
         """
-        The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+        DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         """
         return pulumi.get(self, "delta_sync_config")
 
@@ -1047,9 +1047,9 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
                  base_table_ttl: Optional[_builtins.int] = None,
                  delta_sync_table_ttl: Optional[_builtins.int] = None):
         """
-        :param _builtins.str delta_sync_table_name: The table name.
-        :param _builtins.int base_table_ttl: The number of minutes that an Item is stored in the data source.
-        :param _builtins.int delta_sync_table_ttl: The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        :param _builtins.str delta_sync_table_name: Table name.
+        :param _builtins.int base_table_ttl: Number of minutes that an Item is stored in the data source.
+        :param _builtins.int delta_sync_table_ttl: Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
         """
         pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
         if base_table_ttl is not None:
@@ -1061,7 +1061,7 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
     @pulumi.getter(name="deltaSyncTableName")
     def delta_sync_table_name(self) -> _builtins.str:
         """
-        The table name.
+        Table name.
         """
         return pulumi.get(self, "delta_sync_table_name")
 
@@ -1069,7 +1069,7 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
     @pulumi.getter(name="baseTableTtl")
     def base_table_ttl(self) -> Optional[_builtins.int]:
         """
-        The number of minutes that an Item is stored in the data source.
+        Number of minutes that an Item is stored in the data source.
         """
         return pulumi.get(self, "base_table_ttl")
 
@@ -1077,7 +1077,7 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
     @pulumi.getter(name="deltaSyncTableTtl")
     def delta_sync_table_ttl(self) -> Optional[_builtins.int]:
         """
-        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
         """
         return pulumi.get(self, "delta_sync_table_ttl")
 
@@ -1518,8 +1518,8 @@ class FunctionRuntime(dict):
                  name: _builtins.str,
                  runtime_version: _builtins.str):
         """
-        :param _builtins.str name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-        :param _builtins.str runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        :param _builtins.str name: Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param _builtins.str runtime_version: Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
@@ -1528,7 +1528,7 @@ class FunctionRuntime(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         """
         return pulumi.get(self, "name")
 
@@ -1536,7 +1536,7 @@ class FunctionRuntime(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> _builtins.str:
         """
-        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         """
         return pulumi.get(self, "runtime_version")
 
@@ -1675,7 +1675,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
         :param _builtins.str authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param 'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         :param 'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs' openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs' user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs' user_pool_config: Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
@@ -1713,7 +1713,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional['outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig']:
         """
-        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+        Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
         """
         return pulumi.get(self, "user_pool_config")
 
@@ -2279,8 +2279,8 @@ class ResolverCachingConfig(dict):
                  caching_keys: Optional[Sequence[_builtins.str]] = None,
                  ttl: Optional[_builtins.int] = None):
         """
-        :param Sequence[_builtins.str] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-        :param _builtins.int ttl: The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+        :param Sequence[_builtins.str] caching_keys: Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        :param _builtins.int ttl: TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
@@ -2291,7 +2291,7 @@ class ResolverCachingConfig(dict):
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
         """
         return pulumi.get(self, "caching_keys")
 
@@ -2299,7 +2299,7 @@ class ResolverCachingConfig(dict):
     @pulumi.getter
     def ttl(self) -> Optional[_builtins.int]:
         """
-        The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+        TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
         """
         return pulumi.get(self, "ttl")
 
@@ -2309,7 +2309,7 @@ class ResolverPipelineConfig(dict):
     def __init__(__self__, *,
                  functions: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] functions: A list of Function objects.
+        :param Sequence[_builtins.str] functions: List of Function objects.
         """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
@@ -2318,7 +2318,7 @@ class ResolverPipelineConfig(dict):
     @pulumi.getter
     def functions(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of Function objects.
+        List of Function objects.
         """
         return pulumi.get(self, "functions")
 
@@ -2346,8 +2346,8 @@ class ResolverRuntime(dict):
                  name: _builtins.str,
                  runtime_version: _builtins.str):
         """
-        :param _builtins.str name: The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-        :param _builtins.str runtime_version: The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        :param _builtins.str name: Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        :param _builtins.str runtime_version: Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
@@ -2356,7 +2356,7 @@ class ResolverRuntime(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+        Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
         """
         return pulumi.get(self, "name")
 
@@ -2364,7 +2364,7 @@ class ResolverRuntime(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> _builtins.str:
         """
-        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+        Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
         """
         return pulumi.get(self, "runtime_version")
 

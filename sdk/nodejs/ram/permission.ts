@@ -84,15 +84,15 @@ export class Permission extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * Whether this is the default version of the managed permission.
      */
     declare public /*out*/ readonly defaultVersion: pulumi.Output<boolean>;
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      */
     declare public readonly policyTemplate: pulumi.Output<string>;
     /**
@@ -100,24 +100,24 @@ export class Permission extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
      */
     declare public readonly resourceType: pulumi.Output<string>;
     /**
-     * The current status of the permission.
+     * Current status of the permission.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.ram.PermissionTimeouts | undefined>;
     /**
-     * The version of the permission associated with this resource share.
+     * Version of the permission associated with this resource share.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
@@ -179,15 +179,15 @@ export interface PermissionState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * Whether this is the default version of the managed permission.
      */
     defaultVersion?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      */
     policyTemplate?: pulumi.Input<string | undefined>;
     /**
@@ -195,24 +195,24 @@ export interface PermissionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
      */
     resourceType?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the permission.
+     * Current status of the permission.
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ram.PermissionTimeouts | undefined>;
     /**
-     * The version of the permission associated with this resource share.
+     * Version of the permission associated with this resource share.
      */
     version?: pulumi.Input<string | undefined>;
 }
@@ -222,11 +222,11 @@ export interface PermissionState {
  */
 export interface PermissionArgs {
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      */
     policyTemplate: pulumi.Input<string>;
     /**
@@ -234,11 +234,11 @@ export interface PermissionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
      */
     resourceType: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ram.PermissionTimeouts | undefined>;

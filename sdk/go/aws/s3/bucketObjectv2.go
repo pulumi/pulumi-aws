@@ -332,17 +332,17 @@ type BucketObjectv2 struct {
 	BucketKeyEnabled pulumi.BoolOutput `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+	// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrOutput `pulumi:"checksumAlgorithm"`
-	// The base64-encoded, 32-bit CRC32 checksum of the object.
+	// Base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 pulumi.StringOutput `pulumi:"checksumCrc32"`
-	// The base64-encoded, 32-bit CRC32C checksum of the object.
+	// Base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c pulumi.StringOutput `pulumi:"checksumCrc32c"`
-	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 	ChecksumCrc64nvme pulumi.StringOutput `pulumi:"checksumCrc64nvme"`
-	// The base64-encoded, 160-bit SHA-1 digest of the object.
+	// Base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 pulumi.StringOutput `pulumi:"checksumSha1"`
-	// The base64-encoded, 256-bit SHA-256 digest of the object.
+	// Base64-encoded, 256-bit SHA-256 digest of the object.
 	ChecksumSha256 pulumi.StringOutput `pulumi:"checksumSha256"`
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content pulumi.StringPtrOutput `pulumi:"content"`
@@ -374,7 +374,7 @@ type BucketObjectv2 struct {
 	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
-	// Override provider-level configuration options. See Override Provider below for more details.
+	// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrOutput `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -394,7 +394,7 @@ type BucketObjectv2 struct {
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
@@ -451,17 +451,17 @@ type bucketObjectv2State struct {
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl *string `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+	// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm *string `pulumi:"checksumAlgorithm"`
-	// The base64-encoded, 32-bit CRC32 checksum of the object.
+	// Base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 *string `pulumi:"checksumCrc32"`
-	// The base64-encoded, 32-bit CRC32C checksum of the object.
+	// Base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c *string `pulumi:"checksumCrc32c"`
-	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 	ChecksumCrc64nvme *string `pulumi:"checksumCrc64nvme"`
-	// The base64-encoded, 160-bit SHA-1 digest of the object.
+	// Base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 *string `pulumi:"checksumSha1"`
-	// The base64-encoded, 256-bit SHA-256 digest of the object.
+	// Base64-encoded, 256-bit SHA-256 digest of the object.
 	ChecksumSha256 *string `pulumi:"checksumSha256"`
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content *string `pulumi:"content"`
@@ -493,7 +493,7 @@ type bucketObjectv2State struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
-	// Override provider-level configuration options. See Override Provider below for more details.
+	// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -513,7 +513,7 @@ type bucketObjectv2State struct {
 	VersionId *string `pulumi:"versionId"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
@@ -532,17 +532,17 @@ type BucketObjectv2State struct {
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrInput
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+	// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrInput
-	// The base64-encoded, 32-bit CRC32 checksum of the object.
+	// Base64-encoded, 32-bit CRC32 checksum of the object.
 	ChecksumCrc32 pulumi.StringPtrInput
-	// The base64-encoded, 32-bit CRC32C checksum of the object.
+	// Base64-encoded, 32-bit CRC32C checksum of the object.
 	ChecksumCrc32c pulumi.StringPtrInput
-	// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+	// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 	ChecksumCrc64nvme pulumi.StringPtrInput
-	// The base64-encoded, 160-bit SHA-1 digest of the object.
+	// Base64-encoded, 160-bit SHA-1 digest of the object.
 	ChecksumSha1 pulumi.StringPtrInput
-	// The base64-encoded, 256-bit SHA-256 digest of the object.
+	// Base64-encoded, 256-bit SHA-256 digest of the object.
 	ChecksumSha256 pulumi.StringPtrInput
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content pulumi.StringPtrInput
@@ -574,7 +574,7 @@ type BucketObjectv2State struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	// Override provider-level configuration options. See Override Provider below for more details.
+	// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -594,7 +594,7 @@ type BucketObjectv2State struct {
 	VersionId pulumi.StringPtrInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
@@ -615,7 +615,7 @@ type bucketObjectv2Args struct {
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl *string `pulumi:"cacheControl"`
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+	// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm *string `pulumi:"checksumAlgorithm"`
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content *string `pulumi:"content"`
@@ -647,7 +647,7 @@ type bucketObjectv2Args struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
-	// Override provider-level configuration options. See Override Provider below for more details.
+	// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -663,7 +663,7 @@ type bucketObjectv2Args struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
@@ -681,7 +681,7 @@ type BucketObjectv2Args struct {
 	BucketKeyEnabled pulumi.BoolPtrInput
 	// Caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
 	CacheControl pulumi.StringPtrInput
-	// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+	// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 	ChecksumAlgorithm pulumi.StringPtrInput
 	// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
 	Content pulumi.StringPtrInput
@@ -713,7 +713,7 @@ type BucketObjectv2Args struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
-	// Override provider-level configuration options. See Override Provider below for more details.
+	// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -729,7 +729,7 @@ type BucketObjectv2Args struct {
 	Tags pulumi.StringMapInput
 	// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 	//
-	// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+	// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 	//
 	// > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 	//
@@ -849,32 +849,32 @@ func (o BucketObjectv2Output) CacheControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.CacheControl }).(pulumi.StringPtrOutput)
 }
 
-// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+// Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
 func (o BucketObjectv2Output) ChecksumAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ChecksumAlgorithm }).(pulumi.StringPtrOutput)
 }
 
-// The base64-encoded, 32-bit CRC32 checksum of the object.
+// Base64-encoded, 32-bit CRC32 checksum of the object.
 func (o BucketObjectv2Output) ChecksumCrc32() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ChecksumCrc32 }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 32-bit CRC32C checksum of the object.
+// Base64-encoded, 32-bit CRC32C checksum of the object.
 func (o BucketObjectv2Output) ChecksumCrc32c() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ChecksumCrc32c }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 64-bit CRC64NVME checksum of the object.
+// Base64-encoded, 64-bit CRC64NVME checksum of the object.
 func (o BucketObjectv2Output) ChecksumCrc64nvme() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ChecksumCrc64nvme }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 160-bit SHA-1 digest of the object.
+// Base64-encoded, 160-bit SHA-1 digest of the object.
 func (o BucketObjectv2Output) ChecksumSha1() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ChecksumSha1 }).(pulumi.StringOutput)
 }
 
-// The base64-encoded, 256-bit SHA-256 digest of the object.
+// Base64-encoded, 256-bit SHA-256 digest of the object.
 func (o BucketObjectv2Output) ChecksumSha256() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.ChecksumSha256 }).(pulumi.StringOutput)
 }
@@ -951,7 +951,7 @@ func (o BucketObjectv2Output) ObjectLockRetainUntilDate() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
 }
 
-// Override provider-level configuration options. See Override Provider below for more details.
+// Override provider-level configuration options. See `overrideProvider` Block below for more details.
 func (o BucketObjectv2Output) OverrideProvider() BucketObjectv2OverrideProviderPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) BucketObjectv2OverrideProviderPtrOutput { return v.OverrideProvider }).(BucketObjectv2OverrideProviderPtrOutput)
 }
@@ -998,7 +998,7 @@ func (o BucketObjectv2Output) VersionId() pulumi.StringOutput {
 
 // Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
 //
-// If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+// > **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
 //
 // > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
 //

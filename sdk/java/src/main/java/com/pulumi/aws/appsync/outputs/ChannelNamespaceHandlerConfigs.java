@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelNamespaceHandlerConfigs {
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for published events. See `onPublish` below.
      * 
      */
     private @Nullable ChannelNamespaceHandlerConfigsOnPublish onPublish;
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for subscribe requests. See `onSubscribe` below.
      * 
      */
     private @Nullable ChannelNamespaceHandlerConfigsOnSubscribe onSubscribe;
 
     private ChannelNamespaceHandlerConfigs() {}
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for published events. See `onPublish` below.
      * 
      */
     public Optional<ChannelNamespaceHandlerConfigsOnPublish> onPublish() {
         return Optional.ofNullable(this.onPublish);
     }
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for subscribe requests. See `onSubscribe` below.
      * 
      */
     public Optional<ChannelNamespaceHandlerConfigsOnSubscribe> onSubscribe() {

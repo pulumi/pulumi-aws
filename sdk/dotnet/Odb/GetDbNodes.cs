@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbNodesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbNodesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Odb
     {
         public readonly string CloudVmClusterId;
         /// <summary>
-        /// The list of DB nodes along with their properties.
+        /// List of DB nodes along with their properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbNodesDbNodeResult> DbNodes;
         public readonly string Region;

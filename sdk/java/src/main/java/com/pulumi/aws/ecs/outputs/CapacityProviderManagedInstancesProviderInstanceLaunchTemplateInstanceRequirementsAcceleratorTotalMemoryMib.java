@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+    /**
+     * @return Maximum total accelerator memory, in MiB.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum total accelerator memory, in MiB.
+     * 
+     */
     private @Nullable Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib() {}
+    /**
+     * @return Maximum total accelerator memory, in MiB.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum total accelerator memory, in MiB.
+     * 
+     */
     public Optional<Integer> min() {
         return Optional.ofNullable(this.min);
     }

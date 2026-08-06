@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps {
+    /**
+     * @return Maximum network bandwidth, in Gbps.
+     * 
+     */
     private @Nullable Double max;
+    /**
+     * @return Minimum network bandwidth, in Gbps.
+     * 
+     */
     private @Nullable Double min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbps() {}
+    /**
+     * @return Maximum network bandwidth, in Gbps.
+     * 
+     */
     public Optional<Double> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum network bandwidth, in Gbps.
+     * 
+     */
     public Optional<Double> min() {
         return Optional.ofNullable(this.min);
     }

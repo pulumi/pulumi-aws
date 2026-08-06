@@ -266,7 +266,7 @@ type VirtualNode struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Virtual node specification to apply.
+	// Virtual node specification to apply. See `spec` Block for details.
 	Spec VirtualNodeSpecOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -326,7 +326,7 @@ type virtualNodeState struct {
 	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Virtual node specification to apply.
+	// Virtual node specification to apply. See `spec` Block for details.
 	Spec *VirtualNodeSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -351,7 +351,7 @@ type VirtualNodeState struct {
 	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// Virtual node specification to apply.
+	// Virtual node specification to apply. See `spec` Block for details.
 	Spec VirtualNodeSpecPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -372,7 +372,7 @@ type virtualNodeArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Virtual node specification to apply.
+	// Virtual node specification to apply. See `spec` Block for details.
 	Spec VirtualNodeSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -388,7 +388,7 @@ type VirtualNodeArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Virtual node specification to apply.
+	// Virtual node specification to apply. See `spec` Block for details.
 	Spec VirtualNodeSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -521,7 +521,7 @@ func (o VirtualNodeOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNode) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual node specification to apply.
+// Virtual node specification to apply. See `spec` Block for details.
 func (o VirtualNodeOutput) Spec() VirtualNodeSpecOutput {
 	return o.ApplyT(func(v *VirtualNode) VirtualNodeSpecOutput { return v.Spec }).(VirtualNodeSpecOutput)
 }

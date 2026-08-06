@@ -18,14 +18,14 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
     public static final GatewayRouteSpecGrpcRouteActionTargetArgs Empty = new GatewayRouteSpecGrpcRouteActionTargetArgs();
 
     /**
-     * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * Port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -33,14 +33,14 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
     }
 
     /**
-     * Virtual service gateway route target. See `virtualService` Block for details.
+     * Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
      * 
      */
     @Import(name="virtualService", required=true)
     private Output<GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs> virtualService;
 
     /**
-     * @return Virtual service gateway route target. See `virtualService` Block for details.
+     * @return Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs> virtualService() {
@@ -73,7 +73,7 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param port The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param virtualService Virtual service gateway route target. See `virtualService` Block for details.
+         * @param virtualService Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class GatewayRouteSpecGrpcRouteActionTargetArgs extends com.pulumi.
         }
 
         /**
-         * @param virtualService Virtual service gateway route target. See `virtualService` Block for details.
+         * @param virtualService Virtual service gateway route target. See `spec.http2_route.action.target.virtual_service` Block for details.
          * 
          * @return builder
          * 

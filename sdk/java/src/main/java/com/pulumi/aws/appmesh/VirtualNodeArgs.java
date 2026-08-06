@@ -79,14 +79,14 @@ public final class VirtualNodeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Virtual node specification to apply.
+     * Virtual node specification to apply. See `spec` Block for details.
      * 
      */
     @Import(name="spec", required=true)
     private Output<VirtualNodeSpecArgs> spec;
 
     /**
-     * @return Virtual node specification to apply.
+     * @return Virtual node specification to apply. See `spec` Block for details.
      * 
      */
     public Output<VirtualNodeSpecArgs> spec() {
@@ -222,7 +222,7 @@ public final class VirtualNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Virtual node specification to apply.
+         * @param spec Virtual node specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class VirtualNodeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Virtual node specification to apply.
+         * @param spec Virtual node specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 

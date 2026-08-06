@@ -80,19 +80,19 @@ namespace Pulumi.Aws.S3Control
     public partial class AccessPointPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
+        /// ARN of the access point that you want to associate with the specified policy.
         /// </summary>
         [Output("accessPointArn")]
         public Output<string> AccessPointArn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Output("hasPublicAccessPolicy")]
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The policy that you want to apply to the specified access point.
+        /// Policy that you want to apply to the specified access point.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessPointPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
+        /// ARN of the access point that you want to associate with the specified policy.
         /// </summary>
         [Input("accessPointArn", required: true)]
         public Input<string> AccessPointArn { get; set; } = null!;
 
         /// <summary>
-        /// The policy that you want to apply to the specified access point.
+        /// Policy that you want to apply to the specified access point.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -176,19 +176,19 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessPointPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the access point that you want to associate with the specified policy.
+        /// ARN of the access point that you want to associate with the specified policy.
         /// </summary>
         [Input("accessPointArn")]
         public Input<string>? AccessPointArn { get; set; }
 
         /// <summary>
-        /// Indicates whether this access point currently has a policy that allows public access.
+        /// Whether this access point currently has a policy that allows public access.
         /// </summary>
         [Input("hasPublicAccessPolicy")]
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
         /// <summary>
-        /// The policy that you want to apply to the specified access point.
+        /// Policy that you want to apply to the specified access point.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

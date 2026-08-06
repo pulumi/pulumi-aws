@@ -27,8 +27,6 @@ namespace Pulumi.Aws.S3.Outputs
         public readonly ImmutableArray<string> Permissions;
         /// <summary>
         /// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-        /// 
-        /// This configuration block has the following optional arguments (one of the three is required):
         /// </summary>
         public readonly string Type;
         /// <summary>

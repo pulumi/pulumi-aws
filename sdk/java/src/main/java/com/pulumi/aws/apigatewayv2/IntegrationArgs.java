@@ -142,16 +142,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Integration type of an integration.
-     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+     * Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
     @Import(name="integrationType", required=true)
     private Output<String> integrationType;
 
     /**
-     * @return Integration type of an integration.
-     * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+     * @return Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
     public Output<String> integrationType() {
@@ -159,16 +157,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
-     * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+     * URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
     @Import(name="integrationUri")
     private @Nullable Output<String> integrationUri;
 
     /**
-     * @return URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
-     * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+     * @return URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
     public Optional<Output<String>> integrationUri() {
@@ -176,16 +172,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
-     * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+     * Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="passthroughBehavior")
     private @Nullable Output<String> passthroughBehavior;
 
     /**
-     * @return Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
-     * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+     * @return Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<String>> passthroughBehavior() {
@@ -193,14 +187,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+     * [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      * 
      */
     @Import(name="payloadFormatVersion")
     private @Nullable Output<String> payloadFormatVersion;
 
     /**
-     * @return The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+     * @return [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      * 
      */
     public Optional<Output<String>> payloadFormatVersion() {
@@ -223,20 +217,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+     * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
     @Import(name="requestParameters")
     private @Nullable Output<Map<String,String>> requestParameters;
 
     /**
-     * @return For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-     * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-     * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+     * @return For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
     public Optional<Output<Map<String,String>>> requestParameters() {
@@ -274,14 +262,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      * 
      */
     @Import(name="templateSelectionExpression")
     private @Nullable Output<String> templateSelectionExpression;
 
     /**
-     * @return The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+     * @return [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      * 
      */
     public Optional<Output<String>> templateSelectionExpression() {
@@ -289,18 +277,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-     * The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-     * this provider will only perform drift detection of its value when present in a configuration.
+     * Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     @Import(name="timeoutMilliseconds")
     private @Nullable Output<Integer> timeoutMilliseconds;
 
     /**
-     * @return Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-     * The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-     * this provider will only perform drift detection of its value when present in a configuration.
+     * @return Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public Optional<Output<Integer>> timeoutMilliseconds() {
@@ -533,8 +517,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationType Integration type of an integration.
-         * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+         * @param integrationType Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
          * 
          * @return builder
          * 
@@ -545,8 +528,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationType Integration type of an integration.
-         * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
+         * @param integrationType Integration type of an integration. Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
          * 
          * @return builder
          * 
@@ -556,8 +538,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
-         * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
          * 
@@ -568,8 +549,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`.
-         * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
+         * @param integrationUri URI of the Lambda function for a Lambda proxy integration, when `integrationType` is `AWS_PROXY`. For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
          * 
          * @return builder
          * 
@@ -579,8 +559,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
-         * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -591,8 +570,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute.
-         * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
+         * @param passthroughBehavior Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `requestTemplates` attribute. Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -602,7 +580,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param payloadFormatVersion The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+         * @param payloadFormatVersion [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
          * 
          * @return builder
          * 
@@ -613,7 +591,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param payloadFormatVersion The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+         * @param payloadFormatVersion [Format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
          * 
          * @return builder
          * 
@@ -644,10 +622,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-         * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-         * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-         * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+         * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
          * 
          * @return builder
          * 
@@ -658,10 +633,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
-         * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
-         * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
-         * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+         * @param requestParameters For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend. For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations. For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
          * 
          * @return builder
          * 
@@ -723,7 +695,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateSelectionExpression The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+         * @param templateSelectionExpression [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
          * 
          * @return builder
          * 
@@ -734,7 +706,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateSelectionExpression The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
+         * @param templateSelectionExpression [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
          * 
          * @return builder
          * 
@@ -744,9 +716,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-         * The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-         * this provider will only perform drift detection of its value when present in a configuration.
+         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -757,9 +727,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
-         * The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
-         * this provider will only perform drift detection of its value when present in a configuration.
+         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs. The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs. this provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 

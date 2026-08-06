@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
     public static final ObjectLambdaAccessPointState Empty = new ObjectLambdaAccessPointState();
 
     /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -62,14 +62,14 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
     }
 
     /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ObjectLambdaAccessPointConfigurationArgs> configuration;
 
     /**
-     * @return A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * @return Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      * 
      */
     public Optional<Output<ObjectLambdaAccessPointConfigurationArgs>> configuration() {
@@ -77,14 +77,14 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name for this Object Lambda Access Point.
+     * Name for this Object Lambda Access Point.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for this Object Lambda Access Point.
+     * @return Name for this Object Lambda Access Point.
      * 
      */
     public Optional<Output<String>> name() {
@@ -136,7 +136,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configuration A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+         * @param configuration Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configuration A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+         * @param configuration Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name for this Object Lambda Access Point.
+         * @param name Name for this Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name for this Object Lambda Access Point.
+         * @param name Name for this Object Lambda Access Point.
          * 
          * @return builder
          * 

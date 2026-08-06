@@ -23,14 +23,14 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     public static final NetworkManagedServiceArgs Empty = new NetworkManagedServiceArgs();
 
     /**
-     * The list of regions enabled for cross-region restore in the ODB network.
+     * List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     @Import(name="crossRegionS3RestoreSourcesAccesses", required=true)
     private Output<List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>> crossRegionS3RestoreSourcesAccesses;
 
     /**
-     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * @return List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     public Output<List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>> crossRegionS3RestoreSourcesAccesses() {
@@ -38,14 +38,14 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the configuration for KMS access from the ODB network.
+     * Configuration for KMS access from the ODB network.
      * 
      */
     @Import(name="kmsAccesses", required=true)
     private Output<List<NetworkManagedServiceKmsAccessArgs>> kmsAccesses;
 
     /**
-     * @return Specifies the configuration for KMS access from the ODB network.
+     * @return Configuration for KMS access from the ODB network.
      * 
      */
     public Output<List<NetworkManagedServiceKmsAccessArgs>> kmsAccesses() {
@@ -74,14 +74,14 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
+     * Configuration for Amazon S3 access from the ODB network.
      * 
      */
     @Import(name="s3Accesses", required=true)
     private Output<List<NetworkManagedServiceS3AccessArgs>> s3Accesses;
 
     /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
+     * @return Configuration for Amazon S3 access from the ODB network.
      * 
      */
     public Output<List<NetworkManagedServiceS3AccessArgs>> s3Accesses() {
@@ -103,14 +103,14 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the configuration for STS access from the ODB network.
+     * Configuration for STS access from the ODB network.
      * 
      */
     @Import(name="stsAccesses", required=true)
     private Output<List<NetworkManagedServiceStsAccessArgs>> stsAccesses;
 
     /**
-     * @return Specifies the configuration for STS access from the ODB network.
+     * @return Configuration for STS access from the ODB network.
      * 
      */
     public Output<List<NetworkManagedServiceStsAccessArgs>> stsAccesses() {
@@ -118,7 +118,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
+     * Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 
@@ -127,7 +127,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     private Output<List<NetworkManagedServiceZeroEtlAccessArgs>> zeroEtlAccesses;
 
     /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
+     * @return Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 
@@ -170,7 +170,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * @param crossRegionS3RestoreSourcesAccesses List of regions enabled for cross-region restore in the ODB network.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * @param crossRegionS3RestoreSourcesAccesses List of regions enabled for cross-region restore in the ODB network.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param crossRegionS3RestoreSourcesAccesses The list of regions enabled for cross-region restore in the ODB network.
+         * @param crossRegionS3RestoreSourcesAccesses List of regions enabled for cross-region restore in the ODB network.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * @param kmsAccesses Configuration for KMS access from the ODB network.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * @param kmsAccesses Configuration for KMS access from the ODB network.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * @param kmsAccesses Configuration for KMS access from the ODB network.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
+         * @param s3Accesses Configuration for Amazon S3 access from the ODB network.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
+         * @param s3Accesses Configuration for Amazon S3 access from the ODB network.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param s3Accesses Specifies the configuration for Amazon S3 access from the ODB network.
+         * @param s3Accesses Configuration for Amazon S3 access from the ODB network.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * @param stsAccesses Configuration for STS access from the ODB network.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * @param stsAccesses Configuration for STS access from the ODB network.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * @param stsAccesses Configuration for STS access from the ODB network.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
+         * @param zeroEtlAccesses Configuration for Zero-ETL access from the ODB network.
          * 
          * The following arguments are optional:
          * 
@@ -364,7 +364,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
+         * @param zeroEtlAccesses Configuration for Zero-ETL access from the ODB network.
          * 
          * The following arguments are optional:
          * 
@@ -376,7 +376,7 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
+         * @param zeroEtlAccesses Configuration for Zero-ETL access from the ODB network.
          * 
          * The following arguments are optional:
          * 

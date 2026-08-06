@@ -18,7 +18,7 @@ public final class GetBucketReplicationConfigurationRuleDestination {
     private List<GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation> accessControlTranslations;
     private String account;
     /**
-     * @return The name of the bucket to get the replication configuration for.
+     * @return Name of the bucket to get the replication configuration for.
      * 
      */
     private String bucket;
@@ -35,7 +35,7 @@ public final class GetBucketReplicationConfigurationRuleDestination {
         return this.account;
     }
     /**
-     * @return The name of the bucket to get the replication configuration for.
+     * @return Name of the bucket to get the replication configuration for.
      * 
      */
     public String bucket() {

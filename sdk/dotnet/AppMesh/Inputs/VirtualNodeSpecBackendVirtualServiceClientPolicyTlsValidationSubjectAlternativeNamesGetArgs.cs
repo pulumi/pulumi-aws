@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Criteria for determining a SAN's match.
+        /// Criteria for determining a SAN's match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchGetArgs> Match { get; set; } = null!;

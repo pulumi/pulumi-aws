@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatchHeader
     {
         /// <summary>
-        /// If `True`, the match is on the opposite of the `Match` method and value. Default is `False`.
+        /// Whether to match on the opposite of the `Match` method and value. Default is `False`.
         /// </summary>
         public readonly bool? Invert;
         /// <summary>
-        /// Method and value to match the header value sent with a request. Specify one match method.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchHeaderMatch? Match;
         /// <summary>
-        /// Name for the HTTP header in the client request that will be matched on.
+        /// Name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Name;
 

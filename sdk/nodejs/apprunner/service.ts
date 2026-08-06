@@ -162,23 +162,23 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly autoScalingConfigurationArn: pulumi.Output<string>;
     /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.apprunner.ServiceEncryptionConfiguration | undefined>;
     /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      */
     declare public readonly healthCheckConfiguration: pulumi.Output<outputs.apprunner.ServiceHealthCheckConfiguration>;
     /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      */
     declare public readonly instanceConfiguration: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      */
     declare public readonly networkConfiguration: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration>;
     /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
+     * Observability configuration of your service. See `observabilityConfiguration` below.
      */
     declare public readonly observabilityConfiguration: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
@@ -186,7 +186,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
+     * Alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     declare public /*out*/ readonly serviceId: pulumi.Output<string>;
     /**
@@ -198,9 +198,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceUrl: pulumi.Output<string>;
     /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     *
-     * The following arguments are optional:
+     * Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      */
     declare public readonly sourceConfiguration: pulumi.Output<outputs.apprunner.ServiceSourceConfiguration>;
     /**
@@ -286,23 +284,23 @@ export interface ServiceState {
      */
     autoScalingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration | undefined>;
     /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      */
     healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
     /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration | undefined>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      */
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration | undefined>;
     /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
+     * Observability configuration of your service. See `observabilityConfiguration` below.
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
@@ -310,7 +308,7 @@ export interface ServiceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
+     * Alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     serviceId?: pulumi.Input<string | undefined>;
     /**
@@ -322,9 +320,7 @@ export interface ServiceState {
      */
     serviceUrl?: pulumi.Input<string | undefined>;
     /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     *
-     * The following arguments are optional:
+     * Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      */
     sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration | undefined>;
     /**
@@ -350,23 +346,23 @@ export interface ServiceArgs {
      */
     autoScalingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
-     * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+     * Custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration | undefined>;
     /**
-     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+     * Settings of the health check that AWS App Runner performs to monitor the health of your service. See `healthCheckConfiguration` below.
      */
     healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration | undefined>;
     /**
-     * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+     * Runtime configuration of instances (scaling units) of the App Runner service. See `instanceConfiguration` below.
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration | undefined>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See `networkConfiguration` below.
      */
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration | undefined>;
     /**
-     * The observability configuration of your service. See Observability Configuration below for more details.
+     * Observability configuration of your service. See `observabilityConfiguration` below.
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
@@ -378,9 +374,7 @@ export interface ServiceArgs {
      */
     serviceName: pulumi.Input<string>;
     /**
-     * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
-     *
-     * The following arguments are optional:
+     * Source to deploy to the App Runner service. Can be a code or an image repository. See `sourceConfiguration` below.
      */
     sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**

@@ -17,14 +17,14 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
     public static final ServiceServiceConnectConfigurationAccessLogConfigurationArgs Empty = new ServiceServiceConnectConfigurationAccessLogConfigurationArgs();
 
     /**
-     * The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+     * Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+     * @return Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
      * 
      */
     public Output<String> format() {
@@ -32,7 +32,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
     }
 
     /**
-     * Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+     * Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
      * 
      * &gt; **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
      * 
@@ -43,7 +43,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
     private @Nullable Output<String> includeQueryParameters;
 
     /**
-     * @return Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+     * @return Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
      * 
      * &gt; **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
      * 
@@ -80,7 +80,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
         }
 
         /**
-         * @param format The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+         * @param format Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
         }
 
         /**
-         * @param format The format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
+         * @param format Format for Service Connect access log output. Valid values: `TEXT`, `JSON`. See [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect-envoy-access-logs.html) for format details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
         }
 
         /**
-         * @param includeQueryParameters Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+         * @param includeQueryParameters Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
          * 
          * &gt; **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
          * 
@@ -116,7 +116,7 @@ public final class ServiceServiceConnectConfigurationAccessLogConfigurationArgs 
         }
 
         /**
-         * @param includeQueryParameters Specifies whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
+         * @param includeQueryParameters Whether to include query parameters in Service Connect access logs. Valid values: `ENABLED`, `DISABLED`. Default: `DISABLED`. Query parameters may contain sensitive information.
          * 
          * &gt; **NOTE:** Access logs are delivered to the destination log group specified in the `logConfiguration` block. You must configure `logConfiguration` to enable access logs.
          * 

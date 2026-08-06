@@ -15,19 +15,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccessPointPublicAccessBlockConfiguration struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
-	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
 	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
-	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
@@ -43,19 +37,13 @@ type AccessPointPublicAccessBlockConfigurationInput interface {
 }
 
 type AccessPointPublicAccessBlockConfigurationArgs struct {
-	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-	// * PUT Object calls fail if the request includes a public ACL.
-	// * PUT Bucket calls fail if the request includes a public ACL.
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
-	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
-	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
 	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
-	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
 	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -136,28 +124,22 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-// * PUT Object calls fail if the request includes a public ACL.
-// * PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
 func (o AccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-// * Only the bucket owner and AWS Services can access buckets with public policies.
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
 func (o AccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
@@ -186,10 +168,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPu
 	}).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
-// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-// * PUT Object calls fail if the request includes a public ACL.
-// * PUT Bucket calls fail if the request includes a public ACL.
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -199,8 +178,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -210,8 +188,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -221,8 +198,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-// * Only the bucket owner and AWS Services can access buckets with public policies.
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -665,7 +641,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) DataExport() Analyt
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExport struct {
-	// Specifies the destination for the exported analytics data (documented below).
+	// Destination for the exported analytics data (documented below).
 	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestination `pulumi:"destination"`
 	// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
 	OutputSchemaVersion *string `pulumi:"outputSchemaVersion"`
@@ -683,7 +659,7 @@ type AnalyticsConfigurationStorageClassAnalysisDataExportInput interface {
 }
 
 type AnalyticsConfigurationStorageClassAnalysisDataExportArgs struct {
-	// Specifies the destination for the exported analytics data (documented below).
+	// Destination for the exported analytics data (documented below).
 	Destination AnalyticsConfigurationStorageClassAnalysisDataExportDestinationInput `pulumi:"destination"`
 	// Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
 	OutputSchemaVersion pulumi.StringPtrInput `pulumi:"outputSchemaVersion"`
@@ -766,7 +742,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsC
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput)
 }
 
-// Specifies the destination for the exported analytics data (documented below).
+// Destination for the exported analytics data (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) Destination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExport) AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
 		return v.Destination
@@ -802,7 +778,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Elem() An
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
 }
 
-// Specifies the destination for the exported analytics data (documented below).
+// Destination for the exported analytics data (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Destination() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExport) *AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
 		if v == nil {
@@ -1164,9 +1140,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 }
 
 type BucketAbacAbacStatus struct {
-	// ABAC status of the general purpose bucket.
-	// Valid values are `Enabled` and `Disabled`.
-	// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+	// ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
 	Status string `pulumi:"status"`
 }
 
@@ -1182,9 +1156,7 @@ type BucketAbacAbacStatusInput interface {
 }
 
 type BucketAbacAbacStatusArgs struct {
-	// ABAC status of the general purpose bucket.
-	// Valid values are `Enabled` and `Disabled`.
-	// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+	// ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -1265,9 +1237,7 @@ func (o BucketAbacAbacStatusOutput) ToBucketAbacAbacStatusPtrOutputWithContext(c
 	}).(BucketAbacAbacStatusPtrOutput)
 }
 
-// ABAC status of the general purpose bucket.
-// Valid values are `Enabled` and `Disabled`.
-// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+// ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
 func (o BucketAbacAbacStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketAbacAbacStatus) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -1296,9 +1266,7 @@ func (o BucketAbacAbacStatusPtrOutput) Elem() BucketAbacAbacStatusOutput {
 	}).(BucketAbacAbacStatusOutput)
 }
 
-// ABAC status of the general purpose bucket.
-// Valid values are `Enabled` and `Disabled`.
-// By default, ABAC is disabled for all Amazon S3 general purpose buckets.
+// ABAC status of the general purpose bucket. Valid values are `Enabled` and `Disabled`. By default, ABAC is disabled for all Amazon S3 general purpose buckets.
 func (o BucketAbacAbacStatusPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAbacAbacStatus) *string {
 		if v == nil {
@@ -2897,7 +2865,7 @@ type BucketCorsRule struct {
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	ExposeHeaders []string `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
+	// Time in seconds that browser can cache the response for a preflight request.
 	MaxAgeSeconds *int `pulumi:"maxAgeSeconds"`
 }
 
@@ -2921,7 +2889,7 @@ type BucketCorsRuleArgs struct {
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
+	// Time in seconds that browser can cache the response for a preflight request.
 	MaxAgeSeconds pulumi.IntPtrInput `pulumi:"maxAgeSeconds"`
 }
 
@@ -2996,7 +2964,7 @@ func (o BucketCorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketCorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Specifies time in seconds that browser can cache the response for a preflight request.
+// Time in seconds that browser can cache the response for a preflight request.
 func (o BucketCorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketCorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3412,8 +3380,7 @@ type BucketLifecycleConfigurationRule struct {
 	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
 	Expiration *BucketLifecycleConfigurationRuleExpiration `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to.
-	// See below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 	Filter *BucketLifecycleConfigurationRuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
@@ -3421,9 +3388,7 @@ type BucketLifecycleConfigurationRule struct {
 	NoncurrentVersionExpiration *BucketLifecycleConfigurationRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
 	NoncurrentVersionTransitions []BucketLifecycleConfigurationRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
-	// **DEPRECATED** Use `filter` instead.
-	// This has been deprecated by Amazon S3.
-	// Prefix identifying one or more objects to which the rule applies.
+	// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix *string `pulumi:"prefix"`
@@ -3449,8 +3414,7 @@ type BucketLifecycleConfigurationRuleArgs struct {
 	AbortIncompleteMultipartUpload BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
 	Expiration BucketLifecycleConfigurationRuleExpirationPtrInput `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to.
-	// See below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 	Filter BucketLifecycleConfigurationRuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -3458,9 +3422,7 @@ type BucketLifecycleConfigurationRuleArgs struct {
 	NoncurrentVersionExpiration BucketLifecycleConfigurationRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
 	NoncurrentVersionTransitions BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
-	// **DEPRECATED** Use `filter` instead.
-	// This has been deprecated by Amazon S3.
-	// Prefix identifying one or more objects to which the rule applies.
+	// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -3535,8 +3497,7 @@ func (o BucketLifecycleConfigurationRuleOutput) Expiration() BucketLifecycleConf
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-// Configuration block used to identify objects that a Lifecycle Rule applies to.
-// See below.
+// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 func (o BucketLifecycleConfigurationRuleOutput) Filter() BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRule) *BucketLifecycleConfigurationRuleFilter { return v.Filter }).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
@@ -3560,9 +3521,7 @@ func (o BucketLifecycleConfigurationRuleOutput) NoncurrentVersionTransitions() B
 	}).(BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArrayOutput)
 }
 
-// **DEPRECATED** Use `filter` instead.
-// This has been deprecated by Amazon S3.
-// Prefix identifying one or more objects to which the rule applies.
+// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 //
 // Deprecated: Specify a prefix using 'filter' instead
 func (o BucketLifecycleConfigurationRuleOutput) Prefix() pulumi.StringPtrOutput {
@@ -3745,7 +3704,7 @@ type BucketLifecycleConfigurationRuleExpiration struct {
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days *int `pulumi:"days"`
-	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+	// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
 }
 
@@ -3765,7 +3724,7 @@ type BucketLifecycleConfigurationRuleExpirationArgs struct {
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+	// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
 }
 
@@ -3856,7 +3815,7 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) Days() pulumi.IntPtrOu
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
 }
@@ -3905,7 +3864,7 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Days() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *bool {
 		if v == nil {
@@ -4139,9 +4098,7 @@ type BucketLifecycleConfigurationRuleFilterAnd struct {
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// Key-value map of resource tags.
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	// If set, must contain at least one key-value pair.
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -4163,9 +4120,7 @@ type BucketLifecycleConfigurationRuleFilterAndArgs struct {
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Key-value map of resource tags.
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	// If set, must contain at least one key-value pair.
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -4261,9 +4216,7 @@ func (o BucketLifecycleConfigurationRuleFilterAndOutput) Prefix() pulumi.StringP
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags.
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-// If set, must contain at least one key-value pair.
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationRuleFilterAndOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -4322,9 +4275,7 @@ func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) Prefix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags.
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-// If set, must contain at least one key-value pair.
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationRuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilterAnd) map[string]string {
 		if v == nil {
@@ -5041,8 +4992,7 @@ type BucketLifecycleConfigurationV2Rule struct {
 	AbortIncompleteMultipartUpload *BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
 	Expiration *BucketLifecycleConfigurationV2RuleExpiration `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to.
-	// See below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 	Filter *BucketLifecycleConfigurationV2RuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id string `pulumi:"id"`
@@ -5050,9 +5000,7 @@ type BucketLifecycleConfigurationV2Rule struct {
 	NoncurrentVersionExpiration *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
 	NoncurrentVersionTransitions []BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
-	// **DEPRECATED** Use `filter` instead.
-	// This has been deprecated by Amazon S3.
-	// Prefix identifying one or more objects to which the rule applies.
+	// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix *string `pulumi:"prefix"`
@@ -5078,8 +5026,7 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	AbortIncompleteMultipartUpload BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
 	// Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
 	Expiration BucketLifecycleConfigurationV2RuleExpirationPtrInput `pulumi:"expiration"`
-	// Configuration block used to identify objects that a Lifecycle Rule applies to.
-	// See below.
+	// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 	Filter BucketLifecycleConfigurationV2RuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. The value cannot be longer than 255 characters.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5087,9 +5034,7 @@ type BucketLifecycleConfigurationV2RuleArgs struct {
 	NoncurrentVersionExpiration BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
 	// Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
 	NoncurrentVersionTransitions BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
-	// **DEPRECATED** Use `filter` instead.
-	// This has been deprecated by Amazon S3.
-	// Prefix identifying one or more objects to which the rule applies.
+	// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 	//
 	// Deprecated: Specify a prefix using 'filter' instead
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -5164,8 +5109,7 @@ func (o BucketLifecycleConfigurationV2RuleOutput) Expiration() BucketLifecycleCo
 	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
-// Configuration block used to identify objects that a Lifecycle Rule applies to.
-// See below.
+// Configuration block used to identify objects that a Lifecycle Rule applies to. See below.
 func (o BucketLifecycleConfigurationV2RuleOutput) Filter() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2Rule) *BucketLifecycleConfigurationV2RuleFilter { return v.Filter }).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
 }
@@ -5189,9 +5133,7 @@ func (o BucketLifecycleConfigurationV2RuleOutput) NoncurrentVersionTransitions()
 	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput)
 }
 
-// **DEPRECATED** Use `filter` instead.
-// This has been deprecated by Amazon S3.
-// Prefix identifying one or more objects to which the rule applies.
+// Prefix identifying one or more objects to which the rule applies. Use `filter` instead, as this has been deprecated by Amazon S3.
 //
 // Deprecated: Specify a prefix using 'filter' instead
 func (o BucketLifecycleConfigurationV2RuleOutput) Prefix() pulumi.StringPtrOutput {
@@ -5374,7 +5316,7 @@ type BucketLifecycleConfigurationV2RuleExpiration struct {
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days *int `pulumi:"days"`
-	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+	// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
 }
 
@@ -5394,7 +5336,7 @@ type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+	// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
 }
 
@@ -5485,7 +5427,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Days() pulumi.IntPtr
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *bool { return v.ExpiredObjectDeleteMarker }).(pulumi.BoolPtrOutput)
 }
@@ -5534,7 +5476,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Days() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
+// Whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
 func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *bool {
 		if v == nil {
@@ -5768,9 +5710,7 @@ type BucketLifecycleConfigurationV2RuleFilterAnd struct {
 	ObjectSizeLessThan *int `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// Key-value map of resource tags.
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	// If set, must contain at least one key-value pair.
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -5792,9 +5732,7 @@ type BucketLifecycleConfigurationV2RuleFilterAndArgs struct {
 	ObjectSizeLessThan pulumi.IntPtrInput `pulumi:"objectSizeLessThan"`
 	// Prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Key-value map of resource tags.
-	// All of these tags must exist in the object's tag set in order for the rule to apply.
-	// If set, must contain at least one key-value pair.
+	// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -5890,9 +5828,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Prefix() pulumi.Strin
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags.
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-// If set, must contain at least one key-value pair.
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -5951,9 +5887,7 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Prefix() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags.
-// All of these tags must exist in the object's tag set in order for the rule to apply.
-// If set, must contain at least one key-value pair.
+// Key-value map of resource tags. All of these tags must exist in the object's tag set in order for the rule to apply. If set, must contain at least one key-value pair.
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleFilterAnd) map[string]string {
 		if v == nil {
@@ -6666,23 +6600,23 @@ func (o BucketLifecycleConfigurationV2TimeoutsPtrOutput) Update() pulumi.StringP
 }
 
 type BucketLifecycleRule struct {
-	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+	// Number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays *int `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Specifies lifecycle rule status.
+	// Lifecycle rule status.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies a period in the object's expire. See Expiration below for details.
+	// Configuration of the object expiration. See `expiration` Block below for details.
 	Expiration *BucketLifecycleRuleExpiration `pulumi:"expiration"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
-	// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+	// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 	NoncurrentVersionExpiration *BucketLifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpiration"`
-	// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+	// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 	NoncurrentVersionTransitions []BucketLifecycleRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// Specifies object tags key and value.
+	// Object tags key and value.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a period in the object's transitions. See Transition below for details.
+	// Configuration of the object transition. See `transition` Block below for details.
 	Transitions []BucketLifecycleRuleTransition `pulumi:"transitions"`
 }
 
@@ -6698,23 +6632,23 @@ type BucketLifecycleRuleInput interface {
 }
 
 type BucketLifecycleRuleArgs struct {
-	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+	// Number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays pulumi.IntPtrInput `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Specifies lifecycle rule status.
+	// Lifecycle rule status.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Specifies a period in the object's expire. See Expiration below for details.
+	// Configuration of the object expiration. See `expiration` Block below for details.
 	Expiration BucketLifecycleRuleExpirationPtrInput `pulumi:"expiration"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+	// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 	NoncurrentVersionExpiration BucketLifecycleRuleNoncurrentVersionExpirationPtrInput `pulumi:"noncurrentVersionExpiration"`
-	// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+	// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 	NoncurrentVersionTransitions BucketLifecycleRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Specifies object tags key and value.
+	// Object tags key and value.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies a period in the object's transitions. See Transition below for details.
+	// Configuration of the object transition. See `transition` Block below for details.
 	Transitions BucketLifecycleRuleTransitionArrayInput `pulumi:"transitions"`
 }
 
@@ -6769,17 +6703,17 @@ func (o BucketLifecycleRuleOutput) ToBucketLifecycleRuleOutputWithContext(ctx co
 	return o
 }
 
-// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+// Number of days after initiating a multipart upload when the multipart upload must be completed.
 func (o BucketLifecycleRuleOutput) AbortIncompleteMultipartUploadDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *int { return v.AbortIncompleteMultipartUploadDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies lifecycle rule status.
+// Lifecycle rule status.
 func (o BucketLifecycleRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies a period in the object's expire. See Expiration below for details.
+// Configuration of the object expiration. See `expiration` Block below for details.
 func (o BucketLifecycleRuleOutput) Expiration() BucketLifecycleRuleExpirationPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *BucketLifecycleRuleExpiration { return v.Expiration }).(BucketLifecycleRuleExpirationPtrOutput)
 }
@@ -6789,14 +6723,14 @@ func (o BucketLifecycleRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 func (o BucketLifecycleRuleOutput) NoncurrentVersionExpiration() BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *BucketLifecycleRuleNoncurrentVersionExpiration {
 		return v.NoncurrentVersionExpiration
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
-// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 func (o BucketLifecycleRuleOutput) NoncurrentVersionTransitions() BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) []BucketLifecycleRuleNoncurrentVersionTransition {
 		return v.NoncurrentVersionTransitions
@@ -6808,12 +6742,12 @@ func (o BucketLifecycleRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies object tags key and value.
+// Object tags key and value.
 func (o BucketLifecycleRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies a period in the object's transitions. See Transition below for details.
+// Configuration of the object transition. See `transition` Block below for details.
 func (o BucketLifecycleRuleOutput) Transitions() BucketLifecycleRuleTransitionArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleRule) []BucketLifecycleRuleTransition { return v.Transitions }).(BucketLifecycleRuleTransitionArrayOutput)
 }
@@ -6839,9 +6773,9 @@ func (o BucketLifecycleRuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycle
 }
 
 type BucketLifecycleRuleExpiration struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
@@ -6859,9 +6793,9 @@ type BucketLifecycleRuleExpirationInput interface {
 }
 
 type BucketLifecycleRuleExpirationArgs struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
@@ -6944,12 +6878,12 @@ func (o BucketLifecycleRuleExpirationOutput) ToBucketLifecycleRuleExpirationPtrO
 	}).(BucketLifecycleRuleExpirationPtrOutput)
 }
 
-// Specifies the date after which you want the corresponding action to take effect.
+// Date after which you want the corresponding action to take effect.
 func (o BucketLifecycleRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days after object creation when the specific rule action takes effect.
+// Number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -6983,7 +6917,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) Elem() BucketLifecycleRuleExpira
 	}).(BucketLifecycleRuleExpirationOutput)
 }
 
-// Specifies the date after which you want the corresponding action to take effect.
+// Date after which you want the corresponding action to take effect.
 func (o BucketLifecycleRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleRuleExpiration) *string {
 		if v == nil {
@@ -6993,7 +6927,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days after object creation when the specific rule action takes effect.
+// Number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleRuleExpiration) *int {
 		if v == nil {
@@ -7014,7 +6948,7 @@ func (o BucketLifecycleRuleExpirationPtrOutput) ExpiredObjectDeleteMarker() pulu
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpiration struct {
-	// Specifies the number of days noncurrent object versions expire.
+	// Number of days noncurrent object versions expire.
 	Days *int `pulumi:"days"`
 }
 
@@ -7030,7 +6964,7 @@ type BucketLifecycleRuleNoncurrentVersionExpirationInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionExpirationArgs struct {
-	// Specifies the number of days noncurrent object versions expire.
+	// Number of days noncurrent object versions expire.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -7111,7 +7045,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleR
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
-// Specifies the number of days noncurrent object versions expire.
+// Number of days noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -7140,7 +7074,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLi
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
-// Specifies the number of days noncurrent object versions expire.
+// Number of days noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleRuleNoncurrentVersionExpiration) *int {
 		if v == nil {
@@ -7151,9 +7085,9 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.I
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransition struct {
-	// Specifies the number of days noncurrent object versions transition.
+	// Number of days noncurrent object versions transition.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -7169,9 +7103,9 @@ type BucketLifecycleRuleNoncurrentVersionTransitionInput interface {
 }
 
 type BucketLifecycleRuleNoncurrentVersionTransitionArgs struct {
-	// Specifies the number of days noncurrent object versions transition.
+	// Number of days noncurrent object versions transition.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -7226,12 +7160,12 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleR
 	return o
 }
 
-// Specifies the number of days noncurrent object versions transition.
+// Number of days noncurrent object versions transition.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -7257,11 +7191,11 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) Index(i pulum
 }
 
 type BucketLifecycleRuleTransition struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -7277,11 +7211,11 @@ type BucketLifecycleRuleTransitionInput interface {
 }
 
 type BucketLifecycleRuleTransitionArgs struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -7336,17 +7270,17 @@ func (o BucketLifecycleRuleTransitionOutput) ToBucketLifecycleRuleTransitionOutp
 	return o
 }
 
-// Specifies the date after which you want the corresponding action to take effect.
+// Date after which you want the corresponding action to take effect.
 func (o BucketLifecycleRuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days after object creation when the specific rule action takes effect.
+// Number of days after object creation when the specific rule action takes effect.
 func (o BucketLifecycleRuleTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketLifecycleRuleTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -7882,7 +7816,7 @@ func (o BucketLoggingTargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLoggin
 }
 
 type BucketLoggingTargetObjectKeyFormatPartitionedPrefix struct {
-	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource string `pulumi:"partitionDateSource"`
 }
 
@@ -7898,7 +7832,7 @@ type BucketLoggingTargetObjectKeyFormatPartitionedPrefixInput interface {
 }
 
 type BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs struct {
-	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource pulumi.StringInput `pulumi:"partitionDateSource"`
 }
 
@@ -7979,7 +7913,7 @@ func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLoggi
 	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput) PartitionDateSource() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLoggingTargetObjectKeyFormatPartitionedPrefix) string { return v.PartitionDateSource }).(pulumi.StringOutput)
 }
@@ -8008,7 +7942,7 @@ func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) Elem() Buc
 	}).(BucketLoggingTargetObjectKeyFormatPartitionedPrefixOutput)
 }
 
-// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 func (o BucketLoggingTargetObjectKeyFormatPartitionedPrefixPtrOutput) PartitionDateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingTargetObjectKeyFormatPartitionedPrefix) *string {
 		if v == nil {
@@ -8491,7 +8425,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatPtrOutput) SimplePrefix() BucketLogg
 }
 
 type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix struct {
-	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource string `pulumi:"partitionDateSource"`
 }
 
@@ -8507,7 +8441,7 @@ type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixInput interface {
 }
 
 type BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs struct {
-	// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+	// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 	PartitionDateSource pulumi.StringInput `pulumi:"partitionDateSource"`
 }
 
@@ -8588,7 +8522,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) ToBucketLog
 	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput)
 }
 
-// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput) PartitionDateSource() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) string { return v.PartitionDateSource }).(pulumi.StringOutput)
 }
@@ -8617,7 +8551,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) Elem() B
 	}).(BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixOutput)
 }
 
-// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
 func (o BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixPtrOutput) PartitionDateSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix) *string {
 		if v == nil {
@@ -8746,7 +8680,7 @@ func (o BucketLoggingV2TargetObjectKeyFormatSimplePrefixPtrOutput) Elem() Bucket
 }
 
 type BucketMetadataConfigurationMetadataConfiguration struct {
-	// Destination information for the S3 Metadata configuration.
+	// Destination information for the S3 Metadata configuration. See `destination` Block for details.
 	Destinations []BucketMetadataConfigurationMetadataConfigurationDestination `pulumi:"destinations"`
 	// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
 	InventoryTableConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration `pulumi:"inventoryTableConfiguration"`
@@ -8766,7 +8700,7 @@ type BucketMetadataConfigurationMetadataConfigurationInput interface {
 }
 
 type BucketMetadataConfigurationMetadataConfigurationArgs struct {
-	// Destination information for the S3 Metadata configuration.
+	// Destination information for the S3 Metadata configuration. See `destination` Block for details.
 	Destinations BucketMetadataConfigurationMetadataConfigurationDestinationArrayInput `pulumi:"destinations"`
 	// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
 	InventoryTableConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationInput `pulumi:"inventoryTableConfiguration"`
@@ -8851,7 +8785,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationOutput) ToBucketMetadata
 	}).(BucketMetadataConfigurationMetadataConfigurationPtrOutput)
 }
 
-// Destination information for the S3 Metadata configuration.
+// Destination information for the S3 Metadata configuration. See `destination` Block for details.
 func (o BucketMetadataConfigurationMetadataConfigurationOutput) Destinations() BucketMetadataConfigurationMetadataConfigurationDestinationArrayOutput {
 	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfiguration) []BucketMetadataConfigurationMetadataConfigurationDestination {
 		return v.Destinations
@@ -8896,7 +8830,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationPtrOutput) Elem() Bucket
 	}).(BucketMetadataConfigurationMetadataConfigurationOutput)
 }
 
-// Destination information for the S3 Metadata configuration.
+// Destination information for the S3 Metadata configuration. See `destination` Block for details.
 func (o BucketMetadataConfigurationMetadataConfigurationPtrOutput) Destinations() BucketMetadataConfigurationMetadataConfigurationDestinationArrayOutput {
 	return o.ApplyT(func(v *BucketMetadataConfigurationMetadataConfiguration) []BucketMetadataConfigurationMetadataConfigurationDestination {
 		if v == nil {
@@ -9046,9 +8980,9 @@ type BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration
 	ConfigurationState string `pulumi:"configurationState"`
 	// Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
 	EncryptionConfiguration *BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// Inventory table ARN.
+	// Journal table ARN.
 	TableArn *string `pulumi:"tableArn"`
-	// Inventory table name.
+	// Journal table name.
 	TableName *string `pulumi:"tableName"`
 }
 
@@ -9068,9 +9002,9 @@ type BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration
 	ConfigurationState pulumi.StringInput `pulumi:"configurationState"`
 	// Encryption configuration for the inventory table. See `encryptionConfiguration` Block for details.
 	EncryptionConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
-	// Inventory table ARN.
+	// Journal table ARN.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
-	// Inventory table name.
+	// Journal table name.
 	TableName pulumi.StringPtrInput `pulumi:"tableName"`
 }
 
@@ -9165,14 +9099,14 @@ func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurat
 	}).(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationPtrOutput)
 }
 
-// Inventory table ARN.
+// Journal table ARN.
 func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration) *string {
 		return v.TableArn
 	}).(pulumi.StringPtrOutput)
 }
 
-// Inventory table name.
+// Journal table name.
 func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration) *string {
 		return v.TableName
@@ -9223,7 +9157,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurat
 	}).(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationPtrOutput)
 }
 
-// Inventory table ARN.
+// Journal table ARN.
 func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrOutput) TableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration) *string {
 		if v == nil {
@@ -9233,7 +9167,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Inventory table name.
+// Journal table name.
 func (o BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration) *string {
 		if v == nil {
@@ -10371,7 +10305,7 @@ func (o BucketNotificationLambdaFunctionArrayOutput) Index(i pulumi.IntInput) Bu
 }
 
 type BucketNotificationQueue struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events []string `pulumi:"events"`
 	// Object key name prefix.
 	FilterPrefix *string `pulumi:"filterPrefix"`
@@ -10395,7 +10329,7 @@ type BucketNotificationQueueInput interface {
 }
 
 type BucketNotificationQueueArgs struct {
-	// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+	// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 	// Object key name prefix.
 	FilterPrefix pulumi.StringPtrInput `pulumi:"filterPrefix"`
@@ -10458,7 +10392,7 @@ func (o BucketNotificationQueueOutput) ToBucketNotificationQueueOutputWithContex
 	return o
 }
 
-// Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
+// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
 func (o BucketNotificationQueueOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketNotificationQueue) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -10637,11 +10571,11 @@ func (o BucketNotificationTopicArrayOutput) Index(i pulumi.IntInput) BucketNotif
 }
 
 type BucketObjectLockConfigurationType struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+	// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// Object Lock rule in place for this bucket (documented below).
+	// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 	//
 	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rule *BucketObjectLockConfigurationRule `pulumi:"rule"`
@@ -10659,11 +10593,11 @@ type BucketObjectLockConfigurationTypeInput interface {
 }
 
 type BucketObjectLockConfigurationTypeArgs struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+	// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
-	// Object Lock rule in place for this bucket (documented below).
+	// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 	//
 	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rule BucketObjectLockConfigurationRulePtrInput `pulumi:"rule"`
@@ -10746,14 +10680,14 @@ func (o BucketObjectLockConfigurationTypeOutput) ToBucketObjectLockConfiguration
 	}).(BucketObjectLockConfigurationTypePtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketObjectLockConfigurationTypeOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketObjectLockConfigurationType) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
-// Object Lock rule in place for this bucket (documented below).
+// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 //
 // Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketObjectLockConfigurationTypeOutput) Rule() BucketObjectLockConfigurationRulePtrOutput {
@@ -10784,7 +10718,7 @@ func (o BucketObjectLockConfigurationTypePtrOutput) Elem() BucketObjectLockConfi
 	}).(BucketObjectLockConfigurationTypeOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketObjectLockConfigurationTypePtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
@@ -10796,7 +10730,7 @@ func (o BucketObjectLockConfigurationTypePtrOutput) ObjectLockEnabled() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Lock rule in place for this bucket (documented below).
+// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 //
 // Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketObjectLockConfigurationTypePtrOutput) Rule() BucketObjectLockConfigurationRulePtrOutput {
@@ -11437,7 +11371,7 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Years() pu
 }
 
 type BucketObjectv2OverrideProvider struct {
-	// Override the provider `defaultTags` configuration block.
+	// Override the provider `defaultTags` configuration block. See `defaultTags` Block below for more details.
 	DefaultTags *BucketObjectv2OverrideProviderDefaultTags `pulumi:"defaultTags"`
 }
 
@@ -11453,7 +11387,7 @@ type BucketObjectv2OverrideProviderInput interface {
 }
 
 type BucketObjectv2OverrideProviderArgs struct {
-	// Override the provider `defaultTags` configuration block.
+	// Override the provider `defaultTags` configuration block. See `defaultTags` Block below for more details.
 	DefaultTags BucketObjectv2OverrideProviderDefaultTagsPtrInput `pulumi:"defaultTags"`
 }
 
@@ -11534,7 +11468,7 @@ func (o BucketObjectv2OverrideProviderOutput) ToBucketObjectv2OverrideProviderPt
 	}).(BucketObjectv2OverrideProviderPtrOutput)
 }
 
-// Override the provider `defaultTags` configuration block.
+// Override the provider `defaultTags` configuration block. See `defaultTags` Block below for more details.
 func (o BucketObjectv2OverrideProviderOutput) DefaultTags() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
 	return o.ApplyT(func(v BucketObjectv2OverrideProvider) *BucketObjectv2OverrideProviderDefaultTags {
 		return v.DefaultTags
@@ -11565,7 +11499,7 @@ func (o BucketObjectv2OverrideProviderPtrOutput) Elem() BucketObjectv2OverridePr
 	}).(BucketObjectv2OverrideProviderOutput)
 }
 
-// Override the provider `defaultTags` configuration block.
+// Override the provider `defaultTags` configuration block. See `defaultTags` Block below for more details.
 func (o BucketObjectv2OverrideProviderPtrOutput) DefaultTags() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2OverrideProvider) *BucketObjectv2OverrideProviderDefaultTags {
 		if v == nil {
@@ -11576,7 +11510,7 @@ func (o BucketObjectv2OverrideProviderPtrOutput) DefaultTags() BucketObjectv2Ove
 }
 
 type BucketObjectv2OverrideProviderDefaultTags struct {
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -11592,7 +11526,7 @@ type BucketObjectv2OverrideProviderDefaultTagsInput interface {
 }
 
 type BucketObjectv2OverrideProviderDefaultTagsArgs struct {
-	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -11673,7 +11607,7 @@ func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToBucketObjectv2Overrid
 	}).(BucketObjectv2OverrideProviderDefaultTagsPtrOutput)
 }
 
-// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
 func (o BucketObjectv2OverrideProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketObjectv2OverrideProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -11702,7 +11636,7 @@ func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) Elem() BucketObjectv
 	}).(BucketObjectv2OverrideProviderDefaultTagsOutput)
 }
 
-// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to override the provider-level `defaultTags`. Must be an empty map to suppress all provider-level `defaultTags`.
 func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketObjectv2OverrideProviderDefaultTags) map[string]string {
 		if v == nil {
@@ -11713,10 +11647,7 @@ func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) Tags() pulumi.String
 }
 
 type BucketOwnershipControlsRule struct {
-	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-	// * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
-	// * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
-	// * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
+	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`. `BucketOwnerPreferred` means objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL. `ObjectWriter` means the uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL. `BucketOwnerEnforced` means the bucket owner automatically owns and has full control over every object in the bucket, and ACLs no longer affect permissions to data in the S3 bucket.
 	ObjectOwnership string `pulumi:"objectOwnership"`
 }
 
@@ -11732,10 +11663,7 @@ type BucketOwnershipControlsRuleInput interface {
 }
 
 type BucketOwnershipControlsRuleArgs struct {
-	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-	// * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
-	// * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
-	// * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
+	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`. `BucketOwnerPreferred` means objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL. `ObjectWriter` means the uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL. `BucketOwnerEnforced` means the bucket owner automatically owns and has full control over every object in the bucket, and ACLs no longer affect permissions to data in the S3 bucket.
 	ObjectOwnership pulumi.StringInput `pulumi:"objectOwnership"`
 }
 
@@ -11816,10 +11744,7 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutpu
 	}).(BucketOwnershipControlsRulePtrOutput)
 }
 
-// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-// * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
-// * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
-// * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
+// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`. `BucketOwnerPreferred` means objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL. `ObjectWriter` means the uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL. `BucketOwnerEnforced` means the bucket owner automatically owns and has full control over every object in the bucket, and ACLs no longer affect permissions to data in the S3 bucket.
 func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketOwnershipControlsRule) string { return v.ObjectOwnership }).(pulumi.StringOutput)
 }
@@ -11848,10 +11773,7 @@ func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRule
 	}).(BucketOwnershipControlsRuleOutput)
 }
 
-// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-// * `BucketOwnerPreferred` - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL.
-// * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
-// * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
+// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`. `BucketOwnerPreferred` means objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the `bucket-owner-full-control` canned ACL. `ObjectWriter` means the uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL. `BucketOwnerEnforced` means the bucket owner automatically owns and has full control over every object in the bucket, and ACLs no longer affect permissions to data in the S3 bucket.
 func (o BucketOwnershipControlsRulePtrOutput) ObjectOwnership() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketOwnershipControlsRule) *string {
 		if v == nil {
@@ -11864,7 +11786,7 @@ func (o BucketOwnershipControlsRulePtrOutput) ObjectOwnership() pulumi.StringPtr
 type BucketReplicationConfigRule struct {
 	// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
 	DeleteMarkerReplication *BucketReplicationConfigRuleDeleteMarkerReplication `pulumi:"deleteMarkerReplication"`
-	// Specifies the destination for the rule. See below.
+	// Destination for the rule. See below.
 	Destination BucketReplicationConfigRuleDestination `pulumi:"destination"`
 	// Replicate existing objects in the source bucket according to the rule configurations. See below.
 	ExistingObjectReplication *BucketReplicationConfigRuleExistingObjectReplication `pulumi:"existingObjectReplication"`
@@ -11878,7 +11800,7 @@ type BucketReplicationConfigRule struct {
 	Prefix *string `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority *int `pulumi:"priority"`
-	// Specifies special object selection criteria. See below.
+	// Special object selection criteria. See below.
 	SourceSelectionCriteria *BucketReplicationConfigRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriteria"`
 	// Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
 	Status string `pulumi:"status"`
@@ -11898,7 +11820,7 @@ type BucketReplicationConfigRuleInput interface {
 type BucketReplicationConfigRuleArgs struct {
 	// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
 	DeleteMarkerReplication BucketReplicationConfigRuleDeleteMarkerReplicationPtrInput `pulumi:"deleteMarkerReplication"`
-	// Specifies the destination for the rule. See below.
+	// Destination for the rule. See below.
 	Destination BucketReplicationConfigRuleDestinationInput `pulumi:"destination"`
 	// Replicate existing objects in the source bucket according to the rule configurations. See below.
 	ExistingObjectReplication BucketReplicationConfigRuleExistingObjectReplicationPtrInput `pulumi:"existingObjectReplication"`
@@ -11912,7 +11834,7 @@ type BucketReplicationConfigRuleArgs struct {
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Specifies special object selection criteria. See below.
+	// Special object selection criteria. See below.
 	SourceSelectionCriteria BucketReplicationConfigRuleSourceSelectionCriteriaPtrInput `pulumi:"sourceSelectionCriteria"`
 	// Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
 	Status pulumi.StringInput `pulumi:"status"`
@@ -11976,7 +11898,7 @@ func (o BucketReplicationConfigRuleOutput) DeleteMarkerReplication() BucketRepli
 	}).(BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput)
 }
 
-// Specifies the destination for the rule. See below.
+// Destination for the rule. See below.
 func (o BucketReplicationConfigRuleOutput) Destination() BucketReplicationConfigRuleDestinationOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) BucketReplicationConfigRuleDestination { return v.Destination }).(BucketReplicationConfigRuleDestinationOutput)
 }
@@ -12010,7 +11932,7 @@ func (o BucketReplicationConfigRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Specifies special object selection criteria. See below.
+// Special object selection criteria. See below.
 func (o BucketReplicationConfigRuleOutput) SourceSelectionCriteria() BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRule) *BucketReplicationConfigRuleSourceSelectionCriteria {
 		return v.SourceSelectionCriteria
@@ -12192,7 +12114,7 @@ type BucketReplicationConfigRuleDestination struct {
 	Metrics *BucketReplicationConfigRuleDestinationMetrics `pulumi:"metrics"`
 	// Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
 	ReplicationTime *BucketReplicationConfigRuleDestinationReplicationTime `pulumi:"replicationTime"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -12220,7 +12142,7 @@ type BucketReplicationConfigRuleDestinationArgs struct {
 	Metrics BucketReplicationConfigRuleDestinationMetricsPtrInput `pulumi:"metrics"`
 	// Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
 	ReplicationTime BucketReplicationConfigRuleDestinationReplicationTimePtrInput `pulumi:"replicationTime"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -12288,13 +12210,13 @@ func (o BucketReplicationConfigRuleDestinationOutput) ReplicationTime() BucketRe
 	}).(BucketReplicationConfigRuleDestinationReplicationTimePtrOutput)
 }
 
-// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 func (o BucketReplicationConfigRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 type BucketReplicationConfigRuleDestinationAccessControlTranslation struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
 	Owner string `pulumi:"owner"`
 }
 
@@ -12310,7 +12232,7 @@ type BucketReplicationConfigRuleDestinationAccessControlTranslationInput interfa
 }
 
 type BucketReplicationConfigRuleDestinationAccessControlTranslationArgs struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -12391,7 +12313,7 @@ func (o BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) To
 	}).(BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 }
 
-// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
 func (o BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -12420,7 +12342,7 @@ func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 	}).(BucketReplicationConfigRuleDestinationAccessControlTranslationOutput)
 }
 
-// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
 func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigRuleDestinationAccessControlTranslation) *string {
 		if v == nil {
@@ -14220,7 +14142,7 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 type BucketReplicationConfiguration struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	// Rules managing the replication. See `rules` Block below for details.
 	Rules []BucketReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -14238,7 +14160,7 @@ type BucketReplicationConfigurationInput interface {
 type BucketReplicationConfigurationArgs struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	// Rules managing the replication. See `rules` Block below for details.
 	Rules BucketReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -14324,7 +14246,7 @@ func (o BucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// Specifies the rules managing the replication (documented below).
+// Rules managing the replication. See `rules` Block below for details.
 func (o BucketReplicationConfigurationOutput) Rules() BucketReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) []BucketReplicationConfigurationRule { return v.Rules }).(BucketReplicationConfigurationRuleArrayOutput)
 }
@@ -14363,7 +14285,7 @@ func (o BucketReplicationConfigurationPtrOutput) Role() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the rules managing the replication (documented below).
+// Rules managing the replication. See `rules` Block below for details.
 func (o BucketReplicationConfigurationPtrOutput) Rules() BucketReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketReplicationConfiguration) []BucketReplicationConfigurationRule {
 		if v == nil {
@@ -14376,9 +14298,9 @@ func (o BucketReplicationConfigurationPtrOutput) Rules() BucketReplicationConfig
 type BucketReplicationConfigurationRule struct {
 	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
 	DeleteMarkerReplicationStatus *string `pulumi:"deleteMarkerReplicationStatus"`
-	// Specifies the destination for the rule (documented below).
+	// Destination for the rule. See `destination` Block below for details.
 	Destination BucketReplicationConfigurationRuleDestination `pulumi:"destination"`
-	// Filter that identifies subset of objects to which the replication rule applies (documented below).
+	// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 	Filter *BucketReplicationConfigurationRuleFilter `pulumi:"filter"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
@@ -14386,7 +14308,7 @@ type BucketReplicationConfigurationRule struct {
 	Prefix *string `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority *int `pulumi:"priority"`
-	// Specifies special object selection criteria (documented below).
+	// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 	SourceSelectionCriteria *BucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriteria"`
 	// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
 	Status string `pulumi:"status"`
@@ -14406,9 +14328,9 @@ type BucketReplicationConfigurationRuleInput interface {
 type BucketReplicationConfigurationRuleArgs struct {
 	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
 	DeleteMarkerReplicationStatus pulumi.StringPtrInput `pulumi:"deleteMarkerReplicationStatus"`
-	// Specifies the destination for the rule (documented below).
+	// Destination for the rule. See `destination` Block below for details.
 	Destination BucketReplicationConfigurationRuleDestinationInput `pulumi:"destination"`
-	// Filter that identifies subset of objects to which the replication rule applies (documented below).
+	// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 	Filter BucketReplicationConfigurationRuleFilterPtrInput `pulumi:"filter"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -14416,7 +14338,7 @@ type BucketReplicationConfigurationRuleArgs struct {
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Specifies special object selection criteria (documented below).
+	// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 	SourceSelectionCriteria BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrInput `pulumi:"sourceSelectionCriteria"`
 	// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -14478,14 +14400,14 @@ func (o BucketReplicationConfigurationRuleOutput) DeleteMarkerReplicationStatus(
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.DeleteMarkerReplicationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the destination for the rule (documented below).
+// Destination for the rule. See `destination` Block below for details.
 func (o BucketReplicationConfigurationRuleOutput) Destination() BucketReplicationConfigurationRuleDestinationOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) BucketReplicationConfigurationRuleDestination {
 		return v.Destination
 	}).(BucketReplicationConfigurationRuleDestinationOutput)
 }
 
-// Filter that identifies subset of objects to which the replication rule applies (documented below).
+// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 func (o BucketReplicationConfigurationRuleOutput) Filter() BucketReplicationConfigurationRuleFilterPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *BucketReplicationConfigurationRuleFilter { return v.Filter }).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
@@ -14505,7 +14427,7 @@ func (o BucketReplicationConfigurationRuleOutput) Priority() pulumi.IntPtrOutput
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Specifies special object selection criteria (documented below).
+// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 func (o BucketReplicationConfigurationRuleOutput) SourceSelectionCriteria() BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRule) *BucketReplicationConfigurationRuleSourceSelectionCriteria {
 		return v.SourceSelectionCriteria
@@ -14538,20 +14460,19 @@ func (o BucketReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type BucketReplicationConfigurationRuleDestination struct {
-	// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+	// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 	AccessControlTranslation *BucketReplicationConfigurationRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslation"`
 	// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
 	AccountId *string `pulumi:"accountId"`
 	// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket string `pulumi:"bucket"`
-	// Enables replication metrics (required for S3 RTC) (documented below).
+	// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 	Metrics *BucketReplicationConfigurationRuleDestinationMetrics `pulumi:"metrics"`
-	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-	// `sseKmsEncryptedObjects` source selection criteria.
+	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId *string `pulumi:"replicaKmsKeyId"`
-	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 	ReplicationTime *BucketReplicationConfigurationRuleDestinationReplicationTime `pulumi:"replicationTime"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -14567,20 +14488,19 @@ type BucketReplicationConfigurationRuleDestinationInput interface {
 }
 
 type BucketReplicationConfigurationRuleDestinationArgs struct {
-	// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+	// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 	AccessControlTranslation BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrInput `pulumi:"accessControlTranslation"`
 	// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Enables replication metrics (required for S3 RTC) (documented below).
+	// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 	Metrics BucketReplicationConfigurationRuleDestinationMetricsPtrInput `pulumi:"metrics"`
-	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-	// `sseKmsEncryptedObjects` source selection criteria.
+	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId pulumi.StringPtrInput `pulumi:"replicaKmsKeyId"`
-	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 	ReplicationTime BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput `pulumi:"replicationTime"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -14610,7 +14530,7 @@ func (o BucketReplicationConfigurationRuleDestinationOutput) ToBucketReplication
 	return o
 }
 
-// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 func (o BucketReplicationConfigurationRuleDestinationOutput) AccessControlTranslation() BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
 		return v.AccessControlTranslation
@@ -14627,33 +14547,32 @@ func (o BucketReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.Str
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Enables replication metrics (required for S3 RTC) (documented below).
+// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 func (o BucketReplicationConfigurationRuleDestinationOutput) Metrics() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *BucketReplicationConfigurationRuleDestinationMetrics {
 		return v.Metrics
 	}).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
 }
 
-// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-// `sseKmsEncryptedObjects` source selection criteria.
+// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 func (o BucketReplicationConfigurationRuleDestinationOutput) ReplicaKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *string { return v.ReplicaKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Enables S3 Replication Time Control (S3 RTC) (documented below).
+// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 func (o BucketReplicationConfigurationRuleDestinationOutput) ReplicationTime() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *BucketReplicationConfigurationRuleDestinationReplicationTime {
 		return v.ReplicationTime
 	}).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
 }
 
-// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 func (o BucketReplicationConfigurationRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
 
 type BucketReplicationConfigurationRuleDestinationAccessControlTranslation struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 	Owner string `pulumi:"owner"`
 }
 
@@ -14669,7 +14588,7 @@ type BucketReplicationConfigurationRuleDestinationAccessControlTranslationInput 
 }
 
 type BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -14750,7 +14669,7 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOut
 	}).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput)
 }
 
-// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -14779,7 +14698,7 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 	}).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
 }
 
-// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationAccessControlTranslation) *string {
 		if v == nil {
@@ -15104,8 +15023,7 @@ func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) S
 type BucketReplicationConfigurationRuleFilter struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix *string `pulumi:"prefix"`
-	// A map of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -15123,8 +15041,7 @@ type BucketReplicationConfigurationRuleFilterInput interface {
 type BucketReplicationConfigurationRuleFilterArgs struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A map of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -15210,8 +15127,7 @@ func (o BucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringPt
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags that identifies subset of objects to which the rule applies.
-// The rule applies only to objects having all the tags in its tagset.
+// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 func (o BucketReplicationConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -15250,8 +15166,7 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) Prefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A map of tags that identifies subset of objects to which the rule applies.
-// The rule applies only to objects having all the tags in its tagset.
+// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) map[string]string {
 		if v == nil {
@@ -15262,8 +15177,7 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) Tags() pulumi.StringM
 }
 
 type BucketReplicationConfigurationRuleSourceSelectionCriteria struct {
-	// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-	// in `destination` must be specified as well.
+	// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 	SseKmsEncryptedObjects *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -15279,8 +15193,7 @@ type BucketReplicationConfigurationRuleSourceSelectionCriteriaInput interface {
 }
 
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs struct {
-	// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-	// in `destination` must be specified as well.
+	// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 	SseKmsEncryptedObjects BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrInput `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -15361,8 +15274,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBucke
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput)
 }
 
-// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-// in `destination` must be specified as well.
+// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleSourceSelectionCriteria) *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
 		return v.SseKmsEncryptedObjects
@@ -15393,8 +15305,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) Elem
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput)
 }
 
-// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-// in `destination` must be specified as well.
+// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) SseKmsEncryptedObjects() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleSourceSelectionCriteria) *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
 		if v == nil {
@@ -15544,7 +15455,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 }
 
 type BucketServerSideEncryptionConfigurationType struct {
-	// Single object for server-side encryption by default configuration. (documented below)
+	// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 	Rule BucketServerSideEncryptionConfigurationRule `pulumi:"rule"`
 }
 
@@ -15560,7 +15471,7 @@ type BucketServerSideEncryptionConfigurationTypeInput interface {
 }
 
 type BucketServerSideEncryptionConfigurationTypeArgs struct {
-	// Single object for server-side encryption by default configuration. (documented below)
+	// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 	Rule BucketServerSideEncryptionConfigurationRuleInput `pulumi:"rule"`
 }
 
@@ -15641,7 +15552,7 @@ func (o BucketServerSideEncryptionConfigurationTypeOutput) ToBucketServerSideEnc
 	}).(BucketServerSideEncryptionConfigurationTypePtrOutput)
 }
 
-// Single object for server-side encryption by default configuration. (documented below)
+// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 func (o BucketServerSideEncryptionConfigurationTypeOutput) Rule() BucketServerSideEncryptionConfigurationRuleOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationType) BucketServerSideEncryptionConfigurationRule {
 		return v.Rule
@@ -15672,7 +15583,7 @@ func (o BucketServerSideEncryptionConfigurationTypePtrOutput) Elem() BucketServe
 	}).(BucketServerSideEncryptionConfigurationTypeOutput)
 }
 
-// Single object for server-side encryption by default configuration. (documented below)
+// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 func (o BucketServerSideEncryptionConfigurationTypePtrOutput) Rule() BucketServerSideEncryptionConfigurationRulePtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationType) *BucketServerSideEncryptionConfigurationRule {
 		if v == nil {
@@ -16350,7 +16261,7 @@ type BucketV2CorsRule struct {
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	ExposeHeaders []string `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
+	// Time in seconds that browser can cache the response for a preflight request.
 	MaxAgeSeconds *int `pulumi:"maxAgeSeconds"`
 }
 
@@ -16374,7 +16285,7 @@ type BucketV2CorsRuleArgs struct {
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
 	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	// Specifies time in seconds that browser can cache the response for a preflight request.
+	// Time in seconds that browser can cache the response for a preflight request.
 	MaxAgeSeconds pulumi.IntPtrInput `pulumi:"maxAgeSeconds"`
 }
 
@@ -16449,7 +16360,7 @@ func (o BucketV2CorsRuleOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BucketV2CorsRule) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
-// Specifies time in seconds that browser can cache the response for a preflight request.
+// Time in seconds that browser can cache the response for a preflight request.
 func (o BucketV2CorsRuleOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2CorsRule) *int { return v.MaxAgeSeconds }).(pulumi.IntPtrOutput)
 }
@@ -16599,23 +16510,23 @@ func (o BucketV2GrantArrayOutput) Index(i pulumi.IntInput) BucketV2GrantOutput {
 }
 
 type BucketV2LifecycleRule struct {
-	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+	// Number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays *int `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Specifies lifecycle rule status.
+	// Lifecycle rule status.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies a period in the object's expire. See Expiration below for details.
+	// Configuration of the object expiration. See `expiration` Block below for details.
 	Expirations []BucketV2LifecycleRuleExpiration `pulumi:"expirations"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
-	// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+	// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 	NoncurrentVersionExpirations []BucketV2LifecycleRuleNoncurrentVersionExpiration `pulumi:"noncurrentVersionExpirations"`
-	// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+	// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 	NoncurrentVersionTransitions []BucketV2LifecycleRuleNoncurrentVersionTransition `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix *string `pulumi:"prefix"`
-	// Specifies object tags key and value.
+	// Object tags key and value.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a period in the object's transitions. See Transition below for details.
+	// Configuration of the object transition. See `transition` Block below for details.
 	Transitions []BucketV2LifecycleRuleTransition `pulumi:"transitions"`
 }
 
@@ -16631,23 +16542,23 @@ type BucketV2LifecycleRuleInput interface {
 }
 
 type BucketV2LifecycleRuleArgs struct {
-	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+	// Number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays pulumi.IntPtrInput `pulumi:"abortIncompleteMultipartUploadDays"`
-	// Specifies lifecycle rule status.
+	// Lifecycle rule status.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Specifies a period in the object's expire. See Expiration below for details.
+	// Configuration of the object expiration. See `expiration` Block below for details.
 	Expirations BucketV2LifecycleRuleExpirationArrayInput `pulumi:"expirations"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+	// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 	NoncurrentVersionExpirations BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput `pulumi:"noncurrentVersionExpirations"`
-	// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+	// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 	NoncurrentVersionTransitions BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput `pulumi:"noncurrentVersionTransitions"`
 	// Object key prefix identifying one or more objects to which the rule applies.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// Specifies object tags key and value.
+	// Object tags key and value.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies a period in the object's transitions. See Transition below for details.
+	// Configuration of the object transition. See `transition` Block below for details.
 	Transitions BucketV2LifecycleRuleTransitionArrayInput `pulumi:"transitions"`
 }
 
@@ -16702,17 +16613,17 @@ func (o BucketV2LifecycleRuleOutput) ToBucketV2LifecycleRuleOutputWithContext(ct
 	return o
 }
 
-// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+// Number of days after initiating a multipart upload when the multipart upload must be completed.
 func (o BucketV2LifecycleRuleOutput) AbortIncompleteMultipartUploadDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) *int { return v.AbortIncompleteMultipartUploadDays }).(pulumi.IntPtrOutput)
 }
 
-// Specifies lifecycle rule status.
+// Lifecycle rule status.
 func (o BucketV2LifecycleRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies a period in the object's expire. See Expiration below for details.
+// Configuration of the object expiration. See `expiration` Block below for details.
 func (o BucketV2LifecycleRuleOutput) Expirations() BucketV2LifecycleRuleExpirationArrayOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) []BucketV2LifecycleRuleExpiration { return v.Expirations }).(BucketV2LifecycleRuleExpirationArrayOutput)
 }
@@ -16722,14 +16633,14 @@ func (o BucketV2LifecycleRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+// When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
 func (o BucketV2LifecycleRuleOutput) NoncurrentVersionExpirations() BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) []BucketV2LifecycleRuleNoncurrentVersionExpiration {
 		return v.NoncurrentVersionExpirations
 	}).(BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput)
 }
 
-// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+// When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
 func (o BucketV2LifecycleRuleOutput) NoncurrentVersionTransitions() BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) []BucketV2LifecycleRuleNoncurrentVersionTransition {
 		return v.NoncurrentVersionTransitions
@@ -16741,12 +16652,12 @@ func (o BucketV2LifecycleRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// Specifies object tags key and value.
+// Object tags key and value.
 func (o BucketV2LifecycleRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies a period in the object's transitions. See Transition below for details.
+// Configuration of the object transition. See `transition` Block below for details.
 func (o BucketV2LifecycleRuleOutput) Transitions() BucketV2LifecycleRuleTransitionArrayOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRule) []BucketV2LifecycleRuleTransition { return v.Transitions }).(BucketV2LifecycleRuleTransitionArrayOutput)
 }
@@ -16772,9 +16683,9 @@ func (o BucketV2LifecycleRuleArrayOutput) Index(i pulumi.IntInput) BucketV2Lifec
 }
 
 type BucketV2LifecycleRuleExpiration struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 	ExpiredObjectDeleteMarker *bool `pulumi:"expiredObjectDeleteMarker"`
@@ -16792,9 +16703,9 @@ type BucketV2LifecycleRuleExpirationInput interface {
 }
 
 type BucketV2LifecycleRuleExpirationArgs struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
 	ExpiredObjectDeleteMarker pulumi.BoolPtrInput `pulumi:"expiredObjectDeleteMarker"`
@@ -16851,12 +16762,12 @@ func (o BucketV2LifecycleRuleExpirationOutput) ToBucketV2LifecycleRuleExpiration
 	return o
 }
 
-// Specifies the date after which you want the corresponding action to take effect.
+// Date after which you want the corresponding action to take effect.
 func (o BucketV2LifecycleRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days after object creation when the specific rule action takes effect.
+// Number of days after object creation when the specific rule action takes effect.
 func (o BucketV2LifecycleRuleExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -16887,7 +16798,7 @@ func (o BucketV2LifecycleRuleExpirationArrayOutput) Index(i pulumi.IntInput) Buc
 }
 
 type BucketV2LifecycleRuleNoncurrentVersionExpiration struct {
-	// Specifies the number of days noncurrent object versions expire.
+	// Number of days noncurrent object versions expire.
 	Days *int `pulumi:"days"`
 }
 
@@ -16903,7 +16814,7 @@ type BucketV2LifecycleRuleNoncurrentVersionExpirationInput interface {
 }
 
 type BucketV2LifecycleRuleNoncurrentVersionExpirationArgs struct {
-	// Specifies the number of days noncurrent object versions expire.
+	// Number of days noncurrent object versions expire.
 	Days pulumi.IntPtrInput `pulumi:"days"`
 }
 
@@ -16958,7 +16869,7 @@ func (o BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) ToBucketV2Lifecy
 	return o
 }
 
-// Specifies the number of days noncurrent object versions expire.
+// Number of days noncurrent object versions expire.
 func (o BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
@@ -16984,9 +16895,9 @@ func (o BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput) Index(i pul
 }
 
 type BucketV2LifecycleRuleNoncurrentVersionTransition struct {
-	// Specifies the number of days noncurrent object versions transition.
+	// Number of days noncurrent object versions transition.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -17002,9 +16913,9 @@ type BucketV2LifecycleRuleNoncurrentVersionTransitionInput interface {
 }
 
 type BucketV2LifecycleRuleNoncurrentVersionTransitionArgs struct {
-	// Specifies the number of days noncurrent object versions transition.
+	// Number of days noncurrent object versions transition.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -17059,12 +16970,12 @@ func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) ToBucketV2Lifecy
 	return o
 }
 
-// Specifies the number of days noncurrent object versions transition.
+// Number of days noncurrent object versions transition.
 func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleNoncurrentVersionTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -17090,11 +17001,11 @@ func (o BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput) Index(i pul
 }
 
 type BucketV2LifecycleRuleTransition struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date *string `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -17110,11 +17021,11 @@ type BucketV2LifecycleRuleTransitionInput interface {
 }
 
 type BucketV2LifecycleRuleTransitionArgs struct {
-	// Specifies the date after which you want the corresponding action to take effect.
+	// Date after which you want the corresponding action to take effect.
 	Date pulumi.StringPtrInput `pulumi:"date"`
-	// Specifies the number of days after object creation when the specific rule action takes effect.
+	// Number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+	// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -17169,17 +17080,17 @@ func (o BucketV2LifecycleRuleTransitionOutput) ToBucketV2LifecycleRuleTransition
 	return o
 }
 
-// Specifies the date after which you want the corresponding action to take effect.
+// Date after which you want the corresponding action to take effect.
 func (o BucketV2LifecycleRuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days after object creation when the specific rule action takes effect.
+// Number of days after object creation when the specific rule action takes effect.
 func (o BucketV2LifecycleRuleTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+// Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketV2LifecycleRuleTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketV2LifecycleRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -17311,11 +17222,11 @@ func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutp
 }
 
 type BucketV2ObjectLockConfiguration struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+	// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
-	// Object Lock rule in place for this bucket (documented below).
+	// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 	//
 	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules []BucketV2ObjectLockConfigurationRule `pulumi:"rules"`
@@ -17333,11 +17244,11 @@ type BucketV2ObjectLockConfigurationInput interface {
 }
 
 type BucketV2ObjectLockConfigurationArgs struct {
-	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+	// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 	//
 	// Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
-	// Object Lock rule in place for this bucket (documented below).
+	// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 	//
 	// Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 	Rules BucketV2ObjectLockConfigurationRuleArrayInput `pulumi:"rules"`
@@ -17420,14 +17331,14 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 	}).(BucketV2ObjectLockConfigurationPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
-// Object Lock rule in place for this bucket (documented below).
+// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 //
 // Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketV2ObjectLockConfigurationOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
@@ -17458,7 +17369,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfi
 	}).(BucketV2ObjectLockConfigurationOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+// Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
 //
 // Deprecated: object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
 func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
@@ -17470,7 +17381,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object Lock rule in place for this bucket (documented below).
+// Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
 //
 // Deprecated: rule is deprecated. Use the s3.BucketObjectLockConfiguration resource instead.
 func (o BucketV2ObjectLockConfigurationPtrOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
@@ -17483,7 +17394,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Rules() BucketV2ObjectLockConf
 }
 
 type BucketV2ObjectLockConfigurationRule struct {
-	// Default retention period that you want to apply to new objects placed in this bucket (documented below).
+	// Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
 	DefaultRetentions []BucketV2ObjectLockConfigurationRuleDefaultRetention `pulumi:"defaultRetentions"`
 }
 
@@ -17499,7 +17410,7 @@ type BucketV2ObjectLockConfigurationRuleInput interface {
 }
 
 type BucketV2ObjectLockConfigurationRuleArgs struct {
-	// Default retention period that you want to apply to new objects placed in this bucket (documented below).
+	// Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
 	DefaultRetentions BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput `pulumi:"defaultRetentions"`
 }
 
@@ -17554,7 +17465,7 @@ func (o BucketV2ObjectLockConfigurationRuleOutput) ToBucketV2ObjectLockConfigura
 	return o
 }
 
-// Default retention period that you want to apply to new objects placed in this bucket (documented below).
+// Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
 func (o BucketV2ObjectLockConfigurationRuleOutput) DefaultRetentions() BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfigurationRule) []BucketV2ObjectLockConfigurationRuleDefaultRetention {
 		return v.DefaultRetentions
@@ -17699,7 +17610,7 @@ func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput) Index(i 
 type BucketV2ReplicationConfiguration struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	// Rules managing the replication. See `rules` Block below for details.
 	Rules []BucketV2ReplicationConfigurationRule `pulumi:"rules"`
 }
 
@@ -17717,7 +17628,7 @@ type BucketV2ReplicationConfigurationInput interface {
 type BucketV2ReplicationConfigurationArgs struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput `pulumi:"role"`
-	// Specifies the rules managing the replication (documented below).
+	// Rules managing the replication. See `rules` Block below for details.
 	Rules BucketV2ReplicationConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -17777,7 +17688,7 @@ func (o BucketV2ReplicationConfigurationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// Specifies the rules managing the replication (documented below).
+// Rules managing the replication. See `rules` Block below for details.
 func (o BucketV2ReplicationConfigurationOutput) Rules() BucketV2ReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfiguration) []BucketV2ReplicationConfigurationRule { return v.Rules }).(BucketV2ReplicationConfigurationRuleArrayOutput)
 }
@@ -17805,9 +17716,9 @@ func (o BucketV2ReplicationConfigurationArrayOutput) Index(i pulumi.IntInput) Bu
 type BucketV2ReplicationConfigurationRule struct {
 	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
 	DeleteMarkerReplicationStatus *string `pulumi:"deleteMarkerReplicationStatus"`
-	// Specifies the destination for the rule (documented below).
+	// Destination for the rule. See `destination` Block below for details.
 	Destinations []BucketV2ReplicationConfigurationRuleDestination `pulumi:"destinations"`
-	// Filter that identifies subset of objects to which the replication rule applies (documented below).
+	// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 	Filters []BucketV2ReplicationConfigurationRuleFilter `pulumi:"filters"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id *string `pulumi:"id"`
@@ -17815,7 +17726,7 @@ type BucketV2ReplicationConfigurationRule struct {
 	Prefix *string `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority *int `pulumi:"priority"`
-	// Specifies special object selection criteria (documented below).
+	// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 	SourceSelectionCriterias []BucketV2ReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriterias"`
 	// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
 	Status string `pulumi:"status"`
@@ -17835,9 +17746,9 @@ type BucketV2ReplicationConfigurationRuleInput interface {
 type BucketV2ReplicationConfigurationRuleArgs struct {
 	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
 	DeleteMarkerReplicationStatus pulumi.StringPtrInput `pulumi:"deleteMarkerReplicationStatus"`
-	// Specifies the destination for the rule (documented below).
+	// Destination for the rule. See `destination` Block below for details.
 	Destinations BucketV2ReplicationConfigurationRuleDestinationArrayInput `pulumi:"destinations"`
-	// Filter that identifies subset of objects to which the replication rule applies (documented below).
+	// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 	Filters BucketV2ReplicationConfigurationRuleFilterArrayInput `pulumi:"filters"`
 	// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -17845,7 +17756,7 @@ type BucketV2ReplicationConfigurationRuleArgs struct {
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 	// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Specifies special object selection criteria (documented below).
+	// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 	SourceSelectionCriterias BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput `pulumi:"sourceSelectionCriterias"`
 	// Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -17907,14 +17818,14 @@ func (o BucketV2ReplicationConfigurationRuleOutput) DeleteMarkerReplicationStatu
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRule) *string { return v.DeleteMarkerReplicationStatus }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the destination for the rule (documented below).
+// Destination for the rule. See `destination` Block below for details.
 func (o BucketV2ReplicationConfigurationRuleOutput) Destinations() BucketV2ReplicationConfigurationRuleDestinationArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRule) []BucketV2ReplicationConfigurationRuleDestination {
 		return v.Destinations
 	}).(BucketV2ReplicationConfigurationRuleDestinationArrayOutput)
 }
 
-// Filter that identifies subset of objects to which the replication rule applies (documented below).
+// Filter that identifies subset of objects to which the replication rule applies. See `filter` Block below for details.
 func (o BucketV2ReplicationConfigurationRuleOutput) Filters() BucketV2ReplicationConfigurationRuleFilterArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRule) []BucketV2ReplicationConfigurationRuleFilter {
 		return v.Filters
@@ -17936,7 +17847,7 @@ func (o BucketV2ReplicationConfigurationRuleOutput) Priority() pulumi.IntPtrOutp
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Specifies special object selection criteria (documented below).
+// Special object selection criteria. See `sourceSelectionCriteria` Block below for details.
 func (o BucketV2ReplicationConfigurationRuleOutput) SourceSelectionCriterias() BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRule) []BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
 		return v.SourceSelectionCriterias
@@ -17969,20 +17880,19 @@ func (o BucketV2ReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput
 }
 
 type BucketV2ReplicationConfigurationRuleDestination struct {
-	// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+	// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 	AccessControlTranslations []BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslations"`
 	// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
 	AccountId *string `pulumi:"accountId"`
 	// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket string `pulumi:"bucket"`
-	// Enables replication metrics (required for S3 RTC) (documented below).
+	// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 	Metrics []BucketV2ReplicationConfigurationRuleDestinationMetric `pulumi:"metrics"`
-	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-	// `sseKmsEncryptedObjects` source selection criteria.
+	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId *string `pulumi:"replicaKmsKeyId"`
-	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 	ReplicationTimes []BucketV2ReplicationConfigurationRuleDestinationReplicationTime `pulumi:"replicationTimes"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -17998,20 +17908,19 @@ type BucketV2ReplicationConfigurationRuleDestinationInput interface {
 }
 
 type BucketV2ReplicationConfigurationRuleDestinationArgs struct {
-	// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+	// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 	AccessControlTranslations BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput `pulumi:"accessControlTranslations"`
 	// Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// Enables replication metrics (required for S3 RTC) (documented below).
+	// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 	Metrics BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput `pulumi:"metrics"`
-	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-	// `sseKmsEncryptedObjects` source selection criteria.
+	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId pulumi.StringPtrInput `pulumi:"replicaKmsKeyId"`
-	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 	ReplicationTimes BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput `pulumi:"replicationTimes"`
-	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -18066,7 +17975,7 @@ func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ToBucketV2Replica
 	return o
 }
 
-// Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `accountId` owner override configuration.
+// Overrides to use for object owners on replication. See `accessControlTranslation` Block below for details. Must be used in conjunction with `accountId` owner override configuration.
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) AccessControlTranslations() BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) []BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
 		return v.AccessControlTranslations
@@ -18083,27 +17992,26 @@ func (o BucketV2ReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.S
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// Enables replication metrics (required for S3 RTC) (documented below).
+// Enables replication metrics (required for S3 RTC). See `metrics` Block below for details.
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) Metrics() BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) []BucketV2ReplicationConfigurationRuleDestinationMetric {
 		return v.Metrics
 	}).(BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput)
 }
 
-// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
-// `sseKmsEncryptedObjects` source selection criteria.
+// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with `sseKmsEncryptedObjects` source selection criteria.
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ReplicaKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) *string { return v.ReplicaKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Enables S3 Replication Time Control (S3 RTC) (documented below).
+// Enables S3 Replication Time Control (S3 RTC). See `replicationTime` Block below for details.
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ReplicationTimes() BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) []BucketV2ReplicationConfigurationRuleDestinationReplicationTime {
 		return v.ReplicationTimes
 	}).(BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput)
 }
 
-// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+// [Storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -18129,7 +18037,7 @@ func (o BucketV2ReplicationConfigurationRuleDestinationArrayOutput) Index(i pulu
 }
 
 type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 	Owner string `pulumi:"owner"`
 }
 
@@ -18145,7 +18053,7 @@ type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationInpu
 }
 
 type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs struct {
-	// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+	// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 	Owner pulumi.StringInput `pulumi:"owner"`
 }
 
@@ -18200,7 +18108,7 @@ func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationO
 	return o
 }
 
-// Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
+// Replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html) in the Amazon S3 API Reference. The only valid value is `Destination`.
 func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -18440,8 +18348,7 @@ func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutpu
 type BucketV2ReplicationConfigurationRuleFilter struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix *string `pulumi:"prefix"`
-	// A map of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -18459,8 +18366,7 @@ type BucketV2ReplicationConfigurationRuleFilterInput interface {
 type BucketV2ReplicationConfigurationRuleFilterArgs struct {
 	// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// A map of tags that identifies subset of objects to which the rule applies.
-	// The rule applies only to objects having all the tags in its tagset.
+	// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -18520,8 +18426,7 @@ func (o BucketV2ReplicationConfigurationRuleFilterOutput) Prefix() pulumi.String
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags that identifies subset of objects to which the rule applies.
-// The rule applies only to objects having all the tags in its tagset.
+// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
 func (o BucketV2ReplicationConfigurationRuleFilterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -18547,8 +18452,7 @@ func (o BucketV2ReplicationConfigurationRuleFilterArrayOutput) Index(i pulumi.In
 }
 
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteria struct {
-	// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-	// in `destination` must be specified as well.
+	// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 	SseKmsEncryptedObjects []BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -18564,8 +18468,7 @@ type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaInput interface 
 }
 
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs struct {
-	// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-	// in `destination` must be specified as well.
+	// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 	SseKmsEncryptedObjects BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput `pulumi:"sseKmsEncryptedObjects"`
 }
 
@@ -18620,8 +18523,7 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBuc
 	return o
 }
 
-// Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
-// in `destination` must be specified as well.
+// Match SSE-KMS encrypted objects. See `sseKmsEncryptedObjects` Block below for details. If specified, `replicaKmsKeyId` in `destination` must be specified as well.
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
 	return o.ApplyT(func(v BucketV2ReplicationConfigurationRuleSourceSelectionCriteria) []BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
 		return v.SseKmsEncryptedObjects
@@ -18748,7 +18650,7 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 }
 
 type BucketV2ServerSideEncryptionConfiguration struct {
-	// Single object for server-side encryption by default configuration. (documented below)
+	// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 	Rules []BucketV2ServerSideEncryptionConfigurationRule `pulumi:"rules"`
 }
 
@@ -18764,7 +18666,7 @@ type BucketV2ServerSideEncryptionConfigurationInput interface {
 }
 
 type BucketV2ServerSideEncryptionConfigurationArgs struct {
-	// Single object for server-side encryption by default configuration. (documented below)
+	// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 	Rules BucketV2ServerSideEncryptionConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -18819,7 +18721,7 @@ func (o BucketV2ServerSideEncryptionConfigurationOutput) ToBucketV2ServerSideEnc
 	return o
 }
 
-// Single object for server-side encryption by default configuration. (documented below)
+// Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
 func (o BucketV2ServerSideEncryptionConfigurationOutput) Rules() BucketV2ServerSideEncryptionConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketV2ServerSideEncryptionConfiguration) []BucketV2ServerSideEncryptionConfigurationRule {
 		return v.Rules
@@ -18847,7 +18749,7 @@ func (o BucketV2ServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.Int
 }
 
 type BucketV2ServerSideEncryptionConfigurationRule struct {
-	// Single object for setting server-side encryption by default. (documented below)
+	// Single object for setting server-side encryption by default. See `applyServerSideEncryptionByDefault` Block below for details.
 	ApplyServerSideEncryptionByDefaults []BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault `pulumi:"applyServerSideEncryptionByDefaults"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
@@ -18865,7 +18767,7 @@ type BucketV2ServerSideEncryptionConfigurationRuleInput interface {
 }
 
 type BucketV2ServerSideEncryptionConfigurationRuleArgs struct {
-	// Single object for setting server-side encryption by default. (documented below)
+	// Single object for setting server-side encryption by default. See `applyServerSideEncryptionByDefault` Block below for details.
 	ApplyServerSideEncryptionByDefaults BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput `pulumi:"applyServerSideEncryptionByDefaults"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
@@ -18922,7 +18824,7 @@ func (o BucketV2ServerSideEncryptionConfigurationRuleOutput) ToBucketV2ServerSid
 	return o
 }
 
-// Single object for setting server-side encryption by default. (documented below)
+// Single object for setting server-side encryption by default. See `applyServerSideEncryptionByDefault` Block below for details.
 func (o BucketV2ServerSideEncryptionConfigurationRuleOutput) ApplyServerSideEncryptionByDefaults() BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
 	return o.ApplyT(func(v BucketV2ServerSideEncryptionConfigurationRule) []BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
 		return v.ApplyServerSideEncryptionByDefaults
@@ -19177,8 +19079,7 @@ type BucketV2Website struct {
 	IndexDocument *string `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 	RoutingRules *string `pulumi:"routingRules"`
 }
 
@@ -19200,8 +19101,7 @@ type BucketV2WebsiteArgs struct {
 	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 	RoutingRules pulumi.StringPtrInput `pulumi:"routingRules"`
 }
 
@@ -19271,8 +19171,7 @@ func (o BucketV2WebsiteOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Website) *string { return v.RedirectAllRequestsTo }).(pulumi.StringPtrOutput)
 }
 
-// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-// describing redirect behavior and when redirects are applied.
+// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 func (o BucketV2WebsiteOutput) RoutingRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Website) *string { return v.RoutingRules }).(pulumi.StringPtrOutput)
 }
@@ -19454,7 +19353,7 @@ func (o BucketVersioningTypePtrOutput) MfaDelete() pulumi.BoolPtrOutput {
 }
 
 type BucketVersioningV2VersioningConfiguration struct {
-	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+	// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete *string `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status string `pulumi:"status"`
@@ -19472,7 +19371,7 @@ type BucketVersioningV2VersioningConfigurationInput interface {
 }
 
 type BucketVersioningV2VersioningConfigurationArgs struct {
-	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+	// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete pulumi.StringPtrInput `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -19555,7 +19454,7 @@ func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2Ver
 	}).(BucketVersioningV2VersioningConfigurationPtrOutput)
 }
 
-// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 func (o BucketVersioningV2VersioningConfigurationOutput) MfaDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
 }
@@ -19589,7 +19488,7 @@ func (o BucketVersioningV2VersioningConfigurationPtrOutput) Elem() BucketVersion
 	}).(BucketVersioningV2VersioningConfigurationOutput)
 }
 
-// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 func (o BucketVersioningV2VersioningConfigurationPtrOutput) MfaDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioningV2VersioningConfiguration) *string {
 		if v == nil {
@@ -19610,7 +19509,7 @@ func (o BucketVersioningV2VersioningConfigurationPtrOutput) Status() pulumi.Stri
 }
 
 type BucketVersioningVersioningConfiguration struct {
-	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+	// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete *string `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status string `pulumi:"status"`
@@ -19628,7 +19527,7 @@ type BucketVersioningVersioningConfigurationInput interface {
 }
 
 type BucketVersioningVersioningConfigurationArgs struct {
-	// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+	// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 	MfaDelete pulumi.StringPtrInput `pulumi:"mfaDelete"`
 	// Versioning state of the bucket. Valid values: `Enabled`, `Suspended`, or `Disabled`. `Disabled` should only be used when creating or importing resources that correspond to unversioned S3 buckets.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -19711,7 +19610,7 @@ func (o BucketVersioningVersioningConfigurationOutput) ToBucketVersioningVersion
 	}).(BucketVersioningVersioningConfigurationPtrOutput)
 }
 
-// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 func (o BucketVersioningVersioningConfigurationOutput) MfaDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketVersioningVersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
 }
@@ -19745,7 +19644,7 @@ func (o BucketVersioningVersioningConfigurationPtrOutput) Elem() BucketVersionin
 	}).(BucketVersioningVersioningConfigurationOutput)
 }
 
-// Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
+// Whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 func (o BucketVersioningVersioningConfigurationPtrOutput) MfaDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioningVersioningConfiguration) *string {
 		if v == nil {
@@ -19772,8 +19671,7 @@ type BucketWebsite struct {
 	IndexDocument *string `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 	RoutingRules *string `pulumi:"routingRules"`
 }
 
@@ -19795,8 +19693,7 @@ type BucketWebsiteArgs struct {
 	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 	RoutingRules pulumi.StringPtrInput `pulumi:"routingRules"`
 }
 
@@ -19892,8 +19789,7 @@ func (o BucketWebsiteOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketWebsite) *string { return v.RedirectAllRequestsTo }).(pulumi.StringPtrOutput)
 }
 
-// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-// describing redirect behavior and when redirects are applied.
+// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 func (o BucketWebsiteOutput) RoutingRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketWebsite) *string { return v.RoutingRules }).(pulumi.StringPtrOutput)
 }
@@ -19952,8 +19848,7 @@ func (o BucketWebsitePtrOutput) RedirectAllRequestsTo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-// describing redirect behavior and when redirects are applied.
+// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
 func (o BucketWebsitePtrOutput) RoutingRules() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsite) *string {
 		if v == nil {
@@ -20101,9 +19996,7 @@ func (o BucketWebsiteConfigurationErrorDocumentPtrOutput) Key() pulumi.StringPtr
 }
 
 type BucketWebsiteConfigurationIndexDocument struct {
-	// Suffix that is appended to a request that is for a directory on the website endpoint.
-	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-	// The suffix must not be empty and must not include a slash character.
+	// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	Suffix string `pulumi:"suffix"`
 }
 
@@ -20119,9 +20012,7 @@ type BucketWebsiteConfigurationIndexDocumentInput interface {
 }
 
 type BucketWebsiteConfigurationIndexDocumentArgs struct {
-	// Suffix that is appended to a request that is for a directory on the website endpoint.
-	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-	// The suffix must not be empty and must not include a slash character.
+	// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	Suffix pulumi.StringInput `pulumi:"suffix"`
 }
 
@@ -20202,9 +20093,7 @@ func (o BucketWebsiteConfigurationIndexDocumentOutput) ToBucketWebsiteConfigurat
 	}).(BucketWebsiteConfigurationIndexDocumentPtrOutput)
 }
 
-// Suffix that is appended to a request that is for a directory on the website endpoint.
-// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-// The suffix must not be empty and must not include a slash character.
+// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 func (o BucketWebsiteConfigurationIndexDocumentOutput) Suffix() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketWebsiteConfigurationIndexDocument) string { return v.Suffix }).(pulumi.StringOutput)
 }
@@ -20233,9 +20122,7 @@ func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) Elem() BucketWebsiteCo
 	}).(BucketWebsiteConfigurationIndexDocumentOutput)
 }
 
-// Suffix that is appended to a request that is for a directory on the website endpoint.
-// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-// The suffix must not be empty and must not include a slash character.
+// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 func (o BucketWebsiteConfigurationIndexDocumentPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationIndexDocument) *string {
 		if v == nil {
@@ -20893,9 +20780,7 @@ func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) Key() pulumi.StringP
 }
 
 type BucketWebsiteConfigurationV2IndexDocument struct {
-	// Suffix that is appended to a request that is for a directory on the website endpoint.
-	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-	// The suffix must not be empty and must not include a slash character.
+	// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	Suffix string `pulumi:"suffix"`
 }
 
@@ -20911,9 +20796,7 @@ type BucketWebsiteConfigurationV2IndexDocumentInput interface {
 }
 
 type BucketWebsiteConfigurationV2IndexDocumentArgs struct {
-	// Suffix that is appended to a request that is for a directory on the website endpoint.
-	// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-	// The suffix must not be empty and must not include a slash character.
+	// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 	Suffix pulumi.StringInput `pulumi:"suffix"`
 }
 
@@ -20994,9 +20877,7 @@ func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigur
 	}).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
 }
 
-// Suffix that is appended to a request that is for a directory on the website endpoint.
-// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-// The suffix must not be empty and must not include a slash character.
+// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 func (o BucketWebsiteConfigurationV2IndexDocumentOutput) Suffix() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketWebsiteConfigurationV2IndexDocument) string { return v.Suffix }).(pulumi.StringOutput)
 }
@@ -21025,9 +20906,7 @@ func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Elem() BucketWebsite
 	}).(BucketWebsiteConfigurationV2IndexDocumentOutput)
 }
 
-// Suffix that is appended to a request that is for a directory on the website endpoint.
-// For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
-// The suffix must not be empty and must not include a slash character.
+// Suffix that is appended to a request that is for a directory on the website endpoint. The suffix must not be empty and must not include a slash character. For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Suffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfigurationV2IndexDocument) *string {
 		if v == nil {
@@ -22741,7 +22620,7 @@ func (o FilesSynchronizationConfigurationImportDataRuleArrayOutput) Index(i pulu
 }
 
 type InventoryDestination struct {
-	// S3 bucket configuration where inventory results are published (documented below).
+	// S3 bucket configuration where inventory results are published. See `bucket` Block below.
 	Bucket InventoryDestinationBucket `pulumi:"bucket"`
 }
 
@@ -22757,7 +22636,7 @@ type InventoryDestinationInput interface {
 }
 
 type InventoryDestinationArgs struct {
-	// S3 bucket configuration where inventory results are published (documented below).
+	// S3 bucket configuration where inventory results are published. See `bucket` Block below.
 	Bucket InventoryDestinationBucketInput `pulumi:"bucket"`
 }
 
@@ -22838,7 +22717,7 @@ func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutputWithContext(c
 	}).(InventoryDestinationPtrOutput)
 }
 
-// S3 bucket configuration where inventory results are published (documented below).
+// S3 bucket configuration where inventory results are published. See `bucket` Block below.
 func (o InventoryDestinationOutput) Bucket() InventoryDestinationBucketOutput {
 	return o.ApplyT(func(v InventoryDestination) InventoryDestinationBucket { return v.Bucket }).(InventoryDestinationBucketOutput)
 }
@@ -22867,7 +22746,7 @@ func (o InventoryDestinationPtrOutput) Elem() InventoryDestinationOutput {
 	}).(InventoryDestinationOutput)
 }
 
-// S3 bucket configuration where inventory results are published (documented below).
+// S3 bucket configuration where inventory results are published. See `bucket` Block below.
 func (o InventoryDestinationPtrOutput) Bucket() InventoryDestinationBucketPtrOutput {
 	return o.ApplyT(func(v *InventoryDestination) *InventoryDestinationBucket {
 		if v == nil {
@@ -22882,9 +22761,11 @@ type InventoryDestinationBucket struct {
 	AccountId *string `pulumi:"accountId"`
 	// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 	BucketArn string `pulumi:"bucketArn"`
-	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+	// Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
 	Encryption *InventoryDestinationBucketEncryption `pulumi:"encryption"`
-	// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+	// Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+	//
+	// The following arguments are optional:
 	Format string `pulumi:"format"`
 	// Prefix that is prepended to all inventory results.
 	Prefix *string `pulumi:"prefix"`
@@ -22906,9 +22787,11 @@ type InventoryDestinationBucketArgs struct {
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// Amazon S3 bucket ARN of the destination. Only general purpose buckets are supported.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+	// Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
 	Encryption InventoryDestinationBucketEncryptionPtrInput `pulumi:"encryption"`
-	// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+	// Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+	//
+	// The following arguments are optional:
 	Format pulumi.StringInput `pulumi:"format"`
 	// Prefix that is prepended to all inventory results.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -23001,12 +22884,14 @@ func (o InventoryDestinationBucketOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+// Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
 func (o InventoryDestinationBucketOutput) Encryption() InventoryDestinationBucketEncryptionPtrOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) *InventoryDestinationBucketEncryption { return v.Encryption }).(InventoryDestinationBucketEncryptionPtrOutput)
 }
 
-// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+// Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+//
+// The following arguments are optional:
 func (o InventoryDestinationBucketOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -23060,7 +22945,7 @@ func (o InventoryDestinationBucketPtrOutput) BucketArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+// Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
 func (o InventoryDestinationBucketPtrOutput) Encryption() InventoryDestinationBucketEncryptionPtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucket) *InventoryDestinationBucketEncryption {
 		if v == nil {
@@ -23070,7 +22955,9 @@ func (o InventoryDestinationBucketPtrOutput) Encryption() InventoryDestinationBu
 	}).(InventoryDestinationBucketEncryptionPtrOutput)
 }
 
-// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+// Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+//
+// The following arguments are optional:
 func (o InventoryDestinationBucketPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
 		if v == nil {
@@ -23091,9 +22978,9 @@ func (o InventoryDestinationBucketPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type InventoryDestinationBucketEncryption struct {
-	// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+	// Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
 	SseKms *InventoryDestinationBucketEncryptionSseKms `pulumi:"sseKms"`
-	// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+	// Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 	SseS3 *InventoryDestinationBucketEncryptionSseS3 `pulumi:"sseS3"`
 }
 
@@ -23109,9 +22996,9 @@ type InventoryDestinationBucketEncryptionInput interface {
 }
 
 type InventoryDestinationBucketEncryptionArgs struct {
-	// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+	// Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
 	SseKms InventoryDestinationBucketEncryptionSseKmsPtrInput `pulumi:"sseKms"`
-	// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+	// Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 	SseS3 InventoryDestinationBucketEncryptionSseS3PtrInput `pulumi:"sseS3"`
 }
 
@@ -23192,14 +23079,14 @@ func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucket
 	}).(InventoryDestinationBucketEncryptionPtrOutput)
 }
 
-// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+// Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
 func (o InventoryDestinationBucketEncryptionOutput) SseKms() InventoryDestinationBucketEncryptionSseKmsPtrOutput {
 	return o.ApplyT(func(v InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryptionSseKms {
 		return v.SseKms
 	}).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
 
-// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+// Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 func (o InventoryDestinationBucketEncryptionOutput) SseS3() InventoryDestinationBucketEncryptionSseS3PtrOutput {
 	return o.ApplyT(func(v InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryptionSseS3 {
 		return v.SseS3
@@ -23230,7 +23117,7 @@ func (o InventoryDestinationBucketEncryptionPtrOutput) Elem() InventoryDestinati
 	}).(InventoryDestinationBucketEncryptionOutput)
 }
 
-// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+// Server-side encryption with AWS KMS-managed keys to encrypt the inventory file. See `sseKms` Block below.
 func (o InventoryDestinationBucketEncryptionPtrOutput) SseKms() InventoryDestinationBucketEncryptionSseKmsPtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryptionSseKms {
 		if v == nil {
@@ -23240,7 +23127,7 @@ func (o InventoryDestinationBucketEncryptionPtrOutput) SseKms() InventoryDestina
 	}).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
 
-// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+// Server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
 func (o InventoryDestinationBucketEncryptionPtrOutput) SseS3() InventoryDestinationBucketEncryptionSseS3PtrOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryptionSseS3 {
 		if v == nil {
@@ -23643,7 +23530,7 @@ func (o InventoryFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type InventorySchedule struct {
-	// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+	// How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 	Frequency string `pulumi:"frequency"`
 }
 
@@ -23659,7 +23546,7 @@ type InventoryScheduleInput interface {
 }
 
 type InventoryScheduleArgs struct {
-	// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+	// How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 }
 
@@ -23740,7 +23627,7 @@ func (o InventoryScheduleOutput) ToInventorySchedulePtrOutputWithContext(ctx con
 	}).(InventorySchedulePtrOutput)
 }
 
-// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+// How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 func (o InventoryScheduleOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v InventorySchedule) string { return v.Frequency }).(pulumi.StringOutput)
 }
@@ -23769,7 +23656,7 @@ func (o InventorySchedulePtrOutput) Elem() InventoryScheduleOutput {
 	}).(InventoryScheduleOutput)
 }
 
-// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+// How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 func (o InventorySchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InventorySchedule) *string {
 		if v == nil {
@@ -23787,8 +23674,6 @@ type ObjectCopyGrant struct {
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions []string `pulumi:"permissions"`
 	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-	//
-	// This configuration block has the following optional arguments (one of the three is required):
 	Type string `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri *string `pulumi:"uri"`
@@ -23813,8 +23698,6 @@ type ObjectCopyGrantArgs struct {
 	// List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 	// Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-	//
-	// This configuration block has the following optional arguments (one of the three is required):
 	Type pulumi.StringInput `pulumi:"type"`
 	// URI of the grantee group. Used only when `type` is `Group`.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
@@ -23887,8 +23770,6 @@ func (o ObjectCopyGrantOutput) Permissions() pulumi.StringArrayOutput {
 }
 
 // Type of grantee. Valid values are `CanonicalUser`, `Group`, and `AmazonCustomerByEmail`.
-//
-// This configuration block has the following optional arguments (one of the three is required):
 func (o ObjectCopyGrantOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectCopyGrant) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -23919,7 +23800,7 @@ func (o ObjectCopyGrantArrayOutput) Index(i pulumi.IntInput) ObjectCopyGrantOutp
 }
 
 type ObjectCopyOverrideProvider struct {
-	// Override the provider `defaultTags` configuration block.
+	// Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
 	DefaultTags *ObjectCopyOverrideProviderDefaultTags `pulumi:"defaultTags"`
 }
 
@@ -23935,7 +23816,7 @@ type ObjectCopyOverrideProviderInput interface {
 }
 
 type ObjectCopyOverrideProviderArgs struct {
-	// Override the provider `defaultTags` configuration block.
+	// Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
 	DefaultTags ObjectCopyOverrideProviderDefaultTagsPtrInput `pulumi:"defaultTags"`
 }
 
@@ -24016,7 +23897,7 @@ func (o ObjectCopyOverrideProviderOutput) ToObjectCopyOverrideProviderPtrOutputW
 	}).(ObjectCopyOverrideProviderPtrOutput)
 }
 
-// Override the provider `defaultTags` configuration block.
+// Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
 func (o ObjectCopyOverrideProviderOutput) DefaultTags() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
 	return o.ApplyT(func(v ObjectCopyOverrideProvider) *ObjectCopyOverrideProviderDefaultTags { return v.DefaultTags }).(ObjectCopyOverrideProviderDefaultTagsPtrOutput)
 }
@@ -24045,7 +23926,7 @@ func (o ObjectCopyOverrideProviderPtrOutput) Elem() ObjectCopyOverrideProviderOu
 	}).(ObjectCopyOverrideProviderOutput)
 }
 
-// Override the provider `defaultTags` configuration block.
+// Configuration block to override the provider `defaultTags` configuration block. See `defaultTags` Block below.
 func (o ObjectCopyOverrideProviderPtrOutput) DefaultTags() ObjectCopyOverrideProviderDefaultTagsPtrOutput {
 	return o.ApplyT(func(v *ObjectCopyOverrideProvider) *ObjectCopyOverrideProviderDefaultTags {
 		if v == nil {
@@ -25547,7 +25428,7 @@ type GetBucketReplicationConfigurationRule struct {
 	ExistingObjectReplications []GetBucketReplicationConfigurationRuleExistingObjectReplication `pulumi:"existingObjectReplications"`
 	Filters                    []GetBucketReplicationConfigurationRuleFilter                    `pulumi:"filters"`
 	Id                         string                                                           `pulumi:"id"`
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix                   string                                                         `pulumi:"prefix"`
 	Priority                 int                                                            `pulumi:"priority"`
 	SourceSelectionCriterias []GetBucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriterias"`
@@ -25571,7 +25452,7 @@ type GetBucketReplicationConfigurationRuleArgs struct {
 	ExistingObjectReplications GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput `pulumi:"existingObjectReplications"`
 	Filters                    GetBucketReplicationConfigurationRuleFilterArrayInput                    `pulumi:"filters"`
 	Id                         pulumi.StringInput                                                       `pulumi:"id"`
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix                   pulumi.StringInput                                                     `pulumi:"prefix"`
 	Priority                 pulumi.IntInput                                                        `pulumi:"priority"`
 	SourceSelectionCriterias GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput `pulumi:"sourceSelectionCriterias"`
@@ -25657,7 +25538,7 @@ func (o GetBucketReplicationConfigurationRuleOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The object key name prefix that identifies the subset of objects to which the rule applies.
+// Object key name prefix that identifies the subset of objects to which the rule applies.
 func (o GetBucketReplicationConfigurationRuleOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Prefix }).(pulumi.StringOutput)
 }
@@ -25793,7 +25674,7 @@ func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput)
 type GetBucketReplicationConfigurationRuleDestination struct {
 	AccessControlTranslations []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslations"`
 	Account                   string                                                                     `pulumi:"account"`
-	// The name of the bucket to get the replication configuration for.
+	// Name of the bucket to get the replication configuration for.
 	Bucket                   string                                                                    `pulumi:"bucket"`
 	EncryptionConfigurations []GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	Metrics                  []GetBucketReplicationConfigurationRuleDestinationMetric                  `pulumi:"metrics"`
@@ -25815,7 +25696,7 @@ type GetBucketReplicationConfigurationRuleDestinationInput interface {
 type GetBucketReplicationConfigurationRuleDestinationArgs struct {
 	AccessControlTranslations GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput `pulumi:"accessControlTranslations"`
 	Account                   pulumi.StringInput                                                                 `pulumi:"account"`
-	// The name of the bucket to get the replication configuration for.
+	// Name of the bucket to get the replication configuration for.
 	Bucket                   pulumi.StringInput                                                                `pulumi:"bucket"`
 	EncryptionConfigurations GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
 	Metrics                  GetBucketReplicationConfigurationRuleDestinationMetricArrayInput                  `pulumi:"metrics"`
@@ -25884,7 +25765,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationOutput) Account() pulumi
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Account }).(pulumi.StringOutput)
 }
 
-// The name of the bucket to get the replication configuration for.
+// Name of the bucket to get the replication configuration for.
 func (o GetBucketReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -26611,9 +26492,9 @@ func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutpu
 
 type GetBucketReplicationConfigurationRuleFilter struct {
 	Ands []GetBucketReplicationConfigurationRuleFilterAnd `pulumi:"ands"`
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix string `pulumi:"prefix"`
-	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 	Tags []GetBucketReplicationConfigurationRuleFilterTag `pulumi:"tags"`
 }
 
@@ -26630,9 +26511,9 @@ type GetBucketReplicationConfigurationRuleFilterInput interface {
 
 type GetBucketReplicationConfigurationRuleFilterArgs struct {
 	Ands GetBucketReplicationConfigurationRuleFilterAndArrayInput `pulumi:"ands"`
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 	Tags GetBucketReplicationConfigurationRuleFilterTagArrayInput `pulumi:"tags"`
 }
 
@@ -26693,12 +26574,12 @@ func (o GetBucketReplicationConfigurationRuleFilterOutput) Ands() GetBucketRepli
 	}).(GetBucketReplicationConfigurationRuleFilterAndArrayOutput)
 }
 
-// The object key name prefix that identifies the subset of objects to which the rule applies.
+// Object key name prefix that identifies the subset of objects to which the rule applies.
 func (o GetBucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// An unordered list of tags that identify a subset of objects to which the rule applies.
+// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 func (o GetBucketReplicationConfigurationRuleFilterOutput) Tags() GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) []GetBucketReplicationConfigurationRuleFilterTag {
 		return v.Tags
@@ -26726,9 +26607,9 @@ func (o GetBucketReplicationConfigurationRuleFilterArrayOutput) Index(i pulumi.I
 }
 
 type GetBucketReplicationConfigurationRuleFilterAnd struct {
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix string `pulumi:"prefix"`
-	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 	Tags []GetBucketReplicationConfigurationRuleFilterAndTag `pulumi:"tags"`
 }
 
@@ -26744,9 +26625,9 @@ type GetBucketReplicationConfigurationRuleFilterAndInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterAndArgs struct {
-	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	// Object key name prefix that identifies the subset of objects to which the rule applies.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
-	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 	Tags GetBucketReplicationConfigurationRuleFilterAndTagArrayInput `pulumi:"tags"`
 }
 
@@ -26801,12 +26682,12 @@ func (o GetBucketReplicationConfigurationRuleFilterAndOutput) ToGetBucketReplica
 	return o
 }
 
-// The object key name prefix that identifies the subset of objects to which the rule applies.
+// Object key name prefix that identifies the subset of objects to which the rule applies.
 func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) string { return v.Prefix }).(pulumi.StringOutput)
 }
 
-// An unordered list of tags that identify a subset of objects to which the rule applies.
+// Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
 func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Tags() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) []GetBucketReplicationConfigurationRuleFilterAndTag {
 		return v.Tags
@@ -26834,9 +26715,7 @@ func (o GetBucketReplicationConfigurationRuleFilterAndArrayOutput) Index(i pulum
 }
 
 type GetBucketReplicationConfigurationRuleFilterAndTag struct {
-	// The key of the tag.
-	Key string `pulumi:"key"`
-	// The value of the tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -26852,9 +26731,7 @@ type GetBucketReplicationConfigurationRuleFilterAndTagInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterAndTagArgs struct {
-	// The key of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the tag.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26909,12 +26786,10 @@ func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) ToGetBucketRepl
 	return o
 }
 
-// The key of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -26940,9 +26815,7 @@ func (o GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) Index(i pu
 }
 
 type GetBucketReplicationConfigurationRuleFilterTag struct {
-	// The key of the tag.
-	Key string `pulumi:"key"`
-	// The value of the tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -26958,9 +26831,7 @@ type GetBucketReplicationConfigurationRuleFilterTagInput interface {
 }
 
 type GetBucketReplicationConfigurationRuleFilterTagArgs struct {
-	// The key of the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value of the tag.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -27015,12 +26886,10 @@ func (o GetBucketReplicationConfigurationRuleFilterTagOutput) ToGetBucketReplica
 	return o
 }
 
-// The key of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value of the tag.
 func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Value }).(pulumi.StringOutput)
 }

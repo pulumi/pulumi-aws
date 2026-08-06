@@ -63,6 +63,9 @@ export class ApiKey extends pulumi.CustomResource {
      * ID of the associated AppSync API
      */
     declare public readonly apiId: pulumi.Output<string>;
+    /**
+     * ID of the API key.
+     */
     declare public /*out*/ readonly apiKeyId: pulumi.Output<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
@@ -127,6 +130,9 @@ export interface ApiKeyState {
      * ID of the associated AppSync API
      */
     apiId?: pulumi.Input<string | undefined>;
+    /**
+     * ID of the API key.
+     */
     apiKeyId?: pulumi.Input<string | undefined>;
     /**
      * API key description. Defaults to "Managed by Pulumi".

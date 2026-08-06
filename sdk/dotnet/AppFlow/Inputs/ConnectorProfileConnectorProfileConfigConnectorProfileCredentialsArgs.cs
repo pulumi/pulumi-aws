@@ -13,109 +13,109 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
         /// </summary>
         [Input("amplitude")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs>? Amplitude { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+        /// Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
         /// </summary>
         [Input("customConnector")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs>? Datadog { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
         /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs>? Dynatrace { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
         /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs>? GoogleAnalytics { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
         /// </summary>
         [Input("honeycode")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs>? Honeycode { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
         /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs>? InforNexus { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs>? Salesforce { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
         /// </summary>
         [Input("sapoData")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs>? ServiceNow { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
         /// </summary>
         [Input("singular")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs>? Singular { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
         /// </summary>
         [Input("slack")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs>? Slack { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs>? Snowflake { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
         /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs>? Trendmicro { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
         /// </summary>
         [Input("veeva")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs>? Veeva { get; set; }
 
         /// <summary>
-        /// Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+        /// Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs>? Zendesk { get; set; }

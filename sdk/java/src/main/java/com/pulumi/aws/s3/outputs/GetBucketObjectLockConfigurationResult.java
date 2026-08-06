@@ -17,7 +17,7 @@ public final class GetBucketObjectLockConfigurationResult {
     private String bucket;
     private @Nullable String expectedBucketOwner;
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled.
+     * @return Whether this bucket has an Object Lock configuration enabled.
      * 
      */
     private String objectLockEnabled;
@@ -36,7 +36,7 @@ public final class GetBucketObjectLockConfigurationResult {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled.
+     * @return Whether this bucket has an Object Lock configuration enabled.
      * 
      */
     public String objectLockEnabled() {

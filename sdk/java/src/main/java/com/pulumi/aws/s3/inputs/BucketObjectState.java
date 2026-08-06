@@ -49,14 +49,14 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
      * 
      */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
     /**
-     * @return Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+     * @return Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
      * 
      */
     public Optional<Output<String>> bucket() {
@@ -214,7 +214,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the object once it is in the bucket.
+     * Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
      * 
      * The following arguments are optional:
      * 
@@ -223,7 +223,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> key;
 
     /**
-     * @return Name of the object once it is in the bucket.
+     * @return Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
      * 
      * The following arguments are optional:
      * 
@@ -430,8 +430,6 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-     * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
      */
@@ -440,8 +438,6 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-     * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -544,7 +540,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
          * 
          * @return builder
          * 
@@ -555,7 +551,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+         * @param bucket Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
          * 
          * @return builder
          * 
@@ -775,7 +771,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key Name of the object once it is in the bucket.
+         * @param key Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
          * 
          * The following arguments are optional:
          * 
@@ -788,7 +784,7 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key Name of the object once it is in the bucket.
+         * @param key Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
          * 
          * The following arguments are optional:
          * 
@@ -1075,8 +1071,6 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-         * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 
          * @return builder
@@ -1089,8 +1083,6 @@ public final class BucketObjectState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-         * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 

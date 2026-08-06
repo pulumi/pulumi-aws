@@ -17,14 +17,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     public static final GatewayRouteSpecHttpRouteMatchHeaderMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchHeaderMatchArgs();
 
     /**
-     * The exact query parameter to match on.
+     * Exact query parameter to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return The exact query parameter to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -47,14 +47,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     }
 
     /**
-     * Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
      * 
      */
     @Import(name="range")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs> range;
 
     /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs>> range() {
@@ -62,14 +62,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     }
 
     /**
-     * Header value sent by the client must include the specified characters.
+     * Regex used to match the path.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return Regex used to match the path.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -77,14 +77,14 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
     }
 
     /**
-     * Header value sent by the client must end with the specified characters.
+     * Specified ending characters of the host name to match on.
      * 
      */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
     /**
-     * @return Header value sent by the client must end with the specified characters.
+     * @return Specified ending characters of the host name to match on.
      * 
      */
     public Optional<Output<String>> suffix() {
@@ -120,7 +120,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param exact The exact query parameter to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param exact The exact query parameter to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param regex Header value sent by the client must include the specified characters.
+         * @param regex Regex used to match the path.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param regex Header value sent by the client must include the specified characters.
+         * @param regex Regex used to match the path.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param suffix Header value sent by the client must end with the specified characters.
+         * @param suffix Specified ending characters of the host name to match on.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs extends com.pul
         }
 
         /**
-         * @param suffix Header value sent by the client must end with the specified characters.
+         * @param suffix Specified ending characters of the host name to match on.
          * 
          * @return builder
          * 

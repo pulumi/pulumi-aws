@@ -42,21 +42,19 @@ class FlowLogArgs:
         The set of arguments for constructing a FlowLog resource.
 
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[_builtins.str] log_format: Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        :param pulumi.Input[_builtins.int] max_aggregation_interval: Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
@@ -114,7 +112,7 @@ class FlowLogArgs:
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> pulumi.Input[Optional['FlowLogDestinationOptionsArgs']]:
         """
-        Describes the destination options for a flow log. More details below.
+        Destination options for a flow log. More details below.
         """
         return pulumi.get(self, "destination_options")
 
@@ -174,7 +172,7 @@ class FlowLogArgs:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -186,9 +184,7 @@ class FlowLogArgs:
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -260,7 +256,7 @@ class FlowLogArgs:
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 
@@ -334,22 +330,20 @@ class _FlowLogState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[_builtins.str] log_format: Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        :param pulumi.Input[_builtins.int] max_aggregation_interval: Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
@@ -423,7 +417,7 @@ class _FlowLogState:
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> pulumi.Input[Optional['FlowLogDestinationOptionsArgs']]:
         """
-        Describes the destination options for a flow log. More details below.
+        Destination options for a flow log. More details below.
         """
         return pulumi.get(self, "destination_options")
 
@@ -483,7 +477,7 @@ class _FlowLogState:
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -495,9 +489,7 @@ class _FlowLogState:
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -569,7 +561,7 @@ class _FlowLogState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -581,7 +573,7 @@ class _FlowLogState:
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 
@@ -851,21 +843,19 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[_builtins.str] log_format: Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        :param pulumi.Input[_builtins.int] max_aggregation_interval: Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
@@ -1172,22 +1162,20 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
         :param pulumi.Input[_builtins.str] log_destination_type: Logging destination type. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
-        :param pulumi.Input[_builtins.str] log_format: The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
-        :param pulumi.Input[_builtins.int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-               Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-               When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        :param pulumi.Input[_builtins.str] log_format: Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        :param pulumi.Input[_builtins.int] max_aggregation_interval: Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Transit Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID to attach to.
@@ -1239,7 +1227,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="destinationOptions")
     def destination_options(self) -> pulumi.Output[Optional['outputs.FlowLogDestinationOptions']]:
         """
-        Describes the destination options for a flow log. More details below.
+        Destination options for a flow log. More details below.
         """
         return pulumi.get(self, "destination_options")
 
@@ -1279,7 +1267,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="logFormat")
     def log_format(self) -> pulumi.Output[_builtins.str]:
         """
-        The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+        Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
         """
         return pulumi.get(self, "log_format")
 
@@ -1287,9 +1275,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="maxAggregationInterval")
     def max_aggregation_interval(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-        Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-        When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
+        Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
@@ -1337,7 +1323,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1345,7 +1331,7 @@ class FlowLog(pulumi.CustomResource):
     @pulumi.getter(name="trafficType")
     def traffic_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
+        Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         """
         return pulumi.get(self, "traffic_type")
 

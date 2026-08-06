@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
     /**
-     * @return Specifies the destination for the exported analytics data (documented below).
+     * @return Destination for the exported analytics data (documented below).
      * 
      */
     private AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination;
@@ -26,7 +26,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExport {
 
     private AnalyticsConfigurationStorageClassAnalysisDataExport() {}
     /**
-     * @return Specifies the destination for the exported analytics data (documented below).
+     * @return Destination for the exported analytics data (documented below).
      * 
      */
     public AnalyticsConfigurationStorageClassAnalysisDataExportDestination destination() {

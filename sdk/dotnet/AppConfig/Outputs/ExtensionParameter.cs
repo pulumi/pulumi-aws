@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppConfig.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The parameter name.
+        /// Parameter name.
         /// </summary>
         public readonly string Name;
         /// <summary>

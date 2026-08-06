@@ -50,16 +50,14 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<TableBucketEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * @return Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      * 
      */
     public Optional<Output<TableBucketEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -82,16 +80,14 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      * 
      */
     @Import(name="maintenanceConfiguration")
     private @Nullable Output<TableBucketMaintenanceConfigurationArgs> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * @return Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      * 
      */
     public Optional<Output<TableBucketMaintenanceConfigurationArgs>> maintenanceConfiguration() {
@@ -99,10 +95,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following arguments are optional:
      * 
@@ -111,10 +104,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * @return Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      * 
      * The following arguments are optional:
      * 
@@ -169,14 +159,14 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -259,8 +249,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
+         * @param encryptionConfiguration Encryption configuration for the table bucket. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -271,8 +260,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration A single table bucket encryption configuration object.
-         * See `encryptionConfiguration` below.
+         * @param encryptionConfiguration Encryption configuration for the table bucket. See `encryptionConfiguration` below.
          * 
          * @return builder
          * 
@@ -303,8 +291,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
+         * @param maintenanceConfiguration Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -315,8 +302,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maintenanceConfiguration A single table bucket maintenance configuration object.
-         * See `maintenanceConfiguration` below.
+         * @param maintenanceConfiguration Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
          * 
          * @return builder
          * 
@@ -326,10 +312,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table bucket.
-         * Must be between 3 and 63 characters in length.
-         * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-         * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+         * @param name Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
          * The following arguments are optional:
          * 
@@ -342,10 +325,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the table bucket.
-         * Must be between 3 and 63 characters in length.
-         * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-         * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+         * @param name Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
          * 
          * The following arguments are optional:
          * 
@@ -420,7 +400,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -431,7 +411,7 @@ public final class TableBucketState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

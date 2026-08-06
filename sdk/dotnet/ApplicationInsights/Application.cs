@@ -75,7 +75,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        /// Whether to automatically configure unmonitored resources in the resource group.
         /// </summary>
         [Output("autoConfigEnabled")]
         public Output<bool?> AutoConfigEnabled { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Output<bool?> AutoCreate { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        /// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
         [Output("cweMonitorEnabled")]
         public Output<bool?> CweMonitorEnabled { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.ApplicationInsights
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        /// Whether to automatically configure unmonitored resources in the resource group.
         /// </summary>
         [Input("autoConfigEnabled")]
         public Input<bool>? AutoConfigEnabled { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<bool>? AutoCreate { get; set; }
 
         /// <summary>
-        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        /// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
         [Input("cweMonitorEnabled")]
         public Input<bool>? CweMonitorEnabled { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        /// Whether to automatically configure unmonitored resources in the resource group.
         /// </summary>
         [Input("autoConfigEnabled")]
         public Input<bool>? AutoConfigEnabled { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.ApplicationInsights
         public Input<bool>? AutoCreate { get; set; }
 
         /// <summary>
-        /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        /// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
         [Input("cweMonitorEnabled")]
         public Input<bool>? CweMonitorEnabled { get; set; }

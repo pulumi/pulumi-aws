@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static final ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs Empty = new ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs();
 
     /**
-     * The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
      */
     @Import(name="actions", required=true)
     private Output<List<String>> actions;
 
     /**
-     * @return The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+     * @return Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
      */
     public Output<List<String>> actions() {
@@ -32,14 +32,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     }
 
     /**
-     * The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+     * Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
      * 
      */
     @Import(name="contentTransformation", required=true)
     private Output<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs> contentTransformation;
 
     /**
-     * @return The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+     * @return Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
      * 
      */
     public Output<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs> contentTransformation() {
@@ -72,7 +72,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param actions The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         * @param actions Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param contentTransformation The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+         * @param contentTransformation Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param contentTransformation The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+         * @param contentTransformation Content transformation of an Object Lambda Access Point configuration. See `contentTransformation` Block below for more details.
          * 
          * @return builder
          * 

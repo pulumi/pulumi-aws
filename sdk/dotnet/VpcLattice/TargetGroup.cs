@@ -149,13 +149,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The target group configuration.
+        /// Target group configuration. See `Config` Block below.
         /// </summary>
         [Output("config")]
         public Output<Outputs.TargetGroupConfig?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -239,13 +239,13 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The target group configuration.
+        /// Target group configuration. See `Config` Block below.
         /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigArgs>? Config { get; set; }
 
         /// <summary>
-        /// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -291,13 +291,13 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The target group configuration.
+        /// Target group configuration. See `Config` Block below.
         /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigGetArgs>? Config { get; set; }
 
         /// <summary>
-        /// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        /// Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        /// Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -31,7 +31,7 @@ public final class ObjectLambdaAccessPointConfiguration {
      */
     private String supportingAccessPoint;
     /**
-     * @return List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+     * @return List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
      * 
      */
     private List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations;
@@ -59,7 +59,7 @@ public final class ObjectLambdaAccessPointConfiguration {
         return this.supportingAccessPoint;
     }
     /**
-     * @return List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+     * @return List of transformation configurations for the Object Lambda Access Point. See `transformationConfiguration` Block below for more details.
      * 
      */
     public List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations() {

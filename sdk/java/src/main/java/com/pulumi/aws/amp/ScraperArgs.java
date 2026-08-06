@@ -22,14 +22,14 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     public static final ScraperArgs Empty = new ScraperArgs();
 
     /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * @return Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
     public Optional<Output<String>> alias() {
@@ -37,14 +37,14 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
+     * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      * 
      */
     @Import(name="destination", required=true)
     private Output<ScraperDestinationArgs> destination;
 
     /**
-     * @return Configuration block for the managed scraper to send metrics to. See `destination`.
+     * @return Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      * 
      */
     public Output<ScraperDestinationArgs> destination() {
@@ -67,14 +67,14 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      * 
      */
     @Import(name="roleConfiguration")
     private @Nullable Output<ScraperRoleConfigurationArgs> roleConfiguration;
 
     /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      * 
      */
     public Optional<Output<ScraperRoleConfigurationArgs>> roleConfiguration() {
@@ -82,14 +82,14 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
     @Import(name="scrapeConfiguration", required=true)
     private Output<String> scrapeConfiguration;
 
     /**
-     * @return The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * @return Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
     public Output<String> scrapeConfiguration() {
@@ -97,7 +97,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -106,7 +106,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<ScraperSourceArgs> source;
 
     /**
-     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -115,9 +115,17 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.source);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -161,7 +169,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+         * @param alias Name to associate with the managed scraper. This is for your use, and does not need to be unique.
          * 
          * @return builder
          * 
@@ -172,7 +180,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+         * @param alias Name to associate with the managed scraper. This is for your use, and does not need to be unique.
          * 
          * @return builder
          * 
@@ -182,7 +190,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Configuration block for the managed scraper to send metrics to. See `destination`.
+         * @param destination Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -193,7 +201,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destination Configuration block for the managed scraper to send metrics to. See `destination`.
+         * @param destination Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
          * 
          * @return builder
          * 
@@ -224,7 +232,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -235,7 +243,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+         * @param roleConfiguration Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -245,7 +253,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scrapeConfiguration The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+         * @param scrapeConfiguration Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
          * 
          * @return builder
          * 
@@ -256,7 +264,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scrapeConfiguration The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+         * @param scrapeConfiguration Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
          * 
          * @return builder
          * 
@@ -266,7 +274,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -279,7 +287,7 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+         * @param source Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
          * 
          * The following arguments are optional:
          * 
@@ -290,11 +298,23 @@ public final class ScraperArgs extends com.pulumi.resources.ResourceArgs {
             return source(Output.of(source));
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

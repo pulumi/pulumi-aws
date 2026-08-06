@@ -48,14 +48,14 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+     * Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<InventoryDestinationBucketEncryptionArgs> encryption;
 
     /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+     * @return Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
      * 
      */
     public Optional<Output<InventoryDestinationBucketEncryptionArgs>> encryption() {
@@ -63,14 +63,18 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+     * Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+     * @return Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> format() {
@@ -163,7 +167,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param encryption Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+         * @param encryption Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
          * 
          * @return builder
          * 
@@ -174,7 +178,7 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param encryption Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+         * @param encryption Type of server-side encryption to use to encrypt the inventory. See `encryption` Block below.
          * 
          * @return builder
          * 
@@ -184,7 +188,9 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param format Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+         * @param format Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -195,7 +201,9 @@ public final class InventoryDestinationBucketArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param format Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
+         * @param format Output format of the inventory results. Valid values: `CSV`, [`ORC`](https://orc.apache.org/), [`Parquet`](https://parquet.apache.org/).
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

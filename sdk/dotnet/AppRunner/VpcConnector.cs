@@ -106,7 +106,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> VpcConnectorName { get; private set; } = null!;
 
         /// <summary>
-        /// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        /// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         /// </summary>
         [Output("vpcConnectorRevision")]
         public Output<int> VpcConnectorRevision { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? VpcConnectorName { get; set; }
 
         /// <summary>
-        /// The revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
+        /// Revision of VPC connector. It's unique among all the active connectors ("Status": "ACTIVE") that share the same Name.
         /// </summary>
         [Input("vpcConnectorRevision")]
         public Input<int>? VpcConnectorRevision { get; set; }

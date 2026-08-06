@@ -15,16 +15,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs();
 
+    /**
+     * Maximum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
+    /**
+     * @return Maximum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
+    /**
+     * @return Minimum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -54,20 +70,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum baseline Amazon EBS bandwidth, in Mbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum baseline Amazon EBS bandwidth, in Mbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum baseline Amazon EBS bandwidth, in Mbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum baseline Amazon EBS bandwidth, in Mbps.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

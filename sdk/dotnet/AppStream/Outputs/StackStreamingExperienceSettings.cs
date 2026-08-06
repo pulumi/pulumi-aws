@@ -14,8 +14,7 @@ namespace Pulumi.Aws.AppStream.Outputs
     public sealed class StackStreamingExperienceSettings
     {
         /// <summary>
-        /// The preferred protocol that you want to use while streaming your application.
-        /// Valid values are `TCP` and `UDP`.
+        /// Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
         /// </summary>
         public readonly string? PreferredProtocol;
 

@@ -112,11 +112,11 @@ export class Backup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      */
     declare public readonly fileSystemId: pulumi.Output<string | undefined>;
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -128,21 +128,19 @@ export class Backup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the file system backup.
+     * Type of the file system backup.
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     *
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * ID of the volume to back up. Required if backing up a ONTAP Volume.
      */
     declare public readonly volumeId: pulumi.Output<string | undefined>;
 
@@ -194,11 +192,11 @@ export interface BackupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      */
     fileSystemId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -210,21 +208,19 @@ export interface BackupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of the file system backup.
+     * Type of the file system backup.
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     *
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * ID of the volume to back up. Required if backing up a ONTAP Volume.
      */
     volumeId?: pulumi.Input<string | undefined>;
 }
@@ -234,7 +230,7 @@ export interface BackupState {
  */
 export interface BackupArgs {
     /**
-     * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+     * ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      */
     fileSystemId?: pulumi.Input<string | undefined>;
     /**
@@ -242,13 +238,11 @@ export interface BackupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the volume to back up. Required if backing up a ONTAP Volume.
-     *
-     * Note - One of `fileSystemId` or `volumeId` can be specified. `fileSystemId` is used for Lustre and Windows, `volumeId` is used for ONTAP.
+     * ID of the volume to back up. Required if backing up a ONTAP Volume.
      */
     volumeId?: pulumi.Input<string | undefined>;
 }

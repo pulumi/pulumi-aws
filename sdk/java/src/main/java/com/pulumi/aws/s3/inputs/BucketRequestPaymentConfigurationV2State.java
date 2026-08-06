@@ -54,14 +54,14 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
     }
 
     /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
     @Import(name="payer")
     private @Nullable Output<String> payer;
 
     /**
-     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * @return Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
     public Optional<Output<String>> payer() {
@@ -161,7 +161,7 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
         }
 
         /**
-         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+         * @param payer Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
         }
 
         /**
-         * @param payer Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+         * @param payer Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
          * 
          * @return builder
          * 

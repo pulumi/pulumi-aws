@@ -39,7 +39,7 @@ class ResourceConfigurationArgs:
 
         :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
@@ -107,7 +107,7 @@ class ResourceConfigurationArgs:
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         """
         return pulumi.get(self, "domain_verification_id")
 
@@ -262,7 +262,7 @@ class _ResourceConfigurationState:
         :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
         :param pulumi.Input[_builtins.str] domain_verification_arn: ARN of the domain verification.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -364,7 +364,7 @@ class _ResourceConfigurationState:
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         """
         return pulumi.get(self, "domain_verification_id")
 
@@ -639,7 +639,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_association_to_shareable_service_network: Allow or Deny the association of this resource to a shareable service network.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
@@ -849,7 +849,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the resource gateway.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name for your resource configuration. Additionally, provide a `domain_verification_id` to prove your ownership of a domain.
         :param pulumi.Input[_builtins.str] domain_verification_arn: ARN of the domain verification.
-        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        :param pulumi.Input[_builtins.str] domain_verification_id: Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         :param pulumi.Input[_builtins.str] domain_verification_status: Domain verification status.
         :param pulumi.Input[_builtins.str] name: Name for the Resource Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: Port ranges to access the Resource either single port `80` or range `80-81` range.
@@ -923,7 +923,7 @@ class ResourceConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="domainVerificationId")
     def domain_verification_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         """
         return pulumi.get(self, "domain_verification_id")
 

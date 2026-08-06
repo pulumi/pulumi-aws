@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowTask
     {
         /// <summary>
-        /// Operation to be performed on the provided source fields. See Connector Operator for details.
+        /// Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowTaskConnectorOperator> ConnectorOperators;
         /// <summary>

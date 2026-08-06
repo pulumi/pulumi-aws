@@ -16,14 +16,14 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
     public static final GatewayRouteSpecGrpcRouteArgs Empty = new GatewayRouteSpecGrpcRouteArgs();
 
     /**
-     * Action to take if a match is determined. See `action` Block for details.
+     * Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<GatewayRouteSpecGrpcRouteActionArgs> action;
 
     /**
-     * @return Action to take if a match is determined. See `action` Block for details.
+     * @return Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteActionArgs> action() {
@@ -31,14 +31,14 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Criteria for determining a request match. See `match` Block for details.
+     * Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<GatewayRouteSpecGrpcRouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining a request match. See `match` Block for details.
+     * @return Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
      * 
      */
     public Output<GatewayRouteSpecGrpcRouteMatchArgs> match() {
@@ -71,7 +71,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action Action to take if a match is determined. See `action` Block for details.
+         * @param action Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action Action to take if a match is determined. See `action` Block for details.
+         * @param action Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match Criteria for determining a request match. See `match` Block for details.
+         * @param match Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GatewayRouteSpecGrpcRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match Criteria for determining a request match. See `match` Block for details.
+         * @param match Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
          * 
          * @return builder
          * 

@@ -542,7 +542,7 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -566,7 +566,7 @@ namespace Pulumi.Aws.Ecs
         public Output<Outputs.ServiceVolumeConfiguration?> VolumeConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
         [Output("vpcLatticeConfigurations")]
         public Output<ImmutableArray<Outputs.ServiceVpcLatticeConfiguration>> VpcLatticeConfigurations { get; private set; } = null!;
@@ -864,7 +864,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceVpcLatticeConfigurationArgs>? _vpcLatticeConfigurations;
 
         /// <summary>
-        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
         public InputList<Inputs.ServiceVpcLatticeConfigurationArgs> VpcLatticeConfigurations
         {
@@ -1109,7 +1109,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1145,7 +1145,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceVpcLatticeConfigurationGetArgs>? _vpcLatticeConfigurations;
 
         /// <summary>
-        /// The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+        /// VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
         /// </summary>
         public InputList<Inputs.ServiceVpcLatticeConfigurationGetArgs> VpcLatticeConfigurations
         {

@@ -478,14 +478,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.arnWithoutRevision;
     }
     /**
-     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     @Export(name="containerDefinitions", refs={String.class}, tree="[0]")
     private Output<String> containerDefinitions;
 
     /**
-     * @return A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * @return List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
     public Output<String> containerDefinitions() {
@@ -520,14 +520,14 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return this.enableFaultInjection;
     }
     /**
-     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     @Export(name="ephemeralStorage", refs={TaskDefinitionEphemeralStorage.class}, tree="[0]")
     private Output</* @Nullable */ TaskDefinitionEphemeralStorage> ephemeralStorage;
 
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
     public Output<Optional<TaskDefinitionEphemeralStorage>> ephemeralStorage() {
@@ -548,7 +548,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.executionRoleArn);
     }
     /**
-     * A unique name for your task definition.
+     * Unique name for your task definition.
      * 
      * The following arguments are optional:
      * 
@@ -557,7 +557,7 @@ public class TaskDefinition extends com.pulumi.resources.CustomResource {
     private Output<String> family;
 
     /**
-     * @return A unique name for your task definition.
+     * @return Unique name for your task definition.
      * 
      * The following arguments are optional:
      * 

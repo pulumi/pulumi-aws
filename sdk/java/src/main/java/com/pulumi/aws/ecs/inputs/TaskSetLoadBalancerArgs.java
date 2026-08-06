@@ -18,14 +18,14 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
     public static final TaskSetLoadBalancerArgs Empty = new TaskSetLoadBalancerArgs();
 
     /**
-     * The name of the container to associate with the load balancer (as it appears in a container definition).
+     * Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
     /**
-     * @return The name of the container to associate with the load balancer (as it appears in a container definition).
+     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
     public Output<String> containerName() {
@@ -33,18 +33,14 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-     * 
-     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+     * Port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
      */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
     /**
-     * @return The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-     * 
-     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+     * @return Port on the container to associate with the load balancer. Defaults to `0` if not specified.
      * 
      */
     public Optional<Output<Integer>> containerPort() {
@@ -52,14 +48,14 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the ELB (Classic) to associate with the service.
+     * Name of the ELB (Classic) to associate with the service.
      * 
      */
     @Import(name="loadBalancerName")
     private @Nullable Output<String> loadBalancerName;
 
     /**
-     * @return The name of the ELB (Classic) to associate with the service.
+     * @return Name of the ELB (Classic) to associate with the service.
      * 
      */
     public Optional<Output<String>> loadBalancerName() {
@@ -67,14 +63,18 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of the Load Balancer target group to associate with the service.
+     * ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
     /**
-     * @return The ARN of the Load Balancer target group to associate with the service.
+     * @return ARN of the Load Balancer target group to associate with the service.
+     * 
+     * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
     public Optional<Output<String>> targetGroupArn() {
@@ -109,7 +109,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerName The name of the container to associate with the load balancer (as it appears in a container definition).
+         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerName The name of the container to associate with the load balancer (as it appears in a container definition).
+         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
          * 
          * @return builder
          * 
@@ -130,9 +130,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerPort The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-         * 
-         * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+         * @param containerPort Port on the container to associate with the load balancer. Defaults to `0` if not specified.
          * 
          * @return builder
          * 
@@ -143,9 +141,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param containerPort The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-         * 
-         * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
+         * @param containerPort Port on the container to associate with the load balancer. Defaults to `0` if not specified.
          * 
          * @return builder
          * 
@@ -155,7 +151,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param loadBalancerName The name of the ELB (Classic) to associate with the service.
+         * @param loadBalancerName Name of the ELB (Classic) to associate with the service.
          * 
          * @return builder
          * 
@@ -166,7 +162,7 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param loadBalancerName The name of the ELB (Classic) to associate with the service.
+         * @param loadBalancerName Name of the ELB (Classic) to associate with the service.
          * 
          * @return builder
          * 
@@ -176,7 +172,9 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetGroupArn The ARN of the Load Balancer target group to associate with the service.
+         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
+         * 
+         * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
          * 
          * @return builder
          * 
@@ -187,7 +185,9 @@ public final class TaskSetLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetGroupArn The ARN of the Load Balancer target group to associate with the service.
+         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
+         * 
+         * &gt; **Note:** Specifying multiple `loadBalancer` configurations is still not supported by AWS for ECS task set.
          * 
          * @return builder
          * 

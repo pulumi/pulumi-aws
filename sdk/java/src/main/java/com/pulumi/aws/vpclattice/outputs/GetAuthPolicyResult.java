@@ -18,14 +18,14 @@ public final class GetAuthPolicyResult {
      */
     private String id;
     /**
-     * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * @return Auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     private @Nullable String policy;
     private String region;
     private String resourceIdentifier;
     /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * @return State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
      * 
      */
     private @Nullable String state;
@@ -39,7 +39,7 @@ public final class GetAuthPolicyResult {
         return this.id;
     }
     /**
-     * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * @return Auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     public Optional<String> policy() {
@@ -52,7 +52,7 @@ public final class GetAuthPolicyResult {
         return this.resourceIdentifier;
     }
     /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
+     * @return State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
      * 
      */
     public Optional<String> state() {

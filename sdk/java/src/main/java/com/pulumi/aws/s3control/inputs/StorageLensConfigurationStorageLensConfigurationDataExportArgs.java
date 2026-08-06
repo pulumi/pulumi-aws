@@ -18,14 +18,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
     public static final StorageLensConfigurationStorageLensConfigurationDataExportArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportArgs();
 
     /**
-     * Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+     * Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
      * 
      */
     @Import(name="cloudWatchMetrics")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs> cloudWatchMetrics;
 
     /**
-     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+     * @return Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs>> cloudWatchMetrics() {
@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
     }
 
     /**
-     * The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+     * Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     @Import(name="s3BucketDestination")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs> s3BucketDestination;
 
     /**
-     * @return The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs>> s3BucketDestination() {
@@ -48,14 +48,14 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
     }
 
     /**
-     * S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     @Import(name="storageLensTableDestination")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs> storageLensTableDestination;
 
     /**
-     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs>> storageLensTableDestination() {
@@ -89,7 +89,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+         * @param cloudWatchMetrics Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloudWatchMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+         * @param s3BucketDestination Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+         * @param s3BucketDestination Bucket where the S3 Storage Lens metrics export will be located. See `s3BucketDestination` below for more details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportArg
         }
 
         /**
-         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens metrics export will be located. See `storageLensTableDestination` below for more details.
          * 
          * @return builder
          * 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class ScraperSourceEksArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the source EKS cluster.
+        /// ARN of the source EKS cluster.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;

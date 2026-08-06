@@ -55,6 +55,8 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// });
     /// ```
     /// 
+    /// &gt; **Note:** If the `Body` argument is provided, the OpenAPI specification will be used to configure the integrations and routes for the HTTP API, and the `aws.apigatewayv2.Integration` and `aws.apigatewayv2.Route` resources should not be managed as separate ones, as updates may cause manual resource updates to be overwritten. The `Name`, `Description`, `CorsConfiguration`, `Tags`, and `Version` fields should be specified in the Terraform configuration and their values will override any values specified in the OpenAPI document.
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -84,9 +86,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> ApiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-        /// Applicable for WebSocket APIs.
+        /// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
         /// </summary>
         [Output("apiKeySelectionExpression")]
         public Output<string?> ApiKeySelectionExpression { get; private set; } = null!;
@@ -98,13 +98,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         /// </summary>
         [Output("body")]
         public Output<string?> Body { get; private set; } = null!;
 
         /// <summary>
-        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `CorsConfiguration` Block below.
         /// </summary>
         [Output("corsConfiguration")]
         public Output<Outputs.ApiCorsConfiguration?> CorsConfiguration { get; private set; } = null!;
@@ -122,17 +122,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
-        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         /// </summary>
         [Output("disableExecuteApiEndpoint")]
         public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute
-        /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Output("executionArn")]
         public Output<string> ExecutionArn { get; private set; } = null!;
@@ -144,7 +140,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<bool?> FailOnWarnings { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
+        /// IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Output("ipAddressType")]
         public Output<string> IpAddressType { get; private set; } = null!;
@@ -157,6 +153,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("protocolType")]
         public Output<string> ProtocolType { get; private set; } = null!;
@@ -174,8 +172,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> RouteKey { get; private set; } = null!;
 
         /// <summary>
-        /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        /// Defaults to `$request.method $request.path`.
+        /// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
         /// </summary>
         [Output("routeSelectionExpression")]
         public Output<string?> RouteSelectionExpression { get; private set; } = null!;
@@ -193,9 +190,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         /// </summary>
         [Output("target")]
         public Output<string?> Target { get; private set; } = null!;
@@ -253,21 +248,19 @@ namespace Pulumi.Aws.ApiGatewayV2
     public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-        /// Applicable for WebSocket APIs.
+        /// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
         /// </summary>
         [Input("apiKeySelectionExpression")]
         public Input<string>? ApiKeySelectionExpression { get; set; }
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `CorsConfiguration` Block below.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ApiCorsConfigurationArgs>? CorsConfiguration { get; set; }
@@ -285,9 +278,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
-        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
@@ -299,7 +290,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
+        /// IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -312,6 +303,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("protocolType", required: true)]
         public Input<string> ProtocolType { get; set; } = null!;
@@ -329,8 +322,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? RouteKey { get; set; }
 
         /// <summary>
-        /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        /// Defaults to `$request.method $request.path`.
+        /// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
         /// </summary>
         [Input("routeSelectionExpression")]
         public Input<string>? RouteSelectionExpression { get; set; }
@@ -348,9 +340,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
@@ -376,9 +366,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? ApiEndpoint { get; set; }
 
         /// <summary>
-        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
-        /// Applicable for WebSocket APIs.
+        /// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`. Applicable for WebSocket APIs.
         /// </summary>
         [Input("apiKeySelectionExpression")]
         public Input<string>? ApiKeySelectionExpression { get; set; }
@@ -390,13 +378,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
+        /// OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See `CorsConfiguration` Block below.
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.ApiCorsConfigurationGetArgs>? CorsConfiguration { get; set; }
@@ -414,17 +402,13 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether clients can invoke the API by using the default `execute-api` endpoint.
-        /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
-        /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
+        /// Whether clients can invoke the API by using the default `execute-api` endpoint. By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`. To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         /// </summary>
         [Input("disableExecuteApiEndpoint")]
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute
-        /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         [Input("executionArn")]
         public Input<string>? ExecutionArn { get; set; }
@@ -436,7 +420,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<bool>? FailOnWarnings { get; set; }
 
         /// <summary>
-        /// The IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
+        /// IP address types that can invoke the API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke your API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `Ipv4`.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
@@ -449,6 +433,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }
@@ -466,8 +452,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? RouteKey { get; set; }
 
         /// <summary>
-        /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        /// Defaults to `$request.method $request.path`.
+        /// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API. Defaults to `$request.method $request.path`.
         /// </summary>
         [Input("routeSelectionExpression")]
         public Input<string>? RouteSelectionExpression { get; set; }
@@ -497,9 +482,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         /// <summary>
-        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
-        /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
-        /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
+        /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

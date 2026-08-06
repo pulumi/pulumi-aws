@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type KxClusterAutoScalingConfiguration struct {
 	// Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
 	AutoScalingMetric string `pulumi:"autoScalingMetric"`
-	// Highest number of nodes to scale. Cannot be greater than 5
+	// Highest number of nodes to scale. Cannot be greater than 5.
 	MaxNodeCount int `pulumi:"maxNodeCount"`
 	// Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
 	MetricTarget float64 `pulumi:"metricTarget"`
@@ -42,7 +42,7 @@ type KxClusterAutoScalingConfigurationInput interface {
 type KxClusterAutoScalingConfigurationArgs struct {
 	// Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
 	AutoScalingMetric pulumi.StringInput `pulumi:"autoScalingMetric"`
-	// Highest number of nodes to scale. Cannot be greater than 5
+	// Highest number of nodes to scale. Cannot be greater than 5.
 	MaxNodeCount pulumi.IntInput `pulumi:"maxNodeCount"`
 	// Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
 	MetricTarget pulumi.Float64Input `pulumi:"metricTarget"`
@@ -136,7 +136,7 @@ func (o KxClusterAutoScalingConfigurationOutput) AutoScalingMetric() pulumi.Stri
 	return o.ApplyT(func(v KxClusterAutoScalingConfiguration) string { return v.AutoScalingMetric }).(pulumi.StringOutput)
 }
 
-// Highest number of nodes to scale. Cannot be greater than 5
+// Highest number of nodes to scale. Cannot be greater than 5.
 func (o KxClusterAutoScalingConfigurationOutput) MaxNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterAutoScalingConfiguration) int { return v.MaxNodeCount }).(pulumi.IntOutput)
 }
@@ -195,7 +195,7 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) AutoScalingMetric() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Highest number of nodes to scale. Cannot be greater than 5
+// Highest number of nodes to scale. Cannot be greater than 5.
 func (o KxClusterAutoScalingConfigurationPtrOutput) MaxNodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KxClusterAutoScalingConfiguration) *int {
 		if v == nil {
@@ -246,13 +246,9 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) ScaleOutCooldownSeconds() pu
 }
 
 type KxClusterCacheStorageConfiguration struct {
+	// Size of cache in Gigabytes.
 	Size int `pulumi:"size"`
-	// Type of KDB database. The following types are available:
-	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-	// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-	// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-	// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-	// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+	// Type of cache storage. Valid values are `CACHE_1000` (1000 MB/s disk access throughput), `CACHE_250` (250 MB/s disk access throughput), and `CACHE_12` (12 MB/s disk access throughput).
 	Type string `pulumi:"type"`
 }
 
@@ -268,13 +264,9 @@ type KxClusterCacheStorageConfigurationInput interface {
 }
 
 type KxClusterCacheStorageConfigurationArgs struct {
+	// Size of cache in Gigabytes.
 	Size pulumi.IntInput `pulumi:"size"`
-	// Type of KDB database. The following types are available:
-	// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-	// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-	// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-	// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-	// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+	// Type of cache storage. Valid values are `CACHE_1000` (1000 MB/s disk access throughput), `CACHE_250` (250 MB/s disk access throughput), and `CACHE_12` (12 MB/s disk access throughput).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -329,16 +321,12 @@ func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigu
 	return o
 }
 
+// Size of cache in Gigabytes.
 func (o KxClusterCacheStorageConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Type of KDB database. The following types are available:
-// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+// Type of cache storage. Valid values are `CACHE_1000` (1000 MB/s disk access throughput), `CACHE_250` (250 MB/s disk access throughput), and `CACHE_12` (12 MB/s disk access throughput).
 func (o KxClusterCacheStorageConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterCacheStorageConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -366,16 +354,7 @@ func (o KxClusterCacheStorageConfigurationArrayOutput) Index(i pulumi.IntInput) 
 type KxClusterCapacityConfiguration struct {
 	// Number of instances running in a cluster. Must be at least 1 and at most 5.
 	NodeCount int `pulumi:"nodeCount"`
-	// Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-	//
-	// You can only specify one of the following values:
-	// * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-	// * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-	// * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-	// * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-	// * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-	// * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-	// * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
+	// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 	NodeType string `pulumi:"nodeType"`
 }
 
@@ -393,16 +372,7 @@ type KxClusterCapacityConfigurationInput interface {
 type KxClusterCapacityConfigurationArgs struct {
 	// Number of instances running in a cluster. Must be at least 1 and at most 5.
 	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
-	// Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-	//
-	// You can only specify one of the following values:
-	// * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-	// * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-	// * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-	// * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-	// * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-	// * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-	// * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
+	// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 	NodeType pulumi.StringInput `pulumi:"nodeType"`
 }
 
@@ -488,16 +458,7 @@ func (o KxClusterCapacityConfigurationOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterCapacityConfiguration) int { return v.NodeCount }).(pulumi.IntOutput)
 }
 
-// Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-//
-// You can only specify one of the following values:
-// * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-// * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-// * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-// * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-// * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-// * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-// * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
+// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 func (o KxClusterCapacityConfigurationOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterCapacityConfiguration) string { return v.NodeType }).(pulumi.StringOutput)
 }
@@ -536,16 +497,7 @@ func (o KxClusterCapacityConfigurationPtrOutput) NodeCount() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
-//
-// You can only specify one of the following values:
-// * kx.s.large - The node type with a configuration of 12 GiB memory and 2 vCPUs.
-// * kx.s.xlarge - The node type with a configuration of 27 GiB memory and 4 vCPUs.
-// * kx.s.2xlarge - The node type with a configuration of 54 GiB memory and 8 vCPUs.
-// * kx.s.4xlarge - The node type with a configuration of 108 GiB memory and 16 vCPUs.
-// * kx.s.8xlarge - The node type with a configuration of 216 GiB memory and 32 vCPUs.
-// * kx.s.16xlarge - The node type with a configuration of 432 GiB memory and 64 vCPUs.
-// * kx.s.32xlarge - The node type with a configuration of 864 GiB memory and 128 vCPUs.
+// Determines the hardware of the host computer used for your cluster instance. Valid values are `kx.s.large`, `kx.s.xlarge`, `kx.s.2xlarge`, `kx.s.4xlarge`, `kx.s.8xlarge`, `kx.s.16xlarge`, and `kx.s.32xlarge`.
 func (o KxClusterCapacityConfigurationPtrOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterCapacityConfiguration) *string {
 		if v == nil {
@@ -731,13 +683,13 @@ func (o KxClusterCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 }
 
 type KxClusterDatabase struct {
-	// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+	// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
 	CacheConfigurations []KxClusterDatabaseCacheConfiguration `pulumi:"cacheConfigurations"`
-	// A unique identifier of the changeset that is associated with the cluster.
+	// Unique identifier of the changeset that is associated with the cluster.
 	ChangesetId *string `pulumi:"changesetId"`
 	// Name of the KX database.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+	// Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
 	DataviewName *string `pulumi:"dataviewName"`
 }
 
@@ -753,13 +705,13 @@ type KxClusterDatabaseInput interface {
 }
 
 type KxClusterDatabaseArgs struct {
-	// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+	// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
 	CacheConfigurations KxClusterDatabaseCacheConfigurationArrayInput `pulumi:"cacheConfigurations"`
-	// A unique identifier of the changeset that is associated with the cluster.
+	// Unique identifier of the changeset that is associated with the cluster.
 	ChangesetId pulumi.StringPtrInput `pulumi:"changesetId"`
 	// Name of the KX database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+	// Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
 	DataviewName pulumi.StringPtrInput `pulumi:"dataviewName"`
 }
 
@@ -814,12 +766,12 @@ func (o KxClusterDatabaseOutput) ToKxClusterDatabaseOutputWithContext(ctx contex
 	return o
 }
 
-// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+// Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
 func (o KxClusterDatabaseOutput) CacheConfigurations() KxClusterDatabaseCacheConfigurationArrayOutput {
 	return o.ApplyT(func(v KxClusterDatabase) []KxClusterDatabaseCacheConfiguration { return v.CacheConfigurations }).(KxClusterDatabaseCacheConfigurationArrayOutput)
 }
 
-// A unique identifier of the changeset that is associated with the cluster.
+// Unique identifier of the changeset that is associated with the cluster.
 func (o KxClusterDatabaseOutput) ChangesetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KxClusterDatabase) *string { return v.ChangesetId }).(pulumi.StringPtrOutput)
 }
@@ -829,7 +781,7 @@ func (o KxClusterDatabaseOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterDatabase) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+// Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
 func (o KxClusterDatabaseOutput) DataviewName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KxClusterDatabase) *string { return v.DataviewName }).(pulumi.StringPtrOutput)
 }
@@ -963,10 +915,9 @@ func (o KxClusterDatabaseCacheConfigurationArrayOutput) Index(i pulumi.IntInput)
 type KxClusterSavedownStorageConfiguration struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size *int `pulumi:"size"`
-	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
 	Type *string `pulumi:"type"`
-	// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+	// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 	VolumeName *string `pulumi:"volumeName"`
 }
 
@@ -984,10 +935,9 @@ type KxClusterSavedownStorageConfigurationInput interface {
 type KxClusterSavedownStorageConfigurationArgs struct {
 	// Size of temporary storage in gigabytes. Must be between 10 and 16000.
 	Size pulumi.IntPtrInput `pulumi:"size"`
-	// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-	// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+	// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+	// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 	VolumeName pulumi.StringPtrInput `pulumi:"volumeName"`
 }
 
@@ -1073,13 +1023,12 @@ func (o KxClusterSavedownStorageConfigurationOutput) Size() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
 func (o KxClusterSavedownStorageConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 func (o KxClusterSavedownStorageConfigurationOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KxClusterSavedownStorageConfiguration) *string { return v.VolumeName }).(pulumi.StringPtrOutput)
 }
@@ -1118,8 +1067,7 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Size() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Type of writeable storage space for temporarily storing your savedown data. The valid values are:
-// * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+// Type of writeable storage space for temporarily storing your savedown data. Valid value is `SDS01`, which represents 3000 IOPS and io2 ebs volume type.
 func (o KxClusterSavedownStorageConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterSavedownStorageConfiguration) *string {
 		if v == nil {
@@ -1129,7 +1077,7 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the kdb volume that you want to use as writeable save-down storage for clusters.
+// Name of the kdb volume that you want to use as writeable save-down storage for clusters.
 func (o KxClusterSavedownStorageConfigurationPtrOutput) VolumeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterSavedownStorageConfiguration) *string {
 		if v == nil {
@@ -1140,15 +1088,15 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) VolumeName() pulumi.Stri
 }
 
 type KxClusterScalingGroupConfiguration struct {
-	// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+	// Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
 	Cpu *float64 `pulumi:"cpu"`
-	// An optional hard limit on the amount of memory a kdb cluster can use.
+	// Hard limit on the amount of memory a kdb cluster can use.
 	MemoryLimit *int `pulumi:"memoryLimit"`
-	// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+	// Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
 	MemoryReservation int `pulumi:"memoryReservation"`
-	// The number of kdb cluster nodes.
+	// Number of kdb cluster nodes.
 	NodeCount int `pulumi:"nodeCount"`
-	// A unique identifier for the kdb scaling group.
+	// Unique identifier for the kdb scaling group.
 	ScalingGroupName string `pulumi:"scalingGroupName"`
 }
 
@@ -1164,15 +1112,15 @@ type KxClusterScalingGroupConfigurationInput interface {
 }
 
 type KxClusterScalingGroupConfigurationArgs struct {
-	// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+	// Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
-	// An optional hard limit on the amount of memory a kdb cluster can use.
+	// Hard limit on the amount of memory a kdb cluster can use.
 	MemoryLimit pulumi.IntPtrInput `pulumi:"memoryLimit"`
-	// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+	// Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
 	MemoryReservation pulumi.IntInput `pulumi:"memoryReservation"`
-	// The number of kdb cluster nodes.
+	// Number of kdb cluster nodes.
 	NodeCount pulumi.IntInput `pulumi:"nodeCount"`
-	// A unique identifier for the kdb scaling group.
+	// Unique identifier for the kdb scaling group.
 	ScalingGroupName pulumi.StringInput `pulumi:"scalingGroupName"`
 }
 
@@ -1253,27 +1201,27 @@ func (o KxClusterScalingGroupConfigurationOutput) ToKxClusterScalingGroupConfigu
 	}).(KxClusterScalingGroupConfigurationPtrOutput)
 }
 
-// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+// Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
 func (o KxClusterScalingGroupConfigurationOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
 
-// An optional hard limit on the amount of memory a kdb cluster can use.
+// Hard limit on the amount of memory a kdb cluster can use.
 func (o KxClusterScalingGroupConfigurationOutput) MemoryLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) *int { return v.MemoryLimit }).(pulumi.IntPtrOutput)
 }
 
-// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+// Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
 func (o KxClusterScalingGroupConfigurationOutput) MemoryReservation() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) int { return v.MemoryReservation }).(pulumi.IntOutput)
 }
 
-// The number of kdb cluster nodes.
+// Number of kdb cluster nodes.
 func (o KxClusterScalingGroupConfigurationOutput) NodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) int { return v.NodeCount }).(pulumi.IntOutput)
 }
 
-// A unique identifier for the kdb scaling group.
+// Unique identifier for the kdb scaling group.
 func (o KxClusterScalingGroupConfigurationOutput) ScalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterScalingGroupConfiguration) string { return v.ScalingGroupName }).(pulumi.StringOutput)
 }
@@ -1302,7 +1250,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) Elem() KxClusterScalingGrou
 	}).(KxClusterScalingGroupConfigurationOutput)
 }
 
-// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
+// Number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
 func (o KxClusterScalingGroupConfigurationPtrOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *float64 {
 		if v == nil {
@@ -1312,7 +1260,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) Cpu() pulumi.Float64PtrOutp
 	}).(pulumi.Float64PtrOutput)
 }
 
-// An optional hard limit on the amount of memory a kdb cluster can use.
+// Hard limit on the amount of memory a kdb cluster can use.
 func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
 		if v == nil {
@@ -1322,7 +1270,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryLimit() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
+// Reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
 func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
 		if v == nil {
@@ -1332,7 +1280,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) MemoryReservation() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of kdb cluster nodes.
+// Number of kdb cluster nodes.
 func (o KxClusterScalingGroupConfigurationPtrOutput) NodeCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *int {
 		if v == nil {
@@ -1342,7 +1290,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) NodeCount() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A unique identifier for the kdb scaling group.
+// Unique identifier for the kdb scaling group.
 func (o KxClusterScalingGroupConfigurationPtrOutput) ScalingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterScalingGroupConfiguration) *string {
 		if v == nil {
@@ -1353,6 +1301,7 @@ func (o KxClusterScalingGroupConfigurationPtrOutput) ScalingGroupName() pulumi.S
 }
 
 type KxClusterTickerplantLogConfiguration struct {
+	// Names of the volumes for tickerplant logs.
 	TickerplantLogVolumes []string `pulumi:"tickerplantLogVolumes"`
 }
 
@@ -1368,6 +1317,7 @@ type KxClusterTickerplantLogConfigurationInput interface {
 }
 
 type KxClusterTickerplantLogConfigurationArgs struct {
+	// Names of the volumes for tickerplant logs.
 	TickerplantLogVolumes pulumi.StringArrayInput `pulumi:"tickerplantLogVolumes"`
 }
 
@@ -1422,6 +1372,7 @@ func (o KxClusterTickerplantLogConfigurationOutput) ToKxClusterTickerplantLogCon
 	return o
 }
 
+// Names of the volumes for tickerplant logs.
 func (o KxClusterTickerplantLogConfigurationOutput) TickerplantLogVolumes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KxClusterTickerplantLogConfiguration) []string { return v.TickerplantLogVolumes }).(pulumi.StringArrayOutput)
 }
@@ -1450,10 +1401,10 @@ type KxClusterVpcConfiguration struct {
 	// IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-	// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	// Identifier of the VPC endpoint
+	// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Identifier of the VPC endpoint.
 	VpcId string `pulumi:"vpcId"`
 }
 
@@ -1472,10 +1423,10 @@ type KxClusterVpcConfigurationArgs struct {
 	// IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
 	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-	// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// Identifier of the VPC endpoint
+	// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Identifier of the VPC endpoint.
 	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
@@ -1562,16 +1513,16 @@ func (o KxClusterVpcConfigurationOutput) IpAddressType() pulumi.StringOutput {
 }
 
 // Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KxClusterVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KxClusterVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Identifier of the VPC endpoint
+// Identifier of the VPC endpoint.
 func (o KxClusterVpcConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v KxClusterVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
 }
@@ -1611,7 +1562,6 @@ func (o KxClusterVpcConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutp
 }
 
 // Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-// * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KxClusterVpcConfiguration) []string {
 		if v == nil {
@@ -1621,6 +1571,7 @@ func (o KxClusterVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
 func (o KxClusterVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KxClusterVpcConfiguration) []string {
 		if v == nil {
@@ -1630,7 +1581,7 @@ func (o KxClusterVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifier of the VPC endpoint
+// Identifier of the VPC endpoint.
 func (o KxClusterVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KxClusterVpcConfiguration) *string {
 		if v == nil {
@@ -1641,11 +1592,11 @@ func (o KxClusterVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type KxDataviewSegmentConfiguration struct {
-	// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+	// Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
 	DbPaths []string `pulumi:"dbPaths"`
 	// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
 	OnDemand *bool `pulumi:"onDemand"`
-	// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+	// Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
 	VolumeName string `pulumi:"volumeName"`
 }
 
@@ -1661,11 +1612,11 @@ type KxDataviewSegmentConfigurationInput interface {
 }
 
 type KxDataviewSegmentConfigurationArgs struct {
-	// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+	// Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
 	DbPaths pulumi.StringArrayInput `pulumi:"dbPaths"`
 	// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
 	OnDemand pulumi.BoolPtrInput `pulumi:"onDemand"`
-	// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+	// Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
 	VolumeName pulumi.StringInput `pulumi:"volumeName"`
 }
 
@@ -1720,7 +1671,7 @@ func (o KxDataviewSegmentConfigurationOutput) ToKxDataviewSegmentConfigurationOu
 	return o
 }
 
-// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+// Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
 func (o KxDataviewSegmentConfigurationOutput) DbPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KxDataviewSegmentConfiguration) []string { return v.DbPaths }).(pulumi.StringArrayOutput)
 }
@@ -1730,7 +1681,7 @@ func (o KxDataviewSegmentConfigurationOutput) OnDemand() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KxDataviewSegmentConfiguration) *bool { return v.OnDemand }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+// Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
 func (o KxDataviewSegmentConfigurationOutput) VolumeName() pulumi.StringOutput {
 	return o.ApplyT(func(v KxDataviewSegmentConfiguration) string { return v.VolumeName }).(pulumi.StringOutput)
 }
@@ -2039,15 +1990,15 @@ func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) TransitGatewayId() pu
 }
 
 type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration struct {
-	// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+	// IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
 	CidrBlock string `pulumi:"cidrBlock"`
-	// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+	// ICMP protocol that consists of the ICMP type and code. Defined below.
 	IcmpTypeCode *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode `pulumi:"icmpTypeCode"`
 	// Range of ports the rule applies to. Defined below.
 	PortRange *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange `pulumi:"portRange"`
 	// Protocol number. A value of `1` means all the protocols.
 	Protocol string `pulumi:"protocol"`
-	// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+	// Whether to `allow` or `deny` the traffic that matches the rule.
 	RuleAction string `pulumi:"ruleAction"`
 	// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
 	RuleNumber int `pulumi:"ruleNumber"`
@@ -2065,15 +2016,15 @@ type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIn
 }
 
 type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs struct {
-	// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+	// IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
-	// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+	// ICMP protocol that consists of the ICMP type and code. Defined below.
 	IcmpTypeCode KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrInput `pulumi:"icmpTypeCode"`
 	// Range of ports the rule applies to. Defined below.
 	PortRange KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrInput `pulumi:"portRange"`
 	// Protocol number. A value of `1` means all the protocols.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+	// Whether to `allow` or `deny` the traffic that matches the rule.
 	RuleAction pulumi.StringInput `pulumi:"ruleAction"`
 	// Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
 	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
@@ -2130,14 +2081,14 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return o
 }
 
-// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+// IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) string {
 		return v.CidrBlock
 	}).(pulumi.StringOutput)
 }
 
-// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+// ICMP protocol that consists of the ICMP type and code. Defined below.
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) IcmpTypeCode() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
 	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
 		return v.IcmpTypeCode
@@ -2158,7 +2109,7 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	}).(pulumi.StringOutput)
 }
 
-// Indicates whether to `allow` or `deny` the traffic that matches the rule.
+// Whether to `allow` or `deny` the traffic that matches the rule.
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) RuleAction() pulumi.StringOutput {
 	return o.ApplyT(func(v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration) string {
 		return v.RuleAction
@@ -2513,9 +2464,12 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 }
 
 type KxVolumeAttachedCluster struct {
-	ClusterName   string `pulumi:"clusterName"`
+	// Name of the KX cluster.
+	ClusterName string `pulumi:"clusterName"`
+	// Status of the KX cluster.
 	ClusterStatus string `pulumi:"clusterStatus"`
-	ClusterType   string `pulumi:"clusterType"`
+	// Type of the KX cluster.
+	ClusterType string `pulumi:"clusterType"`
 }
 
 // KxVolumeAttachedClusterInput is an input type that accepts KxVolumeAttachedClusterArgs and KxVolumeAttachedClusterOutput values.
@@ -2530,9 +2484,12 @@ type KxVolumeAttachedClusterInput interface {
 }
 
 type KxVolumeAttachedClusterArgs struct {
-	ClusterName   pulumi.StringInput `pulumi:"clusterName"`
+	// Name of the KX cluster.
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Status of the KX cluster.
 	ClusterStatus pulumi.StringInput `pulumi:"clusterStatus"`
-	ClusterType   pulumi.StringInput `pulumi:"clusterType"`
+	// Type of the KX cluster.
+	ClusterType pulumi.StringInput `pulumi:"clusterType"`
 }
 
 func (KxVolumeAttachedClusterArgs) ElementType() reflect.Type {
@@ -2586,14 +2543,17 @@ func (o KxVolumeAttachedClusterOutput) ToKxVolumeAttachedClusterOutputWithContex
 	return o
 }
 
+// Name of the KX cluster.
 func (o KxVolumeAttachedClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
+// Status of the KX cluster.
 func (o KxVolumeAttachedClusterOutput) ClusterStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterStatus }).(pulumi.StringOutput)
 }
 
+// Type of the KX cluster.
 func (o KxVolumeAttachedClusterOutput) ClusterType() pulumi.StringOutput {
 	return o.ApplyT(func(v KxVolumeAttachedCluster) string { return v.ClusterType }).(pulumi.StringOutput)
 }
@@ -2619,9 +2579,9 @@ func (o KxVolumeAttachedClusterArrayOutput) Index(i pulumi.IntInput) KxVolumeAtt
 }
 
 type KxVolumeNas1Configuration struct {
-	// The size of the network attached storage.
+	// Size of the network attached storage.
 	Size int `pulumi:"size"`
-	// The type of the network attached storage.
+	// Type of the network attached storage.
 	Type string `pulumi:"type"`
 }
 
@@ -2637,9 +2597,9 @@ type KxVolumeNas1ConfigurationInput interface {
 }
 
 type KxVolumeNas1ConfigurationArgs struct {
-	// The size of the network attached storage.
+	// Size of the network attached storage.
 	Size pulumi.IntInput `pulumi:"size"`
-	// The type of the network attached storage.
+	// Type of the network attached storage.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2694,12 +2654,12 @@ func (o KxVolumeNas1ConfigurationOutput) ToKxVolumeNas1ConfigurationOutputWithCo
 	return o
 }
 
-// The size of the network attached storage.
+// Size of the network attached storage.
 func (o KxVolumeNas1ConfigurationOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v KxVolumeNas1Configuration) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// The type of the network attached storage.
+// Type of the network attached storage.
 func (o KxVolumeNas1ConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v KxVolumeNas1Configuration) string { return v.Type }).(pulumi.StringOutput)
 }

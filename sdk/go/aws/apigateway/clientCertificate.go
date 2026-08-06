@@ -57,7 +57,7 @@ type ClientCertificate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Date when the client certificate will expire.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// The PEM-encoded public key of the client certificate.
+	// PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringOutput `pulumi:"pemEncodedCertificate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -105,7 +105,7 @@ type clientCertificateState struct {
 	Description *string `pulumi:"description"`
 	// Date when the client certificate will expire.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// The PEM-encoded public key of the client certificate.
+	// PEM-encoded public key of the client certificate.
 	PemEncodedCertificate *string `pulumi:"pemEncodedCertificate"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -124,7 +124,7 @@ type ClientCertificateState struct {
 	Description pulumi.StringPtrInput
 	// Date when the client certificate will expire.
 	ExpirationDate pulumi.StringPtrInput
-	// The PEM-encoded public key of the client certificate.
+	// PEM-encoded public key of the client certificate.
 	PemEncodedCertificate pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o ClientCertificateOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
-// The PEM-encoded public key of the client certificate.
+// PEM-encoded public key of the client certificate.
 func (o ClientCertificateOutput) PemEncodedCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClientCertificate) pulumi.StringOutput { return v.PemEncodedCertificate }).(pulumi.StringOutput)
 }

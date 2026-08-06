@@ -32,14 +32,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
     }
 
     /**
-     * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
      * 
      */
     @Import(name="s3InputFormatConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> s3InputFormatConfig;
 
     /**
-     * @return When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+     * @return When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs>> s3InputFormatConfig() {
@@ -91,7 +91,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3Args extends c
         }
 
         /**
-         * @param s3InputFormatConfig When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         * @param s3InputFormatConfig When you use Amazon S3 as the source, configuration format that you provide for the flow input data. See the `source_flow_config.source_connector_properties.s3.s3_input_format_config` Block for details.
          * 
          * @return builder
          * 

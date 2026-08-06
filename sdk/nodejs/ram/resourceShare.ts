@@ -62,19 +62,19 @@ export class ResourceShare extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
+     * Whether principals outside your organization can be associated with a resource share.
      */
     declare public readonly allowExternalPrincipals: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     declare public readonly permissionArns: pulumi.Output<string[]>;
     /**
@@ -82,15 +82,15 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      */
     declare public readonly resourceShareConfiguration: pulumi.Output<outputs.ram.ResourceShareResourceShareConfiguration>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -136,19 +136,19 @@ export class ResourceShare extends pulumi.CustomResource {
  */
 export interface ResourceShareState {
     /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
+     * Whether principals outside your organization can be associated with a resource share.
      */
     allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -156,15 +156,15 @@ export interface ResourceShareState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      */
     resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration | undefined>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -174,15 +174,15 @@ export interface ResourceShareState {
  */
 export interface ResourceShareArgs {
     /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
+     * Whether principals outside your organization can be associated with a resource share.
      */
     allowExternalPrincipals?: pulumi.Input<boolean | undefined>;
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
     permissionArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -190,11 +190,11 @@ export interface ResourceShareArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      */
     resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareResourceShareConfiguration | undefined>;
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class BucketV2ServerSideEncryptionConfiguration {
     /**
-     * @return Single object for server-side encryption by default configuration. (documented below)
+     * @return Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
      * 
      */
     private List<BucketV2ServerSideEncryptionConfigurationRule> rules;
 
     private BucketV2ServerSideEncryptionConfiguration() {}
     /**
-     * @return Single object for server-side encryption by default configuration. (documented below)
+     * @return Single object for server-side encryption by default configuration. See `server_side_encryption_configuration.rule` Block below for details.
      * 
      */
     public List<BucketV2ServerSideEncryptionConfigurationRule> rules() {

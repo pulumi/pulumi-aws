@@ -63,9 +63,7 @@ type Namespace struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -115,9 +113,7 @@ type namespaceState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Account ID of the account that created the namespace.
 	CreatedBy *string `pulumi:"createdBy"`
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace *string `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -132,9 +128,7 @@ type NamespaceState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Account ID of the account that created the namespace.
 	CreatedBy pulumi.StringPtrInput
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringPtrInput
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringPtrInput
@@ -149,9 +143,7 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -161,9 +153,7 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Name of the namespace.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -268,9 +258,7 @@ func (o NamespaceOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// Name of the namespace.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+// Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }

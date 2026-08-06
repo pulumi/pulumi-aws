@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Odb.Inputs
         }
 
         /// <summary>
-        /// Specifies the endpoint policy for KMS access from the ODB network.
+        /// Endpoint policy for KMS access from the ODB network.
         /// </summary>
         [Input("kmsPolicyDocument", required: true)]
         public Input<string> KmsPolicyDocument { get; set; } = null!;
 
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

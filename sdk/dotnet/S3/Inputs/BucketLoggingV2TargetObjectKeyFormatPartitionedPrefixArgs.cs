@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
+        /// Partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
         /// </summary>
         [Input("partitionDateSource", required: true)]
         public Input<string> PartitionDateSource { get; set; } = null!;

@@ -16,14 +16,14 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
     public static final ScraperRoleConfigurationArgs Empty = new ScraperRoleConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+     * ARN of the source role configuration. Must be an IAM role ARN.
      * 
      */
     @Import(name="sourceRoleArn")
     private @Nullable Output<String> sourceRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+     * @return ARN of the source role configuration. Must be an IAM role ARN.
      * 
      */
     public Optional<Output<String>> sourceRoleArn() {
@@ -31,14 +31,14 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+     * ARN of the target role configuration. Must be an IAM role ARN.
      * 
      */
     @Import(name="targetRoleArn")
     private @Nullable Output<String> targetRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+     * @return ARN of the target role configuration. Must be an IAM role ARN.
      * 
      */
     public Optional<Output<String>> targetRoleArn() {
@@ -71,7 +71,7 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param sourceRoleArn The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+         * @param sourceRoleArn ARN of the source role configuration. Must be an IAM role ARN.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param sourceRoleArn The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+         * @param sourceRoleArn ARN of the source role configuration. Must be an IAM role ARN.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+         * @param targetRoleArn ARN of the target role configuration. Must be an IAM role ARN.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ScraperRoleConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+         * @param targetRoleArn ARN of the target role configuration. Must be an IAM role ARN.
          * 
          * @return builder
          * 

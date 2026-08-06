@@ -17,14 +17,14 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
     public static final PrincipalAssociationArgs Empty = new PrincipalAssociationArgs();
 
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * @return Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
     public Output<String> principal() {
@@ -47,14 +47,14 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      * 
      */
     @Import(name="resourceShareArn", required=true)
     private Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return Amazon Resource Name (ARN) of the resource share.
      * 
      */
     public Output<String> resourceShareArn() {
@@ -88,7 +88,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param principal The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+         * @param principal Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param principal The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+         * @param principal Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share.
+         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) of the resource share.
+         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share.
          * 
          * @return builder
          * 

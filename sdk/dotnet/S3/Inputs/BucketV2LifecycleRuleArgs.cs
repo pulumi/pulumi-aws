@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LifecycleRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+        /// Number of days after initiating a multipart upload when the multipart upload must be completed.
         /// </summary>
         [Input("abortIncompleteMultipartUploadDays")]
         public Input<int>? AbortIncompleteMultipartUploadDays { get; set; }
 
         /// <summary>
-        /// Specifies lifecycle rule status.
+        /// Lifecycle rule status.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleExpirationArgs>? _expirations;
 
         /// <summary>
-        /// Specifies a period in the object's expire. See Expiration below for details.
+        /// Configuration of the object expiration. See `Expiration` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2LifecycleRuleExpirationArgs> Expirations
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs>? _noncurrentVersionExpirations;
 
         /// <summary>
-        /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        /// When noncurrent object versions expire. See `NoncurrentVersionExpiration` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs> NoncurrentVersionExpirations
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs>? _noncurrentVersionTransitions;
 
         /// <summary>
-        /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+        /// When noncurrent object versions transition. See `NoncurrentVersionTransition` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs> NoncurrentVersionTransitions
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Specifies object tags key and value.
+        /// Object tags key and value.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleTransitionArgs>? _transitions;
 
         /// <summary>
-        /// Specifies a period in the object's transitions. See Transition below for details.
+        /// Configuration of the object transition. See `Transition` Block below for details.
         /// </summary>
         public InputList<Inputs.BucketV2LifecycleRuleTransitionArgs> Transitions
         {

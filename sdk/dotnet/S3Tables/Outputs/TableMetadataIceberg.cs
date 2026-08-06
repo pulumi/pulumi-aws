@@ -18,8 +18,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// Schema configuration for the Iceberg table.
-        /// See `Schema` below.
+        /// Schema configuration for the Iceberg table. See `Schema` below.
         /// </summary>
         public readonly Outputs.TableMetadataIcebergSchema Schema;
 

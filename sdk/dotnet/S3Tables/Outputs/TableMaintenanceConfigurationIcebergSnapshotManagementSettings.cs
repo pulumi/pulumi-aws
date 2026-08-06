@@ -14,13 +14,11 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableMaintenanceConfigurationIcebergSnapshotManagementSettings
     {
         /// <summary>
-        /// Snapshots older than this will be marked for deletion.
-        /// Must be at least `1`.
+        /// Snapshots older than this will be marked for deletion. Must be at least `1`.
         /// </summary>
         public readonly int MaxSnapshotAgeHours;
         /// <summary>
-        /// Minimum number of snapshots to keep.
-        /// Must be at least `1`.
+        /// Minimum number of snapshots to keep. Must be at least `1`.
         /// </summary>
         public readonly int MinSnapshotsToKeep;
 

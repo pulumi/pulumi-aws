@@ -18,14 +18,14 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
     public static final VirtualNodeSpecListenerTlsValidationArgs Empty = new VirtualNodeSpecListenerTlsValidationArgs();
 
     /**
-     * SANs for a TLS validation context.
+     * SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return SANs for a TLS validation context.
+     * @return SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -33,14 +33,14 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
     }
 
     /**
-     * TLS validation context trust.
+     * TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
      * 
      */
     @Import(name="trust", required=true)
     private Output<VirtualNodeSpecListenerTlsValidationTrustArgs> trust;
 
     /**
-     * @return TLS validation context trust.
+     * @return TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
      * 
      */
     public Output<VirtualNodeSpecListenerTlsValidationTrustArgs> trust() {
@@ -73,7 +73,7 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
         }
 
         /**
-         * @param subjectAlternativeNames SANs for a TLS validation context.
+         * @param subjectAlternativeNames SANs for a TLS validation context. See `spec.listener.tls.validation.subject_alternative_names` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
         }
 
         /**
-         * @param trust TLS validation context trust.
+         * @param trust TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class VirtualNodeSpecListenerTlsValidationArgs extends com.pulumi.r
         }
 
         /**
-         * @param trust TLS validation context trust.
+         * @param trust TLS validation context trust. See `spec.listener.tls.validation.trust` Block for details.
          * 
          * @return builder
          * 

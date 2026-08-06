@@ -224,28 +224,28 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The target group configuration.
+     * Target group configuration. See `config` Block below.
      * 
      */
     @Export(name="config", refs={TargetGroupConfig.class}, tree="[0]")
     private Output</* @Nullable */ TargetGroupConfig> config;
 
     /**
-     * @return The target group configuration.
+     * @return Target group configuration. See `config` Block below.
      * 
      */
     public Output<Optional<TargetGroupConfig>> config() {
         return Codegen.optional(this.config);
     }
     /**
-     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * @return Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     public Output<String> name() {
@@ -308,7 +308,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      * 
      * The following arguments are optional:
      * 
@@ -317,7 +317,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * @return Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      * 
      * The following arguments are optional:
      * 

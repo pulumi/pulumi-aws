@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateLogConfigurationS3Configuration {
-    /**
-     * @return The name of the destination bucket.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     private @Nullable String prefix;
 
     private ExperimentTemplateLogConfigurationS3Configuration() {}
-    /**
-     * @return The name of the destination bucket.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The bucket prefix.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

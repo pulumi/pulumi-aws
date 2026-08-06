@@ -55,9 +55,9 @@ func GetDbNode(ctx *pulumi.Context, args *GetDbNodeArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getDbNode.
 type GetDbNodeArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
-	// The unique identifier of db node associated with vm cluster.
+	// Unique identifier of db node associated with vm cluster.
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
@@ -69,60 +69,61 @@ type GetDbNodeArgs struct {
 type GetDbNodeResult struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails string `pulumi:"additionalDetails"`
-	Arn               string `pulumi:"arn"`
-	// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+	// ARN of the DB node.
+	Arn string `pulumi:"arn"`
+	// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 	BackupIpId string `pulumi:"backupIpId"`
-	// The OCID of the second backup VNIC.
+	// OCID of the second backup VNIC.
 	BackupVnic2Id string `pulumi:"backupVnic2Id"`
-	// The OCID of the backup VNIC.
+	// OCID of the backup VNIC.
 	BackupVnicId string `pulumi:"backupVnicId"`
-	// The ID of the cloud VM cluster.
+	// ID of the cloud VM cluster.
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
-	// The number of CPU cores enabled on the DB node.
+	// Number of CPU cores enabled on the DB node.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
-	// The date and time when the DB node was created.
+	// Date and time when the DB node was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// The unique identifier of the DB server that is associated with the DB node.
+	// Unique identifier of the DB server that is associated with the DB node.
 	DbServerId string `pulumi:"dbServerId"`
-	// The amount of local node storage, in gigabytes (GB), allocated on the DB node.
+	// Amount of local node storage, in gigabytes (GB), allocated on the DB node.
 	DbStorageSizeInGbs int `pulumi:"dbStorageSizeInGbs"`
-	// The OCID of the DB system.
+	// OCID of the DB system.
 	DbSystemId string `pulumi:"dbSystemId"`
-	// The name of the fault domain the instance is contained in.
+	// Name of the fault domain the instance is contained in.
 	FaultDomain string `pulumi:"faultDomain"`
-	// The floating IP address assigned to the DB node.
+	// Floating IP address assigned to the DB node.
 	FloatingIpAddress string `pulumi:"floatingIpAddress"`
-	// The OCID of the host IP address that's associated with the DB node.
+	// OCID of the host IP address that's associated with the DB node.
 	HostIpId string `pulumi:"hostIpId"`
-	// The host name for the DB node.
+	// Host name for the DB node.
 	Hostname string `pulumi:"hostname"`
 	Id       string `pulumi:"id"`
-	// The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
+	// Type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
 	MaintenanceType string `pulumi:"maintenanceType"`
-	// The allocated memory in GBs on the DB node.
+	// Allocated memory in GBs on the DB node.
 	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
-	// The name of the OCI resource anchor for the DB node.
+	// Name of the OCI resource anchor for the DB node.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The OCID of the DB node.
+	// OCID of the DB node.
 	Ocid string `pulumi:"ocid"`
-	// The private IP address assigned to the DB node.
+	// Private IP address assigned to the DB node.
 	PrivateIpAddress string `pulumi:"privateIpAddress"`
 	Region           string `pulumi:"region"`
-	// The size (in GB) of the block storage volume allocation for the DB system.
+	// Size (in GB) of the block storage volume allocation for the DB system.
 	SoftwareStorageSizeInGbs int `pulumi:"softwareStorageSizeInGbs"`
-	// The current status of the DB node.
+	// Current status of the DB node.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the DB node.
 	StatusReason string `pulumi:"statusReason"`
-	// The end date and time of the maintenance window.
+	// End date and time of the maintenance window.
 	TimeMaintenanceWindowEnd string `pulumi:"timeMaintenanceWindowEnd"`
-	// The start date and time of the maintenance window.
+	// Start date and time of the maintenance window.
 	TimeMaintenanceWindowStart string `pulumi:"timeMaintenanceWindowStart"`
-	// The total number of CPU cores reserved on the DB node.
+	// Total number of CPU cores reserved on the DB node.
 	TotalCpuCoreCount int `pulumi:"totalCpuCoreCount"`
-	// The OCID of the second VNIC.
+	// OCID of the second VNIC.
 	Vnic2Id string `pulumi:"vnic2Id"`
-	// The OCID of the VNIC.
+	// OCID of the VNIC.
 	VnicId string `pulumi:"vnicId"`
 }
 
@@ -137,9 +138,9 @@ func GetDbNodeOutput(ctx *pulumi.Context, args GetDbNodeOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getDbNode.
 type GetDbNodeOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	CloudVmClusterId pulumi.StringInput `pulumi:"cloudVmClusterId"`
-	// The unique identifier of db node associated with vm cluster.
+	// Unique identifier of db node associated with vm cluster.
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
@@ -171,71 +172,72 @@ func (o GetDbNodeResultOutput) AdditionalDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.AdditionalDetails }).(pulumi.StringOutput)
 }
 
+// ARN of the DB node.
 func (o GetDbNodeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 func (o GetDbNodeResultOutput) BackupIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.BackupIpId }).(pulumi.StringOutput)
 }
 
-// The OCID of the second backup VNIC.
+// OCID of the second backup VNIC.
 func (o GetDbNodeResultOutput) BackupVnic2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.BackupVnic2Id }).(pulumi.StringOutput)
 }
 
-// The OCID of the backup VNIC.
+// OCID of the backup VNIC.
 func (o GetDbNodeResultOutput) BackupVnicId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.BackupVnicId }).(pulumi.StringOutput)
 }
 
-// The ID of the cloud VM cluster.
+// ID of the cloud VM cluster.
 func (o GetDbNodeResultOutput) CloudVmClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.CloudVmClusterId }).(pulumi.StringOutput)
 }
 
-// The number of CPU cores enabled on the DB node.
+// Number of CPU cores enabled on the DB node.
 func (o GetDbNodeResultOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodeResult) int { return v.CpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The date and time when the DB node was created.
+// Date and time when the DB node was created.
 func (o GetDbNodeResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the DB server that is associated with the DB node.
+// Unique identifier of the DB server that is associated with the DB node.
 func (o GetDbNodeResultOutput) DbServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.DbServerId }).(pulumi.StringOutput)
 }
 
-// The amount of local node storage, in gigabytes (GB), allocated on the DB node.
+// Amount of local node storage, in gigabytes (GB), allocated on the DB node.
 func (o GetDbNodeResultOutput) DbStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodeResult) int { return v.DbStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The OCID of the DB system.
+// OCID of the DB system.
 func (o GetDbNodeResultOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
-// The name of the fault domain the instance is contained in.
+// Name of the fault domain the instance is contained in.
 func (o GetDbNodeResultOutput) FaultDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.FaultDomain }).(pulumi.StringOutput)
 }
 
-// The floating IP address assigned to the DB node.
+// Floating IP address assigned to the DB node.
 func (o GetDbNodeResultOutput) FloatingIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.FloatingIpAddress }).(pulumi.StringOutput)
 }
 
-// The OCID of the host IP address that's associated with the DB node.
+// OCID of the host IP address that's associated with the DB node.
 func (o GetDbNodeResultOutput) HostIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.HostIpId }).(pulumi.StringOutput)
 }
 
-// The host name for the DB node.
+// Host name for the DB node.
 func (o GetDbNodeResultOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Hostname }).(pulumi.StringOutput)
 }
@@ -244,27 +246,27 @@ func (o GetDbNodeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
+// Type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
 func (o GetDbNodeResultOutput) MaintenanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.MaintenanceType }).(pulumi.StringOutput)
 }
 
-// The allocated memory in GBs on the DB node.
+// Allocated memory in GBs on the DB node.
 func (o GetDbNodeResultOutput) MemorySizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodeResult) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
 }
 
-// The name of the OCI resource anchor for the DB node.
+// Name of the OCI resource anchor for the DB node.
 func (o GetDbNodeResultOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The OCID of the DB node.
+// OCID of the DB node.
 func (o GetDbNodeResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The private IP address assigned to the DB node.
+// Private IP address assigned to the DB node.
 func (o GetDbNodeResultOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -273,12 +275,12 @@ func (o GetDbNodeResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The size (in GB) of the block storage volume allocation for the DB system.
+// Size (in GB) of the block storage volume allocation for the DB system.
 func (o GetDbNodeResultOutput) SoftwareStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodeResult) int { return v.SoftwareStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The current status of the DB node.
+// Current status of the DB node.
 func (o GetDbNodeResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -288,27 +290,27 @@ func (o GetDbNodeResultOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The end date and time of the maintenance window.
+// End date and time of the maintenance window.
 func (o GetDbNodeResultOutput) TimeMaintenanceWindowEnd() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.TimeMaintenanceWindowEnd }).(pulumi.StringOutput)
 }
 
-// The start date and time of the maintenance window.
+// Start date and time of the maintenance window.
 func (o GetDbNodeResultOutput) TimeMaintenanceWindowStart() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.TimeMaintenanceWindowStart }).(pulumi.StringOutput)
 }
 
-// The total number of CPU cores reserved on the DB node.
+// Total number of CPU cores reserved on the DB node.
 func (o GetDbNodeResultOutput) TotalCpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbNodeResult) int { return v.TotalCpuCoreCount }).(pulumi.IntOutput)
 }
 
-// The OCID of the second VNIC.
+// OCID of the second VNIC.
 func (o GetDbNodeResultOutput) Vnic2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.Vnic2Id }).(pulumi.StringOutput)
 }
 
-// The OCID of the VNIC.
+// OCID of the VNIC.
 func (o GetDbNodeResultOutput) VnicId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodeResult) string { return v.VnicId }).(pulumi.StringOutput)
 }

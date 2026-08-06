@@ -57,8 +57,8 @@ class AppAuthorizationConnectionAuthRequest(dict):
                  code: _builtins.str,
                  redirect_uri: _builtins.str):
         """
-        :param _builtins.str code: The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        :param _builtins.str redirect_uri: The redirect URL that is specified in the AuthURL and the application client.
+        :param _builtins.str code: Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
+        :param _builtins.str redirect_uri: Redirect URL that is specified in the AuthURL and the application client.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "redirect_uri", redirect_uri)
@@ -67,7 +67,7 @@ class AppAuthorizationConnectionAuthRequest(dict):
     @pulumi.getter
     def code(self) -> _builtins.str:
         """
-        The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+        Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
         """
         return pulumi.get(self, "code")
 
@@ -75,7 +75,7 @@ class AppAuthorizationConnectionAuthRequest(dict):
     @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> _builtins.str:
         """
-        The redirect URL that is specified in the AuthURL and the application client.
+        Redirect URL that is specified in the AuthURL and the application client.
         """
         return pulumi.get(self, "redirect_uri")
 
@@ -162,8 +162,8 @@ class AppAuthorizationCredential(dict):
                  api_key_credentials: Optional[Sequence['outputs.AppAuthorizationCredentialApiKeyCredential']] = None,
                  oauth2_credential: Optional['outputs.AppAuthorizationCredentialOauth2Credential'] = None):
         """
-        :param Sequence['AppAuthorizationCredentialApiKeyCredentialArgs'] api_key_credentials: Contains API key credential information.
-        :param 'AppAuthorizationCredentialOauth2CredentialArgs' oauth2_credential: Contains OAuth2 client credential information.
+        :param Sequence['AppAuthorizationCredentialApiKeyCredentialArgs'] api_key_credentials: API key credential information. See `api_key_credential` Block for details.
+        :param 'AppAuthorizationCredentialOauth2CredentialArgs' oauth2_credential: OAuth2 client credential information. See `oauth2_credential` Block for details.
         """
         if api_key_credentials is not None:
             pulumi.set(__self__, "api_key_credentials", api_key_credentials)
@@ -174,7 +174,7 @@ class AppAuthorizationCredential(dict):
     @pulumi.getter(name="apiKeyCredentials")
     def api_key_credentials(self) -> Optional[Sequence['outputs.AppAuthorizationCredentialApiKeyCredential']]:
         """
-        Contains API key credential information.
+        API key credential information. See `api_key_credential` Block for details.
         """
         return pulumi.get(self, "api_key_credentials")
 
@@ -182,7 +182,7 @@ class AppAuthorizationCredential(dict):
     @pulumi.getter(name="oauth2Credential")
     def oauth2_credential(self) -> Optional['outputs.AppAuthorizationCredentialOauth2Credential']:
         """
-        Contains OAuth2 client credential information.
+        OAuth2 client credential information. See `oauth2_credential` Block for details.
         """
         return pulumi.get(self, "oauth2_credential")
 
@@ -209,7 +209,7 @@ class AppAuthorizationCredentialApiKeyCredential(dict):
     def __init__(__self__, *,
                  api_key: _builtins.str):
         """
-        :param _builtins.str api_key: Contains API key credential information.
+        :param _builtins.str api_key: API key.
         """
         pulumi.set(__self__, "api_key", api_key)
 
@@ -217,7 +217,7 @@ class AppAuthorizationCredentialApiKeyCredential(dict):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> _builtins.str:
         """
-        Contains API key credential information.
+        API key.
         """
         return pulumi.get(self, "api_key")
 
@@ -247,8 +247,8 @@ class AppAuthorizationCredentialOauth2Credential(dict):
                  client_id: _builtins.str,
                  client_secret: _builtins.str):
         """
-        :param _builtins.str client_id: The client ID of the client application.
-        :param _builtins.str client_secret: The client secret of the client application.
+        :param _builtins.str client_id: Client ID of the client application.
+        :param _builtins.str client_secret: Client secret of the client application.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -257,7 +257,7 @@ class AppAuthorizationCredentialOauth2Credential(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> _builtins.str:
         """
-        The client ID of the client application.
+        Client ID of the client application.
         """
         return pulumi.get(self, "client_id")
 
@@ -265,7 +265,7 @@ class AppAuthorizationCredentialOauth2Credential(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
         """
-        The client secret of the client application.
+        Client secret of the client application.
         """
         return pulumi.get(self, "client_secret")
 
@@ -295,8 +295,8 @@ class AppAuthorizationTenant(dict):
                  tenant_display_name: _builtins.str,
                  tenant_identifier: _builtins.str):
         """
-        :param _builtins.str tenant_display_name: The display name of the tenant.
-        :param _builtins.str tenant_identifier: The ID of the application tenant.
+        :param _builtins.str tenant_display_name: Display name of the tenant.
+        :param _builtins.str tenant_identifier: ID of the application tenant.
         """
         pulumi.set(__self__, "tenant_display_name", tenant_display_name)
         pulumi.set(__self__, "tenant_identifier", tenant_identifier)
@@ -305,7 +305,7 @@ class AppAuthorizationTenant(dict):
     @pulumi.getter(name="tenantDisplayName")
     def tenant_display_name(self) -> _builtins.str:
         """
-        The display name of the tenant.
+        Display name of the tenant.
         """
         return pulumi.get(self, "tenant_display_name")
 
@@ -313,7 +313,7 @@ class AppAuthorizationTenant(dict):
     @pulumi.getter(name="tenantIdentifier")
     def tenant_identifier(self) -> _builtins.str:
         """
-        The ID of the application tenant.
+        ID of the application tenant.
         """
         return pulumi.get(self, "tenant_identifier")
 
@@ -383,7 +383,7 @@ class IngestionDestinationDestinationConfiguration(dict):
     def __init__(__self__, *,
                  audit_log: 'outputs.IngestionDestinationDestinationConfigurationAuditLog'):
         """
-        :param 'IngestionDestinationDestinationConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
+        :param 'IngestionDestinationDestinationConfigurationAuditLogArgs' audit_log: Audit log destination configuration. See `destination_configuration.audit_log` Block below.
         """
         pulumi.set(__self__, "audit_log", audit_log)
 
@@ -391,7 +391,7 @@ class IngestionDestinationDestinationConfiguration(dict):
     @pulumi.getter(name="auditLog")
     def audit_log(self) -> 'outputs.IngestionDestinationDestinationConfigurationAuditLog':
         """
-        Contains information about an audit log processing configuration.
+        Audit log destination configuration. See `destination_configuration.audit_log` Block below.
         """
         return pulumi.get(self, "audit_log")
 
@@ -401,7 +401,7 @@ class IngestionDestinationDestinationConfigurationAuditLog(dict):
     def __init__(__self__, *,
                  destination: 'outputs.IngestionDestinationDestinationConfigurationAuditLogDestination'):
         """
-        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs' destination: Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs' destination: Destination for the audit log. Only one destination, either `firehose_stream` or `s3_bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -409,7 +409,7 @@ class IngestionDestinationDestinationConfigurationAuditLog(dict):
     @pulumi.getter
     def destination(self) -> 'outputs.IngestionDestinationDestinationConfigurationAuditLogDestination':
         """
-        Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+        Destination for the audit log. Only one destination, either `firehose_stream` or `s3_bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
         """
         return pulumi.get(self, "destination")
 
@@ -439,8 +439,8 @@ class IngestionDestinationDestinationConfigurationAuditLogDestination(dict):
                  firehose_stream: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream'] = None,
                  s3_bucket: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket'] = None):
         """
-        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs' firehose_stream: Contains information about an Amazon Data Firehose delivery stream.
-        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs' s3_bucket: Contains information about an Amazon S3 bucket.
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs' firehose_stream: Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs' s3_bucket: Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
         """
         if firehose_stream is not None:
             pulumi.set(__self__, "firehose_stream", firehose_stream)
@@ -451,7 +451,7 @@ class IngestionDestinationDestinationConfigurationAuditLogDestination(dict):
     @pulumi.getter(name="firehoseStream")
     def firehose_stream(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream']:
         """
-        Contains information about an Amazon Data Firehose delivery stream.
+        Amazon Data Firehose delivery stream destination. See `destination_configuration.audit_log.destination.firehose_stream` Block below.
         """
         return pulumi.get(self, "firehose_stream")
 
@@ -459,7 +459,7 @@ class IngestionDestinationDestinationConfigurationAuditLogDestination(dict):
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket']:
         """
-        Contains information about an Amazon S3 bucket.
+        Amazon S3 bucket destination. See `destination_configuration.audit_log.destination.s3_bucket` Block below.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -485,11 +485,17 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStr
 
     def __init__(__self__, *,
                  stream_name: _builtins.str):
+        """
+        :param _builtins.str stream_name: Name of the Amazon Data Firehose delivery stream.
+        """
         pulumi.set(__self__, "stream_name", stream_name)
 
     @_builtins.property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> _builtins.str:
+        """
+        Name of the Amazon Data Firehose delivery stream.
+        """
         return pulumi.get(self, "stream_name")
 
 
@@ -516,7 +522,8 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket(di
                  bucket_name: _builtins.str,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.str prefix: The object key to use.
+        :param _builtins.str bucket_name: Name of the Amazon S3 bucket.
+        :param _builtins.str prefix: Object key to use.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
@@ -525,13 +532,16 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket(di
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
+        """
+        Name of the Amazon S3 bucket.
+        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
         """
-        The object key to use.
+        Object key to use.
         """
         return pulumi.get(self, "prefix")
 
@@ -558,7 +568,7 @@ class IngestionDestinationProcessingConfiguration(dict):
     def __init__(__self__, *,
                  audit_log: 'outputs.IngestionDestinationProcessingConfigurationAuditLog'):
         """
-        :param 'IngestionDestinationProcessingConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
+        :param 'IngestionDestinationProcessingConfigurationAuditLogArgs' audit_log: Audit log processing configuration. See `processing_configuration.audit_log` Block below.
         """
         pulumi.set(__self__, "audit_log", audit_log)
 
@@ -566,7 +576,7 @@ class IngestionDestinationProcessingConfiguration(dict):
     @pulumi.getter(name="auditLog")
     def audit_log(self) -> 'outputs.IngestionDestinationProcessingConfigurationAuditLog':
         """
-        Contains information about an audit log processing configuration.
+        Audit log processing configuration. See `processing_configuration.audit_log` Block below.
         """
         return pulumi.get(self, "audit_log")
 
@@ -577,8 +587,8 @@ class IngestionDestinationProcessingConfigurationAuditLog(dict):
                  format: _builtins.str,
                  schema: _builtins.str):
         """
-        :param _builtins.str format: The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-        :param _builtins.str schema: The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+        :param _builtins.str format: Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+        :param _builtins.str schema: Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "schema", schema)
@@ -587,7 +597,7 @@ class IngestionDestinationProcessingConfigurationAuditLog(dict):
     @pulumi.getter
     def format(self) -> _builtins.str:
         """
-        The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+        Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
         """
         return pulumi.get(self, "format")
 
@@ -595,7 +605,7 @@ class IngestionDestinationProcessingConfigurationAuditLog(dict):
     @pulumi.getter
     def schema(self) -> _builtins.str:
         """
-        The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+        Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
         """
         return pulumi.get(self, "schema")
 

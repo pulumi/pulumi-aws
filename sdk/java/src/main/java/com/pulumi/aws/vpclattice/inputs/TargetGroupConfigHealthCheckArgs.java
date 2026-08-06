@@ -19,14 +19,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     public static final TargetGroupConfigHealthCheckArgs Empty = new TargetGroupConfigHealthCheckArgs();
 
     /**
-     * Indicates whether health checking is enabled. Defaults to `true`.
+     * Whether health checking is enabled. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether health checking is enabled. Defaults to `true`.
+     * @return Whether health checking is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -34,14 +34,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+     * Approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
      * 
      */
     @Import(name="healthCheckIntervalSeconds")
     private @Nullable Output<Integer> healthCheckIntervalSeconds;
 
     /**
-     * @return The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+     * @return Approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
      * 
      */
     public Optional<Output<Integer>> healthCheckIntervalSeconds() {
@@ -49,38 +49,44 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * Amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
      * 
      */
     @Import(name="healthCheckTimeoutSeconds")
     private @Nullable Output<Integer> healthCheckTimeoutSeconds;
 
     /**
-     * @return The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-     * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * @return Amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
      * 
      */
     public Optional<Output<Integer>> healthCheckTimeoutSeconds() {
         return Optional.ofNullable(this.healthCheckTimeoutSeconds);
     }
 
+    /**
+     * Number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * 
+     */
     @Import(name="healthyThresholdCount")
     private @Nullable Output<Integer> healthyThresholdCount;
 
+    /**
+     * @return Number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+     * 
+     */
     public Optional<Output<Integer>> healthyThresholdCount() {
         return Optional.ofNullable(this.healthyThresholdCount);
     }
 
     /**
-     * The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+     * Codes to use when checking for a successful response from a target. See `matcher` Block below.
      * 
      */
     @Import(name="matcher")
     private @Nullable Output<TargetGroupConfigHealthCheckMatcherArgs> matcher;
 
     /**
-     * @return The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+     * @return Codes to use when checking for a successful response from a target. See `matcher` Block below.
      * 
      */
     public Optional<Output<TargetGroupConfigHealthCheckMatcherArgs>> matcher() {
@@ -88,14 +94,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+     * Destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
      * 
      */
     @Import(name="path")
     private @Nullable Output<String> path;
 
     /**
-     * @return The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+     * @return Destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
      * 
      */
     public Optional<Output<String>> path() {
@@ -103,14 +109,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+     * Port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+     * @return Port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -118,14 +124,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+     * Protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+     * @return Protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -133,14 +139,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+     * Protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
      * 
      */
     @Import(name="protocolVersion")
     private @Nullable Output<String> protocolVersion;
 
     /**
-     * @return The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+     * @return Protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
      * 
      */
     public Optional<Output<String>> protocolVersion() {
@@ -148,14 +154,14 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
     }
 
     /**
-     * The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+     * Number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
      * 
      */
     @Import(name="unhealthyThresholdCount")
     private @Nullable Output<Integer> unhealthyThresholdCount;
 
     /**
-     * @return The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+     * @return Number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
      * 
      */
     public Optional<Output<Integer>> unhealthyThresholdCount() {
@@ -196,7 +202,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Indicates whether health checking is enabled. Defaults to `true`.
+         * @param enabled Whether health checking is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -207,7 +213,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param enabled Indicates whether health checking is enabled. Defaults to `true`.
+         * @param enabled Whether health checking is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -217,7 +223,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param healthCheckIntervalSeconds The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+         * @param healthCheckIntervalSeconds Approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
          * 
          * @return builder
          * 
@@ -228,7 +234,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param healthCheckIntervalSeconds The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
+         * @param healthCheckIntervalSeconds Approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
          * 
          * @return builder
          * 
@@ -238,8 +244,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param healthCheckTimeoutSeconds The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * @param healthCheckTimeoutSeconds Amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
          * 
          * @return builder
          * 
@@ -250,8 +255,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param healthCheckTimeoutSeconds The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
-         * * ` healthyThresholdCount  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * @param healthCheckTimeoutSeconds Amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
          * 
          * @return builder
          * 
@@ -260,17 +264,29 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
             return healthCheckTimeoutSeconds(Output.of(healthCheckTimeoutSeconds));
         }
 
+        /**
+         * @param healthyThresholdCount Number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder healthyThresholdCount(@Nullable Output<Integer> healthyThresholdCount) {
             $.healthyThresholdCount = healthyThresholdCount;
             return this;
         }
 
+        /**
+         * @param healthyThresholdCount Number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder healthyThresholdCount(Integer healthyThresholdCount) {
             return healthyThresholdCount(Output.of(healthyThresholdCount));
         }
 
         /**
-         * @param matcher The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+         * @param matcher Codes to use when checking for a successful response from a target. See `matcher` Block below.
          * 
          * @return builder
          * 
@@ -281,7 +297,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param matcher The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+         * @param matcher Codes to use when checking for a successful response from a target. See `matcher` Block below.
          * 
          * @return builder
          * 
@@ -291,7 +307,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param path The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+         * @param path Destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
          * 
          * @return builder
          * 
@@ -302,7 +318,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param path The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
+         * @param path Destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
          * 
          * @return builder
          * 
@@ -312,7 +328,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param port The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+         * @param port Port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
          * 
          * @return builder
          * 
@@ -323,7 +339,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param port The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
+         * @param port Port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
          * 
          * @return builder
          * 
@@ -333,7 +349,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param protocol The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+         * @param protocol Protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
          * 
          * @return builder
          * 
@@ -344,7 +360,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param protocol The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
+         * @param protocol Protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
          * 
          * @return builder
          * 
@@ -354,7 +370,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param protocolVersion The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+         * @param protocolVersion Protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
          * 
          * @return builder
          * 
@@ -365,7 +381,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param protocolVersion The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
+         * @param protocolVersion Protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
          * 
          * @return builder
          * 
@@ -375,7 +391,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param unhealthyThresholdCount The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+         * @param unhealthyThresholdCount Number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
          * 
          * @return builder
          * 
@@ -386,7 +402,7 @@ public final class TargetGroupConfigHealthCheckArgs extends com.pulumi.resources
         }
 
         /**
-         * @param unhealthyThresholdCount The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
+         * @param unhealthyThresholdCount Number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
          * 
          * @return builder
          * 

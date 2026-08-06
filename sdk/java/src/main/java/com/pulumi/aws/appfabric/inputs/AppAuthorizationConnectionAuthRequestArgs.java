@@ -15,14 +15,14 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
     public static final AppAuthorizationConnectionAuthRequestArgs Empty = new AppAuthorizationConnectionAuthRequestArgs();
 
     /**
-     * The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+     * Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
      * 
      */
     @Import(name="code", required=true)
     private Output<String> code;
 
     /**
-     * @return The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+     * @return Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
      * 
      */
     public Output<String> code() {
@@ -30,14 +30,14 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
     }
 
     /**
-     * The redirect URL that is specified in the AuthURL and the application client.
+     * Redirect URL that is specified in the AuthURL and the application client.
      * 
      */
     @Import(name="redirectUri", required=true)
     private Output<String> redirectUri;
 
     /**
-     * @return The redirect URL that is specified in the AuthURL and the application client.
+     * @return Redirect URL that is specified in the AuthURL and the application client.
      * 
      */
     public Output<String> redirectUri() {
@@ -70,7 +70,7 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
         }
 
         /**
-         * @param code The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+         * @param code Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
         }
 
         /**
-         * @param code The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+         * @param code Authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL).
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
         }
 
         /**
-         * @param redirectUri The redirect URL that is specified in the AuthURL and the application client.
+         * @param redirectUri Redirect URL that is specified in the AuthURL and the application client.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class AppAuthorizationConnectionAuthRequestArgs extends com.pulumi.
         }
 
         /**
-         * @param redirectUri The redirect URL that is specified in the AuthURL and the application client.
+         * @param redirectUri Redirect URL that is specified in the AuthURL and the application client.
          * 
          * @return builder
          * 

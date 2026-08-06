@@ -86,7 +86,7 @@ type RoutingRule struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+	// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -146,7 +146,7 @@ type routingRuleState struct {
 	//
 	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
-	// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+	// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 	Priority *int `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -165,7 +165,7 @@ type RoutingRuleState struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
-	// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+	// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 	Priority pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type routingRuleArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName string `pulumi:"domainName"`
-	// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+	// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 	Priority int `pulumi:"priority"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -204,7 +204,7 @@ type RoutingRuleArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringInput
-	// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+	// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 	Priority pulumi.IntInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -314,7 +314,7 @@ func (o RoutingRuleOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
 func (o RoutingRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *RoutingRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }

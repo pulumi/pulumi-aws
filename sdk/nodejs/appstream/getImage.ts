@@ -61,7 +61,7 @@ export interface GetImageArgs {
      */
     region?: string;
     /**
-     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+     * Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      */
     type?: string;
 }
@@ -71,7 +71,7 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
-     * A application object that contains the following:
+     * Application object that contains the following:
      */
     readonly applications: outputs.appstream.GetImageApplication[];
     /**
@@ -99,7 +99,7 @@ export interface GetImageResult {
      */
     readonly displayName: string;
     /**
-     * The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+     * Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
      */
     readonly imageBuilderName: string;
     /**
@@ -189,7 +189,7 @@ export interface GetImageOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+     * Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
      */
     type?: pulumi.Input<string | undefined>;
 }

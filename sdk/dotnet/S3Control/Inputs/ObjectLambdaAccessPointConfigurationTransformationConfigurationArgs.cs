@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         private InputList<string>? _actions;
 
         /// <summary>
-        /// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        /// Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
         /// </summary>
         public InputList<string> Actions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         }
 
         /// <summary>
-        /// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        /// Content transformation of an Object Lambda Access Point configuration. See `ContentTransformation` Block below for more details.
         /// </summary>
         [Input("contentTransformation", required: true)]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs> ContentTransformation { get; set; } = null!;

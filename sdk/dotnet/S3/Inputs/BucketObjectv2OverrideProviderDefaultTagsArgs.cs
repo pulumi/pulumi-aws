@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to override the provider-level `DefaultTags`. Must be an empty map to suppress all provider-level `DefaultTags`.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -117,32 +117,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appstream/stack:Stack")
 public class Stack extends com.pulumi.resources.CustomResource {
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
      * 
      */
     @Export(name="accessEndpoints", refs={List.class,StackAccessEndpoint.class}, tree="[0,1]")
     private Output<List<StackAccessEndpoint>> accessEndpoints;
 
     /**
-     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
      * 
      */
     public Output<List<StackAccessEndpoint>> accessEndpoints() {
         return this.accessEndpoints;
     }
     /**
-     * Settings for application settings persistence.
-     * See `applicationSettings` below.
+     * Settings for application settings persistence. See `applicationSettings` below.
      * 
      */
     @Export(name="applicationSettings", refs={StackApplicationSettings.class}, tree="[0]")
     private Output<StackApplicationSettings> applicationSettings;
 
     /**
-     * @return Settings for application settings persistence.
-     * See `applicationSettings` below.
+     * @return Settings for application settings persistence. See `applicationSettings` below.
      * 
      */
     public Output<StackApplicationSettings> applicationSettings() {
@@ -279,32 +275,28 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
+     * Configuration block for the storage connectors to enable. See `storageConnectors` below.
      * 
      */
     @Export(name="storageConnectors", refs={List.class,StackStorageConnector.class}, tree="[0,1]")
     private Output<List<StackStorageConnector>> storageConnectors;
 
     /**
-     * @return Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
+     * @return Configuration block for the storage connectors to enable. See `storageConnectors` below.
      * 
      */
     public Output<List<StackStorageConnector>> storageConnectors() {
         return this.storageConnectors;
     }
     /**
-     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
+     * Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
      * 
      */
     @Export(name="streamingExperienceSettings", refs={StackStreamingExperienceSettings.class}, tree="[0]")
     private Output<StackStreamingExperienceSettings> streamingExperienceSettings;
 
     /**
-     * @return The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
+     * @return Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
      * 
      */
     public Output<StackStreamingExperienceSettings> streamingExperienceSettings() {
@@ -331,16 +323,14 @@ public class Stack extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
      * 
      */
     @Export(name="userSettings", refs={List.class,StackUserSetting.class}, tree="[0,1]")
     private Output<List<StackUserSetting>> userSettings;
 
     /**
-     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
      * 
      */
     public Output<List<StackUserSetting>> userSettings() {

@@ -100,7 +100,7 @@ namespace Pulumi.Aws.SecretsManager
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// Specifies whether automatic rotation is enabled for this secret.
+        /// Whether automatic rotation is enabled for this secret.
         /// </summary>
         public readonly bool RotationEnabled;
         /// <summary>

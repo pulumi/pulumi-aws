@@ -19,12 +19,12 @@ import java.util.Objects;
 @CustomType
 public final class NetworkManagedService {
     /**
-     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * @return List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     private List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses;
     /**
-     * @return Specifies the configuration for KMS access from the ODB network.
+     * @return Configuration for KMS access from the ODB network.
      * 
      */
     private List<NetworkManagedServiceKmsAccess> kmsAccesses;
@@ -32,19 +32,19 @@ public final class NetworkManagedService {
     private List<String> managedServiceIpv4Cidrs;
     private String resourceGatewayArn;
     /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
+     * @return Configuration for Amazon S3 access from the ODB network.
      * 
      */
     private List<NetworkManagedServiceS3Access> s3Accesses;
     private String serviceNetworkArn;
     private List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
     /**
-     * @return Specifies the configuration for STS access from the ODB network.
+     * @return Configuration for STS access from the ODB network.
      * 
      */
     private List<NetworkManagedServiceStsAccess> stsAccesses;
     /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
+     * @return Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 
@@ -53,14 +53,14 @@ public final class NetworkManagedService {
 
     private NetworkManagedService() {}
     /**
-     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * @return List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     public List<NetworkManagedServiceCrossRegionS3RestoreSourcesAccess> crossRegionS3RestoreSourcesAccesses() {
         return this.crossRegionS3RestoreSourcesAccesses;
     }
     /**
-     * @return Specifies the configuration for KMS access from the ODB network.
+     * @return Configuration for KMS access from the ODB network.
      * 
      */
     public List<NetworkManagedServiceKmsAccess> kmsAccesses() {
@@ -76,7 +76,7 @@ public final class NetworkManagedService {
         return this.resourceGatewayArn;
     }
     /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
+     * @return Configuration for Amazon S3 access from the ODB network.
      * 
      */
     public List<NetworkManagedServiceS3Access> s3Accesses() {
@@ -89,14 +89,14 @@ public final class NetworkManagedService {
         return this.serviceNetworkEndpoints;
     }
     /**
-     * @return Specifies the configuration for STS access from the ODB network.
+     * @return Configuration for STS access from the ODB network.
      * 
      */
     public List<NetworkManagedServiceStsAccess> stsAccesses() {
         return this.stsAccesses;
     }
     /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
+     * @return Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 

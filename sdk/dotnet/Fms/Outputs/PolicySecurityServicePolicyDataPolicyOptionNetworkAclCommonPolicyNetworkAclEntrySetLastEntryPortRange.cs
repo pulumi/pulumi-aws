@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fms.Outputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange
     {
         /// <summary>
-        /// The beginning port number of the range.
+        /// Beginning port number of the range.
         /// </summary>
         public readonly int? From;
         /// <summary>
-        /// The ending port number of the range.
+        /// Ending port number of the range.
         /// </summary>
         public readonly int? To;
 

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRouteMatchMetadata
     {
         /// <summary>
-        /// If `True`, the match is on the opposite of the `Match` criteria. Default is `False`.
+        /// Whether to match on the opposite of the `Match` method and value. Default is `False`.
         /// </summary>
         public readonly bool? Invert;
         /// <summary>
-        /// Data to match from the request.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteMatchMetadataMatch? Match;
         /// <summary>
-        /// Name of the route. Must be between 1 and 50 characters in length.
+        /// Name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Name;
 

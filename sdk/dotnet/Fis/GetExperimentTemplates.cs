@@ -235,8 +235,7 @@ namespace Pulumi.Aws.Fis
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired experiment templates.
+        /// Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -262,8 +261,7 @@ namespace Pulumi.Aws.Fis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired experiment templates.
+        /// Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
         /// </summary>
         public InputMap<string> Tags
         {

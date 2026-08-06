@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRoute {
     /**
-     * @return Action to take if a match is determined. See `action` Block for details.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     private RouteSpecGrpcRouteAction action;
     /**
-     * @return Criteria for determining an gRPC request match. See `match` Block for details.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteMatch match;
     /**
-     * @return Retry policy. See `retryPolicy` Block for details.
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy;
     /**
-     * @return Types of timeouts. See `timeout` Block for details.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteTimeout timeout;
 
     private RouteSpecGrpcRoute() {}
     /**
-     * @return Action to take if a match is determined. See `action` Block for details.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     public RouteSpecGrpcRouteAction action() {
         return this.action;
     }
     /**
-     * @return Criteria for determining an gRPC request match. See `match` Block for details.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Retry policy. See `retryPolicy` Block for details.
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
     /**
-     * @return Types of timeouts. See `timeout` Block for details.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteTimeout> timeout() {

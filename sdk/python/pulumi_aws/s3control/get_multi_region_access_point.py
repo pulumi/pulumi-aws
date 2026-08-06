@@ -71,7 +71,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter
     def alias(self) -> _builtins.str:
         """
-        The alias for the Multi-Region Access Point.
+        Alias for the Multi-Region Access Point.
         """
         return pulumi.get(self, "alias")
 
@@ -95,7 +95,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
         """
-        The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+        DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         """
         return pulumi.get(self, "domain_name")
 
@@ -124,7 +124,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter
     def region(self) -> _builtins.str:
         """
-        The name of the region.
+        Name of the region.
         """
         return pulumi.get(self, "region")
 
@@ -132,7 +132,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter
     def regions(self) -> Sequence['outputs.GetMultiRegionAccessPointRegionResult']:
         """
-        A collection of the regions and buckets associated with the Multi-Region Access Point.
+        Collection of the regions and buckets associated with the Multi-Region Access Point.
         """
         return pulumi.get(self, "regions")
 
@@ -140,7 +140,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The current status of the Multi-Region Access Point.
+        Current status of the Multi-Region Access Point.
         """
         return pulumi.get(self, "status")
 
@@ -181,8 +181,8 @@ def get_multi_region_access_point(account_id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-    :param _builtins.str name: The name of the Multi-Region Access Point.
+    :param _builtins.str account_id: AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+    :param _builtins.str name: Name of the Multi-Region Access Point.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -221,8 +221,8 @@ def get_multi_region_access_point_output(account_id: pulumi.Input[Optional[Optio
     ```
 
 
-    :param _builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-    :param _builtins.str name: The name of the Multi-Region Access Point.
+    :param _builtins.str account_id: AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+    :param _builtins.str name: Name of the Multi-Region Access Point.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

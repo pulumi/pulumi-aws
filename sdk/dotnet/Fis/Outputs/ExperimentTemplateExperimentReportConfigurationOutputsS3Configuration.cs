@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration
     {
-        /// <summary>
-        /// The name of the destination bucket.
-        /// </summary>
         public readonly string BucketName;
-        /// <summary>
-        /// The bucket prefix.
-        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

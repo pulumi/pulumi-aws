@@ -18,11 +18,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string Hostname;
         /// <summary>
-        /// The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+        /// Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
         /// </summary>
         public readonly string? IpPreference;
         /// <summary>
-        /// The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+        /// DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
         /// </summary>
         public readonly string? ResponseType;
 

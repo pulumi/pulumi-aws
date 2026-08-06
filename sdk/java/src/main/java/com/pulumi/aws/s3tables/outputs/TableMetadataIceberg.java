@@ -19,8 +19,7 @@ public final class TableMetadataIceberg {
      */
     private @Nullable Map<String,String> properties;
     /**
-     * @return Schema configuration for the Iceberg table.
-     * See `schema` below.
+     * @return Schema configuration for the Iceberg table. See `schema` below.
      * 
      */
     private TableMetadataIcebergSchema schema;
@@ -34,8 +33,7 @@ public final class TableMetadataIceberg {
         return this.properties == null ? Map.of() : this.properties;
     }
     /**
-     * @return Schema configuration for the Iceberg table.
-     * See `schema` below.
+     * @return Schema configuration for the Iceberg table. See `schema` below.
      * 
      */
     public TableMetadataIcebergSchema schema() {

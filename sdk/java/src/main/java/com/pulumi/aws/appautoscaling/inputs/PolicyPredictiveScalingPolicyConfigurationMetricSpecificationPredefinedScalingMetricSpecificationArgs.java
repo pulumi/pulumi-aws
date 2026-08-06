@@ -16,32 +16,16 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs();
 
-    /**
-     * Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-     * 
-     */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
-    /**
-     * @return Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-     * 
-     */
     public Output<String> predefinedMetricType() {
         return this.predefinedMetricType;
     }
 
-    /**
-     * Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-     * 
-     */
     @Import(name="resourceLabel")
     private @Nullable Output<String> resourceLabel;
 
-    /**
-     * @return Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-     * 
-     */
     public Optional<Output<String>> resourceLabel() {
         return Optional.ofNullable(this.resourceLabel);
     }
@@ -71,44 +55,20 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param predefinedMetricType Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(Output<String> predefinedMetricType) {
             $.predefinedMetricType = predefinedMetricType;
             return this;
         }
 
-        /**
-         * @param predefinedMetricType Predefined scaling metric type. See the [`PredictiveScalingPredefinedScalingMetricSpecification`](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PredictiveScalingPredefinedScalingMetricSpecification.html) AWS API reference for valid values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder predefinedMetricType(String predefinedMetricType) {
             return predefinedMetricType(Output.of(predefinedMetricType));
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(@Nullable Output<String> resourceLabel) {
             $.resourceLabel = resourceLabel;
             return this;
         }
 
-        /**
-         * @param resourceLabel Label that uniquely identifies a specific target group from which to determine the average request count. Required when `predefinedMetricType` is an ALB-based value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceLabel(String resourceLabel) {
             return resourceLabel(Output.of(resourceLabel));
         }

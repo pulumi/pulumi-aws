@@ -70,7 +70,7 @@ type ServiceNetworkResourceAssociation struct {
 	//
 	// The following arguments are optional:
 	ServiceNetworkIdentifier pulumi.StringOutput `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
@@ -127,7 +127,7 @@ type serviceNetworkResourceAssociationState struct {
 	//
 	// The following arguments are optional:
 	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string                          `pulumi:"tagsAll"`
@@ -149,7 +149,7 @@ type ServiceNetworkResourceAssociationState struct {
 	//
 	// The following arguments are optional:
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
@@ -171,7 +171,7 @@ type serviceNetworkResourceAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	ServiceNetworkIdentifier string `pulumi:"serviceNetworkIdentifier"`
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                          `pulumi:"tags"`
 	Timeouts *ServiceNetworkResourceAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -188,7 +188,7 @@ type ServiceNetworkResourceAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	ServiceNetworkIdentifier pulumi.StringInput
-	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrInput
 }
@@ -316,7 +316,7 @@ func (o ServiceNetworkResourceAssociationOutput) ServiceNetworkIdentifier() pulu
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.ServiceNetworkIdentifier }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServiceNetworkResourceAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

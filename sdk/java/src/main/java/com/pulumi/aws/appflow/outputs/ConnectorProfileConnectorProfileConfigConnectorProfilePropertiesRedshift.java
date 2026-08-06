@@ -12,10 +12,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
+    /**
+     * @return Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     private String bucketName;
+    /**
+     * @return Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     private @Nullable String bucketPrefix;
     /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * @return Unique ID that&#39;s assigned to an Amazon Redshift cluster.
      * 
      */
     private @Nullable String clusterIdentifier;
@@ -25,12 +33,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      */
     private @Nullable String dataApiRoleArn;
     /**
-     * @return The name of an Amazon Redshift database.
+     * @return Name of an Amazon Redshift database.
      * 
      */
     private @Nullable String databaseName;
     /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
+     * @return JDBC URL of the Amazon Redshift cluster.
      * 
      */
     private @Nullable String databaseUrl;
@@ -41,14 +49,22 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     private String roleArn;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift() {}
+    /**
+     * @return Name of the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+     * 
+     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
     /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
+     * @return Unique ID that&#39;s assigned to an Amazon Redshift cluster.
      * 
      */
     public Optional<String> clusterIdentifier() {
@@ -62,14 +78,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         return Optional.ofNullable(this.dataApiRoleArn);
     }
     /**
-     * @return The name of an Amazon Redshift database.
+     * @return Name of an Amazon Redshift database.
      * 
      */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
     /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
+     * @return JDBC URL of the Amazon Redshift cluster.
      * 
      */
     public Optional<String> databaseUrl() {

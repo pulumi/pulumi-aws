@@ -67,45 +67,46 @@ class ObjectCopyArgs:
 
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[_builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        :param pulumi.Input[_builtins.str] source: Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-        :param pulumi.Input[_builtins.str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        :param pulumi.Input[_builtins.str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[_builtins.str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
         :param pulumi.Input[_builtins.str] copy_if_unmodified_since: Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_algorithm: Specifies the algorithm to use to when encrypting the object (for example, AES256).
-        :param pulumi.Input[_builtins.str] customer_key: Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
-        :param pulumi.Input[_builtins.str] customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
+        :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
-        :param pulumi.Input[_builtins.str] kms_encryption_context: Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-        :param pulumi.Input[_builtins.str] metadata_directive: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
-        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[_builtins.str] metadata_directive: Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
-        :param pulumi.Input[_builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-        :param pulumi.Input[_builtins.str] source_customer_algorithm: Specifies the algorithm to use when decrypting the source object (for example, AES256).
-        :param pulumi.Input[_builtins.str] source_customer_key: Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
-        :param pulumi.Input[_builtins.str] source_customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-        :param pulumi.Input[_builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-        :param pulumi.Input[_builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        :param pulumi.Input[_builtins.str] source_customer_algorithm: Algorithm to use when decrypting the source object (for example, AES256).
+        :param pulumi.Input[_builtins.str] source_customer_key: Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        :param pulumi.Input[_builtins.str] source_customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] storage_class: Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        :param pulumi.Input[_builtins.str] tagging_directive: Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -215,7 +216,7 @@ class ObjectCopyArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 
         The following arguments are optional:
         """
@@ -240,6 +241,9 @@ class ObjectCopyArgs:
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        """
         return pulumi.get(self, "bucket_key_enabled")
 
     @bucket_key_enabled.setter
@@ -250,7 +254,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="cacheControl")
     def cache_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
         return pulumi.get(self, "cache_control")
 
@@ -262,7 +266,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -274,7 +278,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
         return pulumi.get(self, "content_disposition")
 
@@ -286,7 +290,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
         return pulumi.get(self, "content_encoding")
 
@@ -370,7 +374,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="customerAlgorithm")
     def customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the algorithm to use to when encrypting the object (for example, AES256).
+        Algorithm to use when encrypting the object (for example, AES256).
         """
         return pulumi.get(self, "customer_algorithm")
 
@@ -382,7 +386,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="customerKey")
     def customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         """
         return pulumi.get(self, "customer_key")
 
@@ -394,7 +398,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="customerKeyMd5")
     def customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "customer_key_md5")
 
@@ -466,7 +470,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="kmsEncryptionContext")
     def kms_encryption_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
         return pulumi.get(self, "kms_encryption_context")
 
@@ -478,7 +482,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -502,7 +506,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="metadataDirective")
     def metadata_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "metadata_directive")
 
@@ -514,7 +518,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
@@ -583,7 +587,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -595,7 +599,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="sourceCustomerAlgorithm")
     def source_customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the algorithm to use when decrypting the source object (for example, AES256).
+        Algorithm to use when decrypting the source object (for example, AES256).
         """
         return pulumi.get(self, "source_customer_algorithm")
 
@@ -607,7 +611,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="sourceCustomerKey")
     def source_customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         """
         return pulumi.get(self, "source_customer_key")
 
@@ -619,7 +623,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="sourceCustomerKeyMd5")
     def source_customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "source_customer_key_md5")
 
@@ -631,7 +635,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
         return pulumi.get(self, "storage_class")
 
@@ -643,7 +647,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="taggingDirective")
     def tagging_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "tagging_directive")
 
@@ -667,7 +671,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="websiteRedirect")
     def website_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         return pulumi.get(self, "website_redirect")
 
@@ -739,24 +743,25 @@ class _ObjectCopyState:
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         :param pulumi.Input[_builtins.str] arn: ARN of the object.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
-        :param pulumi.Input[_builtins.str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] checksum_crc32: The base64-encoded, 32-bit CRC32 checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc32c: The base64-encoded, 32-bit CRC32C checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc64nvme: The base64-encoded, 64-bit CRC64NVME checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha1: The base64-encoded, 160-bit SHA-1 digest of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha256: The base64-encoded, 256-bit SHA-256 digest of the object.
-        :param pulumi.Input[_builtins.str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        :param pulumi.Input[_builtins.str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha1: Base64-encoded, 160-bit SHA-1 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha256: Base64-encoded, 256-bit SHA-256 digest of the object.
+        :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[_builtins.str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
         :param pulumi.Input[_builtins.str] copy_if_unmodified_since: Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_algorithm: Specifies the algorithm to use to when encrypting the object (for example, AES256).
-        :param pulumi.Input[_builtins.str] customer_key: Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
-        :param pulumi.Input[_builtins.str] customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
+        :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] etag: ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -765,31 +770,31 @@ class _ObjectCopyState:
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectCopyGrantArgs']]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[_builtins.str] kms_encryption_context: Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         :param pulumi.Input[_builtins.str] last_modified: Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-        :param pulumi.Input[_builtins.str] metadata_directive: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
-        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[_builtins.str] metadata_directive: Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] request_charged: If present, indicates that the requester was successfully charged for the request.
         :param pulumi.Input[_builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
-        :param pulumi.Input[_builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-        :param pulumi.Input[_builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        :param pulumi.Input[_builtins.str] source: Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] source_customer_algorithm: Specifies the algorithm to use when decrypting the source object (for example, AES256).
-        :param pulumi.Input[_builtins.str] source_customer_key: Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
-        :param pulumi.Input[_builtins.str] source_customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] source_customer_algorithm: Algorithm to use when decrypting the source object (for example, AES256).
+        :param pulumi.Input[_builtins.str] source_customer_key: Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        :param pulumi.Input[_builtins.str] source_customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] source_version_id: Version of the copied object in the source bucket.
-        :param pulumi.Input[_builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-        :param pulumi.Input[_builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] storage_class: Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        :param pulumi.Input[_builtins.str] tagging_directive: Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version_id: Version ID of the newly created copy.
-        :param pulumi.Input[_builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -939,6 +944,9 @@ class _ObjectCopyState:
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        """
         return pulumi.get(self, "bucket_key_enabled")
 
     @bucket_key_enabled.setter
@@ -949,7 +957,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="cacheControl")
     def cache_control(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
         return pulumi.get(self, "cache_control")
 
@@ -961,7 +969,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -973,7 +981,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumCrc32")
     def checksum_crc32(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 32-bit CRC32 checksum of the object.
+        Base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
@@ -985,7 +993,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumCrc32c")
     def checksum_crc32c(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 32-bit CRC32C checksum of the object.
+        Base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
@@ -997,7 +1005,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumCrc64nvme")
     def checksum_crc64nvme(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        Base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
@@ -1009,7 +1017,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumSha1")
     def checksum_sha1(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 160-bit SHA-1 digest of the object.
+        Base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
@@ -1021,7 +1029,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="checksumSha256")
     def checksum_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The base64-encoded, 256-bit SHA-256 digest of the object.
+        Base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
@@ -1033,7 +1041,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
         return pulumi.get(self, "content_disposition")
 
@@ -1045,7 +1053,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
         return pulumi.get(self, "content_encoding")
 
@@ -1129,7 +1137,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="customerAlgorithm")
     def customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the algorithm to use to when encrypting the object (for example, AES256).
+        Algorithm to use when encrypting the object (for example, AES256).
         """
         return pulumi.get(self, "customer_algorithm")
 
@@ -1141,7 +1149,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="customerKey")
     def customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         """
         return pulumi.get(self, "customer_key")
 
@@ -1153,7 +1161,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="customerKeyMd5")
     def customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "customer_key_md5")
 
@@ -1261,7 +1269,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="kmsEncryptionContext")
     def kms_encryption_context(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
         return pulumi.get(self, "kms_encryption_context")
 
@@ -1273,7 +1281,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -1309,7 +1317,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="metadataDirective")
     def metadata_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "metadata_directive")
 
@@ -1321,7 +1329,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
@@ -1402,7 +1410,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -1414,7 +1422,7 @@ class _ObjectCopyState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 
         The following arguments are optional:
         """
@@ -1428,7 +1436,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="sourceCustomerAlgorithm")
     def source_customer_algorithm(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the algorithm to use when decrypting the source object (for example, AES256).
+        Algorithm to use when decrypting the source object (for example, AES256).
         """
         return pulumi.get(self, "source_customer_algorithm")
 
@@ -1440,7 +1448,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="sourceCustomerKey")
     def source_customer_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         """
         return pulumi.get(self, "source_customer_key")
 
@@ -1452,7 +1460,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="sourceCustomerKeyMd5")
     def source_customer_key_md5(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "source_customer_key_md5")
 
@@ -1476,7 +1484,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
         return pulumi.get(self, "storage_class")
 
@@ -1488,7 +1496,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="taggingDirective")
     def tagging_directive(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "tagging_directive")
 
@@ -1536,7 +1544,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="websiteRedirect")
     def website_redirect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         return pulumi.get(self, "website_redirect")
 
@@ -1638,45 +1646,46 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
-        :param pulumi.Input[_builtins.str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        :param pulumi.Input[_builtins.str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[_builtins.str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
         :param pulumi.Input[_builtins.str] copy_if_unmodified_since: Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_algorithm: Specifies the algorithm to use to when encrypting the object (for example, AES256).
-        :param pulumi.Input[_builtins.str] customer_key: Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
-        :param pulumi.Input[_builtins.str] customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
+        :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expires: Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[_builtins.str] kms_encryption_context: Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-        :param pulumi.Input[_builtins.str] metadata_directive: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
-        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[_builtins.str] metadata_directive: Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
-        :param pulumi.Input[_builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-        :param pulumi.Input[_builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        :param pulumi.Input[_builtins.str] source: Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] source_customer_algorithm: Specifies the algorithm to use when decrypting the source object (for example, AES256).
-        :param pulumi.Input[_builtins.str] source_customer_key: Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
-        :param pulumi.Input[_builtins.str] source_customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-        :param pulumi.Input[_builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-        :param pulumi.Input[_builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] source_customer_algorithm: Algorithm to use when decrypting the source object (for example, AES256).
+        :param pulumi.Input[_builtins.str] source_customer_key: Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        :param pulumi.Input[_builtins.str] source_customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] storage_class: Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        :param pulumi.Input[_builtins.str] tagging_directive: Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         ...
     @overload
@@ -1926,24 +1935,25 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         :param pulumi.Input[_builtins.str] arn: ARN of the object.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket to put the file in.
-        :param pulumi.Input[_builtins.str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        :param pulumi.Input[_builtins.str] checksum_algorithm: Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
-        :param pulumi.Input[_builtins.str] checksum_crc32: The base64-encoded, 32-bit CRC32 checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc32c: The base64-encoded, 32-bit CRC32C checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_crc64nvme: The base64-encoded, 64-bit CRC64NVME checksum of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha1: The base64-encoded, 160-bit SHA-1 digest of the object.
-        :param pulumi.Input[_builtins.str] checksum_sha256: The base64-encoded, 256-bit SHA-256 digest of the object.
-        :param pulumi.Input[_builtins.str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        :param pulumi.Input[_builtins.str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        :param pulumi.Input[_builtins.bool] bucket_key_enabled: Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        :param pulumi.Input[_builtins.str] cache_control: Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        :param pulumi.Input[_builtins.str] checksum_algorithm: Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        :param pulumi.Input[_builtins.str] checksum_crc32: Base64-encoded, 32-bit CRC32 checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc32c: Base64-encoded, 32-bit CRC32C checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_crc64nvme: Base64-encoded, 64-bit CRC64NVME checksum of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha1: Base64-encoded, 160-bit SHA-1 digest of the object.
+        :param pulumi.Input[_builtins.str] checksum_sha256: Base64-encoded, 256-bit SHA-256 digest of the object.
+        :param pulumi.Input[_builtins.str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        :param pulumi.Input[_builtins.str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         :param pulumi.Input[_builtins.str] content_language: Language the content is in e.g., en-US or en-GB.
         :param pulumi.Input[_builtins.str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[_builtins.str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[_builtins.str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
         :param pulumi.Input[_builtins.str] copy_if_unmodified_since: Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_algorithm: Specifies the algorithm to use to when encrypting the object (for example, AES256).
-        :param pulumi.Input[_builtins.str] customer_key: Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
-        :param pulumi.Input[_builtins.str] customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] customer_algorithm: Algorithm to use when encrypting the object (for example, AES256).
+        :param pulumi.Input[_builtins.str] customer_key: Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        :param pulumi.Input[_builtins.str] customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] etag: ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         :param pulumi.Input[_builtins.str] expected_source_bucket_owner: Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -1952,31 +1962,31 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] force_destroy: Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectCopyGrantArgs', 'ObjectCopyGrantArgsDict']]]] grants: Configuration block for header grants. Documented below. Conflicts with `acl`.
         :param pulumi.Input[_builtins.str] key: Name of the object once it is in the bucket.
-        :param pulumi.Input[_builtins.str] kms_encryption_context: Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
-        :param pulumi.Input[_builtins.str] kms_key_id: Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        :param pulumi.Input[_builtins.str] kms_encryption_context: AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         :param pulumi.Input[_builtins.str] last_modified: Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-        :param pulumi.Input[_builtins.str] metadata_directive: Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
-        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        :param pulumi.Input[_builtins.str] metadata_directive: Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] object_lock_legal_hold_status: [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         :param pulumi.Input[_builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[_builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] request_charged: If present, indicates that the requester was successfully charged for the request.
         :param pulumi.Input[_builtins.str] request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
-        :param pulumi.Input[_builtins.str] server_side_encryption: Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
-        :param pulumi.Input[_builtins.str] source: Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        :param pulumi.Input[_builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        :param pulumi.Input[_builtins.str] source: Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] source_customer_algorithm: Specifies the algorithm to use when decrypting the source object (for example, AES256).
-        :param pulumi.Input[_builtins.str] source_customer_key: Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
-        :param pulumi.Input[_builtins.str] source_customer_key_md5: Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        :param pulumi.Input[_builtins.str] source_customer_algorithm: Algorithm to use when decrypting the source object (for example, AES256).
+        :param pulumi.Input[_builtins.str] source_customer_key: Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        :param pulumi.Input[_builtins.str] source_customer_key_md5: 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         :param pulumi.Input[_builtins.str] source_version_id: Version of the copied object in the source bucket.
-        :param pulumi.Input[_builtins.str] storage_class: Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
-        :param pulumi.Input[_builtins.str] tagging_directive: Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        :param pulumi.Input[_builtins.str] storage_class: Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        :param pulumi.Input[_builtins.str] tagging_directive: Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] version_id: Version ID of the newly created copy.
-        :param pulumi.Input[_builtins.str] website_redirect: Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        :param pulumi.Input[_builtins.str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2065,13 +2075,16 @@ class ObjectCopy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+        """
         return pulumi.get(self, "bucket_key_enabled")
 
     @_builtins.property
     @pulumi.getter(name="cacheControl")
     def cache_control(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+        Caching behavior along the request/reply chain. Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         """
         return pulumi.get(self, "cache_control")
 
@@ -2079,7 +2092,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumAlgorithm")
     def checksum_algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+        Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
         """
         return pulumi.get(self, "checksum_algorithm")
 
@@ -2087,7 +2100,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc32")
     def checksum_crc32(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 32-bit CRC32 checksum of the object.
+        Base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
@@ -2095,7 +2108,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc32c")
     def checksum_crc32c(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 32-bit CRC32C checksum of the object.
+        Base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
@@ -2103,7 +2116,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumCrc64nvme")
     def checksum_crc64nvme(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        Base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
@@ -2111,7 +2124,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumSha1")
     def checksum_sha1(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 160-bit SHA-1 digest of the object.
+        Base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
@@ -2119,7 +2132,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="checksumSha256")
     def checksum_sha256(self) -> pulumi.Output[_builtins.str]:
         """
-        The base64-encoded, 256-bit SHA-256 digest of the object.
+        Base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
@@ -2127,7 +2140,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+        Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         """
         return pulumi.get(self, "content_disposition")
 
@@ -2135,7 +2148,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="contentEncoding")
     def content_encoding(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+        Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         """
         return pulumi.get(self, "content_encoding")
 
@@ -2191,7 +2204,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="customerAlgorithm")
     def customer_algorithm(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the algorithm to use to when encrypting the object (for example, AES256).
+        Algorithm to use when encrypting the object (for example, AES256).
         """
         return pulumi.get(self, "customer_algorithm")
 
@@ -2199,7 +2212,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="customerKey")
     def customer_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+        Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
         """
         return pulumi.get(self, "customer_key")
 
@@ -2207,7 +2220,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="customerKeyMd5")
     def customer_key_md5(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "customer_key_md5")
 
@@ -2279,7 +2292,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="kmsEncryptionContext")
     def kms_encryption_context(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+        AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
         """
         return pulumi.get(self, "kms_encryption_context")
 
@@ -2287,7 +2300,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
+        AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2311,7 +2324,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="metadataDirective")
     def metadata_directive(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "metadata_directive")
 
@@ -2319,7 +2332,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> pulumi.Output[_builtins.str]:
         """
-        The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+        [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
@@ -2372,7 +2385,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+        Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -2380,7 +2393,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+        Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
 
         The following arguments are optional:
         """
@@ -2390,7 +2403,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="sourceCustomerAlgorithm")
     def source_customer_algorithm(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the algorithm to use when decrypting the source object (for example, AES256).
+        Algorithm to use when decrypting the source object (for example, AES256).
         """
         return pulumi.get(self, "source_customer_algorithm")
 
@@ -2398,7 +2411,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="sourceCustomerKey")
     def source_customer_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+        Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
         """
         return pulumi.get(self, "source_customer_key")
 
@@ -2406,7 +2419,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="sourceCustomerKeyMd5")
     def source_customer_key_md5(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+        128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
         """
         return pulumi.get(self, "source_customer_key_md5")
 
@@ -2422,7 +2435,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+        Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         """
         return pulumi.get(self, "storage_class")
 
@@ -2430,7 +2443,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="taggingDirective")
     def tagging_directive(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+        Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
         """
         return pulumi.get(self, "tagging_directive")
 
@@ -2462,7 +2475,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="websiteRedirect")
     def website_redirect(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+        Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
         return pulumi.get(self, "website_redirect")
 

@@ -19,14 +19,14 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
     public static final StorageLensConfigurationArgs Empty = new StorageLensConfigurationArgs();
 
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -34,14 +34,14 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      * 
      */
     @Import(name="configId", required=true)
     private Output<String> configId;
 
     /**
-     * @return The ID of the S3 Storage Lens configuration.
+     * @return ID of the S3 Storage Lens configuration.
      * 
      */
     public Output<String> configId() {
@@ -64,14 +64,14 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     @Import(name="storageLensConfiguration", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationArgs> storageLensConfiguration;
 
     /**
-     * @return The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * @return S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      * 
      */
     public Output<StorageLensConfigurationStorageLensConfigurationArgs> storageLensConfiguration() {
@@ -122,7 +122,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configId The ID of the S3 Storage Lens configuration.
+         * @param configId ID of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param configId The ID of the S3 Storage Lens configuration.
+         * @param configId ID of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * @param storageLensConfiguration S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class StorageLensConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param storageLensConfiguration The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+         * @param storageLensConfiguration S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
          * 
          * @return builder
          * 

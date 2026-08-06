@@ -92,13 +92,16 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      * Amazon Resource Name of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Identifier of the data repository association.
+     */
     declare public /*out*/ readonly associationId: pulumi.Output<string>;
     /**
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      */
     declare public readonly batchImportMetaDataOnCreate: pulumi.Output<boolean | undefined>;
     /**
-     * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+     * Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      */
     declare public readonly dataRepositoryPath: pulumi.Output<string>;
     /**
@@ -106,11 +109,11 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      */
     declare public readonly deleteDataInFilesystem: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Amazon FSx file system to on which to create a data repository association.
+     * ID of the Amazon FSx file system to on which to create a data repository association.
      */
     declare public readonly fileSystemId: pulumi.Output<string>;
     /**
-     * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+     * Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      */
     declare public readonly fileSystemPath: pulumi.Output<string>;
     /**
@@ -122,16 +125,15 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * See the `s3` configuration block. Max of 1.
-     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     * Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
      */
     declare public readonly s3: pulumi.Output<outputs.fsx.DataRepositoryAssociationS3>;
     /**
-     * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -197,13 +199,16 @@ export interface DataRepositoryAssociationState {
      * Amazon Resource Name of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Identifier of the data repository association.
+     */
     associationId?: pulumi.Input<string | undefined>;
     /**
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      */
     batchImportMetaDataOnCreate?: pulumi.Input<boolean | undefined>;
     /**
-     * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+     * Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      */
     dataRepositoryPath?: pulumi.Input<string | undefined>;
     /**
@@ -211,11 +216,11 @@ export interface DataRepositoryAssociationState {
      */
     deleteDataInFilesystem?: pulumi.Input<boolean | undefined>;
     /**
-     * The ID of the Amazon FSx file system to on which to create a data repository association.
+     * ID of the Amazon FSx file system to on which to create a data repository association.
      */
     fileSystemId?: pulumi.Input<string | undefined>;
     /**
-     * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+     * Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      */
     fileSystemPath?: pulumi.Input<string | undefined>;
     /**
@@ -227,16 +232,15 @@ export interface DataRepositoryAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * See the `s3` configuration block. Max of 1.
-     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     * Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
      */
     s3?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3 | undefined>;
     /**
-     * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -250,7 +254,7 @@ export interface DataRepositoryAssociationArgs {
      */
     batchImportMetaDataOnCreate?: pulumi.Input<boolean | undefined>;
     /**
-     * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
+     * Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      */
     dataRepositoryPath: pulumi.Input<string>;
     /**
@@ -258,11 +262,11 @@ export interface DataRepositoryAssociationArgs {
      */
     deleteDataInFilesystem?: pulumi.Input<boolean | undefined>;
     /**
-     * The ID of the Amazon FSx file system to on which to create a data repository association.
+     * ID of the Amazon FSx file system to on which to create a data repository association.
      */
     fileSystemId: pulumi.Input<string>;
     /**
-     * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+     * Path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `dataRepositoryPath`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      */
     fileSystemPath: pulumi.Input<string>;
     /**
@@ -274,12 +278,11 @@ export interface DataRepositoryAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * See the `s3` configuration block. Max of 1.
-     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     * Configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. This configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository. See the `s3` Block below. Max of 1.
      */
     s3?: pulumi.Input<inputs.fsx.DataRepositoryAssociationS3 | undefined>;
     /**
-     * A map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the data repository association. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

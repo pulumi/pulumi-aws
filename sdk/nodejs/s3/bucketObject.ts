@@ -122,6 +122,8 @@ import {Bucket} from "./index";
  * });
  * ```
  *
+ * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+ *
  * ## Import
  *
  * ### Identity Schema
@@ -189,7 +191,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
@@ -233,7 +235,7 @@ export class BucketObject extends pulumi.CustomResource {
      */
     declare public readonly forceDestroy: pulumi.Output<boolean | undefined>;
     /**
-     * Name of the object once it is in the bucket.
+     * Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
      *
      * The following arguments are optional:
      */
@@ -292,8 +294,6 @@ export class BucketObject extends pulumi.CustomResource {
     declare public /*out*/ readonly versionId: pulumi.Output<string>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-     *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
@@ -392,7 +392,7 @@ export interface BucketObjectState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
      */
     bucket?: pulumi.Input<string | Bucket | undefined>;
     /**
@@ -436,7 +436,7 @@ export interface BucketObjectState {
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * Name of the object once it is in the bucket.
+     * Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
      *
      * The following arguments are optional:
      */
@@ -496,8 +496,6 @@ export interface BucketObjectState {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
-     *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */
     websiteRedirect?: pulumi.Input<string | undefined>;
@@ -512,7 +510,7 @@ export interface BucketObjectArgs {
      */
     acl?: pulumi.Input<string | undefined>;
     /**
-     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
+     * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` resource instead.
      */
     bucket: pulumi.Input<string | Bucket>;
     /**
@@ -556,7 +554,7 @@ export interface BucketObjectArgs {
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * Name of the object once it is in the bucket.
+     * Name of the object once it is in the bucket. Use the `aws.s3.BucketObjectv2` resource instead.
      *
      * The following arguments are optional:
      */
@@ -607,8 +605,6 @@ export interface BucketObjectArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
-     *
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      *
      * > **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      */

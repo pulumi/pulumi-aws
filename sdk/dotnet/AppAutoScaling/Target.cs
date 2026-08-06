@@ -175,7 +175,7 @@ namespace Pulumi.Aws.AppAutoScaling
     public partial class Target : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the scalable target.
+        /// ARN of the scalable target.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Output<string> ServiceNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// Whether the scaling activities for a scalable target are in a suspended state.
         /// </summary>
         [Output("suspendedState")]
         public Output<Outputs.TargetSuspendedState> SuspendedState { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string> ServiceNamespace { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// Whether the scaling activities for a scalable target are in a suspended state.
         /// </summary>
         [Input("suspendedState")]
         public Input<Inputs.TargetSuspendedStateArgs>? SuspendedState { get; set; }
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.AppAutoScaling
     public sealed class TargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the scalable target.
+        /// ARN of the scalable target.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -403,7 +403,7 @@ namespace Pulumi.Aws.AppAutoScaling
         public Input<string>? ServiceNamespace { get; set; }
 
         /// <summary>
-        /// Specifies whether the scaling activities for a scalable target are in a suspended state.
+        /// Whether the scaling activities for a scalable target are in a suspended state.
         /// </summary>
         [Input("suspendedState")]
         public Input<Inputs.TargetSuspendedStateGetArgs>? SuspendedState { get; set; }

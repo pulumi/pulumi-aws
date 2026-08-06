@@ -81,11 +81,11 @@ type Application struct {
 
 	// ARN of the Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+	// Whether to automatically configure unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigEnabled"`
 	// Configures all of the resources in the resource group by applying the recommended configurations.
 	AutoCreate pulumi.BoolPtrOutput `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+	// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 	CweMonitorEnabled pulumi.BoolPtrOutput `pulumi:"cweMonitorEnabled"`
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrOutput `pulumi:"groupingType"`
@@ -140,11 +140,11 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// ARN of the Application.
 	Arn *string `pulumi:"arn"`
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+	// Whether to automatically configure unmonitored resources in the resource group.
 	AutoConfigEnabled *bool `pulumi:"autoConfigEnabled"`
 	// Configures all of the resources in the resource group by applying the recommended configurations.
 	AutoCreate *bool `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+	// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType *string `pulumi:"groupingType"`
@@ -167,11 +167,11 @@ type applicationState struct {
 type ApplicationState struct {
 	// ARN of the Application.
 	Arn pulumi.StringPtrInput
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+	// Whether to automatically configure unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrInput
 	// Configures all of the resources in the resource group by applying the recommended configurations.
 	AutoCreate pulumi.BoolPtrInput
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+	// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 	CweMonitorEnabled pulumi.BoolPtrInput
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrInput
@@ -196,11 +196,11 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+	// Whether to automatically configure unmonitored resources in the resource group.
 	AutoConfigEnabled *bool `pulumi:"autoConfigEnabled"`
 	// Configures all of the resources in the resource group by applying the recommended configurations.
 	AutoCreate *bool `pulumi:"autoCreate"`
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+	// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 	CweMonitorEnabled *bool `pulumi:"cweMonitorEnabled"`
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType *string `pulumi:"groupingType"`
@@ -220,11 +220,11 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+	// Whether to automatically configure unmonitored resources in the resource group.
 	AutoConfigEnabled pulumi.BoolPtrInput
 	// Configures all of the resources in the resource group by applying the recommended configurations.
 	AutoCreate pulumi.BoolPtrInput
-	// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+	// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 	CweMonitorEnabled pulumi.BoolPtrInput
 	// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
 	GroupingType pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+// Whether to automatically configure unmonitored resources in the resource group.
 func (o ApplicationOutput) AutoConfigEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoConfigEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -344,7 +344,7 @@ func (o ApplicationOutput) AutoCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AutoCreate }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+// Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
 func (o ApplicationOutput) CweMonitorEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.CweMonitorEnabled }).(pulumi.BoolPtrOutput)
 }

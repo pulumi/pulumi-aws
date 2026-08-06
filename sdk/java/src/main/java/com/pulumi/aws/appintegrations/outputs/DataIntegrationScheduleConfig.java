@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class DataIntegrationScheduleConfig {
     /**
-     * @return The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+     * @return Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
      * 
      */
     private String firstExecutionFrom;
     /**
-     * @return The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+     * @return Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
      * 
      */
     private String object;
@@ -28,14 +28,14 @@ public final class DataIntegrationScheduleConfig {
 
     private DataIntegrationScheduleConfig() {}
     /**
-     * @return The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+     * @return Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
      * 
      */
     public String firstExecutionFrom() {
         return this.firstExecutionFrom;
     }
     /**
-     * @return The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+     * @return Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
      * 
      */
     public String object() {

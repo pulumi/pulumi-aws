@@ -40,14 +40,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      * 
      */
     @Import(name="clientToken")
     private @Nullable String clientToken;
 
     /**
-     * @return An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * @return Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      * 
      */
     public Optional<String> clientToken() {
@@ -85,14 +85,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     @Import(name="enableEcsManagedTags")
     private @Nullable Boolean enableEcsManagedTags;
 
     /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * @return Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
     public Optional<Boolean> enableEcsManagedTags() {
@@ -100,14 +100,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     @Import(name="enableExecuteCommand")
     private @Nullable Boolean enableExecuteCommand;
 
     /**
-     * @return Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * @return Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
     public Optional<Boolean> enableExecuteCommand() {
@@ -160,14 +160,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+     * List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      * 
      */
     @Import(name="overrides")
     private @Nullable GetTaskExecutionOverrides overrides;
 
     /**
-     * @return A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+     * @return List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      * 
      */
     public Optional<GetTaskExecutionOverrides> overrides() {
@@ -175,14 +175,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+     * Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      * 
      */
     @Import(name="placementConstraints")
     private @Nullable List<GetTaskExecutionPlacementConstraint> placementConstraints;
 
     /**
-     * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+     * @return Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      * 
      */
     public Optional<List<GetTaskExecutionPlacementConstraint>> placementConstraints() {
@@ -190,14 +190,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+     * Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      * 
      */
     @Import(name="placementStrategies")
     private @Nullable List<GetTaskExecutionPlacementStrategy> placementStrategies;
 
     /**
-     * @return The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+     * @return Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      * 
      */
     public Optional<List<GetTaskExecutionPlacementStrategy>> placementStrategies() {
@@ -205,14 +205,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
+     * Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
      * 
      */
     @Import(name="platformVersion")
     private @Nullable String platformVersion;
 
     /**
-     * @return The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
+     * @return Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
      * 
      */
     public Optional<String> platformVersion() {
@@ -220,14 +220,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+     * Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
      * 
      */
     @Import(name="propagateTags")
     private @Nullable String propagateTags;
 
     /**
-     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+     * @return Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
      * 
      */
     public Optional<String> propagateTags() {
@@ -235,14 +235,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The reference ID to use for the task.
+     * Reference ID to use for the task.
      * 
      */
     @Import(name="referenceId")
     private @Nullable String referenceId;
 
     /**
-     * @return The reference ID to use for the task.
+     * @return Reference ID to use for the task.
      * 
      */
     public Optional<String> referenceId() {
@@ -265,14 +265,14 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * An optional tag specified when a task is started.
+     * Optional tag specified when a task is started.
      * 
      */
     @Import(name="startedBy")
     private @Nullable String startedBy;
 
     /**
-     * @return An optional tag specified when a task is started.
+     * @return Optional tag specified when a task is started.
      * 
      */
     public Optional<String> startedBy() {
@@ -295,7 +295,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
      * 
      * The following arguments are optional:
      * 
@@ -304,7 +304,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
     private String taskDefinition;
 
     /**
-     * @return The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
+     * @return Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
      * 
      * The following arguments are optional:
      * 
@@ -377,7 +377,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param clientToken An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+         * @param clientToken Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param enableEcsManagedTags Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+         * @param enableEcsManagedTags Whether to enable Amazon ECS managed tags for the tasks within the service.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param enableExecuteCommand Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+         * @param enableExecuteCommand Whether to enable Amazon ECS Exec for the tasks within the service.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param overrides A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+         * @param overrides List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param placementConstraints An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+         * @param placementConstraints Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param placementConstraints An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+         * @param placementConstraints Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param placementStrategies The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+         * @param placementStrategies Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param placementStrategies The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+         * @param placementStrategies Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param platformVersion The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
+         * @param platformVersion Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn&#39;t specified, the `LATEST` platform version is used.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+         * @param propagateTags Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren&#39;t propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param referenceId The reference ID to use for the task.
+         * @param referenceId Reference ID to use for the task.
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param startedBy An optional tag specified when a task is started.
+         * @param startedBy Optional tag specified when a task is started.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class GetTaskExecutionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param taskDefinition The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
+         * @param taskDefinition Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn&#39;t specified, the latest `ACTIVE` revision is used.
          * 
          * The following arguments are optional:
          * 

@@ -13,13 +13,22 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData
     {
+        /// <summary>
+        /// Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig? ErrorHandlingConfig;
+        /// <summary>
+        /// Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+        /// </summary>
         public readonly ImmutableArray<string> IdFieldNames;
         public readonly string ObjectPath;
         /// <summary>
-        /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        /// Settings that determine how Amazon AppFlow handles the success response it gets from the connector after placing data. See the `destination_flow_config.destination_connector_properties.sapo_data.success_response_handling_config` Block for details.
         /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig? SuccessResponseHandlingConfig;
+        /// <summary>
+        /// Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `IdFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+        /// </summary>
         public readonly string? WriteOperationType;
 
         [OutputConstructor]

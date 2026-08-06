@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOptimizerConfiguration
     {
         /// <summary>
+        /// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+        /// </summary>
+        public readonly Outputs.CatalogTableOptimizerConfigurationCompactionConfiguration? CompactionConfiguration;
+        /// <summary>
         /// Indicates whether the table optimizer is enabled.
         /// </summary>
         public readonly bool Enabled;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private CatalogTableOptimizerConfiguration(
+            Outputs.CatalogTableOptimizerConfigurationCompactionConfiguration? compactionConfiguration,
+
             bool enabled,
 
             Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? orphanFileDeletionConfiguration,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Glue.Outputs
 
             string roleArn)
         {
+            CompactionConfiguration = compactionConfiguration;
             Enabled = enabled;
             OrphanFileDeletionConfiguration = orphanFileDeletionConfiguration;
             RetentionConfiguration = retentionConfiguration;

@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Odb.Outputs
         public readonly ImmutableArray<string> Ipv4Addresses;
         public readonly string KmsPolicyDocument;
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         public readonly string Status;
 

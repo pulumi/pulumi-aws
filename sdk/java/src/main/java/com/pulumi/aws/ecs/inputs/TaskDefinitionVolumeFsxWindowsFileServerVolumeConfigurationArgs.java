@@ -31,14 +31,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
     }
 
     /**
-     * The Amazon FSx for Windows File Server file system ID to use.
+     * Amazon FSx for Windows File Server file system ID to use.
      * 
      */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return Amazon FSx for Windows File Server file system ID to use.
      * 
      */
     public Output<String> fileSystemId() {
@@ -46,14 +46,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
     }
 
     /**
-     * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
     @Import(name="rootDirectory", required=true)
     private Output<String> rootDirectory;
 
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
     public Output<String> rootDirectory() {
@@ -108,7 +108,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
         }
 
         /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
+         * @param fileSystemId Amazon FSx for Windows File Server file system ID to use.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
         }
 
         /**
-         * @param fileSystemId The Amazon FSx for Windows File Server file system ID to use.
+         * @param fileSystemId Amazon FSx for Windows File Server file system ID to use.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
         }
 
         /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         * @param rootDirectory Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAr
         }
 
         /**
-         * @param rootDirectory The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         * @param rootDirectory Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
          * 
          * @return builder
          * 

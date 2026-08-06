@@ -228,28 +228,28 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Caching Config. See Caching Config.
+     * Caching Config. See Caching Config.
      * 
      */
     @Export(name="cachingConfig", refs={ResolverCachingConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverCachingConfig> cachingConfig;
 
     /**
-     * @return The Caching Config. See Caching Config.
+     * @return Caching Config. See Caching Config.
      * 
      */
     public Output<Optional<ResolverCachingConfig>> cachingConfig() {
         return Codegen.optional(this.cachingConfig);
     }
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     @Export(name="code", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> code;
 
     /**
-     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * @return Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     public Output<Optional<String>> code() {
@@ -312,14 +312,14 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchSize);
     }
     /**
-     * The caching configuration for the resolver. See Pipeline Config.
+     * Caching configuration for the resolver. See Pipeline Config.
      * 
      */
     @Export(name="pipelineConfig", refs={ResolverPipelineConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverPipelineConfig> pipelineConfig;
 
     /**
-     * @return The caching configuration for the resolver. See Pipeline Config.
+     * @return Caching configuration for the resolver. See Pipeline Config.
      * 
      */
     public Output<Optional<ResolverPipelineConfig>> pipelineConfig() {
@@ -368,28 +368,28 @@ public class Resolver extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseTemplate);
     }
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
     @Export(name="runtime", refs={ResolverRuntime.class}, tree="[0]")
     private Output</* @Nullable */ ResolverRuntime> runtime;
 
     /**
-     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * @return Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
     public Output<Optional<ResolverRuntime>> runtime() {
         return Codegen.optional(this.runtime);
     }
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Sync configuration for a resolver. See Sync Config.
      * 
      */
     @Export(name="syncConfig", refs={ResolverSyncConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResolverSyncConfig> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See Sync Config.
+     * @return Sync configuration for a resolver. See Sync Config.
      * 
      */
     public Output<Optional<ResolverSyncConfig>> syncConfig() {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
     public sealed class ServiceSourceConfigurationCodeRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+        /// Configuration for building and running the service from a source code repository. See `CodeConfiguration` below.
         /// </summary>
         [Input("codeConfiguration")]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs>? CodeConfiguration { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<string> RepositoryUrl { get; set; } = null!;
 
         /// <summary>
-        /// Version that should be used within the source code repository. See Source Code Version below for more details.
+        /// Version that should be used within the source code repository. See `SourceCodeVersion` below.
         /// </summary>
         [Input("sourceCodeVersion", required: true)]
         public Input<Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> SourceCodeVersion { get; set; } = null!;
 
         /// <summary>
-        /// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        /// Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
         /// </summary>
         [Input("sourceDirectory")]
         public Input<string>? SourceDirectory { get; set; }

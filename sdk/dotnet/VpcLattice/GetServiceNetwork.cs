@@ -107,6 +107,10 @@ namespace Pulumi.Aws.VpcLattice
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -135,6 +139,10 @@ namespace Pulumi.Aws.VpcLattice
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -185,6 +193,9 @@ namespace Pulumi.Aws.VpcLattice
         public readonly int NumberOfAssociatedVpcs;
         public readonly string Region;
         public readonly string ServiceNetworkIdentifier;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -14,15 +14,17 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class UsagePlanApiStageThrottle
     {
         /// <summary>
-        /// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        /// API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         /// </summary>
         public readonly int? BurstLimit;
         /// <summary>
-        /// Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        /// Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The API request steady-state rate limit.
+        /// API request steady-state rate limit.
         /// </summary>
         public readonly double? RateLimit;
 

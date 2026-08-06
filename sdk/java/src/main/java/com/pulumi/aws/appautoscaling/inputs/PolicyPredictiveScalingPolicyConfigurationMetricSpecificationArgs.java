@@ -23,14 +23,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgs();
 
     /**
-     * Customized capacity metric specification. See supported fields below.
+     * Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
      * 
      */
     @Import(name="customizedCapacityMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs> customizedCapacityMetricSpecification;
 
     /**
-     * @return Customized capacity metric specification. See supported fields below.
+     * @return Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs>> customizedCapacityMetricSpecification() {
@@ -38,14 +38,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Customized load metric specification. See supported fields below.
+     * Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
      * 
      */
     @Import(name="customizedLoadMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs> customizedLoadMetricSpecification;
 
     /**
-     * @return Customized load metric specification. See supported fields below.
+     * @return Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs>> customizedLoadMetricSpecification() {
@@ -53,14 +53,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Customized scaling metric specification. See supported fields below.
+     * Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
      * 
      */
     @Import(name="customizedScalingMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
 
     /**
-     * @return Customized scaling metric specification. See supported fields below.
+     * @return Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs>> customizedScalingMetricSpecification() {
@@ -68,14 +68,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Predefined load metric specification. See supported fields below.
+     * Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
      * 
      */
     @Import(name="predefinedLoadMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs> predefinedLoadMetricSpecification;
 
     /**
-     * @return Predefined load metric specification. See supported fields below.
+     * @return Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs>> predefinedLoadMetricSpecification() {
@@ -83,14 +83,14 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+     * Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
      * 
      */
     @Import(name="predefinedMetricPairSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs> predefinedMetricPairSpecification;
 
     /**
-     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs>> predefinedMetricPairSpecification() {
@@ -98,31 +98,23 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     }
 
     /**
-     * Predefined scaling metric specification. See supported fields below.
+     * Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
      * 
      */
     @Import(name="predefinedScalingMetricSpecification")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
 
     /**
-     * @return Predefined scaling metric specification. See supported fields below.
+     * @return Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
      * 
      */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs>> predefinedScalingMetricSpecification() {
         return Optional.ofNullable(this.predefinedScalingMetricSpecification);
     }
 
-    /**
-     * Target utilization.
-     * 
-     */
     @Import(name="targetValue", required=true)
     private Output<String> targetValue;
 
-    /**
-     * @return Target utilization.
-     * 
-     */
     public Output<String> targetValue() {
         return this.targetValue;
     }
@@ -158,7 +150,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedCapacityMetricSpecification Customized capacity metric specification. See supported fields below.
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +161,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedCapacityMetricSpecification Customized capacity metric specification. See supported fields below.
+         * @param customizedCapacityMetricSpecification Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +171,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedLoadMetricSpecification Customized load metric specification. See supported fields below.
+         * @param customizedLoadMetricSpecification Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +182,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedLoadMetricSpecification Customized load metric specification. See supported fields below.
+         * @param customizedLoadMetricSpecification Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +192,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedScalingMetricSpecification Customized scaling metric specification. See supported fields below.
+         * @param customizedScalingMetricSpecification Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -211,7 +203,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param customizedScalingMetricSpecification Customized scaling metric specification. See supported fields below.
+         * @param customizedScalingMetricSpecification Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +213,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedLoadMetricSpecification Predefined load metric specification. See supported fields below.
+         * @param predefinedLoadMetricSpecification Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -232,7 +224,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedLoadMetricSpecification Predefined load metric specification. See supported fields below.
+         * @param predefinedLoadMetricSpecification Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -242,7 +234,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricPairSpecification Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+         * @param predefinedMetricPairSpecification Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
          * 
          * @return builder
          * 
@@ -253,7 +245,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedMetricPairSpecification Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+         * @param predefinedMetricPairSpecification Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
          * 
          * @return builder
          * 
@@ -263,7 +255,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedScalingMetricSpecification Predefined scaling metric specification. See supported fields below.
+         * @param predefinedScalingMetricSpecification Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -274,7 +266,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param predefinedScalingMetricSpecification Predefined scaling metric specification. See supported fields below.
+         * @param predefinedScalingMetricSpecification Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
          * 
          * @return builder
          * 
@@ -283,23 +275,11 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             return predefinedScalingMetricSpecification(Output.of(predefinedScalingMetricSpecification));
         }
 
-        /**
-         * @param targetValue Target utilization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(Output<String> targetValue) {
             $.targetValue = targetValue;
             return this;
         }
 
-        /**
-         * @param targetValue Target utilization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetValue(String targetValue) {
             return targetValue(Output.of(targetValue));
         }

@@ -13,37 +13,37 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        /// S3 Storage Lens activity metrics. See `ActivityMetrics` above for more details.
         /// </summary>
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs>? ActivityMetrics { get; set; }
 
         /// <summary>
-        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        /// Advanced cost-optimization metrics for S3 Storage Lens. See `AdvancedCostOptimizationMetrics` above for more details.
         /// </summary>
         [Input("advancedCostOptimizationMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs>? AdvancedCostOptimizationMetrics { get; set; }
 
         /// <summary>
-        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        /// Advanced data-protection metrics for S3 Storage Lens. See `AdvancedDataProtectionMetrics` above for more details.
         /// </summary>
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
         /// <summary>
-        /// Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+        /// Advanced performance metrics for S3 Storage Lens. See `AdvancedPerformanceMetrics` above for more details.
         /// </summary>
         [Input("advancedPerformanceMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs>? AdvancedPerformanceMetrics { get; set; }
 
         /// <summary>
-        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+        /// Detailed status code metrics for S3 Storage Lens. See `DetailedStatusCodeMetrics` above for more details.
         /// </summary>
         [Input("detailedStatusCodeMetrics")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs>? DetailedStatusCodeMetrics { get; set; }
 
         /// <summary>
-        /// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        /// Prefix-level metrics for S3 Storage Lens. See `PrefixLevel` below for more details.
         /// </summary>
         [Input("prefixLevel")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs>? PrefixLevel { get; set; }

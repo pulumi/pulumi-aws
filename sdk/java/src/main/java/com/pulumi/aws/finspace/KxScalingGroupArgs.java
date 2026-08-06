@@ -18,14 +18,14 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
     public static final KxScalingGroupArgs Empty = new KxScalingGroupArgs();
 
     /**
-     * The availability zone identifiers for the requested regions.
+     * Availability zone identifiers for the requested regions.
      * 
      */
     @Import(name="availabilityZoneId", required=true)
     private Output<String> availabilityZoneId;
 
     /**
-     * @return The availability zone identifiers for the requested regions.
+     * @return Availability zone identifiers for the requested regions.
      * 
      */
     public Output<String> availabilityZoneId() {
@@ -33,14 +33,14 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A unique identifier for the kdb environment, where you want to create the scaling group.
+     * Unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
     @Import(name="environmentId", required=true)
     private Output<String> environmentId;
 
     /**
-     * @return A unique identifier for the kdb environment, where you want to create the scaling group.
+     * @return Unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
     public Output<String> environmentId() {
@@ -48,18 +48,14 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     * 
-     * The following arguments are optional:
+     * Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      * 
      */
     @Import(name="hostType", required=true)
     private Output<String> hostType;
 
     /**
-     * @return The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     * 
-     * The following arguments are optional:
+     * @return Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      * 
      */
     public Output<String> hostType() {
@@ -69,12 +65,16 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Unique name for the scaling group that you want to create.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Unique name for the scaling group that you want to create.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -141,7 +141,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param availabilityZoneId The availability zone identifiers for the requested regions.
+         * @param availabilityZoneId Availability zone identifiers for the requested regions.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param availabilityZoneId The availability zone identifiers for the requested regions.
+         * @param availabilityZoneId Availability zone identifiers for the requested regions.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param environmentId A unique identifier for the kdb environment, where you want to create the scaling group.
+         * @param environmentId Unique identifier for the kdb environment, where you want to create the scaling group.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param environmentId A unique identifier for the kdb environment, where you want to create the scaling group.
+         * @param environmentId Unique identifier for the kdb environment, where you want to create the scaling group.
          * 
          * @return builder
          * 
@@ -183,9 +183,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostType The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-         * 
-         * The following arguments are optional:
+         * @param hostType Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
          * 
          * @return builder
          * 
@@ -196,9 +194,7 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param hostType The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-         * 
-         * The following arguments are optional:
+         * @param hostType Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
          * 
          * @return builder
          * 
@@ -210,6 +206,8 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Unique name for the scaling group that you want to create.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -220,6 +218,8 @@ public final class KxScalingGroupArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name Unique name for the scaling group that you want to create.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

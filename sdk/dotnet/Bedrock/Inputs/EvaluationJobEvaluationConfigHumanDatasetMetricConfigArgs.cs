@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`EvaluatorModelConfig`).
+        /// Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

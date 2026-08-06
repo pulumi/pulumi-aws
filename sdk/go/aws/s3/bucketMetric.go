@@ -202,7 +202,7 @@ type BucketMetric struct {
 
 	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 	Filter BucketMetricFilterPtrOutput `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -245,7 +245,7 @@ func GetBucketMetric(ctx *pulumi.Context,
 type bucketMetricState struct {
 	// Name of the bucket to put metric configuration.
 	Bucket *string `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 	Filter *BucketMetricFilter `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name *string `pulumi:"name"`
@@ -256,7 +256,7 @@ type bucketMetricState struct {
 type BucketMetricState struct {
 	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringPtrInput
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 	Filter BucketMetricFilterPtrInput
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringPtrInput
@@ -271,7 +271,7 @@ func (BucketMetricState) ElementType() reflect.Type {
 type bucketMetricArgs struct {
 	// Name of the bucket to put metric configuration.
 	Bucket string `pulumi:"bucket"`
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 	Filter *BucketMetricFilter `pulumi:"filter"`
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name *string `pulumi:"name"`
@@ -283,7 +283,7 @@ type bucketMetricArgs struct {
 type BucketMetricArgs struct {
 	// Name of the bucket to put metric configuration.
 	Bucket pulumi.StringInput
-	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+	// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 	Filter BucketMetricFilterPtrInput
 	// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
 	Name pulumi.StringPtrInput
@@ -383,7 +383,7 @@ func (o BucketMetricOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetric) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
 func (o BucketMetricOutput) Filter() BucketMetricFilterPtrOutput {
 	return o.ApplyT(func(v *BucketMetric) BucketMetricFilterPtrOutput { return v.Filter }).(BucketMetricFilterPtrOutput)
 }

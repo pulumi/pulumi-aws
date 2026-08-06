@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkPeeringConnectionsResult {
     /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
+     * @return List of ODB peering connections. A summary of an ODB peering connection.
      * 
      */
     private List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
@@ -21,7 +21,7 @@ public final class GetNetworkPeeringConnectionsResult {
 
     private GetNetworkPeeringConnectionsResult() {}
     /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
+     * @return List of ODB peering connections. A summary of an ODB peering connection.
      * 
      */
     public List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections() {

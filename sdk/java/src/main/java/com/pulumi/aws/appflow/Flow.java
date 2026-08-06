@@ -211,70 +211,70 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Description of the flow you want to create.
+     * Description of the flow.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the flow you want to create.
+     * @return Description of the flow.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      * 
      */
     @Export(name="destinationFlowConfigs", refs={List.class,FlowDestinationFlowConfig.class}, tree="[0,1]")
     private Output<List<FlowDestinationFlowConfig>> destinationFlowConfigs;
 
     /**
-     * @return A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * @return Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      * 
      */
     public Output<List<FlowDestinationFlowConfig>> destinationFlowConfigs() {
         return this.destinationFlowConfigs;
     }
     /**
-     * The current status of the flow.
+     * Current status of the flow.
      * 
      */
     @Export(name="flowStatus", refs={String.class}, tree="[0]")
     private Output<String> flowStatus;
 
     /**
-     * @return The current status of the flow.
+     * @return Current status of the flow.
      * 
      */
     public Output<String> flowStatus() {
         return this.flowStatus;
     }
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     @Export(name="kmsArn", refs={String.class}, tree="[0]")
     private Output<String> kmsArn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * @return ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     public Output<String> kmsArn() {
         return this.kmsArn;
     }
     /**
-     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      * 
      */
     @Export(name="metadataCatalogConfig", refs={FlowMetadataCatalogConfig.class}, tree="[0]")
     private Output<FlowMetadataCatalogConfig> metadataCatalogConfig;
 
     /**
-     * @return A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * @return Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      * 
      */
     public Output<FlowMetadataCatalogConfig> metadataCatalogConfig() {
@@ -309,14 +309,14 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      * 
      */
     @Export(name="sourceFlowConfig", refs={FlowSourceFlowConfig.class}, tree="[0]")
     private Output<FlowSourceFlowConfig> sourceFlowConfig;
 
     /**
-     * @return The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * @return Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      * 
      */
     public Output<FlowSourceFlowConfig> sourceFlowConfig() {
@@ -351,28 +351,28 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      * 
      */
     @Export(name="tasks", refs={List.class,FlowTask.class}, tree="[0,1]")
     private Output<List<FlowTask>> tasks;
 
     /**
-     * @return A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * @return Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      * 
      */
     public Output<List<FlowTask>> tasks() {
         return this.tasks;
     }
     /**
-     * A Trigger that determine how and when the flow runs.
+     * Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      * 
      */
     @Export(name="triggerConfig", refs={FlowTriggerConfig.class}, tree="[0]")
     private Output<FlowTriggerConfig> triggerConfig;
 
     /**
-     * @return A Trigger that determine how and when the flow runs.
+     * @return Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      * 
      */
     public Output<FlowTriggerConfig> triggerConfig() {

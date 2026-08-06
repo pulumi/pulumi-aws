@@ -18,14 +18,14 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
     public static final BucketLifecycleRuleTransitionArgs Empty = new BucketLifecycleRuleTransitionArgs();
 
     /**
-     * Specifies the date after which you want the corresponding action to take effect.
+     * Date after which you want the corresponding action to take effect.
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return Specifies the date after which you want the corresponding action to take effect.
+     * @return Date after which you want the corresponding action to take effect.
      * 
      */
     public Optional<Output<String>> date() {
@@ -33,14 +33,14 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the number of days after object creation when the specific rule action takes effect.
+     * Number of days after object creation when the specific rule action takes effect.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return Specifies the number of days after object creation when the specific rule action takes effect.
+     * @return Number of days after object creation when the specific rule action takes effect.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -48,14 +48,14 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
     }
 
     /**
-     * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+     * Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
     @Import(name="storageClass", required=true)
     private Output<String> storageClass;
 
     /**
-     * @return Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+     * @return Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
     public Output<String> storageClass() {
@@ -89,7 +89,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
+         * @param date Date after which you want the corresponding action to take effect.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
+         * @param date Date after which you want the corresponding action to take effect.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
+         * @param days Number of days after object creation when the specific rule action takes effect.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
+         * @param days Number of days after object creation when the specific rule action takes effect.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * @param storageClass Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketLifecycleRuleTransitionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param storageClass Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
+         * @param storageClass Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          * 
          * @return builder
          * 

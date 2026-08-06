@@ -17,14 +17,14 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
     public static final TaskSetScaleArgs Empty = new TaskSetScaleArgs();
 
     /**
-     * The unit of measure for the scale value. Default: `PERCENT`.
+     * Unit of measure for the scale value. Default: `PERCENT`.
      * 
      */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
     /**
-     * @return The unit of measure for the scale value. Default: `PERCENT`.
+     * @return Unit of measure for the scale value. Default: `PERCENT`.
      * 
      */
     public Optional<Output<String>> unit() {
@@ -32,14 +32,14 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+     * Value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
      * 
      */
     @Import(name="value")
     private @Nullable Output<Double> value;
 
     /**
-     * @return The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+     * @return Value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
      * 
      */
     public Optional<Output<Double>> value() {
@@ -72,7 +72,7 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unit The unit of measure for the scale value. Default: `PERCENT`.
+         * @param unit Unit of measure for the scale value. Default: `PERCENT`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unit The unit of measure for the scale value. Default: `PERCENT`.
+         * @param unit Unit of measure for the scale value. Default: `PERCENT`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+         * @param value Value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TaskSetScaleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+         * @param value Value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
          * 
          * @return builder
          * 

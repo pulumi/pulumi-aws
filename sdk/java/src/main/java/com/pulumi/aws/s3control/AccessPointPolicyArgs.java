@@ -17,14 +17,14 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
     public static final AccessPointPolicyArgs Empty = new AccessPointPolicyArgs();
 
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      * 
      */
     @Import(name="accessPointArn", required=true)
     private Output<String> accessPointArn;
 
     /**
-     * @return The ARN of the access point that you want to associate with the specified policy.
+     * @return ARN of the access point that you want to associate with the specified policy.
      * 
      */
     public Output<String> accessPointArn() {
@@ -32,14 +32,14 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
-     * @return The policy that you want to apply to the specified access point.
+     * @return Policy that you want to apply to the specified access point.
      * 
      */
     public Output<String> policy() {
@@ -88,7 +88,7 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
+         * @param accessPointArn ARN of the access point that you want to associate with the specified policy.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
+         * @param accessPointArn ARN of the access point that you want to associate with the specified policy.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The policy that you want to apply to the specified access point.
+         * @param policy Policy that you want to apply to the specified access point.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The policy that you want to apply to the specified access point.
+         * @param policy Policy that you want to apply to the specified access point.
          * 
          * @return builder
          * 

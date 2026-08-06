@@ -90,15 +90,15 @@ export class ExtensionAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      */
     declare public readonly extensionArn: pulumi.Output<string>;
     /**
-     * The version number for the extension defined in the association.
+     * Version number for the extension defined in the association.
      */
     declare public /*out*/ readonly extensionVersion: pulumi.Output<number>;
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -106,7 +106,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -158,15 +158,15 @@ export interface ExtensionAssociationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      */
     extensionArn?: pulumi.Input<string | undefined>;
     /**
-     * The version number for the extension defined in the association.
+     * Version number for the extension defined in the association.
      */
     extensionVersion?: pulumi.Input<number | undefined>;
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ExtensionAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -184,11 +184,11 @@ export interface ExtensionAssociationState {
  */
 export interface ExtensionAssociationArgs {
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      */
     extensionArn: pulumi.Input<string>;
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface ExtensionAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      */
     resourceArn: pulumi.Input<string>;
 }

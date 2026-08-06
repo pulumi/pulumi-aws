@@ -75,7 +75,7 @@ namespace Pulumi.Aws.S3Control
     public partial class ObjectLambdaAccessPoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -93,13 +93,13 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        /// Configuration block containing details about the Object Lambda Access Point. See `Configuration` Block below for more details.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ObjectLambdaAccessPointConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The name for this Object Lambda Access Point.
+        /// Name for this Object Lambda Access Point.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -157,19 +157,19 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        /// Configuration block containing details about the Object Lambda Access Point. See `Configuration` Block below for more details.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The name for this Object Lambda Access Point.
+        /// Name for this Object Lambda Access Point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class ObjectLambdaAccessPointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the Terraform AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        /// Configuration block containing details about the Object Lambda Access Point. See `Configuration` Block below for more details.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// The name for this Object Lambda Access Point.
+        /// Name for this Object Lambda Access Point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

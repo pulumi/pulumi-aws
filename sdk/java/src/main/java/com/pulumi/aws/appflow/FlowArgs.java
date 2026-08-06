@@ -24,14 +24,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     public static final FlowArgs Empty = new FlowArgs();
 
     /**
-     * Description of the flow you want to create.
+     * Description of the flow.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the flow you want to create.
+     * @return Description of the flow.
      * 
      */
     public Optional<Output<String>> description() {
@@ -39,14 +39,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      * 
      */
     @Import(name="destinationFlowConfigs", required=true)
     private Output<List<FlowDestinationFlowConfigArgs>> destinationFlowConfigs;
 
     /**
-     * @return A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+     * @return Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
      * 
      */
     public Output<List<FlowDestinationFlowConfigArgs>> destinationFlowConfigs() {
@@ -54,14 +54,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     @Import(name="kmsArn")
     private @Nullable Output<String> kmsArn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * @return ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     public Optional<Output<String>> kmsArn() {
@@ -69,14 +69,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      * 
      */
     @Import(name="metadataCatalogConfig")
     private @Nullable Output<FlowMetadataCatalogConfigArgs> metadataCatalogConfig;
 
     /**
-     * @return A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+     * @return Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
      * 
      */
     public Optional<Output<FlowMetadataCatalogConfigArgs>> metadataCatalogConfig() {
@@ -114,14 +114,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      * 
      */
     @Import(name="sourceFlowConfig", required=true)
     private Output<FlowSourceFlowConfigArgs> sourceFlowConfig;
 
     /**
-     * @return The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+     * @return Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
      * 
      */
     public Output<FlowSourceFlowConfigArgs> sourceFlowConfig() {
@@ -144,14 +144,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      * 
      */
     @Import(name="tasks", required=true)
     private Output<List<FlowTaskArgs>> tasks;
 
     /**
-     * @return A Task that Amazon AppFlow performs while transferring the data in the flow run.
+     * @return Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
      * 
      */
     public Output<List<FlowTaskArgs>> tasks() {
@@ -159,14 +159,14 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Trigger that determine how and when the flow runs.
+     * Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      * 
      */
     @Import(name="triggerConfig", required=true)
     private Output<FlowTriggerConfigArgs> triggerConfig;
 
     /**
-     * @return A Trigger that determine how and when the flow runs.
+     * @return Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
      * 
      */
     public Output<FlowTriggerConfigArgs> triggerConfig() {
@@ -207,7 +207,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the flow you want to create.
+         * @param description Description of the flow.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the flow you want to create.
+         * @param description Description of the flow.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+         * @param destinationFlowConfigs Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+         * @param destinationFlowConfigs Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
+         * @param destinationFlowConfigs Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataCatalogConfig A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+         * @param metadataCatalogConfig Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataCatalogConfig A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
+         * @param metadataCatalogConfig Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceFlowConfig The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+         * @param sourceFlowConfig Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceFlowConfig The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
+         * @param sourceFlowConfig Configuration that controls how Amazon AppFlow retrieves data from the source connector. See the `sourceFlowConfig` Block for details.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
+         * @param tasks Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
+         * @param tasks Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
+         * @param tasks Tasks that Amazon AppFlow performs while transferring the data in the flow run. See the `task` Block for details.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggerConfig A Trigger that determine how and when the flow runs.
+         * @param triggerConfig Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggerConfig A Trigger that determine how and when the flow runs.
+         * @param triggerConfig Configuration that determines how and when the flow runs. See the `triggerConfig` Block for details.
          * 
          * @return builder
          * 

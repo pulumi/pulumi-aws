@@ -13,12 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class GatewayRouteSpecHttp2RouteMatchQueryParameter
     {
-        /// <summary>
-        /// The query parameter to match on.
-        /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch? Match;
         /// <summary>
-        /// Name for the query parameter that will be matched on.
+        /// Name to use for the gateway route. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Name;
 

@@ -70,16 +70,13 @@ namespace Pulumi.Aws.Elb
         public Output<string> CookieName { get; private set; } = null!;
 
         /// <summary>
-        /// Load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
+        /// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
         /// </summary>
         [Output("lbPort")]
         public Output<int> LbPort { get; private set; } = null!;
 
         /// <summary>
-        /// Name of load balancer to which the policy
-        /// should be attached.
+        /// Name of load balancer to which the policy should be attached.
         /// </summary>
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
@@ -153,16 +150,13 @@ namespace Pulumi.Aws.Elb
         public Input<string> CookieName { get; set; } = null!;
 
         /// <summary>
-        /// Load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
+        /// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
         /// </summary>
         [Input("lbPort", required: true)]
         public Input<int> LbPort { get; set; } = null!;
 
         /// <summary>
-        /// Name of load balancer to which the policy
-        /// should be attached.
+        /// Name of load balancer to which the policy should be attached.
         /// </summary>
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
@@ -194,16 +188,13 @@ namespace Pulumi.Aws.Elb
         public Input<string>? CookieName { get; set; }
 
         /// <summary>
-        /// Load balancer port to which the policy
-        /// should be applied. This must be an active listener on the load
-        /// balancer.
+        /// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
         /// </summary>
         [Input("lbPort")]
         public Input<int>? LbPort { get; set; }
 
         /// <summary>
-        /// Name of load balancer to which the policy
-        /// should be attached.
+        /// Name of load balancer to which the policy should be attached.
         /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }

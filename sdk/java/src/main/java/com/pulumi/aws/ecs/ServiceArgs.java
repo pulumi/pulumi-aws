@@ -534,14 +534,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
     @Import(name="vpcLatticeConfigurations")
     private @Nullable Output<List<ServiceVpcLatticeConfigurationArgs>> vpcLatticeConfigurations;
 
     /**
-     * @return The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * @return VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
     public Optional<Output<List<ServiceVpcLatticeConfigurationArgs>>> vpcLatticeConfigurations() {
@@ -1361,7 +1361,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcLatticeConfigurations The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+         * @param vpcLatticeConfigurations VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
          * 
          * @return builder
          * 
@@ -1372,7 +1372,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcLatticeConfigurations The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+         * @param vpcLatticeConfigurations VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
          * 
          * @return builder
          * 
@@ -1382,7 +1382,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcLatticeConfigurations The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+         * @param vpcLatticeConfigurations VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
          * 
          * @return builder
          * 

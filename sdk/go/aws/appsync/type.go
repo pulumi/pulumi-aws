@@ -68,15 +68,15 @@ type Type struct {
 
 	// GraphQL API ID.
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
-	// The ARN of the type.
+	// ARN of the type.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The type definition.
+	// Type definition.
 	Definition pulumi.StringOutput `pulumi:"definition"`
-	// The type description.
+	// Type description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The type format: `SDL` or `JSON`.
+	// Type format: `SDL` or `JSON`.
 	Format pulumi.StringOutput `pulumi:"format"`
-	// The type name.
+	// Type name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -123,15 +123,15 @@ func GetType(ctx *pulumi.Context,
 type typeState struct {
 	// GraphQL API ID.
 	ApiId *string `pulumi:"apiId"`
-	// The ARN of the type.
+	// ARN of the type.
 	Arn *string `pulumi:"arn"`
-	// The type definition.
+	// Type definition.
 	Definition *string `pulumi:"definition"`
-	// The type description.
+	// Type description.
 	Description *string `pulumi:"description"`
-	// The type format: `SDL` or `JSON`.
+	// Type format: `SDL` or `JSON`.
 	Format *string `pulumi:"format"`
-	// The type name.
+	// Type name.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -140,15 +140,15 @@ type typeState struct {
 type TypeState struct {
 	// GraphQL API ID.
 	ApiId pulumi.StringPtrInput
-	// The ARN of the type.
+	// ARN of the type.
 	Arn pulumi.StringPtrInput
-	// The type definition.
+	// Type definition.
 	Definition pulumi.StringPtrInput
-	// The type description.
+	// Type description.
 	Description pulumi.StringPtrInput
-	// The type format: `SDL` or `JSON`.
+	// Type format: `SDL` or `JSON`.
 	Format pulumi.StringPtrInput
-	// The type name.
+	// Type name.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -161,9 +161,9 @@ func (TypeState) ElementType() reflect.Type {
 type typeArgs struct {
 	// GraphQL API ID.
 	ApiId string `pulumi:"apiId"`
-	// The type definition.
+	// Type definition.
 	Definition string `pulumi:"definition"`
-	// The type format: `SDL` or `JSON`.
+	// Type format: `SDL` or `JSON`.
 	Format string `pulumi:"format"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -173,9 +173,9 @@ type typeArgs struct {
 type TypeArgs struct {
 	// GraphQL API ID.
 	ApiId pulumi.StringInput
-	// The type definition.
+	// Type definition.
 	Definition pulumi.StringInput
-	// The type format: `SDL` or `JSON`.
+	// Type format: `SDL` or `JSON`.
 	Format pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -273,27 +273,27 @@ func (o TypeOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// The ARN of the type.
+// ARN of the type.
 func (o TypeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The type definition.
+// Type definition.
 func (o TypeOutput) Definition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
 }
 
-// The type description.
+// Type description.
 func (o TypeOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The type format: `SDL` or `JSON`.
+// Type format: `SDL` or `JSON`.
 func (o TypeOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
 }
 
-// The type name.
+// Type name.
 func (o TypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

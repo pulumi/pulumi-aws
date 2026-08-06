@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttp2RouteMatchHeaderMatch
     {
         /// <summary>
-        /// The exact query parameter to match on.
+        /// Exact query parameter to match on.
         /// </summary>
         public readonly string? Exact;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Object that specifies the range of numbers that the header value sent by the client must be included in.
+        /// Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http2_route.match.header.match.range` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatchRange? Range;
         /// <summary>
-        /// Header value sent by the client must include the specified characters.
+        /// Regex used to match the path.
         /// </summary>
         public readonly string? Regex;
         /// <summary>
-        /// Header value sent by the client must end with the specified characters.
+        /// Specified ending characters of the host name to match on.
         /// </summary>
         public readonly string? Suffix;
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3.Outputs
         public readonly ImmutableArray<Outputs.GetBucketReplicationConfigurationRuleFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// The object key name prefix that identifies the subset of objects to which the rule applies.
+        /// Object key name prefix that identifies the subset of objects to which the rule applies.
         /// </summary>
         public readonly string Prefix;
         public readonly int Priority;

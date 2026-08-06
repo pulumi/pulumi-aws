@@ -25,7 +25,7 @@ class VectorsVectorBucketPolicyArgs:
         """
         The set of arguments for constructing a VectorsVectorBucketPolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy: The policy document.
+        :param pulumi.Input[_builtins.str] policy: Policy document.
         :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
                
                The following arguments are optional:
@@ -40,7 +40,7 @@ class VectorsVectorBucketPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        The policy document.
+        Policy document.
         """
         return pulumi.get(self, "policy")
 
@@ -84,7 +84,7 @@ class _VectorsVectorBucketPolicyState:
         """
         Input properties used for looking up and filtering VectorsVectorBucketPolicy resources.
 
-        :param pulumi.Input[_builtins.str] policy: The policy document.
+        :param pulumi.Input[_builtins.str] policy: Policy document.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
                
@@ -101,7 +101,7 @@ class _VectorsVectorBucketPolicyState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy document.
+        Policy document.
         """
         return pulumi.get(self, "policy")
 
@@ -194,7 +194,7 @@ class VectorsVectorBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
+        :param pulumi.Input[_builtins.str] policy: Policy document.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
                
@@ -306,7 +306,7 @@ class VectorsVectorBucketPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy: The policy document.
+        :param pulumi.Input[_builtins.str] policy: Policy document.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] vector_bucket_arn: ARN of the vector bucket.
                
@@ -325,7 +325,7 @@ class VectorsVectorBucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        The policy document.
+        Policy document.
         """
         return pulumi.get(self, "policy")
 

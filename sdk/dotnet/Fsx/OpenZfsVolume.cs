@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default is false.
         /// </summary>
         [Output("copyTagsToSnapshots")]
         public Output<bool?> CopyTagsToSnapshots { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> DeleteVolumeOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        /// Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,25 +80,25 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.OpenZfsVolumeNfsExports?> NfsExports { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
+        /// Configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Output("originSnapshot")]
         public Output<Outputs.OpenZfsVolumeOriginSnapshot?> OriginSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
+        /// Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Output("parentVolumeId")]
         public Output<string> ParentVolumeId { get; private set; } = null!;
 
         /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
+        /// Whether the volume is read-only. Default is false.
         /// </summary>
         [Output("readOnly")]
         public Output<bool> ReadOnly { get; private set; } = null!;
 
         /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         /// </summary>
         [Output("recordSizeKib")]
         public Output<int?> RecordSizeKib { get; private set; } = null!;
@@ -110,25 +110,25 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        /// Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Output("storageCapacityQuotaGib")]
         public Output<int> StorageCapacityQuotaGib { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        /// Amount of storage in gibibytes (GiB) to reserve from the parent volume.
         /// </summary>
         [Output("storageCapacityReservationGib")]
         public Output<int> StorageCapacityReservationGib { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -139,6 +139,9 @@ namespace Pulumi.Aws.Fsx
         [Output("userAndGroupQuotas")]
         public Output<ImmutableArray<Outputs.OpenZfsVolumeUserAndGroupQuota>> UserAndGroupQuotas { get; private set; } = null!;
 
+        /// <summary>
+        /// Volume type. Default is `OPENZFS`.
+        /// </summary>
         [Output("volumeType")]
         public Output<string?> VolumeType { get; private set; } = null!;
 
@@ -189,7 +192,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OpenZfsVolumeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default is false.
         /// </summary>
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
@@ -207,7 +210,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeleteVolumeOptions { get; set; }
 
         /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        /// Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -219,25 +222,25 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OpenZfsVolumeNfsExportsArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
+        /// Configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotArgs>? OriginSnapshot { get; set; }
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
+        /// Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Input("parentVolumeId", required: true)]
         public Input<string> ParentVolumeId { get; set; } = null!;
 
         /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
+        /// Whether the volume is read-only. Default is false.
         /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         /// </summary>
         [Input("recordSizeKib")]
         public Input<int>? RecordSizeKib { get; set; }
@@ -249,13 +252,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        /// Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
 
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        /// Amount of storage in gibibytes (GiB) to reserve from the parent volume.
         /// </summary>
         [Input("storageCapacityReservationGib")]
         public Input<int>? StorageCapacityReservationGib { get; set; }
@@ -264,7 +267,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,6 +287,9 @@ namespace Pulumi.Aws.Fsx
             set => _userAndGroupQuotas = value;
         }
 
+        /// <summary>
+        /// Volume type. Default is `OPENZFS`.
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
@@ -302,7 +308,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default is false.
         /// </summary>
         [Input("copyTagsToSnapshots")]
         public Input<bool>? CopyTagsToSnapshots { get; set; }
@@ -320,7 +326,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeleteVolumeOptions { get; set; }
 
         /// <summary>
-        /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+        /// Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -332,25 +338,25 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OpenZfsVolumeNfsExportsGetArgs>? NfsExports { get; set; }
 
         /// <summary>
-        /// Specifies the configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
+        /// Configuration to use when creating the OpenZFS volume. See `OriginSnapshot` Block below for details.
         /// </summary>
         [Input("originSnapshot")]
         public Input<Inputs.OpenZfsVolumeOriginSnapshotGetArgs>? OriginSnapshot { get; set; }
 
         /// <summary>
-        /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
+        /// Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `RootVolumeId` or the `Id` property of another `aws.fsx.OpenZfsVolume`.
         /// </summary>
         [Input("parentVolumeId")]
         public Input<string>? ParentVolumeId { get; set; }
 
         /// <summary>
-        /// specifies whether the volume is read-only. Default is false.
+        /// Whether the volume is read-only. Default is false.
         /// </summary>
         [Input("readOnly")]
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
-        /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         /// </summary>
         [Input("recordSizeKib")]
         public Input<int>? RecordSizeKib { get; set; }
@@ -362,13 +368,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+        /// Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         /// </summary>
         [Input("storageCapacityQuotaGib")]
         public Input<int>? StorageCapacityQuotaGib { get; set; }
 
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+        /// Amount of storage in gibibytes (GiB) to reserve from the parent volume.
         /// </summary>
         [Input("storageCapacityReservationGib")]
         public Input<int>? StorageCapacityReservationGib { get; set; }
@@ -377,7 +383,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -389,7 +395,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -409,6 +415,9 @@ namespace Pulumi.Aws.Fsx
             set => _userAndGroupQuotas = value;
         }
 
+        /// <summary>
+        /// Volume type. Default is `OPENZFS`.
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 

@@ -91,45 +91,45 @@ import (
 type TaskSet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the task set.
+	// Amazon Resource Name (ARN) that identifies the task set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies TaskSetCapacityProviderStrategyArrayOutput `pulumi:"capacityProviderStrategies"`
-	// The short name or ARN of the cluster that hosts the service to create the task set in.
+	// Short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
-	// The external ID associated with the task set.
+	// External ID associated with the task set.
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
-	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+	// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringOutput `pulumi:"launchType"`
 	// Details on load balancers that are used with a task set. Detailed below.
 	LoadBalancers TaskSetLoadBalancerArrayOutput `pulumi:"loadBalancers"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+	// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+	// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScaleOutput `pulumi:"scale"`
-	// The short name or ARN of the ECS service.
+	// Short name or ARN of the ECS service.
 	Service pulumi.StringOutput `pulumi:"service"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries TaskSetServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
-	// The stability status. This indicates whether the task set has reached a steady state.
+	// Stability status. This indicates whether the task set has reached a steady state.
 	StabilityStatus pulumi.StringOutput `pulumi:"stabilityStatus"`
-	// The status of the task set.
+	// Status of the task set.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 	//
 	// The following arguments are optional:
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
-	// The ID of the task set.
+	// ID of the task set.
 	TaskSetId pulumi.StringOutput `pulumi:"taskSetId"`
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrOutput `pulumi:"waitUntilStable"`
@@ -176,45 +176,45 @@ func GetTaskSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TaskSet resources.
 type taskSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the task set.
+	// Amazon Resource Name (ARN) that identifies the task set.
 	Arn *string `pulumi:"arn"`
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies []TaskSetCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	// The short name or ARN of the cluster that hosts the service to create the task set in.
+	// Short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster *string `pulumi:"cluster"`
-	// The external ID associated with the task set.
+	// External ID associated with the task set.
 	ExternalId *string `pulumi:"externalId"`
 	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete *bool `pulumi:"forceDelete"`
-	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+	// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Details on load balancers that are used with a task set. Detailed below.
 	LoadBalancers []TaskSetLoadBalancer `pulumi:"loadBalancers"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+	// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+	// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
-	// The short name or ARN of the ECS service.
+	// Short name or ARN of the ECS service.
 	Service *string `pulumi:"service"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *TaskSetServiceRegistries `pulumi:"serviceRegistries"`
-	// The stability status. This indicates whether the task set has reached a steady state.
+	// Stability status. This indicates whether the task set has reached a steady state.
 	StabilityStatus *string `pulumi:"stabilityStatus"`
-	// The status of the task set.
+	// Status of the task set.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 	//
 	// The following arguments are optional:
 	TaskDefinition *string `pulumi:"taskDefinition"`
-	// The ID of the task set.
+	// ID of the task set.
 	TaskSetId *string `pulumi:"taskSetId"`
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable *bool `pulumi:"waitUntilStable"`
@@ -223,45 +223,45 @@ type taskSetState struct {
 }
 
 type TaskSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the task set.
+	// Amazon Resource Name (ARN) that identifies the task set.
 	Arn pulumi.StringPtrInput
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies TaskSetCapacityProviderStrategyArrayInput
-	// The short name or ARN of the cluster that hosts the service to create the task set in.
+	// Short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringPtrInput
-	// The external ID associated with the task set.
+	// External ID associated with the task set.
 	ExternalId pulumi.StringPtrInput
 	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrInput
-	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+	// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
 	// Details on load balancers that are used with a task set. Detailed below.
 	LoadBalancers TaskSetLoadBalancerArrayInput
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+	// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+	// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
-	// The short name or ARN of the ECS service.
+	// Short name or ARN of the ECS service.
 	Service pulumi.StringPtrInput
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries TaskSetServiceRegistriesPtrInput
-	// The stability status. This indicates whether the task set has reached a steady state.
+	// Stability status. This indicates whether the task set has reached a steady state.
 	StabilityStatus pulumi.StringPtrInput
-	// The status of the task set.
+	// Status of the task set.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 	//
 	// The following arguments are optional:
 	TaskDefinition pulumi.StringPtrInput
-	// The ID of the task set.
+	// ID of the task set.
 	TaskSetId pulumi.StringPtrInput
 	// Whether the provider should wait until the task set has reached `STEADY_STATE`.
 	WaitUntilStable pulumi.BoolPtrInput
@@ -274,33 +274,33 @@ func (TaskSetState) ElementType() reflect.Type {
 }
 
 type taskSetArgs struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies []TaskSetCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	// The short name or ARN of the cluster that hosts the service to create the task set in.
+	// Short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`
-	// The external ID associated with the task set.
+	// External ID associated with the task set.
 	ExternalId *string `pulumi:"externalId"`
 	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete *bool `pulumi:"forceDelete"`
-	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+	// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Details on load balancers that are used with a task set. Detailed below.
 	LoadBalancers []TaskSetLoadBalancer `pulumi:"loadBalancers"`
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+	// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+	// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
-	// The short name or ARN of the ECS service.
+	// Short name or ARN of the ECS service.
 	Service string `pulumi:"service"`
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *TaskSetServiceRegistries `pulumi:"serviceRegistries"`
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 	//
 	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
@@ -312,33 +312,33 @@ type taskSetArgs struct {
 
 // The set of arguments for constructing a TaskSet resource.
 type TaskSetArgs struct {
-	// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+	// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 	CapacityProviderStrategies TaskSetCapacityProviderStrategyArrayInput
-	// The short name or ARN of the cluster that hosts the service to create the task set in.
+	// Short name or ARN of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringInput
-	// The external ID associated with the task set.
+	// External ID associated with the task set.
 	ExternalId pulumi.StringPtrInput
 	// Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
 	ForceDelete pulumi.BoolPtrInput
-	// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+	// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
 	// Details on load balancers that are used with a task set. Detailed below.
 	LoadBalancers TaskSetLoadBalancerArrayInput
-	// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+	// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
-	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+	// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+	// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
-	// The short name or ARN of the ECS service.
+	// Short name or ARN of the ECS service.
 	Service pulumi.StringInput
-	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries TaskSetServiceRegistriesPtrInput
-	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 	//
 	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput
@@ -435,22 +435,22 @@ func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOu
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the task set.
+// Amazon Resource Name (ARN) that identifies the task set.
 func (o TaskSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+// Capacity provider strategy to use for the service. Can be one or more. Defined below.
 func (o TaskSetOutput) CapacityProviderStrategies() TaskSetCapacityProviderStrategyArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetCapacityProviderStrategyArrayOutput { return v.CapacityProviderStrategies }).(TaskSetCapacityProviderStrategyArrayOutput)
 }
 
-// The short name or ARN of the cluster that hosts the service to create the task set in.
+// Short name or ARN of the cluster that hosts the service to create the task set in.
 func (o TaskSetOutput) Cluster() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
 }
 
-// The external ID associated with the task set.
+// External ID associated with the task set.
 func (o TaskSetOutput) ExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.ExternalId }).(pulumi.StringOutput)
 }
@@ -460,7 +460,7 @@ func (o TaskSetOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
-// The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+// Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 func (o TaskSetOutput) LaunchType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.LaunchType }).(pulumi.StringOutput)
 }
@@ -470,12 +470,12 @@ func (o TaskSetOutput) LoadBalancers() TaskSetLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetLoadBalancerArrayOutput { return v.LoadBalancers }).(TaskSetLoadBalancerArrayOutput)
 }
 
-// The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+// Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
 func (o TaskSetOutput) NetworkConfiguration() TaskSetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(TaskSetNetworkConfigurationPtrOutput)
 }
 
-// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+// Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o TaskSetOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
 }
@@ -485,49 +485,49 @@ func (o TaskSetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+// Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 func (o TaskSetOutput) Scale() TaskSetScaleOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetScaleOutput { return v.Scale }).(TaskSetScaleOutput)
 }
 
-// The short name or ARN of the ECS service.
+// Short name or ARN of the ECS service.
 func (o TaskSetOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
 }
 
-// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 func (o TaskSetOutput) ServiceRegistries() TaskSetServiceRegistriesPtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetServiceRegistriesPtrOutput { return v.ServiceRegistries }).(TaskSetServiceRegistriesPtrOutput)
 }
 
-// The stability status. This indicates whether the task set has reached a steady state.
+// Stability status. This indicates whether the task set has reached a steady state.
 func (o TaskSetOutput) StabilityStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.StabilityStatus }).(pulumi.StringOutput)
 }
 
-// The status of the task set.
+// Status of the task set.
 func (o TaskSetOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+// Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 func (o TaskSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TaskSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+// Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
 //
 // The following arguments are optional:
 func (o TaskSetOutput) TaskDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskDefinition }).(pulumi.StringOutput)
 }
 
-// The ID of the task set.
+// ID of the task set.
 func (o TaskSetOutput) TaskSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.TaskSetId }).(pulumi.StringOutput)
 }

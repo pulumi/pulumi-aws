@@ -19,14 +19,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     public static final FlowSourceFlowConfigArgs Empty = new FlowSourceFlowConfigArgs();
 
     /**
-     * API version that the destination connector uses.
+     * API version that the source connector uses.
      * 
      */
     @Import(name="apiVersion")
     private @Nullable Output<String> apiVersion;
 
     /**
-     * @return API version that the destination connector uses.
+     * @return API version that the source connector uses.
      * 
      */
     public Optional<Output<String>> apiVersion() {
@@ -34,14 +34,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     @Import(name="connectorProfileName")
     private @Nullable Output<String> connectorProfileName;
 
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     public Optional<Output<String>> connectorProfileName() {
@@ -64,14 +64,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+     * Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
      * 
      */
     @Import(name="incrementalPullConfig")
     private @Nullable Output<FlowSourceFlowConfigIncrementalPullConfigArgs> incrementalPullConfig;
 
     /**
-     * @return Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+     * @return Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigIncrementalPullConfigArgs>> incrementalPullConfig() {
@@ -79,14 +79,14 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Information that is required to query a particular source connector. See Source Connector Properties for details.
+     * Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
      * 
      */
     @Import(name="sourceConnectorProperties", required=true)
     private Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties;
 
     /**
-     * @return Information that is required to query a particular source connector. See Source Connector Properties for details.
+     * @return Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
      * 
      */
     public Output<FlowSourceFlowConfigSourceConnectorPropertiesArgs> sourceConnectorProperties() {
@@ -122,7 +122,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param apiVersion API version that the destination connector uses.
+         * @param apiVersion API version that the source connector uses.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param apiVersion API version that the destination connector uses.
+         * @param apiVersion API version that the source connector uses.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. Must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. Must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param incrementalPullConfig Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+         * @param incrementalPullConfig Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param incrementalPullConfig Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+         * @param incrementalPullConfig Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
+         * @param sourceConnectorProperties Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class FlowSourceFlowConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceConnectorProperties Information that is required to query a particular source connector. See Source Connector Properties for details.
+         * @param sourceConnectorProperties Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
          * 
          * @return builder
          * 

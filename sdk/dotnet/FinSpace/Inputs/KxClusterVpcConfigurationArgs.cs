@@ -23,7 +23,6 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
         /// <summary>
         /// Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-        /// * `SubnetIds `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -33,6 +32,10 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -40,7 +43,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         }
 
         /// <summary>
-        /// Identifier of the VPC endpoint
+        /// Identifier of the VPC endpoint.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

@@ -5285,11 +5285,11 @@ class FlowLogDestinationOptionsArgsDict(TypedDict):
     """
     hive_compatible_partitions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+    Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
     """
     per_hour_partition: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+    Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
     """
 
 @pulumi.input_type
@@ -5300,8 +5300,8 @@ class FlowLogDestinationOptionsArgs:
                  per_hour_partition: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] file_format: File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
-        :param pulumi.Input[_builtins.bool] hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
-        :param pulumi.Input[_builtins.bool] per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        :param pulumi.Input[_builtins.bool] hive_compatible_partitions: Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        :param pulumi.Input[_builtins.bool] per_hour_partition: Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
@@ -5326,7 +5326,7 @@ class FlowLogDestinationOptionsArgs:
     @pulumi.getter(name="hiveCompatiblePartitions")
     def hive_compatible_partitions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
         """
         return pulumi.get(self, "hive_compatible_partitions")
 
@@ -5338,7 +5338,7 @@ class FlowLogDestinationOptionsArgs:
     @pulumi.getter(name="perHourPartition")
     def per_hour_partition(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
         return pulumi.get(self, "per_hour_partition")
 

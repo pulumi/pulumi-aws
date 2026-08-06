@@ -18,14 +18,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfigurationArgs();
 
     /**
-     * The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+     * List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+     * @return List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -33,14 +33,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     }
 
     /**
-     * The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+     * List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
      * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
-     * @return The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+     * @return List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
      * 
      */
     public Output<List<String>> subnets() {
@@ -73,7 +73,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+         * @param securityGroups List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+         * @param securityGroups List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param securityGroups The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+         * @param securityGroups List of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+         * @param subnets List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+         * @param subnets List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param subnets The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
+         * @param subnets List of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
          * 
          * @return builder
          * 

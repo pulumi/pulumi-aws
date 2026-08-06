@@ -169,7 +169,7 @@ class GetObjectResult:
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> _builtins.bool:
         """
-        (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         return pulumi.get(self, "bucket_key_enabled")
 
@@ -185,7 +185,7 @@ class GetObjectResult:
     @pulumi.getter(name="checksumCrc32")
     def checksum_crc32(self) -> _builtins.str:
         """
-        The base64-encoded, 32-bit CRC32 checksum of the object.
+        Base64-encoded, 32-bit CRC32 checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32")
 
@@ -193,7 +193,7 @@ class GetObjectResult:
     @pulumi.getter(name="checksumCrc32c")
     def checksum_crc32c(self) -> _builtins.str:
         """
-        The base64-encoded, 32-bit CRC32C checksum of the object.
+        Base64-encoded, 32-bit CRC32C checksum of the object.
         """
         return pulumi.get(self, "checksum_crc32c")
 
@@ -201,7 +201,7 @@ class GetObjectResult:
     @pulumi.getter(name="checksumCrc64nvme")
     def checksum_crc64nvme(self) -> _builtins.str:
         """
-        The base64-encoded, 64-bit CRC64NVME checksum of the object.
+        Base64-encoded, 64-bit CRC64NVME checksum of the object.
         """
         return pulumi.get(self, "checksum_crc64nvme")
 
@@ -214,7 +214,7 @@ class GetObjectResult:
     @pulumi.getter(name="checksumSha1")
     def checksum_sha1(self) -> _builtins.str:
         """
-        The base64-encoded, 160-bit SHA-1 digest of the object.
+        Base64-encoded, 160-bit SHA-1 digest of the object.
         """
         return pulumi.get(self, "checksum_sha1")
 
@@ -222,7 +222,7 @@ class GetObjectResult:
     @pulumi.getter(name="checksumSha256")
     def checksum_sha256(self) -> _builtins.str:
         """
-        The base64-encoded, 256-bit SHA-256 digest of the object.
+        Base64-encoded, 256-bit SHA-256 digest of the object.
         """
         return pulumi.get(self, "checksum_sha256")
 
@@ -328,7 +328,7 @@ class GetObjectResult:
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> _builtins.str:
         """
-        Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+        Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
@@ -344,7 +344,7 @@ class GetObjectResult:
     @pulumi.getter(name="objectLockRetainUntilDate")
     def object_lock_retain_until_date(self) -> _builtins.str:
         """
-        The date and time when this object's object lock will expire.
+        Date and time when this object's object lock will expire.
         """
         return pulumi.get(self, "object_lock_retain_until_date")
 
@@ -523,6 +523,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
     :param _builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param _builtins.str download_body: Set to `true` to always download object data to `body_base64` attribute. If unset and conditions described above are met, `body` will be available but `body_base64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `body_base64` is available, which may improve performance.
     :param _builtins.str key: Full path to the object inside the bucket
+    :param _builtins.str range: Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
     :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
@@ -648,6 +649,7 @@ def get_object_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
     :param _builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param _builtins.str download_body: Set to `true` to always download object data to `body_base64` attribute. If unset and conditions described above are met, `body` will be available but `body_base64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `body_base64` is available, which may improve performance.
     :param _builtins.str key: Full path to the object inside the bucket
+    :param _builtins.str range: Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
     :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)

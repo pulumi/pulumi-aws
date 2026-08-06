@@ -65,14 +65,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("abacStatus")]
         public Output<Outputs.BucketAbacAbacStatus> AbacStatus { get; private set; } = null!;
 
         /// <summary>
         /// General purpose bucket that you want to create the metadata configuration for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -137,14 +137,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("abacStatus", required: true)]
         public Input<Inputs.BucketAbacAbacStatusArgs> AbacStatus { get; set; } = null!;
 
         /// <summary>
         /// General purpose bucket that you want to create the metadata configuration for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -171,14 +171,14 @@ namespace Pulumi.Aws.S3
     {
         /// <summary>
         /// ABAC status configuration. See `AbacStatus` Block for details.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("abacStatus")]
         public Input<Inputs.BucketAbacAbacStatusGetArgs>? AbacStatus { get; set; }
 
         /// <summary>
         /// General purpose bucket that you want to create the metadata configuration for.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

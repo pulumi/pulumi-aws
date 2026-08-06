@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet {
     /**
-     * @return The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+     * @return Rules to run first in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
      * 
      */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry> firstEntries;
     /**
-     * @return A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+     * @return Whether Firewall Manager applies this setting to first-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
     private Boolean forceRemediateForFirstEntries;
     /**
-     * @return A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+     * @return Whether Firewall Manager applies this setting to last-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
     private Boolean forceRemediateForLastEntries;
     /**
-     * @return The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+     * @return Rules to run last in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
      * 
      */
     private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry> lastEntries;
 
     private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet() {}
     /**
-     * @return The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
+     * @return Rules to run first in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 1 and 5000. See the `firstEntry` block.
      * 
      */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry> firstEntries() {
         return this.firstEntries == null ? List.of() : this.firstEntries;
     }
     /**
-     * @return A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+     * @return Whether Firewall Manager applies this setting to first-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
     public Boolean forceRemediateForFirstEntries() {
         return this.forceRemediateForFirstEntries;
     }
     /**
-     * @return A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+     * @return Whether Firewall Manager applies this setting to last-entry policy violations that involve conflicts between the custom entries and the policy entries. If `false`, Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
     public Boolean forceRemediateForLastEntries() {
         return this.forceRemediateForLastEntries;
     }
     /**
-     * @return The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
+     * @return Rules to run last in the Firewall Manager managed network ACLs. Firewall Manager creates entries with ID value between 32000 and 32766. See the `lastEntry` block.
      * 
      */
     public List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry> lastEntries() {

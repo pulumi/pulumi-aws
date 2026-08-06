@@ -69,7 +69,7 @@ namespace Pulumi.Aws.S3
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+        /// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
         [Output("payer")]
         public Output<string> Payer { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+        /// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
         [Input("payer", required: true)]
         public Input<string> Payer { get; set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
-        /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+        /// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
         [Input("payer")]
         public Input<string>? Payer { get; set; }

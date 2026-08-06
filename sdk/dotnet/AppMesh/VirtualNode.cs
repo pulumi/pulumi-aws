@@ -305,7 +305,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual node specification to apply.
+        /// Virtual node specification to apply. See `Spec` Block for details.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.VirtualNodeSpec> Spec { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Virtual node specification to apply.
+        /// Virtual node specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec", required: true)]
         public Input<Inputs.VirtualNodeSpecArgs> Spec { get; set; } = null!;
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// Virtual node specification to apply.
+        /// Virtual node specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.VirtualNodeSpecGetArgs>? Spec { get; set; }

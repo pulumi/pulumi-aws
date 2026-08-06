@@ -22,7 +22,7 @@ namespace Pulumi.Aws.SecretsManager.Outputs
         /// </summary>
         public readonly string Duration;
         /// <summary>
-        /// A `cron()` or `rate()` expression that defines the schedule for rotating the secret.
+        /// `cron()` or `rate()` expression that defines the schedule for rotating the secret.
         /// </summary>
         public readonly string ScheduleExpression;
 

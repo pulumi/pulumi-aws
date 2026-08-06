@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecGrpcRouteMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

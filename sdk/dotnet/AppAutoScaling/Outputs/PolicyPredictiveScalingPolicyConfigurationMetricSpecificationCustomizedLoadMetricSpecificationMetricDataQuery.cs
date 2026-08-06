@@ -13,25 +13,10 @@ namespace Pulumi.Aws.AppAutoScaling.Outputs
     [OutputType]
     public sealed class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery
     {
-        /// <summary>
-        /// Math expression to perform on the returned data, if this object is performing a math expression.
-        /// </summary>
         public readonly string? Expression;
-        /// <summary>
-        /// Short name that identifies the object's results in the response.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Human-readable label for this metric or expression.
-        /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// Information about the metric data to return. See supported fields below.
-        /// </summary>
         public readonly Outputs.PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat? MetricStat;
-        /// <summary>
-        /// Whether to return the timestamps and raw data values of this metric.
-        /// </summary>
         public readonly bool? ReturnData;
 
         [OutputConstructor]

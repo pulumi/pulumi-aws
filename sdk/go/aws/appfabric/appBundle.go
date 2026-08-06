@@ -62,7 +62,7 @@ type AppBundle struct {
 
 	// ARN of the AppBundle.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn pulumi.StringPtrOutput `pulumi:"customerManagedKeyArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -104,7 +104,7 @@ func GetAppBundle(ctx *pulumi.Context,
 type appBundleState struct {
 	// ARN of the AppBundle.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn *string `pulumi:"customerManagedKeyArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -117,7 +117,7 @@ type appBundleState struct {
 type AppBundleState struct {
 	// ARN of the AppBundle.
 	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -132,7 +132,7 @@ func (AppBundleState) ElementType() reflect.Type {
 }
 
 type appBundleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn *string `pulumi:"customerManagedKeyArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -142,7 +142,7 @@ type appBundleArgs struct {
 
 // The set of arguments for constructing a AppBundle resource.
 type AppBundleArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+	// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 	CustomerManagedKeyArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -242,7 +242,7 @@ func (o AppBundleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
 func (o AppBundleOutput) CustomerManagedKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBundle) pulumi.StringPtrOutput { return v.CustomerManagedKeyArn }).(pulumi.StringPtrOutput)
 }

@@ -88,7 +88,7 @@ def get_db_servers(cloud_exadata_infrastructure_id: Optional[_builtins.str] = No
     ```
 
 
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
+    :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -123,7 +123,7 @@ def get_db_servers_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional
     ```
 
 
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
+    :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

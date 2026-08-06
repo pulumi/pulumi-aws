@@ -17,29 +17,45 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs();
 
+    /**
+     * OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     @Import(name="oauth2GrantType", required=true)
     private Output<String> oauth2GrantType;
 
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     public Output<String> oauth2GrantType() {
         return this.oauth2GrantType;
     }
 
+    /**
+     * Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     @Import(name="tokenUrl", required=true)
     private Output<String> tokenUrl;
 
+    /**
+     * @return Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+     * 
+     */
     public Output<String> tokenUrl() {
         return this.tokenUrl;
     }
 
     /**
-     * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
      * 
      */
     @Import(name="tokenUrlCustomProperties")
     private @Nullable Output<Map<String,String>> tokenUrlCustomProperties;
 
     /**
-     * @return Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+     * @return Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
      * 
      */
     public Optional<Output<Map<String,String>>> tokenUrlCustomProperties() {
@@ -72,26 +88,50 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param oauth2GrantType OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2GrantType(Output<String> oauth2GrantType) {
             $.oauth2GrantType = oauth2GrantType;
             return this;
         }
 
+        /**
+         * @param oauth2GrantType OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2GrantType(String oauth2GrantType) {
             return oauth2GrantType(Output.of(oauth2GrantType));
         }
 
+        /**
+         * @param tokenUrl Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrl(Output<String> tokenUrl) {
             $.tokenUrl = tokenUrl;
             return this;
         }
 
+        /**
+         * @param tokenUrl Token URL required to fetch access and refresh tokens using the authorization code, and to refresh an expired access token using the refresh token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenUrl(String tokenUrl) {
             return tokenUrl(Output.of(tokenUrl));
         }
 
         /**
-         * @param tokenUrlCustomProperties Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         * @param tokenUrlCustomProperties Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
          * 
          * @return builder
          * 
@@ -102,7 +142,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param tokenUrlCustomProperties Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         * @param tokenUrlCustomProperties Map of properties associated with your token URL. Use this parameter to provide any additional details that the connector requires to authenticate your request.
          * 
          * @return builder
          * 

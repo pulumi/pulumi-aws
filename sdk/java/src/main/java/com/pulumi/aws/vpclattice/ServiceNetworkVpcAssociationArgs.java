@@ -66,14 +66,14 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The IDs of the security groups.
+     * @return IDs of the security groups.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -81,16 +81,14 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Import(name="serviceNetworkIdentifier", required=true)
     private Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
@@ -113,14 +111,14 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Import(name="vpcIdentifier", required=true)
     private Output<String> vpcIdentifier;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Output<String> vpcIdentifier() {
@@ -221,7 +219,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -232,7 +230,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -242,7 +240,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param securityGroupIds The IDs of the security groups.
+         * @param securityGroupIds IDs of the security groups.
          * 
          * @return builder
          * 
@@ -252,8 +250,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -264,8 +261,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -296,7 +292,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 
@@ -307,7 +303,7 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 

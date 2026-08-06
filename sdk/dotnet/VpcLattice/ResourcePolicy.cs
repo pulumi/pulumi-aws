@@ -82,7 +82,7 @@ namespace Pulumi.Aws.VpcLattice
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+        /// IAM policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+        /// IAM policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+        /// IAM policy. The policy string in JSON must not contain newlines or blank lines.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

@@ -47,14 +47,14 @@ public final class GetOntapFileSystemPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The tags associated with the file system.
+     * Tags associated with the file system.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags associated with the file system.
+     * @return Tags associated with the file system.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -110,7 +110,7 @@ public final class GetOntapFileSystemPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param tags The tags associated with the file system.
+         * @param tags Tags associated with the file system.
          * 
          * @return builder
          * 

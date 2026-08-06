@@ -18,46 +18,30 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs();
 
     /**
-     * Dimensions of the metric. See supported fields below.
+     * Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
      * 
      */
     @Import(name="dimensions")
     private @Nullable Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>> dimensions;
 
     /**
-     * @return Dimensions of the metric. See supported fields below.
+     * @return Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
      * 
      */
     public Optional<Output<List<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs>>> dimensions() {
         return Optional.ofNullable(this.dimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName")
     private @Nullable Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<Output<String>> metricName() {
         return Optional.ofNullable(this.metricName);
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
     }
@@ -89,7 +73,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
+         * @param dimensions Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +84,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
+         * @param dimensions Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +94,7 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
         }
 
         /**
-         * @param dimensions Dimensions of the metric. See supported fields below.
+         * @param dimensions Dimensions of the metric. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification.metric_data_query.metric_stat.metric.dimension` Block for details.
          * 
          * @return builder
          * 
@@ -119,44 +103,20 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             return dimensions(List.of(dimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(@Nullable Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(@Nullable Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }

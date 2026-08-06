@@ -115,9 +115,17 @@ public class AccountSettingDefault extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * ARN that identifies the account setting.
+     * 
+     */
     @Export(name="principalArn", refs={String.class}, tree="[0]")
     private Output<String> principalArn;
 
+    /**
+     * @return ARN that identifies the account setting.
+     * 
+     */
     public Output<String> principalArn() {
         return this.principalArn;
     }

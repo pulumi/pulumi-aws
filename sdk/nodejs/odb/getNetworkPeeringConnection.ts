@@ -35,7 +35,7 @@ export function getNetworkPeeringConnection(args: GetNetworkPeeringConnectionArg
  */
 export interface GetNetworkPeeringConnectionArgs {
     /**
-     * The unique identifier of the ODB network peering connection.
+     * Unique identifier of the ODB network peering connection.
      *
      * The following arguments are optional:
      */
@@ -51,7 +51,7 @@ export interface GetNetworkPeeringConnectionArgs {
  */
 export interface GetNetworkPeeringConnectionResult {
     /**
-     * The Amazon Resource Name (ARN) for the  ODB network peering connection.
+     * Amazon Resource Name (ARN) for the  ODB network peering connection.
      */
     readonly arn: string;
     /**
@@ -128,7 +128,7 @@ export function getNetworkPeeringConnectionOutput(args: GetNetworkPeeringConnect
  */
 export interface GetNetworkPeeringConnectionOutputArgs {
     /**
-     * The unique identifier of the ODB network peering connection.
+     * Unique identifier of the ODB network peering connection.
      *
      * The following arguments are optional:
      */

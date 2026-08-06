@@ -53,7 +53,7 @@ namespace Pulumi.Aws.AppRunner
     public partial class DefaultAutoScalingConfigurationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+        /// ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
         [Output("autoScalingConfigurationArn")]
         public Output<string> AutoScalingConfigurationArn { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class DefaultAutoScalingConfigurationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+        /// ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
         [Input("autoScalingConfigurationArn", required: true)]
         public Input<string> AutoScalingConfigurationArn { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class DefaultAutoScalingConfigurationVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+        /// ARN of the App Runner auto scaling configuration that you want to set as the default.
         /// </summary>
         [Input("autoScalingConfigurationArn")]
         public Input<string>? AutoScalingConfigurationArn { get; set; }

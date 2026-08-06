@@ -45,8 +45,7 @@ export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.
  */
 export interface GetOpenZfsSnapshotArgs {
     /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
+     * Configuration block. Detailed below.
      */
     filters?: inputs.fsx.GetOpenZfsSnapshotFilter[];
     /**
@@ -146,8 +145,7 @@ export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, op
  */
 export interface GetOpenZfsSnapshotOutputArgs {
     /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
+     * Configuration block. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOpenZfsSnapshotFilterArgs>[] | undefined>;
     /**

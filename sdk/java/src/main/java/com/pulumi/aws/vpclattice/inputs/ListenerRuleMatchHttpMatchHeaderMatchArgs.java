@@ -19,16 +19,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
     public static final ListenerRuleMatchHttpMatchHeaderMatchArgs Empty = new ListenerRuleMatchHttpMatchHeaderMatchArgs();
 
     /**
-     * Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * Whether the match is case sensitive. Default is `false`.
      * 
      */
     @Import(name="caseSensitive")
     private @Nullable Output<Boolean> caseSensitive;
 
     /**
-     * @return Indicates whether the match is case sensitive.
-     * Default is `false`.
+     * @return Whether the match is case sensitive. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> caseSensitive() {
@@ -36,16 +34,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
     }
 
     /**
-     * The header match type.
-     * See Header Match `match` Block for details.
+     * Header match type. See `match.http_match.header_matches.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<ListenerRuleMatchHttpMatchHeaderMatchMatchArgs> match;
 
     /**
-     * @return The header match type.
-     * See Header Match `match` Block for details.
+     * @return Header match type. See `match.http_match.header_matches.match` Block for details.
      * 
      */
     public Output<ListenerRuleMatchHttpMatchHeaderMatchMatchArgs> match() {
@@ -53,14 +49,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
     }
 
     /**
-     * The name of the header.
+     * Name of the header.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the header.
+     * @return Name of the header.
      * 
      */
     public Output<String> name() {
@@ -94,8 +90,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * @param caseSensitive Whether the match is case sensitive. Default is `false`.
          * 
          * @return builder
          * 
@@ -106,8 +101,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param caseSensitive Indicates whether the match is case sensitive.
-         * Default is `false`.
+         * @param caseSensitive Whether the match is case sensitive. Default is `false`.
          * 
          * @return builder
          * 
@@ -117,8 +111,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param match The header match type.
-         * See Header Match `match` Block for details.
+         * @param match Header match type. See `match.http_match.header_matches.match` Block for details.
          * 
          * @return builder
          * 
@@ -129,8 +122,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param match The header match type.
-         * See Header Match `match` Block for details.
+         * @param match Header match type. See `match.http_match.header_matches.match` Block for details.
          * 
          * @return builder
          * 
@@ -140,7 +132,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param name The name of the header.
+         * @param name Name of the header.
          * 
          * @return builder
          * 
@@ -151,7 +143,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchArgs extends com.pulumi.
         }
 
         /**
-         * @param name The name of the header.
+         * @param name Name of the header.
          * 
          * @return builder
          * 

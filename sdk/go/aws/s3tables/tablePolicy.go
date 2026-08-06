@@ -28,13 +28,9 @@ import (
 type TablePolicy struct {
 	pulumi.CustomResourceState
 
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -83,13 +79,9 @@ func GetTablePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TablePolicy resources.
 type tablePolicyState struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -100,13 +92,9 @@ type tablePolicyState struct {
 }
 
 type TablePolicyState struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -121,13 +109,9 @@ func (TablePolicyState) ElementType() reflect.Type {
 }
 
 type tablePolicyArgs struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name *string `pulumi:"name"`
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -139,13 +123,9 @@ type tablePolicyArgs struct {
 
 // The set of arguments for constructing a TablePolicy resource.
 type TablePolicyArgs struct {
-	// Name of the table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Name pulumi.StringPtrInput
-	// Name of the namespace for this table.
-	// Must be between 1 and 255 characters in length.
-	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+	// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -242,16 +222,12 @@ func (o TablePolicyOutput) ToTablePolicyOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Name of the table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+// Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TablePolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of the namespace for this table.
-// Must be between 1 and 255 characters in length.
-// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+// Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 func (o TablePolicyOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *TablePolicy) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
 }

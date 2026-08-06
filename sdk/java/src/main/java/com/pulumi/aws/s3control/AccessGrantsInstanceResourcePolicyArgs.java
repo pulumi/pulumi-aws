@@ -17,14 +17,14 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
     public static final AccessGrantsInstanceResourcePolicyArgs Empty = new AccessGrantsInstanceResourcePolicyArgs();
 
     /**
-     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
     }
 
     /**
-     * The policy document.
+     * Policy document.
      * 
      */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
     /**
-     * @return The policy document.
+     * @return Policy document.
      * 
      */
     public Output<String> policy() {
@@ -88,7 +88,7 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class AccessGrantsInstanceResourcePolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 

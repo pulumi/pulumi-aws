@@ -149,7 +149,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        /// Maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
         [Output("maxSessionsPerInstance")]
         public Output<int?> MaxSessionsPerInstance { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        /// Maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
         [Input("maxSessionsPerInstance")]
         public Input<int>? MaxSessionsPerInstance { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+        /// Maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
         [Input("maxSessionsPerInstance")]
         public Input<int>? MaxSessionsPerInstance { get; set; }

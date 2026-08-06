@@ -71,19 +71,19 @@ namespace Pulumi.Aws.Ram
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+        /// Whether this is the default version of the managed permission.
         /// </summary>
         [Output("defaultVersion")]
         public Output<bool> DefaultVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        /// Name of the customer managed permission. The name must be unique within the AWS Region.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        /// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         /// </summary>
         [Output("policyTemplate")]
         public Output<string> PolicyTemplate { get; private set; } = null!;
@@ -95,25 +95,25 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+        /// Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the permission.
+        /// Current status of the permission.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ram
         public Output<Outputs.PermissionTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the permission associated with this resource share.
+        /// Version of the permission associated with this resource share.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -174,13 +174,13 @@ namespace Pulumi.Aws.Ram
     public sealed class PermissionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        /// Name of the customer managed permission. The name must be unique within the AWS Region.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        /// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         /// </summary>
         [Input("policyTemplate", required: true)]
         public Input<string> PolicyTemplate { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+        /// Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -227,19 +227,19 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+        /// Whether this is the default version of the managed permission.
         /// </summary>
         [Input("defaultVersion")]
         public Input<bool>? DefaultVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        /// Name of the customer managed permission. The name must be unique within the AWS Region.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        /// String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         /// </summary>
         [Input("policyTemplate")]
         public Input<string>? PolicyTemplate { get; set; }
@@ -251,13 +251,13 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+        /// Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// The current status of the permission.
+        /// Current status of the permission.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource share. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Ram
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Ram
         public Input<Inputs.PermissionTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The version of the permission associated with this resource share.
+        /// Version of the permission associated with this resource share.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

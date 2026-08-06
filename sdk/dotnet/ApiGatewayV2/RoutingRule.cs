@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        /// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        /// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        /// Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

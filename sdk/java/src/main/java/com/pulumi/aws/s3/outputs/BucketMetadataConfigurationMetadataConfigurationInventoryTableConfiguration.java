@@ -24,12 +24,12 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
      */
     private @Nullable BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfiguration encryptionConfiguration;
     /**
-     * @return Inventory table ARN.
+     * @return Journal table ARN.
      * 
      */
     private @Nullable String tableArn;
     /**
-     * @return Inventory table name.
+     * @return Journal table name.
      * 
      */
     private @Nullable String tableName;
@@ -50,14 +50,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         return Optional.ofNullable(this.encryptionConfiguration);
     }
     /**
-     * @return Inventory table ARN.
+     * @return Journal table ARN.
      * 
      */
     public Optional<String> tableArn() {
         return Optional.ofNullable(this.tableArn);
     }
     /**
-     * @return Inventory table name.
+     * @return Journal table name.
      * 
      */
     public Optional<String> tableName() {

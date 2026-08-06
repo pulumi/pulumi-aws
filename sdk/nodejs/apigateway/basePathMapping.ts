@@ -74,7 +74,7 @@ export class BasePathMapping extends pulumi.CustomResource {
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      */
     declare public readonly domainNameId: pulumi.Output<string | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface BasePathMappingState {
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface BasePathMappingArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string | undefined>;
     /**

@@ -19,88 +19,80 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification {
     /**
-     * @return Customized capacity metric specification. See supported fields below.
+     * @return Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification customizedCapacityMetricSpecification;
     /**
-     * @return Customized load metric specification. See supported fields below.
+     * @return Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification customizedLoadMetricSpecification;
     /**
-     * @return Customized scaling metric specification. See supported fields below.
+     * @return Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification customizedScalingMetricSpecification;
     /**
-     * @return Predefined load metric specification. See supported fields below.
+     * @return Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification predefinedLoadMetricSpecification;
     /**
-     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification predefinedMetricPairSpecification;
     /**
-     * @return Predefined scaling metric specification. See supported fields below.
+     * @return Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
      * 
      */
     private @Nullable PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification predefinedScalingMetricSpecification;
-    /**
-     * @return Target utilization.
-     * 
-     */
     private String targetValue;
 
     private PolicyPredictiveScalingPolicyConfigurationMetricSpecification() {}
     /**
-     * @return Customized capacity metric specification. See supported fields below.
+     * @return Customized capacity metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_capacity_metric_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecification> customizedCapacityMetricSpecification() {
         return Optional.ofNullable(this.customizedCapacityMetricSpecification);
     }
     /**
-     * @return Customized load metric specification. See supported fields below.
+     * @return Customized load metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_load_metric_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecification> customizedLoadMetricSpecification() {
         return Optional.ofNullable(this.customizedLoadMetricSpecification);
     }
     /**
-     * @return Customized scaling metric specification. See supported fields below.
+     * @return Customized scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.customized_scaling_metric_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecification> customizedScalingMetricSpecification() {
         return Optional.ofNullable(this.customizedScalingMetricSpecification);
     }
     /**
-     * @return Predefined load metric specification. See supported fields below.
+     * @return Predefined load metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_load_metric_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecification> predefinedLoadMetricSpecification() {
         return Optional.ofNullable(this.predefinedLoadMetricSpecification);
     }
     /**
-     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
+     * @return Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See `predictive_scaling_policy_configuration.metric_specification.predefined_metric_pair_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecification> predefinedMetricPairSpecification() {
         return Optional.ofNullable(this.predefinedMetricPairSpecification);
     }
     /**
-     * @return Predefined scaling metric specification. See supported fields below.
+     * @return Predefined scaling metric specification. See `predictive_scaling_policy_configuration.metric_specification.predefined_scaling_metric_specification` Block for details.
      * 
      */
     public Optional<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecification> predefinedScalingMetricSpecification() {
         return Optional.ofNullable(this.predefinedScalingMetricSpecification);
     }
-    /**
-     * @return Target utilization.
-     * 
-     */
     public String targetValue() {
         return this.targetValue;
     }

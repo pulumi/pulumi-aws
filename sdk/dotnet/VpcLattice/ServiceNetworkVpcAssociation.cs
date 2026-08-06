@@ -49,13 +49,13 @@ namespace Pulumi.Aws.VpcLattice
     public partial class ServiceNetworkVpcAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Association.
+        /// ARN of the Association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The account that created the association.
+        /// Account that created the association.
         /// </summary>
         [Output("createdBy")]
         public Output<string> CreatedBy { get; private set; } = null!;
@@ -79,20 +79,19 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The IDs of the security groups.
+        /// IDs of the security groups.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
+        /// ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string> ServiceNetworkIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        /// Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -110,7 +109,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC.
+        /// ID of the VPC.
         /// </summary>
         [Output("vpcIdentifier")]
         public Output<string> VpcIdentifier { get; private set; } = null!;
@@ -183,7 +182,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The IDs of the security groups.
+        /// IDs of the security groups.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -192,8 +191,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
+        /// ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public Input<string> ServiceNetworkIdentifier { get; set; } = null!;
@@ -211,7 +209,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The ID of the VPC.
+        /// ID of the VPC.
         /// </summary>
         [Input("vpcIdentifier", required: true)]
         public Input<string> VpcIdentifier { get; set; } = null!;
@@ -225,13 +223,13 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceNetworkVpcAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Association.
+        /// ARN of the Association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The account that created the association.
+        /// Account that created the association.
         /// </summary>
         [Input("createdBy")]
         public Input<string>? CreatedBy { get; set; }
@@ -258,7 +256,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The IDs of the security groups.
+        /// IDs of the security groups.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -267,14 +265,13 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
+        /// ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }
 
         /// <summary>
-        /// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+        /// Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -304,7 +301,7 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The ID of the VPC.
+        /// ID of the VPC.
         /// </summary>
         [Input("vpcIdentifier")]
         public Input<string>? VpcIdentifier { get; set; }

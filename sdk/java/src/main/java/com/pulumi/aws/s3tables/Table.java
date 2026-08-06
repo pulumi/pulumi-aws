@@ -206,64 +206,56 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.createdBy;
     }
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={TableEncryptionConfiguration.class}, tree="[0]")
     private Output<TableEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * @return Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      * 
      */
     public Output<TableEncryptionConfiguration> encryptionConfiguration() {
         return this.encryptionConfiguration;
     }
     /**
-     * Format of the table.
-     * Must be `ICEBERG`.
+     * Format of the table. Must be `ICEBERG`.
      * 
      */
     @Export(name="format", refs={String.class}, tree="[0]")
     private Output<String> format;
 
     /**
-     * @return Format of the table.
-     * Must be `ICEBERG`.
+     * @return Format of the table. Must be `ICEBERG`.
      * 
      */
     public Output<String> format() {
         return this.format;
     }
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      * 
      */
     @Export(name="maintenanceConfiguration", refs={TableMaintenanceConfiguration.class}, tree="[0]")
     private Output<TableMaintenanceConfiguration> maintenanceConfiguration;
 
     /**
-     * @return A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * @return Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      * 
      */
     public Output<TableMaintenanceConfiguration> maintenanceConfiguration() {
         return this.maintenanceConfiguration;
     }
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     @Export(name="metadata", refs={TableMetadata.class}, tree="[0]")
     private Output</* @Nullable */ TableMetadata> metadata;
 
     /**
-     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      * 
      */
     public Output<Optional<TableMetadata>> metadata() {
@@ -312,38 +304,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.modifiedBy;
     }
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * @return Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output<String> namespace;
 
     /**
-     * @return Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * @return Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
     public Output<String> namespace() {
@@ -410,30 +392,28 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Type of the table.
-     * One of `customer` or `aws`.
+     * Type of the table. One of `customer` or `aws`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the table.
-     * One of `customer` or `aws`.
+     * @return Type of the table. One of `customer` or `aws`.
      * 
      */
     public Output<String> type() {

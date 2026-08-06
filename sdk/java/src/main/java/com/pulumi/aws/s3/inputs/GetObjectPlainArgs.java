@@ -76,9 +76,17 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.key;
     }
 
+    /**
+     * Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+     * 
+     */
     @Import(name="range")
     private @Nullable String range;
 
+    /**
+     * @return Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+     * 
+     */
     public Optional<String> range() {
         return Optional.ofNullable(this.range);
     }
@@ -203,6 +211,12 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param range Byte range of the object to retrieve, in the format expected by the [HTTP `Range` header](https://www.rfc-editor.org/rfc/rfc9110.html#name-range).
+         * 
+         * @return builder
+         * 
+         */
         public Builder range(@Nullable String range) {
             $.range = range;
             return this;

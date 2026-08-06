@@ -15,14 +15,14 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
     public static final VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs Empty = new VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs();
 
     /**
-     * The specified key for the JSON. Must be between 1 and 100 characters in length.
+     * Key for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The specified key for the JSON. Must be between 1 and 100 characters in length.
+     * @return Key for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
     }
 
     /**
-     * The specified value for the JSON. Must be between 1 and 100 characters in length.
+     * Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The specified value for the JSON. Must be between 1 and 100 characters in length.
+     * @return Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
         }
 
         /**
-         * @param key The specified key for the JSON. Must be between 1 and 100 characters in length.
+         * @param key Key for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
         }
 
         /**
-         * @param key The specified key for the JSON. Must be between 1 and 100 characters in length.
+         * @param key Key for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
         }
 
         /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * @param value Value for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs extends com
         }
 
         /**
-         * @param value The specified value for the JSON. Must be between 1 and 100 characters in length.
+         * @param value Value for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 

@@ -91,14 +91,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.certificateArn;
     }
     /**
-     * A description of the Domain Name.
+     * Description of the Domain Name.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the Domain Name.
+     * @return Description of the Domain Name.
      * 
      */
     public Output<Optional<String>> description() {

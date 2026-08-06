@@ -76,9 +76,17 @@ public final class TableReplicationState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tableArn);
     }
 
+    /**
+     * Identifier for the current version of the replication configuration.
+     * 
+     */
     @Import(name="versionToken")
     private @Nullable Output<String> versionToken;
 
+    /**
+     * @return Identifier for the current version of the replication configuration.
+     * 
+     */
     public Optional<Output<String>> versionToken() {
         return Optional.ofNullable(this.versionToken);
     }
@@ -195,11 +203,23 @@ public final class TableReplicationState extends com.pulumi.resources.ResourceAr
             return tableArn(Output.of(tableArn));
         }
 
+        /**
+         * @param versionToken Identifier for the current version of the replication configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionToken(@Nullable Output<String> versionToken) {
             $.versionToken = versionToken;
             return this;
         }
 
+        /**
+         * @param versionToken Identifier for the current version of the replication configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder versionToken(String versionToken) {
             return versionToken(Output.of(versionToken));
         }

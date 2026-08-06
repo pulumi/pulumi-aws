@@ -4167,8 +4167,8 @@ class FlowLogDestinationOptions(dict):
                  per_hour_partition: Optional[_builtins.bool] = None):
         """
         :param _builtins.str file_format: File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
-        :param _builtins.bool hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
-        :param _builtins.bool per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        :param _builtins.bool hive_compatible_partitions: Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        :param _builtins.bool per_hour_partition: Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
         if file_format is not None:
             pulumi.set(__self__, "file_format", file_format)
@@ -4189,7 +4189,7 @@ class FlowLogDestinationOptions(dict):
     @pulumi.getter(name="hiveCompatiblePartitions")
     def hive_compatible_partitions(self) -> Optional[_builtins.bool]:
         """
-        Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        Whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
         """
         return pulumi.get(self, "hive_compatible_partitions")
 
@@ -4197,7 +4197,7 @@ class FlowLogDestinationOptions(dict):
     @pulumi.getter(name="perHourPartition")
     def per_hour_partition(self) -> Optional[_builtins.bool]:
         """
-        Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        Whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
         return pulumi.get(self, "per_hour_partition")
 

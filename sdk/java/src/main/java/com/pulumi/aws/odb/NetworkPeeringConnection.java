@@ -72,9 +72,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:odb/networkPeeringConnection:NetworkPeeringConnection")
 public class NetworkPeeringConnection extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the ODB network peering connection.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the ODB network peering connection.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -95,16 +103,12 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
     /**
      * Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
      * @return Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> displayName() {
@@ -125,14 +129,14 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.odbNetworkArn;
     }
     /**
-     * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     @Export(name="odbNetworkId", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkId;
 
     /**
-     * @return The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * @return Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
      * 
      */
     public Output<String> odbNetworkId() {
@@ -181,14 +185,18 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.peerNetworkCidrs;
     }
     /**
-     * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="peerNetworkId", refs={String.class}, tree="[0]")
     private Output<String> peerNetworkId;
 
     /**
-     * @return The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * @return Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> peerNetworkId() {
@@ -237,42 +245,42 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
         return this.status;
     }
     /**
-     * The reason for the current status of the ODB peering connection.
+     * Reason for the current status of the ODB peering connection.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
-     * @return The reason for the current status of the ODB peering connection.
+     * @return Reason for the current status of the ODB peering connection.
      * 
      */
     public Output<String> statusReason() {
         return this.statusReason;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including inherited tags.
+     * Map of tags assigned to the resource, including inherited tags.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including inherited tags.
+     * @return Map of tags assigned to the resource, including inherited tags.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

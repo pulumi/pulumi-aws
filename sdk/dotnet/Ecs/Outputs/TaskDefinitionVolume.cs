@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? HostPath;
         /// <summary>
-        /// Name of the volume. This name is referenced in the `sourceVolume`
-        /// parameter of container definition in the `mountPoints` section.
+        /// Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecGrpcRouteMatch
     {
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>

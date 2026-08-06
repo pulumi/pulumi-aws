@@ -32,14 +32,14 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
     @Import(name="modelSelectionExpression")
     private @Nullable Output<String> modelSelectionExpression;
 
     /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+     * @return [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
     public Optional<Output<String>> modelSelectionExpression() {
@@ -157,7 +157,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelSelectionExpression The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+         * @param modelSelectionExpression [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class RouteResponseState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param modelSelectionExpression The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
+         * @param modelSelectionExpression [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
          * 
          * @return builder
          * 

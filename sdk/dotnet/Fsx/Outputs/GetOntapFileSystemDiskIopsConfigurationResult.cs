@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class GetOntapFileSystemDiskIopsConfigurationResult
     {
         /// <summary>
-        /// The total number of SSD IOPS provisioned for the file system.
+        /// Total number of SSD IOPS provisioned for the file system.
         /// </summary>
         public readonly int Iops;
         /// <summary>
-        /// Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+        /// Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
         /// </summary>
         public readonly string Mode;
 

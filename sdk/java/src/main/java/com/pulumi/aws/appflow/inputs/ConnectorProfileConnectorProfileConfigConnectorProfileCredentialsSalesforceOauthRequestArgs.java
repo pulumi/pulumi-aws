@@ -16,14 +16,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs();
 
     /**
-     * The code provided by the connector when it has been authenticated via the connected app.
+     * Code provided by the connector when it has been authenticated via the connected app.
      * 
      */
     @Import(name="authCode")
     private @Nullable Output<String> authCode;
 
     /**
-     * @return The code provided by the connector when it has been authenticated via the connected app.
+     * @return Code provided by the connector when it has been authenticated via the connected app.
      * 
      */
     public Optional<Output<String>> authCode() {
@@ -31,14 +31,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The URL to which the authentication server redirects the browser after authorization has been granted.
+     * URL to which the authentication server redirects the browser after authorization has been granted.
      * 
      */
     @Import(name="redirectUri")
     private @Nullable Output<String> redirectUri;
 
     /**
-     * @return The URL to which the authentication server redirects the browser after authorization has been granted.
+     * @return URL to which the authentication server redirects the browser after authorization has been granted.
      * 
      */
     public Optional<Output<String>> redirectUri() {
@@ -71,7 +71,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param authCode The code provided by the connector when it has been authenticated via the connected app.
+         * @param authCode Code provided by the connector when it has been authenticated via the connected app.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param authCode The code provided by the connector when it has been authenticated via the connected app.
+         * @param authCode Code provided by the connector when it has been authenticated via the connected app.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redirectUri The URL to which the authentication server redirects the browser after authorization has been granted.
+         * @param redirectUri URL to which the authentication server redirects the browser after authorization has been granted.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redirectUri The URL to which the authentication server redirects the browser after authorization has been granted.
+         * @param redirectUri URL to which the authentication server redirects the browser after authorization has been granted.
          * 
          * @return builder
          * 

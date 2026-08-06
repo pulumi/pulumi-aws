@@ -60,15 +60,17 @@ import (
 type IngestionDestination struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// ARN of the Ingestion Destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Contains information about the destination of ingested data.
+	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
+	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+	//
+	// The following arguments are optional:
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationOutput `pulumi:"processingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -121,15 +123,17 @@ func GetIngestionDestination(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IngestionDestination resources.
 type ingestionDestinationState struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// ARN of the Ingestion Destination.
 	Arn *string `pulumi:"arn"`
-	// Contains information about the destination of ingested data.
+	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration *IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn *string `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
+	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+	//
+	// The following arguments are optional:
 	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -141,15 +145,17 @@ type ingestionDestinationState struct {
 }
 
 type IngestionDestinationState struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn pulumi.StringPtrInput
 	// ARN of the Ingestion Destination.
 	Arn pulumi.StringPtrInput
-	// Contains information about the destination of ingested data.
+	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn pulumi.StringPtrInput
-	// Contains information about how ingested data is processed.
+	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+	//
+	// The following arguments are optional:
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -165,13 +171,15 @@ func (IngestionDestinationState) ElementType() reflect.Type {
 }
 
 type ingestionDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`
-	// Contains information about the destination of ingested data.
+	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn string `pulumi:"ingestionArn"`
-	// Contains information about how ingested data is processed.
+	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+	//
+	// The following arguments are optional:
 	ProcessingConfiguration IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -182,13 +190,15 @@ type ingestionDestinationArgs struct {
 
 // The set of arguments for constructing a IngestionDestination resource.
 type IngestionDestinationArgs struct {
-	// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// Amazon Resource Name (ARN) of the app bundle to use for the request.
 	AppBundleArn pulumi.StringInput
-	// Contains information about the destination of ingested data.
+	// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 	DestinationConfiguration IngestionDestinationDestinationConfigurationInput
-	// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+	// Amazon Resource Name (ARN) of the ingestion to use for the request.
 	IngestionArn pulumi.StringInput
-	// Contains information about how ingested data is processed.
+	// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+	//
+	// The following arguments are optional:
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -284,7 +294,7 @@ func (o IngestionDestinationOutput) ToIngestionDestinationOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+// Amazon Resource Name (ARN) of the app bundle to use for the request.
 func (o IngestionDestinationOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }
@@ -294,19 +304,21 @@ func (o IngestionDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Contains information about the destination of ingested data.
+// Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
 func (o IngestionDestinationOutput) DestinationConfiguration() IngestionDestinationDestinationConfigurationOutput {
 	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationDestinationConfigurationOutput {
 		return v.DestinationConfiguration
 	}).(IngestionDestinationDestinationConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the ingestion to use for the request.
+// Amazon Resource Name (ARN) of the ingestion to use for the request.
 func (o IngestionDestinationOutput) IngestionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.IngestionArn }).(pulumi.StringOutput)
 }
 
-// Contains information about how ingested data is processed.
+// Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+//
+// The following arguments are optional:
 func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *IngestionDestination) IngestionDestinationProcessingConfigurationOutput {
 		return v.ProcessingConfiguration

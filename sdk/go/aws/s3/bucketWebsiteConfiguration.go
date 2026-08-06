@@ -148,8 +148,7 @@ type BucketWebsiteConfiguration struct {
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrOutput `pulumi:"redirectAllRequestsTo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringOutput `pulumi:"routingRuleDetails"`
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules BucketWebsiteConfigurationRoutingRuleArrayOutput `pulumi:"routingRules"`
@@ -212,8 +211,7 @@ type bucketWebsiteConfigurationState struct {
 	RedirectAllRequestsTo *BucketWebsiteConfigurationRedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules []BucketWebsiteConfigurationRoutingRule `pulumi:"routingRules"`
@@ -238,8 +236,7 @@ type BucketWebsiteConfigurationState struct {
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringPtrInput
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules BucketWebsiteConfigurationRoutingRuleArrayInput
@@ -268,8 +265,7 @@ type bucketWebsiteConfigurationArgs struct {
 	RedirectAllRequestsTo *BucketWebsiteConfigurationRedirectAllRequestsTo `pulumi:"redirectAllRequestsTo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails *string `pulumi:"routingRuleDetails"`
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules []BucketWebsiteConfigurationRoutingRule `pulumi:"routingRules"`
@@ -291,8 +287,7 @@ type BucketWebsiteConfigurationArgs struct {
 	RedirectAllRequestsTo BucketWebsiteConfigurationRedirectAllRequestsToPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-	// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+	// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 	RoutingRuleDetails pulumi.StringPtrInput
 	// List of rules that define when a redirect is applied and the redirect behavior. See below.
 	RoutingRules BucketWebsiteConfigurationRoutingRuleArrayInput
@@ -423,8 +418,7 @@ func (o BucketWebsiteConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
 func (o BucketWebsiteConfigurationOutput) RoutingRuleDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfiguration) pulumi.StringOutput { return v.RoutingRuleDetails }).(pulumi.StringOutput)
 }

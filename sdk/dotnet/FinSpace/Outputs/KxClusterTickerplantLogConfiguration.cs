@@ -13,6 +13,9 @@ namespace Pulumi.Aws.FinSpace.Outputs
     [OutputType]
     public sealed class KxClusterTickerplantLogConfiguration
     {
+        /// <summary>
+        /// Names of the volumes for tickerplant logs.
+        /// </summary>
         public readonly ImmutableArray<string> TickerplantLogVolumes;
 
         [OutputConstructor]

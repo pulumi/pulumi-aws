@@ -15,14 +15,14 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
     public static final FileCacheLustreConfigurationMetadataConfigurationArgs Empty = new FileCacheLustreConfigurationMetadataConfigurationArgs();
 
     /**
-     * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+     * Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
      * 
      */
     @Import(name="storageCapacity", required=true)
     private Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+     * @return Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
      * 
      */
     public Output<Integer> storageCapacity() {
@@ -54,7 +54,7 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
         }
 
         /**
-         * @param storageCapacity The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+         * @param storageCapacity Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs extends
         }
 
         /**
-         * @param storageCapacity The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+         * @param storageCapacity Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
          * 
          * @return builder
          * 

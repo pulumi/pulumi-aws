@@ -18,7 +18,7 @@ namespace Pulumi.Aws.S3Control.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        /// Encryption of the metrics exports in this S3 tables bucket. See `Encryption` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryption? Encryption;
 

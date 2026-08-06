@@ -13,13 +13,13 @@ namespace Pulumi.Aws.FinSpace.Inputs
     public sealed class KxVolumeNas1ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The size of the network attached storage.
+        /// Size of the network attached storage.
         /// </summary>
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
         /// <summary>
-        /// The type of the network attached storage.
+        /// Type of the network attached storage.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

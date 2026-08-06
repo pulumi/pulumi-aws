@@ -14,7 +14,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
     public sealed class KxDataviewSegmentConfiguration
     {
         /// <summary>
-        /// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
+        /// Database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
         /// </summary>
         public readonly ImmutableArray<string> DbPaths;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly bool? OnDemand;
         /// <summary>
-        /// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        /// Name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         public readonly string VolumeName;
 

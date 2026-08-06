@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecTcpRouteActionWeightedTargetArgs>? _weightedTargets;
 
         /// <summary>
-        /// Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
+        /// Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic. See `spec.tcp_route.action.weighted_target` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecTcpRouteActionWeightedTargetArgs> WeightedTargets
         {

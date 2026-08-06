@@ -68,56 +68,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ram/resourceShare:ResourceShare")
 public class ResourceShare extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
+     * Whether principals outside your organization can be associated with a resource share.
      * 
      */
     @Export(name="allowExternalPrincipals", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowExternalPrincipals;
 
     /**
-     * @return Indicates whether principals outside your organization can be associated with a resource share.
+     * @return Whether principals outside your organization can be associated with a resource share.
      * 
      */
     public Output<Optional<Boolean>> allowExternalPrincipals() {
         return Codegen.optional(this.allowExternalPrincipals);
     }
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return Amazon Resource Name (ARN) of the resource share.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the resource share.
+     * @return Name of the resource share.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     @Export(name="permissionArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> permissionArns;
 
     /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * @return Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     public Output<List<String>> permissionArns() {
@@ -138,42 +138,42 @@ public class ResourceShare extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      * 
      */
     @Export(name="resourceShareConfiguration", refs={ResourceShareResourceShareConfiguration.class}, tree="[0]")
     private Output<ResourceShareResourceShareConfiguration> resourceShareConfiguration;
 
     /**
-     * @return A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * @return Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      * 
      */
     public Output<ResourceShareResourceShareConfiguration> resourceShareConfiguration() {
         return this.resourceShareConfiguration;
     }
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

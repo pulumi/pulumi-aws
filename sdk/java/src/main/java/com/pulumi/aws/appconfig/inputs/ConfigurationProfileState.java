@@ -49,14 +49,14 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The configuration profile ID.
+     * Configuration profile ID.
      * 
      */
     @Import(name="configurationProfileId")
     private @Nullable Output<String> configurationProfileId;
 
     /**
-     * @return The configuration profile ID.
+     * @return Configuration profile ID.
      * 
      */
     public Optional<Output<String>> configurationProfileId() {
@@ -79,14 +79,14 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
     /**
-     * @return The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * @return Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
     public Optional<Output<String>> kmsKeyIdentifier() {
@@ -199,14 +199,14 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      * 
      */
     @Import(name="validators")
     private @Nullable Output<List<ConfigurationProfileValidatorArgs>> validators;
 
     /**
-     * @return Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+     * @return Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
      * 
      */
     public Optional<Output<List<ConfigurationProfileValidatorArgs>>> validators() {
@@ -292,7 +292,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param configurationProfileId The configuration profile ID.
+         * @param configurationProfileId Configuration profile ID.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * @param kmsKeyIdentifier Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyIdentifier The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+         * @param kmsKeyIdentifier Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ConfigurationProfileState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param validators Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+         * @param validators Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
          * 
          * @return builder
          * 

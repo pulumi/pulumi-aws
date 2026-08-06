@@ -276,14 +276,14 @@ public class ResourceConfiguration extends com.pulumi.resources.CustomResource {
         return this.domainVerificationArn;
     }
     /**
-     * The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
      * 
      */
     @Export(name="domainVerificationId", refs={String.class}, tree="[0]")
     private Output<String> domainVerificationId;
 
     /**
-     * @return The domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
+     * @return Domain verification ID of your verified custom domain name. If you don&#39;t provide an ID, you must configure the DNS settings yourself.
      * 
      */
     public Output<String> domainVerificationId() {

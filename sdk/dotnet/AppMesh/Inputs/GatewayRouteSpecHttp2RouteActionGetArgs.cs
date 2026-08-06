@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecHttp2RouteActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gateway route action to rewrite. See `Rewrite` Block for details.
+        /// Gateway route action to rewrite. See `spec.http2_route.action.rewrite` Block for details.
         /// </summary>
         [Input("rewrite")]
         public Input<Inputs.GatewayRouteSpecHttp2RouteActionRewriteGetArgs>? Rewrite { get; set; }
 
         /// <summary>
-        /// Target that traffic is routed to when a request matches the gateway route. See `Target` Block for details.
+        /// Target that traffic is routed to when a request matches the gateway route. See `spec.http2_route.action.target` Block for details.
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.GatewayRouteSpecHttp2RouteActionTargetGetArgs> Target { get; set; } = null!;

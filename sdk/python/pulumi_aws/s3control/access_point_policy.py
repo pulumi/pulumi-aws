@@ -25,8 +25,8 @@ class AccessPointPolicyArgs:
         """
         The set of arguments for constructing a AccessPointPolicy resource.
 
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[_builtins.str] access_point_arn: ARN of the access point that you want to associate with the specified policy.
+        :param pulumi.Input[_builtins.str] policy: Policy that you want to apply to the specified access point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_point_arn", access_point_arn)
@@ -38,7 +38,7 @@ class AccessPointPolicyArgs:
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the access point that you want to associate with the specified policy.
+        ARN of the access point that you want to associate with the specified policy.
         """
         return pulumi.get(self, "access_point_arn")
 
@@ -50,7 +50,7 @@ class AccessPointPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        The policy that you want to apply to the specified access point.
+        Policy that you want to apply to the specified access point.
         """
         return pulumi.get(self, "policy")
 
@@ -81,9 +81,9 @@ class _AccessPointPolicyState:
         """
         Input properties used for looking up and filtering AccessPointPolicy resources.
 
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[_builtins.str] access_point_arn: ARN of the access point that you want to associate with the specified policy.
+        :param pulumi.Input[_builtins.bool] has_public_access_policy: Whether this access point currently has a policy that allows public access.
+        :param pulumi.Input[_builtins.str] policy: Policy that you want to apply to the specified access point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_point_arn is not None:
@@ -99,7 +99,7 @@ class _AccessPointPolicyState:
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the access point that you want to associate with the specified policy.
+        ARN of the access point that you want to associate with the specified policy.
         """
         return pulumi.get(self, "access_point_arn")
 
@@ -111,7 +111,7 @@ class _AccessPointPolicyState:
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether this access point currently has a policy that allows public access.
+        Whether this access point currently has a policy that allows public access.
         """
         return pulumi.get(self, "has_public_access_policy")
 
@@ -123,7 +123,7 @@ class _AccessPointPolicyState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy that you want to apply to the specified access point.
+        Policy that you want to apply to the specified access point.
         """
         return pulumi.get(self, "policy")
 
@@ -202,8 +202,8 @@ class AccessPointPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[_builtins.str] access_point_arn: ARN of the access point that you want to associate with the specified policy.
+        :param pulumi.Input[_builtins.str] policy: Policy that you want to apply to the specified access point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -314,9 +314,9 @@ class AccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_point_arn: The ARN of the access point that you want to associate with the specified policy.
-        :param pulumi.Input[_builtins.bool] has_public_access_policy: Indicates whether this access point currently has a policy that allows public access.
-        :param pulumi.Input[_builtins.str] policy: The policy that you want to apply to the specified access point.
+        :param pulumi.Input[_builtins.str] access_point_arn: ARN of the access point that you want to associate with the specified policy.
+        :param pulumi.Input[_builtins.bool] has_public_access_policy: Whether this access point currently has a policy that allows public access.
+        :param pulumi.Input[_builtins.str] policy: Policy that you want to apply to the specified access point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -333,7 +333,7 @@ class AccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the access point that you want to associate with the specified policy.
+        ARN of the access point that you want to associate with the specified policy.
         """
         return pulumi.get(self, "access_point_arn")
 
@@ -341,7 +341,7 @@ class AccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter(name="hasPublicAccessPolicy")
     def has_public_access_policy(self) -> pulumi.Output[_builtins.bool]:
         """
-        Indicates whether this access point currently has a policy that allows public access.
+        Whether this access point currently has a policy that allows public access.
         """
         return pulumi.get(self, "has_public_access_policy")
 
@@ -349,7 +349,7 @@ class AccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        The policy that you want to apply to the specified access point.
+        Policy that you want to apply to the specified access point.
         """
         return pulumi.get(self, "policy")
 

@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GatewayRouteSpecGrpcRoute {
     /**
-     * @return Action to take if a match is determined. See `action` Block for details.
+     * @return Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
      * 
      */
     private GatewayRouteSpecGrpcRouteAction action;
     /**
-     * @return Criteria for determining a request match. See `match` Block for details.
+     * @return Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
      * 
      */
     private GatewayRouteSpecGrpcRouteMatch match;
 
     private GatewayRouteSpecGrpcRoute() {}
     /**
-     * @return Action to take if a match is determined. See `action` Block for details.
+     * @return Action to take if a match is determined. See `spec.grpc_route.action` Block for details.
      * 
      */
     public GatewayRouteSpecGrpcRouteAction action() {
         return this.action;
     }
     /**
-     * @return Criteria for determining a request match. See `match` Block for details.
+     * @return Criteria for determining a request match. See `spec.grpc_route.match` Block for details.
      * 
      */
     public GatewayRouteSpecGrpcRouteMatch match() {

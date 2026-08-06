@@ -16,14 +16,14 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
     public static final GetMultiRegionAccessPointPlainArgs Empty = new GetMultiRegionAccessPointPlainArgs();
 
     /**
-     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable String accountId;
 
     /**
-     * @return The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<String> accountId() {
@@ -31,14 +31,14 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
     }
 
     /**
-     * The name of the Multi-Region Access Point.
+     * Name of the Multi-Region Access Point.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the Multi-Region Access Point.
+     * @return Name of the Multi-Region Access Point.
      * 
      */
     public String name() {
@@ -87,7 +87,7 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetMultiRegionAccessPointPlainArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name of the Multi-Region Access Point.
+         * @param name Name of the Multi-Region Access Point.
          * 
          * @return builder
          * 

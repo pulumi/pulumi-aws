@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
     /**
-     * @return The SAPOData basic authentication credentials.
+     * @return SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials;
     /**
-     * @return The SAPOData OAuth type authentication credentials.
+     * @return SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData() {}
     /**
-     * @return The SAPOData basic authentication credentials.
+     * @return SAPOData basic authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.basic_auth_credentials` Block for details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials> basicAuthCredentials() {
         return Optional.ofNullable(this.basicAuthCredentials);
     }
     /**
-     * @return The SAPOData OAuth type authentication credentials.
+     * @return SAPOData OAuth type authentication credentials. See `connector_profile_config.connector_profile_credentials.sapo_data.oauth_credentials` Block for details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials> oauthCredentials() {

@@ -145,8 +145,7 @@ class _EnvironmentState:
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
+        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -259,8 +258,7 @@ class _EnvironmentState:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
+        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         """
         return pulumi.get(self, "state")
 
@@ -471,8 +469,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[_builtins.str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
+        :param pulumi.Input[_builtins.str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -552,8 +549,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
         """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
+        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         """
         return pulumi.get(self, "state")
 

@@ -15,14 +15,14 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
     public static final IngestionDestinationDestinationConfigurationArgs Empty = new IngestionDestinationDestinationConfigurationArgs();
 
     /**
-     * Contains information about an audit log processing configuration.
+     * Audit log destination configuration. See `destination_configuration.audit_log` Block below.
      * 
      */
     @Import(name="auditLog", required=true)
     private Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog;
 
     /**
-     * @return Contains information about an audit log processing configuration.
+     * @return Audit log destination configuration. See `destination_configuration.audit_log` Block below.
      * 
      */
     public Output<IngestionDestinationDestinationConfigurationAuditLogArgs> auditLog() {
@@ -54,7 +54,7 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
         }
 
         /**
-         * @param auditLog Contains information about an audit log processing configuration.
+         * @param auditLog Audit log destination configuration. See `destination_configuration.audit_log` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class IngestionDestinationDestinationConfigurationArgs extends com.
         }
 
         /**
-         * @param auditLog Contains information about an audit log processing configuration.
+         * @param auditLog Audit log destination configuration. See `destination_configuration.audit_log` Block below.
          * 
          * @return builder
          * 

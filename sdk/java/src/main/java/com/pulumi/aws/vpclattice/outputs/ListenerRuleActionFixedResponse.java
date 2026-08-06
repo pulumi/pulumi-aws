@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ListenerRuleActionFixedResponse {
     /**
-     * @return The HTTP response code.
+     * @return HTTP response code.
      * 
      */
     private Integer statusCode;
 
     private ListenerRuleActionFixedResponse() {}
     /**
-     * @return The HTTP response code.
+     * @return HTTP response code.
      * 
      */
     public Integer statusCode() {

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class ExpressGatewayServicePrimaryContainerSecretArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

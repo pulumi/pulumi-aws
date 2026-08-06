@@ -56,47 +56,49 @@ namespace Pulumi.Aws.AppFabric
     public partial class AppAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+        /// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
         /// </summary>
         [Output("app")]
         public Output<string> App { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Output("appBundleArn")]
         public Output<string> AppBundleArn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the App Authorization.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
+        /// Authorization type for the app authorization. Valid values are `Oauth2` and `apiKey`.
         /// </summary>
         [Output("authType")]
         public Output<string> AuthType { get; private set; } = null!;
 
         /// <summary>
-        /// The application URL for the OAuth flow.
+        /// Application URL for the OAuth flow.
         /// </summary>
         [Output("authUrl")]
         public Output<string> AuthUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Timestamp of when the app authorization was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        /// Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`Oauth2`), then you should provide only the OAuth2 credentials. See `Credential` Block for details.
         /// </summary>
         [Output("credential")]
         public Output<Outputs.AppAuthorizationCredential> Credential { get; private set; } = null!;
 
         /// <summary>
-        /// The user persona of the app authorization.
+        /// User persona of the app authorization.
         /// </summary>
         [Output("persona")]
         public Output<string> Persona { get; private set; } = null!;
@@ -107,14 +109,22 @@ namespace Pulumi.Aws.AppFabric
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// Information about an application tenant, such as the application display name and identifier. See `Tenant` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tenants")]
         public Output<ImmutableArray<Outputs.AppAuthorizationTenant>> Tenants { get; private set; } = null!;
@@ -122,6 +132,9 @@ namespace Pulumi.Aws.AppFabric
         [Output("timeouts")]
         public Output<Outputs.AppAuthorizationTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// Timestamp of when the app authorization was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -172,26 +185,25 @@ namespace Pulumi.Aws.AppFabric
     public sealed class AppAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+        /// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
         /// </summary>
         [Input("app", required: true)]
         public Input<string> App { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn", required: true)]
         public Input<string> AppBundleArn { get; set; } = null!;
 
         /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
+        /// Authorization type for the app authorization. Valid values are `Oauth2` and `apiKey`.
         /// </summary>
         [Input("authType", required: true)]
         public Input<string> AuthType { get; set; } = null!;
 
         /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        /// Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`Oauth2`), then you should provide only the OAuth2 credentials. See `Credential` Block for details.
         /// </summary>
         [Input("credential", required: true)]
         public Input<Inputs.AppAuthorizationCredentialArgs> Credential { get; set; } = null!;
@@ -204,6 +216,10 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -214,7 +230,9 @@ namespace Pulumi.Aws.AppFabric
         private InputList<Inputs.AppAuthorizationTenantArgs>? _tenants;
 
         /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// Information about an application tenant, such as the application display name and identifier. See `Tenant` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AppAuthorizationTenantArgs> Tenants
         {
@@ -234,47 +252,49 @@ namespace Pulumi.Aws.AppFabric
     public sealed class AppAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
+        /// Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
         /// </summary>
         [Input("app")]
         public Input<string>? App { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
         [Input("appBundleArn")]
         public Input<string>? AppBundleArn { get; set; }
 
         /// <summary>
-        /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        /// ARN of the App Authorization.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The authorization type for the app authorization valid values are oauth2 and apiKey.
+        /// Authorization type for the app authorization. Valid values are `Oauth2` and `apiKey`.
         /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
-        /// The application URL for the OAuth flow.
+        /// Application URL for the OAuth flow.
         /// </summary>
         [Input("authUrl")]
         public Input<string>? AuthUrl { get; set; }
 
+        /// <summary>
+        /// Timestamp of when the app authorization was created.
+        /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
-        /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
+        /// Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`Oauth2`), then you should provide only the OAuth2 credentials. See `Credential` Block for details.
         /// </summary>
         [Input("credential")]
         public Input<Inputs.AppAuthorizationCredentialGetArgs>? Credential { get; set; }
 
         /// <summary>
-        /// The user persona of the app authorization.
+        /// User persona of the app authorization.
         /// </summary>
         [Input("persona")]
         public Input<string>? Persona { get; set; }
@@ -287,6 +307,10 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -295,6 +319,10 @@ namespace Pulumi.Aws.AppFabric
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -305,7 +333,9 @@ namespace Pulumi.Aws.AppFabric
         private InputList<Inputs.AppAuthorizationTenantGetArgs>? _tenants;
 
         /// <summary>
-        /// Contains information about an application tenant, such as the application display name and identifier.
+        /// Information about an application tenant, such as the application display name and identifier. See `Tenant` Block for details.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AppAuthorizationTenantGetArgs> Tenants
         {
@@ -316,6 +346,9 @@ namespace Pulumi.Aws.AppFabric
         [Input("timeouts")]
         public Input<Inputs.AppAuthorizationTimeoutsGetArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Timestamp of when the app authorization was last updated.
+        /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 

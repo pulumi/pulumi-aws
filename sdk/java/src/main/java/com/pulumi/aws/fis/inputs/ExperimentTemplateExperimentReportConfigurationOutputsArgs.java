@@ -16,14 +16,14 @@ public final class ExperimentTemplateExperimentReportConfigurationOutputsArgs ex
     public static final ExperimentTemplateExperimentReportConfigurationOutputsArgs Empty = new ExperimentTemplateExperimentReportConfigurationOutputsArgs();
 
     /**
-     * The data sources for the experiment report. See below.
+     * Data sources for the experiment report. See below.
      * 
      */
     @Import(name="s3Configuration")
     private @Nullable Output<ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return The data sources for the experiment report. See below.
+     * @return Data sources for the experiment report. See below.
      * 
      */
     public Optional<Output<ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs>> s3Configuration() {
@@ -55,7 +55,7 @@ public final class ExperimentTemplateExperimentReportConfigurationOutputsArgs ex
         }
 
         /**
-         * @param s3Configuration The data sources for the experiment report. See below.
+         * @param s3Configuration Data sources for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ExperimentTemplateExperimentReportConfigurationOutputsArgs ex
         }
 
         /**
-         * @param s3Configuration The data sources for the experiment report. See below.
+         * @param s3Configuration Data sources for the experiment report. See below.
          * 
          * @return builder
          * 

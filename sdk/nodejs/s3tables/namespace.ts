@@ -67,9 +67,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     declare public readonly namespace: pulumi.Output<string>;
     /**
@@ -137,9 +135,7 @@ export interface NamespaceState {
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
@@ -161,9 +157,7 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Name of the namespace.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
     /**
