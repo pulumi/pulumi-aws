@@ -3539,6 +3539,11 @@
   "aws_macie2_organization_configuration": {
     "hasUsableRegion": true
   },
+  "aws_mailmanager_rule_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_mailmanager_traffic_policy": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -4087,6 +4092,10 @@
   "aws_prometheus_alert_manager_definition": {
     "hasUsableRegion": true
   },
+  "aws_prometheus_anomaly_detector": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_prometheus_query_logging_configuration": {
     "hasUsableRegion": true
   },
@@ -4101,6 +4110,9 @@
   "aws_prometheus_scraper": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_prometheus_scraper_logging_configuration": {
+    "hasUsableRegion": true
   },
   "aws_prometheus_workspace": {
     "hasUsableRegion": true,
@@ -4432,6 +4444,11 @@
     "hasTagsAndTagsAll": true
   },
   "aws_resiliencehub_resiliency_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resiliencehubv2_policy": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
