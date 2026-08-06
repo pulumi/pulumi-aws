@@ -39,7 +39,7 @@ import (
 //			_, err = cognito.NewResourceServer(ctx, "resource", &cognito.ResourceServerArgs{
 //				Identifier: pulumi.String("https://example.com"),
 //				Name:       pulumi.String("example"),
-//				UserPoolId: pool.ID(),
+//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ import (
 //						ScopeDescription: pulumi.String("a Sample Scope Description"),
 //					},
 //				},
-//				UserPoolId: pool.ID(),
+//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

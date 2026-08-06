@@ -48,7 +48,7 @@ import (
 //				MasterUsername:          pulumi.String("username"),
 //				MasterPassword:          pulumi.String("somepass123"),
 //				DatabaseName:            pulumi.String("example_db"),
-//				GlobalClusterIdentifier: example.ID(),
+//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //				Engine:            example.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primary.ID(),
+//				ClusterIdentifier: primary.ID().ToIDOutput().ToStringOutput(),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
@@ -69,7 +69,7 @@ import (
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID(),
+//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primaryClusterInstance,
@@ -81,7 +81,7 @@ import (
 //				Engine:            example.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondary.ID(),
+//				ClusterIdentifier: secondary.ID().ToIDOutput().ToStringOutput(),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
@@ -124,7 +124,7 @@ import (
 //				MasterUsername:          pulumi.String("username"),
 //				MasterPassword:          pulumi.String("somepass123"),
 //				DatabaseName:            pulumi.String("example_db"),
-//				GlobalClusterIdentifier: example.ID(),
+//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -134,7 +134,7 @@ import (
 //				Engine:            example.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
-//				ClusterIdentifier: primary.ID(),
+//				ClusterIdentifier: primary.ID().ToIDOutput().ToStringOutput(),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
@@ -145,7 +145,7 @@ import (
 //				Engine:                  example.Engine,
 //				EngineVersion:           example.EngineVersion,
 //				ClusterIdentifier:       pulumi.String("test-secondary-cluster"),
-//				GlobalClusterIdentifier: example.ID(),
+//				GlobalClusterIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				SkipFinalSnapshot:       pulumi.Bool(true),
 //				DbSubnetGroupName:       pulumi.String("default"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -158,7 +158,7 @@ import (
 //				Engine:            example.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
-//				ClusterIdentifier: secondary.ID(),
+//				ClusterIdentifier: secondary.ID().ToIDOutput().ToStringOutput(),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
@@ -234,7 +234,7 @@ import (
 //				DatabaseName:             pulumi.String("totoro"),
 //				Engine:                   example.Engine,
 //				EngineVersion:            example.EngineVersion,
-//				GlobalClusterIdentifier:  example.ID(),
+//				GlobalClusterIdentifier:  example.ID().ToIDOutput().ToStringOutput(),
 //				MasterPassword:           pulumi.String("satsukimae"),
 //				MasterUsername:           pulumi.String("maesatsuki"),
 //				SkipFinalSnapshot:        pulumi.Bool(true),
@@ -244,7 +244,7 @@ import (
 //			}
 //			_, err = rds.NewClusterInstance(ctx, "primary", &rds.ClusterInstanceArgs{
 //				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: primary.ID(),
+//				ClusterIdentifier: primary.ID().ToIDOutput().ToStringOutput(),
 //				Engine:            primary.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				EngineVersion:     primary.EngineVersion,
 //				Identifier:        pulumi.String("donetsklviv"),

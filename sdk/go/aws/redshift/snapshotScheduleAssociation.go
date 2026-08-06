@@ -47,8 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "default", &redshift.SnapshotScheduleAssociationArgs{
-//				ClusterIdentifier:  _default.ID(),
-//				ScheduleIdentifier: defaultSnapshotSchedule.ID(),
+//				ClusterIdentifier:  _default.ID().ToIDOutput().ToStringOutput(),
+//				ScheduleIdentifier: defaultSnapshotSchedule.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

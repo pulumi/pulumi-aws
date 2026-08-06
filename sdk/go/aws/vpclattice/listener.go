@@ -39,7 +39,7 @@ import (
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: example.ID(),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
 //						StatusCode: pulumi.Int(404),
@@ -90,13 +90,13 @@ import (
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID(),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
 //							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: exampleTargetGroup.ID(),
+//									TargetGroupIdentifier: exampleTargetGroup.ID().ToIDOutput().ToStringOutput(),
 //								},
 //							},
 //						},
@@ -159,17 +159,17 @@ import (
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
 //				Name:              pulumi.String("example"),
 //				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID(),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
 //							TargetGroups: vpclattice.ListenerDefaultActionForwardTargetGroupArray{
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example1.ID(),
+//									TargetGroupIdentifier: example1.ID().ToIDOutput().ToStringOutput(),
 //									Weight:                pulumi.Int(80),
 //								},
 //								&vpclattice.ListenerDefaultActionForwardTargetGroupArgs{
-//									TargetGroupIdentifier: example2.ID(),
+//									TargetGroupIdentifier: example2.ID().ToIDOutput().ToStringOutput(),
 //									Weight:                pulumi.Int(20),
 //								},
 //							},

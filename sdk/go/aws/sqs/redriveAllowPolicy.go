@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "example", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl: example.ID(),
+//				QueueUrl: example.ID().ToIDOutput().ToStringOutput(),
 //				RedriveAllowPolicy: src.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{

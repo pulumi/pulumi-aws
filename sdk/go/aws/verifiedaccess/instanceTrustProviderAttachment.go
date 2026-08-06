@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = verifiedaccess.NewInstanceTrustProviderAttachment(ctx, "example", &verifiedaccess.InstanceTrustProviderAttachmentArgs{
-//				VerifiedaccessInstanceId:      example.ID(),
-//				VerifiedaccessTrustProviderId: exampleTrustProvider.ID(),
+//				VerifiedaccessInstanceId:      example.ID().ToIDOutput().ToStringOutput(),
+//				VerifiedaccessTrustProviderId: exampleTrustProvider.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

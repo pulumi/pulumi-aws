@@ -42,7 +42,7 @@ import (
 //				Name:     pulumi.String("tf-example-lb-tg"),
 //				Port:     pulumi.Int(80),
 //				Protocol: pulumi.String("HTTP"),
-//				VpcId:    main.ID(),
+//				VpcId:    main.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ import (
 //				Port:       pulumi.Int(80),
 //				Protocol:   pulumi.String("HTTP"),
 //				TargetType: pulumi.String("ip"),
-//				VpcId:      main.ID(),
+//				VpcId:      main.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

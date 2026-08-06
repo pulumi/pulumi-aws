@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewBucketAccessKey(ctx, "example", &lightsail.BucketAccessKeyArgs{
-//				BucketName: example.ID(),
+//				BucketName: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

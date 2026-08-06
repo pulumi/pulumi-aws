@@ -67,16 +67,16 @@ import (
 //				TemplateId:         pulumi.String("example-id"),
 //				Name:               pulumi.String("example-name"),
 //				VersionDescription: pulumi.String("version"),
-//				Definition: map[string]interface{}{
+//				Definition: map[string][]map[string]interface{}{
 //					"dataSetConfigurations": []map[string]interface{}{
 //						map[string]interface{}{
-//							"dataSetSchema": map[string]interface{}{
-//								"columnSchemaLists": []map[string]interface{}{
-//									map[string]interface{}{
+//							"dataSetSchema": map[string][]map[string]string{
+//								"columnSchemaLists": []map[string]string{
+//									{
 //										"name":     "Column1",
 //										"dataType": "STRING",
 //									},
-//									map[string]interface{}{
+//									{
 //										"name":     "Column2",
 //										"dataType": "INTEGER",
 //									},
@@ -89,33 +89,33 @@ import (
 //						map[string]interface{}{
 //							"title":   "Test",
 //							"sheetId": "Test1",
-//							"visuals": []map[string]interface{}{
-//								map[string]interface{}{
+//							"visuals": []map[string]map[string]interface{}{
+//								map[string]map[string]interface{}{
 //									"barChartVisual": map[string]interface{}{
 //										"visualId": "BarChart",
-//										"chartConfiguration": map[string]interface{}{
-//											"fieldWells": map[string]interface{}{
-//												"barChartAggregatedFieldWells": map[string]interface{}{
-//													"categories": []map[string]interface{}{
-//														map[string]interface{}{
+//										"chartConfiguration": map[string]map[string]map[string][]map[string]map[string]interface{}{
+//											"fieldWells": map[string]map[string][]map[string]map[string]interface{}{
+//												"barChartAggregatedFieldWells": map[string][]map[string]map[string]interface{}{
+//													"categories": []map[string]map[string]interface{}{
+//														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
 //																"fieldId": "1",
-//																"column": map[string]interface{}{
+//																"column": map[string]string{
 //																	"columnName":        "Column1",
 //																	"dataSetIdentifier": "1",
 //																},
 //															},
 //														},
 //													},
-//													"values": []map[string]interface{}{
-//														map[string]interface{}{
+//													"values": []map[string]map[string]interface{}{
+//														map[string]map[string]interface{}{
 //															"numericalMeasureField": map[string]interface{}{
 //																"fieldId": "2",
-//																"column": map[string]interface{}{
+//																"column": map[string]string{
 //																	"columnName":        "Column2",
 //																	"dataSetIdentifier": "1",
 //																},
-//																"aggregationFunction": map[string]interface{}{
+//																"aggregationFunction": map[string]string{
 //																	"simpleNumericalAggregation": "SUM",
 //																},
 //															},

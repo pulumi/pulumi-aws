@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * });
  * const replicationPolicy = new aws.iam.Policy("replication", {
  *     name: "tf-iam-role-policy-replication-12345",
- *     policy: replication.apply(replication => replication.json),
+ *     policy: replication.json,
  * });
  * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
  *     role: replicationRole.name,
@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  * });
  * const replicationPolicy = new aws.iam.Policy("replication", {
  *     name: "tf-iam-role-policy-replication-12345",
- *     policy: replication.apply(replication => replication.json),
+ *     policy: replication.json,
  * });
  * const replicationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("replication", {
  *     role: replicationRole.name,

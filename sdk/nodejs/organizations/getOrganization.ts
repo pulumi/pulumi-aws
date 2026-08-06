@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * });
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.json,
  * });
  * ```
  */
@@ -171,7 +171,7 @@ export interface GetOrganizationResult {
  * });
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("sns_topic_policy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.json,
  * });
  * ```
  */

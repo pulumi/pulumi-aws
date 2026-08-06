@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetSecurityGroups(ctx, &ec2.GetSecurityGroupsArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Application": "k8s",
 //					"Environment": "dev",
 //				},

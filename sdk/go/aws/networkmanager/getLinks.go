@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkmanager.GetLinks(ctx, &networkmanager.GetLinksArgs{
 //				GlobalNetworkId: globalNetworkId,
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Env": "test",
 //				},
 //			}, nil)

@@ -76,8 +76,8 @@ import (
 //				"detail-type": []string{
 //					"Object Created",
 //				},
-//				"detail": map[string]interface{}{
-//					"bucket": map[string]interface{}{
+//				"detail": map[string]map[string][]*string{
+//					"bucket": map[string][]*string{
 //						"name": []*string{
 //							shared.Bucket,
 //						},

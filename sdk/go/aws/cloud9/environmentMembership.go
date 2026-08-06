@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = cloud9.NewEnvironmentMembership(ctx, "test", &cloud9.EnvironmentMembershipArgs{
-//				EnvironmentId: test.ID(),
+//				EnvironmentId: test.ID().ToIDOutput().ToStringOutput(),
 //				Permissions:   pulumi.String("read-only"),
 //				UserArn:       testUser.Arn,
 //			})

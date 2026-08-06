@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * });
  * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allow_access_from_another_account", {
  *     bucket: example.id,
- *     policy: allowAccessFromAnotherAccount.apply(allowAccessFromAnotherAccount => allowAccessFromAnotherAccount.json),
+ *     policy: allowAccessFromAnotherAccount.json,
  * });
  * ```
  *

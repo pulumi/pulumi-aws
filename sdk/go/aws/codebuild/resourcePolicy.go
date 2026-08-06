@@ -61,7 +61,7 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "default",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", current.Partition, currentGetCallerIdentity.AccountId),
 //								},
 //								"Action": []string{

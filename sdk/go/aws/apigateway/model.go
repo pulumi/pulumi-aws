@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"type": "object",
 //			})
 //			if err != nil {
@@ -45,7 +45,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = apigateway.NewModel(ctx, "MyDemoModel", &apigateway.ModelArgs{
-//				RestApi:     myDemoAPI.ID(),
+//				RestApi:     myDemoAPI.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("user"),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),

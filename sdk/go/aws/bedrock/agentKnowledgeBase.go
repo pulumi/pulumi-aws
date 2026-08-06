@@ -230,7 +230,7 @@ import (
 //						SupplementalDataStorageConfiguration: &bedrock.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs{
 //							StorageLocation: map[string]interface{}{
 //								"type": "S3",
-//								"s3Location": map[string]interface{}{
+//								"s3Location": map[string]string{
 //									"uri": "s3://my-bucket/chunk-processor/",
 //								},
 //							},

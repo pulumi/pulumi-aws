@@ -42,14 +42,14 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID(),
+//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
 //				BranchName: pulumi.String("master"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = amplify.NewDomainAssociation(ctx, "example", &amplify.DomainAssociationArgs{
-//				AppId:      example.ID(),
+//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
 //				DomainName: pulumi.String("example.com"),
 //				SubDomains: amplify.DomainAssociationSubDomainArray{
 //					&amplify.DomainAssociationSubDomainArgs{

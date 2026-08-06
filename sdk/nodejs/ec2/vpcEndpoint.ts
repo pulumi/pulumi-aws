@@ -178,7 +178,7 @@ import * as utilities from "../utilities";
  *     name: internal.then(internal => `ptfe.${internal.name}`),
  *     type: aws.route53.RecordType.CNAME,
  *     ttl: 300,
- *     records: [ptfeService.dnsEntries[0].dns_name],
+ *     records: [ptfeService.dnsEntries[0].dns_name.apply(x =>String(x))],
  * });
  * ```
  *

@@ -91,11 +91,11 @@ import (
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Bucket: example.Bucket,
 //				Key:    pulumi.String("manifest.json"),
-//				Content: example.ID().ApplyT(func(id string) (pulumi.String, error) {
+//				Content: example.ID().ApplyT(func(id pulumi.ID) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"fileLocations": []map[string]interface{}{
-//							map[string]interface{}{
+//						"fileLocations": []map[string][]string{
+//							{
 //								"URIPrefixes": []string{
 //									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Region, currentGetPartition.DnsSuffix),
 //								},
@@ -124,10 +124,10 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "quicksight.amazonaws.com",
 //						},
-//						"Condition": map[string]interface{}{
+//						"Condition": map[string]map[string]interface{}{
 //							"StringEquals": map[string]interface{}{
 //								"aws:SourceAccount": current.AccountId,
 //							},

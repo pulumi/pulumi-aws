@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
+//				VpcId: mainvpc.ID().ToIDOutput().ToStringOutput(),
 //				Ingress: ec2.DefaultSecurityGroupIngressArray{
 //					&ec2.DefaultSecurityGroupIngressArgs{
 //						Protocol: pulumi.String("-1"),
@@ -96,7 +96,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewDefaultSecurityGroup(ctx, "default", &ec2.DefaultSecurityGroupArgs{
-//				VpcId: mainvpc.ID(),
+//				VpcId: mainvpc.ID().ToIDOutput().ToStringOutput(),
 //				Ingress: ec2.DefaultSecurityGroupIngressArray{
 //					&ec2.DefaultSecurityGroupIngressArgs{
 //						Protocol: pulumi.String("-1"),

@@ -47,12 +47,12 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"CompositeFilters": []map[string]interface{}{
-//					map[string]interface{}{
+//				"CompositeFilters": []map[string][]map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"StringFilters": []map[string]interface{}{
 //							map[string]interface{}{
 //								"FieldName": "metadata.product.name",
-//								"Filter": map[string]interface{}{
+//								"Filter": map[string]string{
 //									"Comparison": "EQUALS",
 //									"Value":      "GuardDuty",
 //								},

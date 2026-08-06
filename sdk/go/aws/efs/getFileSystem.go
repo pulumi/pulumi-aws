@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = efs.LookupFileSystem(ctx, &efs.LookupFileSystemArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Environment": "dev",
 //				},
 //			}, nil)

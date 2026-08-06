@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSpotDatafeedSubscription(ctx, "default", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: _default.ID(),
+//				Bucket: _default.ID().ToIDOutput().ToStringOutput(),
 //				Prefix: pulumi.String("my_subdirectory"),
 //			})
 //			if err != nil {

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleResourcePolicy = new aws.amp.ResourcePolicy("example", {
  *     workspaceId: exampleWorkspace.id,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * });
  * const crossAccountResourcePolicy = new aws.amp.ResourcePolicy("cross_account", {
  *     workspaceId: example.id,
- *     policyDocument: crossAccount.apply(crossAccount => crossAccount.json),
+ *     policyDocument: crossAccount.json,
  * });
  * ```
  *
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  * });
  * const serviceAccessResourcePolicy = new aws.amp.ResourcePolicy("service_access", {
  *     workspaceId: example.id,
- *     policyDocument: serviceAccess.apply(serviceAccess => serviceAccess.json),
+ *     policyDocument: serviceAccess.json,
  * });
  * ```
  *

@@ -44,7 +44,7 @@ import (
 //			}
 //			exampleVpcEndpoint, err := ec2.NewVpcEndpoint(ctx, "example", &ec2.VpcEndpointArgs{
 //				ServiceName: pulumi.String(example.ServiceName),
-//				VpcId:       exampleVpc.ID(),
+//				VpcId:       exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +55,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "AllowAll",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "*",
 //						},
 //						"Action": []string{
@@ -70,7 +70,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = ec2.NewVpcEndpointPolicy(ctx, "example", &ec2.VpcEndpointPolicyArgs{
-//				VpcEndpointId: exampleVpcEndpoint.ID(),
+//				VpcEndpointId: exampleVpcEndpoint.ID().ToIDOutput().ToStringOutput(),
 //				Policy:        pulumi.String(json0),
 //			})
 //			if err != nil {

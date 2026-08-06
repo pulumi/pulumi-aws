@@ -45,7 +45,7 @@ import (
 //						},
 //					},
 //				},
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Tier": "Private",
 //				},
 //			}, nil)

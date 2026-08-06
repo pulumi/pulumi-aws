@@ -47,7 +47,7 @@ import (
 //			}
 //			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("example"),
-//				UserPoolId: exampleUserPool.ID(),
+//				UserPoolId: exampleUserPool.ID().ToIDOutput().ToStringOutput(),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
 //				},
@@ -56,12 +56,12 @@ import (
 //				return err
 //			}
 //			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID(),
+//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{
 //						UserPoolArn: exampleUserPool.Arn,
 //						ClientIds: pulumi.StringArray{
-//							exampleUserPoolClient.ID(),
+//							exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
@@ -98,7 +98,7 @@ import (
 //				return err
 //			}
 //			_, err = verifiedpermissions.NewIdentitySource(ctx, "example", &verifiedpermissions.IdentitySourceArgs{
-//				PolicyStoreId: example.ID(),
+//				PolicyStoreId: example.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
 //					OpenIdConnectConfiguration: &verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationArgs{
 //						Issuer: pulumi.String("https://auth.example.com"),

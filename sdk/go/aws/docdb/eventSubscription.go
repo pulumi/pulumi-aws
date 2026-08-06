@@ -58,7 +58,7 @@ import (
 //				},
 //				SourceType: pulumi.String("db-cluster"),
 //				SourceIds: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				SnsTopicArn: exampleTopic.Arn,
 //			})

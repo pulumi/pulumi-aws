@@ -71,10 +71,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: q.ID(),
-//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return test.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				QueueUrl: q.ID().ToIDOutput().ToStringOutput(),
+//				Policy:   test.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -117,7 +115,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewQueuePolicy(ctx, "example", &sqs.QueuePolicyArgs{
-//				QueueUrl: exampleQueue.ID(),
+//				QueueUrl: exampleQueue.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.All(exampleQueue.Arn, example.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleQueueArn := _args[0].(string)
 //					exampleArn := _args[1].(string)
@@ -128,13 +126,13 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "Cejuwdam",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"Service": "s3.amazonaws.com",
 //								},
 //								"Action":   "SQS:SendMessage",
 //								"Resource": exampleQueueArn,
-//								"Condition": map[string]interface{}{
-//									"ArnLike": map[string]interface{}{
+//								"Condition": map[string]map[string]string{
+//									"ArnLike": map[string]string{
 //										"aws:SourceArn": exampleArn,
 //									},
 //								},

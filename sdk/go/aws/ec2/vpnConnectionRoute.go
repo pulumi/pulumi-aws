@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			vpnGateway, err := ec2.NewVpnGateway(ctx, "vpn_gateway", &ec2.VpnGatewayArgs{
-//				VpcId: vpc.ID(),
+//				VpcId: vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -49,8 +49,8 @@ import (
 //				return err
 //			}
 //			main, err := ec2.NewVpnConnection(ctx, "main", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      vpnGateway.ID(),
-//				CustomerGatewayId: customerGateway.ID(),
+//				VpnGatewayId:      vpnGateway.ID().ToIDOutput().ToStringOutput(),
+//				CustomerGatewayId: customerGateway.ID().ToIDOutput().ToStringOutput(),
 //				Type:              pulumi.String("ipsec.1"),
 //				StaticRoutesOnly:  pulumi.Bool(true),
 //			})
@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = ec2.NewVpnConnectionRoute(ctx, "office", &ec2.VpnConnectionRouteArgs{
 //				DestinationCidrBlock: pulumi.String("192.168.10.0/24"),
-//				VpnConnectionId:      main.ID(),
+//				VpnConnectionId:      main.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

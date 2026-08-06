@@ -71,7 +71,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			selected, err := route53.LookupZone(ctx, &route53.LookupZoneArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"scope":    "local",
 //					"category": "api",
 //				},

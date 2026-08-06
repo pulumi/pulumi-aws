@@ -137,9 +137,7 @@ import (
 //			}, nil)
 //			_, err = ecr.NewRepositoryPolicy(ctx, "example", &ecr.RepositoryPolicyArgs{
 //				Repository: pulumi.Any(exampleAwsEcrRepository.Name),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Policy:     example.Json(),
 //			})
 //			if err != nil {
 //				return err

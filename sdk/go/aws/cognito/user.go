@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -87,7 +87,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewUser(ctx, "example", &cognito.UserArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				Username:   pulumi.String("example"),
 //				Attributes: pulumi.StringMap{
 //					"example":        pulumi.String("true"),

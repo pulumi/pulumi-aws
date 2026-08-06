@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
  *             netnum: range,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *         tags: {
  *             Name: "Primary",
  *         },
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *             input: example_secondary.cidrBlock,
  *             newbits: 8,
  *             netnum: range,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *         tags: {
  *             Name: "Secondary",
  *         },

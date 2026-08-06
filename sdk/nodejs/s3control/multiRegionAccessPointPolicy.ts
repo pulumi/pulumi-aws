@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     name: std.splitOutput({
  *         separator: ":",
  *         text: example.id,
- *     }).apply(invoke => invoke.result)[1],
+ *     }).result[1],
  *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{

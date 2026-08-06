@@ -102,7 +102,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"foo": "bar",
 //			})
 //			if err != nil {
@@ -117,7 +117,7 @@ import (
 //				HealthCheckType:        pulumi.String("ELB"),
 //				DesiredCapacity:        pulumi.Int(4),
 //				ForceDelete:            pulumi.Bool(true),
-//				PlacementGroup:         test.ID(),
+//				PlacementGroup:         test.ID().ToIDOutput().ToStringOutput(),
 //				LaunchConfiguration:    pulumi.Any(foobar.Name),
 //				VpcZoneIdentifiers: pulumi.StringArray{
 //					example1.Id,
@@ -191,7 +191,7 @@ import (
 //				MaxSize:         pulumi.Int(1),
 //				MinSize:         pulumi.Int(1),
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      foobar.ID(),
+//					Id:      foobar.ID().ToIDOutput().ToStringOutput(),
 //					Version: pulumi.String("$Latest"),
 //				},
 //			})
@@ -237,7 +237,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID(),
+//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -301,7 +301,7 @@ import (
 //					},
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID(),
+//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -367,7 +367,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID(),
+//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -377,7 +377,7 @@ import (
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
 //								InstanceType: pulumi.String("c6g.large"),
 //								LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{
-//									LaunchTemplateId: example2.ID(),
+//									LaunchTemplateId: example2.ID().ToIDOutput().ToStringOutput(),
 //								},
 //								WeightedCapacity: pulumi.String("2"),
 //							},
@@ -429,7 +429,7 @@ import (
 //				MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
 //					LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
 //						LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
-//							LaunchTemplateId: example.ID(),
+//							LaunchTemplateId: example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
 //							&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
@@ -565,7 +565,7 @@ import (
 //				MaxSize:         pulumi.Int(2),
 //				MinSize:         pulumi.Int(1),
 //				LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
-//					Id:      exampleLaunchTemplate.ID(),
+//					Id:      exampleLaunchTemplate.ID().ToIDOutput().ToStringOutput(),
 //					Version: exampleLaunchTemplate.LatestVersion,
 //				},
 //				Tags: autoscaling.GroupTagArray{

@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID(),
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -53,7 +53,7 @@ import (
 //			myThreatIntelSet, err := s3.NewBucketObjectv2(ctx, "MyThreatIntelSet", &s3.BucketObjectv2Args{
 //				Acl:     pulumi.String("public-read"),
 //				Content: pulumi.String("10.0.0.0/8\n"),
-//				Bucket:  bucket.ID(),
+//				Bucket:  bucket.ID().ToIDOutput().ToStringOutput(),
 //				Key:     pulumi.String("MyThreatIntelSet"),
 //			})
 //			if err != nil {
@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = guardduty.NewThreatIntelSet(ctx, "MyThreatIntelSet", &guardduty.ThreatIntelSetArgs{
 //				Activate:   pulumi.Bool(true),
-//				DetectorId: primary.ID(),
+//				DetectorId: primary.ID().ToIDOutput().ToStringOutput(),
 //				Format:     pulumi.String("TXT"),
 //				Location: pulumi.All(myThreatIntelSet.Bucket, myThreatIntelSet.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)

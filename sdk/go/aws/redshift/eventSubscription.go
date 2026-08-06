@@ -47,7 +47,7 @@ import (
 //				SnsTopicArn: defaultTopic.Arn,
 //				SourceType:  pulumi.String("cluster"),
 //				SourceIds: pulumi.StringArray{
-//					_default.ID(),
+//					_default.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Severity: pulumi.String("INFO"),
 //				EventCategories: pulumi.StringArray{

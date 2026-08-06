@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: costAnomalyUpdates.arn,
- *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ *     policy: snsTopicPolicy.json,
  * });
  * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomaly_monitor", {
  *     name: "AWSServiceMonitor",

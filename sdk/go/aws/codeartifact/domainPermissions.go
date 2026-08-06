@@ -65,10 +65,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = codeartifact.NewDomainPermissions(ctx, "test", &codeartifact.DomainPermissionsArgs{
-//				Domain: exampleDomain.Domain,
-//				PolicyDocument: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return test.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Domain:         exampleDomain.Domain,
+//				PolicyDocument: test.Json(),
 //			})
 //			if err != nil {
 //				return err

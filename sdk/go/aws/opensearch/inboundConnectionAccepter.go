@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewInboundConnectionAccepter(ctx, "foo", &opensearch.InboundConnectionAccepterArgs{
-//				ConnectionId: foo.ID(),
+//				ConnectionId: foo.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -115,12 +115,9 @@ import (
 //				FunctionName: pulumi.Any(exampleAwsLambdaFunction.FunctionName),
 //				Triggers: pulumi.StringMap{
 //					"function_version": pulumi.Any(exampleAwsLambdaFunction.Version),
-//					"config_hash": pulumi.String(std.Sha256Output(ctx, std.Sha256OutputArgs{
+//					"config_hash": std.Sha256Output(ctx, std.Sha256OutputArgs{
 //						Input: json0,
-//					}, nil).ApplyT(func(invoke std.Sha256Result) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //				},
 //				Input: pulumi.String(json1),
 //			})

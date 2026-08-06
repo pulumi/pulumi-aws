@@ -81,10 +81,8 @@ import (
 //				},
 //			}, nil)
 //			userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
-//				Name: pulumi.String("user-updates-queue"),
-//				Policy: pulumi.String(sqsQueuePolicy.ApplyT(func(sqsQueuePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return sqsQueuePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("user-updates-queue"),
+//				Policy: sqsQueuePolicy.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -125,7 +123,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			sns2 := map[string]interface{}{
+//			sns2 := map[string]string{
 //				"account-id":  "111111111111",
 //				"displayName": "example",
 //				"name":        "example-sns-topic",
@@ -135,7 +133,7 @@ import (
 //			if param := cfg.GetObject("sns"); param != nil {
 //				sns2 = param
 //			}
-//			sqs2 := map[string]interface{}{
+//			sqs2 := map[string]string{
 //				"account-id": "222222222222",
 //				"name":       "example-sqs-queue",
 //				"region":     "us-east-1",

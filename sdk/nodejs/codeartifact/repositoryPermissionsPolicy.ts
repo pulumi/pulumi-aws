@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("example", {
  *     repository: exampleRepository.repository,
  *     domain: exampleDomain.domain,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *

@@ -52,7 +52,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "testpolicy",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
 //						"Action": []string{

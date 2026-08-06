@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     exampleVpc.ID(),
+//				VpcId:     exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -111,15 +111,12 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					VpcId: exampleVpc.ID(),
-//					CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//					CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   exampleVpc.CidrBlock,
 //						Newbits: pulumi.Int(8),
 //						Netnum:  pulumi.Int(val0),
-//					}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //				})
 //				if err != nil {
 //					return err

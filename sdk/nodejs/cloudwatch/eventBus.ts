@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["delivery.logs.amazonaws.com"],
  *         }],
  *         actions: ["s3:PutObject"],
- *         resources: [Promise.all([exampleBucket.arn, current]).then(([arn, current]) => `${arn}/AWSLogs/${current.accountId}/EventBusLogs/*`)],
+ *         resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/AWSLogs/${current.accountId}/EventBusLogs/*`)],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -130,7 +130,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.bucket,
- *     policy: bucket.apply(bucket => bucket.json),
+ *     policy: bucket.json,
  * });
  * const s3 = new aws.cloudwatch.LogDeliveryDestination("s3", {
  *     name: pulumi.interpolate`EventsDeliveryDestination-${example.name}-S3`,
@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: cwlogs.apply(cwlogs => cwlogs.json),
+ *     policyDocument: cwlogs.json,
  *     policyName: pulumi.interpolate`AWSLogDeliveryWrite-${example.name}`,
  * });
  * const cwlogsLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("cwlogs", {

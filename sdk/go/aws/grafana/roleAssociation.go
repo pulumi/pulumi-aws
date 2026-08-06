@@ -40,7 +40,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "grafana.amazonaws.com",
 //						},
 //					},
@@ -74,7 +74,7 @@ import (
 //					pulumi.String("USER_ID_1"),
 //					pulumi.String("USER_ID_2"),
 //				},
-//				WorkspaceId: exampleWorkspace.ID(),
+//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

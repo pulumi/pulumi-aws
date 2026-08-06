@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *                 environment: environment,
  *                 timestamp: std.timestamp({}).then(invoke => invoke.result),
  *             }),
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *     },
  *     input: JSON.stringify({
  *         operation: "process_data",

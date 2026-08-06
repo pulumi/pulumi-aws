@@ -230,7 +230,7 @@ import (
 //				domain = param
 //			}
 //			example, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-//				Tags: pulumi.StringMap{
+//				Tags: map[string]pulumi.String{
 //					"Name": vpc,
 //				},
 //			}, nil)
@@ -246,7 +246,7 @@ import (
 //						},
 //					},
 //				},
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Tier": "private",
 //				},
 //			}, nil)
@@ -322,7 +322,7 @@ import (
 //						pulumi.String(exampleGetSubnets.Ids[1]),
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						exampleSecurityGroup.ID(),
+//						exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				AdvancedOptions: pulumi.StringMap{

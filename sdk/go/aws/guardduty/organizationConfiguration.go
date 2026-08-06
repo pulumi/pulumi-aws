@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = guardduty.NewOrganizationConfiguration(ctx, "example", &guardduty.OrganizationConfigurationArgs{
 //				AutoEnableOrganizationMembers: pulumi.String("ALL"),
-//				DetectorId:                    example.ID(),
+//				DetectorId:                    example.ID().ToIDOutput().ToStringOutput(),
 //				Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
 //					S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
 //						AutoEnable: pulumi.Bool(true),

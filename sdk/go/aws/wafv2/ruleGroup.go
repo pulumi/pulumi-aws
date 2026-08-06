@@ -312,10 +312,10 @@ import (
 //					MetricName:               pulumi.String("friendly-metric-name"),
 //					SampledRequestsEnabled:   pulumi.Bool(false),
 //				},
-//				CaptchaConfig: []map[string]interface{}{
-//					map[string]interface{}{
-//						"immunityTimeProperty": []map[string]interface{}{
-//							map[string]interface{}{
+//				CaptchaConfig: []map[string][]map[string]int{
+//					{
+//						"immunityTimeProperty": []map[string]int{
+//							{
 //								"immunityTime": 120,
 //							},
 //						},
@@ -355,13 +355,13 @@ import (
 //				map[string]interface{}{
 //					"Name":     "rule-1",
 //					"Priority": 1,
-//					"Action": map[string]interface{}{
+//					"Action": map[string]map[string]interface{}{
 //						"Count": map[string]interface{}{},
 //					},
-//					"Statement": map[string]interface{}{
+//					"Statement": map[string]map[string]interface{}{
 //						"ByteMatchStatement": map[string]interface{}{
 //							"SearchString": "badbot",
-//							"FieldToMatch": map[string]interface{}{
+//							"FieldToMatch": map[string]map[string]interface{}{
 //								"UriPath": map[string]interface{}{},
 //							},
 //							"TextTransformations": []map[string]interface{}{

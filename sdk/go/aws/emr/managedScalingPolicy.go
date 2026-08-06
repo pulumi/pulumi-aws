@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = emr.NewManagedScalingPolicy(ctx, "samplepolicy", &emr.ManagedScalingPolicyArgs{
-//				ClusterId: sample.ID(),
+//				ClusterId: sample.ID().ToIDOutput().ToStringOutput(),
 //				ComputeLimits: emr.ManagedScalingPolicyComputeLimitArray{
 //					&emr.ManagedScalingPolicyComputeLimitArgs{
 //						UnitType:                     pulumi.String("Instances"),

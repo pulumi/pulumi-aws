@@ -67,7 +67,7 @@ import (
 //			_, err = ssm.NewActivation(ctx, "foo", &ssm.ActivationArgs{
 //				Name:              pulumi.String("test_ssm_activation"),
 //				Description:       pulumi.String("Test"),
-//				IamRole:           testRole.ID(),
+//				IamRole:           testRole.ID().ToIDOutput().ToStringOutput(),
 //				RegistrationLimit: pulumi.Int(5),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testAttach,

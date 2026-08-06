@@ -40,7 +40,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "drt.shield.amazonaws.com",
 //						},
 //						"Action": "sts:AssumeRole",

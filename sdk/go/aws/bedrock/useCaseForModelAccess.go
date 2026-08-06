@@ -38,7 +38,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"companyName":         "AWS Provider",
 //				"companyWebsite":      "https://www.test.com",
 //				"intendedUsers":       "0",

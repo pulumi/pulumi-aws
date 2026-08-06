@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPublicAccessBlock(ctx, "example", &s3.BucketPublicAccessBlockArgs{
-//				Bucket:                example.ID(),
+//				Bucket:                example.ID().ToIDOutput().ToStringOutput(),
 //				BlockPublicAcls:       pulumi.Bool(true),
 //				BlockPublicPolicy:     pulumi.Bool(true),
 //				IgnorePublicAcls:      pulumi.Bool(true),

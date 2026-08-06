@@ -72,7 +72,7 @@ import (
 //			}
 //			_, err = ec2.NewEip(ctx, "one", &ec2.EipArgs{
 //				Domain:                 pulumi.String("vpc"),
-//				NetworkInterface:       multi_ip.ID(),
+//				NetworkInterface:       multi_ip.ID().ToIDOutput().ToStringOutput(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.10"),
 //			})
 //			if err != nil {
@@ -80,7 +80,7 @@ import (
 //			}
 //			_, err = ec2.NewEip(ctx, "two", &ec2.EipArgs{
 //				Domain:                 pulumi.String("vpc"),
-//				NetworkInterface:       multi_ip.ID(),
+//				NetworkInterface:       multi_ip.ID().ToIDOutput().ToStringOutput(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.11"),
 //			})
 //			if err != nil {
@@ -114,13 +114,13 @@ import (
 //				return err
 //			}
 //			gw, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-//				VpcId: _default.ID(),
+//				VpcId: _default.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			myTestSubnet, err := ec2.NewSubnet(ctx, "my_test_subnet", &ec2.SubnetArgs{
-//				VpcId:               _default.ID(),
+//				VpcId:               _default.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:           pulumi.String("10.0.0.0/24"),
 //				MapPublicIpOnLaunch: pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -133,14 +133,14 @@ import (
 //				Ami:          pulumi.String("ami-5189a661"),
 //				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				PrivateIp:    pulumi.String("10.0.0.12"),
-//				SubnetId:     myTestSubnet.ID(),
+//				SubnetId:     myTestSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewEip(ctx, "bar", &ec2.EipArgs{
 //				Domain:                 pulumi.String("vpc"),
-//				Instance:               foo.ID(),
+//				Instance:               foo.ID().ToIDOutput().ToStringOutput(),
 //				AssociateWithPrivateIp: pulumi.String("10.0.0.12"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				gw,

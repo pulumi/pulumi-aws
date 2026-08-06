@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const cloud9Eip = new aws.ec2.Eip("cloud9_eip", {
- *     instance: cloud9Instance.apply(cloud9Instance => cloud9Instance.id),
+ *     instance: cloud9Instance.id,
  *     domain: "vpc",
  * });
  * export const cloud9PublicIp = cloud9Eip.publicIp;

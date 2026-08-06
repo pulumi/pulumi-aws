@@ -43,7 +43,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "datazone.amazonaws.com",
 //						},
 //					},
@@ -53,7 +53,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "cloudformation.amazonaws.com",
 //						},
 //					},
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: test.ID(),
+//				DomainIdentifier: test.ID().ToIDOutput().ToStringOutput(),
 //				GlossaryTerms: pulumi.StringArray{
 //					pulumi.String("2N8w6XJCwZf"),
 //				},
@@ -123,8 +123,8 @@ import (
 //			_, err = datazone.NewFormType(ctx, "test", &datazone.FormTypeArgs{
 //				Description:             pulumi.String("desc"),
 //				Name:                    pulumi.String("SageMakerModelFormType"),
-//				DomainIdentifier:        test.ID(),
-//				OwningProjectIdentifier: testProject.ID(),
+//				DomainIdentifier:        test.ID().ToIDOutput().ToStringOutput(),
+//				OwningProjectIdentifier: testProject.ID().ToIDOutput().ToStringOutput(),
 //				Status:                  pulumi.String("DISABLED"),
 //				Model: &datazone.FormTypeModelArgs{
 //					Smithy: pulumi.String(`\tstructure SageMakerModelFormType {

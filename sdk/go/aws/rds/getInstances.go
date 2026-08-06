@@ -63,7 +63,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.GetInstances(ctx, &rds.GetInstancesArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Env": "test",
 //				},
 //			}, nil)

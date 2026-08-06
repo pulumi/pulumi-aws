@@ -65,7 +65,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			example := map[string]interface{}{
+//			example := map[string]string{
 //				"key1": "value1",
 //				"key2": "value2",
 //			}

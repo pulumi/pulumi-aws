@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamScope(ctx, "example", &ec2.VpcIpamScopeArgs{
-//				IpamId:      example.ID(),
+//				IpamId:      example.ID().ToIDOutput().ToStringOutput(),
 //				Description: pulumi.String("Another Scope"),
 //			})
 //			if err != nil {

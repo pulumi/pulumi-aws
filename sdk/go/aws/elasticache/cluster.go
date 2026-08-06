@@ -202,7 +202,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     exampleVpc.ID(),
+//				VpcId:     exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("my-subnet"),
@@ -214,7 +214,7 @@ import (
 //			exampleSubnetGroup, err := elasticache.NewSubnetGroup(ctx, "example", &elasticache.SubnetGroupArgs{
 //				Name: pulumi.String("my-cache-subnet"),
 //				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
+//					exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

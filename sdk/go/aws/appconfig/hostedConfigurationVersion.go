@@ -78,23 +78,23 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"flags": map[string]interface{}{
+//				"flags": map[string]map[string]interface{}{
 //					"foo": map[string]interface{}{
 //						"name": "foo",
-//						"_deprecation": map[string]interface{}{
+//						"_deprecation": map[string]string{
 //							"status": "planned",
 //						},
 //					},
 //					"bar": map[string]interface{}{
 //						"name": "bar",
-//						"attributes": map[string]interface{}{
-//							"someAttribute": map[string]interface{}{
+//						"attributes": map[string]map[string]map[string]interface{}{
+//							"someAttribute": map[string]map[string]interface{}{
 //								"constraints": map[string]interface{}{
 //									"type":     "string",
 //									"required": true,
 //								},
 //							},
-//							"someOtherAttribute": map[string]interface{}{
+//							"someOtherAttribute": map[string]map[string]interface{}{
 //								"constraints": map[string]interface{}{
 //									"type":     "number",
 //									"required": true,
@@ -104,7 +104,7 @@ import (
 //					},
 //				},
 //				"values": map[string]interface{}{
-//					"foo": map[string]interface{}{
+//					"foo": map[string]string{
 //						"enabled": "true",
 //					},
 //					"bar": map[string]interface{}{

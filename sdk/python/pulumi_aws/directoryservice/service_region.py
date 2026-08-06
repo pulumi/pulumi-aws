@@ -284,7 +284,7 @@ class ServiceRegion(pulumi.CustomResource):
                 availability_zone=available.names[example_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).result,
                 tags={
                     "Name": "Primary",
                 }))
@@ -313,7 +313,7 @@ class ServiceRegion(pulumi.CustomResource):
                 availability_zone=available_secondary.names[example_secondary_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=example_secondary_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_secondary_subnet_range["value"]).result,
                 tags={
                     "Name": "Secondary",
                 }))
@@ -383,7 +383,7 @@ class ServiceRegion(pulumi.CustomResource):
                 availability_zone=available.names[example_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).result,
                 tags={
                     "Name": "Primary",
                 }))
@@ -412,7 +412,7 @@ class ServiceRegion(pulumi.CustomResource):
                 availability_zone=available_secondary.names[example_secondary_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=example_secondary_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_secondary_subnet_range["value"]).result,
                 tags={
                     "Name": "Secondary",
                 }))

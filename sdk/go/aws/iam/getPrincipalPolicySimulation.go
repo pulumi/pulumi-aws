@@ -133,8 +133,8 @@ import (
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"Version": "2012-10-17",
-//						"Statement": []map[string]interface{}{
-//							map[string]interface{}{
+//						"Statement": []map[string]string{
+//							{
 //								"Action":   "s3:GetObject",
 //								"Effect":   "Allow",
 //								"Resource": arn,

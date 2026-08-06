@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = secretsmanager.NewSecretRotation(ctx, "example", &secretsmanager.SecretRotationArgs{
-//				SecretId:                      example.ID(),
+//				SecretId:                      example.ID().ToIDOutput().ToStringOutput(),
 //				ExternalSecretRotationRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				ExternalSecretRotationMetadatas: secretsmanager.SecretRotationExternalSecretRotationMetadataArray{
 //					&secretsmanager.SecretRotationExternalSecretRotationMetadataArgs{

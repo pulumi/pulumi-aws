@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			foo, err := ec2.GetLocalGateways(ctx, &ec2.GetLocalGatewaysArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"service": "production",
 //				},
 //			}, nil)

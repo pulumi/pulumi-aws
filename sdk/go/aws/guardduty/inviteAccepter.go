@@ -38,7 +38,7 @@ import (
 //			}
 //			memberMember, err := guardduty.NewMember(ctx, "member", &guardduty.MemberArgs{
 //				AccountId:  memberDetector.AccountId,
-//				DetectorId: primary.ID(),
+//				DetectorId: primary.ID().ToIDOutput().ToStringOutput(),
 //				Email:      pulumi.String("required@example.com"),
 //				Invite:     pulumi.Bool(true),
 //			})
@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewInviteAccepter(ctx, "member", &guardduty.InviteAccepterArgs{
-//				DetectorId:      memberDetector.ID(),
+//				DetectorId:      memberDetector.ID().ToIDOutput().ToStringOutput(),
 //				MasterAccountId: primary.AccountId,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				memberMember,

@@ -278,7 +278,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
                 vpc_id=example_vpc.id,
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result)))
+                    netnum=example_subnet_range["value"]).result))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],
@@ -414,7 +414,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
                 vpc_id=example_vpc.id,
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result)))
+                    netnum=example_subnet_range["value"]).result))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],

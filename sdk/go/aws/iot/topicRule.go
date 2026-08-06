@@ -108,11 +108,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "mypolicy", &iam.RolePolicyArgs{
-//				Name: pulumi.String("mypolicy"),
-//				Role: myrole.ID(),
-//				Policy: pulumi.String(mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return mypolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("mypolicy"),
+//				Role:   myrole.ID().ToIDOutput().ToStringOutput(),
+//				Policy: mypolicy.Json(),
 //			})
 //			if err != nil {
 //				return err

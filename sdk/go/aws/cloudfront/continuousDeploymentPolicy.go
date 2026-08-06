@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = cloudfront.NewDistribution(ctx, "production", &cloudfront.DistributionArgs{
 //				Enabled:                      pulumi.Bool(true),
-//				ContinuousDeploymentPolicyId: example.ID(),
+//				ContinuousDeploymentPolicyId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

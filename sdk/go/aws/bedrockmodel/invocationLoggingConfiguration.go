@@ -90,7 +90,7 @@ import (
 //					TextDataDeliveryEnabled:      pulumi.Bool(true),
 //					VideoDataDeliveryEnabled:     pulumi.Bool(true),
 //					S3Config: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{
-//						BucketName: example.ID(),
+//						BucketName: example.ID().ToIDOutput().ToStringOutput(),
 //						KeyPrefix:  pulumi.String("bedrock"),
 //					},
 //				},

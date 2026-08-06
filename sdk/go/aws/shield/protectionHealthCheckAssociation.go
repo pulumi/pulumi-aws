@@ -61,7 +61,7 @@ import (
 //			}
 //			exampleProtection, err := shield.NewProtection(ctx, "example", &shield.ProtectionArgs{
 //				Name: pulumi.String("example-protection"),
-//				ResourceArn: example.ID().ApplyT(func(id string) (string, error) {
+//				ResourceArn: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentGetPartition.Partition, current.Region, currentGetCallerIdentity.AccountId, id), nil
 //				}).(pulumi.StringOutput),
 //			})
@@ -84,7 +84,7 @@ import (
 //			}
 //			_, err = shield.NewProtectionHealthCheckAssociation(ctx, "example", &shield.ProtectionHealthCheckAssociationArgs{
 //				HealthCheckArn:     exampleHealthCheck.Arn,
-//				ShieldProtectionId: exampleProtection.ID(),
+//				ShieldProtectionId: exampleProtection.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

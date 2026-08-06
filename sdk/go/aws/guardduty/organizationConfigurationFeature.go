@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewOrganizationConfigurationFeature(ctx, "eks_runtime_monitoring", &guardduty.OrganizationConfigurationFeatureArgs{
-//				DetectorId: example.ID(),
+//				DetectorId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
 //				AutoEnable: pulumi.String("ALL"),
 //				AdditionalConfigurations: guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArray{

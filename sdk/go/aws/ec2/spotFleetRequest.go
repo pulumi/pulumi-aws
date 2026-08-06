@@ -110,7 +110,7 @@ import (
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      foo.ID(),
+//							Id:      foo.ID().ToIDOutput().ToStringOutput(),
 //							Version: foo.LatestVersion,
 //						},
 //					},
@@ -219,7 +219,7 @@ import (
 //				LaunchTemplateConfigs: ec2.SpotFleetRequestLaunchTemplateConfigArray{
 //					&ec2.SpotFleetRequestLaunchTemplateConfigArgs{
 //						LaunchTemplateSpecification: &ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{
-//							Id:      foo.ID(),
+//							Id:      foo.ID().ToIDOutput().ToStringOutput(),
 //							Version: foo.LatestVersion,
 //						},
 //						Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{

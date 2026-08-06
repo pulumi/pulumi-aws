@@ -41,8 +41,8 @@ import (
 //						"DataIdentifier": []string{
 //							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //						},
-//						"Operation": map[string]interface{}{
-//							"Audit": map[string]interface{}{
+//						"Operation": map[string]map[string]map[string]interface{}{
+//							"Audit": map[string]map[string]interface{}{
 //								"FindingsDestination": map[string]interface{}{},
 //							},
 //						},
@@ -52,8 +52,8 @@ import (
 //						"DataIdentifier": []string{
 //							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //						},
-//						"Operation": map[string]interface{}{
-//							"Deidentify": map[string]interface{}{
+//						"Operation": map[string]map[string]map[string]interface{}{
+//							"Deidentify": map[string]map[string]interface{}{
 //								"MaskConfig": map[string]interface{}{},
 //							},
 //						},
@@ -133,7 +133,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]string{
 //				"Fields": []string{
 //					"field1",
 //					"field2",

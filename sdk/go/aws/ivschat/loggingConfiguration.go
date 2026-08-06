@@ -116,7 +116,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -163,7 +163,7 @@ import (
 //			_, err = ivschat.NewLoggingConfiguration(ctx, "example", &ivschat.LoggingConfigurationArgs{
 //				DestinationConfiguration: &ivschat.LoggingConfigurationDestinationConfigurationArgs{
 //					S3: &ivschat.LoggingConfigurationDestinationConfigurationS3Args{
-//						BucketName: example.ID(),
+//						BucketName: example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

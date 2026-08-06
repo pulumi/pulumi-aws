@@ -40,7 +40,7 @@ import (
 //				InsideCidrBlocks: pulumi.StringArray{
 //					pulumi.String("169.254.100.0/29"),
 //				},
-//				TransitGatewayAttachmentId: example.ID(),
+//				TransitGatewayAttachmentId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

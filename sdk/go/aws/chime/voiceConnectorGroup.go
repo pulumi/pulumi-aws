@@ -49,11 +49,11 @@ import (
 //				Name: pulumi.String("test-group"),
 //				Connectors: chime.VoiceConnectorGroupConnectorArray{
 //					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc1.ID(),
+//						VoiceConnectorId: vc1.ID().ToIDOutput().ToStringOutput(),
 //						Priority:         pulumi.Int(1),
 //					},
 //					&chime.VoiceConnectorGroupConnectorArgs{
-//						VoiceConnectorId: vc2.ID(),
+//						VoiceConnectorId: vc2.ID().ToIDOutput().ToStringOutput(),
 //						Priority:         pulumi.Int(3),
 //					},
 //				},

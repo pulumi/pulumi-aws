@@ -63,15 +63,12 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					VpcId: example.ID(),
-//					CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//					VpcId: example.ID().ToIDOutput().ToStringOutput(),
+//					CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   example.CidrBlock,
 //						Newbits: pulumi.Int(8),
 //						Netnum:  pulumi.Int(val0),
-//					}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //					AvailabilityZone: pulumi.String(available.Names[val0]),
 //					Tags: pulumi.StringMap{
 //						"Name": pulumi.String("example"),
@@ -87,7 +84,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSecurityGroup(ctx, fmt.Sprintf("example-%v", key0), &ec2.SecurityGroupArgs{
-//					VpcId: example.ID(),
+//					VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //					Name:  pulumi.Sprintf("example-%v", val0),
 //					Tags: pulumi.StringMap{
 //						"Name": pulumi.String("example"),
@@ -105,14 +102,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkSettings, err := workspacesweb.NewNetworkSettings(ctx, "example", &workspacesweb.NetworkSettingsArgs{
-//				VpcId: example.ID(),
+//				VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //				SubnetIds: pulumi.StringArray{
-//					exampleSubnet[0].ID(),
-//					exampleSubnet[1].ID(),
+//					exampleSubnet[0].ID().ToIDOutput().ToStringOutput(),
+//					exampleSubnet[1].ID().ToIDOutput().ToStringOutput(),
 //				},
 //				SecurityGroupIds: pulumi.StringArray{
-//					exampleSecurityGroup[0].ID(),
-//					exampleSecurityGroup[1].ID(),
+//					exampleSecurityGroup[0].ID().ToIDOutput().ToStringOutput(),
+//					exampleSecurityGroup[1].ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

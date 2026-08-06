@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewResolverConfig(ctx, "example", &route53.ResolverConfigArgs{
-//				ResourceId:             example.ID(),
+//				ResourceId:             example.ID().ToIDOutput().ToStringOutput(),
 //				AutodefinedReverseFlag: pulumi.String("DISABLE"),
 //			})
 //			if err != nil {

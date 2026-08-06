@@ -40,7 +40,7 @@ import (
 //			}
 //			_, err = ec2.NewVpnConcentrator(ctx, "example", &ec2.VpnConcentratorArgs{
 //				Type:             pulumi.String("ipsec.1"),
-//				TransitGatewayId: example.ID(),
+//				TransitGatewayId: example.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

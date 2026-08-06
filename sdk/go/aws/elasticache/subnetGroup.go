@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            foo.ID(),
+//				VpcId:            foo.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Tags: pulumi.StringMap{
@@ -52,7 +52,7 @@ import (
 //			_, err = elasticache.NewSubnetGroup(ctx, "bar", &elasticache.SubnetGroupArgs{
 //				Name: pulumi.String("tf-test-cache-subnet"),
 //				SubnetIds: pulumi.StringArray{
-//					fooSubnet.ID(),
+//					fooSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

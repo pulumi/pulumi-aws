@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			object, err := s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test.txt"),
 //			})
@@ -52,7 +52,7 @@ import (
 //				VocabularyName: pulumi.String("example"),
 //				LanguageCode:   pulumi.String("en-US"),
 //				VocabularyFileUri: pulumi.All(example.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
-//					id := _args[0].(string)
+//					id := _args[0].(pulumi.ID)
 //					key := _args[1].(string)
 //					return fmt.Sprintf("s3://%v/%v", id, key), nil
 //				}).(pulumi.StringOutput),

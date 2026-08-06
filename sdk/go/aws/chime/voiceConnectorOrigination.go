@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = chime.NewVoiceConnectorOrigination(ctx, "default", &chime.VoiceConnectorOriginationArgs{
 //				Disabled:         pulumi.Bool(false),
-//				VoiceConnectorId: _default.ID(),
+//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //				Routes: chime.VoiceConnectorOriginationRouteArray{
 //					&chime.VoiceConnectorOriginationRouteArgs{
 //						Host:     pulumi.String("127.0.0.1"),

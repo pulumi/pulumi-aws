@@ -58,7 +58,7 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "test-pol-principals-6",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //								},
 //								"Action": []string{

@@ -38,26 +38,26 @@ import (
 //					"-la",
 //				},
 //				"image": "busybox",
-//				"resourceRequirements": []map[string]interface{}{
-//					map[string]interface{}{
+//				"resourceRequirements": []map[string]string{
+//					{
 //						"type":  "VCPU",
 //						"value": "0.25",
 //					},
-//					map[string]interface{}{
+//					{
 //						"type":  "MEMORY",
 //						"value": "512",
 //					},
 //				},
 //				"volumes": []map[string]interface{}{
 //					map[string]interface{}{
-//						"host": map[string]interface{}{
+//						"host": map[string]string{
 //							"sourcePath": "/tmp",
 //						},
 //						"name": "tmp",
 //					},
 //				},
-//				"environment": []map[string]interface{}{
-//					map[string]interface{}{
+//				"environment": []map[string]string{
+//					{
 //						"name":  "VARNAME",
 //						"value": "VARVAL",
 //					},
@@ -277,15 +277,15 @@ import (
 //						},
 //						"image":      "busybox",
 //						"jobRoleArn": "arn:aws:iam::123456789012:role/AWSBatchS3ReadOnly",
-//						"fargatePlatformConfiguration": map[string]interface{}{
+//						"fargatePlatformConfiguration": map[string]string{
 //							"platformVersion": "LATEST",
 //						},
-//						"resourceRequirements": []map[string]interface{}{
-//							map[string]interface{}{
+//						"resourceRequirements": []map[string]string{
+//							{
 //								"type":  "VCPU",
 //								"value": "0.25",
 //							},
-//							map[string]interface{}{
+//							{
 //								"type":  "MEMORY",
 //								"value": "512",
 //							},
@@ -324,7 +324,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]map[string]interface{}{
 //				"taskProperties": []map[string]interface{}{
 //					map[string]interface{}{
 //						"executionRoleArn": ecsTaskExecutionRole.Arn,
@@ -335,20 +335,20 @@ import (
 //									"sleep",
 //									"60",
 //								},
-//								"dependsOn": []map[string]interface{}{
-//									map[string]interface{}{
+//								"dependsOn": []map[string]string{
+//									{
 //										"containerName": "container_b",
 //										"condition":     "COMPLETE",
 //									},
 //								},
-//								"secrets": []map[string]interface{}{
-//									map[string]interface{}{
+//								"secrets": []map[string]string{
+//									{
 //										"name":      "TEST",
 //										"valueFrom": "DUMMY",
 //									},
 //								},
-//								"environment": []map[string]interface{}{
-//									map[string]interface{}{
+//								"environment": []map[string]string{
+//									{
 //										"name":  "test",
 //										"value": "Environment Variable",
 //									},
@@ -356,7 +356,7 @@ import (
 //								"essential": true,
 //								"logConfiguration": map[string]interface{}{
 //									"logDriver": "awslogs",
-//									"options": map[string]interface{}{
+//									"options": map[string]string{
 //										"awslogs-group":         "tf_test_batch_job",
 //										"awslogs-region":        "us-west-2",
 //										"awslogs-stream-prefix": "ecs",
@@ -365,12 +365,12 @@ import (
 //								"name":                   "container_a",
 //								"privileged":             false,
 //								"readonlyRootFilesystem": false,
-//								"resourceRequirements": []map[string]interface{}{
-//									map[string]interface{}{
+//								"resourceRequirements": []map[string]string{
+//									{
 //										"value": "1.0",
 //										"type":  "VCPU",
 //									},
-//									map[string]interface{}{
+//									{
 //										"value": "2048",
 //										"type":  "MEMORY",
 //									},
@@ -384,12 +384,12 @@ import (
 //								},
 //								"name":      "container_b",
 //								"essential": false,
-//								"resourceRequirements": []map[string]interface{}{
-//									map[string]interface{}{
+//								"resourceRequirements": []map[string]string{
+//									{
 //										"value": "1.0",
 //										"type":  "VCPU",
 //									},
-//									map[string]interface{}{
+//									{
 //										"value": "2048",
 //										"type":  "MEMORY",
 //									},

@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAccelerateConfiguration(ctx, "example", &s3.BucketAccelerateConfigurationArgs{
-//				Bucket: mybucket.ID(),
+//				Bucket: mybucket.ID().ToIDOutput().ToStringOutput(),
 //				Status: pulumi.String("Enabled"),
 //			})
 //			if err != nil {

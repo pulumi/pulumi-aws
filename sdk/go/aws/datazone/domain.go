@@ -42,7 +42,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "datazone.amazonaws.com",
 //						},
 //					},
@@ -52,7 +52,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "cloudformation.amazonaws.com",
 //						},
 //					},

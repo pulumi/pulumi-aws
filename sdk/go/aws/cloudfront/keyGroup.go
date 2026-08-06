@@ -46,7 +46,7 @@ import (
 //			_, err = cloudfront.NewKeyGroup(ctx, "example", &cloudfront.KeyGroupArgs{
 //				Comment: pulumi.String("example key group"),
 //				Items: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Name: pulumi.String("example-key-group"),
 //			})

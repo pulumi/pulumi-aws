@@ -137,7 +137,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID(),
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -480,11 +480,9 @@ import (
 //				},
 //			}, nil)
 //			firehose_elasticsearchRolePolicy, err := iam.NewRolePolicy(ctx, "firehose-elasticsearch", &iam.RolePolicyArgs{
-//				Name: pulumi.String("elasticsearch"),
-//				Role: pulumi.Any(firehose.Id),
-//				Policy: pulumi.String(firehose_elasticsearch.ApplyT(func(firehose_elasticsearch iam.GetPolicyDocumentResult) (*string, error) {
-//					return firehose_elasticsearch.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("elasticsearch"),
+//				Role:   pulumi.Any(firehose.Id),
+//				Policy: firehose_elasticsearch.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -821,7 +819,7 @@ import (
 //					},
 //				},
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					Location: bucket.ID().ApplyT(func(id string) (string, error) {
+//					Location: bucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("s3://%v", id), nil
 //					}).(pulumi.StringOutput),
 //					Columns: glue.CatalogTableStorageDescriptorColumnArray{

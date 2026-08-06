@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleEnvironmentBlueprintConfiguration = new aws.datazone.EnvironmentBlueprintConfiguration("example", {
  *     domainId: example.id,
- *     environmentBlueprintId: defaultDataLake.apply(defaultDataLake => defaultDataLake.id),
+ *     environmentBlueprintId: defaultDataLake.id,
  *     enabledRegions: ["us-east-1"],
  *     regionalParameters: {
  *         "us-east-1": {

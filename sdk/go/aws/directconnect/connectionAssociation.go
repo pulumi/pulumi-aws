@@ -45,8 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewConnectionAssociation(ctx, "example", &directconnect.ConnectionAssociationArgs{
-//				ConnectionId: example.ID(),
-//				LagId:        exampleLinkAggregationGroup.ID(),
+//				ConnectionId: example.ID().ToIDOutput().ToStringOutput(),
+//				LagId:        exampleLinkAggregationGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

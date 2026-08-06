@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"app":   "exampleapp",
 //				"group": "examplegroup",
 //			})
@@ -55,8 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = servicecatalog.NewAppregistryAttributeGroupAssociation(ctx, "example", &servicecatalog.AppregistryAttributeGroupAssociationArgs{
-//				ApplicationId:    example.ID(),
-//				AttributeGroupId: exampleAppregistryAttributeGroup.ID(),
+//				ApplicationId:    example.ID().ToIDOutput().ToStringOutput(),
+//				AttributeGroupId: exampleAppregistryAttributeGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

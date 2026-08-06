@@ -48,7 +48,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -57,7 +57,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow administration of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Alice", current.AccountId),
 //						},
 //						"Action": []string{
@@ -80,7 +80,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow use of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Bob", current.AccountId),
 //						},
 //						"Action": []string{
@@ -151,7 +151,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -164,7 +164,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
-//				KeyId:  example.ID(),
+//				KeyId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: json0,
 //			})
 //			if err != nil {
@@ -205,7 +205,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -214,7 +214,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow administration of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Admin", current.AccountId),
 //						},
 //						"Action": []string{
@@ -236,7 +236,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow use of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Developer", current.AccountId),
 //						},
 //						"Action": []string{
@@ -297,7 +297,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -306,7 +306,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow administration of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Admin", current.AccountId),
 //						},
 //						"Action": []string{
@@ -328,7 +328,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow use of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:role/Developer", current.AccountId),
 //						},
 //						"Action": []string{
@@ -389,7 +389,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -398,7 +398,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow administration of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Alice", current.AccountId),
 //						},
 //						"Action": []string{
@@ -421,7 +421,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow use of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:user/Bob", current.AccountId),
 //						},
 //						"Action": []string{

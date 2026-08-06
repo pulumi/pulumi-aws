@@ -47,19 +47,19 @@ import (
 //				ResourceType:        pulumi.String("AWS::ElasticLoadBalancingV2::LoadBalancer"),
 //				SecurityServicePolicyData: &fms.PolicySecurityServicePolicyDataArgs{
 //					Type: pulumi.String("WAF"),
-//					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id string) (pulumi.String, error) {
+//					ManagedServiceData: exampleRuleGroup.ID().ApplyT(func(id pulumi.ID) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{
 //							"type": "WAF",
 //							"ruleGroups": []map[string]interface{}{
 //								map[string]interface{}{
 //									"id": id,
-//									"overrideAction": map[string]interface{}{
+//									"overrideAction": map[string]string{
 //										"type": "COUNT",
 //									},
 //								},
 //							},
-//							"defaultAction": map[string]interface{}{
+//							"defaultAction": map[string]string{
 //								"type": "BLOCK",
 //							},
 //							"overrideCustomerWebACLAssociation": false,

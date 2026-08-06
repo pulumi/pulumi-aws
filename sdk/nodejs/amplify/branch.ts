@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  * });
  * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplify_app_master", {
  *     arn: amplifyAppMasterTopic.arn,
- *     policy: amplifyAppMaster.apply(amplifyAppMaster => amplifyAppMaster.json),
+ *     policy: amplifyAppMaster.json,
  * });
  * const _this = new aws.sns.TopicSubscription("this", {
  *     topic: amplifyAppMasterTopic.arn,

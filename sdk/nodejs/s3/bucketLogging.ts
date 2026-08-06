@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * const loggingBucketPolicy2 = new aws.s3.BucketPolicy("logging", {
  *     bucket: logging.bucket,
- *     policy: loggingBucketPolicy.apply(loggingBucketPolicy => loggingBucketPolicy.json),
+ *     policy: loggingBucketPolicy.json,
  * });
  * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
  * const exampleBucketLogging = new aws.s3.BucketLogging("example", {

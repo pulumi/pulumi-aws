@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *             input: example.cidrBlock,
  *             newbits: 8,
  *             netnum: range,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *         availabilityZone: available.then(available => available.names[range]),
  *         vpcId: example.id,
  *     }));

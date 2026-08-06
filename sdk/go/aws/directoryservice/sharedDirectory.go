@@ -41,7 +41,7 @@ import (
 // return err
 // }
 // _, err = directoryservice.NewSharedDirectory(ctx, "example", &directoryservice.SharedDirectoryArgs{
-// DirectoryId: example.ID(),
+// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
 // Notes: pulumi.String("You wanna have a catch?"),
 // Target: &directoryservice.SharedDirectoryTargetArgs{
 // Id: pulumi.Any(receiver.AccountId),

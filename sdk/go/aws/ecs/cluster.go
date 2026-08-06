@@ -131,7 +131,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "*",
 //						},
 //						"Action":   "kms:*",
@@ -140,13 +140,13 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow generate data key access for Fargate tasks.",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "fargate.amazonaws.com",
 //						},
 //						"Action": []string{
 //							"kms:GenerateDataKeyWithoutPlaintext",
 //						},
-//						"Condition": map[string]interface{}{
+//						"Condition": map[string]map[string]interface{}{
 //							"StringEquals": map[string]interface{}{
 //								"kms:EncryptionContext:aws:ecs:clusterAccount": []*string{
 //									current.AccountId,
@@ -161,7 +161,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow grant creation permission for Fargate tasks.",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "fargate.amazonaws.com",
 //						},
 //						"Action": []string{
@@ -176,7 +176,7 @@ import (
 //									"example",
 //								},
 //							},
-//							"ForAllValues:StringEquals": map[string]interface{}{
+//							"ForAllValues:StringEquals": map[string][]string{
 //								"kms:GrantOperations": []string{
 //									"Decrypt",
 //								},
@@ -192,7 +192,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleKeyPolicy, err := kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
-//				KeyId:  example.ID(),
+//				KeyId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: json0,
 //			})
 //			if err != nil {

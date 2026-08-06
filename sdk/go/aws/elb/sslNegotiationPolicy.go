@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
 //				Name:         pulumi.String("foo-policy"),
-//				LoadBalancer: lb.ID(),
+//				LoadBalancer: lb.ID().ToIDOutput().ToStringOutput(),
 //				LbPort:       pulumi.Int(443),
 //				Attributes: elb.SslNegotiationPolicyAttributeArray{
 //					&elb.SslNegotiationPolicyAttributeArgs{

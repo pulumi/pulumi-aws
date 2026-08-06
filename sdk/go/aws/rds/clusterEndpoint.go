@@ -47,7 +47,7 @@ import (
 //			}
 //			test1, err := rds.NewClusterInstance(ctx, "test1", &rds.ClusterInstanceArgs{
 //				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
+//				ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //				Identifier:        pulumi.String("test1"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
@@ -58,7 +58,7 @@ import (
 //			}
 //			test2, err := rds.NewClusterInstance(ctx, "test2", &rds.ClusterInstanceArgs{
 //				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
+//				ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //				Identifier:        pulumi.String("test2"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
@@ -69,7 +69,7 @@ import (
 //			}
 //			test3, err := rds.NewClusterInstance(ctx, "test3", &rds.ClusterInstanceArgs{
 //				ApplyImmediately:  pulumi.Bool(true),
-//				ClusterIdentifier: _default.ID(),
+//				ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //				Identifier:        pulumi.String("test3"),
 //				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
@@ -79,24 +79,24 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewClusterEndpoint(ctx, "eligible", &rds.ClusterEndpointArgs{
-//				ClusterIdentifier:         _default.ID(),
+//				ClusterIdentifier:         _default.ID().ToIDOutput().ToStringOutput(),
 //				ClusterEndpointIdentifier: pulumi.String("reader"),
 //				CustomEndpointType:        pulumi.String("READER"),
 //				ExcludedMembers: pulumi.StringArray{
-//					test1.ID(),
-//					test2.ID(),
+//					test1.ID().ToIDOutput().ToStringOutput(),
+//					test2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = rds.NewClusterEndpoint(ctx, "static", &rds.ClusterEndpointArgs{
-//				ClusterIdentifier:         _default.ID(),
+//				ClusterIdentifier:         _default.ID().ToIDOutput().ToStringOutput(),
 //				ClusterEndpointIdentifier: pulumi.String("static"),
 //				CustomEndpointType:        pulumi.String("READER"),
 //				StaticMembers: pulumi.StringArray{
-//					test1.ID(),
-//					test3.ID(),
+//					test1.ID().ToIDOutput().ToStringOutput(),
+//					test3.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

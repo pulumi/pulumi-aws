@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     securityGroupArns: [exampleAwsSecurityGroup.arn],
  *     subnetArns: [exampleAwsSubnet.arn],
  *     vpcEndpointId: exampleVpcEndpoint.id,
- *     privateLinkEndpoint: example.apply(example => example.privateIp),
+ *     privateLinkEndpoint: example.privateIp,
  *     name: "example",
  * });
  * ```

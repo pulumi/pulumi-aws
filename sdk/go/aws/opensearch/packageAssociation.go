@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewPackageAssociation(ctx, "example", &opensearch.PackageAssociationArgs{
-//				PackageId:  example.ID(),
+//				PackageId:  example.ID().ToIDOutput().ToStringOutput(),
 //				DomainName: myDomain.DomainName,
 //			})
 //			if err != nil {

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
  *     queueUrl: q.id,
- *     policy: test.apply(test => test.json),
+ *     policy: test.json,
  * });
  * ```
  *

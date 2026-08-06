@@ -36,26 +36,26 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"swagger": "2.0",
-//				"info": map[string]interface{}{
+//				"info": map[string]string{
 //					"title":   "Example API",
 //					"version": "v1",
 //				},
 //				"schemes": []string{
 //					"https",
 //				},
-//				"paths": map[string]interface{}{
-//					"/example": map[string]interface{}{
+//				"paths": map[string]map[string]map[string]interface{}{
+//					"/example": map[string]map[string]interface{}{
 //						"get": map[string]interface{}{
-//							"responses": map[string]interface{}{
-//								"200": map[string]interface{}{
+//							"responses": map[string]map[string]string{
+//								"200": map[string]string{
 //									"description": "OK",
 //								},
 //							},
 //							"x-amazon-apigateway-integration": map[string]interface{}{
 //								"httpMethod": "GET",
 //								"type":       "HTTP",
-//								"responses": map[string]interface{}{
-//									"default": map[string]interface{}{
+//								"responses": map[string]map[string]int{
+//									"default": map[string]int{
 //										"statusCode": 200,
 //									},
 //								},

@@ -71,7 +71,7 @@ import {RestApi} from "./index";
  * const invocationPolicyRolePolicy = new aws.iam.RolePolicy("invocation_policy", {
  *     name: "default",
  *     role: invocationRole.id,
- *     policy: invocationPolicy.apply(invocationPolicy => invocationPolicy.json),
+ *     policy: invocationPolicy.json,
  * });
  * ```
  *

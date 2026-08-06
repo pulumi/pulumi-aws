@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  *     input: std.flattenOutput({
  *         input: example.resources.apply(resources => resources.map(resources => (resources.autoscalingGroups))),
  *     }).apply(invoke => .map(asg => (asg.name))),
- * }).apply(invoke => {
- *     for (const range of invoke.result.map((v, k) => ({key: k, value: v}))) {
+ * }).result.apply(rangeBody => {
+ *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
  *         exampleTag.push(new aws.autoscaling.Tag(`example-${range.key}`, {
  *             autoscalingGroupName: range.value,
  *             tag: {

@@ -39,7 +39,7 @@ import (
 //				Name: pulumi.String("my_usage_plan"),
 //				ApiStages: apigateway.UsagePlanApiStageArray{
 //					&apigateway.UsagePlanApiStageArgs{
-//						ApiId: test.ID(),
+//						ApiId: test.ID().ToIDOutput().ToStringOutput(),
 //						Stage: pulumi.Any(foo.StageName),
 //					},
 //				},
@@ -54,9 +54,9 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewUsagePlanKey(ctx, "main", &apigateway.UsagePlanKeyArgs{
-//				KeyId:       mykey.ID(),
+//				KeyId:       mykey.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:     pulumi.String("API_KEY"),
-//				UsagePlanId: myusageplan.ID(),
+//				UsagePlanId: myusageplan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

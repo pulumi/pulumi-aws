@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * });
  * const testEnvironmentBlueprintConfiguration = new aws.datazone.EnvironmentBlueprintConfiguration("test", {
  *     domainId: testDomain.id,
- *     environmentBlueprintId: testGetEnvironmentBlueprint.apply(testGetEnvironmentBlueprint => testGetEnvironmentBlueprint.id),
+ *     environmentBlueprintId: testGetEnvironmentBlueprint.id,
  *     provisioningRoleArn: domainExecutionRole.arn,
  *     enabledRegions: [testGetRegion.then(testGetRegion => testGetRegion.region)],
  * });
@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *     awsAccountId: test.then(test => test.accountId),
  *     awsAccountRegion: testGetRegion.then(testGetRegion => testGetRegion.region),
  *     description: "description",
- *     environmentBlueprintIdentifier: testGetEnvironmentBlueprint.apply(testGetEnvironmentBlueprint => testGetEnvironmentBlueprint.id),
+ *     environmentBlueprintIdentifier: testGetEnvironmentBlueprint.id,
  *     name: "example-name",
  *     projectIdentifier: testProject.id,
  *     domainIdentifier: testDomain.id,

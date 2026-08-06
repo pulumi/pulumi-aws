@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: std.File(ctx, &std.FileArgs{
+//				Input: std.File(ctx, std.FileArgs{
 //					Input: "certificate.pem",
 //				}, nil).Result,
 //			}, nil)

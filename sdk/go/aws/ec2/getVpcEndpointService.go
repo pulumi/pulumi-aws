@@ -47,7 +47,7 @@ import (
 //			}
 //			// Create a VPC endpoint
 //			_, err = ec2.NewVpcEndpoint(ctx, "ep", &ec2.VpcEndpointArgs{
-//				VpcId:       foo.ID(),
+//				VpcId:       foo.ID().ToIDOutput().ToStringOutput(),
 //				ServiceName: pulumi.String(s3.ServiceName),
 //			})
 //			if err != nil {

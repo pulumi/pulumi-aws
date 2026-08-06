@@ -71,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]string{
 //				"source": []string{
 //					"company.team.order",
 //				},
@@ -140,7 +140,7 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "Enable IAM User Permissions",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //								},
 //								"Action":   "kms:*",
@@ -149,7 +149,7 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "Allow describing of the key",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"Service": "events.amazonaws.com",
 //								},
 //								"Action": []string{
@@ -160,7 +160,7 @@ import (
 //							map[string]interface{}{
 //								"Sid":    "Allow use of the key",
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"Service": "events.amazonaws.com",
 //								},
 //								"Action": []string{
@@ -169,8 +169,8 @@ import (
 //									"kms:ReEncrypt*",
 //								},
 //								"Resource": "*",
-//								"Condition": map[string]interface{}{
-//									"StringEquals": map[string]interface{}{
+//								"Condition": map[string]map[string]string{
+//									"StringEquals": map[string]string{
 //										"kms:EncryptionContext:aws:events:event-bus:arn": arn,
 //									},
 //								},
@@ -193,7 +193,7 @@ import (
 //			_, err = cloudwatch.NewEventArchive(ctx, "example", &cloudwatch.EventArchiveArgs{
 //				Name:             pulumi.String("example"),
 //				EventSourceArn:   example.Arn,
-//				KmsKeyIdentifier: exampleKey.ID(),
+//				KmsKeyIdentifier: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -55,7 +55,7 @@ import (
 //					Name: pulumi.String("example"),
 //					Regions: s3control.MultiRegionAccessPointDetailsRegionArray{
 //						&s3control.MultiRegionAccessPointDetailsRegionArgs{
-//							Bucket: fooBucket.ID(),
+//							Bucket: fooBucket.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
@@ -67,10 +67,8 @@ import (
 //				Details: &s3control.MultiRegionAccessPointPolicyDetailsArgs{
 //					Name: std.SplitOutput(ctx, std.SplitOutputArgs{
 //						Separator: pulumi.String(":"),
-//						Text:      example.ID(),
-//					}, nil).ApplyT(func(invoke std.SplitResult) ([]string, error) {
-//						return invoke.Result, nil
-//					}).(pulumi.StringArrayOutput)[1],
+//						Text:      example.ID().ToIDOutput().ToStringOutput(),
+//					}, nil).Result()[1],
 //					Policy: example.Alias.ApplyT(func(alias string) (pulumi.String, error) {
 //						var _zero pulumi.String
 //						tmpJSON0, err := json.Marshal(map[string]interface{}{

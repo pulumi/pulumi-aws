@@ -48,7 +48,7 @@ import {Topic} from "./index";
  * });
  * const userUpdatesQueue = new aws.sqs.Queue("user_updates_queue", {
  *     name: "user-updates-queue",
- *     policy: sqsQueuePolicy.apply(sqsQueuePolicy => sqsQueuePolicy.json),
+ *     policy: sqsQueuePolicy.json,
  * });
  * const userUpdatesSqsTarget = new aws.sns.TopicSubscription("user_updates_sqs_target", {
  *     topic: userUpdates.arn,

@@ -274,8 +274,8 @@ import (
 //					ServerCertificateConfigurations: []map[string]interface{}{
 //						map[string]interface{}{
 //							"certificateAuthorityArn": example1.Arn,
-//							"checkCertificateRevocationStatus": []map[string]interface{}{
-//								map[string]interface{}{
+//							"checkCertificateRevocationStatus": []map[string]string{
+//								{
 //									"revokedStatusAction": "REJECT",
 //									"unknownStatusAction": "PASS",
 //								},
@@ -285,25 +285,25 @@ import (
 //									"protocols": []int{
 //										6,
 //									},
-//									"destinationPorts": []map[string]interface{}{
-//										map[string]interface{}{
+//									"destinationPorts": []map[string]int{
+//										{
 //											"fromPort": 443,
 //											"toPort":   443,
 //										},
 //									},
-//									"destination": []map[string]interface{}{
-//										map[string]interface{}{
+//									"destination": []map[string]string{
+//										{
 //											"addressDefinition": "0.0.0.0/0",
 //										},
 //									},
-//									"sourcePorts": []map[string]interface{}{
-//										map[string]interface{}{
+//									"sourcePorts": []map[string]int{
+//										{
 //											"fromPort": 0,
 //											"toPort":   65535,
 //										},
 //									},
-//									"source": []map[string]interface{}{
-//										map[string]interface{}{
+//									"source": []map[string]string{
+//										{
 //											"addressDefinition": "0.0.0.0/0",
 //										},
 //									},

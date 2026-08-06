@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * const pRolePolicy = new aws.iam.RolePolicy("p", {
  *     name: "awsconfig-example",
  *     role: r.id,
- *     policy: p.apply(p => p.json),
+ *     policy: p.json,
  * });
  * ```
  *

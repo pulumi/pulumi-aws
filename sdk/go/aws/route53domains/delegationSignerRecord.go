@@ -49,7 +49,7 @@ import (
 //							"kms:Sign",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "dnssec-route53.amazonaws.com",
 //						},
 //						"Sid":      "Allow Route 53 DNSSEC Service",
@@ -58,7 +58,7 @@ import (
 //							"StringEquals": map[string]interface{}{
 //								"aws:SourceAccount": current.AccountId,
 //							},
-//							"ArnLike": map[string]interface{}{
+//							"ArnLike": map[string]string{
 //								"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
 //							},
 //						},
@@ -66,13 +66,13 @@ import (
 //					map[string]interface{}{
 //						"Action": "kms:CreateGrant",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "dnssec-route53.amazonaws.com",
 //						},
 //						"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
 //						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"Bool": map[string]interface{}{
+//						"Condition": map[string]map[string]string{
+//							"Bool": map[string]string{
 //								"kms:GrantIsForAWSResource": "true",
 //							},
 //						},
@@ -80,7 +80,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "kms:*",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Resource": "*",

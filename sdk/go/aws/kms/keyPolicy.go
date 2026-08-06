@@ -42,7 +42,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "kms:*",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "*",
 //						},
 //						"Resource": "*",
@@ -56,7 +56,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
-//				KeyId:  example.ID(),
+//				KeyId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {

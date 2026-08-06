@@ -68,7 +68,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "rekognition.amazonaws.com",
 //						},
 //					},
@@ -211,7 +211,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "rekognition.amazonaws.com",
 //						},
 //					},
@@ -309,7 +309,7 @@ import (
 //				},
 //				Settings: &rekognition.StreamProcessorSettingsArgs{
 //					FaceSearch: &rekognition.StreamProcessorSettingsFaceSearchArgs{
-//						CollectionId: exampleCollection.ID(),
+//						CollectionId: exampleCollection.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

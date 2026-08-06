@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * });
  * const gdBucketPolicy = new aws.s3.BucketPolicy("gd_bucket_policy", {
  *     bucket: gdBucket.id,
- *     policy: bucketPol.apply(bucketPol => bucketPol.json),
+ *     policy: bucketPol.json,
  * });
  * const gdKey = new aws.kms.Key("gd_key", {
  *     description: "Temporary key for AccTest of TF",

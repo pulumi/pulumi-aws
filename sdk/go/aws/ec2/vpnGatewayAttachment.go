@@ -48,8 +48,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpnGatewayAttachment(ctx, "vpn_attachment", &ec2.VpnGatewayAttachmentArgs{
-//				VpcId:        network.ID(),
-//				VpnGatewayId: vpn.ID(),
+//				VpcId:        network.ID().ToIDOutput().ToStringOutput(),
+//				VpnGatewayId: vpn.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

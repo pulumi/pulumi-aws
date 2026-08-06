@@ -96,7 +96,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "role_policy", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("role_policy"),
-//				Role:   role.ID(),
+//				Role:   role.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(rolePolicy.Json),
 //			})
 //			if err != nil {

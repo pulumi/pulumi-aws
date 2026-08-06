@@ -245,7 +245,7 @@ import (
 //				return err
 //			}
 //			_, err = emr.NewInstanceFleet(ctx, "task", &emr.InstanceFleetArgs{
-//				ClusterId: example.ID(),
+//				ClusterId: example.ID().ToIDOutput().ToStringOutput(),
 //				InstanceTypeConfigs: emr.InstanceFleetInstanceTypeConfigArray{
 //					&emr.InstanceFleetInstanceTypeConfigArgs{
 //						BidPriceAsPercentageOfOnDemandPrice: pulumi.Float64(100),
@@ -364,7 +364,7 @@ import (
 //				ReleaseLabel:          pulumi.String("emr-5.24.1"),
 //				TerminationProtection: pulumi.Bool(true),
 //				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId: example.ID(),
+//					SubnetId: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
 //					InstanceCount: pulumi.Int(3),

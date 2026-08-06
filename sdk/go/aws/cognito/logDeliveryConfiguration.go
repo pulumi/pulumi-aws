@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
 //						EventSource: pulumi.String("userNotification"),
@@ -111,7 +111,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "firehose.amazonaws.com",
 //						},
 //					},
@@ -130,7 +130,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "firehose", &iam.RolePolicyArgs{
 //				Name: pulumi.String("firehose-policy"),
-//				Role: firehose.ID(),
+//				Role: firehose.ID().ToIDOutput().ToStringOutput(),
 //				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -175,7 +175,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
 //						EventSource: pulumi.String("userNotification"),
@@ -232,7 +232,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
 //						EventSource: pulumi.String("userAuthEvents"),

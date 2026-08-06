@@ -212,7 +212,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"username": "exampleusername",
 //				"password": "examplepassword",
 //			})
@@ -221,7 +221,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -233,7 +233,7 @@ import (
 //				ConnectionProperties: pulumi.StringMap{
 //					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						tmpJSON1, err := json.Marshal(map[string]string{
 //							"secretId":                     name,
 //							"spark.cosmos.accountEndpoint": "https://exampledbaccount.documents.azure.com:443/",
 //						})
@@ -279,7 +279,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"username": "exampleusername",
 //				"password": "examplepassword",
 //			})
@@ -288,7 +288,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -300,7 +300,7 @@ import (
 //				ConnectionProperties: pulumi.StringMap{
 //					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						tmpJSON1, err := json.Marshal(map[string]string{
 //							"secretId": name,
 //							"url":      "jdbc:sqlserver:exampledbserver.database.windows.net:1433;database=exampledatabase",
 //						})
@@ -376,7 +376,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: json0,
 //			})
 //			if err != nil {
@@ -388,7 +388,7 @@ import (
 //				ConnectionProperties: pulumi.StringMap{
 //					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						tmpJSON1, err := json.Marshal(map[string]string{
 //							"secretId": name,
 //						})
 //						if err != nil {
@@ -433,7 +433,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"opensearch.net.http.auth.user": "exampleusername",
 //				"opensearch.net.http.auth.pass": "examplepassword",
 //			})
@@ -442,7 +442,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -454,7 +454,7 @@ import (
 //				ConnectionProperties: pulumi.StringMap{
 //					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						tmpJSON1, err := json.Marshal(map[string]string{
 //							"secretId":                     name,
 //							"opensearch.nodes":             "https://search-exampledomain-ixlmh4jieahrau3bfebcgp8cnm.us-east-1.es.amazonaws.com",
 //							"opensearch.port":              "443",
@@ -504,7 +504,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"sfUser":     "exampleusername",
 //				"sfPassword": "examplepassword",
 //			})
@@ -513,7 +513,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -525,7 +525,7 @@ import (
 //				ConnectionProperties: pulumi.StringMap{
 //					"SparkProperties": example.Name.ApplyT(func(name string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						tmpJSON1, err := json.Marshal(map[string]string{
 //							"secretId": name,
 //							"sfRole":   "EXAMPLEETLROLE",
 //							"sfUrl":    "exampleorg-exampleconnection.snowflakecomputing.com",

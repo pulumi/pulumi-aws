@@ -30,22 +30,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Parameters": map[string]interface{}{
-//					"VPCCidr": map[string]interface{}{
+//				"Parameters": map[string]map[string]string{
+//					"VPCCidr": map[string]string{
 //						"Type":        "String",
 //						"Default":     "10.0.0.0/16",
 //						"Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
 //					},
 //				},
-//				"Resources": map[string]interface{}{
+//				"Resources": map[string]map[string]interface{}{
 //					"myVpc": map[string]interface{}{
 //						"Type": "AWS::EC2::VPC",
 //						"Properties": map[string]interface{}{
-//							"CidrBlock": map[string]interface{}{
+//							"CidrBlock": map[string]string{
 //								"Ref": "VPCCidr",
 //							},
-//							"Tags": []map[string]interface{}{
-//								map[string]interface{}{
+//							"Tags": []map[string]string{
+//								{
 //									"Key":   "Name",
 //									"Value": "Primary_CF_VPC",
 //								},

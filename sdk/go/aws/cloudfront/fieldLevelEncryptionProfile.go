@@ -49,7 +49,7 @@ import (
 //				EncryptionEntities: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs{
 //					Items: cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArray{
 //						&cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{
-//							PublicKeyId: example.ID(),
+//							PublicKeyId: example.ID().ToIDOutput().ToStringOutput(),
 //							ProviderId:  pulumi.String("test provider"),
 //							FieldPatterns: &cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{
 //								Items: pulumi.StringArray{

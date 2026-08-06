@@ -81,7 +81,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -89,7 +89,7 @@ import (
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Key:      pulumi.String("someobject"),
-//				Bucket:   examplebucket.ID(),
+//				Bucket:   examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source:   pulumi.NewFileAsset("index.html"),
 //				KmsKeyId: examplekms.Arn,
 //			})
@@ -123,7 +123,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -131,7 +131,7 @@ import (
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Key:                  pulumi.String("someobject"),
-//				Bucket:               examplebucket.ID(),
+//				Bucket:               examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source:               pulumi.NewFileAsset("index.html"),
 //				ServerSideEncryption: pulumi.String("aws:kms"),
 //			})
@@ -165,7 +165,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -173,7 +173,7 @@ import (
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
 //				Key:                  pulumi.String("someobject"),
-//				Bucket:               examplebucket.ID(),
+//				Bucket:               examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source:               pulumi.NewFileAsset("index.html"),
 //				ServerSideEncryption: pulumi.String("AES256"),
 //			})
@@ -208,14 +208,14 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -225,7 +225,7 @@ import (
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "examplebucket_object", &s3.BucketObjectv2Args{
 //				Key:                       pulumi.String("someobject"),
-//				Bucket:                    examplebucket.ID(),
+//				Bucket:                    examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source:                    pulumi.NewFileAsset("important.txt"),
 //				ObjectLockLegalHoldStatus: pulumi.String("ON"),
 //				ObjectLockMode:            pulumi.String("GOVERNANCE"),
@@ -270,7 +270,7 @@ import (
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "examplebucket_object", &s3.BucketObjectv2Args{
 //				Key:    pulumi.String("someobject"),
-//				Bucket: examplebucket.ID(),
+//				Bucket: examplebucket.ID().ToIDOutput().ToStringOutput(),
 //				Source: pulumi.NewFileAsset("important.txt"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("test"),

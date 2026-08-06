@@ -39,14 +39,14 @@ import (
 //				return err
 //			}
 //			exampleSite, err := networkmanager.NewSite(ctx, "example", &networkmanager.SiteArgs{
-//				GlobalNetworkId: example.ID(),
+//				GlobalNetworkId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleDevice, err := networkmanager.NewDevice(ctx, "example", &networkmanager.DeviceArgs{
-//				GlobalNetworkId: example.ID(),
-//				SiteId:          exampleSite.ID(),
+//				GlobalNetworkId: example.ID().ToIDOutput().ToStringOutput(),
+//				SiteId:          exampleSite.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +64,8 @@ import (
 //				return err
 //			}
 //			exampleVpnConnection, err := ec2.NewVpnConnection(ctx, "example", &ec2.VpnConnectionArgs{
-//				CustomerGatewayId: exampleCustomerGateway.ID(),
-//				TransitGatewayId:  exampleTransitGateway.ID(),
+//				CustomerGatewayId: exampleCustomerGateway.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //				Type:              exampleCustomerGateway.Type,
 //				StaticRoutesOnly:  pulumi.Bool(true),
 //			})
@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			exampleTransitGatewayRegistration, err := networkmanager.NewTransitGatewayRegistration(ctx, "example", &networkmanager.TransitGatewayRegistrationArgs{
-//				GlobalNetworkId:   example.ID(),
+//				GlobalNetworkId:   example.ID().ToIDOutput().ToStringOutput(),
 //				TransitGatewayArn: exampleTransitGateway.Arn,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVpnConnection,
@@ -82,9 +82,9 @@ import (
 //				return err
 //			}
 //			_, err = networkmanager.NewCustomerGatewayAssociation(ctx, "example", &networkmanager.CustomerGatewayAssociationArgs{
-//				GlobalNetworkId:    example.ID(),
+//				GlobalNetworkId:    example.ID().ToIDOutput().ToStringOutput(),
 //				CustomerGatewayArn: exampleCustomerGateway.Arn,
-//				DeviceId:           exampleDevice.ID(),
+//				DeviceId:           exampleDevice.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleTransitGatewayRegistration,
 //			}))

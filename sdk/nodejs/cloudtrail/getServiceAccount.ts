@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * });
  * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
- *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),
+ *     policy: allowCloudtrailLogging.json,
  * });
  * ```
  */
@@ -126,7 +126,7 @@ export interface GetServiceAccountResult {
  * });
  * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
- *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),
+ *     policy: allowCloudtrailLogging.json,
  * });
  * ```
  */

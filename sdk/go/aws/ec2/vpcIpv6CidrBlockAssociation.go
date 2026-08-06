@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcIpv6CidrBlockAssociation(ctx, "test", &ec2.VpcIpv6CidrBlockAssociationArgs{
 //				Ipv6IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
-//				VpcId:          test.ID(),
+//				VpcId:          test.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

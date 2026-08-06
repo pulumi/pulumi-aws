@@ -48,7 +48,7 @@ import (
 //			_, err = ec2.NewManagedPrefixListEntry(ctx, "entry_1", &ec2.ManagedPrefixListEntryArgs{
 //				Cidr:         pulumi.Any(exampleAwsVpc.CidrBlock),
 //				Description:  pulumi.String("Primary"),
-//				PrefixListId: example.ID(),
+//				PrefixListId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

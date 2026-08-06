@@ -50,8 +50,8 @@ import (
 //				Description:           pulumi.String("traffic mirror session - example"),
 //				NetworkInterfaceId:    pulumi.Any(test.PrimaryNetworkInterfaceId),
 //				SessionNumber:         pulumi.Int(1),
-//				TrafficMirrorFilterId: filter.ID(),
-//				TrafficMirrorTargetId: target.ID(),
+//				TrafficMirrorFilterId: filter.ID().ToIDOutput().ToStringOutput(),
+//				TrafficMirrorTargetId: target.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

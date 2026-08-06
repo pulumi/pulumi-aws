@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = directconnect.NewTransitVirtualInterface(ctx, "example", &directconnect.TransitVirtualInterfaceArgs{
 //				ConnectionId:  pulumi.Any(exampleAwsDxConnection.Id),
-//				DxGatewayId:   example.ID(),
+//				DxGatewayId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("tf-transit-vif-example"),
 //				Vlan:          pulumi.Int(4094),
 //				AddressFamily: pulumi.String("ipv4"),

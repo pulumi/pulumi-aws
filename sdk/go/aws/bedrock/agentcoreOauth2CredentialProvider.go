@@ -68,15 +68,15 @@ import (
 //			_, err := bedrock.NewAgentcoreOauth2CredentialProvider(ctx, "auth0", &bedrock.AgentcoreOauth2CredentialProviderArgs{
 //				Name:                     pulumi.String("auth0-oauth-provider"),
 //				CredentialProviderVendor: pulumi.String("CustomOauth2"),
-//				CustomOauth2ProviderConfig: []map[string]interface{}{
-//					map[string]interface{}{
+//				CustomOauth2ProviderConfig: []map[string][]map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"custom": []map[string]interface{}{
 //							map[string]interface{}{
 //								"clientIdWo":                 "auth0-client-id",
 //								"clientSecretWo":             "auth0-client-secret",
 //								"clientCredentialsWoVersion": 1,
-//								"oauthDiscovery": []map[string]interface{}{
-//									map[string]interface{}{
+//								"oauthDiscovery": []map[string]string{
+//									{
 //										"discoveryUrl": "https://dev-company.auth0.com/.well-known/openid-configuration",
 //									},
 //								},

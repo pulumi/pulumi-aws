@@ -45,14 +45,14 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -87,14 +87,14 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Disabled"),
 //				},
@@ -135,7 +135,7 @@ import (
 //				return err
 //			}
 //			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
@@ -144,7 +144,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketVersioning.ID(),
+//				Bucket: exampleBucketVersioning.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("droeloe"),
 //				Source: pulumi.NewFileAsset("example.txt"),
 //			})

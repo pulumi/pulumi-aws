@@ -81,7 +81,7 @@ import (
 //			}
 //			_, err = cognito.NewUserGroup(ctx, "main", &cognito.UserGroupArgs{
 //				Name:        pulumi.String("user-group"),
-//				UserPoolId:  main.ID(),
+//				UserPoolId:  main.ID().ToIDOutput().ToStringOutput(),
 //				Description: pulumi.String("Managed by Pulumi"),
 //				Precedence:  pulumi.Int(42),
 //				RoleArn:     groupRoleRole.Arn,

@@ -44,7 +44,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "datazone.amazonaws.com",
 //						},
 //					},
@@ -54,7 +54,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "cloudformation.amazonaws.com",
 //						},
 //					},
@@ -110,7 +110,7 @@ import (
 //				return err
 //			}
 //			testProject, err := datazone.NewProject(ctx, "test", &datazone.ProjectArgs{
-//				DomainIdentifier: testDomain.ID(),
+//				DomainIdentifier: testDomain.ID().ToIDOutput().ToStringOutput(),
 //				GlossaryTerms: pulumi.StringArray{
 //					pulumi.String("2N8w6XJCwZf"),
 //				},
@@ -130,16 +130,14 @@ import (
 //				return err
 //			}
 //			testGetEnvironmentBlueprint := datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: testDomain.ID(),
+//				DomainId: testDomain.ID().ToIDOutput().ToStringOutput(),
 //				Name:     pulumi.String("DefaultDataLake"),
 //				Managed:  pulumi.Bool(true),
 //			}, nil)
 //			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "test", &datazone.EnvironmentBlueprintConfigurationArgs{
-//				DomainId: testDomain.ID(),
-//				EnvironmentBlueprintId: pulumi.String(testGetEnvironmentBlueprint.ApplyT(func(testGetEnvironmentBlueprint datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return testGetEnvironmentBlueprint.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ProvisioningRoleArn: domainExecutionRole.Arn,
+//				DomainId:               testDomain.ID().ToIDOutput().ToStringOutput(),
+//				EnvironmentBlueprintId: testGetEnvironmentBlueprint.Id(),
+//				ProvisioningRoleArn:    domainExecutionRole.Arn,
 //				EnabledRegions: pulumi.StringArray{
 //					pulumi.String(testGetRegion.Region),
 //				},
@@ -148,15 +146,13 @@ import (
 //				return err
 //			}
 //			_, err = datazone.NewEnvironmentProfile(ctx, "test", &datazone.EnvironmentProfileArgs{
-//				AwsAccountId:     pulumi.String(test.AccountId),
-//				AwsAccountRegion: pulumi.String(testGetRegion.Region),
-//				Description:      pulumi.String("description"),
-//				EnvironmentBlueprintIdentifier: pulumi.String(testGetEnvironmentBlueprint.ApplyT(func(testGetEnvironmentBlueprint datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return testGetEnvironmentBlueprint.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Name:              pulumi.String("example-name"),
-//				ProjectIdentifier: testProject.ID(),
-//				DomainIdentifier:  testDomain.ID(),
+//				AwsAccountId:                   pulumi.String(test.AccountId),
+//				AwsAccountRegion:               pulumi.String(testGetRegion.Region),
+//				Description:                    pulumi.String("description"),
+//				EnvironmentBlueprintIdentifier: testGetEnvironmentBlueprint.Id(),
+//				Name:                           pulumi.String("example-name"),
+//				ProjectIdentifier:              testProject.ID().ToIDOutput().ToStringOutput(),
+//				DomainIdentifier:               testDomain.ID().ToIDOutput().ToStringOutput(),
 //				UserParameters: datazone.EnvironmentProfileUserParameterArray{
 //					&datazone.EnvironmentProfileUserParameterArgs{
 //						Name:  pulumi.String("consumerGlueDbName"),

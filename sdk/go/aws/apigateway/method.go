@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
+//				RestApi:  myDemoAPI.ID().ToIDOutput().ToStringOutput(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
 //			})
@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
-//				RestApi:       myDemoAPI.ID(),
-//				ResourceId:    myDemoResource.ID(),
+//				RestApi:       myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:    myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //			})
@@ -90,7 +90,7 @@ import (
 //				return err
 //			}
 //			thisResource, err := apigateway.NewResource(ctx, "this", &apigateway.ResourceArgs{
-//				RestApi:  thisRestApi.ID(),
+//				RestApi:  thisRestApi.ID().ToIDOutput().ToStringOutput(),
 //				ParentId: thisRestApi.RootResourceId,
 //				PathPart: pulumi.String("{proxy+}"),
 //			})
@@ -100,18 +100,18 @@ import (
 //			thisAuthorizer, err := apigateway.NewAuthorizer(ctx, "this", &apigateway.AuthorizerArgs{
 //				Name:         pulumi.String("CognitoUserPoolAuthorizer"),
 //				Type:         pulumi.String("COGNITO_USER_POOLS"),
-//				RestApi:      thisRestApi.ID(),
+//				RestApi:      thisRestApi.ID().ToIDOutput().ToStringOutput(),
 //				ProviderArns: toPulumiStringArray(this.Arns),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apigateway.NewMethod(ctx, "any", &apigateway.MethodArgs{
-//				RestApi:       thisRestApi.ID(),
-//				ResourceId:    thisResource.ID(),
+//				RestApi:       thisRestApi.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:    thisResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod:    pulumi.String("ANY"),
 //				Authorization: pulumi.String("COGNITO_USER_POOLS"),
-//				AuthorizerId:  thisAuthorizer.ID(),
+//				AuthorizerId:  thisAuthorizer.ID().ToIDOutput().ToStringOutput(),
 //				RequestParameters: pulumi.BoolMap{
 //					"method.request.path.proxy": pulumi.Bool(true),
 //				},

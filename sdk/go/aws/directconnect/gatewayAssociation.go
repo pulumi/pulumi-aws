@@ -49,14 +49,14 @@ import (
 //				return err
 //			}
 //			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "example", &ec2.VpnGatewayArgs{
-//				VpcId: exampleVpc.ID(),
+//				VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         example.ID(),
-//				AssociatedGatewayId: exampleVpnGateway.ID(),
+//				DxGatewayId:         example.ID().ToIDOutput().ToStringOutput(),
+//				AssociatedGatewayId: exampleVpnGateway.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -94,8 +94,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         example.ID(),
-//				AssociatedGatewayId: exampleTransitGateway.ID(),
+//				DxGatewayId:         example.ID().ToIDOutput().ToStringOutput(),
+//				AssociatedGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("10.255.255.0/30"),
 //					pulumi.String("10.255.255.8/30"),
@@ -139,14 +139,14 @@ import (
 //				return err
 //			}
 //			exampleVpnGateway, err := ec2.NewVpnGateway(ctx, "example", &ec2.VpnGatewayArgs{
-//				VpcId: exampleVpc.ID(),
+//				VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         example.ID(),
-//				AssociatedGatewayId: exampleVpnGateway.ID(),
+//				DxGatewayId:         example.ID().ToIDOutput().ToStringOutput(),
+//				AssociatedGatewayId: exampleVpnGateway.ID().ToIDOutput().ToStringOutput(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("210.52.109.0/24"),
 //					pulumi.String("175.45.176.0/22"),

@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("example", {
  *     secretArn: exampleSecret.arn,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

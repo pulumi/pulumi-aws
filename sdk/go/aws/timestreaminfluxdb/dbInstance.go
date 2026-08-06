@@ -79,7 +79,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     example.ID(),
+//				VpcId:     example.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -87,7 +87,7 @@ import (
 //			}
 //			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Name:  pulumi.String("example"),
-//				VpcId: example.ID(),
+//				VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -100,10 +100,10 @@ import (
 //				Password:         pulumi.String("example-password"),
 //				Organization:     pulumi.String("organization"),
 //				VpcSubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
+//					exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
-//					exampleSecurityGroup.ID(),
+//					exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Name: pulumi.String("example-db-instance"),
 //			})
@@ -166,10 +166,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Policy: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -246,8 +244,8 @@ import (
 //				Password:         pulumi.String("example-password"),
 //				Organization:     pulumi.String("organization"),
 //				VpcSubnetIds: pulumi.StringArray{
-//					example1.ID(),
-//					example2.ID(),
+//					example1.ID().ToIDOutput().ToStringOutput(),
+//					example2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,

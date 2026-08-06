@@ -85,7 +85,7 @@ import (
 //				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},
@@ -138,7 +138,7 @@ import (
 //				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},

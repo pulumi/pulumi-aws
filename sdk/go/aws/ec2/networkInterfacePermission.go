@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewNetworkInterfacePermission(ctx, "example", &ec2.NetworkInterfacePermissionArgs{
-//				NetworkInterfaceId: example.ID(),
+//				NetworkInterfaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				AwsAccountId:       pulumi.String("123456789012"),
 //				Permission:         pulumi.String("INSTANCE-ATTACH"),
 //			})

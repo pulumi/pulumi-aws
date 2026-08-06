@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("debezium.zip"),
 //				Source: pulumi.NewFileAsset("debezium.zip"),
 //			})

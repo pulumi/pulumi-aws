@@ -45,7 +45,7 @@ import (
 //			}
 //			exampleV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
 //				LocaleId:                     pulumi.String("en_US"),
-//				BotId:                        example.ID(),
+//				BotId:                        example.ID().ToIDOutput().ToStringOutput(),
 //				BotVersion:                   pulumi.String("DRAFT"),
 //				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
 //			})
@@ -53,10 +53,10 @@ import (
 //				return err
 //			}
 //			_, err = lex.NewV2modelsBotVersion(ctx, "example", &lex.V2modelsBotVersionArgs{
-//				BotId: example.ID(),
-//				LocaleSpecification: exampleV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]interface{}, error) {
-//					return map[string]map[string]interface{}{
-//						localeId: map[string]interface{}{
+//				BotId: example.ID().ToIDOutput().ToStringOutput(),
+//				LocaleSpecification: exampleV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]string, error) {
+//					return map[string]map[string]string{
+//						localeId: map[string]string{
 //							"sourceBotVersion": "DRAFT",
 //						},
 //					}, nil
@@ -66,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = lex.NewV2modelsSlotType(ctx, "example", &lex.V2modelsSlotTypeArgs{
-//				BotId:      example.ID(),
+//				BotId:      example.ID().ToIDOutput().ToStringOutput(),
 //				BotVersion: exampleV2modelsBotLocale.BotVersion,
 //				Name:       pulumi.String("example"),
 //				LocaleId:   exampleV2modelsBotLocale.LocaleId,

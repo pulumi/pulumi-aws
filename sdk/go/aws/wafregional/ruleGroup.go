@@ -44,7 +44,7 @@ import (
 //							Type: pulumi.String("COUNT"),
 //						},
 //						Priority: pulumi.Int(50),
-//						RuleId:   example.ID(),
+//						RuleId:   example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

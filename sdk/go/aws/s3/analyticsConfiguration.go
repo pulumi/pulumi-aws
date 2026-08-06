@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-entire-bucket", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("EntireBucket"),
 //				StorageClassAnalysis: &s3.AnalyticsConfigurationStorageClassAnalysisArgs{
 //					DataExport: &s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs{
@@ -87,7 +87,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAnalyticsConfiguration(ctx, "example-filtered", &s3.AnalyticsConfigurationArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.AnalyticsConfigurationFilterArgs{
 //					Prefix: pulumi.String("documents/"),

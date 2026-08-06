@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example-domain"),
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //			main, err := cognito.NewUserPoolDomain(ctx, "main", &cognito.UserPoolDomainArgs{
 //				Domain:         pulumi.String("auth.example.com"),
 //				CertificateArn: pulumi.Any(cert.Arn),
-//				UserPoolId:     exampleUserPool.ID(),
+//				UserPoolId:     exampleUserPool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

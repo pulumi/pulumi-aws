@@ -48,14 +48,14 @@ import (
 //						},
 //						"Effect":   "Allow",
 //						"Resource": "*",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string][]string{
 //							"AWS": []string{
 //								"1111111111111",
 //								"222222222222",
 //							},
 //						},
-//						"Condition": map[string]interface{}{
-//							"ForAllValues:StringEquals": map[string]interface{}{
+//						"Condition": map[string]map[string][]string{
+//							"ForAllValues:StringEquals": map[string][]string{
 //								"oam:ResourceTypes": []string{
 //									"AWS::CloudWatch::Metric",
 //									"AWS::Logs::LogGroup",

@@ -50,11 +50,9 @@ import (
 //			}, nil)
 //			// Use the latest production snapshot to create a dev instance.
 //			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
-//				InstanceClass: pulumi.String(rds.InstanceType_T2_Micro),
-//				DbName:        pulumi.String("mydbdev"),
-//				SnapshotIdentifier: pulumi.String(latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
-//					return latestProdSnapshot.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
+//				DbName:             pulumi.String("mydbdev"),
+//				SnapshotIdentifier: latestProdSnapshot.Id(),
 //			})
 //			if err != nil {
 //				return err

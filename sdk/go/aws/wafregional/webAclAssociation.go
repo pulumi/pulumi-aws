@@ -52,7 +52,7 @@ import (
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
-//						DataId:  ipset.ID(),
+//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},
@@ -73,7 +73,7 @@ import (
 //							Type: pulumi.String("BLOCK"),
 //						},
 //						Priority: pulumi.Int(1),
-//						RuleId:   foo.ID(),
+//						RuleId:   foo.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
+//				VpcId:            fooVpc.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
 //				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            fooVpc.ID(),
+//				VpcId:            fooVpc.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.1.2.0/24"),
 //				AvailabilityZone: pulumi.String(available.Names[1]),
 //			})
@@ -109,8 +109,8 @@ import (
 //			fooLoadBalancer, err := alb.NewLoadBalancer(ctx, "foo", &alb.LoadBalancerArgs{
 //				Internal: pulumi.Bool(true),
 //				Subnets: pulumi.StringArray{
-//					fooSubnet.ID(),
-//					bar.ID(),
+//					fooSubnet.ID().ToIDOutput().ToStringOutput(),
+//					bar.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -118,7 +118,7 @@ import (
 //			}
 //			_, err = wafregional.NewWebAclAssociation(ctx, "foo", &wafregional.WebAclAssociationArgs{
 //				ResourceArn: fooLoadBalancer.Arn,
-//				WebAclId:    fooWebAcl.ID(),
+//				WebAclId:    fooWebAcl.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

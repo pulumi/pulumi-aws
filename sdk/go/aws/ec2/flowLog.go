@@ -97,7 +97,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID(),
+//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
@@ -259,10 +259,8 @@ import (
 //				},
 //			}, nil)
 //			dst, err := iam.NewRole(ctx, "dst", &iam.RoleArgs{
-//				Name: pulumi.String("AWSLogDeliveryFirehoseCrossAccountRole"),
-//				AssumeRolePolicy: pulumi.String(dstAssumeRolePolicy.ApplyT(func(dstAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return dstAssumeRolePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:             pulumi.String("AWSLogDeliveryFirehoseCrossAccountRole"),
+//				AssumeRolePolicy: dstAssumeRolePolicy.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -318,11 +316,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "src_policy", &iam.RolePolicyArgs{
-//				Name: pulumi.String("tf-example-mySourceRolePolicy"),
-//				Role: srcRole.Name,
-//				Policy: pulumi.String(srcRolePolicy.ApplyT(func(srcRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return srcRolePolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("tf-example-mySourceRolePolicy"),
+//				Role:   srcRole.Name,
+//				Policy: srcRolePolicy.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -339,7 +335,7 @@ import (
 //				LogDestinationType:      pulumi.String("kinesis-data-firehose"),
 //				LogDestination:          dstFirehoseDeliveryStream.Arn,
 //				TrafficType:             pulumi.String("ALL"),
-//				VpcId:                   src.ID(),
+//				VpcId:                   src.ID().ToIDOutput().ToStringOutput(),
 //				IamRoleArn:              srcRole.Arn,
 //				DeliverCrossAccountRole: dst.Arn,
 //			})

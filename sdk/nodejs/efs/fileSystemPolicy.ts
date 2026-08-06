@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * });
  * const policyFileSystemPolicy = new aws.efs.FileSystemPolicy("policy", {
  *     fileSystemId: fs.id,
- *     policy: policy.apply(policy => policy.json),
+ *     policy: policy.json,
  * });
  * ```
  *

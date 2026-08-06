@@ -45,7 +45,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "ec2.amazonaws.com",
 //						},
 //					},

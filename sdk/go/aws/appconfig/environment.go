@@ -41,7 +41,7 @@ import (
 //			_, err = appconfig.NewEnvironment(ctx, "example", &appconfig.EnvironmentArgs{
 //				Name:          pulumi.String("example-environment-tf"),
 //				Description:   pulumi.String("Example AppConfig Environment"),
-//				ApplicationId: exampleApplication.ID(),
+//				ApplicationId: exampleApplication.ID().ToIDOutput().ToStringOutput(),
 //				Monitors: appconfig.EnvironmentMonitorArray{
 //					&appconfig.EnvironmentMonitorArgs{
 //						AlarmArn:     pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),

@@ -45,7 +45,7 @@ import (
 //				"Actions": []interface{}{
 //					map[string]interface{}{
 //						"Identifier": "12345678-1234-1234-1234-123456789012",
-//						"Parameters": map[string]interface{}{
+//						"Parameters": map[string]string{
 //							"Text": "Hello contact flow module",
 //						},
 //						"Transitions": map[string]interface{}{
@@ -65,13 +65,13 @@ import (
 //				"Settings": map[string]interface{}{
 //					"InputParameters":  []interface{}{},
 //					"OutputParameters": []interface{}{},
-//					"Transitions": []map[string]interface{}{
-//						map[string]interface{}{
+//					"Transitions": []map[string]string{
+//						{
 //							"DisplayName":   "Success",
 //							"ReferenceName": "Success",
 //							"Description":   "",
 //						},
-//						map[string]interface{}{
+//						{
 //							"DisplayName":   "Error",
 //							"ReferenceName": "Error",
 //							"Description":   "",

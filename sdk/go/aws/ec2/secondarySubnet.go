@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecondarySubnet(ctx, "example", &ec2.SecondarySubnetArgs{
-//				SecondaryNetworkId: example.ID(),
+//				SecondaryNetworkId: example.ID().ToIDOutput().ToStringOutput(),
 //				Ipv4CidrBlock:      pulumi.String("10.0.1.0/24"),
 //				AvailabilityZone:   pulumi.String("us-west-2a"),
 //				Tags: pulumi.StringMap{
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecondarySubnet(ctx, "example", &ec2.SecondarySubnetArgs{
-//				SecondaryNetworkId: example.ID(),
+//				SecondaryNetworkId: example.ID().ToIDOutput().ToStringOutput(),
 //				Ipv4CidrBlock:      pulumi.String("10.0.1.0/24"),
 //				AvailabilityZoneId: pulumi.String(available.ZoneIds[0]),
 //				Tags: pulumi.StringMap{

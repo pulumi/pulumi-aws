@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketServerSideEncryptionConfiguration(ctx, "example", &s3.BucketServerSideEncryptionConfigurationArgs{
-//				Bucket: mybucket.ID(),
+//				Bucket: mybucket.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketServerSideEncryptionConfigurationRuleArray{
 //					&s3.BucketServerSideEncryptionConfigurationRuleArgs{
 //						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{
@@ -95,7 +95,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketServerSideEncryptionConfiguration(ctx, "example", &s3.BucketServerSideEncryptionConfigurationArgs{
-//				Bucket: mybucket.ID(),
+//				Bucket: mybucket.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketServerSideEncryptionConfigurationRuleArray{
 //					&s3.BucketServerSideEncryptionConfigurationRuleArgs{
 //						ApplyServerSideEncryptionByDefault: &s3.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs{

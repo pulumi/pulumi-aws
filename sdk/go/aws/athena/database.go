@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = athena.NewDatabase(ctx, "example", &athena.DatabaseArgs{
 //				Name:   pulumi.String("database_name"),
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			exampleAccessPoint, err := s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("example"),
 //				PublicAccessBlockConfiguration: &s3.AccessPointPublicAccessBlockConfigurationArgs{
 //					BlockPublicAcls:       pulumi.Bool(true),
@@ -63,7 +63,7 @@ import (
 //							map[string]interface{}{
 //								"Effect": "Allow",
 //								"Action": "s3:GetObjectTagging",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": "*",
 //								},
 //								"Resource": fmt.Sprintf("%v/object/*", arn),

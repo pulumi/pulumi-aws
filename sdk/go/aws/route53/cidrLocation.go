@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewCidrLocation(ctx, "example", &route53.CidrLocationArgs{
-//				CidrCollectionId: example.ID(),
+//				CidrCollectionId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:             pulumi.String("office"),
 //				CidrBlocks: pulumi.StringArray{
 //					pulumi.String("200.5.3.0/24"),

@@ -68,12 +68,12 @@ import (
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"type":    "S3",
 //				"version": "1",
-//				"connectionConfiguration": map[string]interface{}{
+//				"connectionConfiguration": map[string]string{
 //					"bucketName":           "my-documents-bucket",
 //					"bucketOwnerAccountId": "123456789012",
 //				},
 //				"aclEnabled": false,
-//				"filterConfiguration": map[string]interface{}{
+//				"filterConfiguration": map[string]string{
 //					"maxFileSizeInMegaBytes": "500",
 //				},
 //			})
@@ -133,7 +133,7 @@ import (
 //					"tenantId":  "your-entra-tenant-id",
 //					"authType":  "ENTRA_ID_APP_ONLY",
 //					"secretArn": "arn:aws:secretsmanager:us-east-1:123456789012:secret:my-sharepoint-secret",
-//					"certificateS3Path": map[string]interface{}{
+//					"certificateS3Path": map[string]string{
 //						"s3BucketName": "my-certs-bucket",
 //						"s3KeyName":    "certs/sharepoint-cert.crt",
 //					},

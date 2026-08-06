@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
-//				PipelineId: _default.ID(),
+//				PipelineId: _default.ID().ToIDOutput().ToStringOutput(),
 //				PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
 //					&datapipeline.PipelineDefinitionPipelineObjectArgs{
 //						Id:   pulumi.String("Default"),

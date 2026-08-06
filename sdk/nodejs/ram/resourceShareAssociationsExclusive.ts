@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
  *             netnum: range,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *     }));
  * }
  * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {

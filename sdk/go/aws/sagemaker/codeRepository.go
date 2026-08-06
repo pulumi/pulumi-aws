@@ -68,7 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"username": "example",
 //				"password": "example",
 //			})
@@ -77,7 +77,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     example.ID(),
+//				SecretId:     example.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {

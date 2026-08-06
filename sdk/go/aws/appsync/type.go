@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewType(ctx, "example", &appsync.TypeArgs{
-//				ApiId:  example.ID(),
+//				ApiId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Format: pulumi.String("SDL"),
 //				Definition: pulumi.String(`type Mutation
 //

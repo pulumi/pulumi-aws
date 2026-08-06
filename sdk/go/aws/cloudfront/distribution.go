@@ -76,7 +76,7 @@ import (
 //				Origins: cloudfront.DistributionOriginArray{
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            b.BucketRegionalDomainName,
-//						OriginAccessControlId: _default.ID(),
+//						OriginAccessControlId: _default.ID().ToIDOutput().ToStringOutput(),
 //						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
@@ -228,9 +228,7 @@ import (
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "b", &s3.BucketPolicyArgs{
 //				Bucket: b.Bucket,
-//				Policy: pulumi.String(originBucketPolicy.ApplyT(func(originBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return originBucketPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Policy: originBucketPolicy.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -570,12 +568,12 @@ import (
 //			}
 //			_, err = cloudfront.NewDistribution(ctx, "example", &cloudfront.DistributionArgs{
 //				ConnectionFunctionAssociation: &cloudfront.DistributionConnectionFunctionAssociationArgs{
-//					Id: example.ID(),
+//					Id: example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				ViewerMtlsConfig: &cloudfront.DistributionViewerMtlsConfigArgs{
 //					Mode: pulumi.String("verify"),
 //					TrustStoreConfig: &cloudfront.DistributionViewerMtlsConfigTrustStoreConfigArgs{
-//						TrustStoreId:               exampleTrustStore.ID(),
+//						TrustStoreId:               exampleTrustStore.ID().ToIDOutput().ToStringOutput(),
 //						AdvertiseTrustStoreCaNames: pulumi.Bool(true),
 //						IgnoreCertificateExpiry:    pulumi.Bool(false),
 //					},

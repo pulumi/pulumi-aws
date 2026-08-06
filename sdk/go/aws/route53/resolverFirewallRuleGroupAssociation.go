@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = route53.NewResolverFirewallRuleGroupAssociation(ctx, "example", &route53.ResolverFirewallRuleGroupAssociationArgs{
 //				Name:                pulumi.String("example"),
-//				FirewallRuleGroupId: example.ID(),
+//				FirewallRuleGroupId: example.ID().ToIDOutput().ToStringOutput(),
 //				Priority:            pulumi.Int(100),
 //				VpcId:               pulumi.Any(exampleAwsVpc.Id),
 //			})

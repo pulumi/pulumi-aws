@@ -41,7 +41,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "logs.amazonaws.com",
 //						},
 //					},
@@ -130,7 +130,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "logs.amazonaws.com",
 //						},
 //					},

@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewDetectorFeature(ctx, "s3_protection", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
+//				DetectorId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("S3_DATA_EVENTS"),
 //				Status:     pulumi.String("ENABLED"),
 //			})
@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewDetectorFeature(ctx, "eks_protection", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
+//				DetectorId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("EKS_AUDIT_LOGS"),
 //				Status:     pulumi.String("ENABLED"),
 //			})
@@ -81,7 +81,7 @@ import (
 //				return err
 //			}
 //			_, err = guardduty.NewDetectorFeature(ctx, "eks_runtime_monitoring", &guardduty.DetectorFeatureArgs{
-//				DetectorId: example.ID(),
+//				DetectorId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("EKS_RUNTIME_MONITORING"),
 //				Status:     pulumi.String("ENABLED"),
 //				AdditionalConfigurations: guardduty.DetectorFeatureAdditionalConfigurationArray{

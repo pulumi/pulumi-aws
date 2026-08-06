@@ -51,7 +51,7 @@ import (
 //							"Errors":     []interface{}{},
 //							"Conditions": []interface{}{},
 //						},
-//						"Parameters": map[string]interface{}{
+//						"Parameters": map[string]string{
 //							"Text": "Thanks for calling the sample flow!",
 //						},
 //					},

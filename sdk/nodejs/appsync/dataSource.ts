@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     name: "example",
  *     role: exampleRole.id,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const exampleGraphQLApi = new aws.appsync.GraphQLApi("example", {
  *     authenticationType: "API_KEY",

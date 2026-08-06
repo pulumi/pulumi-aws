@@ -80,7 +80,7 @@ import (
 //			}
 //			exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("cloudfront-realtime-log-config-example"),
-//				Role:   exampleRole.ID(),
+//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {

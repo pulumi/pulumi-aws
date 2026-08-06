@@ -52,8 +52,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcEndpointConnectionAccepter(ctx, "example", &ec2.VpcEndpointConnectionAccepterArgs{
-//				VpcEndpointServiceId: example.ID(),
-//				VpcEndpointId:        exampleVpcEndpoint.ID(),
+//				VpcEndpointServiceId: example.ID().ToIDOutput().ToStringOutput(),
+//				VpcEndpointId:        exampleVpcEndpoint.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

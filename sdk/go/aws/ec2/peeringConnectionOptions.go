@@ -52,15 +52,15 @@ import (
 //				return err
 //			}
 //			fooVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "foo", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:      foo.ID(),
-//				PeerVpcId:  bar.ID(),
+//				VpcId:      foo.ID().ToIDOutput().ToStringOutput(),
+//				PeerVpcId:  bar.ID().ToIDOutput().ToStringOutput(),
 //				AutoAccept: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "foo", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: fooVpcPeeringConnection.ID(),
+//				VpcPeeringConnectionId: fooVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
@@ -111,8 +111,8 @@ import (
 //			}
 //			// Requester's side of the connection.
 //			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
-//				VpcId:       main.ID(),
-//				PeerVpcId:   peerVpc.ID(),
+//				VpcId:       main.ID().ToIDOutput().ToStringOutput(),
+//				PeerVpcId:   peerVpc.ID().ToIDOutput().ToStringOutput(),
 //				PeerOwnerId: pulumi.String(peer.AccountId),
 //				AutoAccept:  pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
@@ -124,7 +124,7 @@ import (
 //			}
 //			// Accepter's side of the connection.
 //			peerVpcPeeringConnectionAccepter, err := ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
+//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
 //				AutoAccept:             pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
@@ -134,7 +134,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "requester", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID(),
+//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
@@ -143,7 +143,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "accepter", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID(),
+//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},

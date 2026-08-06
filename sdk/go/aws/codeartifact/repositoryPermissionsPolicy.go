@@ -72,11 +72,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = codeartifact.NewRepositoryPermissionsPolicy(ctx, "example", &codeartifact.RepositoryPermissionsPolicyArgs{
-//				Repository: exampleRepository.Repository,
-//				Domain:     exampleDomain.Domain,
-//				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Repository:     exampleRepository.Repository,
+//				Domain:         exampleDomain.Domain,
+//				PolicyDocument: example.Json(),
 //			})
 //			if err != nil {
 //				return err

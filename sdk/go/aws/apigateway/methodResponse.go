@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
+//				RestApi:  myDemoAPI.ID().ToIDOutput().ToStringOutput(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
 //			})
@@ -46,8 +46,8 @@ import (
 //				return err
 //			}
 //			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
-//				RestApi:       myDemoAPI.ID(),
-//				ResourceId:    myDemoResource.ID(),
+//				RestApi:       myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:    myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //			})
@@ -55,8 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
-//				RestApi:    myDemoAPI.ID(),
-//				ResourceId: myDemoResource.ID(),
+//				RestApi:    myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				Type:       pulumi.String("MOCK"),
 //			})
@@ -64,8 +64,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
-//				RestApi:    myDemoAPI.ID(),
-//				ResourceId: myDemoResource.ID(),
+//				RestApi:    myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				StatusCode: pulumi.String("200"),
 //			})
@@ -102,7 +102,7 @@ import (
 //				return err
 //			}
 //			myDemoResource, err := apigateway.NewResource(ctx, "MyDemoResource", &apigateway.ResourceArgs{
-//				RestApi:  myDemoAPI.ID(),
+//				RestApi:  myDemoAPI.ID().ToIDOutput().ToStringOutput(),
 //				ParentId: myDemoAPI.RootResourceId,
 //				PathPart: pulumi.String("mydemoresource"),
 //			})
@@ -110,8 +110,8 @@ import (
 //				return err
 //			}
 //			myDemoMethod, err := apigateway.NewMethod(ctx, "MyDemoMethod", &apigateway.MethodArgs{
-//				RestApi:       myDemoAPI.ID(),
-//				ResourceId:    myDemoResource.ID(),
+//				RestApi:       myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:    myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod:    pulumi.String("GET"),
 //				Authorization: pulumi.String("NONE"),
 //			})
@@ -119,8 +119,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewIntegration(ctx, "MyDemoIntegration", &apigateway.IntegrationArgs{
-//				RestApi:    myDemoAPI.ID(),
-//				ResourceId: myDemoResource.ID(),
+//				RestApi:    myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				Type:       pulumi.String("MOCK"),
 //			})
@@ -131,8 +131,8 @@ import (
 //				"$schema": "http://json-schema.org/draft-04/schema#",
 //				"title":   "MyDemoResponse",
 //				"type":    "object",
-//				"properties": map[string]interface{}{
-//					"Message": map[string]interface{}{
+//				"properties": map[string]map[string]string{
+//					"Message": map[string]string{
 //						"type": "string",
 //					},
 //				},
@@ -142,7 +142,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = apigateway.NewModel(ctx, "MyDemoResponseModel", &apigateway.ModelArgs{
-//				RestApi:     myDemoAPI.ID(),
+//				RestApi:     myDemoAPI.ID().ToIDOutput().ToStringOutput(),
 //				Name:        pulumi.String("MyDemoResponseModel"),
 //				Description: pulumi.String("API response for MyDemoMethod"),
 //				ContentType: pulumi.String("application/json"),
@@ -152,8 +152,8 @@ import (
 //				return err
 //			}
 //			_, err = apigateway.NewMethodResponse(ctx, "response_200", &apigateway.MethodResponseArgs{
-//				RestApi:    myDemoAPI.ID(),
-//				ResourceId: myDemoResource.ID(),
+//				RestApi:    myDemoAPI.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: myDemoResource.ID().ToIDOutput().ToStringOutput(),
 //				HttpMethod: myDemoMethod.HttpMethod,
 //				StatusCode: pulumi.String("200"),
 //				ResponseModels: pulumi.StringMap{

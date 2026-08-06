@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			exampleDataSource, err := appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
-//				ApiId: example.ID(),
+//				ApiId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:  pulumi.String("example"),
 //				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      example.ID(),
+//				ApiId:      example.ID().ToIDOutput().ToStringOutput(),
 //				DataSource: exampleDataSource.Name,
 //				Name:       pulumi.String("example"),
 //				RequestMappingTemplate: pulumi.String(`{

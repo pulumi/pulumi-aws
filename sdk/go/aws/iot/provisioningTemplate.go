@@ -96,15 +96,15 @@ import (
 //				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"Parameters": map[string]interface{}{
-//							"SerialNumber": map[string]interface{}{
+//						"Parameters": map[string]map[string]string{
+//							"SerialNumber": map[string]string{
 //								"Type": "String",
 //							},
 //						},
-//						"Resources": map[string]interface{}{
+//						"Resources": map[string]map[string]interface{}{
 //							"certificate": map[string]interface{}{
 //								"Properties": map[string]interface{}{
-//									"CertificateId": map[string]interface{}{
+//									"CertificateId": map[string]string{
 //										"Ref": "AWS::IoT::Certificate::Id",
 //									},
 //									"Status": "Active",
@@ -112,7 +112,7 @@ import (
 //								"Type": "AWS::IoT::Certificate",
 //							},
 //							"policy": map[string]interface{}{
-//								"Properties": map[string]interface{}{
+//								"Properties": map[string]string{
 //									"PolicyName": name,
 //								},
 //								"Type": "AWS::IoT::Policy",

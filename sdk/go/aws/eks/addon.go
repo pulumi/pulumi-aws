@@ -99,12 +99,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"replicaCount": 4,
-//				"resources": map[string]interface{}{
-//					"limits": map[string]interface{}{
+//				"resources": map[string]map[string]string{
+//					"limits": map[string]string{
 //						"cpu":    "100m",
 //						"memory": "150Mi",
 //					},
-//					"requests": map[string]interface{}{
+//					"requests": map[string]string{
 //						"cpu":    "100m",
 //						"memory": "150Mi",
 //					},

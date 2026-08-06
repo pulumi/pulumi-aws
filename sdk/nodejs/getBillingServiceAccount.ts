@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * });
  * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
+ *     policy: allowBillingLogging.json,
  * });
  * ```
  */
@@ -123,7 +123,7 @@ export interface GetBillingServiceAccountResult {
  * });
  * const allowBillingLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_billing_logging", {
  *     bucket: billingLogs.id,
- *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
+ *     policy: allowBillingLogging.json,
  * });
  * ```
  */

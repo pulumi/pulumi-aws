@@ -39,7 +39,7 @@ import (
 //							"sts:TagSession",
 //							"sts:SetSourceIdentity",
 //						},
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "rolesanywhere.amazonaws.com",
 //						},
 //						"Effect": "Allow",
