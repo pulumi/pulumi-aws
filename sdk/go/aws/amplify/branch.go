@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:      example.ID(),
+//				AppId:      example.ID().ToIDOutput().ToStringOutput(),
 //				BranchName: pulumi.String("master"),
 //				Framework:  pulumi.String("React"),
 //				Stage:      pulumi.String("PRODUCTION"),
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:                example.ID(),
+//				AppId:                example.ID().ToIDOutput().ToStringOutput(),
 //				BranchName:           pulumi.String("master"),
 //				EnableBasicAuth:      pulumi.Bool(true),
 //				BasicAuthCredentials: pulumi.String(invokeBase64encode.Result),
@@ -123,7 +123,7 @@ import (
 //				return err
 //			}
 //			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-//				AppId:              example.ID(),
+//				AppId:              example.ID().ToIDOutput().ToStringOutput(),
 //				BranchName:         pulumi.String("master"),
 //				EnableNotification: pulumi.Bool(true),
 //			})
@@ -139,12 +139,12 @@ import (
 //					return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
 //				}).(pulumi.StringOutput),
 //				EventPattern: pulumi.All(example.ID(), master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
-//					id := _args[0].(string)
+//					id := _args[0].(pulumi.ID)
 //					branchName := _args[1].(string)
 //					var _zero string
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"detail": map[string]interface{}{
-//							"appId": []string{
+//							"appId": pulumi.IDArray{
 //								id,
 //							},
 //							"branchName": []string{
@@ -225,10 +225,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
-//				Arn: amplifyAppMasterTopic.Arn,
-//				Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
-//					return amplifyAppMaster.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Arn:    amplifyAppMasterTopic.Arn,
+//				Policy: amplifyAppMaster.Json(),
 //			})
 //			if err != nil {
 //				return err

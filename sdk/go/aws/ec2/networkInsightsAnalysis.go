@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewNetworkInsightsAnalysis(ctx, "analysis", &ec2.NetworkInsightsAnalysisArgs{
-//				NetworkInsightsPathId: path.ID(),
+//				NetworkInsightsPathId: path.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

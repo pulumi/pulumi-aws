@@ -338,7 +338,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const lambdaLogExportRolePolicy = new aws.iam.RolePolicy("lambda_log_export", {
- *     policy: lambdaLogExport.apply(lambdaLogExport => lambdaLogExport.json),
+ *     policy: lambdaLogExport.json,
  *     role: logsLogExport.name,
  * });
  * const lambdaLogExportLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("lambda_log_export", {

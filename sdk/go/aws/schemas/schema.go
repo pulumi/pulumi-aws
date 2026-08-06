@@ -40,17 +40,17 @@ import (
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"openapi": "3.0.0",
-//				"info": map[string]interface{}{
+//				"info": map[string]string{
 //					"version": "1.0.0",
 //					"title":   "Event",
 //				},
 //				"paths": map[string]interface{}{},
-//				"components": map[string]interface{}{
-//					"schemas": map[string]interface{}{
+//				"components": map[string]map[string]map[string]interface{}{
+//					"schemas": map[string]map[string]interface{}{
 //						"Event": map[string]interface{}{
 //							"type": "object",
-//							"properties": map[string]interface{}{
-//								"name": map[string]interface{}{
+//							"properties": map[string]map[string]string{
+//								"name": map[string]string{
 //									"type": "string",
 //								},
 //							},

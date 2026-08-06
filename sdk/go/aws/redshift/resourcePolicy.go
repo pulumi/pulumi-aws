@@ -35,7 +35,7 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "arn:aws:iam::12345678901:root",
 //						},
 //						"Action":   "redshift:CreateInboundIntegration",

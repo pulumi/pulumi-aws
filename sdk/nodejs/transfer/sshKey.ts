@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     userName: exampleUser.userName,
  *     body: std.trimspaceOutput({
  *         input: examplePrivateKey.publicKeyOpenssh,
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  * });
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{

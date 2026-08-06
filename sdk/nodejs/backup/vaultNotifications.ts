@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
  *     arn: testTopic.arn,
- *     policy: test.apply(test => test.json),
+ *     policy: test.json,
  * });
  * const testVaultNotifications = new aws.backup.VaultNotifications("test", {
  *     backupVaultName: "example_backup_vault",

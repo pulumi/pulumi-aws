@@ -576,16 +576,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"connectionConfiguration": map[string]interface{}{
-//					"repositoryEndpointMetadata": map[string]interface{}{
-//						"seedUrlConnections": []map[string]interface{}{
-//							map[string]interface{}{
+//				"connectionConfiguration": map[string]map[string][]map[string]string{
+//					"repositoryEndpointMetadata": map[string][]map[string]string{
+//						"seedUrlConnections": []map[string]string{
+//							{
 //								"seedUrl": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kendra_index",
 //							},
 //						},
 //					},
 //				},
-//				"additionalProperties": map[string]interface{}{
+//				"additionalProperties": map[string][]string{
 //					"inclusionURLIndexPatterns": []string{
 //						"https:\\/\\/registry[.]terraform[.]io\\/providers\\/hashicorp\\/aws\\/latest\\/docs\\/resources\\/kendra_index",
 //					},

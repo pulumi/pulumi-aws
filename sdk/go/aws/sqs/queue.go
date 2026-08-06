@@ -157,7 +157,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewRedriveAllowPolicy(ctx, "example_queue_redrive_allow_policy", &sqs.RedriveAllowPolicyArgs{
-//				QueueUrl: exampleQueueDeadletter.ID(),
+//				QueueUrl: exampleQueueDeadletter.ID().ToIDOutput().ToStringOutput(),
 //				RedriveAllowPolicy: queue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{

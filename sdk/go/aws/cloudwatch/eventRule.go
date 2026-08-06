@@ -33,7 +33,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]string{
 //				"detail-type": []string{
 //					"AWS Console Sign In via CloudTrail",
 //				},
@@ -86,10 +86,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-//				Arn: awsLogins.Arn,
-//				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return snsTopicPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Arn:    awsLogins.Arn,
+//				Policy: snsTopicPolicy.Json(),
 //			})
 //			if err != nil {
 //				return err

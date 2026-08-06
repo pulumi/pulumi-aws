@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleVaultPolicy = new aws.backup.VaultPolicy("example", {
  *     backupVaultName: exampleVault.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

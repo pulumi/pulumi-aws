@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * const metricStreamToFirehoseRolePolicy = new aws.iam.RolePolicy("metric_stream_to_firehose", {
  *     name: "default",
  *     role: metricStreamToFirehoseRole.id,
- *     policy: metricStreamToFirehose.apply(metricStreamToFirehose => metricStreamToFirehose.json),
+ *     policy: metricStreamToFirehose.json,
  * });
  * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
@@ -112,7 +112,7 @@ import * as utilities from "../utilities";
  * const firehoseToS3RolePolicy = new aws.iam.RolePolicy("firehose_to_s3", {
  *     name: "default",
  *     role: firehoseToS3Role.id,
- *     policy: firehoseToS3.apply(firehoseToS3 => firehoseToS3.json),
+ *     policy: firehoseToS3.json,
  * });
  * ```
  *

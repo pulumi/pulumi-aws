@@ -60,8 +60,8 @@ import (
 //				Databases: finspace.KxClusterDatabaseArray{
 //					&finspace.KxClusterDatabaseArgs{
 //						DatabaseName: pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
-//						CacheConfiguration: []map[string]interface{}{
-//							map[string]interface{}{
+//						CacheConfiguration: []map[string]string{
+//							{
 //								"cacheType": "CACHE_1000",
 //								"dbPaths":   "/",
 //							},

@@ -87,11 +87,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Name: pulumi.String("example"),
-//				Role: exampleRole.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("example"),
+//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
+//				Policy: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -104,7 +102,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
-//				ApiId:          exampleGraphQLApi.ID(),
+//				ApiId:          exampleGraphQLApi.ID().ToIDOutput().ToStringOutput(),
 //				Name:           pulumi.String("my_appsync_example"),
 //				ServiceRoleArn: exampleRole.Arn,
 //				Type:           pulumi.String("AMAZON_DYNAMODB"),

@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewRedrivePolicy(ctx, "q", &sqs.RedrivePolicyArgs{
-//				QueueUrl: q.ID(),
+//				QueueUrl: q.ID().ToIDOutput().ToStringOutput(),
 //				RedrivePolicy: ddl.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{

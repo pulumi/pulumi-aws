@@ -37,13 +37,13 @@ import (
 //				return err
 //			}
 //			exampleSnapshot, err := ebs.NewSnapshot(ctx, "example_snapshot", &ebs.SnapshotArgs{
-//				VolumeId: example.ID(),
+//				VolumeId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewSnapshotCreateVolumePermission(ctx, "example_perm", &ec2.SnapshotCreateVolumePermissionArgs{
-//				SnapshotId: exampleSnapshot.ID(),
+//				SnapshotId: exampleSnapshot.ID().ToIDOutput().ToStringOutput(),
 //				AccountId:  pulumi.String("12345678"),
 //			})
 //			if err != nil {

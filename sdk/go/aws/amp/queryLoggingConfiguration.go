@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewQueryLoggingConfiguration(ctx, "example", &amp.QueryLoggingConfigurationArgs{
-//				WorkspaceId: example.ID(),
+//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				Destinations: amp.QueryLoggingConfigurationDestinationArray{
 //					&amp.QueryLoggingConfigurationDestinationArgs{
 //						CloudwatchLogs: &amp.QueryLoggingConfigurationDestinationCloudwatchLogsArgs{

@@ -43,7 +43,7 @@ import (
 //						},
 //						"Effect":   "Allow",
 //						"Resource": exampleAwsNetworkfirewallFirewallPolicy.Arn,
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "arn:aws:iam::123456789012:root",
 //						},
 //					},
@@ -93,7 +93,7 @@ import (
 //						},
 //						"Effect":   "Allow",
 //						"Resource": exampleAwsNetworkfirewallRuleGroup.Arn,
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "arn:aws:iam::123456789012:root",
 //						},
 //					},

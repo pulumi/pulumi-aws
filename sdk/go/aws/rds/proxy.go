@@ -118,16 +118,13 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-//					CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//					CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   example.CidrBlock,
 //						Newbits: pulumi.Int(8),
 //						Netnum:  pulumi.Int(val0),
-//					}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //					AvailabilityZone: pulumi.String(available.Names[val0]),
-//					VpcId:            example.ID(),
+//					VpcId:            example.ID().ToIDOutput().ToStringOutput(),
 //				})
 //				if err != nil {
 //					return err

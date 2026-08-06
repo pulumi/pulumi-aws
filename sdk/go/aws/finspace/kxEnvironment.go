@@ -85,7 +85,7 @@ import (
 //				Description: pulumi.String("Environment description"),
 //				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
-//					TransitGatewayId:  exampleTransitGateway.ID(),
+//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //				},
 //				CustomDnsConfigurations: finspace.KxEnvironmentCustomDnsConfigurationArray{
@@ -138,7 +138,7 @@ import (
 //				Description: pulumi.String("Environment description"),
 //				KmsKeyId:    example.Arn,
 //				TransitGatewayConfiguration: &finspace.KxEnvironmentTransitGatewayConfigurationArgs{
-//					TransitGatewayId:  exampleTransitGateway.ID(),
+//					TransitGatewayId:  exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //					RoutableCidrSpace: pulumi.String("100.64.0.0/26"),
 //					AttachmentNetworkAclConfigurations: finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray{
 //						&finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs{

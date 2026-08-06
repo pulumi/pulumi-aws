@@ -70,9 +70,7 @@ import (
 //			}, nil)
 //			_, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
 //				BackupVaultName: exampleVault.Name,
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Policy:          example.Json(),
 //			})
 //			if err != nil {
 //				return err

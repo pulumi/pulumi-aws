@@ -65,7 +65,7 @@ import (
 //				val0 := index
 //				__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("cluster_instances-%v", key0), &rds.ClusterInstanceArgs{
 //					Identifier:        pulumi.Sprintf("aurora-cluster-demo-%v", val0),
-//					ClusterIdentifier: _default.ID(),
+//					ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //					InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //					Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //					EngineVersion:     _default.EngineVersion,

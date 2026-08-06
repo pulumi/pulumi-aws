@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleLustreFileSystem.ID(),
+//				FileSystemId: exampleLustreFileSystem.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleWindowsFileSystem.ID(),
+//				FileSystemId: exampleWindowsFileSystem.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -113,7 +113,7 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				VolumeId: exampleOntapVolume.ID(),
+//				VolumeId: exampleOntapVolume.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -150,7 +150,7 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewBackup(ctx, "example", &fsx.BackupArgs{
-//				FileSystemId: exampleOpenZfsFileSystem.ID(),
+//				FileSystemId: exampleOpenZfsFileSystem.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -163,13 +163,13 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInternetGateway(ctx, "example", &ec2.InternetGatewayArgs{
-//				VpcId: example.ID(),
+//				VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				VpcId:            example.ID(),
+//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityMode: pulumi.String("regional"),
 //			})
 //			if err != nil {
@@ -209,7 +209,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInternetGateway(ctx, "example", &ec2.InternetGatewayArgs{
-//				VpcId: example.ID(),
+//				VpcId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -227,19 +227,19 @@ import (
 //				exampleEip = append(exampleEip, __res)
 //			}
 //			_, err = ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				VpcId:            example.ID(),
+//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityMode: pulumi.String("regional"),
 //				AvailabilityZoneAddresses: ec2.NatGatewayAvailabilityZoneAddressArray{
 //					&ec2.NatGatewayAvailabilityZoneAddressArgs{
 //						AllocationIds: pulumi.StringArray{
-//							exampleEip[0].ID(),
+//							exampleEip[0].ID().ToIDOutput().ToStringOutput(),
 //						},
 //						AvailabilityZone: pulumi.String(available.Names[0]),
 //					},
 //					&ec2.NatGatewayAvailabilityZoneAddressArgs{
 //						AllocationIds: pulumi.StringArray{
-//							exampleEip[1].ID(),
-//							exampleEip[2].ID(),
+//							exampleEip[1].ID().ToIDOutput().ToStringOutput(),
+//							exampleEip[2].ID().ToIDOutput().ToStringOutput(),
 //						},
 //						AvailabilityZone: pulumi.String(available.Names[1]),
 //					},

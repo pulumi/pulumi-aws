@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:            example.ID(),
+//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //			})
@@ -48,7 +48,7 @@ import (
 //			_, err = memorydb.NewSubnetGroup(ctx, "example", &memorydb.SubnetGroupArgs{
 //				Name: pulumi.String("my-subnet-group"),
 //				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
+//					exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

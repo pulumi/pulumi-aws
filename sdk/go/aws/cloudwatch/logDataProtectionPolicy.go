@@ -58,10 +58,10 @@ import (
 //								"DataIdentifier": []string{
 //									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //								},
-//								"Operation": map[string]interface{}{
-//									"Audit": map[string]interface{}{
-//										"FindingsDestination": map[string]interface{}{
-//											"S3": map[string]interface{}{
+//								"Operation": map[string]map[string]map[string]map[string]string{
+//									"Audit": map[string]map[string]map[string]string{
+//										"FindingsDestination": map[string]map[string]string{
+//											"S3": map[string]string{
 //												"Bucket": bucket,
 //											},
 //										},
@@ -73,8 +73,8 @@ import (
 //								"DataIdentifier": []string{
 //									"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //								},
-//								"Operation": map[string]interface{}{
-//									"Deidentify": map[string]interface{}{
+//								"Operation": map[string]map[string]map[string]interface{}{
+//									"Deidentify": map[string]map[string]interface{}{
 //										"MaskConfig": map[string]interface{}{},
 //									},
 //								},

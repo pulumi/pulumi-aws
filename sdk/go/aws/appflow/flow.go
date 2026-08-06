@@ -64,14 +64,14 @@ import (
 //				return err
 //			}
 //			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
-//				Bucket: exampleSourceBucket.ID(),
+//				Bucket: exampleSourceBucket.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleSourceBucket.ID(),
+//				Bucket: exampleSourceBucket.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("example_source.csv"),
 //				Source: pulumi.NewFileAsset("example_source.csv"),
 //			})
@@ -116,7 +116,7 @@ import (
 //				return err
 //			}
 //			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
-//				Bucket: exampleDestinationBucket.ID(),
+//				Bucket: exampleDestinationBucket.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {

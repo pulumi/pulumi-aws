@@ -40,7 +40,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "grafana.amazonaws.com",
 //						},
 //					},
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = grafana.NewLicenseAssociation(ctx, "example", &grafana.LicenseAssociationArgs{
 //				LicenseType: pulumi.String("ENTERPRISE_FREE_TRIAL"),
-//				WorkspaceId: exampleWorkspace.ID(),
+//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

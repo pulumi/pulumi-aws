@@ -41,14 +41,14 @@ import (
 //			}
 //			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example"),
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleUserPoolClient, err := cognito.NewUserPoolClient(ctx, "example", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("example"),
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewUserPoolUICustomization(ctx, "example", &cognito.UserPoolUICustomizationArgs{
-//				ClientId:   exampleUserPoolClient.ID(),
+//				ClientId:   exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
 //				Css:        pulumi.String(".label-customizable {font-weight: 400;}"),
 //				ImageFile:  pulumi.String(invokeFilebase64.Result),
 //				UserPoolId: exampleUserPoolDomain.UserPoolId,
@@ -97,7 +97,7 @@ import (
 //			}
 //			exampleUserPoolDomain, err := cognito.NewUserPoolDomain(ctx, "example", &cognito.UserPoolDomainArgs{
 //				Domain:     pulumi.String("example"),
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

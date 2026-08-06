@@ -38,7 +38,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "s3-outposts:PutBucketLifecycleConfiguration",
 //						"Effect": "Deny",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": "*",
 //						},
 //						"Resource": exampleAwsS3controlBucket.Arn,

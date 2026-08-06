@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewApiKey(ctx, "example", &appsync.ApiKeyArgs{
-//				ApiId:   example.ID(),
+//				ApiId:   example.ID().ToIDOutput().ToStringOutput(),
 //				Expires: pulumi.String("2018-05-03T04:00:00Z"),
 //			})
 //			if err != nil {

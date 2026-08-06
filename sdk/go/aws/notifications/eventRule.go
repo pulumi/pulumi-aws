@@ -39,9 +39,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"detail": map[string]interface{}{
-//					"state": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string]map[string][]string{
+//				"detail": map[string]map[string][]string{
+//					"state": map[string][]string{
 //						"value": []string{
 //							"ALARM",
 //						},

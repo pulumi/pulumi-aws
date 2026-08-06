@@ -64,7 +64,7 @@ import * as utilities from "./utilities";
  *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
  *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  */
@@ -215,7 +215,7 @@ export interface GetAvailabilityZoneResult {
  *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
  *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  */

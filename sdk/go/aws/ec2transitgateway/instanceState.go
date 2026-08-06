@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewInstanceState(ctx, "test", &ec2transitgateway.InstanceStateArgs{
-//				InstanceId: test.ID(),
+//				InstanceId: test.ID().ToIDOutput().ToStringOutput(),
 //				State:      pulumi.String("stopped"),
 //			})
 //			if err != nil {

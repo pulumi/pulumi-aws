@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.GetEips(ctx, &ec2.GetEipsArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Env": "dev",
 //				},
 //			}, nil)

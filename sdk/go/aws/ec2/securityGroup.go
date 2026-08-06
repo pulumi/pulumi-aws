@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv4", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: allowTls.ID(),
+//				SecurityGroupId: allowTls.ID().ToIDOutput().ToStringOutput(),
 //				CidrIpv4:        pulumi.Any(main.CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				IpProtocol:      pulumi.String("tcp"),
@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupIngressRule(ctx, "allow_tls_ipv6", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: allowTls.ID(),
+//				SecurityGroupId: allowTls.ID().ToIDOutput().ToStringOutput(),
 //				CidrIpv6:        pulumi.Any(main.Ipv6CidrBlock),
 //				FromPort:        pulumi.Int(443),
 //				IpProtocol:      pulumi.String("tcp"),
@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv4", &vpc.SecurityGroupEgressRuleArgs{
-//				SecurityGroupId: allowTls.ID(),
+//				SecurityGroupId: allowTls.ID().ToIDOutput().ToStringOutput(),
 //				CidrIpv4:        pulumi.String("0.0.0.0/0"),
 //				IpProtocol:      pulumi.String("-1"),
 //			})
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupEgressRule(ctx, "allow_all_traffic_ipv6", &vpc.SecurityGroupEgressRuleArgs{
-//				SecurityGroupId: allowTls.ID(),
+//				SecurityGroupId: allowTls.ID().ToIDOutput().ToStringOutput(),
 //				CidrIpv6:        pulumi.String("::/0"),
 //				IpProtocol:      pulumi.String("-1"),
 //			})

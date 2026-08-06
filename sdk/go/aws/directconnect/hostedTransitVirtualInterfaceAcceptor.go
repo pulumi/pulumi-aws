@@ -59,8 +59,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewHostedTransitVirtualInterfaceAcceptor(ctx, "accepter", &directconnect.HostedTransitVirtualInterfaceAcceptorArgs{
-//				VirtualInterfaceId: creator.ID(),
-//				DxGatewayId:        example.ID(),
+//				VirtualInterfaceId: creator.ID().ToIDOutput().ToStringOutput(),
+//				DxGatewayId:        example.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Side": pulumi.String("Accepter"),
 //				},

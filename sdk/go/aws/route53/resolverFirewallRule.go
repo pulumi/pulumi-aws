@@ -54,8 +54,8 @@ import (
 //				BlockOverrideDomain:  pulumi.String("example.com"),
 //				BlockOverrideTtl:     pulumi.Int(1),
 //				BlockResponse:        pulumi.String("OVERRIDE"),
-//				FirewallDomainListId: example.ID(),
-//				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID(),
+//				FirewallDomainListId: example.ID().ToIDOutput().ToStringOutput(),
+//				FirewallRuleGroupId:  exampleResolverFirewallRuleGroup.ID().ToIDOutput().ToStringOutput(),
 //				Priority:             pulumi.Int(100),
 //			})
 //			if err != nil {
@@ -92,7 +92,7 @@ import (
 //				Name:                pulumi.String("block-dga"),
 //				Action:              pulumi.String("BLOCK"),
 //				BlockResponse:       pulumi.String("NODATA"),
-//				FirewallRuleGroupId: example.ID(),
+//				FirewallRuleGroupId: example.ID().ToIDOutput().ToStringOutput(),
 //				DnsThreatProtection: pulumi.String("DGA"),
 //				ConfidenceThreshold: pulumi.String("HIGH"),
 //				Priority:            pulumi.Int(100),

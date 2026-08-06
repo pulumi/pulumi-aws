@@ -89,7 +89,7 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "sms-voice.amazonaws.com",
 //						},
 //						"Action": "sts:AssumeRole",

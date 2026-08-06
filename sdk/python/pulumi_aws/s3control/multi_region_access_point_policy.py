@@ -197,7 +197,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",
-                text=example.id).apply(lambda invoke: invoke.result)[1],
+                text=example.id).result[1],
             "policy": pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -261,7 +261,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",
-                text=example.id).apply(lambda invoke: invoke.result)[1],
+                text=example.id).result[1],
             "policy": pulumi.Output.json_dumps({
                 "Version": "2012-10-17",
                 "Statement": [{

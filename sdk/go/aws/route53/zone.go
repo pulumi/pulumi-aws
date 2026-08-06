@@ -129,10 +129,10 @@ import (
 //				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
-//						VpcId: primary.ID(),
+//						VpcId: primary.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					&route53.ZoneVpcArgs{
-//						VpcId: secondary.ID(),
+//						VpcId: secondary.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

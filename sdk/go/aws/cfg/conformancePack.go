@@ -96,7 +96,7 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "example", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("example-key"),
 //				Content: pulumi.String(`Resources:
 //	  IAMPasswordPolicy:

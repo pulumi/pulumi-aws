@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  * });
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssm_lifecycle", {
  *     name: "SSMLifecycle",
- *     policy: ssmLifecycle.apply(ssmLifecycle => ssmLifecycle.json),
+ *     policy: ssmLifecycle.json,
  * });
  * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssm_lifecycle", {
  *     policyArn: ssmLifecyclePolicy.arn,
@@ -401,7 +401,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
- *     policyDocument: exampleLogPolicy.apply(exampleLogPolicy => exampleLogPolicy.json),
+ *     policyDocument: exampleLogPolicy.json,
  *     policyName: "guardduty-log-publishing-policy",
  * });
  * const exampleEventTarget = new aws.cloudwatch.EventTarget("example", {
@@ -465,7 +465,7 @@ import * as utilities from "../utilities";
  *         text: graphql_api.arn,
  *         search: "apis",
  *         replace: "endpoints/graphql-api",
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     rule: invokeAppsyncMutation.id,
  *     roleArn: appsyncMutationRole.arn,
  *     inputTransformer: {
@@ -490,7 +490,7 @@ import * as utilities from "../utilities";
  * });
  * const appsyncMutationRolePolicy = new aws.iam.Policy("appsync_mutation_role_policy", {
  *     name: "appsync-mutation-role-policy",
- *     policy: appsyncMutationRolePolicyDocument.apply(appsyncMutationRolePolicyDocument => appsyncMutationRolePolicyDocument.json),
+ *     policy: appsyncMutationRolePolicyDocument.json,
  * });
  * const appsyncMutationRoleAttachment = new aws.iam.RolePolicyAttachment("appsync_mutation_role_attachment", {
  *     policyArn: appsyncMutationRolePolicy.arn,

@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
-//				FileSystemId: fs.ID(),
+//				FileSystemId: fs.ID().ToIDOutput().ToStringOutput(),
 //				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
 //					Status: pulumi.String("ENABLED"),
 //				},

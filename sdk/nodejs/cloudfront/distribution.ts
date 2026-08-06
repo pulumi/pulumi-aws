@@ -178,7 +178,7 @@ import * as utilities from "../utilities";
  * });
  * const bBucketPolicy = new aws.s3.BucketPolicy("b", {
  *     bucket: b.bucket,
- *     policy: originBucketPolicy.apply(originBucketPolicy => originBucketPolicy.json),
+ *     policy: originBucketPolicy.json,
  * });
  * // Create Route53 records for the CloudFront distribution aliases
  * const myDomainGetZone = aws.route53.getZone({

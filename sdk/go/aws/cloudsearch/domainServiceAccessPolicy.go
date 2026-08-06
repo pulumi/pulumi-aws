@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "example", &cloudsearch.DomainServiceAccessPolicyArgs{
-//				DomainName:   exampleDomain.ID(),
+//				DomainName:   exampleDomain.ID().ToIDOutput().ToStringOutput(),
 //				AccessPolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {

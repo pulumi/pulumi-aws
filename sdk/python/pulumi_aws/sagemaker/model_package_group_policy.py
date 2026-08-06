@@ -159,7 +159,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         }])
         example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
             model_package_group_name=example_model_package_group.model_package_group_name,
-            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
+            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).result))
         ```
 
         ## Import
@@ -211,7 +211,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         }])
         example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
             model_package_group_name=example_model_package_group.model_package_group_name,
-            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
+            resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).result))
         ```
 
         ## Import

@@ -45,7 +45,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "elb_logs_acl", &s3.BucketAclArgs{
-//				Bucket: elbLogs.ID(),
+//				Bucket: elbLogs.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -75,10 +75,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
-//				Bucket: elbLogs.ID(),
-//				Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
-//					return allowElbLogging.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Bucket: elbLogs.ID().ToIDOutput().ToStringOutput(),
+//				Policy: allowElbLogging.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +87,7 @@ import (
 //					pulumi.String("us-west-2a"),
 //				},
 //				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
-//					Bucket:   elbLogs.ID(),
+//					Bucket:   elbLogs.ID().ToIDOutput().ToStringOutput(),
 //					Interval: pulumi.Int(5),
 //				},
 //				Listeners: elb.LoadBalancerListenerArray{

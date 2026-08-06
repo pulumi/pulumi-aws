@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("example", {
  *     containerName: exampleContainer.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

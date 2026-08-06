@@ -172,7 +172,7 @@ import (
 //				return err
 //			}
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
-//				QueueUrl: testQueue.ID(),
+//				QueueUrl: testQueue.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.All(testQueue.Arn, testTopic.Arn).ApplyT(func(_args []interface{}) (string, error) {
 //					testQueueArn := _args[0].(string)
 //					testTopicArn := _args[1].(string)
@@ -182,15 +182,15 @@ import (
 //						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": "*",
 //								},
 //								"Action": []string{
 //									"sqs:SendMessage",
 //								},
 //								"Resource": testQueueArn,
-//								"Condition": map[string]interface{}{
-//									"ArnEquals": map[string]interface{}{
+//								"Condition": map[string]map[string]string{
+//									"ArnEquals": map[string]string{
 //										"aws:SourceArn": testTopicArn,
 //									},
 //								},
@@ -212,7 +212,7 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "timestream.amazonaws.com",
 //						},
 //						"Action": "sts:AssumeRole",
@@ -257,7 +257,7 @@ import (
 //			json2 := string(tmpJSON2)
 //			_, err = iam.NewRolePolicy(ctx, "test", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   testRole.ID(),
+//				Role:   testRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(json2),
 //			})
 //			if err != nil {

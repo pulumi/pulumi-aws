@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = amplify.NewBackendEnvironment(ctx, "example", &amplify.BackendEnvironmentArgs{
-//				AppId:               example.ID(),
+//				AppId:               example.ID().ToIDOutput().ToStringOutput(),
 //				EnvironmentName:     pulumi.String("example"),
 //				DeploymentArtifacts: pulumi.String("app-example-deployment"),
 //				StackName:           pulumi.String("amplify-app-example"),

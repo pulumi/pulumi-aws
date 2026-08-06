@@ -75,7 +75,7 @@ import (
 //						"Statement": []map[string]interface{}{
 //							map[string]interface{}{
 //								"Effect": "Allow",
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //								},
 //								"Action":   "osis:CreatePipelineEndpoint",

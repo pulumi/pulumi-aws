@@ -88,10 +88,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_cloudtrail_logging", &s3.BucketPolicyArgs{
-//				Bucket: bucket.ID(),
-//				Policy: pulumi.String(allowCloudtrailLogging.ApplyT(func(allowCloudtrailLogging iam.GetPolicyDocumentResult) (*string, error) {
-//					return allowCloudtrailLogging.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
+//				Policy: allowCloudtrailLogging.Json(),
 //			})
 //			if err != nil {
 //				return err

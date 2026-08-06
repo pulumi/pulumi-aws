@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const exampleProject = new aws.codebuild.Project("example", {
  *     name: "test-project",

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
+ *     snapshotIdentifier: latestProdSnapshot.id,
  * });
  * ```
  */
@@ -218,7 +218,7 @@ export interface GetSnapshotResult {
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
- *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
+ *     snapshotIdentifier: latestProdSnapshot.id,
  * });
  * ```
  */

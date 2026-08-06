@@ -47,7 +47,7 @@ import (
 //				RateLimit:  pulumi.Int(100),
 //				Predicates: waf.RateBasedRulePredicateArray{
 //					&waf.RateBasedRulePredicateArgs{
-//						DataId:  ipset.ID(),
+//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},

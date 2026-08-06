@@ -45,8 +45,8 @@ import (
 //			}
 //			_, err = route53.NewProfilesAssociation(ctx, "example", &route53.ProfilesAssociationArgs{
 //				Name:       pulumi.String("example"),
-//				ProfileId:  example.ID(),
-//				ResourceId: exampleVpc.ID(),
+//				ProfileId:  example.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("dev"),
 //				},

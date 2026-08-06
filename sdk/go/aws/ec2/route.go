@@ -68,7 +68,7 @@ import (
 //				return err
 //			}
 //			egress, err := ec2.NewEgressOnlyInternetGateway(ctx, "egress", &ec2.EgressOnlyInternetGatewayArgs{
-//				VpcId: vpc.ID(),
+//				VpcId: vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -76,7 +76,7 @@ import (
 //			_, err = ec2.NewRoute(ctx, "r", &ec2.RouteArgs{
 //				RouteTableId:             pulumi.String("rtb-4fbb3ac4"),
 //				DestinationIpv6CidrBlock: pulumi.String("::/0"),
-//				EgressOnlyGatewayId:      egress.ID(),
+//				EgressOnlyGatewayId:      egress.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -169,7 +169,7 @@ class Tag(pulumi.CustomResource):
                         "propagate_at_launch": False,
                     }))
 
-        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
+        invoke.result.apply(create_example)
         ```
 
         ## Import
@@ -222,7 +222,7 @@ class Tag(pulumi.CustomResource):
                         "propagate_at_launch": False,
                     }))
 
-        std.toset_output(input=std.flatten_output(input=example.resources.apply(lambda resources: [resources.autoscaling_groups for resources in resources])).apply(lambda invoke: [asg["name"] for asg in invoke.result])).apply(lambda resolved_outputs: create_example(resolved_outputs['invoke'].result))
+        invoke.result.apply(create_example)
         ```
 
         ## Import

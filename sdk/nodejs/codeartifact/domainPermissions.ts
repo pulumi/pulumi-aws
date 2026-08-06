@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * const testDomainPermissions = new aws.codeartifact.DomainPermissions("test", {
  *     domain: exampleDomain.domain,
- *     policyDocument: test.apply(test => test.json),
+ *     policyDocument: test.json,
  * });
  * ```
  *

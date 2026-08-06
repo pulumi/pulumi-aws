@@ -38,7 +38,7 @@ import (
 //			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},

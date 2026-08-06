@@ -70,9 +70,7 @@ import (
 //			_, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
 //				ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
 //				ResourcePolicy: std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
-//					Input: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//						return example.Json, nil
-//					}).(pulumi.StringPtrOutput),
+//					Input: example.Json(),
 //				}, nil).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(invoke.Result)

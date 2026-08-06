@@ -52,7 +52,7 @@ import (
 //				key0 := index
 //				_ := index
 //				__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
-//					ClusterIdentifier: _default.ID(),
+//					ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //					Engine:            pulumi.String("neptune"),
 //					InstanceClass:     pulumi.String("db.r4.large"),
 //					ApplyImmediately:  pulumi.Bool(true),

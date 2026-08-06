@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-//				WindowId:     window.ID(),
+//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
 //				Name:         pulumi.String("maintenance-window-target"),
 //				Description:  pulumi.String("This is a maintenance window target"),
 //				ResourceType: pulumi.String("INSTANCE"),
@@ -86,7 +86,7 @@ import (
 //				return err
 //			}
 //			_, err = ssm.NewMaintenanceWindowTarget(ctx, "target1", &ssm.MaintenanceWindowTargetArgs{
-//				WindowId:     window.ID(),
+//				WindowId:     window.ID().ToIDOutput().ToStringOutput(),
 //				Name:         pulumi.String("maintenance-window-target"),
 //				Description:  pulumi.String("This is a maintenance window target"),
 //				ResourceType: pulumi.String("RESOURCE_GROUP"),

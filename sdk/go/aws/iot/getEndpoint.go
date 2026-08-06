@@ -33,13 +33,13 @@ import (
 //				return err
 //			}
 //			_, err = kubernetes.NewPod(ctx, "agent", &kubernetes.PodArgs{
-//				Metadata: []map[string]interface{}{
-//					map[string]interface{}{
+//				Metadata: []map[string]string{
+//					{
 //						"name": "my-device",
 //					},
 //				},
-//				Spec: []map[string]interface{}{
-//					map[string]interface{}{
+//				Spec: []map[string][]map[string]interface{}{
+//					map[string][]map[string]interface{}{
 //						"container": []map[string]interface{}{
 //							map[string]interface{}{
 //								"image": "gcr.io/my-project/image-name",

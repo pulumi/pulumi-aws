@@ -41,7 +41,7 @@ import (
 //					Path:   pulumi.String("/example"),
 //				},
 //				Properties: pulumi.String("{\"description\":\"Example description\"}"),
-//				RestApiId:  exampleRestApi.ID(),
+//				RestApiId:  exampleRestApi.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

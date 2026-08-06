@@ -19594,8 +19594,8 @@ type FlowTriggerConfigTriggerPropertiesScheduled struct {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
 	// 			TriggerConfig: &appflow.FlowTriggerConfigArgs{
-	// 				Scheduled: []map[string]interface{}{
-	// 					map[string]interface{}{
+	// 				Scheduled: []map[string]string{
+	// 					{
 	// 						"scheduleExpression": "rate(1minutes)",
 	// 					},
 	// 				},
@@ -19649,8 +19649,8 @@ type FlowTriggerConfigTriggerPropertiesScheduledArgs struct {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
 	// 			TriggerConfig: &appflow.FlowTriggerConfigArgs{
-	// 				Scheduled: []map[string]interface{}{
-	// 					map[string]interface{}{
+	// 				Scheduled: []map[string]string{
+	// 					{
 	// 						"scheduleExpression": "rate(1minutes)",
 	// 					},
 	// 				},
@@ -19789,8 +19789,8 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledOutput) ScheduleStartTime() p
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
 //				TriggerConfig: &appflow.FlowTriggerConfigArgs{
-//					Scheduled: []map[string]interface{}{
-//						map[string]interface{}{
+//					Scheduled: []map[string]string{
+//						{
 //							"scheduleExpression": "rate(1minutes)",
 //						},
 //					},
@@ -19908,8 +19908,8 @@ func (o FlowTriggerConfigTriggerPropertiesScheduledPtrOutput) ScheduleStartTime(
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
 //				TriggerConfig: &appflow.FlowTriggerConfigArgs{
-//					Scheduled: []map[string]interface{}{
-//						map[string]interface{}{
+//					Scheduled: []map[string]string{
+//						{
 //							"scheduleExpression": "rate(1minutes)",
 //						},
 //					},

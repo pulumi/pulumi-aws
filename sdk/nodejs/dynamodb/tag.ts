@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *         text: example.arn,
  *         search: current.then(current => current.region),
  *         replace: replica.then(replica => replica.region),
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     key: "testkey",
  *     value: "testvalue",
  * });

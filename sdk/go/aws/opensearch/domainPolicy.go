@@ -71,10 +71,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = opensearch.NewDomainPolicy(ctx, "main", &opensearch.DomainPolicyArgs{
-//				DomainName: example.DomainName,
-//				AccessPolicies: pulumi.String(main.ApplyT(func(main iam.GetPolicyDocumentResult) (*string, error) {
-//					return main.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				DomainName:     example.DomainName,
+//				AccessPolicies: main.Json(),
 //			})
 //			if err != nil {
 //				return err

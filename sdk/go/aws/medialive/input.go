@@ -46,7 +46,7 @@ import (
 //			_, err = medialive.NewInput(ctx, "example", &medialive.InputArgs{
 //				Name: pulumi.String("example-input"),
 //				InputSecurityGroups: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Type: pulumi.String("UDP_PUSH"),
 //				Tags: pulumi.StringMap{

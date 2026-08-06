@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = medialive.NewMultiplexProgram(ctx, "example", &medialive.MultiplexProgramArgs{
 //				ProgramName: pulumi.String("example_program"),
-//				MultiplexId: example.ID(),
+//				MultiplexId: example.ID().ToIDOutput().ToStringOutput(),
 //				MultiplexProgramSettings: &medialive.MultiplexProgramMultiplexProgramSettingsArgs{
 //					ProgramNumber:            pulumi.Int(1),
 //					PreferredChannelPipeline: pulumi.String("CURRENTLY_ACTIVE"),

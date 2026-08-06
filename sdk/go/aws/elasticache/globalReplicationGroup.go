@@ -45,7 +45,7 @@ import (
 //			}
 //			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
 //				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID(),
+//				PrimaryReplicationGroupId:      primary.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -103,7 +103,7 @@ import (
 //			}
 //			example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
 //				GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-//				PrimaryReplicationGroupId:      primary.ID(),
+//				PrimaryReplicationGroupId:      primary.ID().ToIDOutput().ToStringOutput(),
 //				EngineVersion:                  pulumi.String("6.2"),
 //			})
 //			if err != nil {

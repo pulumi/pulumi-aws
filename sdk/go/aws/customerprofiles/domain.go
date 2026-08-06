@@ -71,7 +71,7 @@ import (
 //							"sqs:SendMessage",
 //						},
 //						"Resource": "*",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "profile.amazonaws.com",
 //						},
 //					},
@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Policy: exampleBucket.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -121,7 +121,7 @@ import (
 //									arn,
 //									fmt.Sprintf("%v/*", arn),
 //								},
-//								"Principal": map[string]interface{}{
+//								"Principal": map[string]string{
 //									"Service": "profile.amazonaws.com",
 //								},
 //							},
@@ -139,7 +139,7 @@ import (
 //			}
 //			_, err = customerprofiles.NewDomain(ctx, "test", &customerprofiles.DomainArgs{
 //				DomainName:            example,
-//				DeadLetterQueueUrl:    example.ID(),
+//				DeadLetterQueueUrl:    example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultEncryptionKey:  exampleKey.Arn,
 //				DefaultExpirationDays: pulumi.Int(365),
 //			})

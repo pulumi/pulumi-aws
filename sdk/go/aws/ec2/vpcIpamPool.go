@@ -98,7 +98,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "parent_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: parent.ID(),
+//				IpamPoolId: parent.ID().ToIDOutput().ToStringOutput(),
 //				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
@@ -108,13 +108,13 @@ import (
 //				AddressFamily:    pulumi.String("ipv4"),
 //				IpamScopeId:      example.PrivateDefaultScopeId,
 //				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: parent.ID(),
+//				SourceIpamPoolId: parent.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamPoolCidr(ctx, "child_test", &ec2.VpcIpamPoolCidrArgs{
-//				IpamPoolId: child.ID(),
+//				IpamPoolId: child.ID().ToIDOutput().ToStringOutput(),
 //				Cidr:       pulumi.String("172.20.0.0/24"),
 //			})
 //			if err != nil {
@@ -170,7 +170,7 @@ import (
 //				return err
 //			}
 //			testVpc, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    test.ID(),
+//				Ipv4IpamPoolId:    test.ID().ToIDOutput().ToStringOutput(),
 //				Ipv4NetmaskLength: pulumi.Int(24),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testVpcIpamPoolCidr,
@@ -182,9 +182,9 @@ import (
 //				AddressFamily:    pulumi.String("ipv4"),
 //				IpamScopeId:      pulumi.Any(testAwsVpcIpam.PrivateDefaultScopeId),
 //				Locale:           pulumi.String(current.Region),
-//				SourceIpamPoolId: test.ID(),
+//				SourceIpamPoolId: test.ID().ToIDOutput().ToStringOutput(),
 //				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
-//					ResourceId:     testVpc.ID(),
+//					ResourceId:     testVpc.ID().ToIDOutput().ToStringOutput(),
 //					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
 //					ResourceRegion: pulumi.String(current.Region),
 //					ResourceType:   pulumi.String("vpc"),

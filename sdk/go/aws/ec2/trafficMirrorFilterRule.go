@@ -42,7 +42,7 @@ import (
 //			}
 //			_, err = ec2.NewTrafficMirrorFilterRule(ctx, "ruleout", &ec2.TrafficMirrorFilterRuleArgs{
 //				Description:           pulumi.String("test rule"),
-//				TrafficMirrorFilterId: filter.ID(),
+//				TrafficMirrorFilterId: filter.ID().ToIDOutput().ToStringOutput(),
 //				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
 //				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
 //				RuleNumber:            pulumi.Int(1),
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = ec2.NewTrafficMirrorFilterRule(ctx, "rulein", &ec2.TrafficMirrorFilterRuleArgs{
 //				Description:           pulumi.String("test rule"),
-//				TrafficMirrorFilterId: filter.ID(),
+//				TrafficMirrorFilterId: filter.ID().ToIDOutput().ToStringOutput(),
 //				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
 //				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
 //				RuleNumber:            pulumi.Int(1),

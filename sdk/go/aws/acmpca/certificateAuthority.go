@@ -136,10 +136,8 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: example.ID(),
-//				Policy: pulumi.String(acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return acmpcaBucketAccess.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
+//				Policy: acmpcaBucketAccess.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -157,7 +155,7 @@ import (
 //						CustomCname:      pulumi.String("crl.example.com"),
 //						Enabled:          pulumi.Bool(true),
 //						ExpirationInDays: pulumi.Int(7),
-//						S3BucketName:     example.ID(),
+//						S3BucketName:     example.ID().ToIDOutput().ToStringOutput(),
 //						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},

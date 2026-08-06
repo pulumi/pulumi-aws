@@ -72,12 +72,12 @@ import (
 //					&ec2.GetInstanceFilterArgs{
 //						Name: pulumi.String("tag:aws:cloud9:environment"),
 //						Values: pulumi.StringArray{
-//							example.ID(),
+//							example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
 //			}, nil)
-//			ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
+//			ctx.Export("cloud9Url", example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //				return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", region, id), nil
 //			}).(pulumi.StringOutput))
 //			return nil
@@ -112,16 +112,14 @@ import (
 //					&ec2.GetInstanceFilterArgs{
 //						Name: pulumi.String("tag:aws:cloud9:environment"),
 //						Values: pulumi.StringArray{
-//							example.ID(),
+//							example.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
 //			}, nil)
 //			cloud9Eip, err := ec2.NewEip(ctx, "cloud9_eip", &ec2.EipArgs{
-//				Instance: pulumi.String(cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
-//					return cloud9Instance.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Domain: pulumi.String("vpc"),
+//				Instance: cloud9Instance.Id(),
+//				Domain:   pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err

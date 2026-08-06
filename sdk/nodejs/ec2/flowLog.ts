@@ -134,7 +134,7 @@ import * as utilities from "../utilities";
  * });
  * const dst = new aws.iam.Role("dst", {
  *     name: "AWSLogDeliveryFirehoseCrossAccountRole",
- *     assumeRolePolicy: dstAssumeRolePolicy.apply(dstAssumeRolePolicy => dstAssumeRolePolicy.json),
+ *     assumeRolePolicy: dstAssumeRolePolicy.json,
  * });
  * const srcRolePolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [
@@ -175,7 +175,7 @@ import * as utilities from "../utilities";
  * const srcPolicy = new aws.iam.RolePolicy("src_policy", {
  *     name: "tf-example-mySourceRolePolicy",
  *     role: srcRole.name,
- *     policy: srcRolePolicy.apply(srcRolePolicy => srcRolePolicy.json),
+ *     policy: srcRolePolicy.json,
  * });
  * const dstFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("dst", {tags: {
  *     LogDeliveryEnabled: "true",

@@ -58,7 +58,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := fis.GetExperimentTemplates(ctx, &fis.GetExperimentTemplatesArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Name": "example",
 //					"Tier": "1",
 //				},

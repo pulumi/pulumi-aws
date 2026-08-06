@@ -112,7 +112,7 @@ import (
 //			}
 //			_, err = apigateway.NewAuthorizer(ctx, "demo", &apigateway.AuthorizerArgs{
 //				Name:                  pulumi.String("demo"),
-//				RestApi:               demoRestApi.ID(),
+//				RestApi:               demoRestApi.ID().ToIDOutput().ToStringOutput(),
 //				AuthorizerUri:         authorizer.InvokeArn,
 //				AuthorizerCredentials: invocationRole.Arn,
 //			})
@@ -133,11 +133,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "invocation_policy", &iam.RolePolicyArgs{
-//				Name: pulumi.String("default"),
-//				Role: invocationRole.ID(),
-//				Policy: pulumi.String(invocationPolicy.ApplyT(func(invocationPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return invocationPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("default"),
+//				Role:   invocationRole.ID().ToIDOutput().ToStringOutput(),
+//				Policy: invocationPolicy.Json(),
 //			})
 //			if err != nil {
 //				return err

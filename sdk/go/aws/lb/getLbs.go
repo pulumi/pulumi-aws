@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lb.GetLbs(ctx, &lb.GetLbsArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"elbv2.k8s.aws/cluster": "my-cluster",
 //				},
 //			}, nil)

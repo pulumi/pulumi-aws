@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * const codepipelinePolicyRolePolicy = new aws.iam.RolePolicy("codepipeline_policy", {
  *     name: "codepipeline_policy",
  *     role: codepipelineRole.id,
- *     policy: codepipelinePolicy.apply(codepipelinePolicy => codepipelinePolicy.json),
+ *     policy: codepipelinePolicy.json,
  * });
  * ```
  *

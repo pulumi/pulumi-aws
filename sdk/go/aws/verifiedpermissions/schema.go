@@ -32,8 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Namespace": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string]map[string]interface{}{
+//				"Namespace": map[string]map[string]interface{}{
 //					"entityTypes": map[string]interface{}{},
 //					"actions":     map[string]interface{}{},
 //				},

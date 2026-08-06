@@ -293,7 +293,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Enable IAM User Permissions",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -302,7 +302,7 @@ import (
 //					map[string]interface{}{
 //						"Sid":    "Allow use of the key",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentGetPartition.Partition, current.AccountId),
 //						},
 //						"Action": []string{
@@ -311,7 +311,7 @@ import (
 //							"kms:GenerateDataKey",
 //						},
 //						"Resource": "*",
-//						"Condition": map[string]interface{}{
+//						"Condition": map[string]map[string]interface{}{
 //							"StringLike": map[string]interface{}{
 //								"kms:ViaService": "secretsmanager.*.amazonaws.com",
 //								"kms:EncryptionContext:SecretARN": []string{

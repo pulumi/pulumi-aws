@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
+//				DirectoryId:                 oneDirectory.ID().ToIDOutput().ToStringOutput(),
 //				RemoteDomainName:            twoDirectory.Name,
 //				TrustDirection:              pulumi.String("Two-Way"),
 //				TrustPassword:               pulumi.String("Some0therPassword"),
@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
+//				DirectoryId:                 twoDirectory.ID().ToIDOutput().ToStringOutput(),
 //				RemoteDomainName:            oneDirectory.Name,
 //				TrustDirection:              pulumi.String("Two-Way"),
 //				TrustPassword:               pulumi.String("Some0therPassword"),
@@ -105,7 +105,7 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewTrust(ctx, "one", &directoryservice.TrustArgs{
-//				DirectoryId:                 oneDirectory.ID(),
+//				DirectoryId:                 oneDirectory.ID().ToIDOutput().ToStringOutput(),
 //				RemoteDomainName:            twoDirectory.Name,
 //				TrustDirection:              pulumi.String("One-Way: Incoming"),
 //				TrustPassword:               pulumi.String("Some0therPassword"),
@@ -115,7 +115,7 @@ import (
 //				return err
 //			}
 //			_, err = directoryservice.NewTrust(ctx, "two", &directoryservice.TrustArgs{
-//				DirectoryId:                 twoDirectory.ID(),
+//				DirectoryId:                 twoDirectory.ID().ToIDOutput().ToStringOutput(),
 //				RemoteDomainName:            oneDirectory.Name,
 //				TrustDirection:              pulumi.String("One-Way: Outgoing"),
 //				TrustPassword:               pulumi.String("Some0therPassword"),

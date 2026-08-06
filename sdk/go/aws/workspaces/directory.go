@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			exampleA, err := ec2.NewSubnet(ctx, "example_a", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-east-1a"),
 //				CidrBlock:        pulumi.String("10.0.0.0/24"),
 //			})
@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleB, err := ec2.NewSubnet(ctx, "example_b", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-east-1b"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -59,10 +59,10 @@ import (
 //				Password: pulumi.String("#S1ncerely"),
 //				Size:     pulumi.String("Small"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: exampleVpc.ID(),
+//					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
-//						exampleA.ID(),
-//						exampleB.ID(),
+//						exampleA.ID().ToIDOutput().ToStringOutput(),
+//						exampleB.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -111,7 +111,7 @@ import (
 //				return err
 //			}
 //			exampleC, err := ec2.NewSubnet(ctx, "example_c", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-east-1c"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //			})
@@ -119,7 +119,7 @@ import (
 //				return err
 //			}
 //			exampleD, err := ec2.NewSubnet(ctx, "example_d", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
+//				VpcId:            exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-east-1d"),
 //				CidrBlock:        pulumi.String("10.0.3.0/24"),
 //			})
@@ -127,10 +127,10 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
-//				DirectoryId: exampleDirectory.ID(),
+//				DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
 //				SubnetIds: pulumi.StringArray{
-//					exampleC.ID(),
-//					exampleD.ID(),
+//					exampleC.ID().ToIDOutput().ToStringOutput(),
+//					exampleD.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Example": pulumi.String("true"),
@@ -260,7 +260,7 @@ import (
 //			_, err = workspaces.NewDirectory(ctx, "example", &workspaces.DirectoryArgs{
 //				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
 //				IpGroupIds: pulumi.StringArray{
-//					exampleIpGroup.ID(),
+//					exampleIpGroup.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

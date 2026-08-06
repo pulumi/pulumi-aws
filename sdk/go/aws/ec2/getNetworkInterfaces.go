@@ -53,7 +53,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.GetNetworkInterfaces(ctx, &ec2.GetNetworkInterfacesArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Name": "test",
 //				},
 //			}, nil)

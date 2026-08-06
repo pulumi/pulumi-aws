@@ -69,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"username": "user",
 //				"password": "pass",
 //			})
@@ -78,7 +78,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
-//				SecretId:     exampleSecret.ID(),
+//				SecretId:     exampleSecret.ID().ToIDOutput().ToStringOutput(),
 //				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -119,9 +119,7 @@ import (
 //			}, nil)
 //			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Policy:    example.Json(),
 //			})
 //			if err != nil {
 //				return err

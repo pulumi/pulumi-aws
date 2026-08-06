@@ -72,8 +72,8 @@ import (
 //				return err
 //			}
 //			exampleGatewayAssociation, err := directconnect.NewGatewayAssociation(ctx, "example", &directconnect.GatewayAssociationArgs{
-//				DxGatewayId:         example.ID(),
-//				AssociatedGatewayId: exampleTransitGateway.ID(),
+//				DxGatewayId:         example.ID().ToIDOutput().ToStringOutput(),
+//				AssociatedGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //				AllowedPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -82,7 +82,7 @@ import (
 //				return err
 //			}
 //			exampleRouteTable, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
+//				TransitGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -90,7 +90,7 @@ import (
 //			// Correct: Reference the attachment ID directly from the association resource
 //			_, err = ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
 //				TransitGatewayAttachmentId: exampleGatewayAssociation.TransitGatewayAttachmentId,
-//				TransitGatewayRouteTableId: exampleRouteTable.ID(),
+//				TransitGatewayRouteTableId: exampleRouteTable.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -127,7 +127,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     example.ID(),
+//				VpcId:     example.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock: pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -141,24 +141,24 @@ import (
 //			}
 //			exampleVpcAttachment, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
+//					exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				TransitGatewayId: exampleTransitGateway.ID(),
-//				VpcId:            example.ID(),
+//				TransitGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleRouteTable, err := ec2transitgateway.NewRouteTable(ctx, "example", &ec2transitgateway.RouteTableArgs{
-//				TransitGatewayId: exampleTransitGateway.ID(),
+//				TransitGatewayId: exampleTransitGateway.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Correct: Reference the VPC attachment ID directly
 //			_, err = ec2transitgateway.NewRouteTableAssociation(ctx, "example", &ec2transitgateway.RouteTableAssociationArgs{
-//				TransitGatewayAttachmentId: exampleVpcAttachment.ID(),
-//				TransitGatewayRouteTableId: exampleRouteTable.ID(),
+//				TransitGatewayAttachmentId: exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayRouteTableId: exampleRouteTable.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

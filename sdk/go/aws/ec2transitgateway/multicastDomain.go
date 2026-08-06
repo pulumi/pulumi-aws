@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
-//				VpcId:            vpc1.ID(),
+//				VpcId:            vpc1.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
@@ -80,7 +80,7 @@ import (
 //				return err
 //			}
 //			subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
-//				VpcId:            vpc1.ID(),
+//				VpcId:            vpc1.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //				AvailabilityZone: pulumi.String(available.Names[1]),
 //			})
@@ -88,7 +88,7 @@ import (
 //				return err
 //			}
 //			subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
-//				VpcId:            vpc2.ID(),
+//				VpcId:            vpc2.ID().ToIDOutput().ToStringOutput(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
 //				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
@@ -98,7 +98,7 @@ import (
 //			instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
 //				Ami:          pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet1.ID(),
+//				SubnetId:     subnet1.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -106,7 +106,7 @@ import (
 //			instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
 //				Ami:          pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet2.ID(),
+//				SubnetId:     subnet2.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -114,7 +114,7 @@ import (
 //			instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
 //				Ami:          pulumi.String(amazonLinux.Id),
 //				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
-//				SubnetId:     subnet3.ID(),
+//				SubnetId:     subnet3.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -127,27 +127,27 @@ import (
 //			}
 //			attachment1, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment1", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					subnet1.ID(),
-//					subnet2.ID(),
+//					subnet1.ID().ToIDOutput().ToStringOutput(),
+//					subnet2.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				TransitGatewayId: tgw.ID(),
-//				VpcId:            vpc1.ID(),
+//				TransitGatewayId: tgw.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            vpc1.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			attachment2, err := ec2transitgateway.NewVpcAttachment(ctx, "attachment2", &ec2transitgateway.VpcAttachmentArgs{
 //				SubnetIds: pulumi.StringArray{
-//					subnet3.ID(),
+//					subnet3.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				TransitGatewayId: tgw.ID(),
-//				VpcId:            vpc2.ID(),
+//				TransitGatewayId: tgw.ID().ToIDOutput().ToStringOutput(),
+//				VpcId:            vpc2.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			domain, err := ec2transitgateway.NewMulticastDomain(ctx, "domain", &ec2transitgateway.MulticastDomainArgs{
-//				TransitGatewayId:     tgw.ID(),
+//				TransitGatewayId:     tgw.ID().ToIDOutput().ToStringOutput(),
 //				StaticSourcesSupport: pulumi.String("enable"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Transit_Gateway_Multicast_Domain_Example"),
@@ -157,9 +157,9 @@ import (
 //				return err
 //			}
 //			association3, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association3", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet3.ID(),
-//				TransitGatewayAttachmentId:      attachment2.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
+//				SubnetId:                        subnet3.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayAttachmentId:      attachment2.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayMulticastDomainId: domain.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -173,17 +173,17 @@ import (
 //				return err
 //			}
 //			association1, err := ec2transitgateway.NewMulticastDomainAssociation(ctx, "association1", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet1.ID(),
-//				TransitGatewayAttachmentId:      attachment1.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
+//				SubnetId:                        subnet1.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayAttachmentId:      attachment1.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayMulticastDomainId: domain.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2transitgateway.NewMulticastDomainAssociation(ctx, "association2", &ec2transitgateway.MulticastDomainAssociationArgs{
-//				SubnetId:                        subnet2.ID(),
-//				TransitGatewayAttachmentId:      attachment2.ID(),
-//				TransitGatewayMulticastDomainId: domain.ID(),
+//				SubnetId:                        subnet2.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayAttachmentId:      attachment2.ID().ToIDOutput().ToStringOutput(),
+//				TransitGatewayMulticastDomainId: domain.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

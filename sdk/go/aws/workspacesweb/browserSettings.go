@@ -32,9 +32,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AdditionalSettings": map[string]interface{}{
-//					"DownloadsSettings": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string]map[string]string{
+//				"AdditionalSettings": map[string]map[string]string{
+//					"DownloadsSettings": map[string]string{
 //						"Behavior": "DISABLE",
 //					},
 //				},
@@ -79,9 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"chromePolicies": map[string]interface{}{
-//					"DefaultDownloadDirectory": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string]map[string]string{
+//				"chromePolicies": map[string]map[string]string{
+//					"DefaultDownloadDirectory": map[string]string{
 //						"value": "/home/as2-streaming-user/MyFiles/TemporaryFiles1",
 //					},
 //				},

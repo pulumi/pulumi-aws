@@ -213,7 +213,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := efs.NewMountTarget(ctx, fmt.Sprintf("example-%v", key0), &efs.MountTargetArgs{
-//					FileSystemId: example.ID(),
+//					FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //					SubnetId:     pulumi.String(subnetIds[val0]),
 //					SecurityGroups: pulumi.StringArray{
 //						efs.Id,
@@ -226,7 +226,7 @@ import (
 //			}
 //			// Access point for Lambda
 //			exampleAccessPoint, err := efs.NewAccessPoint(ctx, "example", &efs.AccessPointArgs{
-//				FileSystemId: example.ID(),
+//				FileSystemId: example.ID().ToIDOutput().ToStringOutput(),
 //				RootDirectory: &efs.AccessPointRootDirectoryArgs{
 //					Path: pulumi.String("/lambda"),
 //					CreationInfo: &efs.AccessPointRootDirectoryCreationInfoArgs{
@@ -324,7 +324,7 @@ import (
 //				return err
 //			}
 //			forLambdaFilesAccessPoint, err := s3.NewFilesAccessPoint(ctx, "for_lambda", &s3.FilesAccessPointArgs{
-//				FileSystemId: forLambda.ID(),
+//				FileSystemId: forLambda.ID().ToIDOutput().ToStringOutput(),
 //				RootDirectories: s3.FilesAccessPointRootDirectoryArray{
 //					&s3.FilesAccessPointRootDirectoryArgs{
 //						Path: pulumi.String("/lambda"),
@@ -365,18 +365,18 @@ import (
 //				IpProtocol:                pulumi.String("tcp"),
 //				FromPort:                  pulumi.Int(2049),
 //				ToPort:                    pulumi.Int(2049),
-//				ReferencedSecurityGroupId: lambdaS3files.ID(),
-//				SecurityGroupId:           s3filesMountTargets.ID(),
+//				ReferencedSecurityGroupId: lambdaS3files.ID().ToIDOutput().ToStringOutput(),
+//				SecurityGroupId:           s3filesMountTargets.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpc.NewSecurityGroupEgressRule(ctx, "lambda_s3files_nfs", &vpc.SecurityGroupEgressRuleArgs{
 //				IpProtocol:                pulumi.String("tcp"),
-//				SecurityGroupId:           lambdaS3files.ID(),
+//				SecurityGroupId:           lambdaS3files.ID().ToIDOutput().ToStringOutput(),
 //				FromPort:                  pulumi.Int(2049),
 //				ToPort:                    pulumi.Int(2049),
-//				ReferencedSecurityGroupId: s3filesMountTargets.ID(),
+//				ReferencedSecurityGroupId: s3filesMountTargets.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -392,7 +392,7 @@ import (
 //						subnetForLambdaAz1.Id,
 //					},
 //					SecurityGroupIds: pulumi.StringArray{
-//						lambdaS3files.ID(),
+//						lambdaS3files.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
@@ -559,10 +559,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "lambda_log_export", &iam.RolePolicyArgs{
-//				Policy: pulumi.String(lambdaLogExport.ApplyT(func(lambdaLogExport iam.GetPolicyDocumentResult) (*string, error) {
-//					return lambdaLogExport.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Role: logsLogExport.Name,
+//				Policy: lambdaLogExport.Json(),
+//				Role:   logsLogExport.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -693,7 +691,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "lambda.amazonaws.com",
 //						},
 //					},

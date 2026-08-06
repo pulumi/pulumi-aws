@@ -71,10 +71,8 @@ import (
 //				},
 //			}, nil)
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
-//				Bucket: exampleBucket.ID(),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
+//				Policy: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -86,7 +84,7 @@ import (
 //				},
 //				LogConfiguration: &workspacesweb.SessionLoggerLogConfigurationArgs{
 //					S3: &workspacesweb.SessionLoggerLogConfigurationS3Args{
-//						Bucket:          exampleBucket.ID(),
+//						Bucket:          exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //						FolderStructure: pulumi.String("Flat"),
 //						LogFileFormat:   pulumi.String("Json"),
 //					},

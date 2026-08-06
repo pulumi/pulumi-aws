@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const exampleSessionLogger = new aws.workspacesweb.SessionLogger("example", {
  *     displayName: "example-session-logger",
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const current = aws.getPartition({});
  * const currentGetCallerIdentity = aws.getCallerIdentity({});

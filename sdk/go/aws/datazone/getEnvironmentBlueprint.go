@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_ = datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: exampleDomain.ID(),
+//				DomainId: exampleDomain.ID().ToIDOutput().ToStringOutput(),
 //				Name:     pulumi.String("DefaultDataLake"),
 //				Managed:  pulumi.Bool(true),
 //			}, nil)

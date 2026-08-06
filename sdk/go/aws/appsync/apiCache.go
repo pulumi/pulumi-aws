@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewApiCache(ctx, "example", &appsync.ApiCacheArgs{
-//				ApiId:              example.ID(),
+//				ApiId:              example.ID().ToIDOutput().ToStringOutput(),
 //				ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
 //				Type:               pulumi.String("LARGE"),
 //				Ttl:                pulumi.Int(900),

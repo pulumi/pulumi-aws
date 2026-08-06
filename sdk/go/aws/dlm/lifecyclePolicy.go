@@ -91,7 +91,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "dlm_lifecycle", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("dlm-lifecycle-policy"),
-//				Role:   dlmLifecycleRole.ID(),
+//				Role:   dlmLifecycleRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(dlmLifecycle.Json),
 //			})
 //			if err != nil {

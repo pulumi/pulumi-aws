@@ -42,21 +42,21 @@ import (
 //				return err
 //			}
 //			exampleUser, err := cognito.NewUser(ctx, "example", &cognito.UserArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				Username:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleUserGroup, err := cognito.NewUserGroup(ctx, "example", &cognito.UserGroupArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cognito.NewUserInGroup(ctx, "example", &cognito.UserInGroupArgs{
-//				UserPoolId: example.ID(),
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				GroupName:  exampleUserGroup.Name,
 //				Username:   exampleUser.Username,
 //			})

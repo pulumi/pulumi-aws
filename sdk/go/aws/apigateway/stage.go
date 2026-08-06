@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "example", &cloudwatch.LogGroupArgs{
-//				Name: example.ID().ApplyT(func(id string) (string, error) {
+//				Name: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("API-Gateway-Execution-Logs_%v/%v", id, stageName), nil
 //				}).(pulumi.StringOutput),
 //				RetentionInDays: pulumi.Int(7),

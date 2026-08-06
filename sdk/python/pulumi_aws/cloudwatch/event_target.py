@@ -1158,7 +1158,7 @@ class EventTarget(pulumi.CustomResource):
         invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
             arn=std.replace_output(text=graphql_api.arn,
                 search="apis",
-                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
+                replace="endpoints/graphql-api").result,
             rule=invoke_appsync_mutation.id,
             role_arn=appsync_mutation_role.arn,
             input_transformer={
@@ -1653,7 +1653,7 @@ class EventTarget(pulumi.CustomResource):
         invoke_appsync_mutation_event_target = aws.cloudwatch.EventTarget("invoke_appsync_mutation",
             arn=std.replace_output(text=graphql_api.arn,
                 search="apis",
-                replace="endpoints/graphql-api").apply(lambda invoke: invoke.result),
+                replace="endpoints/graphql-api").result,
             rule=invoke_appsync_mutation.id,
             role_arn=appsync_mutation_role.arn,
             input_transformer={

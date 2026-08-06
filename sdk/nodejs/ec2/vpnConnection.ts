@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *     customerGatewayId: exampleCustomerGateway.id,
  *     outsideIpAddressType: "PrivateIpv4",
  *     transitGatewayId: exampleTransitGateway.id,
- *     transportTransitGatewayAttachmentId: example.apply(example => example.id),
+ *     transportTransitGatewayAttachmentId: example.id,
  *     type: "ipsec.1",
  *     tags: {
  *         Name: "example_ipsec_vpn_example",

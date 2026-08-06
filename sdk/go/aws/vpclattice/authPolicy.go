@@ -48,8 +48,8 @@ import (
 //						"Effect":    "Allow",
 //						"Principal": "*",
 //						"Resource":  "*",
-//						"Condition": map[string]interface{}{
-//							"StringNotEqualsIgnoreCase": map[string]interface{}{
+//						"Condition": map[string]map[string]string{
+//							"StringNotEqualsIgnoreCase": map[string]string{
 //								"aws:PrincipalType": "anonymous",
 //							},
 //						},

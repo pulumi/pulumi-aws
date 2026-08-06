@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("example", {
  *     identity: exampleDomainIdentity.arn,
  *     name: "example",
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dynamodb.LookupTableItem(ctx, &dynamodb.LookupTableItemArgs{
 //				TableName: example.Name,
-//				ExpressionAttributeNames: map[string]interface{}{
+//				ExpressionAttributeNames: map[string]string{
 //					"#P": "Percentile",
 //				},
 //				ProjectionExpression: pulumi.StringRef("#P"),

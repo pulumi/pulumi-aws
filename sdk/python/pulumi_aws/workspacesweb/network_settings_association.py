@@ -175,7 +175,7 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).result,
                 availability_zone=available.names[example_subnet_range["value"]],
                 tags={
                     "Name": "example",
@@ -248,7 +248,7 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).result,
                 availability_zone=available.names[example_subnet_range["value"]],
                 tags={
                     "Name": "example",

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: example.bucket,
- *     policy: Promise.all([example.arn, current]).then(([arn, current]) => `{
+ *     policy: pulumi.all([example.arn, current]).apply(([arn, current]) => `{
  *   \"Version\": \"2012-10-17\",
  *   \"Statement\": [
  *     {

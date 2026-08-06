@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewInventory(ctx, "test", &s3.InventoryArgs{
-//				Bucket:                 test.ID(),
+//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
 //				Name:                   pulumi.String("EntireBucketDaily"),
 //				IncludedObjectVersions: pulumi.String("All"),
 //				Schedule: &s3.InventoryScheduleArgs{
@@ -92,7 +92,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewInventory(ctx, "test-prefix", &s3.InventoryArgs{
-//				Bucket:                 test.ID(),
+//				Bucket:                 test.ID().ToIDOutput().ToStringOutput(),
 //				Name:                   pulumi.String("DocumentsWeekly"),
 //				IncludedObjectVersions: pulumi.String("All"),
 //				Schedule: &s3.InventoryScheduleArgs{

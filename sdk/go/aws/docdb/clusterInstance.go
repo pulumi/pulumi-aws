@@ -51,7 +51,7 @@ import (
 //				val0 := index
 //				__res, err := docdb.NewClusterInstance(ctx, fmt.Sprintf("cluster_instances-%v", key0), &docdb.ClusterInstanceArgs{
 //					Identifier:        pulumi.Sprintf("docdb-cluster-demo-%v", val0),
-//					ClusterIdentifier: _default.ID(),
+//					ClusterIdentifier: _default.ID().ToIDOutput().ToStringOutput(),
 //					InstanceClass:     pulumi.String("db.r5.large"),
 //				})
 //				if err != nil {

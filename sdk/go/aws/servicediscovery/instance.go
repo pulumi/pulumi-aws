@@ -40,7 +40,7 @@ import (
 //			examplePrivateDnsNamespace, err := servicediscovery.NewPrivateDnsNamespace(ctx, "example", &servicediscovery.PrivateDnsNamespaceArgs{
 //				Name:        pulumi.String("example.domain.local"),
 //				Description: pulumi.String("example"),
-//				Vpc:         example.ID(),
+//				Vpc:         example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +48,7 @@ import (
 //			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
 //				Name: pulumi.String("example"),
 //				DnsConfig: &servicediscovery.ServiceDnsConfigArgs{
-//					NamespaceId: examplePrivateDnsNamespace.ID(),
+//					NamespaceId: examplePrivateDnsNamespace.ID().ToIDOutput().ToStringOutput(),
 //					DnsRecords: servicediscovery.ServiceDnsConfigDnsRecordArray{
 //						&servicediscovery.ServiceDnsConfigDnsRecordArgs{
 //							Ttl:  pulumi.Int(10),
@@ -66,7 +66,7 @@ import (
 //			}
 //			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
+//				ServiceId:  exampleService.ID().ToIDOutput().ToStringOutput(),
 //				Attributes: pulumi.StringMap{
 //					"AWS_INSTANCE_IPV4": pulumi.String("172.18.0.1"),
 //					"custom_attribute":  pulumi.String("custom"),
@@ -102,14 +102,14 @@ import (
 //			}
 //			exampleService, err := servicediscovery.NewService(ctx, "example", &servicediscovery.ServiceArgs{
 //				Name:        pulumi.String("example"),
-//				NamespaceId: example.ID(),
+//				NamespaceId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = servicediscovery.NewInstance(ctx, "example", &servicediscovery.InstanceArgs{
 //				InstanceId: pulumi.String("example-instance-id"),
-//				ServiceId:  exampleService.ID(),
+//				ServiceId:  exampleService.ID().ToIDOutput().ToStringOutput(),
 //				Attributes: pulumi.StringMap{
 //					"AWS_EC2_INSTANCE_ID": pulumi.String("i-0abdg374kd892cj6dl"),
 //				},

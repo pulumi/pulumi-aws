@@ -306,7 +306,7 @@ import * as utilities from "../utilities";
  * const firehose_elasticsearchRolePolicy = new aws.iam.RolePolicy("firehose-elasticsearch", {
  *     name: "elasticsearch",
  *     role: firehose.id,
- *     policy: firehose_elasticsearch.apply(firehose_elasticsearch => firehose_elasticsearch.json),
+ *     policy: firehose_elasticsearch.json,
  * });
  * const test = new aws.kinesis.FirehoseDeliveryStream("test", {
  *     name: "kinesis-firehose-es",

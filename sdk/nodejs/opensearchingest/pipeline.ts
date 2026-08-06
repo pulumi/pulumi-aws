@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * })});
  * const example = new aws.opensearchingest.Pipeline("example", {
  *     pipelineName: "example",
- *     pipelineConfigurationBody: Promise.all([exampleRole.arn, current]).then(([arn, current]) => `version: \"2\"
+ *     pipelineConfigurationBody: pulumi.all([exampleRole.arn, current]).apply(([arn, current]) => `version: \"2\"
  * example-pipeline:
  *   source:
  *     http:

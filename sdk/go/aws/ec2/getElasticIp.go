@@ -115,7 +115,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetElasticIp(ctx, &ec2.GetElasticIpArgs{
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Name": "exampleNameTagValue",
 //				},
 //			}, nil)

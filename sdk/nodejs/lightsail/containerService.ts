@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRepositoryPolicy = new aws.ecr.RepositoryPolicy("example", {
  *     repository: exampleAwsEcrRepository.name,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

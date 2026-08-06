@@ -47,13 +47,13 @@ import (
 //					pulumi.String("US"),
 //					pulumi.String("CA"),
 //				},
-//				VoiceConnectorId: _default.ID(),
+//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorTerminationCredentials(ctx, "default", &chime.VoiceConnectorTerminationCredentialsArgs{
-//				VoiceConnectorId: _default.ID(),
+//				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //				Credentials: chime.VoiceConnectorTerminationCredentialsCredentialArray{
 //					&chime.VoiceConnectorTerminationCredentialsCredentialArgs{
 //						Username: pulumi.String("test"),

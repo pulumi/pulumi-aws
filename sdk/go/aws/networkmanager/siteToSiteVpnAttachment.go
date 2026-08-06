@@ -70,7 +70,7 @@ import (
 // return err
 // }
 // testVpnConnection, err := ec2.NewVpnConnection(ctx, "test", &ec2.VpnConnectionArgs{
-// CustomerGatewayId: testCustomerGateway.ID(),
+// CustomerGatewayId: testCustomerGateway.ID().ToIDOutput().ToStringOutput(),
 // Type: pulumi.String("ipsec.1"),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("test"),
@@ -159,7 +159,7 @@ import (
 // return err
 // }
 // _, err = networkmanager.NewAttachmentAccepter(ctx, "test", &networkmanager.AttachmentAccepterArgs{
-// AttachmentId: testSiteToSiteVpnAttachment.ID(),
+// AttachmentId: testSiteToSiteVpnAttachment.ID().ToIDOutput().ToStringOutput(),
 // AttachmentType: testSiteToSiteVpnAttachment.AttachmentType,
 // })
 // if err != nil {

@@ -49,8 +49,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewEipAssociation(ctx, "eip_assoc", &ec2.EipAssociationArgs{
-//				InstanceId:   web.ID(),
-//				AllocationId: example.ID(),
+//				InstanceId:   web.ID().ToIDOutput().ToStringOutput(),
+//				AllocationId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *
@@ -146,7 +146,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *
@@ -236,7 +236,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *
@@ -302,7 +302,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleCoreNetworkPolicyAttachment = new aws.networkmanager.CoreNetworkPolicyAttachment("example", {
  *     coreNetworkId: exampleCoreNetwork.id,
- *     policyDocument: example.apply(example => example.json),
+ *     policyDocument: example.json,
  * });
  * ```
  *

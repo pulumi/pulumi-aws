@@ -45,7 +45,7 @@ import (
 //			}
 //			// Create a route
 //			_, err = ec2.NewRoute(ctx, "r", &ec2.RouteArgs{
-//				RouteTableId:           rt.ID(),
+//				RouteTableId:           rt.ID().ToIDOutput().ToStringOutput(),
 //				DestinationCidrBlock:   pulumi.String(pc.PeerCidrBlock),
 //				VpcPeeringConnectionId: pulumi.String(pc.Id),
 //			})

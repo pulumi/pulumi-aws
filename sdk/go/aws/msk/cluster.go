@@ -54,7 +54,7 @@ import (
 //			subnetAz1, err := ec2.NewSubnet(ctx, "subnet_az1", &ec2.SubnetArgs{
 //				AvailabilityZone: pulumi.String(azs.Names[0]),
 //				CidrBlock:        pulumi.String("192.168.0.0/24"),
-//				VpcId:            vpc.ID(),
+//				VpcId:            vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +62,7 @@ import (
 //			subnetAz2, err := ec2.NewSubnet(ctx, "subnet_az2", &ec2.SubnetArgs{
 //				AvailabilityZone: pulumi.String(azs.Names[1]),
 //				CidrBlock:        pulumi.String("192.168.1.0/24"),
-//				VpcId:            vpc.ID(),
+//				VpcId:            vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -70,13 +70,13 @@ import (
 //			subnetAz3, err := ec2.NewSubnet(ctx, "subnet_az3", &ec2.SubnetArgs{
 //				AvailabilityZone: pulumi.String(azs.Names[2]),
 //				CidrBlock:        pulumi.String("192.168.2.0/24"),
-//				VpcId:            vpc.ID(),
+//				VpcId:            vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			sg, err := ec2.NewSecurityGroup(ctx, "sg", &ec2.SecurityGroupArgs{
-//				VpcId: vpc.ID(),
+//				VpcId: vpc.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -100,7 +100,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID(),
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -155,9 +155,9 @@ import (
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 //					InstanceType: pulumi.String("kafka.m5.large"),
 //					ClientSubnets: pulumi.StringArray{
-//						subnetAz1.ID(),
-//						subnetAz2.ID(),
-//						subnetAz3.ID(),
+//						subnetAz1.ID().ToIDOutput().ToStringOutput(),
+//						subnetAz2.ID().ToIDOutput().ToStringOutput(),
+//						subnetAz3.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
 //						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
@@ -165,7 +165,7 @@ import (
 //						},
 //					},
 //					SecurityGroups: pulumi.StringArray{
-//						sg.ID(),
+//						sg.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				EncryptionInfo: &msk.ClusterEncryptionInfoArgs{
@@ -193,7 +193,7 @@ import (
 //						},
 //						S3: &msk.ClusterLoggingInfoBrokerLogsS3Args{
 //							Enabled: pulumi.Bool(true),
-//							Bucket:  bucket.ID(),
+//							Bucket:  bucket.ID().ToIDOutput().ToStringOutput(),
 //							Prefix:  pulumi.String("logs/msk-"),
 //						},
 //					},

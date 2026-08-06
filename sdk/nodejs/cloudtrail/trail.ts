@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [Promise.all([exampleBucket.arn, current]).then(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.id,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const exampleTrail = new aws.cloudtrail.Trail("example", {
  *     name: "example",

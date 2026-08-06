@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			defaultBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "default", &s3.BucketObjectv2Args{
-//				Bucket: _default.ID(),
+//				Bucket: _default.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("beanstalk/go-v1.zip"),
 //				Source: pulumi.NewFileAsset("go-v1.zip"),
 //			})
@@ -64,7 +64,7 @@ import (
 //				Name:        pulumi.String("tf-test-version-label"),
 //				Application: pulumi.Any("tf-test-name"),
 //				Description: pulumi.String("application version"),
-//				Bucket:      _default.ID(),
+//				Bucket:      _default.ID().ToIDOutput().ToStringOutput(),
 //				Key:         defaultBucketObjectv2.Key,
 //			})
 //			if err != nil {

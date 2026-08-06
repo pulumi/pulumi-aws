@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * const exampleModelPackageGroupPolicy = new aws.sagemaker.ModelPackageGroupPolicy("example", {
  *     modelPackageGroupName: exampleModelPackageGroup.modelPackageGroupName,
  *     resourcePolicy: pulumi.jsonStringify(std.jsondecodeOutput({
- *         input: example.apply(example => example.json),
- *     }).apply(invoke => invoke.result)),
+ *         input: example.json,
+ *     }).result),
  * });
  * ```
  *

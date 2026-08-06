@@ -165,7 +165,7 @@ import (
 //			_, err = rds.NewCustomDbEngineVersion(ctx, "test", &rds.CustomDbEngineVersionArgs{
 //				Engine:        pulumi.String("custom-sqlserver-se"),
 //				EngineVersion: pulumi.String("15.00.4249.2.cev-1"),
-//				SourceImageId: example.ID(),
+//				SourceImageId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

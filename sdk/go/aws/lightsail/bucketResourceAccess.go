@@ -45,8 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewBucketResourceAccess(ctx, "example", &lightsail.BucketResourceAccessArgs{
-//				BucketName:   example.ID(),
-//				ResourceName: exampleInstance.ID(),
+//				BucketName:   example.ID().ToIDOutput().ToStringOutput(),
+//				ResourceName: exampleInstance.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

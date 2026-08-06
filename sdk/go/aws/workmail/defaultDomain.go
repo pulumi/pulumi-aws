@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = workmail.NewDefaultDomain(ctx, "example", &workmail.DefaultDomainArgs{
-//				OrganizationId: example.ID(),
+//				OrganizationId: example.ID().ToIDOutput().ToStringOutput(),
 //				DomainName:     example.DefaultMailDomain,
 //			})
 //			if err != nil {

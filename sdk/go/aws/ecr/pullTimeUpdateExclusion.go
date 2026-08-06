@@ -39,7 +39,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "ec2.amazonaws.com",
 //						},
 //					},
@@ -77,7 +77,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example-role-policy"),
-//				Role:   example.ID(),
+//				Role:   example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(json1),
 //			})
 //			if err != nil {

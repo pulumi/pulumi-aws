@@ -228,7 +228,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
- *     policy: s3Access.apply(s3Access => s3Access.json),
+ *     policy: s3Access.json,
  * });
  * const training = new aws.s3.BucketObjectv2("training", {
  *     bucket: exampleBucket.bucket,

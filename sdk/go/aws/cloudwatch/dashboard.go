@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]interface{}{
 //				"widgets": []interface{}{
 //					map[string]interface{}{
 //						"type":   "metric",
@@ -59,7 +59,7 @@ import (
 //						"y":      7,
 //						"width":  3,
 //						"height": 3,
-//						"properties": map[string]interface{}{
+//						"properties": map[string]string{
 //							"markdown": "Hello world",
 //						},
 //					},

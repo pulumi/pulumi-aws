@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpnConnection(ctx, "transit", &ec2.VpnConnectionArgs{
-//				VpnGatewayId:      main.ID(),
+//				VpnGatewayId:      main.ID().ToIDOutput().ToStringOutput(),
 //				CustomerGatewayId: pulumi.String(foo.Id),
 //				Type:              pulumi.String(foo.Type),
 //				StaticRoutesOnly:  pulumi.Bool(false),

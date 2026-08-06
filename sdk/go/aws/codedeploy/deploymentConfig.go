@@ -43,7 +43,7 @@ import (
 //				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
 //				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID(),
+//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
 //				Ec2TagFilters: codedeploy.DeploymentGroupEc2TagFilterArray{
 //					&codedeploy.DeploymentGroupEc2TagFilterArgs{
 //						Key:   pulumi.String("filterkey"),
@@ -114,7 +114,7 @@ import (
 //				AppName:              pulumi.Any(fooApp.Name),
 //				DeploymentGroupName:  pulumi.String("bar"),
 //				ServiceRoleArn:       pulumi.Any(fooRole.Arn),
-//				DeploymentConfigName: foo.ID(),
+//				DeploymentConfigName: foo.ID().ToIDOutput().ToStringOutput(),
 //				AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
 //					Enabled: pulumi.Bool(true),
 //					Events: pulumi.StringArray{

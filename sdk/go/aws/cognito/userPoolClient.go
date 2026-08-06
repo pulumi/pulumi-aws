@@ -41,7 +41,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID(),
+//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "client", &cognito.UserPoolClientArgs{
 //				Name:           pulumi.String("client"),
-//				UserPoolId:     pool.ID(),
+//				UserPoolId:     pool.ID().ToIDOutput().ToStringOutput(),
 //				GenerateSecret: pulumi.Bool(true),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
@@ -150,7 +150,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "test", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("pool_client"),
-//				UserPoolId: testUserPool.ID(),
+//				UserPoolId: testUserPool.ID().ToIDOutput().ToStringOutput(),
 //				AnalyticsConfiguration: &cognito.UserPoolClientAnalyticsConfigurationArgs{
 //					ApplicationId:  testApp.ApplicationId,
 //					ExternalId:     pulumi.String("some_id"),
@@ -182,11 +182,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "test", &iam.RolePolicyArgs{
-//				Name: pulumi.String("role_policy"),
-//				Role: testRole.ID(),
-//				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return test.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("role_policy"),
+//				Role:   testRole.ID().ToIDOutput().ToStringOutput(),
+//				Policy: test.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -219,7 +217,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "userpool_client", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID(),
+//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //				CallbackUrls: pulumi.StringArray{
 //					pulumi.String("https://example.com"),
 //				},
@@ -267,7 +265,7 @@ import (
 //			}
 //			_, err = cognito.NewUserPoolClient(ctx, "userpool_client", &cognito.UserPoolClientArgs{
 //				Name:       pulumi.String("client"),
-//				UserPoolId: pool.ID(),
+//				UserPoolId: pool.ID().ToIDOutput().ToStringOutput(),
 //				ExplicitAuthFlows: pulumi.StringArray{
 //					pulumi.String("ADMIN_NO_SRP_AUTH"),
 //				},

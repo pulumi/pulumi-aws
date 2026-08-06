@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     name: "mongo",
  *     cluster: foo.id,
  *     desiredCount: 2,
- *     taskDefinition: mongo.apply(mongo => mongo.arn),
+ *     taskDefinition: mongo.arn,
  * });
  * ```
  */
@@ -199,7 +199,7 @@ export interface GetTaskDefinitionResult {
  *     name: "mongo",
  *     cluster: foo.id,
  *     desiredCount: 2,
- *     taskDefinition: mongo.apply(mongo => mongo.arn),
+ *     taskDefinition: mongo.arn,
  * });
  * ```
  */

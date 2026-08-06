@@ -83,7 +83,7 @@ import (
 //				ExportConfig: &codebuild.ReportGroupExportConfigArgs{
 //					Type: pulumi.String("S3"),
 //					S3Destination: &codebuild.ReportGroupExportConfigS3DestinationArgs{
-//						Bucket:             exampleBucket.ID(),
+//						Bucket:             exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //						EncryptionDisabled: pulumi.Bool(false),
 //						EncryptionKey:      exampleKey.Arn,
 //						Packaging:          pulumi.String("NONE"),

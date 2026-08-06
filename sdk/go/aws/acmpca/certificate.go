@@ -58,7 +58,7 @@ import (
 //			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
 //				PrivateKeyPem: key.PrivateKeyPem,
 //				Subject: tls.CertRequestSubjectArgs{
-//					map[string]interface{}{
+//					map[string]string{
 //						"commonName": "example",
 //					},
 //				},

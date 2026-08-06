@@ -32,8 +32,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"ClusterName": "example",
-//				"Tags": []map[string]interface{}{
-//					map[string]interface{}{
+//				"Tags": []map[string]string{
+//					{
 //						"Key":   "CostCenter",
 //						"Value": "IT",
 //					},

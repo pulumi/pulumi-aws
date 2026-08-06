@@ -85,7 +85,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRolePolicy(ctx, "test_policy", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
-//				Role:   exampleRole.ID(),
+//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test1.txt"),
 //			})
@@ -111,7 +111,7 @@ import (
 //				BaseModelName: pulumi.String("NarrowBand"),
 //				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{
 //					DataAccessRoleArn: exampleRole.Arn,
-//					S3Uri: exampleBucket.ID().ApplyT(func(id string) (string, error) {
+//					S3Uri: exampleBucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("s3://%v/transcribe/", id), nil
 //					}).(pulumi.StringOutput),
 //				},

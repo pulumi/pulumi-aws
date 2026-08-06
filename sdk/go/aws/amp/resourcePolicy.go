@@ -74,10 +74,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
-//				WorkspaceId: exampleWorkspace.ID(),
-//				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				WorkspaceId:    exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDocument: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -132,10 +130,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "cross_account", &amp.ResourcePolicyArgs{
-//				WorkspaceId: example.ID(),
-//				PolicyDocument: pulumi.String(crossAccount.ApplyT(func(crossAccount iam.GetPolicyDocumentResult) (*string, error) {
-//					return crossAccount.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				WorkspaceId:    example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDocument: crossAccount.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -192,10 +188,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "service_access", &amp.ResourcePolicyArgs{
-//				WorkspaceId: example.ID(),
-//				PolicyDocument: pulumi.String(serviceAccess.ApplyT(func(serviceAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return serviceAccess.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				WorkspaceId:    example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDocument: serviceAccess.Json(),
 //			})
 //			if err != nil {
 //				return err

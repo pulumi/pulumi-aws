@@ -52,7 +52,7 @@ import (
 //			}
 //			_, err = rds.NewShardGroup(ctx, "example", &rds.ShardGroupArgs{
 //				DbShardGroupIdentifier: pulumi.String("example-shard-group"),
-//				DbClusterIdentifier:    example.ID(),
+//				DbClusterIdentifier:    example.ID().ToIDOutput().ToStringOutput(),
 //				MaxAcu:                 pulumi.Float64(1200),
 //			})
 //			if err != nil {

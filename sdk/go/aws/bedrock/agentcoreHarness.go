@@ -126,8 +126,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"type": "object",
-//				"properties": map[string]interface{}{
-//					"location": map[string]interface{}{
+//				"properties": map[string]map[string]string{
+//					"location": map[string]string{
 //						"type":        "string",
 //						"description": "City name",
 //					},
@@ -176,10 +176,10 @@ import (
 //				Truncations: bedrock.AgentcoreHarnessTruncationArray{
 //					&bedrock.AgentcoreHarnessTruncationArgs{
 //						Strategy: pulumi.String("sliding_window"),
-//						Config: []map[string]interface{}{
-//							map[string]interface{}{
-//								"slidingWindow": []map[string]interface{}{
-//									map[string]interface{}{
+//						Config: []map[string][]map[string]int{
+//							{
+//								"slidingWindow": []map[string]int{
+//									{
 //										"messagesCount": 50,
 //									},
 //								},

@@ -87,7 +87,7 @@ import (
 //					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //					Input: example.Url.ApplyT(func(url string) (pulumi.String, error) {
 //						var _zero pulumi.String
-//						tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						tmpJSON0, err := json.Marshal(map[string]string{
 //							"MessageBody": "Greetings, programs!",
 //							"QueueUrl":    url,
 //						})

@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -56,8 +56,8 @@ import (
 //				return err
 //			}
 //			_, err = fsx.NewDataRepositoryAssociation(ctx, "example", &fsx.DataRepositoryAssociationArgs{
-//				FileSystemId: exampleLustreFileSystem.ID(),
-//				DataRepositoryPath: example.ID().ApplyT(func(id string) (string, error) {
+//				FileSystemId: exampleLustreFileSystem.ID().ToIDOutput().ToStringOutput(),
+//				DataRepositoryPath: example.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("s3://%v", id), nil
 //				}).(pulumi.StringOutput),
 //				FileSystemPath: pulumi.String("/my-bucket"),

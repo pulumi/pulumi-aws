@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * });
  * const mainDomainPolicy = new aws.opensearch.DomainPolicy("main", {
  *     domainName: example.domainName,
- *     accessPolicies: main.apply(main => main.json),
+ *     accessPolicies: main.json,
  * });
  * ```
  *

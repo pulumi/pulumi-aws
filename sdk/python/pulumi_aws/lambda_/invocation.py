@@ -353,7 +353,7 @@ class Invocation(pulumi.CustomResource):
                     "debug": False,
                 },
             }))
-        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).apply(lambda invoke: invoke.result["status"]))
+        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).result["status"])
         ```
 
         ### Dynamic Invocation with Triggers
@@ -371,7 +371,7 @@ class Invocation(pulumi.CustomResource):
                 "config_hash": std.sha256_output(input=json.dumps({
                     "environment": environment,
                     "timestamp": std.timestamp().result,
-                })).apply(lambda invoke: invoke.result),
+                })).result,
             },
             input=json.dumps({
                 "operation": "process_data",
@@ -477,7 +477,7 @@ class Invocation(pulumi.CustomResource):
                     "debug": False,
                 },
             }))
-        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).apply(lambda invoke: invoke.result["status"]))
+        pulumi.export("initializationResult", std.jsondecode_output(input=example_invocation.result).result["status"])
         ```
 
         ### Dynamic Invocation with Triggers
@@ -495,7 +495,7 @@ class Invocation(pulumi.CustomResource):
                 "config_hash": std.sha256_output(input=json.dumps({
                     "environment": environment,
                     "timestamp": std.timestamp().result,
-                })).apply(lambda invoke: invoke.result),
+                })).result,
             },
             input=json.dumps({
                 "operation": "process_data",

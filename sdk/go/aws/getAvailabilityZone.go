@@ -44,7 +44,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
-//			regionNumber := map[string]interface{}{
+//			regionNumber := map[string]int{
 //				"ap-northeast-1": 5,
 //				"eu-central-1":   4,
 //				"us-east-1":      1,
@@ -54,7 +54,7 @@ import (
 //			if param := cfg.GetObject("regionNumber"); param != nil {
 //				regionNumber = param
 //			}
-//			azNumber := map[string]interface{}{
+//			azNumber := map[string]int{
 //				"a": 1,
 //				"b": 2,
 //				"c": 3,
@@ -90,15 +90,12 @@ import (
 //			}
 //			// Create a subnet for the AZ within the regional VPC
 //			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId: exampleVpc.ID(),
-//				CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//				VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+//				CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //					Input:   exampleVpc.CidrBlock,
 //					Newbits: pulumi.Int(4),
 //					Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
-//				}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //			})
 //			if err != nil {
 //				return err

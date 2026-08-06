@@ -66,22 +66,22 @@ import (
 //				return err
 //			}
 //			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Parameters": map[string]interface{}{
-//					"VPCCidr": map[string]interface{}{
+//				"Parameters": map[string]map[string]string{
+//					"VPCCidr": map[string]string{
 //						"Type":        "String",
 //						"Default":     "10.0.0.0/16",
 //						"Description": "Enter the CIDR block for the VPC. Default is 10.0.0.0/16.",
 //					},
 //				},
-//				"Resources": map[string]interface{}{
+//				"Resources": map[string]map[string]interface{}{
 //					"myVpc": map[string]interface{}{
 //						"Type": "AWS::EC2::VPC",
 //						"Properties": map[string]interface{}{
-//							"CidrBlock": map[string]interface{}{
+//							"CidrBlock": map[string]string{
 //								"Ref": "VPCCidr",
 //							},
-//							"Tags": []map[string]interface{}{
-//								map[string]interface{}{
+//							"Tags": []map[string]string{
+//								{
 //									"Key":   "Name",
 //									"Value": "Primary_CF_VPC",
 //								},
@@ -121,11 +121,9 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", &iam.RolePolicyArgs{
-//				Name: pulumi.String("ExecutionPolicy"),
-//				Policy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Role: aWSCloudFormationStackSetAdministrationRole.Name,
+//				Name:   pulumi.String("ExecutionPolicy"),
+//				Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.Json(),
+//				Role:   aWSCloudFormationStackSetAdministrationRole.Name,
 //			})
 //			if err != nil {
 //				return err

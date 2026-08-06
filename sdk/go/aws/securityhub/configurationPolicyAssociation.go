@@ -69,21 +69,21 @@ import (
 //			}
 //			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "account_example", &securityhub.ConfigurationPolicyAssociationArgs{
 //				TargetId: pulumi.String("123456789012"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
+//				PolicyId: exampleConfigurationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "root_example", &securityhub.ConfigurationPolicyAssociationArgs{
 //				TargetId: pulumi.String("r-abcd"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
+//				PolicyId: exampleConfigurationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = securityhub.NewConfigurationPolicyAssociation(ctx, "ou_example", &securityhub.ConfigurationPolicyAssociationArgs{
 //				TargetId: pulumi.String("ou-abcd-12345678"),
-//				PolicyId: exampleConfigurationPolicy.ID(),
+//				PolicyId: exampleConfigurationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

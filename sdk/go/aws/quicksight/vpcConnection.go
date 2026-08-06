@@ -39,7 +39,7 @@ import (
 //					map[string]interface{}{
 //						"Effect": "Allow",
 //						"Action": "sts:AssumeRole",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "quicksight.amazonaws.com",
 //						},
 //					},

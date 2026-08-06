@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewResolverFirewallConfig(ctx, "example", &route53.ResolverFirewallConfigArgs{
-//				ResourceId:       example.ID(),
+//				ResourceId:       example.ID().ToIDOutput().ToStringOutput(),
 //				FirewallFailOpen: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {

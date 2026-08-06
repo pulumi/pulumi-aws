@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * });
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
- *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),
+ *     policy: allowElbLogging.json,
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
  *     name: "my-foobar-elb",
@@ -116,7 +116,7 @@ export interface GetServiceAccountResult {
  * });
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
- *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),
+ *     policy: allowElbLogging.json,
  * });
  * const bar = new aws.elb.LoadBalancer("bar", {
  *     name: "my-foobar-elb",

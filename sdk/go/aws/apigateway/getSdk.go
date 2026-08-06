@@ -29,7 +29,7 @@ import (
 //				RestApiId: exampleAwsApiGatewayStage.RestApiId,
 //				StageName: exampleAwsApiGatewayStage.StageName,
 //				SdkType:   "android",
-//				Parameters: map[string]interface{}{
+//				Parameters: map[string]string{
 //					"groupId":         "example",
 //					"artifactId":      "example",
 //					"artifactVersion": "example",

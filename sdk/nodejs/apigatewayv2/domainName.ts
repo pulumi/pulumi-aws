@@ -51,8 +51,8 @@ import * as utilities from "../utilities";
  *     type: aws.route53.RecordType.A,
  *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     aliases: [{
- *         name: example.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),
- *         zoneId: example.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.hostedZoneId),
+ *         name: example.domainNameConfiguration.targetDomainName,
+ *         zoneId: example.domainNameConfiguration.hostedZoneId,
  *         evaluateTargetHealth: false,
  *     }],
  * });

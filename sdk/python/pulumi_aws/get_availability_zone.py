@@ -263,7 +263,7 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
         vpc_id=example_vpc.id,
         cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
             newbits=4,
-            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x))).apply(lambda invoke: invoke.result))
+            netnum=az_number[example.name_suffix]).result)
     ```
 
 
@@ -362,7 +362,7 @@ def get_availability_zone_output(all_availability_zones: pulumi.Input[Optional[O
         vpc_id=example_vpc.id,
         cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
             newbits=4,
-            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x))).apply(lambda invoke: invoke.result))
+            netnum=az_number[example.name_suffix]).result)
     ```
 
 

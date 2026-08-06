@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -156,10 +156,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Role: exampleRole.Name,
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Role:   exampleRole.Name,
+//				Policy: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -201,7 +199,7 @@ import (
 //					},
 //					S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
 //						Status: pulumi.String("ENABLED"),
-//						Location: exampleBucket.ID().ApplyT(func(id string) (string, error) {
+//						Location: exampleBucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //							return fmt.Sprintf("%v/build-log", id), nil
 //						}).(pulumi.StringOutput),
 //					},

@@ -68,16 +68,13 @@ import (
 //	    val0 := index
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
-// VpcId: exampleVpc.ID(),
+// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 // AvailabilityZone: pulumi.String(available.Names[val0]),
-// CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: exampleVpc.CidrBlock,
 // Newbits: pulumi.Int(8),
 // Netnum: pulumi.Int(val0),
-// }, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// val := invoke.Result
-// return &val, nil
-// }).(pulumi.StringPtrOutput)),
+// }, nil).Result(),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Primary"),
 // },
@@ -92,8 +89,8 @@ import (
 // Password: pulumi.String("SuperSecretPassw0rd"),
 // Type: pulumi.String("MicrosoftAD"),
 // VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: exampleVpc.ID(),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:44,17-36),
+// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:44,17-36)),
 // },
 // })
 // if err != nil {
@@ -129,16 +126,13 @@ import (
 //	    val0 := index
 //
 // __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-secondary-%v", key0), &ec2.SubnetArgs{
-// VpcId: example_secondary.ID(),
+// VpcId: example_secondary.ID().ToIDOutput().ToStringOutput(),
 // AvailabilityZone: pulumi.String(available_secondary.Names[val0]),
-// CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+// CidrBlock: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 // Input: example_secondary.CidrBlock,
 // Newbits: pulumi.Int(8),
 // Netnum: pulumi.Int(val0),
-// }, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// val := invoke.Result
-// return &val, nil
-// }).(pulumi.StringPtrOutput)),
+// }, nil).Result(),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),
 // },
@@ -149,11 +143,11 @@ import (
 // example_secondarySubnet = append(example_secondarySubnet, __res)
 // }
 // _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
-// DirectoryId: exampleDirectory.ID(),
+// DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
 // RegionName: pulumi.String(example.Region),
 // VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
-// VpcId: example_secondary.ID(),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46),
+// VpcId: example_secondary.ID().ToIDOutput().ToStringOutput(),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46)),
 // },
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),

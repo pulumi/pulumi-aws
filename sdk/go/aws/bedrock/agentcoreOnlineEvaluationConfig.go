@@ -42,7 +42,7 @@ import (
 //					map[string]interface{}{
 //						"Effect": "Allow",
 //						"Action": "sts:AssumeRole",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "bedrock-agentcore.amazonaws.com",
 //						},
 //					},

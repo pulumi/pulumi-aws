@@ -125,7 +125,7 @@ import (
 //				"Statement": []interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Action":   "kms:*",
@@ -133,7 +133,7 @@ import (
 //					},
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "redshift.amazonaws.com",
 //						},
 //						"Action": []string{
@@ -145,7 +145,7 @@ import (
 //							"StringEquals": map[string]interface{}{
 //								"aws:SourceAccount": current.AccountId,
 //							},
-//							"ArnEquals": map[string]interface{}{
+//							"ArnEquals": map[string]string{
 //								"aws:SourceArn": fmt.Sprintf("arn:aws:redshift:*:%v:integration:*", current.AccountId),
 //							},
 //						},
@@ -157,7 +157,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = kms.NewKeyPolicy(ctx, "example", &kms.KeyPolicyArgs{
-//				KeyId:  example.ID(),
+//				KeyId:  example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: json0,
 //			})
 //			if err != nil {

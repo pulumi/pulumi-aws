@@ -40,7 +40,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "grafana.amazonaws.com",
 //						},
 //					},
@@ -90,11 +90,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"plugins": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string]bool{
+//				"plugins": map[string]bool{
 //					"pluginAdminEnabled": true,
 //				},
-//				"unifiedAlerting": map[string]interface{}{
+//				"unifiedAlerting": map[string]bool{
 //					"enabled": false,
 //				},
 //			})

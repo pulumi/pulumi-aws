@@ -39,7 +39,7 @@ import (
 //			}
 //			_, err = shield.NewDrtAccessLogBucketAssociation(ctx, "test", &shield.DrtAccessLogBucketAssociationArgs{
 //				LogBucket:            pulumi.Any(shieldDrtAccessLogBucket),
-//				RoleArnAssociationId: test.ID(),
+//				RoleArnAssociationId: test.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

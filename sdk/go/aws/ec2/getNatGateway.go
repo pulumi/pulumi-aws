@@ -55,7 +55,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupNatGateway(ctx, &ec2.LookupNatGatewayArgs{
 //				SubnetId: pulumi.StringRef(public.Id),
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Name": "gw NAT",
 //				},
 //			}, nil)

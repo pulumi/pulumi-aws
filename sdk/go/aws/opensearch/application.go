@@ -175,8 +175,8 @@ import (
 //							"identitystore:DescribeGroup",
 //						},
 //						"Resource": "*",
-//						"Condition": map[string]interface{}{
-//							"ForAnyValue:StringEquals": map[string]interface{}{
+//						"Condition": map[string]map[string]string{
+//							"ForAnyValue:StringEquals": map[string]string{
 //								"aws:CalledViaLast": "es.amazonaws.com",
 //							},
 //						},
@@ -217,19 +217,19 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "application.opensearchservice.amazonaws.com",
 //						},
 //						"Action": "sts:AssumeRole",
 //					},
 //					map[string]interface{}{
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "application.opensearchservice.amazonaws.com",
 //						},
 //						"Action": "sts:SetContext",
-//						"Condition": map[string]interface{}{
-//							"ForAllValues:ArnEquals": map[string]interface{}{
+//						"Condition": map[string]map[string]string{
+//							"ForAllValues:ArnEquals": map[string]string{
 //								"sts:RequestContextProviders": fmt.Sprintf("arn:aws:iam::%v:oidc-provider/portal.sso.%v.amazonaws.com/apl/*", current.AccountId, currentGetRegion.Id),
 //							},
 //						},

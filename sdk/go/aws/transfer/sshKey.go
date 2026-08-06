@@ -76,7 +76,7 @@ import (
 //				return err
 //			}
 //			exampleUser, err := transfer.NewUser(ctx, "example", &transfer.UserArgs{
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				UserName: pulumi.String("tftestuser"),
 //				Role:     exampleRole.Arn,
 //				Tags: pulumi.StringMap{
@@ -87,14 +87,11 @@ import (
 //				return err
 //			}
 //			_, err = transfer.NewSshKey(ctx, "example", &transfer.SshKeyArgs{
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				UserName: exampleUser.UserName,
-//				Body: pulumi.String(std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
+//				Body: std.TrimspaceOutput(ctx, std.TrimspaceOutputArgs{
 //					Input: examplePrivateKey.PublicKeyOpenssh,
-//				}, nil).ApplyT(func(invoke std.TrimspaceResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //			})
 //			if err != nil {
 //				return err
@@ -118,7 +115,7 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("tf-test-transfer-user-iam-policy"),
-//				Role:   exampleRole.ID(),
+//				Role:   exampleRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {

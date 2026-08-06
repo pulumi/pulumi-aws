@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-entire-bucket", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("EntireBucket"),
 //			})
 //			if err != nil {
@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					Prefix: pulumi.String("documents/"),
@@ -110,14 +110,14 @@ import (
 //				return err
 //			}
 //			example_access_point, err := s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("example-access-point"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-filtered", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("ImportantBlueDocuments"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					AccessPoint: example_access_point.Arn,
@@ -167,14 +167,14 @@ import (
 //				return err
 //			}
 //			example_access_point, err := s3.NewAccessPoint(ctx, "example-access-point", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("example--zoneId--xa-s3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketMetric(ctx, "example-bucket-metric", &s3.BucketMetricArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("ExampleBucketMetricForDirectoryBuckets"),
 //				Filter: &s3.BucketMetricFilterArgs{
 //					AccessPoint: example_access_point.Arn,

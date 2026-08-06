@@ -89,11 +89,9 @@ import (
 //				SubnetArns: pulumi.StringArray{
 //					exampleAwsSubnet.Arn,
 //				},
-//				VpcEndpointId: exampleVpcEndpoint.ID(),
-//				PrivateLinkEndpoint: pulumi.String(example.ApplyT(func(example ec2.GetNetworkInterfaceResult) (*string, error) {
-//					return example.PrivateIp, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Name: pulumi.String("example"),
+//				VpcEndpointId:       exampleVpcEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				PrivateLinkEndpoint: example.PrivateIp(),
+//				Name:                pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

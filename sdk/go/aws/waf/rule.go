@@ -45,7 +45,7 @@ import (
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: waf.RulePredicateArray{
 //					&waf.RulePredicateArgs{
-//						DataId:  ipset.ID(),
+//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},

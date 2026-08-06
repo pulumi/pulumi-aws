@@ -45,7 +45,7 @@ import (
 //			}
 //			myIPSet, err := s3.NewBucketObjectv2(ctx, "MyIPSet", &s3.BucketObjectv2Args{
 //				Content: pulumi.String("10.0.0.0/8\n"),
-//				Bucket:  bucket.ID(),
+//				Bucket:  bucket.ID().ToIDOutput().ToStringOutput(),
 //				Key:     pulumi.String("MyIPSet"),
 //			})
 //			if err != nil {
@@ -53,7 +53,7 @@ import (
 //			}
 //			_, err = guardduty.NewIPSet(ctx, "example", &guardduty.IPSetArgs{
 //				Activate:   pulumi.Bool(true),
-//				DetectorId: primary.ID(),
+//				DetectorId: primary.ID().ToIDOutput().ToStringOutput(),
 //				Format:     pulumi.String("TXT"),
 //				Location: pulumi.All(myIPSet.Bucket, myIPSet.Key).ApplyT(func(_args []interface{}) (string, error) {
 //					bucket := _args[0].(string)
@@ -66,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "bucket_acl", &s3.BucketAclArgs{
-//				Bucket: bucket.ID(),
+//				Bucket: bucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {

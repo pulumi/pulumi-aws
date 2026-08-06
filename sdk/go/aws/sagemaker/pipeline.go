@@ -38,7 +38,7 @@ import (
 //					map[string]interface{}{
 //						"Name": "Test",
 //						"Type": "Fail",
-//						"Arguments": map[string]interface{}{
+//						"Arguments": map[string]string{
 //							"ErrorMessage": "test",
 //						},
 //					},

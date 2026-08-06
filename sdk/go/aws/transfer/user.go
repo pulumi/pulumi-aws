@@ -87,14 +87,14 @@ import (
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "foo", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("tf-test-transfer-user-iam-policy"),
-//				Role:   fooRole.ID(),
+//				Role:   fooRole.ID().ToIDOutput().ToStringOutput(),
 //				Policy: pulumi.String(foo.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = transfer.NewUser(ctx, "foo", &transfer.UserArgs{
-//				ServerId:          fooServer.ID(),
+//				ServerId:          fooServer.ID().ToIDOutput().ToStringOutput(),
 //				UserName:          pulumi.String("tftestuser"),
 //				Role:              fooRole.Arn,
 //				HomeDirectoryType: pulumi.String("LOGICAL"),

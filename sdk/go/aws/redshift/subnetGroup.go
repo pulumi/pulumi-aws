@@ -38,7 +38,7 @@ import (
 //			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
-//				VpcId:            foo.ID(),
+//				VpcId:            foo.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-dbsubnet-test-1"),
 //				},
@@ -49,7 +49,7 @@ import (
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				CidrBlock:        pulumi.String("10.1.2.0/24"),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
-//				VpcId:            foo.ID(),
+//				VpcId:            foo.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("tf-dbsubnet-test-2"),
 //				},
@@ -60,8 +60,8 @@ import (
 //			_, err = redshift.NewSubnetGroup(ctx, "foo", &redshift.SubnetGroupArgs{
 //				Name: pulumi.String("foo"),
 //				SubnetIds: pulumi.StringArray{
-//					fooSubnet.ID(),
-//					bar.ID(),
+//					fooSubnet.ID().ToIDOutput().ToStringOutput(),
+//					bar.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),

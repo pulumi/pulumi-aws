@@ -74,7 +74,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
-//				Bucket: exampleBucket.ID(),
+//				Bucket: exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -87,7 +87,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "export.rds.amazonaws.com",
 //						},
 //					},
@@ -138,10 +138,8 @@ import (
 //				},
 //			}, nil)
 //			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
-//				Name: pulumi.String("example"),
-//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return example.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:   pulumi.String("example"),
+//				Policy: example.Json(),
 //			})
 //			if err != nil {
 //				return err
@@ -184,7 +182,7 @@ import (
 //			_, err = rds.NewExportTask(ctx, "example", &rds.ExportTaskArgs{
 //				ExportTaskIdentifier: pulumi.String("example"),
 //				SourceArn:            exampleSnapshot.DbSnapshotArn,
-//				S3BucketName:         exampleBucket.ID(),
+//				S3BucketName:         exampleBucket.ID().ToIDOutput().ToStringOutput(),
 //				IamRoleArn:           exampleRole.Arn,
 //				KmsKeyId:             exampleKey.Arn,
 //				ExportOnlies: pulumi.StringArray{

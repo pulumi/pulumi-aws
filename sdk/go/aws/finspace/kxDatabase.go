@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = finspace.NewKxDatabase(ctx, "example", &finspace.KxDatabaseArgs{
-//				EnvironmentId: exampleKxEnvironment.ID(),
+//				EnvironmentId: exampleKxEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				Name:          pulumi.String("my-tf-kx-database"),
 //				Description:   pulumi.String("Example database description"),
 //			})

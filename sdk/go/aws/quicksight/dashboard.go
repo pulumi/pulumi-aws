@@ -73,7 +73,7 @@ import (
 //				DashboardId:        pulumi.String("example-id"),
 //				Name:               pulumi.String("example-name"),
 //				VersionDescription: pulumi.String("version"),
-//				Definition: map[string]interface{}{
+//				Definition: map[string][]map[string]interface{}{
 //					"dataSetIdentifiersDeclarations": []map[string]interface{}{
 //						map[string]interface{}{
 //							"dataSetArn": dataset.Arn,
@@ -84,34 +84,34 @@ import (
 //						map[string]interface{}{
 //							"title":   "Example",
 //							"sheetId": "Example1",
-//							"visuals": []map[string]interface{}{
-//								map[string]interface{}{
+//							"visuals": []map[string]map[string]interface{}{
+//								map[string]map[string]interface{}{
 //									"lineChartVisual": map[string]interface{}{
 //										"visualId": "LineChart",
-//										"title": map[string]interface{}{
-//											"formatText": map[string]interface{}{
+//										"title": map[string]map[string]string{
+//											"formatText": map[string]string{
 //												"plainText": "Line Chart Example",
 //											},
 //										},
-//										"chartConfiguration": map[string]interface{}{
-//											"fieldWells": map[string]interface{}{
-//												"lineChartAggregatedFieldWells": map[string]interface{}{
-//													"categories": []map[string]interface{}{
-//														map[string]interface{}{
+//										"chartConfiguration": map[string]map[string]map[string][]map[string]map[string]interface{}{
+//											"fieldWells": map[string]map[string][]map[string]map[string]interface{}{
+//												"lineChartAggregatedFieldWells": map[string][]map[string]map[string]interface{}{
+//													"categories": []map[string]map[string]interface{}{
+//														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
 //																"fieldId": "1",
-//																"column": map[string]interface{}{
+//																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},
 //															},
 //														},
 //													},
-//													"values": []map[string]interface{}{
-//														map[string]interface{}{
+//													"values": []map[string]map[string]interface{}{
+//														map[string]map[string]interface{}{
 //															"categoricalMeasureField": map[string]interface{}{
 //																"fieldId": "2",
-//																"column": map[string]interface{}{
+//																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},

@@ -47,7 +47,7 @@ import (
 //				MetricName: pulumi.String("tfWAFRule"),
 //				Predicates: wafregional.RulePredicateArray{
 //					&wafregional.RulePredicateArgs{
-//						DataId:  ipset.ID(),
+//						DataId:  ipset.ID().ToIDOutput().ToStringOutput(),
 //						Negated: pulumi.Bool(false),
 //						Type:    pulumi.String("IPMatch"),
 //					},
@@ -68,7 +68,7 @@ import (
 //							Type: pulumi.String("BLOCK"),
 //						},
 //						Priority: pulumi.Int(1),
-//						RuleId:   wafrule.ID(),
+//						RuleId:   wafrule.ID().ToIDOutput().ToStringOutput(),
 //						Type:     pulumi.String("REGULAR"),
 //					},
 //				},

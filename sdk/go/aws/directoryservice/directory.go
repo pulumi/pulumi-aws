@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			barSubnet, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //			})
@@ -58,10 +58,10 @@ import (
 //				Password: pulumi.String("SuperSecretPassw0rd"),
 //				Size:     pulumi.String("Small"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: main.ID(),
+//					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						barSubnet.ID(),
+//						foo.ID().ToIDOutput().ToStringOutput(),
+//						barSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -107,7 +107,7 @@ import (
 //				return err
 //			}
 //			barSubnet, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //			})
@@ -120,10 +120,10 @@ import (
 //				Edition:  pulumi.String("Standard"),
 //				Type:     pulumi.String("MicrosoftAD"),
 //				VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-//					VpcId: main.ID(),
+//					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						barSubnet.ID(),
+//						foo.ID().ToIDOutput().ToStringOutput(),
+//						barSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -161,7 +161,7 @@ import (
 //				return err
 //			}
 //			foo, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -169,7 +169,7 @@ import (
 //				return err
 //			}
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
-//				VpcId:            main.ID(),
+//				VpcId:            main.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2b"),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
 //			})
@@ -187,10 +187,10 @@ import (
 //					},
 //					CustomerUsername: pulumi.String("Admin"),
 //					SubnetIds: pulumi.StringArray{
-//						foo.ID(),
-//						bar.ID(),
+//						foo.ID().ToIDOutput().ToStringOutput(),
+//						bar.ID().ToIDOutput().ToStringOutput(),
 //					},
-//					VpcId: main.ID(),
+//					VpcId: main.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

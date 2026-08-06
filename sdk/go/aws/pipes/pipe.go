@@ -50,10 +50,10 @@ import (
 //				"Statement": map[string]interface{}{
 //					"Effect": "Allow",
 //					"Action": "sts:AssumeRole",
-//					"Principal": map[string]interface{}{
+//					"Principal": map[string]string{
 //						"Service": "pipes.amazonaws.com",
 //					},
-//					"Condition": map[string]interface{}{
+//					"Condition": map[string]map[string]interface{}{
 //						"StringEquals": map[string]interface{}{
 //							"aws:SourceAccount": main.AccountId,
 //						},
@@ -75,7 +75,7 @@ import (
 //				return err
 //			}
 //			source, err := iam.NewRolePolicy(ctx, "source", &iam.RolePolicyArgs{
-//				Role: example.ID(),
+//				Role: example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: sourceQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON1, err := json.Marshal(map[string]interface{}{
@@ -109,7 +109,7 @@ import (
 //				return err
 //			}
 //			target, err := iam.NewRolePolicy(ctx, "target", &iam.RolePolicyArgs{
-//				Role: example.ID(),
+//				Role: example.ID().ToIDOutput().ToStringOutput(),
 //				Policy: targetQueue.Arn.ApplyT(func(arn string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON2, err := json.Marshal(map[string]interface{}{
@@ -213,7 +213,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string][]string{
 //				"source": []string{
 //					"event-source",
 //				},

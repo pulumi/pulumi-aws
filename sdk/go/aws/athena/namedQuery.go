@@ -61,14 +61,14 @@ import (
 //			}
 //			hogeDatabase, err := athena.NewDatabase(ctx, "hoge", &athena.DatabaseArgs{
 //				Name:   pulumi.String("users"),
-//				Bucket: hoge.ID(),
+//				Bucket: hoge.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = athena.NewNamedQuery(ctx, "foo", &athena.NamedQueryArgs{
 //				Name:      pulumi.String("bar"),
-//				Workgroup: testWorkgroup.ID(),
+//				Workgroup: testWorkgroup.ID().ToIDOutput().ToStringOutput(),
 //				Database:  hogeDatabase.Name,
 //				Query: hogeDatabase.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("SELECT * FROM %v limit 10;", name), nil

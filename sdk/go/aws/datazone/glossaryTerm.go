@@ -41,7 +41,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "datazone.amazonaws.com",
 //						},
 //					},
@@ -51,7 +51,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "cloudformation.amazonaws.com",
 //						},
 //					},
@@ -107,7 +107,7 @@ import (
 //				return err
 //			}
 //			exampleProject, err := datazone.NewProject(ctx, "example", &datazone.ProjectArgs{
-//				DomainIdentifier: exampleDomain.ID(),
+//				DomainIdentifier: exampleDomain.ID().ToIDOutput().ToStringOutput(),
 //				GlossaryTerms: pulumi.StringArray{
 //					pulumi.String("2N8w6XJCwZf"),
 //				},
@@ -120,7 +120,7 @@ import (
 //			exampleGlossary, err := datazone.NewGlossary(ctx, "example", &datazone.GlossaryArgs{
 //				Description:             pulumi.String("description"),
 //				Name:                    pulumi.String("example"),
-//				OwningProjectIdentifier: exampleProject.ID(),
+//				OwningProjectIdentifier: exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				Status:                  pulumi.String("ENABLED"),
 //				DomainIdentifier:        exampleProject.DomainIdentifier,
 //			})
@@ -128,8 +128,8 @@ import (
 //				return err
 //			}
 //			_, err = datazone.NewGlossaryTerm(ctx, "example", &datazone.GlossaryTermArgs{
-//				DomainIdentifier:   exampleDomain.ID(),
-//				GlossaryIdentifier: exampleGlossary.ID(),
+//				DomainIdentifier:   exampleDomain.ID().ToIDOutput().ToStringOutput(),
+//				GlossaryIdentifier: exampleGlossary.ID().ToIDOutput().ToStringOutput(),
 //				Name:               pulumi.String("example"),
 //				Status:             pulumi.String("ENABLED"),
 //			})

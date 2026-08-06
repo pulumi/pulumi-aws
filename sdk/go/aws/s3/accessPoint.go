@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.ID(),
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -87,7 +87,7 @@ import (
 //				Bucket: example.Arn,
 //				Name:   pulumi.String("example"),
 //				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
-//					VpcId: exampleVpc.ID(),
+//					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

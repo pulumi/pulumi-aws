@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewIdentityProvider(ctx, "example_provider", &cognito.IdentityProviderArgs{
-//				UserPoolId:   example.ID(),
+//				UserPoolId:   example.ID().ToIDOutput().ToStringOutput(),
 //				ProviderName: pulumi.String("Google"),
 //				ProviderType: pulumi.String("Google"),
 //				ProviderDetails: pulumi.StringMap{

@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId:           example.ID(),
+//				WorkspaceId:           example.ID().ToIDOutput().ToStringOutput(),
 //				RetentionPeriodInDays: pulumi.Int(60),
 //				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
 //					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
@@ -88,7 +88,7 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId: example.ID(),
+//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
 //					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
 //						LabelSet: pulumi.StringMap{},
@@ -126,7 +126,7 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId:                   example.ID(),
+//				WorkspaceId:                   example.ID().ToIDOutput().ToStringOutput(),
 //				RetentionPeriodInDays:         pulumi.Int(30),
 //				OutOfOrderTimeWindowInSeconds: pulumi.Int(120),
 //				RuleQueryOffsetInSeconds:      pulumi.Int(300),

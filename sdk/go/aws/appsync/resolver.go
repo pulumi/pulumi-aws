@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			testDataSource, err := appsync.NewDataSource(ctx, "test", &appsync.DataSourceArgs{
-//				ApiId: test.ID(),
+//				ApiId: test.ID().ToIDOutput().ToStringOutput(),
 //				Name:  pulumi.String("my_example"),
 //				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
@@ -68,7 +68,7 @@ import (
 //			}
 //			// UNIT type resolver (default)
 //			_, err = appsync.NewResolver(ctx, "test", &appsync.ResolverArgs{
-//				ApiId:      test.ID(),
+//				ApiId:      test.ID().ToIDOutput().ToStringOutput(),
 //				Field:      pulumi.String("singlePost"),
 //				Type:       pulumi.String("Query"),
 //				DataSource: testDataSource.Name,
@@ -107,7 +107,7 @@ import (
 //			// PIPELINE type resolver
 //			_, err = appsync.NewResolver(ctx, "Mutation_pipelineTest", &appsync.ResolverArgs{
 //				Type:             pulumi.String("Mutation"),
-//				ApiId:            test.ID(),
+//				ApiId:            test.ID().ToIDOutput().ToStringOutput(),
 //				Field:            pulumi.String("pipelineTest"),
 //				RequestTemplate:  pulumi.String("{}"),
 //				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),

@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePolicy = new aws.iam.Policy("example", {
  *     name: "example",
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("example", {
  *     role: exampleRole.name,

@@ -42,7 +42,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "eks.amazonaws.com",
 //						},
 //					},
@@ -119,7 +119,7 @@ import (
 //							"sts:AssumeRole",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "ec2.amazonaws.com",
 //						},
 //					},
@@ -145,7 +145,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "eks.amazonaws.com",
 //						},
 //					},
@@ -287,7 +287,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "eks.amazonaws.com",
 //						},
 //					},
@@ -386,7 +386,7 @@ import (
 //							"sts:TagSession",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string][]string{
 //							"Service": []string{
 //								"eks.amazonaws.com",
 //								"ec2.amazonaws.com",

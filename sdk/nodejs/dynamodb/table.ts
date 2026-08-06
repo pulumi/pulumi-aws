@@ -313,7 +313,7 @@ import * as utilities from "../utilities";
  *         text: example.arn,
  *         search: current.then(current => current.region),
  *         replace: alternate.then(alternate => alternate.region),
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     key: "Architect",
  *     value: "Gigi",
  * });

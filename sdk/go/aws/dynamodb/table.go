@@ -422,14 +422,11 @@ import (
 //				return err
 //			}
 //			_, err = dynamodb.NewTag(ctx, "example", &dynamodb.TagArgs{
-//				ResourceArn: pulumi.String(std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
+//				ResourceArn: std.ReplaceOutput(ctx, std.ReplaceOutputArgs{
 //					Text:    example.Arn,
 //					Search:  pulumi.String(current.Region),
 //					Replace: pulumi.String(alternate.Region),
-//				}, nil).ApplyT(func(invoke std.ReplaceResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				Key:   pulumi.String("Architect"),
 //				Value: pulumi.String("Gigi"),
 //			})

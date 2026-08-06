@@ -147,8 +147,8 @@ import (
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name: pulumi.String("tags"),
 //															Type: pulumi.String("array"),
-//															Items: []map[string]interface{}{
-//																map[string]interface{}{
+//															Items: []map[string]string{
+//																{
 //																	"type": "string",
 //																},
 //															},
@@ -372,7 +372,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"type": "string",
 //			})
 //			if err != nil {
@@ -380,11 +380,11 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"properties": map[string]interface{}{
-//					"created_at": map[string]interface{}{
+//				"properties": map[string]map[string]string{
+//					"created_at": map[string]string{
 //						"type": "string",
 //					},
-//					"version": map[string]interface{}{
+//					"version": map[string]string{
 //						"type": "number",
 //					},
 //				},

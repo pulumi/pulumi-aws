@@ -51,7 +51,7 @@ import (
 //							"kms:Verify",
 //						},
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "dnssec-route53.amazonaws.com",
 //						},
 //						"Resource": "*",
@@ -60,7 +60,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "kms:*",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"AWS": fmt.Sprintf("arn:aws:iam::%v:root", current.AccountId),
 //						},
 //						"Resource": "*",
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "example", &route53.KeySigningKeyArgs{
-//				HostedZoneId:            exampleZone.ID(),
+//				HostedZoneId:            exampleZone.ID().ToIDOutput().ToStringOutput(),
 //				KeyManagementServiceArn: example.Arn,
 //				Name:                    pulumi.String("example"),
 //			})

@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * });
  * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("test", {
  *     restApiId: testRestApi.id,
- *     policy: test.apply(test => test.json),
+ *     policy: test.json,
  * });
  * ```
  *

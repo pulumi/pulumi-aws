@@ -101,7 +101,7 @@ import (
 //					map[string]interface{}{
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string][]string{
 //							"Service": []string{
 //								fmt.Sprintf("fis.%v", current.DnsSuffix),
 //							},

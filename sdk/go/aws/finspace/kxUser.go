@@ -55,7 +55,7 @@ import (
 //						"Action": "sts:AssumeRole",
 //						"Effect": "Allow",
 //						"Sid":    "",
-//						"Principal": map[string]interface{}{
+//						"Principal": map[string]string{
 //							"Service": "ec2.amazonaws.com",
 //						},
 //					},
@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = finspace.NewKxUser(ctx, "example", &finspace.KxUserArgs{
 //				Name:          pulumi.String("my-tf-kx-user"),
-//				EnvironmentId: exampleKxEnvironment.ID(),
+//				EnvironmentId: exampleKxEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				IamRole:       exampleRole.Arn,
 //			})
 //			if err != nil {

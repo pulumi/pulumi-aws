@@ -39,8 +39,8 @@ import (
 //					"cpu":       10,
 //					"memory":    512,
 //					"essential": true,
-//					"portMappings": []map[string]interface{}{
-//						map[string]interface{}{
+//					"portMappings": []map[string]int{
+//						{
 //							"containerPort": 80,
 //							"hostPort":      80,
 //						},
@@ -52,8 +52,8 @@ import (
 //					"cpu":       10,
 //					"memory":    256,
 //					"essential": true,
-//					"portMappings": []map[string]interface{}{
-//						map[string]interface{}{
+//					"portMappings": []map[string]int{
+//						{
 //							"containerPort": 443,
 //							"hostPort":      443,
 //						},

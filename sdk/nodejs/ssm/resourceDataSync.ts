@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.bucket,
- *     policy: example.apply(example => example.json),
+ *     policy: example.json,
  * });
  * ```
  *

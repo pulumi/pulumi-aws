@@ -61,7 +61,7 @@ import (
 //				key0 := index
 //				val0 := index
 //				__res, err := ec2.NewSubnet(ctx, fmt.Sprintf("cloudhsm_v2_subnets-%v", key0), &ec2.SubnetArgs{
-//					VpcId:               cloudhsmV2Vpc.ID(),
+//					VpcId:               cloudhsmV2Vpc.ID().ToIDOutput().ToStringOutput(),
 //					CidrBlock:           subnets[val0],
 //					MapPublicIpOnLaunch: pulumi.Bool(false),
 //					AvailabilityZone:    available.Names[val0],
@@ -74,13 +74,13 @@ import (
 //				}
 //				cloudhsmV2Subnets = append(cloudhsmV2Subnets, __res)
 //			}
-//			var splat0 pulumi.StringArray
+//			var splat0 pulumi.IDArray
 //			for _, val0 := range cloudhsmV2Subnets {
 //				splat0 = append(splat0, val0.ID())
 //			}
 //			_, err = cloudhsmv2.NewCluster(ctx, "cloudhsm_v2_cluster", &cloudhsmv2.ClusterArgs{
 //				HsmType:   pulumi.String("hsm1.medium"),
-//				SubnetIds: splat0,
+//				SubnetIds: toPulumiIDArray(splat0),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-aws_cloudhsm_v2_cluster"),
 //				},
@@ -90,6 +90,14 @@ import (
 //			}
 //			return nil
 //		})
+//	}
+//
+//	func toPulumiIDArray(arr []pulumi.ID) pulumi.IDArray {
+//		var pulumiArr pulumi.IDArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.ID(v))
+//		}
+//		return pulumiArr
 //	}
 //
 // ```

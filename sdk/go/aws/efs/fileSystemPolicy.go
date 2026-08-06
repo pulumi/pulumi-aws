@@ -68,10 +68,8 @@ import (
 //				},
 //			}, nil)
 //			_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				Policy: pulumi.String(policy.ApplyT(func(policy iam.GetPolicyDocumentResult) (*string, error) {
-//					return policy.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				FileSystemId: fs.ID().ToIDOutput().ToStringOutput(),
+//				Policy:       policy.Json(),
 //			})
 //			if err != nil {
 //				return err

@@ -36,7 +36,7 @@ import (
 //				return err
 //			}
 //			alphaSubnet, err := ec2.NewSubnet(ctx, "alpha", &ec2.SubnetArgs{
-//				VpcId:            foo.ID(),
+//				VpcId:            foo.ID().ToIDOutput().ToStringOutput(),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
 //			})
@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
 //				FileSystemId: pulumi.Any(fooAwsEfsFileSystem.Id),
-//				SubnetId:     alphaSubnet.ID(),
+//				SubnetId:     alphaSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

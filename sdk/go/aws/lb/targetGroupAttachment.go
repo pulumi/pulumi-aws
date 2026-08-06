@@ -43,7 +43,7 @@ import (
 //			}
 //			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
 //				TargetGroupArn: testTargetGroup.Arn,
-//				TargetId:       testInstance.ID(),
+//				TargetId:       testInstance.ID().ToIDOutput().ToStringOutput(),
 //				Port:           pulumi.Int(80),
 //			})
 //			if err != nil {
@@ -135,7 +135,7 @@ import (
 //			}
 //			_, err = lb.NewTargetGroupAttachment(ctx, "test", &lb.TargetGroupAttachmentArgs{
 //				TargetGroupArn: test.Arn,
-//				TargetId:       testInstance.ID(),
+//				TargetId:       testInstance.ID().ToIDOutput().ToStringOutput(),
 //				Port:           pulumi.Int(443),
 //				QuicServerId:   pulumi.String("0x1a2b3c4d5e6f7a8b"),
 //			})

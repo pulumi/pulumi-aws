@@ -57,7 +57,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
 //				VpcId: pulumi.StringRef(vpcId),
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"Tier": "Private",
 //				},
 //			}, nil)

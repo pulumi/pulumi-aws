@@ -363,10 +363,8 @@ import (
 //				},
 //			}, nil)
 //			exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Role: exampleRole.Name,
-//				Policy: pulumi.String(s3Access.ApplyT(func(s3Access iam.GetPolicyDocumentResult) (*string, error) {
-//					return s3Access.Json, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Role:   exampleRole.Name,
+//				Policy: s3Access.Json(),
 //			})
 //			if err != nil {
 //				return err

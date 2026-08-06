@@ -36,8 +36,8 @@ import (
 //				"$schema": "http://json-schema.org/draft-04/schema#",
 //				"title":   "ExampleModel",
 //				"type":    "object",
-//				"properties": map[string]interface{}{
-//					"id": map[string]interface{}{
+//				"properties": map[string]map[string]string{
+//					"id": map[string]string{
 //						"type": "string",
 //					},
 //				},
