@@ -79,14 +79,14 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies time in seconds that browser can cache the response for a preflight request.
+     * Time in seconds that browser can cache the response for a preflight request.
      * 
      */
     @Import(name="maxAgeSeconds")
     private @Nullable Output<Integer> maxAgeSeconds;
 
     /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
+     * @return Time in seconds that browser can cache the response for a preflight request.
      * 
      */
     public Optional<Output<Integer>> maxAgeSeconds() {
@@ -246,7 +246,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param maxAgeSeconds Specifies time in seconds that browser can cache the response for a preflight request.
+         * @param maxAgeSeconds Time in seconds that browser can cache the response for a preflight request.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class BucketCorsRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param maxAgeSeconds Specifies time in seconds that browser can cache the response for a preflight request.
+         * @param maxAgeSeconds Time in seconds that browser can cache the response for a preflight request.
          * 
          * @return builder
          * 

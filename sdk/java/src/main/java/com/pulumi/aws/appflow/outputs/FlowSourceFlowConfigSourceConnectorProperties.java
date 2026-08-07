@@ -26,197 +26,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorProperties {
-    /**
-     * @return Information that is required for querying Amplitude. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesAmplitude amplitude;
-    /**
-     * @return Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector customConnector;
-    /**
-     * @return Information that is required for querying Datadog. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDatadog datadog;
-    /**
-     * @return Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesDynatrace dynatrace;
-    /**
-     * @return Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics googleAnalytics;
-    /**
-     * @return Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesInforNexus inforNexus;
-    /**
-     * @return Information that is required for querying Marketo. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesMarketo marketo;
-    /**
-     * @return Information that is required for querying Amazon S3. See S3 Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3 s3;
-    /**
-     * @return Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSalesforce salesforce;
-    /**
-     * @return Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoData sapoData;
-    /**
-     * @return Information that is required for querying ServiceNow. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesServiceNow serviceNow;
-    /**
-     * @return Information that is required for querying Singular. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSingular singular;
-    /**
-     * @return Information that is required for querying Slack. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSlack slack;
-    /**
-     * @return Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro trendmicro;
-    /**
-     * @return Information that is required for querying Veeva. See Veeva Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesVeeva veeva;
-    /**
-     * @return Information that is required for querying Zendesk. See Generic Source Properties for more details.
-     * 
-     */
     private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesZendesk zendesk;
 
     private FlowSourceFlowConfigSourceConnectorProperties() {}
-    /**
-     * @return Information that is required for querying Amplitude. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesAmplitude> amplitude() {
         return Optional.ofNullable(this.amplitude);
     }
-    /**
-     * @return Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
-    /**
-     * @return Information that is required for querying Datadog. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesDatadog> datadog() {
         return Optional.ofNullable(this.datadog);
     }
-    /**
-     * @return Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesDynatrace> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
-    /**
-     * @return Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
-    /**
-     * @return Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesInforNexus> inforNexus() {
         return Optional.ofNullable(this.inforNexus);
     }
-    /**
-     * @return Information that is required for querying Marketo. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
-    /**
-     * @return Information that is required for querying Amazon S3. See S3 Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesS3> s3() {
         return Optional.ofNullable(this.s3);
     }
-    /**
-     * @return Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSalesforce> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
-    /**
-     * @return Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSapoData> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
-    /**
-     * @return Information that is required for querying ServiceNow. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesServiceNow> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
-    /**
-     * @return Information that is required for querying Singular. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSingular> singular() {
         return Optional.ofNullable(this.singular);
     }
-    /**
-     * @return Information that is required for querying Slack. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesSlack> slack() {
         return Optional.ofNullable(this.slack);
     }
-    /**
-     * @return Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }
-    /**
-     * @return Information that is required for querying Veeva. See Veeva Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesVeeva> veeva() {
         return Optional.ofNullable(this.veeva);
     }
-    /**
-     * @return Information that is required for querying Zendesk. See Generic Source Properties for more details.
-     * 
-     */
     public Optional<FlowSourceFlowConfigSourceConnectorPropertiesZendesk> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }

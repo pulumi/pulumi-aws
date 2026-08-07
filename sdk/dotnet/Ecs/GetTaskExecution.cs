@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
         /// </summary>
         [Input("clientToken")]
         public string? ClientToken { get; set; }
@@ -166,13 +166,13 @@ namespace Pulumi.Aws.Ecs
         public int? DesiredCount { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Input("enableEcsManagedTags")]
         public bool? EnableEcsManagedTags { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Input("enableExecuteCommand")]
         public bool? EnableExecuteCommand { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ecs
         public Inputs.GetTaskExecutionNetworkConfigurationArgs? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+        /// List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
         /// </summary>
         [Input("overrides")]
         public Inputs.GetTaskExecutionOverridesArgs? Overrides { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ecs
         private List<Inputs.GetTaskExecutionPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+        /// Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
         /// </summary>
         public List<Inputs.GetTaskExecutionPlacementConstraintArgs> PlacementConstraints
         {
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Ecs
         private List<Inputs.GetTaskExecutionPlacementStrategyArgs>? _placementStrategies;
 
         /// <summary>
-        /// The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+        /// Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
         /// </summary>
         public List<Inputs.GetTaskExecutionPlacementStrategyArgs> PlacementStrategies
         {
@@ -226,19 +226,19 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+        /// Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
         /// </summary>
         [Input("platformVersion")]
         public string? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+        /// Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
         /// </summary>
         [Input("propagateTags")]
         public string? PropagateTags { get; set; }
 
         /// <summary>
-        /// The reference ID to use for the task.
+        /// Reference ID to use for the task.
         /// </summary>
         [Input("referenceId")]
         public string? ReferenceId { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Ecs
         public string? Region { get; set; }
 
         /// <summary>
-        /// An optional tag specified when a task is started.
+        /// Optional tag specified when a task is started.
         /// </summary>
         [Input("startedBy")]
         public string? StartedBy { get; set; }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The `Family` and `Revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+        /// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
         /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
@@ -314,13 +314,13 @@ namespace Pulumi.Aws.Ecs
         public Input<int>? DesiredCount { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+        /// Whether to enable Amazon ECS managed tags for the tasks within the service.
         /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+        /// Whether to enable Amazon ECS Exec for the tasks within the service.
         /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Ecs
         public Input<Inputs.GetTaskExecutionNetworkConfigurationInputArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+        /// List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
         /// </summary>
         [Input("overrides")]
         public Input<Inputs.GetTaskExecutionOverridesInputArgs>? Overrides { get; set; }
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.GetTaskExecutionPlacementConstraintInputArgs>? _placementConstraints;
 
         /// <summary>
-        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+        /// Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
         /// </summary>
         public InputList<Inputs.GetTaskExecutionPlacementConstraintInputArgs> PlacementConstraints
         {
@@ -365,7 +365,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.GetTaskExecutionPlacementStrategyInputArgs>? _placementStrategies;
 
         /// <summary>
-        /// The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+        /// Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
         /// </summary>
         public InputList<Inputs.GetTaskExecutionPlacementStrategyInputArgs> PlacementStrategies
         {
@@ -374,19 +374,19 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+        /// Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+        /// Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The reference ID to use for the task.
+        /// Reference ID to use for the task.
         /// </summary>
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An optional tag specified when a task is started.
+        /// Optional tag specified when a task is started.
         /// </summary>
         [Input("startedBy")]
         public Input<string>? StartedBy { get; set; }
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// The `Family` and `Revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+        /// Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.Ecs
         public readonly string? StartedBy;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A list of the provisioned task ARNs.
+        /// List of the provisioned task ARNs.
         /// </summary>
         public readonly ImmutableArray<string> TaskArns;
         public readonly string TaskDefinition;

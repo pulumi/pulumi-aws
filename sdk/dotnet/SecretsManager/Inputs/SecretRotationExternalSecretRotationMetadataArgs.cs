@@ -13,13 +13,13 @@ namespace Pulumi.Aws.SecretsManager.Inputs
     public sealed class SecretRotationExternalSecretRotationMetadataArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+        /// Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The metadata value for the specified key.
+        /// Metadata value for the specified key.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

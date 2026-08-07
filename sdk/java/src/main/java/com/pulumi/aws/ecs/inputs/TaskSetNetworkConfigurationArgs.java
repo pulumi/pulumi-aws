@@ -21,8 +21,6 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
     /**
      * Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
      * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
-     * 
      */
     @Import(name="assignPublicIp")
     private @Nullable Output<Boolean> assignPublicIp;
@@ -30,22 +28,20 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
     /**
      * @return Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
      * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
-     * 
      */
     public Optional<Output<Boolean>> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
 
     /**
-     * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+     * Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+     * @return Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -53,14 +49,14 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * The subnets associated with the task or service. Maximum of 16.
+     * Subnets associated with the task or service. Maximum of 16.
      * 
      */
     @Import(name="subnets", required=true)
     private Output<List<String>> subnets;
 
     /**
-     * @return The subnets associated with the task or service. Maximum of 16.
+     * @return Subnets associated with the task or service. Maximum of 16.
      * 
      */
     public Output<List<String>> subnets() {
@@ -96,8 +92,6 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         /**
          * @param assignPublicIp Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
          * 
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
-         * 
          * @return builder
          * 
          */
@@ -109,8 +103,6 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         /**
          * @param assignPublicIp Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
          * 
-         * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
-         * 
          * @return builder
          * 
          */
@@ -119,7 +111,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param securityGroups The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         * @param securityGroups Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
          * 
          * @return builder
          * 
@@ -130,7 +122,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param securityGroups The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         * @param securityGroups Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
          * 
          * @return builder
          * 
@@ -140,7 +132,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param securityGroups The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         * @param securityGroups Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
          * 
          * @return builder
          * 
@@ -150,7 +142,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subnets The subnets associated with the task or service. Maximum of 16.
+         * @param subnets Subnets associated with the task or service. Maximum of 16.
          * 
          * @return builder
          * 
@@ -161,7 +153,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subnets The subnets associated with the task or service. Maximum of 16.
+         * @param subnets Subnets associated with the task or service. Maximum of 16.
          * 
          * @return builder
          * 
@@ -171,7 +163,7 @@ public final class TaskSetNetworkConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param subnets The subnets associated with the task or service. Maximum of 16.
+         * @param subnets Subnets associated with the task or service. Maximum of 16.
          * 
          * @return builder
          * 

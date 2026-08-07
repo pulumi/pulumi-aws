@@ -15,14 +15,14 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
     public static final ResolverRuntimeArgs Empty = new ResolverRuntimeArgs();
 
     /**
-     * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+     * @return Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+     * Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
      * 
      */
     @Import(name="runtimeVersion", required=true)
     private Output<String> runtimeVersion;
 
     /**
-     * @return The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+     * @return Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
      * 
      */
     public Output<String> runtimeVersion() {
@@ -70,7 +70,7 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * @param name Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+         * @param name Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runtimeVersion The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+         * @param runtimeVersion Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ResolverRuntimeArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runtimeVersion The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+         * @param runtimeVersion Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
          * 
          * @return builder
          * 

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     private String arn;
@@ -21,39 +21,39 @@ public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
      */
     private String cloudExadataInfrastructureId;
     /**
-     * @return The display name of the Autonomous VM cluster.
+     * @return Display name of the Autonomous VM cluster.
      * 
      */
     private String displayName;
     /**
-     * @return The unique identifier of the cloud autonomous vm cluster.
+     * @return Unique identifier of the cloud autonomous vm cluster.
      * 
      */
     private String id;
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     private String ociUrl;
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     private String ocid;
     /**
-     * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
+     * @return Unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     private String odbNetworkId;
 
     private GetCloudAutonomousVmClustersCloudAutonomousVmCluster() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
      * 
      */
     public String arn() {
@@ -67,42 +67,42 @@ public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * @return The display name of the Autonomous VM cluster.
+     * @return Display name of the Autonomous VM cluster.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The unique identifier of the cloud autonomous vm cluster.
+     * @return Unique identifier of the cloud autonomous vm cluster.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The name of the OCI resource anchor associated with this Autonomous VM cluster.
+     * @return Name of the OCI resource anchor associated with this Autonomous VM cluster.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The URL for accessing the OCI console page for this Autonomous VM cluster.
+     * @return URL for accessing the OCI console page for this Autonomous VM cluster.
      * 
      */
     public String ociUrl() {
         return this.ociUrl;
     }
     /**
-     * @return The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+     * @return Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      * 
      */
     public String ocid() {
         return this.ocid;
     }
     /**
-     * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
+     * @return Unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
      */
     public String odbNetworkId() {

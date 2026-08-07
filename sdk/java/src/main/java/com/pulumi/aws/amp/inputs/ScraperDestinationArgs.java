@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp.inputs;
 
 import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+import com.pulumi.aws.amp.inputs.ScraperDestinationCloudwatchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -16,24 +17,44 @@ public final class ScraperDestinationArgs extends com.pulumi.resources.ResourceA
     public static final ScraperDestinationArgs Empty = new ScraperDestinationArgs();
 
     /**
-     * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+     * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
      * 
      */
     @Import(name="amp")
     private @Nullable Output<ScraperDestinationAmpArgs> amp;
 
     /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
      * 
      */
     public Optional<Output<ScraperDestinationAmpArgs>> amp() {
         return Optional.ofNullable(this.amp);
     }
 
+    /**
+     * Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+     * 
+     * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+     * 
+     */
+    @Import(name="cloudwatch")
+    private @Nullable Output<ScraperDestinationCloudwatchArgs> cloudwatch;
+
+    /**
+     * @return Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+     * 
+     * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+     * 
+     */
+    public Optional<Output<ScraperDestinationCloudwatchArgs>> cloudwatch() {
+        return Optional.ofNullable(this.cloudwatch);
+    }
+
     private ScraperDestinationArgs() {}
 
     private ScraperDestinationArgs(ScraperDestinationArgs $) {
         this.amp = $.amp;
+        this.cloudwatch = $.cloudwatch;
     }
 
     public static Builder builder() {
@@ -55,7 +76,7 @@ public final class ScraperDestinationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
          * 
          * @return builder
          * 
@@ -66,13 +87,38 @@ public final class ScraperDestinationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+         * @param amp Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder amp(ScraperDestinationAmpArgs amp) {
             return amp(Output.of(amp));
+        }
+
+        /**
+         * @param cloudwatch Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+         * 
+         * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudwatch(@Nullable Output<ScraperDestinationCloudwatchArgs> cloudwatch) {
+            $.cloudwatch = cloudwatch;
+            return this;
+        }
+
+        /**
+         * @param cloudwatch Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+         * 
+         * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudwatch(ScraperDestinationCloudwatchArgs cloudwatch) {
+            return cloudwatch(Output.of(cloudwatch));
         }
 
         public ScraperDestinationArgs build() {

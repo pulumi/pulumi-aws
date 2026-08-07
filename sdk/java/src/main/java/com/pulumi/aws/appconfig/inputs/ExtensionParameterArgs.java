@@ -33,14 +33,14 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The parameter name.
+     * Parameter name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The parameter name.
+     * @return Parameter name.
      * 
      */
     public Output<String> name() {
@@ -110,7 +110,7 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The parameter name.
+         * @param name Parameter name.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ExtensionParameterArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The parameter name.
+         * @param name Parameter name.
          * 
          * @return builder
          * 

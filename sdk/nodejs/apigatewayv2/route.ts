@@ -108,7 +108,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+     * Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
     declare public readonly apiKeyRequired: pulumi.Output<boolean | undefined>;
     /**
@@ -116,10 +116,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly authorizationScopes: pulumi.Output<string[] | undefined>;
     /**
-     * Authorization type for the route.
-     * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * Defaults to `NONE`.
+     * Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
      */
     declare public readonly authorizationType: pulumi.Output<string | undefined>;
     /**
@@ -127,7 +124,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly authorizerId: pulumi.Output<string | undefined>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     declare public readonly modelSelectionExpression: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +140,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly requestModels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
      */
     declare public readonly requestParameters: pulumi.Output<outputs.apigatewayv2.RouteRequestParameter[] | undefined>;
     /**
@@ -151,7 +148,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly routeKey: pulumi.Output<string>;
     /**
-     * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     declare public readonly routeResponseSelectionExpression: pulumi.Output<string | undefined>;
     /**
@@ -221,7 +218,7 @@ export interface RouteState {
      */
     apiId?: pulumi.Input<string | undefined>;
     /**
-     * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+     * Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
     apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
@@ -229,10 +226,7 @@ export interface RouteState {
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Authorization type for the route.
-     * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * Defaults to `NONE`.
+     * Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
      */
     authorizationType?: pulumi.Input<string | undefined>;
     /**
@@ -240,7 +234,7 @@ export interface RouteState {
      */
     authorizerId?: pulumi.Input<string | undefined>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -256,7 +250,7 @@ export interface RouteState {
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
      */
     requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[] | undefined>;
     /**
@@ -264,7 +258,7 @@ export interface RouteState {
      */
     routeKey?: pulumi.Input<string | undefined>;
     /**
-     * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     routeResponseSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -282,7 +276,7 @@ export interface RouteArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
+     * Whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      */
     apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
@@ -290,10 +284,7 @@ export interface RouteArgs {
      */
     authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Authorization type for the route.
-     * For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
-     * Defaults to `NONE`.
+     * Authorization type for the route. For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer. Defaults to `NONE`.
      */
     authorizationType?: pulumi.Input<string | undefined>;
     /**
@@ -301,7 +292,7 @@ export interface RouteArgs {
      */
     authorizerId?: pulumi.Input<string | undefined>;
     /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
@@ -317,7 +308,7 @@ export interface RouteArgs {
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Request parameters for the route. Supported only for WebSocket APIs.
+     * Request parameters for the route. Supported only for WebSocket APIs. See `requestParameter` Block below.
      */
     requestParameters?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RouteRequestParameter>[] | undefined>;
     /**
@@ -325,7 +316,7 @@ export interface RouteArgs {
      */
     routeKey: pulumi.Input<string>;
     /**
-     * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
+     * [Route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      */
     routeResponseSelectionExpression?: pulumi.Input<string | undefined>;
     /**

@@ -120,70 +120,70 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     @Export(name="automaticBackupRetentionDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+     * @return Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
     public Output<Optional<Integer>> automaticBackupRetentionDays() {
         return Codegen.optional(this.automaticBackupRetentionDays);
     }
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Export(name="backupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Output<Optional<String>> backupId() {
         return Codegen.optional(this.backupId);
     }
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * Whether tags for the file system should be copied to backups. Default value is false.
      * 
      */
     @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+     * @return Whether tags for the file system should be copied to backups. Default value is false.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToBackups() {
         return Codegen.optional(this.copyTagsToBackups);
     }
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     @Export(name="copyTagsToVolumes", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToVolumes;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToVolumes() {
         return Codegen.optional(this.copyTagsToVolumes);
     }
     /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     @Export(name="dailyAutomaticBackupStartTime", refs={String.class}, tree="[0]")
     private Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
+     * @return Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
      * 
      */
     public Output<String> dailyAutomaticBackupStartTime() {
@@ -218,14 +218,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.deploymentType;
     }
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Export(name="diskIopsConfiguration", refs={OpenZfsFileSystemDiskIopsConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
+     * @return SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Output<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration() {
@@ -274,14 +274,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.endpointIpAddressRange;
     }
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     public Output<Optional<Map<String,String>>> finalBackupTags() {
@@ -372,14 +372,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     @Export(name="rootVolumeConfiguration", refs={OpenZfsFileSystemRootVolumeConfiguration.class}, tree="[0]")
     private Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
+     * @return Configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      * 
      */
     public Output<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration() {
@@ -414,14 +414,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.routeTableIds;
     }
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Output<Optional<List<String>>> securityGroupIds() {
@@ -442,70 +442,70 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     @Export(name="storageCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
+     * @return Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storageType` is set to `SSD`. Must not be set when `storageType` is set to `INTELLIGENT_TIERING`.
      * 
      */
     public Output<Optional<Integer>> storageCapacity() {
         return Codegen.optional(this.storageCapacity);
     }
     /**
-     * The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageType;
 
     /**
-     * @return The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
+     * @return Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `deploymentType` to be `MULTI_AZ_1`.
      * 
      */
     public Output<Optional<String>> storageType() {
         return Codegen.optional(this.storageType);
     }
     /**
-     * A list of IDs for the subnets that the file system will be accessible from.
+     * List of IDs for the subnets that the file system will be accessible from.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from.
+     * @return List of IDs for the subnets that the file system will be accessible from.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -544,14 +544,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
         return this.vpcId;
     }
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Export(name="weeklyMaintenanceStartTime", refs={String.class}, tree="[0]")
     private Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Output<String> weeklyMaintenanceStartTime() {

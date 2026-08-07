@@ -15,21 +15,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRoute {
+    /**
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
+     * 
+     */
     private RouteSpecHttpRouteAction action;
+    /**
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     private RouteSpecHttpRouteMatch match;
+    /**
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
+     * 
+     */
     private @Nullable RouteSpecHttpRouteRetryPolicy retryPolicy;
+    /**
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
+     * 
+     */
     private @Nullable RouteSpecHttpRouteTimeout timeout;
 
     private RouteSpecHttpRoute() {}
+    /**
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
+     * 
+     */
     public RouteSpecHttpRouteAction action() {
         return this.action;
     }
+    /**
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     public RouteSpecHttpRouteMatch match() {
         return this.match;
     }
+    /**
+     * @return Retry policy. See `spec.http_route.retry_policy` Block for details.
+     * 
+     */
     public Optional<RouteSpecHttpRouteRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
+    /**
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
+     * 
+     */
     public Optional<RouteSpecHttpRouteTimeout> timeout() {
         return Optional.ofNullable(this.timeout);
     }

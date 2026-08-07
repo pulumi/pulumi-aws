@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Odb
         public string? Region { get; set; }
 
         /// <summary>
-        /// The system shape.
+        /// System shape.
         /// </summary>
         [Input("shape")]
         public string? Shape { get; set; }
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Odb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The system shape.
+        /// System shape.
         /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }

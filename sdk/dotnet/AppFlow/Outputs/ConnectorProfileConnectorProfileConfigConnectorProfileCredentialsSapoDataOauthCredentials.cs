@@ -13,10 +13,25 @@ namespace Pulumi.Aws.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials
     {
+        /// <summary>
+        /// Credentials used to access protected Zendesk resources.
+        /// </summary>
         public readonly string? AccessToken;
+        /// <summary>
+        /// Identifier for the desired client.
+        /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// Client secret used by the OAuth client to authenticate to the authorization server.
+        /// </summary>
         public readonly string ClientSecret;
+        /// <summary>
+        /// OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest? OauthRequest;
+        /// <summary>
+        /// Refresh token used to refresh an expired access token.
+        /// </summary>
         public readonly string? RefreshToken;
 
         [OutputConstructor]

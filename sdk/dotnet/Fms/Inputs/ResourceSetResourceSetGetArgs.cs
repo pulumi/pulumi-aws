@@ -25,19 +25,21 @@ namespace Pulumi.Aws.Fms.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Last time that the reosurce set was changed.
+        /// Last time that the resource set was changed.
         /// </summary>
         [Input("lastUpdateTime")]
         public Input<string>? LastUpdateTime { get; set; }
 
         /// <summary>
         /// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
+        /// Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         /// </summary>
         [Input("resourceSetStatus")]
         public Input<string>? ResourceSetStatus { get; set; }
@@ -54,6 +56,9 @@ namespace Pulumi.Aws.Fms.Inputs
             set => _resourceTypeLists = value;
         }
 
+        /// <summary>
+        /// Unique identifier for each update to the resource set.
+        /// </summary>
         [Input("updateToken")]
         public Input<string>? UpdateToken { get; set; }
 

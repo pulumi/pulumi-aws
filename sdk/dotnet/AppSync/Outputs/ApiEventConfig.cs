@@ -14,23 +14,23 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class ApiEventConfig
     {
         /// <summary>
-        /// List of authentication providers. See Auth Providers below.
+        /// List of authentication providers. See `event_config.auth_provider` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEventConfigAuthProvider> AuthProviders;
         /// <summary>
-        /// List of authentication modes for connections. See Auth Modes below.
+        /// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEventConfigConnectionAuthMode> ConnectionAuthModes;
         /// <summary>
-        /// List of default authentication modes for publishing. See Auth Modes below.
+        /// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEventConfigDefaultPublishAuthMode> DefaultPublishAuthModes;
         /// <summary>
-        /// List of default authentication modes for subscribing. See Auth Modes below.
+        /// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEventConfigDefaultSubscribeAuthMode> DefaultSubscribeAuthModes;
         /// <summary>
-        /// Logging configuration. See Log Config below.
+        /// Logging configuration. See `LogConfig` Block below.
         /// </summary>
         public readonly Outputs.ApiEventConfigLogConfig? LogConfig;
 

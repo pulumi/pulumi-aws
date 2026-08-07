@@ -18,10 +18,13 @@ public final class OpenZfsVolumeUserAndGroupQuota {
     private Integer id;
     /**
      * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     private Integer storageCapacityQuotaGib;
+    /**
+     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     private String type;
 
     private OpenZfsVolumeUserAndGroupQuota() {}
@@ -34,12 +37,15 @@ public final class OpenZfsVolumeUserAndGroupQuota {
     }
     /**
      * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     public Integer storageCapacityQuotaGib() {
         return this.storageCapacityQuotaGib;
     }
+    /**
+     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -103,13 +103,13 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbNodeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// </summary>
         [Input("cloudVmClusterId", required: true)]
         public string CloudVmClusterId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of db node associated with vm cluster.
+        /// Unique identifier of db node associated with vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -131,13 +131,13 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbNodeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique identifier of the cloud vm cluster.
+        /// Unique identifier of the cloud vm cluster.
         /// </summary>
         [Input("cloudVmClusterId", required: true)]
         public Input<string> CloudVmClusterId { get; set; } = null!;
 
         /// <summary>
-        /// The unique identifier of db node associated with vm cluster.
+        /// Unique identifier of db node associated with vm cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -164,87 +164,90 @@ namespace Pulumi.Aws.Odb
         /// Additional information about the planned maintenance.
         /// </summary>
         public readonly string AdditionalDetails;
+        /// <summary>
+        /// ARN of the DB node.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+        /// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         /// </summary>
         public readonly string BackupIpId;
         /// <summary>
-        /// The OCID of the second backup VNIC.
+        /// OCID of the second backup VNIC.
         /// </summary>
         public readonly string BackupVnic2Id;
         /// <summary>
-        /// The OCID of the backup VNIC.
+        /// OCID of the backup VNIC.
         /// </summary>
         public readonly string BackupVnicId;
         /// <summary>
-        /// The ID of the cloud VM cluster.
+        /// ID of the cloud VM cluster.
         /// </summary>
         public readonly string CloudVmClusterId;
         /// <summary>
-        /// The number of CPU cores enabled on the DB node.
+        /// Number of CPU cores enabled on the DB node.
         /// </summary>
         public readonly int CpuCoreCount;
         /// <summary>
-        /// The date and time when the DB node was created.
+        /// Date and time when the DB node was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// The unique identifier of the DB server that is associated with the DB node.
+        /// Unique identifier of the DB server that is associated with the DB node.
         /// </summary>
         public readonly string DbServerId;
         /// <summary>
-        /// The amount of local node storage, in gigabytes (GB), allocated on the DB node.
+        /// Amount of local node storage, in gigabytes (GB), allocated on the DB node.
         /// </summary>
         public readonly int DbStorageSizeInGbs;
         /// <summary>
-        /// The OCID of the DB system.
+        /// OCID of the DB system.
         /// </summary>
         public readonly string DbSystemId;
         /// <summary>
-        /// The name of the fault domain the instance is contained in.
+        /// Name of the fault domain the instance is contained in.
         /// </summary>
         public readonly string FaultDomain;
         /// <summary>
-        /// The floating IP address assigned to the DB node.
+        /// Floating IP address assigned to the DB node.
         /// </summary>
         public readonly string FloatingIpAddress;
         /// <summary>
-        /// The OCID of the host IP address that's associated with the DB node.
+        /// OCID of the host IP address that's associated with the DB node.
         /// </summary>
         public readonly string HostIpId;
         /// <summary>
-        /// The host name for the DB node.
+        /// Host name for the DB node.
         /// </summary>
         public readonly string Hostname;
         public readonly string Id;
         /// <summary>
-        /// The type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
+        /// Type of database node maintenance. Either VMDB_REBOOT_MIGRATION or EXADBXS_REBOOT_MIGRATION.
         /// </summary>
         public readonly string MaintenanceType;
         /// <summary>
-        /// The allocated memory in GBs on the DB node.
+        /// Allocated memory in GBs on the DB node.
         /// </summary>
         public readonly int MemorySizeInGbs;
         /// <summary>
-        /// The name of the OCI resource anchor for the DB node.
+        /// Name of the OCI resource anchor for the DB node.
         /// </summary>
         public readonly string OciResourceAnchorName;
         /// <summary>
-        /// The OCID of the DB node.
+        /// OCID of the DB node.
         /// </summary>
         public readonly string Ocid;
         /// <summary>
-        /// The private IP address assigned to the DB node.
+        /// Private IP address assigned to the DB node.
         /// </summary>
         public readonly string PrivateIpAddress;
         public readonly string Region;
         /// <summary>
-        /// The size (in GB) of the block storage volume allocation for the DB system.
+        /// Size (in GB) of the block storage volume allocation for the DB system.
         /// </summary>
         public readonly int SoftwareStorageSizeInGbs;
         /// <summary>
-        /// The current status of the DB node.
+        /// Current status of the DB node.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -252,23 +255,23 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string StatusReason;
         /// <summary>
-        /// The end date and time of the maintenance window.
+        /// End date and time of the maintenance window.
         /// </summary>
         public readonly string TimeMaintenanceWindowEnd;
         /// <summary>
-        /// The start date and time of the maintenance window.
+        /// Start date and time of the maintenance window.
         /// </summary>
         public readonly string TimeMaintenanceWindowStart;
         /// <summary>
-        /// The total number of CPU cores reserved on the DB node.
+        /// Total number of CPU cores reserved on the DB node.
         /// </summary>
         public readonly int TotalCpuCoreCount;
         /// <summary>
-        /// The OCID of the second VNIC.
+        /// OCID of the second VNIC.
         /// </summary>
         public readonly string Vnic2Id;
         /// <summary>
-        /// The OCID of the VNIC.
+        /// OCID of the VNIC.
         /// </summary>
         public readonly string VnicId;
 

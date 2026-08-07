@@ -63,14 +63,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
      * 
      */
     @Import(name="scheduleExpression", required=true)
     private Output<String> scheduleExpression;
 
     /**
-     * @return Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+     * @return Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
      * 
      */
     public Output<String> scheduleExpression() {
@@ -78,14 +78,14 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     }
 
     /**
-     * Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     @Import(name="scheduleOffset")
     private @Nullable Output<Integer> scheduleOffset;
 
     /**
-     * @return Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+     * @return Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
     public Optional<Output<Integer>> scheduleOffset() {
@@ -110,80 +110,12 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
     /**
      * Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appflow.Flow;
-     * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appflow.Flow;
-     * import com.pulumi.aws.appflow.FlowArgs;
-     * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var example = new Flow("example", FlowArgs.builder()
-     *             .triggerConfig(FlowTriggerConfigArgs.builder()
-     *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -284,7 +216,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
          * 
          * @return builder
          * 
@@ -295,7 +227,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         * @param scheduleExpression Scheduling expression that determines the rate at which the schedule runs, for example `rate(5minutes)`.
          * 
          * @return builder
          * 
@@ -305,7 +237,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleOffset Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         * @param scheduleOffset Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
          * 
          * @return builder
          * 
@@ -316,7 +248,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         }
 
         /**
-         * @param scheduleOffset Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         * @param scheduleOffset Offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
          * 
          * @return builder
          * 
@@ -349,40 +281,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
          * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.appflow.Flow;
-         * import com.pulumi.aws.appflow.FlowArgs;
-         * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-         * import java.util.ArrayList;
-         * import java.util.Arrays;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new Flow("example", FlowArgs.builder()
-         *             .triggerConfig(FlowTriggerConfigArgs.builder()
-         *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
-         * 
          * @return builder
          * 
          */
@@ -393,40 +291,6 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs extends com.p
 
         /**
          * @param timezone Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
-         * 
-         * <pre>
-         * {@code
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import com.pulumi.aws.appflow.Flow;
-         * import com.pulumi.aws.appflow.FlowArgs;
-         * import com.pulumi.aws.appflow.inputs.FlowTriggerConfigArgs;
-         * import java.util.ArrayList;
-         * import java.util.Arrays;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *         var example = new Flow("example", FlowArgs.builder()
-         *             .triggerConfig(FlowTriggerConfigArgs.builder()
-         *                 .scheduled(Arrays.asList(Map.of("scheduleExpression", "rate(1minutes)")))
-         *                 .build())
-         *             .build());
-         * 
-         *     }
-         * }
-         * }
-         * </pre>
          * 
          * @return builder
          * 

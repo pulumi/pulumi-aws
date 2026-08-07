@@ -15,16 +15,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs();
 
+    /**
+     * Maximum total accelerator memory, in MiB.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
+    /**
+     * @return Maximum total accelerator memory, in MiB.
+     * 
+     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum total accelerator memory, in MiB.
+     * 
+     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
+    /**
+     * @return Minimum total accelerator memory, in MiB.
+     * 
+     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -54,20 +70,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum total accelerator memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum total accelerator memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum total accelerator memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum total accelerator memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

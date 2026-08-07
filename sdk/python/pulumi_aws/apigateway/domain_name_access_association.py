@@ -27,9 +27,9 @@ class DomainNameAccessAssociationArgs:
         """
         The set of arguments for constructing a DomainNameAccessAssociation resource.
 
-        :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-        :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
-        :param pulumi.Input[_builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[_builtins.str] access_association_source: Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        :param pulumi.Input[_builtins.str] access_association_source_type: Type of the domain name access association source. Valid values are `VPCE`.
+        :param pulumi.Input[_builtins.str] domain_name_arn: ARN of the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -45,7 +45,7 @@ class DomainNameAccessAssociationArgs:
     @pulumi.getter(name="accessAssociationSource")
     def access_association_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         """
         return pulumi.get(self, "access_association_source")
 
@@ -57,7 +57,7 @@ class DomainNameAccessAssociationArgs:
     @pulumi.getter(name="accessAssociationSourceType")
     def access_association_source_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the domain name access association source. Valid values are `VPCE`.
+        Type of the domain name access association source. Valid values are `VPCE`.
         """
         return pulumi.get(self, "access_association_source_type")
 
@@ -69,7 +69,7 @@ class DomainNameAccessAssociationArgs:
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the domain name.
+        ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
 
@@ -115,10 +115,10 @@ class _DomainNameAccessAssociationState:
         """
         Input properties used for looking up and filtering DomainNameAccessAssociation resources.
 
-        :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-        :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
+        :param pulumi.Input[_builtins.str] access_association_source: Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        :param pulumi.Input[_builtins.str] access_association_source_type: Type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain name access association.
-        :param pulumi.Input[_builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[_builtins.str] domain_name_arn: ARN of the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -142,7 +142,7 @@ class _DomainNameAccessAssociationState:
     @pulumi.getter(name="accessAssociationSource")
     def access_association_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         """
         return pulumi.get(self, "access_association_source")
 
@@ -154,7 +154,7 @@ class _DomainNameAccessAssociationState:
     @pulumi.getter(name="accessAssociationSourceType")
     def access_association_source_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the domain name access association source. Valid values are `VPCE`.
+        Type of the domain name access association source. Valid values are `VPCE`.
         """
         return pulumi.get(self, "access_association_source_type")
 
@@ -178,7 +178,7 @@ class _DomainNameAccessAssociationState:
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the domain name.
+        ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
 
@@ -267,9 +267,9 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-        :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
-        :param pulumi.Input[_builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[_builtins.str] access_association_source: Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        :param pulumi.Input[_builtins.str] access_association_source_type: Type of the domain name access association source. Valid values are `VPCE`.
+        :param pulumi.Input[_builtins.str] domain_name_arn: ARN of the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -375,10 +375,10 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_association_source: The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-        :param pulumi.Input[_builtins.str] access_association_source_type: The type of the domain name access association source. Valid values are `VPCE`.
+        :param pulumi.Input[_builtins.str] access_association_source: Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        :param pulumi.Input[_builtins.str] access_association_source_type: Type of the domain name access association source. Valid values are `VPCE`.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain name access association.
-        :param pulumi.Input[_builtins.str] domain_name_arn: The ARN of the domain name.
+        :param pulumi.Input[_builtins.str] domain_name_arn: ARN of the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -400,7 +400,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
     @pulumi.getter(name="accessAssociationSource")
     def access_association_source(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+        Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         """
         return pulumi.get(self, "access_association_source")
 
@@ -408,7 +408,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
     @pulumi.getter(name="accessAssociationSourceType")
     def access_association_source_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the domain name access association source. Valid values are `VPCE`.
+        Type of the domain name access association source. Valid values are `VPCE`.
         """
         return pulumi.get(self, "access_association_source_type")
 
@@ -424,7 +424,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
     @pulumi.getter(name="domainNameArn")
     def domain_name_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the domain name.
+        ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
 

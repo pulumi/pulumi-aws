@@ -30,15 +30,10 @@ class TableBucketArgs:
         """
         The set of arguments for constructing a TableBucket resource.
 
-        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
+        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the table bucket. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table bucket.
-               Must be between 3 and 63 characters in length.
-               Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: Maintenance configuration for the table bucket. See `maintenance_configuration` below.
+        :param pulumi.Input[_builtins.str] name: Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -61,8 +56,7 @@ class TableBucketArgs:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input[Optional['TableBucketEncryptionConfigurationArgs']]:
         """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
+        Encryption configuration for the table bucket. See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -86,8 +80,7 @@ class TableBucketArgs:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Input[Optional['TableBucketMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
+        Maintenance configuration for the table bucket. See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -99,10 +92,7 @@ class TableBucketArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the table bucket.
-        Must be between 3 and 63 characters in length.
-        Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following arguments are optional:
         """
@@ -155,21 +145,16 @@ class _TableBucketState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the table bucket.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
-        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
+        :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: Encryption configuration for the table bucket. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table bucket.
-               Must be between 3 and 63 characters in length.
-               Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        :param pulumi.Input['TableBucketMaintenanceConfigurationArgs'] maintenance_configuration: Maintenance configuration for the table bucket. See `maintenance_configuration` below.
+        :param pulumi.Input[_builtins.str] name: Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -220,8 +205,7 @@ class _TableBucketState:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input[Optional['TableBucketEncryptionConfigurationArgs']]:
         """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
+        Encryption configuration for the table bucket. See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -245,8 +229,7 @@ class _TableBucketState:
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Input[Optional['TableBucketMaintenanceConfigurationArgs']]:
         """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
+        Maintenance configuration for the table bucket. See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -258,10 +241,7 @@ class _TableBucketState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the table bucket.
-        Must be between 3 and 63 characters in length.
-        Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following arguments are optional:
         """
@@ -311,7 +291,7 @@ class _TableBucketState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -364,15 +344,10 @@ class TableBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
+        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the table bucket. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table bucket.
-               Must be between 3 and 63 characters in length.
-               Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: Maintenance configuration for the table bucket. See `maintenance_configuration` below.
+        :param pulumi.Input[_builtins.str] name: Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -482,21 +457,16 @@ class TableBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the table bucket.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the bucket was created.
-        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: A single table bucket encryption configuration object.
-               See `encryption_configuration` below.
+        :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: Encryption configuration for the table bucket. See `encryption_configuration` below.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: A single table bucket maintenance configuration object.
-               See `maintenance_configuration` below.
-        :param pulumi.Input[_builtins.str] name: Name of the table bucket.
-               Must be between 3 and 63 characters in length.
-               Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-               A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        :param pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']] maintenance_configuration: Maintenance configuration for the table bucket. See `maintenance_configuration` below.
+        :param pulumi.Input[_builtins.str] name: Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,8 +504,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.TableBucketEncryptionConfiguration']:
         """
-        A single table bucket encryption configuration object.
-        See `encryption_configuration` below.
+        Encryption configuration for the table bucket. See `encryption_configuration` below.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -551,8 +520,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Output['outputs.TableBucketMaintenanceConfiguration']:
         """
-        A single table bucket maintenance configuration object.
-        See `maintenance_configuration` below.
+        Maintenance configuration for the table bucket. See `maintenance_configuration` below.
         """
         return pulumi.get(self, "maintenance_configuration")
 
@@ -560,10 +528,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the table bucket.
-        Must be between 3 and 63 characters in length.
-        Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-        A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+        Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 
         The following arguments are optional:
         """
@@ -597,7 +562,7 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

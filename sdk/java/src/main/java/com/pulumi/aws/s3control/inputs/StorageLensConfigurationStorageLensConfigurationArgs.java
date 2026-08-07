@@ -24,14 +24,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     public static final StorageLensConfigurationStorageLensConfigurationArgs Empty = new StorageLensConfigurationStorageLensConfigurationArgs();
 
     /**
-     * The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+     * Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
      * 
      */
     @Import(name="accountLevel", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel;
 
     /**
-     * @return The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+     * @return Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
      * 
      */
     public Output<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel() {
@@ -39,14 +39,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
-     * The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+     * Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
      * 
      */
     @Import(name="awsOrg")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs> awsOrg;
 
     /**
-     * @return The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+     * @return Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs>> awsOrg() {
@@ -54,14 +54,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
-     * Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+     * Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
      * 
      */
     @Import(name="dataExport")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportArgs> dataExport;
 
     /**
-     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+     * @return Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportArgs>> dataExport() {
@@ -84,14 +84,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
-     * What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+     * What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
      * 
      */
     @Import(name="exclude")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExcludeArgs> exclude;
 
     /**
-     * @return What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+     * @return What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExcludeArgs>> exclude() {
@@ -99,14 +99,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
-     * Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
      * 
      */
     @Import(name="expandedPrefixesDataExport")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs> expandedPrefixesDataExport;
 
     /**
-     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+     * @return Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs>> expandedPrefixesDataExport() {
@@ -114,14 +114,14 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
     }
 
     /**
-     * What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+     * What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
      * 
      */
     @Import(name="include")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationIncludeArgs> include;
 
     /**
-     * @return What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+     * @return What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationIncludeArgs>> include() {
@@ -175,7 +175,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param accountLevel The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+         * @param accountLevel Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param accountLevel The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+         * @param accountLevel Account-level configurations of the S3 Storage Lens configuration. See `accountLevel` below for more details.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param awsOrg The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+         * @param awsOrg Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param awsOrg The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+         * @param awsOrg Amazon Web Services organization for the S3 Storage Lens configuration. See `awsOrg` below for more details.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+         * @param dataExport Properties of S3 Storage Lens metrics export including the destination, schema and format. See `dataExport` below for more details.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param exclude What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+         * @param exclude What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param exclude What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+         * @param exclude What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+         * @param expandedPrefixesDataExport Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expandedPrefixesDataExport` below for more details.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param include What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+         * @param include What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs extends 
         }
 
         /**
-         * @param include What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+         * @param include What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
          * 
          * @return builder
          * 

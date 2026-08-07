@@ -14,15 +14,15 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketLifecycleRule
     {
         /// <summary>
-        /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+        /// Number of days after initiating a multipart upload when the multipart upload must be completed.
         /// </summary>
         public readonly int? AbortIncompleteMultipartUploadDays;
         /// <summary>
-        /// Specifies lifecycle rule status.
+        /// Lifecycle rule status.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Specifies a period in the object's expire. See Expiration below for details.
+        /// Configuration of the object expiration. See `Expiration` Block below for details.
         /// </summary>
         public readonly Outputs.BucketLifecycleRuleExpiration? Expiration;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        /// When noncurrent object versions expire. See `NoncurrentVersionExpiration` Block below for details.
         /// </summary>
         public readonly Outputs.BucketLifecycleRuleNoncurrentVersionExpiration? NoncurrentVersionExpiration;
         /// <summary>
-        /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+        /// When noncurrent object versions transition. See `NoncurrentVersionTransition` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleRuleNoncurrentVersionTransition> NoncurrentVersionTransitions;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// Specifies object tags key and value.
+        /// Object tags key and value.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Specifies a period in the object's transitions. See Transition below for details.
+        /// Configuration of the object transition. See `Transition` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketLifecycleRuleTransition> Transitions;
 

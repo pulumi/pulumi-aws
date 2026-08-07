@@ -14,32 +14,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOption {
     /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+     * @return Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy;
     /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+     * @return Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
      * 
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy;
+    /**
+     * @return Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+     * 
+     */
     private @Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy;
 
     private PolicySecurityServicePolicyDataPolicyOption() {}
     /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+     * @return Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy> networkAclCommonPolicy() {
         return Optional.ofNullable(this.networkAclCommonPolicy);
     }
     /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+     * @return Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
      * 
      */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy> networkFirewallPolicy() {
         return Optional.ofNullable(this.networkFirewallPolicy);
     }
+    /**
+     * @return Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+     * 
+     */
     public Optional<PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy> thirdPartyFirewallPolicy() {
         return Optional.ofNullable(this.thirdPartyFirewallPolicy);
     }

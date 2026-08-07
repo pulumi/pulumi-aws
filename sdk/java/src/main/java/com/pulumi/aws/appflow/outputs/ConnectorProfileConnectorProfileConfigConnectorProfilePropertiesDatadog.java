@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog() {}
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

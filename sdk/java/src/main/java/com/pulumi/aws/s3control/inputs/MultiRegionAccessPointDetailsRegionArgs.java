@@ -17,14 +17,14 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
     public static final MultiRegionAccessPointDetailsRegionArgs Empty = new MultiRegionAccessPointDetailsRegionArgs();
 
     /**
-     * The name of the associated bucket for the Region.
+     * Name of the associated bucket for the Region.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the associated bucket for the Region.
+     * @return Name of the associated bucket for the Region.
      * 
      */
     public Output<String> bucket() {
@@ -32,14 +32,14 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
     }
 
     /**
-     * The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
      * 
      */
     @Import(name="bucketAccountId")
     private @Nullable Output<String> bucketAccountId;
 
     /**
-     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * @return AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
      * 
      */
     public Optional<Output<String>> bucketAccountId() {
@@ -88,7 +88,7 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
         }
 
         /**
-         * @param bucket The name of the associated bucket for the Region.
+         * @param bucket Name of the associated bucket for the Region.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
         }
 
         /**
-         * @param bucket The name of the associated bucket for the Region.
+         * @param bucket Name of the associated bucket for the Region.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
         }
 
         /**
-         * @param bucketAccountId The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+         * @param bucketAccountId AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
         }
 
         /**
-         * @param bucketAccountId The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+         * @param bucketAccountId AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
          * 
          * @return builder
          * 

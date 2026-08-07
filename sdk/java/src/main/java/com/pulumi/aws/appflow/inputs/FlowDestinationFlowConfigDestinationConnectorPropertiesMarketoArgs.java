@@ -17,9 +17,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs();
 
+    /**
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs> errorHandlingConfig;
 
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
@@ -56,11 +64,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarket
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }

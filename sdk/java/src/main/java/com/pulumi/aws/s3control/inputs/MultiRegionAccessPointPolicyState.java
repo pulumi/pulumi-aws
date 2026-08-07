@@ -17,14 +17,14 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
     public static final MultiRegionAccessPointPolicyState Empty = new MultiRegionAccessPointPolicyState();
 
     /**
-     * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * @return AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
     }
 
     /**
-     * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     @Import(name="details")
     private @Nullable Output<MultiRegionAccessPointPolicyDetailsArgs> details;
 
     /**
-     * @return A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+     * @return Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
      * 
      */
     public Optional<Output<MultiRegionAccessPointPolicyDetailsArgs>> details() {
@@ -47,14 +47,14 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
     }
 
     /**
-     * The last established policy for the Multi-Region Access Point.
+     * Last established policy for the Multi-Region Access Point.
      * 
      */
     @Import(name="established")
     private @Nullable Output<String> established;
 
     /**
-     * @return The last established policy for the Multi-Region Access Point.
+     * @return Last established policy for the Multi-Region Access Point.
      * 
      */
     public Optional<Output<String>> established() {
@@ -62,14 +62,14 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
     }
 
     /**
-     * The proposed policy for the Multi-Region Access Point.
+     * Proposed policy for the Multi-Region Access Point.
      * 
      */
     @Import(name="proposed")
     private @Nullable Output<String> proposed;
 
     /**
-     * @return The proposed policy for the Multi-Region Access Point.
+     * @return Proposed policy for the Multi-Region Access Point.
      * 
      */
     public Optional<Output<String>> proposed() {
@@ -120,7 +120,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param accountId The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+         * @param accountId AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param details A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+         * @param details Configuration block containing details about the policy for the Multi-Region Access Point. See `details` Block below for more details
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param established The last established policy for the Multi-Region Access Point.
+         * @param established Last established policy for the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param established The last established policy for the Multi-Region Access Point.
+         * @param established Last established policy for the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param proposed The proposed policy for the Multi-Region Access Point.
+         * @param proposed Proposed policy for the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         }
 
         /**
-         * @param proposed The proposed policy for the Multi-Region Access Point.
+         * @param proposed Proposed policy for the Multi-Region Access Point.
          * 
          * @return builder
          * 

@@ -54,7 +54,7 @@ func LookupCloudExadataInfrastructure(ctx *pulumi.Context, args *LookupCloudExad
 
 // A collection of arguments for invoking getCloudExadataInfrastructure.
 type LookupCloudExadataInfrastructureArgs struct {
-	// The unique identifier of the Exadata infrastructure.
+	// Unique identifier of the Exadata infrastructure.
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
@@ -64,82 +64,84 @@ type LookupCloudExadataInfrastructureArgs struct {
 
 // A collection of values returned by getCloudExadataInfrastructure.
 type LookupCloudExadataInfrastructureResult struct {
-	// The number of storage servers requested for the Exadata infrastructure.
+	// Number of storage servers requested for the Exadata infrastructure.
 	ActivatedStorageCount int `pulumi:"activatedStorageCount"`
-	// The number of storage servers requested for the Exadata infrastructure.
+	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount int `pulumi:"additionalStorageCount"`
-	// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// Amazon Resource Name (ARN) for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
-	// The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
+	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// The AZ ID of the AZ where the Exadata infrastructure is located.
-	AvailabilityZoneId        string `pulumi:"availabilityZoneId"`
-	AvailableStorageSizeInGbs int    `pulumi:"availableStorageSizeInGbs"`
-	// The number of database servers for the Exadata infrastructure.
+	// AZ ID of the AZ where the Exadata infrastructure is located.
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+	AvailableStorageSizeInGbs int `pulumi:"availableStorageSizeInGbs"`
+	// Number of database servers for the Exadata infrastructure.
 	ComputeCount int `pulumi:"computeCount"`
-	// The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+	// OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
 	ComputeModel string `pulumi:"computeModel"`
-	// The total number of CPU cores that are allocated to the Exadata infrastructure.
+	// Total number of CPU cores that are allocated to the Exadata infrastructure.
 	CpuCount int `pulumi:"cpuCount"`
-	// The time when the Exadata infrastructure was created.
-	CreatedAt                    string                                                     `pulumi:"createdAt"`
+	// Time when the Exadata infrastructure was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
 	CustomerContactsToSendToOcis []GetCloudExadataInfrastructureCustomerContactsToSendToOci `pulumi:"customerContactsToSendToOcis"`
-	// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+	// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
 	DataStorageSizeInTbs float64 `pulumi:"dataStorageSizeInTbs"`
-	// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+	// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
 	DatabaseServerType string `pulumi:"databaseServerType"`
-	// The size of the storage available on each database node, in gigabytes (GB).
+	// Size of the storage available on each database node, in gigabytes (GB).
 	DbNodeStorageSizeInGbs int `pulumi:"dbNodeStorageSizeInGbs"`
-	// The version of the Exadata infrastructure.
+	// Version of the Exadata infrastructure.
 	DbServerVersion string `pulumi:"dbServerVersion"`
-	// The display name of the Exadata infrastructure.
+	// Display name of the Exadata infrastructure.
 	DisplayName string `pulumi:"displayName"`
-	// The unique identifier of the Exadata infrastructure.
+	// Unique identifier of the Exadata infrastructure.
 	Id string `pulumi:"id"`
-	// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+	// Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
 	LastMaintenanceRunId string `pulumi:"lastMaintenanceRunId"`
-	// The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
+	// Scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
 	MaintenanceWindows []GetCloudExadataInfrastructureMaintenanceWindow `pulumi:"maintenanceWindows"`
-	// The total number of CPU cores available on the Exadata infrastructure.
+	// Total number of CPU cores available on the Exadata infrastructure.
 	MaxCpuCount int `pulumi:"maxCpuCount"`
-	// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+	// Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
 	MaxDataStorageInTbs float64 `pulumi:"maxDataStorageInTbs"`
-	// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+	// Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
 	MaxDbNodeStorageSizeInGbs int `pulumi:"maxDbNodeStorageSizeInGbs"`
-	// The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
+	// Total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
 	MaxMemoryInGbs int `pulumi:"maxMemoryInGbs"`
-	// The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
+	// Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
 	MemorySizeInGbs int `pulumi:"memorySizeInGbs"`
-	// The monthly software version of the database servers installed on the Exadata infrastructure.
+	// Monthly software version of the database servers installed on the Exadata infrastructure.
 	MonthlyDbServerVersion string `pulumi:"monthlyDbServerVersion"`
-	// The monthly software version of the storage servers installed on the Exadata infrastructure.
+	// Monthly software version of the storage servers installed on the Exadata infrastructure.
 	MonthlyStorageServerVersion string `pulumi:"monthlyStorageServerVersion"`
-	// The OCID of the next maintenance run for the Exadata infrastructure.
+	// OCID of the next maintenance run for the Exadata infrastructure.
 	NextMaintenanceRunId string `pulumi:"nextMaintenanceRunId"`
-	// The name of the OCI resource anchor for the Exadata infrastructure.
+	// Name of the OCI resource anchor for the Exadata infrastructure.
 	OciResourceAnchorName string `pulumi:"ociResourceAnchorName"`
-	// The HTTPS link to the Exadata infrastructure in OCI.
+	// HTTPS link to the Exadata infrastructure in OCI.
 	OciUrl string `pulumi:"ociUrl"`
-	// The OCID of the Exadata infrastructure in OCI.
+	// OCID of the Exadata infrastructure in OCI.
 	Ocid string `pulumi:"ocid"`
-	// The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
+	// Amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
 	PercentProgress float64 `pulumi:"percentProgress"`
 	Region          string  `pulumi:"region"`
-	// The model name of the Exadata infrastructure.
+	// Model name of the Exadata infrastructure.
 	Shape string `pulumi:"shape"`
-	// The status of the Exadata infrastructure.
+	// Status of the Exadata infrastructure.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the Exadata infrastructure.
 	StatusReason string `pulumi:"statusReason"`
-	// The number of storage servers that are activated for the Exadata infrastructure.
+	// Number of storage servers that are activated for the Exadata infrastructure.
 	StorageCount int `pulumi:"storageCount"`
-	// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+	// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
 	StorageServerType string `pulumi:"storageServerType"`
-	// The software version of the storage servers on the Exadata infrastructure.
+	// Software version of the storage servers on the Exadata infrastructure.
 	StorageServerVersion string `pulumi:"storageServerVersion"`
-	// (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the Exadata infrastructure.
 	Tags map[string]string `pulumi:"tags"`
-	// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+	// Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
 	TotalStorageSizeInGbs int `pulumi:"totalStorageSizeInGbs"`
 }
 
@@ -154,7 +156,7 @@ func LookupCloudExadataInfrastructureOutput(ctx *pulumi.Context, args LookupClou
 
 // A collection of arguments for invoking getCloudExadataInfrastructure.
 type LookupCloudExadataInfrastructureOutputArgs struct {
-	// The unique identifier of the Exadata infrastructure.
+	// Unique identifier of the Exadata infrastructure.
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
@@ -181,159 +183,161 @@ func (o LookupCloudExadataInfrastructureResultOutput) ToLookupCloudExadataInfras
 	return o
 }
 
-// The number of storage servers requested for the Exadata infrastructure.
+// Number of storage servers requested for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) ActivatedStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.ActivatedStorageCount }).(pulumi.IntOutput)
 }
 
-// The number of storage servers requested for the Exadata infrastructure.
+// Number of storage servers requested for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) AdditionalStorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.AdditionalStorageCount }).(pulumi.IntOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Exadata infrastructure.
+// Amazon Resource Name (ARN) for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
+// Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
 func (o LookupCloudExadataInfrastructureResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// The AZ ID of the AZ where the Exadata infrastructure is located.
+// AZ ID of the AZ where the Exadata infrastructure is located.
 func (o LookupCloudExadataInfrastructureResultOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
+// Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) AvailableStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.AvailableStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The number of database servers for the Exadata infrastructure.
+// Number of database servers for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) ComputeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.ComputeCount }).(pulumi.IntOutput)
 }
 
-// The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+// OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
 func (o LookupCloudExadataInfrastructureResultOutput) ComputeModel() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.ComputeModel }).(pulumi.StringOutput)
 }
 
-// The total number of CPU cores that are allocated to the Exadata infrastructure.
+// Total number of CPU cores that are allocated to the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) CpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.CpuCount }).(pulumi.IntOutput)
 }
 
-// The time when the Exadata infrastructure was created.
+// Time when the Exadata infrastructure was created.
 func (o LookupCloudExadataInfrastructureResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) CustomerContactsToSendToOcis() GetCloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) []GetCloudExadataInfrastructureCustomerContactsToSendToOci {
 		return v.CustomerContactsToSendToOcis
 	}).(GetCloudExadataInfrastructureCustomerContactsToSendToOciArrayOutput)
 }
 
-// The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+// Size of the Exadata infrastructure's data disk group, in terabytes (TB).
 func (o LookupCloudExadataInfrastructureResultOutput) DataStorageSizeInTbs() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) float64 { return v.DataStorageSizeInTbs }).(pulumi.Float64Output)
 }
 
-// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+// Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
 func (o LookupCloudExadataInfrastructureResultOutput) DatabaseServerType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.DatabaseServerType }).(pulumi.StringOutput)
 }
 
-// The size of the storage available on each database node, in gigabytes (GB).
+// Size of the storage available on each database node, in gigabytes (GB).
 func (o LookupCloudExadataInfrastructureResultOutput) DbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.DbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The version of the Exadata infrastructure.
+// Version of the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) DbServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.DbServerVersion }).(pulumi.StringOutput)
 }
 
-// The display name of the Exadata infrastructure.
+// Display name of the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the Exadata infrastructure.
+// Unique identifier of the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+// Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) LastMaintenanceRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.LastMaintenanceRunId }).(pulumi.StringOutput)
 }
 
-// The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
+// Scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
 func (o LookupCloudExadataInfrastructureResultOutput) MaintenanceWindows() GetCloudExadataInfrastructureMaintenanceWindowArrayOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) []GetCloudExadataInfrastructureMaintenanceWindow {
 		return v.MaintenanceWindows
 	}).(GetCloudExadataInfrastructureMaintenanceWindowArrayOutput)
 }
 
-// The total number of CPU cores available on the Exadata infrastructure.
+// Total number of CPU cores available on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MaxCpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.MaxCpuCount }).(pulumi.IntOutput)
 }
 
-// The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+// Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MaxDataStorageInTbs() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) float64 { return v.MaxDataStorageInTbs }).(pulumi.Float64Output)
 }
 
-// The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+// Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MaxDbNodeStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.MaxDbNodeStorageSizeInGbs }).(pulumi.IntOutput)
 }
 
-// The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
+// Total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MaxMemoryInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.MaxMemoryInGbs }).(pulumi.IntOutput)
 }
 
-// The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
+// Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MemorySizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.MemorySizeInGbs }).(pulumi.IntOutput)
 }
 
-// The monthly software version of the database servers installed on the Exadata infrastructure.
+// Monthly software version of the database servers installed on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MonthlyDbServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.MonthlyDbServerVersion }).(pulumi.StringOutput)
 }
 
-// The monthly software version of the storage servers installed on the Exadata infrastructure.
+// Monthly software version of the storage servers installed on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) MonthlyStorageServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.MonthlyStorageServerVersion }).(pulumi.StringOutput)
 }
 
-// The OCID of the next maintenance run for the Exadata infrastructure.
+// OCID of the next maintenance run for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) NextMaintenanceRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.NextMaintenanceRunId }).(pulumi.StringOutput)
 }
 
-// The name of the OCI resource anchor for the Exadata infrastructure.
+// Name of the OCI resource anchor for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) OciResourceAnchorName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.OciResourceAnchorName }).(pulumi.StringOutput)
 }
 
-// The HTTPS link to the Exadata infrastructure in OCI.
+// HTTPS link to the Exadata infrastructure in OCI.
 func (o LookupCloudExadataInfrastructureResultOutput) OciUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.OciUrl }).(pulumi.StringOutput)
 }
 
-// The OCID of the Exadata infrastructure in OCI.
+// OCID of the Exadata infrastructure in OCI.
 func (o LookupCloudExadataInfrastructureResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Ocid }).(pulumi.StringOutput)
 }
 
-// The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
+// Amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
 func (o LookupCloudExadataInfrastructureResultOutput) PercentProgress() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) float64 { return v.PercentProgress }).(pulumi.Float64Output)
 }
@@ -342,12 +346,12 @@ func (o LookupCloudExadataInfrastructureResultOutput) Region() pulumi.StringOutp
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The model name of the Exadata infrastructure.
+// Model name of the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Shape() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Shape }).(pulumi.StringOutput)
 }
 
-// The status of the Exadata infrastructure.
+// Status of the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -357,27 +361,27 @@ func (o LookupCloudExadataInfrastructureResultOutput) StatusReason() pulumi.Stri
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The number of storage servers that are activated for the Exadata infrastructure.
+// Number of storage servers that are activated for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) StorageCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.StorageCount }).(pulumi.IntOutput)
 }
 
-// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+// Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
 func (o LookupCloudExadataInfrastructureResultOutput) StorageServerType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.StorageServerType }).(pulumi.StringOutput)
 }
 
-// The software version of the storage servers on the Exadata infrastructure.
+// Software version of the storage servers on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) StorageServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.StorageServerVersion }).(pulumi.StringOutput)
 }
 
-// (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+// Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) TotalStorageSizeInGbs() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.TotalStorageSizeInGbs }).(pulumi.IntOutput)
 }

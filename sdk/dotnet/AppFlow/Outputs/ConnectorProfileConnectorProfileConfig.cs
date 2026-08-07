@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfig
     {
         /// <summary>
-        /// The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+        /// Connector-specific credentials required by each connector. See `ConnectorProfileCredentials` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials ConnectorProfileCredentials;
         /// <summary>
-        /// The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+        /// Connector-specific properties of the profile configuration. See `ConnectorProfileProperties` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties ConnectorProfileProperties;
 

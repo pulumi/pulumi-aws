@@ -16,14 +16,14 @@ public final class GetBucketReplicationConfigurationPlainArgs extends com.pulumi
     public static final GetBucketReplicationConfigurationPlainArgs Empty = new GetBucketReplicationConfigurationPlainArgs();
 
     /**
-     * The name of the bucket to get the replication configuration for.
+     * Name of the bucket to get the replication configuration for.
      * 
      */
     @Import(name="bucket", required=true)
     private String bucket;
 
     /**
-     * @return The name of the bucket to get the replication configuration for.
+     * @return Name of the bucket to get the replication configuration for.
      * 
      */
     public String bucket() {
@@ -71,7 +71,7 @@ public final class GetBucketReplicationConfigurationPlainArgs extends com.pulumi
         }
 
         /**
-         * @param bucket The name of the bucket to get the replication configuration for.
+         * @param bucket Name of the bucket to get the replication configuration for.
          * 
          * @return builder
          * 

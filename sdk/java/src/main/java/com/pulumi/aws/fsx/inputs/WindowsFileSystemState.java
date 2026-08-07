@@ -23,14 +23,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     public static final WindowsFileSystemState Empty = new WindowsFileSystemState();
 
     /**
-     * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+     * ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     @Import(name="activeDirectoryId")
     private @Nullable Output<String> activeDirectoryId;
 
     /**
-     * @return The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+     * @return ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
      * 
      */
     public Optional<Output<String>> activeDirectoryId() {
@@ -38,14 +38,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
     @Import(name="aliases")
     private @Nullable Output<List<String>> aliases;
 
     /**
-     * @return An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     * @return Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
     public Optional<Output<List<String>>> aliases() {
@@ -68,14 +68,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     @Import(name="auditLogConfiguration")
     private @Nullable Output<WindowsFileSystemAuditLogConfigurationArgs> auditLogConfiguration;
 
     /**
-     * @return The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+     * @return Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemAuditLogConfigurationArgs>> auditLogConfiguration() {
@@ -83,14 +83,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
     @Import(name="automaticBackupRetentionDays")
     private @Nullable Output<Integer> automaticBackupRetentionDays;
 
     /**
-     * @return The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+     * @return Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
     public Optional<Output<Integer>> automaticBackupRetentionDays() {
@@ -98,14 +98,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the source backup to create the filesystem from.
+     * ID of the source backup to create the filesystem from.
      * 
      */
     @Import(name="backupId")
     private @Nullable Output<String> backupId;
 
     /**
-     * @return The ID of the source backup to create the filesystem from.
+     * @return ID of the source backup to create the filesystem from.
      * 
      */
     public Optional<Output<String>> backupId() {
@@ -113,14 +113,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * Whether to copy tags on the file system to backups. Defaults to `false`.
      * 
      */
     @Import(name="copyTagsToBackups")
     private @Nullable Output<Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+     * @return Whether to copy tags on the file system to backups. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToBackups() {
@@ -128,14 +128,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     @Import(name="dailyAutomaticBackupStartTime")
     private @Nullable Output<String> dailyAutomaticBackupStartTime;
 
     /**
-     * @return The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * @return Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
     public Optional<Output<String>> dailyAutomaticBackupStartTime() {
@@ -143,14 +143,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+     * @return File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -158,14 +158,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<WindowsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+     * @return SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
      * 
      */
     public Optional<Output<WindowsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
@@ -188,14 +188,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to apply to the file system&#39;s final backup.
+     * Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     @Import(name="finalBackupTags")
     private @Nullable Output<Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the file system&#39;s final backup.
+     * @return Map of tags to apply to the file system&#39;s final backup.
      * 
      */
     public Optional<Output<Map<String,String>>> finalBackupTags() {
@@ -248,14 +248,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The IP address of the primary, or preferred, file server.
+     * IP address of the primary, or preferred, file server.
      * 
      */
     @Import(name="preferredFileServerIp")
     private @Nullable Output<String> preferredFileServerIp;
 
     /**
-     * @return The IP address of the primary, or preferred, file server.
+     * @return IP address of the primary, or preferred, file server.
      * 
      */
     public Optional<Output<String>> preferredFileServerIp() {
@@ -263,14 +263,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
     @Import(name="preferredSubnetId")
     private @Nullable Output<String> preferredSubnetId;
 
     /**
-     * @return Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+     * @return Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
     public Optional<Output<String>> preferredSubnetId() {
@@ -308,14 +308,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+     * @return List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -368,14 +368,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+     * @return Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -383,14 +383,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+     * @return List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -398,14 +398,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -413,14 +413,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -462,14 +462,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * @return Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
@@ -530,7 +530,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+         * @param activeDirectoryId ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param activeDirectoryId The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
+         * @param activeDirectoryId ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `selfManagedActiveDirectory`.
          * 
          * @return builder
          * 
@@ -551,7 +551,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param aliases An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+         * @param aliases Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
          * 
          * @return builder
          * 
@@ -562,7 +562,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param aliases An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+         * @param aliases Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param aliases An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+         * @param aliases Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+         * @param auditLogConfiguration Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param auditLogConfiguration The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
+         * @param auditLogConfiguration Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -624,7 +624,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
          * 
          * @return builder
          * 
@@ -635,7 +635,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param automaticBackupRetentionDays The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+         * @param automaticBackupRetentionDays Number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
          * 
          * @return builder
          * 
@@ -645,7 +645,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -656,7 +656,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupId The ID of the source backup to create the filesystem from.
+         * @param backupId ID of the source backup to create the filesystem from.
          * 
          * @return builder
          * 
@@ -666,7 +666,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+         * @param copyTagsToBackups Whether to copy tags on the file system to backups. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -677,7 +677,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param copyTagsToBackups A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
+         * @param copyTagsToBackups Whether to copy tags on the file system to backups. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -687,7 +687,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+         * @param dailyAutomaticBackupStartTime Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param dailyAutomaticBackupStartTime The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+         * @param dailyAutomaticBackupStartTime Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+         * @param deploymentType File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
          * 
          * @return builder
          * 
@@ -719,7 +719,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param deploymentType Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
+         * @param deploymentType File system deployment type. Valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -740,7 +740,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
+         * @param diskIopsConfiguration SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `diskIopsConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -771,7 +771,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param finalBackupTags A map of tags to apply to the file system&#39;s final backup.
+         * @param finalBackupTags Map of tags to apply to the file system&#39;s final backup.
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredFileServerIp The IP address of the primary, or preferred, file server.
+         * @param preferredFileServerIp IP address of the primary, or preferred, file server.
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredFileServerIp The IP address of the primary, or preferred, file server.
+         * @param preferredFileServerIp IP address of the primary, or preferred, file server.
          * 
          * @return builder
          * 
@@ -886,7 +886,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredSubnetId Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+         * @param preferredSubnetId Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -897,7 +897,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param preferredSubnetId Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+         * @param preferredSubnetId Subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -949,7 +949,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -960,7 +960,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -970,7 +970,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupIds A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+         * @param securityGroupIds List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
          * 
          * @return builder
          * 
@@ -1043,7 +1043,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageType Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+         * @param storageType Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
          * 
          * @return builder
          * 
@@ -1054,7 +1054,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageType Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
+         * @param storageType Storage type. Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
          * 
          * @return builder
          * 
@@ -1064,7 +1064,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1075,7 +1075,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1085,7 +1085,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
+         * @param subnetIds List of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1127,7 +1127,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -1183,7 +1183,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 
@@ -1194,7 +1194,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param weeklyMaintenanceStartTime The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+         * @param weeklyMaintenanceStartTime Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
          * 
          * @return builder
          * 

@@ -54,7 +54,7 @@ func GetDbNodes(ctx *pulumi.Context, args *GetDbNodesArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getDbNodes.
 type GetDbNodesArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
@@ -65,7 +65,7 @@ type GetDbNodesArgs struct {
 // A collection of values returned by getDbNodes.
 type GetDbNodesResult struct {
 	CloudVmClusterId string `pulumi:"cloudVmClusterId"`
-	// The list of DB nodes along with their properties.
+	// List of DB nodes along with their properties.
 	DbNodes []GetDbNodesDbNode `pulumi:"dbNodes"`
 	Region  string             `pulumi:"region"`
 }
@@ -81,7 +81,7 @@ func GetDbNodesOutput(ctx *pulumi.Context, args GetDbNodesOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getDbNodes.
 type GetDbNodesOutputArgs struct {
-	// The unique identifier of the cloud vm cluster.
+	// Unique identifier of the cloud vm cluster.
 	//
 	// The following arguments are optional:
 	CloudVmClusterId pulumi.StringInput `pulumi:"cloudVmClusterId"`
@@ -112,7 +112,7 @@ func (o GetDbNodesResultOutput) CloudVmClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesResult) string { return v.CloudVmClusterId }).(pulumi.StringOutput)
 }
 
-// The list of DB nodes along with their properties.
+// List of DB nodes along with their properties.
 func (o GetDbNodesResultOutput) DbNodes() GetDbNodesDbNodeArrayOutput {
 	return o.ApplyT(func(v GetDbNodesResult) []GetDbNodesDbNode { return v.DbNodes }).(GetDbNodesDbNodeArrayOutput)
 }

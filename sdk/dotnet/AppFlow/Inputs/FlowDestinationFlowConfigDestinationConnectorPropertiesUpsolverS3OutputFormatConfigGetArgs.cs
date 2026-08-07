@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+        /// Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
         /// </summary>
         [Input("aggregationConfig")]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigGetArgs>? AggregationConfig { get; set; }
 
         /// <summary>
-        /// File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+        /// File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         /// </summary>
         [Input("fileType")]
         public Input<string>? FileType { get; set; }
 
         /// <summary>
-        /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+        /// Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
         /// </summary>
         [Input("prefixConfig", required: true)]
         public Input<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigGetArgs> PrefixConfig { get; set; } = null!;

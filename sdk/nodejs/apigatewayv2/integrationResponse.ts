@@ -84,7 +84,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     declare public readonly responseTemplates: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
     declare public readonly templateSelectionExpression: pulumi.Output<string | undefined>;
 
@@ -161,7 +161,7 @@ export interface IntegrationResponseState {
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
     templateSelectionExpression?: pulumi.Input<string | undefined>;
 }
@@ -195,7 +195,7 @@ export interface IntegrationResponseArgs {
      */
     responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
     templateSelectionExpression?: pulumi.Input<string | undefined>;
 }

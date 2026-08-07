@@ -15,30 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecTcpRoute {
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     private RouteSpecTcpRouteAction action;
+    /**
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     private @Nullable RouteSpecTcpRouteMatch match;
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     private @Nullable RouteSpecTcpRouteTimeout timeout;
 
     private RouteSpecTcpRoute() {}
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
      * 
      */
     public RouteSpecTcpRouteAction action() {
         return this.action;
     }
+    /**
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
+     * 
+     */
     public Optional<RouteSpecTcpRouteMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `spec.tcp_route.timeout` Block for details.
      * 
      */
     public Optional<RouteSpecTcpRouteTimeout> timeout() {

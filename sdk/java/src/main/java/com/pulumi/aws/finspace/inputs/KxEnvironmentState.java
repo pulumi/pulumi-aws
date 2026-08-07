@@ -112,16 +112,12 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
      * @return KMS key ID to encrypt your data in the FinSpace environment.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -146,12 +142,16 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the KX environment that you want to create.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the KX environment that you want to create.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -419,8 +419,6 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param kmsKeyId KMS key ID to encrypt your data in the FinSpace environment.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -431,8 +429,6 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param kmsKeyId KMS key ID to encrypt your data in the FinSpace environment.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -465,6 +461,8 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Name of the KX environment that you want to create.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -475,6 +473,8 @@ public final class KxEnvironmentState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param name Name of the KX environment that you want to create.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -105,15 +105,15 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<outputs.fsx.OntapStorageVirtualMachineEndpoint[]>;
     /**
-     * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
     declare public readonly fileSystemId: pulumi.Output<string>;
     /**
-     * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -121,27 +121,27 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
     declare public readonly rootVolumeSecurityStyle: pulumi.Output<string | undefined>;
     /**
-     * Describes the SVM's subtype, e.g. `DEFAULT`
+     * SVM's subtype, e.g. `DEFAULT`
      */
     declare public /*out*/ readonly subtype: pulumi.Output<string>;
     /**
-     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     * Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
      */
     declare public readonly svmAdminPassword: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The SVM's UUID (universally unique identifier).
+     * SVM's UUID (universally unique identifier).
      */
     declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
@@ -208,15 +208,15 @@ export interface OntapStorageVirtualMachineState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+     * Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      */
     endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpoint>[] | undefined>;
     /**
-     * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
     fileSystemId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -224,27 +224,27 @@ export interface OntapStorageVirtualMachineState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
     rootVolumeSecurityStyle?: pulumi.Input<string | undefined>;
     /**
-     * Describes the SVM's subtype, e.g. `DEFAULT`
+     * SVM's subtype, e.g. `DEFAULT`
      */
     subtype?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     * Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
      */
     svmAdminPassword?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The SVM's UUID (universally unique identifier).
+     * SVM's UUID (universally unique identifier).
      */
     uuid?: pulumi.Input<string | undefined>;
 }
@@ -258,11 +258,11 @@ export interface OntapStorageVirtualMachineArgs {
      */
     activeDirectoryConfiguration?: pulumi.Input<inputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfiguration | undefined>;
     /**
-     * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
+     * ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      */
     fileSystemId: pulumi.Input<string>;
     /**
-     * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -270,15 +270,15 @@ export interface OntapStorageVirtualMachineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
+     * Root volume security style. Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      */
     rootVolumeSecurityStyle?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
+     * Password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
      */
     svmAdminPassword?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

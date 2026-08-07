@@ -111,14 +111,14 @@ public class BucketRequestPaymentConfiguration extends com.pulumi.resources.Cust
         return Codegen.optional(this.expectedBucketOwner);
     }
     /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
     @Export(name="payer", refs={String.class}, tree="[0]")
     private Output<String> payer;
 
     /**
-     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+     * @return Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
     public Output<String> payer() {

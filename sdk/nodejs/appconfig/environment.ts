@@ -102,8 +102,7 @@ export class Environment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
@@ -192,8 +191,7 @@ export interface EnvironmentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
      */
     state?: pulumi.Input<string | undefined>;
     /**

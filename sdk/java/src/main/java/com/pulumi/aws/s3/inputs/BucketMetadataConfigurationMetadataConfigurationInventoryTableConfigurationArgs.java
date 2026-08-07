@@ -48,14 +48,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
     }
 
     /**
-     * Inventory table ARN.
+     * Journal table ARN.
      * 
      */
     @Import(name="tableArn")
     private @Nullable Output<String> tableArn;
 
     /**
-     * @return Inventory table ARN.
+     * @return Journal table ARN.
      * 
      */
     public Optional<Output<String>> tableArn() {
@@ -63,14 +63,14 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
     }
 
     /**
-     * Inventory table name.
+     * Journal table name.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return Inventory table name.
+     * @return Journal table name.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -147,7 +147,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param tableArn Inventory table ARN.
+         * @param tableArn Journal table ARN.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param tableArn Inventory table ARN.
+         * @param tableArn Journal table ARN.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param tableName Inventory table name.
+         * @param tableName Journal table name.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationInventoryTabl
         }
 
         /**
-         * @param tableName Inventory table name.
+         * @param tableName Journal table name.
          * 
          * @return builder
          * 

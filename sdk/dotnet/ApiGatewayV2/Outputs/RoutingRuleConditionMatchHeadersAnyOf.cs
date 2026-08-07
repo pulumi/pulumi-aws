@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
     public sealed class RoutingRuleConditionMatchHeadersAnyOf
     {
         /// <summary>
-        /// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&amp;'.^_`|~.
+        /// Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&amp;'.^_`|~.
         /// </summary>
         public readonly string Header;
         /// <summary>
-        /// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+        /// Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&amp;'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
         /// </summary>
         public readonly string ValueGlob;
 

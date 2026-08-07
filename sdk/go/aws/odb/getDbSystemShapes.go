@@ -52,7 +52,7 @@ func GetDbSystemShapes(ctx *pulumi.Context, args *GetDbSystemShapesArgs, opts ..
 
 // A collection of arguments for invoking getDbSystemShapes.
 type GetDbSystemShapesArgs struct {
-	// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+	// Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -61,7 +61,7 @@ type GetDbSystemShapesArgs struct {
 // A collection of values returned by getDbSystemShapes.
 type GetDbSystemShapesResult struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+	// List of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
 	DbSystemShapes []GetDbSystemShapesDbSystemShape `pulumi:"dbSystemShapes"`
 	Region         string                           `pulumi:"region"`
 }
@@ -77,7 +77,7 @@ func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputAr
 
 // A collection of arguments for invoking getDbSystemShapes.
 type GetDbSystemShapesOutputArgs struct {
-	// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+	// Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -106,7 +106,7 @@ func (o GetDbSystemShapesResultOutput) AvailabilityZoneId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetDbSystemShapesResult) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+// List of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
 func (o GetDbSystemShapesResultOutput) DbSystemShapes() GetDbSystemShapesDbSystemShapeArrayOutput {
 	return o.ApplyT(func(v GetDbSystemShapesResult) []GetDbSystemShapesDbSystemShape { return v.DbSystemShapes }).(GetDbSystemShapesDbSystemShapeArrayOutput)
 }

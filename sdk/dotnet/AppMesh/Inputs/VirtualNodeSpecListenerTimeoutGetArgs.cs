@@ -13,25 +13,25 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTimeoutGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Timeouts for gRPC listeners. See `Grpc` Block for details.
+        /// Timeouts for gRPC listeners. See `spec.listener.timeout.grpc` Block for details.
         /// </summary>
         [Input("grpc")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutGrpcGetArgs>? Grpc { get; set; }
 
         /// <summary>
-        /// Timeouts for HTTP listeners. See `Http` Block for details.
+        /// Timeouts for HTTP listeners. See `spec.listener.timeout.http` Block for details.
         /// </summary>
         [Input("http")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutHttpGetArgs>? Http { get; set; }
 
         /// <summary>
-        /// Timeouts for HTTP2 listeners. See `Http2` Block for details.
+        /// Timeouts for HTTP2 listeners. See `spec.listener.timeout.http2` Block for details.
         /// </summary>
         [Input("http2")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutHttp2GetArgs>? Http2 { get; set; }
 
         /// <summary>
-        /// Timeouts for TCP listeners. See `Tcp` Block for details.
+        /// Timeouts for TCP listeners. See `spec.listener.timeout.tcp` Block for details.
         /// </summary>
         [Input("tcp")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutTcpGetArgs>? Tcp { get; set; }

@@ -16,14 +16,14 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs extends c
     public static final ServiceNetworkConfigurationIngressConfigurationArgs Empty = new ServiceNetworkConfigurationIngressConfigurationArgs();
 
     /**
-     * Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+     * Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
      * 
      */
     @Import(name="isPubliclyAccessible")
     private @Nullable Output<Boolean> isPubliclyAccessible;
 
     /**
-     * @return Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+     * @return Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
      * 
      */
     public Optional<Output<Boolean>> isPubliclyAccessible() {
@@ -55,7 +55,7 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs extends c
         }
 
         /**
-         * @param isPubliclyAccessible Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+         * @param isPubliclyAccessible Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs extends c
         }
 
         /**
-         * @param isPubliclyAccessible Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+         * @param isPubliclyAccessible Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
          * 
          * @return builder
          * 

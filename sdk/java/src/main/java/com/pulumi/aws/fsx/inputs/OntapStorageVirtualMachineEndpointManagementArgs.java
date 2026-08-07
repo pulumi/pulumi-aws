@@ -17,14 +17,14 @@ public final class OntapStorageVirtualMachineEndpointManagementArgs extends com.
     public static final OntapStorageVirtualMachineEndpointManagementArgs Empty = new OntapStorageVirtualMachineEndpointManagementArgs();
 
     /**
-     * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+     * Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+     * @return Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -72,7 +72,7 @@ public final class OntapStorageVirtualMachineEndpointManagementArgs extends com.
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapStorageVirtualMachineEndpointManagementArgs extends com.
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
          * 
          * @return builder
          * 

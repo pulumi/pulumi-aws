@@ -32,14 +32,14 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the rules managing the replication (documented below).
+     * Rules managing the replication. See `rules` Block below for details.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<BucketV2ReplicationConfigurationRuleArgs>> rules;
 
     /**
-     * @return Specifies the rules managing the replication (documented below).
+     * @return Rules managing the replication. See `rules` Block below for details.
      * 
      */
     public Output<List<BucketV2ReplicationConfigurationRuleArgs>> rules() {
@@ -93,7 +93,7 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules Specifies the rules managing the replication (documented below).
+         * @param rules Rules managing the replication. See `rules` Block below for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules Specifies the rules managing the replication (documented below).
+         * @param rules Rules managing the replication. See `rules` Block below for details.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class BucketV2ReplicationConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param rules Specifies the rules managing the replication (documented below).
+         * @param rules Rules managing the replication. See `rules` Block below for details.
          * 
          * @return builder
          * 

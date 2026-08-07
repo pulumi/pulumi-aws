@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fis.Outputs
     public sealed class ExperimentTemplateExperimentReportConfigurationOutputs
     {
         /// <summary>
-        /// The data sources for the experiment report. See below.
+        /// Data sources for the experiment report. See below.
         /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration? S3Configuration;
 

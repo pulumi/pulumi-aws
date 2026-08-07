@@ -151,7 +151,7 @@ func (o PermissionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type ResourceShareResourceShareConfiguration struct {
-	// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+	// Whether consumer account retains access to resource share after leaving AWS organization.
 	RetainSharingOnAccountLeaveOrganization *bool `pulumi:"retainSharingOnAccountLeaveOrganization"`
 }
 
@@ -167,7 +167,7 @@ type ResourceShareResourceShareConfigurationInput interface {
 }
 
 type ResourceShareResourceShareConfigurationArgs struct {
-	// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+	// Whether consumer account retains access to resource share after leaving AWS organization.
 	RetainSharingOnAccountLeaveOrganization pulumi.BoolPtrInput `pulumi:"retainSharingOnAccountLeaveOrganization"`
 }
 
@@ -248,7 +248,7 @@ func (o ResourceShareResourceShareConfigurationOutput) ToResourceShareResourceSh
 	}).(ResourceShareResourceShareConfigurationPtrOutput)
 }
 
-// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+// Whether consumer account retains access to resource share after leaving AWS organization.
 func (o ResourceShareResourceShareConfigurationOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceShareResourceShareConfiguration) *bool {
 		return v.RetainSharingOnAccountLeaveOrganization
@@ -279,7 +279,7 @@ func (o ResourceShareResourceShareConfigurationPtrOutput) Elem() ResourceShareRe
 	}).(ResourceShareResourceShareConfigurationOutput)
 }
 
-// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+// Whether consumer account retains access to resource share after leaving AWS organization.
 func (o ResourceShareResourceShareConfigurationPtrOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceShareResourceShareConfiguration) *bool {
 		if v == nil {

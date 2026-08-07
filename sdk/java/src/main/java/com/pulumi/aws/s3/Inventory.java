@@ -169,42 +169,42 @@ public class Inventory extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     /**
-     * Contains information about where to publish the inventory results (documented below).
+     * Where to publish the inventory results. See `destination` Block below.
      * 
      */
     @Export(name="destination", refs={InventoryDestination.class}, tree="[0]")
     private Output<InventoryDestination> destination;
 
     /**
-     * @return Contains information about where to publish the inventory results (documented below).
+     * @return Where to publish the inventory results. See `destination` Block below.
      * 
      */
     public Output<InventoryDestination> destination() {
         return this.destination;
     }
     /**
-     * Specifies whether the inventory is enabled or disabled.
+     * Whether to enable the inventory.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether the inventory is enabled or disabled.
+     * @return Whether to enable the inventory.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     @Export(name="filter", refs={InventoryFilter.class}, tree="[0]")
     private Output</* @Nullable */ InventoryFilter> filter;
 
     /**
-     * @return Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
+     * @return Inventory filter. The inventory only includes objects that meet the filter&#39;s criteria. See `filter` Block below.
      * 
      */
     public Output<Optional<InventoryFilter>> filter() {
@@ -267,14 +267,18 @@ public class Inventory extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the schedule for generating inventory results (documented below).
+     * Schedule for generating inventory results. See `schedule` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="schedule", refs={InventorySchedule.class}, tree="[0]")
     private Output<InventorySchedule> schedule;
 
     /**
-     * @return Specifies the schedule for generating inventory results (documented below).
+     * @return Schedule for generating inventory results. See `schedule` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<InventorySchedule> schedule() {

@@ -31,14 +31,14 @@ public final class RouteRequestParameterArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Boolean whether or not the parameter is required.
+     * Whether the parameter is required.
      * 
      */
     @Import(name="required", required=true)
     private Output<Boolean> required;
 
     /**
-     * @return Boolean whether or not the parameter is required.
+     * @return Whether the parameter is required.
      * 
      */
     public Output<Boolean> required() {
@@ -92,7 +92,7 @@ public final class RouteRequestParameterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param required Boolean whether or not the parameter is required.
+         * @param required Whether the parameter is required.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RouteRequestParameterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param required Boolean whether or not the parameter is required.
+         * @param required Whether the parameter is required.
          * 
          * @return builder
          * 

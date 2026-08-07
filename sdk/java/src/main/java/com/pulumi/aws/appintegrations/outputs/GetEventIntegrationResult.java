@@ -14,22 +14,22 @@ import java.util.Objects;
 @CustomType
 public final class GetEventIntegrationResult {
     /**
-     * @return The ARN of the AppIntegrations Event Integration.
+     * @return ARN of the AppIntegrations Event Integration.
      * 
      */
     private String arn;
     /**
-     * @return The description of the Event Integration.
+     * @return Description of the Event Integration.
      * 
      */
     private String description;
     /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     private List<GetEventIntegrationEventFilter> eventFilters;
     /**
-     * @return The EventBridge bus.
+     * @return EventBridge bus.
      * 
      */
     private String eventbridgeBus;
@@ -48,28 +48,28 @@ public final class GetEventIntegrationResult {
 
     private GetEventIntegrationResult() {}
     /**
-     * @return The ARN of the AppIntegrations Event Integration.
+     * @return ARN of the AppIntegrations Event Integration.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The description of the Event Integration.
+     * @return Description of the Event Integration.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * @return Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
     public List<GetEventIntegrationEventFilter> eventFilters() {
         return this.eventFilters;
     }
     /**
-     * @return The EventBridge bus.
+     * @return EventBridge bus.
      * 
      */
     public String eventbridgeBus() {

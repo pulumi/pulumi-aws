@@ -16,17 +16,9 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustArgs extends com.
 
     public static final VirtualGatewaySpecListenerTlsValidationTrustArgs Empty = new VirtualGatewaySpecListenerTlsValidationTrustArgs();
 
-    /**
-     * TLS validation context trust for a local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecListenerTlsValidationTrustFileArgs> file;
 
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecListenerTlsValidationTrustFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
@@ -71,23 +63,11 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustArgs extends com.
             $ = new VirtualGatewaySpecListenerTlsValidationTrustArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualGatewaySpecListenerTlsValidationTrustFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualGatewaySpecListenerTlsValidationTrustFileArgs file) {
             return file(Output.of(file));
         }

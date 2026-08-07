@@ -104,6 +104,7 @@ class _TableReplicationState:
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
         :param pulumi.Input['TableReplicationRuleArgs'] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_arn: ARN referencing the Table that owns this replication configuration.
+        :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of the replication configuration.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -167,6 +168,9 @@ class _TableReplicationState:
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier for the current version of the replication configuration.
+        """
         return pulumi.get(self, "version_token")
 
     @version_token.setter
@@ -333,6 +337,7 @@ class TableReplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
         :param pulumi.Input[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_arn: ARN referencing the Table that owns this replication configuration.
+        :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of the replication configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -380,5 +385,8 @@ class TableReplication(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> pulumi.Output[_builtins.str]:
+        """
+        Identifier for the current version of the replication configuration.
+        """
         return pulumi.get(self, "version_token")
 

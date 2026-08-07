@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         [Input("awsLogsConfigurations")]
         private InputList<Inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs>? _awsLogsConfigurations;
+
+        /// <summary>
+        /// CloudWatch Logs configuration for the container. See `AwsLogsConfiguration` Block below.
+        /// </summary>
         public InputList<Inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs> AwsLogsConfigurations
         {
             get => _awsLogsConfigurations ?? (_awsLogsConfigurations = new InputList<Inputs.ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs>());

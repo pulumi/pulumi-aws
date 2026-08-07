@@ -81,6 +81,9 @@ namespace Pulumi.Aws.Fms
     [AwsResourceType("aws:fms/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the policy.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -97,37 +100,37 @@ namespace Pulumi.Aws.Fms
         public Output<bool?> DeleteUnusedFmManagedResources { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the AWS Network Firewall firewall policy.
+        /// Description of the AWS Network Firewall firewall policy.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy. See the `ExcludeMap` block.
+        /// Map of lists of accounts and OUs to exclude from the policy. See the `ExcludeMap` block.
         /// </summary>
         [Output("excludeMap")]
         public Output<Outputs.PolicyExcludeMap?> ExcludeMap { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value, if true the tags that are specified in the `ResourceTags` are not protected by this policy. If set to false and ResourceTags are populated, resources that contain tags will be protected by this policy.
+        /// Whether resources with the tags specified in `ResourceTags` are excluded from protection. If `True`, tagged resources are not protected by this policy. If `False` and `ResourceTags` are populated, resources that contain those tags are protected by this policy.
         /// </summary>
         [Output("excludeResourceTags")]
         public Output<bool> ExcludeResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy. See the `IncludeMap` block.
+        /// Map of lists of accounts and OUs to include in the policy. See the `IncludeMap` block.
         /// </summary>
         [Output("includeMap")]
         public Output<Outputs.PolicyIncludeMap?> IncludeMap { get; private set; } = null!;
 
         /// <summary>
-        /// The friendly name of the AWS Firewall Manager Policy.
+        /// Friendly name of the AWS Firewall Manager Policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier for each update to the policy.
+        /// Unique identifier for each update to the policy.
         /// </summary>
         [Output("policyUpdateToken")]
         public Output<string> PolicyUpdateToken { get; private set; } = null!;
@@ -139,11 +142,14 @@ namespace Pulumi.Aws.Fms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        /// Whether the policy is automatically applied to resources that already exist in the account.
         /// </summary>
         [Output("remediationEnabled")]
         public Output<bool?> RemediationEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of resource set IDs associated with the policy.
+        /// </summary>
         [Output("resourceSetIds")]
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
 
@@ -154,25 +160,25 @@ namespace Pulumi.Aws.Fms
         public Output<string> ResourceTagLogicalOperator { get; private set; } = null!;
 
         /// <summary>
-        /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        /// Map of resource tags that, if present, filter protections on resources based on `ExcludeResourceTags`.
         /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// A resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// Resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
+        /// List of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
         /// </summary>
         [Output("resourceTypeLists")]
         public Output<ImmutableArray<string>> ResourceTypeLists { get; private set; } = null!;
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
+        /// Objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
         /// </summary>
         [Output("securityServicePolicyData")]
         public Output<Outputs.PolicySecurityServicePolicyData> SecurityServicePolicyData { get; private set; } = null!;
@@ -184,7 +190,7 @@ namespace Pulumi.Aws.Fms
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -248,31 +254,31 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
 
         /// <summary>
-        /// The description of the AWS Network Firewall firewall policy.
+        /// Description of the AWS Network Firewall firewall policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy. See the `ExcludeMap` block.
+        /// Map of lists of accounts and OUs to exclude from the policy. See the `ExcludeMap` block.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapArgs>? ExcludeMap { get; set; }
 
         /// <summary>
-        /// A boolean value, if true the tags that are specified in the `ResourceTags` are not protected by this policy. If set to false and ResourceTags are populated, resources that contain tags will be protected by this policy.
+        /// Whether resources with the tags specified in `ResourceTags` are excluded from protection. If `True`, tagged resources are not protected by this policy. If `False` and `ResourceTags` are populated, resources that contain those tags are protected by this policy.
         /// </summary>
         [Input("excludeResourceTags", required: true)]
         public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy. See the `IncludeMap` block.
+        /// Map of lists of accounts and OUs to include in the policy. See the `IncludeMap` block.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapArgs>? IncludeMap { get; set; }
 
         /// <summary>
-        /// The friendly name of the AWS Firewall Manager Policy.
+        /// Friendly name of the AWS Firewall Manager Policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -284,13 +290,17 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        /// Whether the policy is automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
         public Input<bool>? RemediationEnabled { get; set; }
 
         [Input("resourceSetIds")]
         private InputList<string>? _resourceSetIds;
+
+        /// <summary>
+        /// Set of resource set IDs associated with the policy.
+        /// </summary>
         public InputList<string> ResourceSetIds
         {
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
@@ -307,7 +317,7 @@ namespace Pulumi.Aws.Fms
         private InputMap<string>? _resourceTags;
 
         /// <summary>
-        /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        /// Map of resource tags that, if present, filter protections on resources based on `ExcludeResourceTags`.
         /// </summary>
         public InputMap<string> ResourceTags
         {
@@ -316,7 +326,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// A resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// Resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -325,7 +335,7 @@ namespace Pulumi.Aws.Fms
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
+        /// List of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {
@@ -334,7 +344,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
+        /// Objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
         /// </summary>
         [Input("securityServicePolicyData", required: true)]
         public Input<Inputs.PolicySecurityServicePolicyDataArgs> SecurityServicePolicyData { get; set; } = null!;
@@ -359,6 +369,9 @@ namespace Pulumi.Aws.Fms
 
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the policy.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -375,37 +388,37 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? DeleteUnusedFmManagedResources { get; set; }
 
         /// <summary>
-        /// The description of the AWS Network Firewall firewall policy.
+        /// Description of the AWS Network Firewall firewall policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to exclude from the policy. See the `ExcludeMap` block.
+        /// Map of lists of accounts and OUs to exclude from the policy. See the `ExcludeMap` block.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapGetArgs>? ExcludeMap { get; set; }
 
         /// <summary>
-        /// A boolean value, if true the tags that are specified in the `ResourceTags` are not protected by this policy. If set to false and ResourceTags are populated, resources that contain tags will be protected by this policy.
+        /// Whether resources with the tags specified in `ResourceTags` are excluded from protection. If `True`, tagged resources are not protected by this policy. If `False` and `ResourceTags` are populated, resources that contain those tags are protected by this policy.
         /// </summary>
         [Input("excludeResourceTags")]
         public Input<bool>? ExcludeResourceTags { get; set; }
 
         /// <summary>
-        /// A map of lists of accounts and OU's to include in the policy. See the `IncludeMap` block.
+        /// Map of lists of accounts and OUs to include in the policy. See the `IncludeMap` block.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapGetArgs>? IncludeMap { get; set; }
 
         /// <summary>
-        /// The friendly name of the AWS Firewall Manager Policy.
+        /// Friendly name of the AWS Firewall Manager Policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A unique identifier for each update to the policy.
+        /// Unique identifier for each update to the policy.
         /// </summary>
         [Input("policyUpdateToken")]
         public Input<string>? PolicyUpdateToken { get; set; }
@@ -417,13 +430,17 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        /// Whether the policy is automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
         public Input<bool>? RemediationEnabled { get; set; }
 
         [Input("resourceSetIds")]
         private InputList<string>? _resourceSetIds;
+
+        /// <summary>
+        /// Set of resource set IDs associated with the policy.
+        /// </summary>
         public InputList<string> ResourceSetIds
         {
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
@@ -440,7 +457,7 @@ namespace Pulumi.Aws.Fms
         private InputMap<string>? _resourceTags;
 
         /// <summary>
-        /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
+        /// Map of resource tags that, if present, filter protections on resources based on `ExcludeResourceTags`.
         /// </summary>
         public InputMap<string> ResourceTags
         {
@@ -449,7 +466,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// A resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
+        /// Resource type to protect. Conflicts with `ResourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
@@ -458,7 +475,7 @@ namespace Pulumi.Aws.Fms
         private InputList<string>? _resourceTypeLists;
 
         /// <summary>
-        /// A list of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
+        /// List of resource types to protect. Conflicts with `ResourceType`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `ResourceType`.
         /// </summary>
         public InputList<string> ResourceTypeLists
         {
@@ -467,7 +484,7 @@ namespace Pulumi.Aws.Fms
         }
 
         /// <summary>
-        /// The objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
+        /// Objects to include in Security Service Policy Data. See the `SecurityServicePolicyData` block.
         /// </summary>
         [Input("securityServicePolicyData")]
         public Input<Inputs.PolicySecurityServicePolicyDataGetArgs>? SecurityServicePolicyData { get; set; }
@@ -488,7 +505,7 @@ namespace Pulumi.Aws.Fms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -14,23 +14,47 @@ public final class KxVolumeAttachedClusterArgs extends com.pulumi.resources.Reso
 
     public static final KxVolumeAttachedClusterArgs Empty = new KxVolumeAttachedClusterArgs();
 
+    /**
+     * Name of the KX cluster.
+     * 
+     */
     @Import(name="clusterName", required=true)
     private Output<String> clusterName;
 
+    /**
+     * @return Name of the KX cluster.
+     * 
+     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
 
+    /**
+     * Status of the KX cluster.
+     * 
+     */
     @Import(name="clusterStatus", required=true)
     private Output<String> clusterStatus;
 
+    /**
+     * @return Status of the KX cluster.
+     * 
+     */
     public Output<String> clusterStatus() {
         return this.clusterStatus;
     }
 
+    /**
+     * Type of the KX cluster.
+     * 
+     */
     @Import(name="clusterType", required=true)
     private Output<String> clusterType;
 
+    /**
+     * @return Type of the KX cluster.
+     * 
+     */
     public Output<String> clusterType() {
         return this.clusterType;
     }
@@ -61,29 +85,65 @@ public final class KxVolumeAttachedClusterArgs extends com.pulumi.resources.Reso
             $ = new KxVolumeAttachedClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clusterName Name of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
+        /**
+         * @param clusterName Name of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
+        /**
+         * @param clusterStatus Status of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterStatus(Output<String> clusterStatus) {
             $.clusterStatus = clusterStatus;
             return this;
         }
 
+        /**
+         * @param clusterStatus Status of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterStatus(String clusterStatus) {
             return clusterStatus(Output.of(clusterStatus));
         }
 
+        /**
+         * @param clusterType Type of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterType(Output<String> clusterType) {
             $.clusterType = clusterType;
             return this;
         }
 
+        /**
+         * @param clusterType Type of the KX cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterType(String clusterType) {
             return clusterType(Output.of(clusterType));
         }

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.FinSpace.Inputs
     public sealed class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+        /// IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
         /// </summary>
         [Input("cidrBlock", required: true)]
         public Input<string> CidrBlock { get; set; } = null!;
 
         /// <summary>
-        /// Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        /// ICMP protocol that consists of the ICMP type and code. Defined below.
         /// </summary>
         [Input("icmpTypeCode")]
         public Input<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs>? IcmpTypeCode { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.FinSpace.Inputs
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to `Allow` or `Deny` the traffic that matches the rule.
+        /// Whether to `Allow` or `Deny` the traffic that matches the rule.
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;

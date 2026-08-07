@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecLoggingAccessLogFile
     {
         /// <summary>
-        /// The specified format for the logs. See `Format` Block for details.
+        /// Format for the logs. See `spec.logging.access_log.file.format` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecLoggingAccessLogFileFormat? Format;
         /// <summary>

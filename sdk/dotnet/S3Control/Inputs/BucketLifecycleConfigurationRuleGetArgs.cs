@@ -13,19 +13,19 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class BucketLifecycleConfigurationRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block containing settings for abort incomplete multipart upload.
+        /// Configuration block containing settings for abort incomplete multipart upload. See `AbortIncompleteMultipartUpload` below.
         /// </summary>
         [Input("abortIncompleteMultipartUpload")]
         public Input<Inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadGetArgs>? AbortIncompleteMultipartUpload { get; set; }
 
         /// <summary>
-        /// Configuration block containing settings for expiration of objects.
+        /// Configuration block containing settings for expiration of objects. See `Expiration` below.
         /// </summary>
         [Input("expiration")]
         public Input<Inputs.BucketLifecycleConfigurationRuleExpirationGetArgs>? Expiration { get; set; }
 
         /// <summary>
-        /// Configuration block containing settings for filtering.
+        /// Configuration block containing settings for filtering. See `Filter` below.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.BucketLifecycleConfigurationRuleFilterGetArgs>? Filter { get; set; }

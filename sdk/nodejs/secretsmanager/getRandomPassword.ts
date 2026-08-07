@@ -44,23 +44,23 @@ export interface GetRandomPasswordArgs {
      */
     excludeCharacters?: string;
     /**
-     * Specifies whether to exclude lowercase letters from the password.
+     * Whether to exclude lowercase letters from the password.
      */
     excludeLowercase?: boolean;
     /**
-     * Specifies whether to exclude numbers from the password.
+     * Whether to exclude numbers from the password.
      */
     excludeNumbers?: boolean;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: boolean;
     /**
-     * Specifies whether to exclude uppercase letters from the password.
+     * Whether to exclude uppercase letters from the password.
      */
     excludeUppercase?: boolean;
     /**
-     * Specifies whether to include the space character.
+     * Whether to include the space character.
      */
     includeSpace?: boolean;
     /**
@@ -72,7 +72,7 @@ export interface GetRandomPasswordArgs {
      */
     region?: string;
     /**
-     * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+     * Whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
     requireEachIncludedType?: boolean;
 }
@@ -139,23 +139,23 @@ export interface GetRandomPasswordOutputArgs {
      */
     excludeCharacters?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to exclude lowercase letters from the password.
+     * Whether to exclude lowercase letters from the password.
      */
     excludeLowercase?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to exclude numbers from the password.
+     * Whether to exclude numbers from the password.
      */
     excludeNumbers?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to exclude uppercase letters from the password.
+     * Whether to exclude uppercase letters from the password.
      */
     excludeUppercase?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to include the space character.
+     * Whether to include the space character.
      */
     includeSpace?: pulumi.Input<boolean | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface GetRandomPasswordOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+     * Whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
     requireEachIncludedType?: pulumi.Input<boolean | undefined>;
 }

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAccessPointsResult {
     /**
-     * @return A list of access points matching the search criteria. See `accessPoints` below.
+     * @return List of access points matching the search criteria. See `accessPoints` below.
      * 
      */
     private List<GetAccessPointsAccessPoint> accessPoints;
@@ -39,7 +39,7 @@ public final class GetAccessPointsResult {
 
     private GetAccessPointsResult() {}
     /**
-     * @return A list of access points matching the search criteria. See `accessPoints` below.
+     * @return List of access points matching the search criteria. See `accessPoints` below.
      * 
      */
     public List<GetAccessPointsAccessPoint> accessPoints() {

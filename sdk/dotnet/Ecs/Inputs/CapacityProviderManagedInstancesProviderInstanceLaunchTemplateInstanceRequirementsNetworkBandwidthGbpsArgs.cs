@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum network bandwidth, in Gbps.
+        /// </summary>
         [Input("max")]
         public Input<double>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum network bandwidth, in Gbps.
+        /// </summary>
         [Input("min")]
         public Input<double>? Min { get; set; }
 

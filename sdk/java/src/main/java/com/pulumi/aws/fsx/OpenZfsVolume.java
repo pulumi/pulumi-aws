@@ -85,14 +85,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default is false.
      * 
      */
     @Export(name="copyTagsToSnapshots", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToSnapshots;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default is false.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToSnapshots() {
@@ -127,14 +127,14 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deleteVolumeOptions);
     }
     /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Output<String> name() {
@@ -155,56 +155,56 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nfsExports);
     }
     /**
-     * Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+     * Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      * 
      */
     @Export(name="originSnapshot", refs={OpenZfsVolumeOriginSnapshot.class}, tree="[0]")
     private Output</* @Nullable */ OpenZfsVolumeOriginSnapshot> originSnapshot;
 
     /**
-     * @return Specifies the configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
+     * @return Configuration to use when creating the OpenZFS volume. See `originSnapshot` Block below for details.
      * 
      */
     public Output<Optional<OpenZfsVolumeOriginSnapshot>> originSnapshot() {
         return Codegen.optional(this.originSnapshot);
     }
     /**
-     * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+     * Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
     @Export(name="parentVolumeId", refs={String.class}, tree="[0]")
     private Output<String> parentVolumeId;
 
     /**
-     * @return The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
+     * @return Volume ID of the volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
      * 
      */
     public Output<String> parentVolumeId() {
         return this.parentVolumeId;
     }
     /**
-     * specifies whether the volume is read-only. Default is false.
+     * Whether the volume is read-only. Default is false.
      * 
      */
     @Export(name="readOnly", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> readOnly;
 
     /**
-     * @return specifies whether the volume is read-only. Default is false.
+     * @return Whether the volume is read-only. Default is false.
      * 
      */
     public Output<Boolean> readOnly() {
         return this.readOnly;
     }
     /**
-     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     @Export(name="recordSizeKib", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> recordSizeKib;
 
     /**
-     * @return The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     public Output<Optional<Integer>> recordSizeKib() {
@@ -225,56 +225,56 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+     * Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     @Export(name="storageCapacityQuotaGib", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityQuotaGib;
 
     /**
-     * @return The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
+     * @return Maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
      * 
      */
     public Output<Integer> storageCapacityQuotaGib() {
         return this.storageCapacityQuotaGib;
     }
     /**
-     * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+     * Amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
     @Export(name="storageCapacityReservationGib", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCapacityReservationGib;
 
     /**
-     * @return The amount of storage in gibibytes (GiB) to reserve from the parent volume.
+     * @return Amount of storage in gibibytes (GiB) to reserve from the parent volume.
      * 
      */
     public Output<Integer> storageCapacityReservationGib() {
         return this.storageCapacityReservationGib;
     }
     /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -294,9 +294,17 @@ public class OpenZfsVolume extends com.pulumi.resources.CustomResource {
     public Output<List<OpenZfsVolumeUserAndGroupQuota>> userAndGroupQuotas() {
         return this.userAndGroupQuotas;
     }
+    /**
+     * Volume type. Default is `OPENZFS`.
+     * 
+     */
     @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeType;
 
+    /**
+     * @return Volume type. Default is `OPENZFS`.
+     * 
+     */
     public Output<Optional<String>> volumeType() {
         return Codegen.optional(this.volumeType);
     }

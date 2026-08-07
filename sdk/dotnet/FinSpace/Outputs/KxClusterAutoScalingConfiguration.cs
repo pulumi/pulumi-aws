@@ -18,7 +18,7 @@ namespace Pulumi.Aws.FinSpace.Outputs
         /// </summary>
         public readonly string AutoScalingMetric;
         /// <summary>
-        /// Highest number of nodes to scale. Cannot be greater than 5
+        /// Highest number of nodes to scale. Cannot be greater than 5.
         /// </summary>
         public readonly int MaxNodeCount;
         /// <summary>

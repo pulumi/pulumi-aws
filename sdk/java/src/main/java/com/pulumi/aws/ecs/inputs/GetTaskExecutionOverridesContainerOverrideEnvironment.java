@@ -14,14 +14,14 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
     public static final GetTaskExecutionOverridesContainerOverrideEnvironment Empty = new GetTaskExecutionOverridesContainerOverrideEnvironment();
 
     /**
-     * The name of the key-value pair. For environment variables, this is the name of the environment variable.
+     * Name of the key-value pair. For environment variables, this is the name of the environment variable.
      * 
      */
     @Import(name="key", required=true)
     private String key;
 
     /**
-     * @return The name of the key-value pair. For environment variables, this is the name of the environment variable.
+     * @return Name of the key-value pair. For environment variables, this is the name of the environment variable.
      * 
      */
     public String key() {
@@ -29,14 +29,14 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
     }
 
     /**
-     * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * Value of the key-value pair. For environment variables, this is the value of the environment variable.
      * 
      */
     @Import(name="value", required=true)
     private String value;
 
     /**
-     * @return The value of the key-value pair. For environment variables, this is the value of the environment variable.
+     * @return Value of the key-value pair. For environment variables, this is the value of the environment variable.
      * 
      */
     public String value() {
@@ -69,7 +69,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
         }
 
         /**
-         * @param key The name of the key-value pair. For environment variables, this is the name of the environment variable.
+         * @param key Name of the key-value pair. For environment variables, this is the name of the environment variable.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetTaskExecutionOverridesContainerOverrideEnvironment extends
         }
 
         /**
-         * @param value The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         * @param value Value of the key-value pair. For environment variables, this is the value of the environment variable.
          * 
          * @return builder
          * 

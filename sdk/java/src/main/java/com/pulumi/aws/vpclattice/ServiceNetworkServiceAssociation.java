@@ -68,56 +68,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation")
 public class ServiceNetworkServiceAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Association.
+     * @return ARN of the Association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The account that created the association.
+     * Account that created the association.
      * 
      */
     @Export(name="createdBy", refs={String.class}, tree="[0]")
     private Output<String> createdBy;
 
     /**
-     * @return The account that created the association.
+     * @return Account that created the association.
      * 
      */
     public Output<String> createdBy() {
         return this.createdBy;
     }
     /**
-     * The custom domain name of the service.
+     * Custom domain name of the service.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output<String> customDomainName;
 
     /**
-     * @return The custom domain name of the service.
+     * @return Custom domain name of the service.
      * 
      */
     public Output<String> customDomainName() {
         return this.customDomainName;
     }
     /**
-     * The DNS name of the service.
+     * DNS name of the service.
      * 
      */
     @Export(name="dnsEntries", refs={List.class,ServiceNetworkServiceAssociationDnsEntry.class}, tree="[0,1]")
     private Output<List<ServiceNetworkServiceAssociationDnsEntry>> dnsEntries;
 
     /**
-     * @return The DNS name of the service.
+     * @return DNS name of the service.
      * 
      */
     public Output<List<ServiceNetworkServiceAssociationDnsEntry>> dnsEntries() {
@@ -138,42 +138,42 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
         return this.region;
     }
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     @Export(name="serviceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
+     * @return ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     public Output<String> serviceIdentifier() {
         return this.serviceIdentifier;
     }
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Export(name="serviceNetworkIdentifier", refs={String.class}, tree="[0]")
     private Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
         return this.serviceNetworkIdentifier;
     }
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * @return Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      * 
      */
     public Output<String> status() {

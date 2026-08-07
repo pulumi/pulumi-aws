@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs>? _crossRegionS3RestoreSourcesAccesses;
 
         /// <summary>
-        /// The list of regions enabled for cross-region restore in the ODB network.
+        /// List of regions enabled for cross-region restore in the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceCrossRegionS3RestoreSourcesAccessArgs> CrossRegionS3RestoreSourcesAccesses
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.NetworkManagedServiceKmsAccessArgs>? _kmsAccesses;
 
         /// <summary>
-        /// Specifies the configuration for KMS access from the ODB network.
+        /// Configuration for KMS access from the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceKmsAccessArgs> KmsAccesses
         {
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.NetworkManagedServiceS3AccessArgs>? _s3Accesses;
 
         /// <summary>
-        /// Specifies the configuration for Amazon S3 access from the ODB network.
+        /// Configuration for Amazon S3 access from the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceS3AccessArgs> S3Accesses
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.NetworkManagedServiceStsAccessArgs>? _stsAccesses;
 
         /// <summary>
-        /// Specifies the configuration for STS access from the ODB network.
+        /// Configuration for STS access from the ODB network.
         /// </summary>
         public InputList<Inputs.NetworkManagedServiceStsAccessArgs> StsAccesses
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.NetworkManagedServiceZeroEtlAccessArgs>? _zeroEtlAccesses;
 
         /// <summary>
-        /// Specifies the configuration for Zero-ETL access from the ODB network.
+        /// Configuration for Zero-ETL access from the ODB network.
         /// 
         /// The following arguments are optional:
         /// </summary>

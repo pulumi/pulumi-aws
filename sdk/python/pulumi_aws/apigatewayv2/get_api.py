@@ -94,7 +94,7 @@ class GetApiResult:
     @pulumi.getter(name="apiKeySelectionExpression")
     def api_key_selection_expression(self) -> _builtins.str:
         """
-        An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+        [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
         """
         return pulumi.get(self, "api_key_selection_expression")
 
@@ -150,7 +150,7 @@ class GetApiResult:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> _builtins.str:
         """
-        The IP address types that can invoke an API.
+        IP address types that can invoke an API.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -179,7 +179,7 @@ class GetApiResult:
     @pulumi.getter(name="routeSelectionExpression")
     def route_selection_expression(self) -> _builtins.str:
         """
-        The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+        [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         """
         return pulumi.get(self, "route_selection_expression")
 

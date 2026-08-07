@@ -18,14 +18,14 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
     public static final RouteSpecHttpRouteMatchQueryParameterArgs Empty = new RouteSpecHttpRouteMatchQueryParameterArgs();
 
     /**
-     * The query parameter to match on.
+     * Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecHttpRouteMatchQueryParameterMatchArgs> match;
 
     /**
-     * @return The query parameter to match on.
+     * @return Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteMatchQueryParameterMatchArgs>> match() {
@@ -33,14 +33,14 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
     }
 
     /**
-     * Name for the query parameter that will be matched on.
+     * Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -73,7 +73,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
         }
 
         /**
-         * @param match The query parameter to match on.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
         }
 
         /**
-         * @param match The query parameter to match on.
+         * @param match Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
         }
 
         /**
-         * @param name Name for the query parameter that will be matched on.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class RouteSpecHttpRouteMatchQueryParameterArgs extends com.pulumi.
         }
 
         /**
-         * @param name Name for the query parameter that will be matched on.
+         * @param name Name to use for the route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

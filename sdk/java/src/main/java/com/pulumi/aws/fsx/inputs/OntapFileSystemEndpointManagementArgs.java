@@ -17,14 +17,14 @@ public final class OntapFileSystemEndpointManagementArgs extends com.pulumi.reso
     public static final OntapFileSystemEndpointManagementArgs Empty = new OntapFileSystemEndpointManagementArgs();
 
     /**
-     * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
     /**
-     * @return The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+     * @return Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
      * 
      */
     public Optional<Output<String>> dnsName() {
@@ -72,7 +72,7 @@ public final class OntapFileSystemEndpointManagementArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapFileSystemEndpointManagementArgs extends com.pulumi.reso
         }
 
         /**
-         * @param dnsName The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         * @param dnsName Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
          * 
          * @return builder
          * 

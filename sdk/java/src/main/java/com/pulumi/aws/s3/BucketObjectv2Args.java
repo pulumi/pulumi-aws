@@ -81,14 +81,14 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     @Import(name="checksumAlgorithm")
     private @Nullable Output<String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * @return Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     public Optional<Output<String>> checksumAlgorithm() {
@@ -310,14 +310,14 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     @Import(name="overrideProvider")
     private @Nullable Output<BucketObjectv2OverrideProviderArgs> overrideProvider;
 
     /**
-     * @return Override provider-level configuration options. See Override Provider below for more details.
+     * @return Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     public Optional<Output<BucketObjectv2OverrideProviderArgs>> overrideProvider() {
@@ -417,7 +417,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -430,7 +430,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -576,7 +576,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -587,7 +587,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -895,7 +895,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * @param overrideProvider Override provider-level configuration options. See `overrideProvider` Block below for more details.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * @param overrideProvider Override provider-level configuration options. See `overrideProvider` Block below for more details.
          * 
          * @return builder
          * 
@@ -1044,7 +1044,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+         * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 
@@ -1061,7 +1061,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         /**
          * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
-         * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+         * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
          * 
          * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
          * 

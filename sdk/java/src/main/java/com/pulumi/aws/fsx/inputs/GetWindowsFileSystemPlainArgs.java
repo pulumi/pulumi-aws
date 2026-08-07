@@ -47,14 +47,14 @@ public final class GetWindowsFileSystemPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * The tags to associate with the file system.
+     * Tags to associate with the file system.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return The tags to associate with the file system.
+     * @return Tags to associate with the file system.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -110,7 +110,7 @@ public final class GetWindowsFileSystemPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param tags The tags to associate with the file system.
+         * @param tags Tags to associate with the file system.
          * 
          * @return builder
          * 

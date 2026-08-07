@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttpRouteMatchHeaderMatch {
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return Exact query parameter to match on.
      * 
      */
     private @Nullable String exact;
@@ -23,12 +23,12 @@ public final class RouteSpecHttpRouteMatchHeaderMatch {
      */
     private @Nullable String prefix;
     /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http_route.match.header.match.range` Block for details.
      * 
      */
     private @Nullable RouteSpecHttpRouteMatchHeaderMatchRange range;
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return Regex used to match the path.
      * 
      */
     private @Nullable String regex;
@@ -40,7 +40,7 @@ public final class RouteSpecHttpRouteMatchHeaderMatch {
 
     private RouteSpecHttpRouteMatchHeaderMatch() {}
     /**
-     * @return Header value sent by the client must match the specified value exactly.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<String> exact() {
@@ -54,14 +54,14 @@ public final class RouteSpecHttpRouteMatchHeaderMatch {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in. See `spec.http_route.match.header.match.range` Block for details.
      * 
      */
     public Optional<RouteSpecHttpRouteMatchHeaderMatchRange> range() {
         return Optional.ofNullable(this.range);
     }
     /**
-     * @return Header value sent by the client must include the specified characters.
+     * @return Regex used to match the path.
      * 
      */
     public Optional<String> regex() {

@@ -90,9 +90,12 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
      * Amazon Resource Name of the snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Time that the snapshot was created.
+     */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+     * Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -100,15 +103,15 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the volume to snapshot. This can be the root volume or a child volume.
+     * ID of the volume to snapshot. This can be the root volume or a child volume.
      */
     declare public readonly volumeId: pulumi.Output<string>;
 
@@ -158,9 +161,12 @@ export interface OpenZfsSnapshotState {
      * Amazon Resource Name of the snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Time that the snapshot was created.
+     */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+     * Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -168,15 +174,15 @@ export interface OpenZfsSnapshotState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the volume to snapshot. This can be the root volume or a child volume.
+     * ID of the volume to snapshot. This can be the root volume or a child volume.
      */
     volumeId?: pulumi.Input<string | undefined>;
 }
@@ -186,7 +192,7 @@ export interface OpenZfsSnapshotState {
  */
 export interface OpenZfsSnapshotArgs {
     /**
-     * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
+     * Name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -194,11 +200,11 @@ export interface OpenZfsSnapshotArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the volume to snapshot. This can be the root volume or a child volume.
+     * ID of the volume to snapshot. This can be the root volume or a child volume.
      */
     volumeId: pulumi.Input<string>;
 }

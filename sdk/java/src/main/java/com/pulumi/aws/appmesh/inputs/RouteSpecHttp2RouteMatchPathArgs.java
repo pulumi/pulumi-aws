@@ -16,14 +16,14 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
     public static final RouteSpecHttp2RouteMatchPathArgs Empty = new RouteSpecHttp2RouteMatchPathArgs();
 
     /**
-     * The exact path to match on.
+     * Exact query parameter to match on.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return The exact path to match on.
+     * @return Exact query parameter to match on.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -31,14 +31,14 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
     }
 
     /**
-     * The regex used to match the path.
+     * Regex used to match the path.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return The regex used to match the path.
+     * @return Regex used to match the path.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -71,7 +71,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param exact The exact path to match on.
+         * @param exact Exact query parameter to match on.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regex The regex used to match the path.
+         * @param regex Regex used to match the path.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RouteSpecHttp2RouteMatchPathArgs extends com.pulumi.resources
         }
 
         /**
-         * @param regex The regex used to match the path.
+         * @param regex Regex used to match the path.
          * 
          * @return builder
          * 

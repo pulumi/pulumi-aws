@@ -14,9 +14,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs();
 
+    /**
+     * Location of the Zendesk resource.
+     * 
+     */
     @Import(name="instanceUrl", required=true)
     private Output<String> instanceUrl;
 
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     public Output<String> instanceUrl() {
         return this.instanceUrl;
     }
@@ -45,11 +53,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param instanceUrl Location of the Zendesk resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceUrl(Output<String> instanceUrl) {
             $.instanceUrl = instanceUrl;
             return this;
         }
 
+        /**
+         * @param instanceUrl Location of the Zendesk resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder instanceUrl(String instanceUrl) {
             return instanceUrl(Output.of(instanceUrl));
         }

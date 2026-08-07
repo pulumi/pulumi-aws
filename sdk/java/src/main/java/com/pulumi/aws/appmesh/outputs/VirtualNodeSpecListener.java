@@ -18,74 +18,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListener {
     /**
-     * @return Connection pool information for the listener. See `connectionPool` Block for details.
+     * @return Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerConnectionPool connectionPool;
     /**
-     * @return Health check information for the listener. See `healthCheck` Block for details.
+     * @return Health check information for the listener. See `spec.listener.health_check` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerHealthCheck healthCheck;
     /**
-     * @return Outlier detection information for the listener. See `outlierDetection` Block for details.
+     * @return Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection;
     /**
-     * @return Port mapping information for the listener. See `portMapping` Block for details.
+     * @return Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
      * 
      */
     private VirtualNodeSpecListenerPortMapping portMapping;
     /**
-     * @return Timeouts for different protocols. See `timeout` Block for details.
+     * @return Timeouts for different protocols. See `spec.listener.timeout` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeout timeout;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTls tls;
 
     private VirtualNodeSpecListener() {}
     /**
-     * @return Connection pool information for the listener. See `connectionPool` Block for details.
+     * @return Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
     /**
-     * @return Health check information for the listener. See `healthCheck` Block for details.
+     * @return Health check information for the listener. See `spec.listener.health_check` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return Outlier detection information for the listener. See `outlierDetection` Block for details.
+     * @return Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerOutlierDetection> outlierDetection() {
         return Optional.ofNullable(this.outlierDetection);
     }
     /**
-     * @return Port mapping information for the listener. See `portMapping` Block for details.
+     * @return Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
      * 
      */
     public VirtualNodeSpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
     /**
-     * @return Timeouts for different protocols. See `timeout` Block for details.
+     * @return Timeouts for different protocols. See `spec.listener.timeout` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeout> timeout() {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
+     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTls> tls() {

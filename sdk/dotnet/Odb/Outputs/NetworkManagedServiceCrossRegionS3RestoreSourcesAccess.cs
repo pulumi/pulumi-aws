@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         public readonly string Status;
 

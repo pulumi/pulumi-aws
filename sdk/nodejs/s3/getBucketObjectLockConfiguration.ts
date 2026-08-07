@@ -59,7 +59,7 @@ export interface GetBucketObjectLockConfigurationResult {
     readonly bucket: string;
     readonly expectedBucketOwner?: string;
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled.
+     * Whether this bucket has an Object Lock configuration enabled.
      */
     readonly objectLockEnabled: string;
     readonly region: string;

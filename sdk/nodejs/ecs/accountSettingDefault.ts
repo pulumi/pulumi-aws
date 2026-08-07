@@ -77,6 +77,9 @@ export class AccountSettingDefault extends pulumi.CustomResource {
      * Name of the account setting to set.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * ARN that identifies the account setting.
+     */
     declare public /*out*/ readonly principalArn: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -127,6 +130,9 @@ export interface AccountSettingDefaultState {
      * Name of the account setting to set.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * ARN that identifies the account setting.
+     */
     principalArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

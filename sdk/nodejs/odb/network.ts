@@ -53,35 +53,35 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
      */
     declare public readonly availabilityZone: pulumi.Output<string>;
     /**
-     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
      */
     declare public readonly availabilityZoneId: pulumi.Output<string>;
     /**
-     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
      */
     declare public readonly backupSubnetCidr: pulumi.Output<string>;
     /**
-     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * CIDR notation for the network resource. Changing this will force terraform to create new resource.
      */
     declare public readonly clientSubnetCidr: pulumi.Output<string>;
     /**
-     * The date and time when the ODB network was created.
+     * Date and time when the ODB network was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The list of regions enabled for cross-region restore in the ODB network.
+     * List of regions enabled for cross-region restore in the ODB network.
      */
     declare public readonly crossRegionS3RestoreSourcesAccesses: pulumi.Output<string[]>;
     /**
-     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
     /**
-     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
      */
     declare public readonly defaultDnsPrefix: pulumi.Output<string | undefined>;
     /**
@@ -89,55 +89,55 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly deleteAssociatedResources: pulumi.Output<boolean>;
     /**
-     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * User-friendly name for the odb network. Changing this will force terraform to create a new resource.
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * A list of EC2 placement group IDs associated with the ODB network.
+     * List of EC2 placement group IDs associated with the ODB network.
      */
     declare public /*out*/ readonly ec2PlacementGroupIds: pulumi.Output<string[]>;
     /**
-     * Specifies the configuration for KMS access from the ODB network.
+     * Configuration for KMS access from the ODB network.
      */
     declare public readonly kmsAccess: pulumi.Output<string>;
     /**
-     * Specifies the endpoint policy for KMS access from the ODB network.
+     * Endpoint policy for KMS access from the ODB network.
      */
     declare public readonly kmsPolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * The managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network.
      */
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      */
     declare public /*out*/ readonly ociDnsForwardingConfigs: pulumi.Output<outputs.odb.NetworkOciDnsForwardingConfig[]>;
     /**
-     * The unique identifier of the OCI network anchor for the ODB network.
+     * Unique identifier of the OCI network anchor for the ODB network.
      */
     declare public /*out*/ readonly ociNetworkAnchorId: pulumi.Output<string>;
     /**
-     * The URL of the OCI network anchor for the ODB network.
+     * URL of the OCI network anchor for the ODB network.
      */
     declare public /*out*/ readonly ociNetworkAnchorUrl: pulumi.Output<string>;
     /**
-     * The name of the OCI resource anchor for the ODB network.
+     * Name of the OCI resource anchor for the ODB network.
      */
     declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
     /**
-     * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      */
     declare public /*out*/ readonly ociVcnId: pulumi.Output<string>;
     /**
-     * The URL of the OCI VCN for the ODB network.
+     * URL of the OCI VCN for the ODB network.
      */
     declare public /*out*/ readonly ociVcnUrl: pulumi.Output<string>;
     /**
-     * The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      */
     declare public /*out*/ readonly peeredCidrs: pulumi.Output<string[]>;
     /**
-     * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
     declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
     /**
@@ -145,15 +145,15 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
+     * Configuration for Amazon S3 access from the ODB network.
      */
     declare public readonly s3Access: pulumi.Output<string>;
     /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * Endpoint policy for Amazon S3 access from the ODB network.
      */
     declare public readonly s3PolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -161,21 +161,21 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
-     * Specifies the configuration for STS access from the ODB network.
+     * Configuration for STS access from the ODB network.
      */
     declare public readonly stsAccess: pulumi.Output<string>;
     /**
-     * Specifies the endpoint policy for STS access from the ODB network.
+     * Endpoint policy for STS access from the ODB network.
      */
     declare public readonly stsPolicyDocument: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.odb.NetworkTimeouts | undefined>;
     /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
+     * Configuration for Zero-ETL access from the ODB network.
      *
      * The following arguments are optional:
      */
@@ -297,35 +297,35 @@ export interface NetworkState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
-     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
      */
     availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
-     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
      */
     backupSubnetCidr?: pulumi.Input<string | undefined>;
     /**
-     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * CIDR notation for the network resource. Changing this will force terraform to create new resource.
      */
     clientSubnetCidr?: pulumi.Input<string | undefined>;
     /**
-     * The date and time when the ODB network was created.
+     * Date and time when the ODB network was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * The list of regions enabled for cross-region restore in the ODB network.
+     * List of regions enabled for cross-region restore in the ODB network.
      */
     crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**
-     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
      */
     defaultDnsPrefix?: pulumi.Input<string | undefined>;
     /**
@@ -333,55 +333,55 @@ export interface NetworkState {
      */
     deleteAssociatedResources?: pulumi.Input<boolean | undefined>;
     /**
-     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * User-friendly name for the odb network. Changing this will force terraform to create a new resource.
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * A list of EC2 placement group IDs associated with the ODB network.
+     * List of EC2 placement group IDs associated with the ODB network.
      */
     ec2PlacementGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Specifies the configuration for KMS access from the ODB network.
+     * Configuration for KMS access from the ODB network.
      */
     kmsAccess?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the endpoint policy for KMS access from the ODB network.
+     * Endpoint policy for KMS access from the ODB network.
      */
     kmsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * The managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network.
      */
     managedServices?: pulumi.Input<pulumi.Input<inputs.odb.NetworkManagedService>[] | undefined>;
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      */
     ociDnsForwardingConfigs?: pulumi.Input<pulumi.Input<inputs.odb.NetworkOciDnsForwardingConfig>[] | undefined>;
     /**
-     * The unique identifier of the OCI network anchor for the ODB network.
+     * Unique identifier of the OCI network anchor for the ODB network.
      */
     ociNetworkAnchorId?: pulumi.Input<string | undefined>;
     /**
-     * The URL of the OCI network anchor for the ODB network.
+     * URL of the OCI network anchor for the ODB network.
      */
     ociNetworkAnchorUrl?: pulumi.Input<string | undefined>;
     /**
-     * The name of the OCI resource anchor for the ODB network.
+     * Name of the OCI resource anchor for the ODB network.
      */
     ociResourceAnchorName?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      */
     ociVcnId?: pulumi.Input<string | undefined>;
     /**
-     * The URL of the OCI VCN for the ODB network.
+     * URL of the OCI VCN for the ODB network.
      */
     ociVcnUrl?: pulumi.Input<string | undefined>;
     /**
-     * The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      */
     peeredCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      */
     percentProgress?: pulumi.Input<number | undefined>;
     /**
@@ -389,15 +389,15 @@ export interface NetworkState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
+     * Configuration for Amazon S3 access from the ODB network.
      */
     s3Access?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * Endpoint policy for Amazon S3 access from the ODB network.
      */
     s3PolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -405,21 +405,21 @@ export interface NetworkState {
      */
     statusReason?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for STS access from the ODB network.
+     * Configuration for STS access from the ODB network.
      */
     stsAccess?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the endpoint policy for STS access from the ODB network.
+     * Endpoint policy for STS access from the ODB network.
      */
     stsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.odb.NetworkTimeouts | undefined>;
     /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
+     * Configuration for Zero-ETL access from the ODB network.
      *
      * The following arguments are optional:
      */
@@ -431,31 +431,31 @@ export interface NetworkState {
  */
 export interface NetworkArgs {
     /**
-     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
-     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
      */
     availabilityZoneId: pulumi.Input<string>;
     /**
-     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
      */
     backupSubnetCidr: pulumi.Input<string>;
     /**
-     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * CIDR notation for the network resource. Changing this will force terraform to create new resource.
      */
     clientSubnetCidr: pulumi.Input<string>;
     /**
-     * The list of regions enabled for cross-region restore in the ODB network.
+     * List of regions enabled for cross-region restore in the ODB network.
      */
     crossRegionS3RestoreSourcesAccesses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string | undefined>;
     /**
-     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
      */
     defaultDnsPrefix?: pulumi.Input<string | undefined>;
     /**
@@ -463,15 +463,15 @@ export interface NetworkArgs {
      */
     deleteAssociatedResources?: pulumi.Input<boolean | undefined>;
     /**
-     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * User-friendly name for the odb network. Changing this will force terraform to create a new resource.
      */
     displayName: pulumi.Input<string>;
     /**
-     * Specifies the configuration for KMS access from the ODB network.
+     * Configuration for KMS access from the ODB network.
      */
     kmsAccess?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the endpoint policy for KMS access from the ODB network.
+     * Endpoint policy for KMS access from the ODB network.
      */
     kmsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
@@ -479,28 +479,28 @@ export interface NetworkArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
+     * Configuration for Amazon S3 access from the ODB network.
      */
     s3Access: pulumi.Input<string>;
     /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * Endpoint policy for Amazon S3 access from the ODB network.
      */
     s3PolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the configuration for STS access from the ODB network.
+     * Configuration for STS access from the ODB network.
      */
     stsAccess?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the endpoint policy for STS access from the ODB network.
+     * Endpoint policy for STS access from the ODB network.
      */
     stsPolicyDocument?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.odb.NetworkTimeouts | undefined>;
     /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
+     * Configuration for Zero-ETL access from the ODB network.
      *
      * The following arguments are optional:
      */

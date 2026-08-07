@@ -60,7 +60,7 @@ type Endpoint struct {
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
@@ -121,7 +121,7 @@ type endpointState struct {
 	CidrBlock *string `pulumi:"cidrBlock"`
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime *string `pulumi:"creationTime"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
@@ -144,7 +144,7 @@ type EndpointState struct {
 	CidrBlock pulumi.StringPtrInput
 	// UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreationTime pulumi.StringPtrInput
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Set of nested attributes for associated Elastic Network Interfaces (ENIs).
 	NetworkInterfaces EndpointNetworkInterfaceArrayInput
@@ -165,7 +165,7 @@ func (EndpointState) ElementType() reflect.Type {
 type endpointArgs struct {
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 	AccessType *string `pulumi:"accessType"`
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId string `pulumi:"outpostId"`
@@ -181,7 +181,7 @@ type endpointArgs struct {
 type EndpointArgs struct {
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 	AccessType pulumi.StringPtrInput
-	// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+	// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId pulumi.StringInput
@@ -300,7 +300,7 @@ func (o EndpointOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+// ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
 func (o EndpointOutput) CustomerOwnedIpv4Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomerOwnedIpv4Pool }).(pulumi.StringPtrOutput)
 }

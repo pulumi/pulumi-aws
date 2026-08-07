@@ -99,7 +99,7 @@ namespace Pulumi.Aws.AppConfig
     public partial class Extension : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action points defined in the extension. Detailed below.
+        /// Action points defined in the extension. Detailed below.
         /// </summary>
         [Output("actionPoints")]
         public Output<ImmutableArray<Outputs.ExtensionActionPoint>> ActionPoints { get; private set; } = null!;
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+        /// Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+        /// Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ExtensionParameter>> Parameters { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The version number for the extension.
+        /// Version number for the extension.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ExtensionActionPointArgs>? _actionPoints;
 
         /// <summary>
-        /// The action points defined in the extension. Detailed below.
+        /// Action points defined in the extension. Detailed below.
         /// </summary>
         public InputList<Inputs.ExtensionActionPointArgs> ActionPoints
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+        /// Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ExtensionParameterArgs>? _parameters;
 
         /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+        /// Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         /// </summary>
         public InputList<Inputs.ExtensionParameterArgs> Parameters
         {
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ExtensionActionPointGetArgs>? _actionPoints;
 
         /// <summary>
-        /// The action points defined in the extension. Detailed below.
+        /// Action points defined in the extension. Detailed below.
         /// </summary>
         public InputList<Inputs.ExtensionActionPointGetArgs> ActionPoints
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+        /// Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.AppConfig
         private InputList<Inputs.ExtensionParameterGetArgs>? _parameters;
 
         /// <summary>
-        /// The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+        /// Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
         /// </summary>
         public InputList<Inputs.ExtensionParameterGetArgs> Parameters
         {
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.AppConfig
         }
 
         /// <summary>
-        /// The version number for the extension.
+        /// Version number for the extension.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

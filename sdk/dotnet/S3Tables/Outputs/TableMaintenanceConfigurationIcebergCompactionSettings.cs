@@ -14,8 +14,7 @@ namespace Pulumi.Aws.S3Tables.Outputs
     public sealed class TableMaintenanceConfigurationIcebergCompactionSettings
     {
         /// <summary>
-        /// Data objects smaller than this size may be combined with others to improve query performance.
-        /// Must be between `64` and `512`.
+        /// Data objects smaller than this size may be combined with others to improve query performance. Must be between `64` and `512`.
         /// </summary>
         public readonly int TargetFileSizeMb;
 

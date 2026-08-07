@@ -288,7 +288,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arnWithoutRevision: pulumi.Output<string>;
     /**
-     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     declare public readonly containerDefinitions: pulumi.Output<string>;
     /**
@@ -300,7 +300,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly enableFaultInjection: pulumi.Output<boolean>;
     /**
-     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
     declare public readonly ephemeralStorage: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
@@ -308,7 +308,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
-     * A unique name for your task definition.
+     * Unique name for your task definition.
      *
      * The following arguments are optional:
      */
@@ -470,7 +470,7 @@ export interface TaskDefinitionState {
      */
     arnWithoutRevision?: pulumi.Input<string | undefined>;
     /**
-     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     containerDefinitions?: pulumi.Input<string | undefined>;
     /**
@@ -482,7 +482,7 @@ export interface TaskDefinitionState {
      */
     enableFaultInjection?: pulumi.Input<boolean | undefined>;
     /**
-     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
     ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
@@ -490,7 +490,7 @@ export interface TaskDefinitionState {
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A unique name for your task definition.
+     * Unique name for your task definition.
      *
      * The following arguments are optional:
      */
@@ -570,7 +570,7 @@ export interface TaskDefinitionState {
  */
 export interface TaskDefinitionArgs {
     /**
-     * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
+     * List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
     containerDefinitions: pulumi.Input<string>;
     /**
@@ -582,7 +582,7 @@ export interface TaskDefinitionArgs {
      */
     enableFaultInjection?: pulumi.Input<boolean | undefined>;
     /**
-     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     * Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      */
     ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
     /**
@@ -590,7 +590,7 @@ export interface TaskDefinitionArgs {
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * A unique name for your task definition.
+     * Unique name for your task definition.
      *
      * The following arguments are optional:
      */

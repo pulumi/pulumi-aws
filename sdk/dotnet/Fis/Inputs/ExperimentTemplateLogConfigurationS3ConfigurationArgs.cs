@@ -12,15 +12,9 @@ namespace Pulumi.Aws.Fis.Inputs
 
     public sealed class ExperimentTemplateLogConfigurationS3ConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the destination bucket.
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// The bucket prefix.
-        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 

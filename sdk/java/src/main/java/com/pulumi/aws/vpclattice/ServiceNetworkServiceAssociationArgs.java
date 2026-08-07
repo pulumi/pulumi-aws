@@ -33,14 +33,14 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service.
+     * ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     @Import(name="serviceIdentifier", required=true)
     private Output<String> serviceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service.
+     * @return ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
     public Output<String> serviceIdentifier() {
@@ -48,14 +48,14 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     @Import(name="serviceNetworkIdentifier", required=true)
     private Output<String> serviceNetworkIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+     * @return ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
@@ -126,7 +126,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Identifier (ARN) of the service.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
+         * @param serviceIdentifier ID or Amazon Resource Identifier (ARN) of the service.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+         * @param serviceNetworkIdentifier ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
          * 
          * @return builder
          * 

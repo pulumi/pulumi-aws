@@ -16,14 +16,14 @@ public final class TargetGroupConfigHealthCheckMatcherArgs extends com.pulumi.re
     public static final TargetGroupConfigHealthCheckMatcherArgs Empty = new TargetGroupConfigHealthCheckMatcherArgs();
 
     /**
-     * The HTTP codes to use when checking for a successful response from a target.
+     * HTTP codes to use when checking for a successful response from a target.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The HTTP codes to use when checking for a successful response from a target.
+     * @return HTTP codes to use when checking for a successful response from a target.
      * 
      */
     public Optional<Output<String>> value() {
@@ -55,7 +55,7 @@ public final class TargetGroupConfigHealthCheckMatcherArgs extends com.pulumi.re
         }
 
         /**
-         * @param value The HTTP codes to use when checking for a successful response from a target.
+         * @param value HTTP codes to use when checking for a successful response from a target.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class TargetGroupConfigHealthCheckMatcherArgs extends com.pulumi.re
         }
 
         /**
-         * @param value The HTTP codes to use when checking for a successful response from a target.
+         * @param value HTTP codes to use when checking for a successful response from a target.
          * 
          * @return builder
          * 

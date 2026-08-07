@@ -18,14 +18,14 @@ public final class GetEventIntegrationArgs extends com.pulumi.resources.InvokeAr
     public static final GetEventIntegrationArgs Empty = new GetEventIntegrationArgs();
 
     /**
-     * The AppIntegrations Event Integration name.
+     * AppIntegrations Event Integration name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The AppIntegrations Event Integration name.
+     * @return AppIntegrations Event Integration name.
      * 
      */
     public Output<String> name() {
@@ -89,7 +89,7 @@ public final class GetEventIntegrationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The AppIntegrations Event Integration name.
+         * @param name AppIntegrations Event Integration name.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetEventIntegrationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The AppIntegrations Event Integration name.
+         * @param name AppIntegrations Event Integration name.
          * 
          * @return builder
          * 

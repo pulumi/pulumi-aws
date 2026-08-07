@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppIntegrations.Outputs
     public sealed class DataIntegrationScheduleConfig
     {
         /// <summary>
-        /// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+        /// Start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
         /// </summary>
         public readonly string FirstExecutionFrom;
         /// <summary>
-        /// The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+        /// Name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
         /// </summary>
         public readonly string Object;
         /// <summary>

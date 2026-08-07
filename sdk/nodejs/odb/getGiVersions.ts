@@ -32,7 +32,7 @@ export interface GetGiVersionsArgs {
      */
     region?: string;
     /**
-     * The system shape.
+     * System shape.
      */
     shape?: string;
 }
@@ -73,7 +73,7 @@ export interface GetGiVersionsOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The system shape.
+     * System shape.
      */
     shape?: pulumi.Input<string | undefined>;
 }

@@ -65,22 +65,30 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.bucket);
     }
 
+    /**
+     * Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+     * 
+     */
     @Import(name="bucketKeyEnabled")
     private @Nullable Output<Boolean> bucketKeyEnabled;
 
+    /**
+     * @return Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+     * 
+     */
     public Optional<Output<Boolean>> bucketKeyEnabled() {
         return Optional.ofNullable(this.bucketKeyEnabled);
     }
 
     /**
-     * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     @Import(name="cacheControl")
     private @Nullable Output<String> cacheControl;
 
     /**
-     * @return Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+     * @return Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
     public Optional<Output<String>> cacheControl() {
@@ -88,14 +96,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     @Import(name="checksumAlgorithm")
     private @Nullable Output<String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+     * @return Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
     public Optional<Output<String>> checksumAlgorithm() {
@@ -103,14 +111,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     @Import(name="checksumCrc32")
     private @Nullable Output<String> checksumCrc32;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc32() {
@@ -118,14 +126,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     @Import(name="checksumCrc32c")
     private @Nullable Output<String> checksumCrc32c;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc32c() {
@@ -133,14 +141,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     @Import(name="checksumCrc64nvme")
     private @Nullable Output<String> checksumCrc64nvme;
 
     /**
-     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * @return Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     public Optional<Output<String>> checksumCrc64nvme() {
@@ -148,14 +156,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     @Import(name="checksumSha1")
     private @Nullable Output<String> checksumSha1;
 
     /**
-     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * @return Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     public Optional<Output<String>> checksumSha1() {
@@ -163,14 +171,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     @Import(name="checksumSha256")
     private @Nullable Output<String> checksumSha256;
 
     /**
-     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * @return Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     public Optional<Output<String>> checksumSha256() {
@@ -178,14 +186,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     @Import(name="contentDisposition")
     private @Nullable Output<String> contentDisposition;
 
     /**
-     * @return Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+     * @return Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
     public Optional<Output<String>> contentDisposition() {
@@ -193,14 +201,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+     * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
     @Import(name="contentEncoding")
     private @Nullable Output<String> contentEncoding;
 
     /**
-     * @return Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+     * @return Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
     public Optional<Output<String>> contentEncoding() {
@@ -298,14 +306,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the algorithm to use to when encrypting the object (for example, AES256).
+     * Algorithm to use when encrypting the object (for example, AES256).
      * 
      */
     @Import(name="customerAlgorithm")
     private @Nullable Output<String> customerAlgorithm;
 
     /**
-     * @return Specifies the algorithm to use to when encrypting the object (for example, AES256).
+     * @return Algorithm to use when encrypting the object (for example, AES256).
      * 
      */
     public Optional<Output<String>> customerAlgorithm() {
@@ -313,14 +321,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+     * Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      * 
      */
     @Import(name="customerKey")
     private @Nullable Output<String> customerKey;
 
     /**
-     * @return Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+     * @return Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      * 
      */
     public Optional<Output<String>> customerKey() {
@@ -328,14 +336,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
     @Import(name="customerKeyMd5")
     private @Nullable Output<String> customerKeyMd5;
 
     /**
-     * @return Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * @return 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
     public Optional<Output<String>> customerKeyMd5() {
@@ -463,14 +471,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+     * AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      * 
      */
     @Import(name="kmsEncryptionContext")
     private @Nullable Output<String> kmsEncryptionContext;
 
     /**
-     * @return Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+     * @return AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      * 
      */
     public Optional<Output<String>> kmsEncryptionContext() {
@@ -478,14 +486,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+     * AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+     * @return AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -523,14 +531,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
     @Import(name="metadataDirective")
     private @Nullable Output<String> metadataDirective;
 
     /**
-     * @return Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+     * @return Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
     public Optional<Output<String>> metadataDirective() {
@@ -538,14 +546,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
     @Import(name="objectLockLegalHoldStatus")
     private @Nullable Output<String> objectLockLegalHoldStatus;
 
     /**
-     * @return The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+     * @return [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
     public Optional<Output<String>> objectLockLegalHoldStatus() {
@@ -635,14 +643,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+     * Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<String> serverSideEncryption;
 
     /**
-     * @return Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+     * @return Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      * 
      */
     public Optional<Output<String>> serverSideEncryption() {
@@ -650,7 +658,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     * Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      * 
      * The following arguments are optional:
      * 
@@ -659,7 +667,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> source;
 
     /**
-     * @return Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+     * @return Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      * 
      * The following arguments are optional:
      * 
@@ -669,14 +677,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the algorithm to use when decrypting the source object (for example, AES256).
+     * Algorithm to use when decrypting the source object (for example, AES256).
      * 
      */
     @Import(name="sourceCustomerAlgorithm")
     private @Nullable Output<String> sourceCustomerAlgorithm;
 
     /**
-     * @return Specifies the algorithm to use when decrypting the source object (for example, AES256).
+     * @return Algorithm to use when decrypting the source object (for example, AES256).
      * 
      */
     public Optional<Output<String>> sourceCustomerAlgorithm() {
@@ -684,14 +692,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+     * Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      * 
      */
     @Import(name="sourceCustomerKey")
     private @Nullable Output<String> sourceCustomerKey;
 
     /**
-     * @return Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+     * @return Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      * 
      */
     public Optional<Output<String>> sourceCustomerKey() {
@@ -699,14 +707,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
     @Import(name="sourceCustomerKeyMd5")
     private @Nullable Output<String> sourceCustomerKeyMd5;
 
     /**
-     * @return Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+     * @return 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
     public Optional<Output<String>> sourceCustomerKeyMd5() {
@@ -729,14 +737,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+     * Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
     @Import(name="storageClass")
     private @Nullable Output<String> storageClass;
 
     /**
-     * @return Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+     * @return Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
     public Optional<Output<String>> storageClass() {
@@ -744,14 +752,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+     * Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
     @Import(name="taggingDirective")
     private @Nullable Output<String> taggingDirective;
 
     /**
-     * @return Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+     * @return Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
     public Optional<Output<String>> taggingDirective() {
@@ -804,14 +812,14 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
     @Import(name="websiteRedirect")
     private @Nullable Output<String> websiteRedirect;
 
     /**
-     * @return Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+     * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
     public Optional<Output<String>> websiteRedirect() {
@@ -958,17 +966,29 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param bucketKeyEnabled Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketKeyEnabled(@Nullable Output<Boolean> bucketKeyEnabled) {
             $.bucketKeyEnabled = bucketKeyEnabled;
             return this;
         }
 
+        /**
+         * @param bucketKeyEnabled Whether to use an S3 Bucket Key for object encryption with server-side encryption using KMS (SSE-KMS).
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketKeyEnabled(Boolean bucketKeyEnabled) {
             return bucketKeyEnabled(Output.of(bucketKeyEnabled));
         }
 
         /**
-         * @param cacheControl Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+         * @param cacheControl Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
          * 
          * @return builder
          * 
@@ -979,7 +999,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cacheControl Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
+         * @param cacheControl Caching behavior along the request/reply chain. Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
          * 
          * @return builder
          * 
@@ -989,7 +1009,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -1000,7 +1020,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumAlgorithm Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
+         * @param checksumAlgorithm Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
          * 
          * @return builder
          * 
@@ -1010,7 +1030,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * @param checksumCrc32 Base64-encoded, 32-bit CRC32 checksum of the object.
          * 
          * @return builder
          * 
@@ -1021,7 +1041,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc32 The base64-encoded, 32-bit CRC32 checksum of the object.
+         * @param checksumCrc32 Base64-encoded, 32-bit CRC32 checksum of the object.
          * 
          * @return builder
          * 
@@ -1031,7 +1051,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * @param checksumCrc32c Base64-encoded, 32-bit CRC32C checksum of the object.
          * 
          * @return builder
          * 
@@ -1042,7 +1062,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc32c The base64-encoded, 32-bit CRC32C checksum of the object.
+         * @param checksumCrc32c Base64-encoded, 32-bit CRC32C checksum of the object.
          * 
          * @return builder
          * 
@@ -1052,7 +1072,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * @param checksumCrc64nvme Base64-encoded, 64-bit CRC64NVME checksum of the object.
          * 
          * @return builder
          * 
@@ -1063,7 +1083,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumCrc64nvme The base64-encoded, 64-bit CRC64NVME checksum of the object.
+         * @param checksumCrc64nvme Base64-encoded, 64-bit CRC64NVME checksum of the object.
          * 
          * @return builder
          * 
@@ -1073,7 +1093,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * @param checksumSha1 Base64-encoded, 160-bit SHA-1 digest of the object.
          * 
          * @return builder
          * 
@@ -1084,7 +1104,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumSha1 The base64-encoded, 160-bit SHA-1 digest of the object.
+         * @param checksumSha1 Base64-encoded, 160-bit SHA-1 digest of the object.
          * 
          * @return builder
          * 
@@ -1094,7 +1114,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * @param checksumSha256 Base64-encoded, 256-bit SHA-256 digest of the object.
          * 
          * @return builder
          * 
@@ -1105,7 +1125,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param checksumSha256 The base64-encoded, 256-bit SHA-256 digest of the object.
+         * @param checksumSha256 Base64-encoded, 256-bit SHA-256 digest of the object.
          * 
          * @return builder
          * 
@@ -1115,7 +1135,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentDisposition Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+         * @param contentDisposition Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
          * 
          * @return builder
          * 
@@ -1126,7 +1146,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentDisposition Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
+         * @param contentDisposition Presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
          * 
          * @return builder
          * 
@@ -1136,7 +1156,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentEncoding Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+         * @param contentEncoding Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
          * 
          * @return builder
          * 
@@ -1147,7 +1167,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentEncoding Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
+         * @param contentEncoding Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
          * 
          * @return builder
          * 
@@ -1283,7 +1303,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerAlgorithm Specifies the algorithm to use to when encrypting the object (for example, AES256).
+         * @param customerAlgorithm Algorithm to use when encrypting the object (for example, AES256).
          * 
          * @return builder
          * 
@@ -1294,7 +1314,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerAlgorithm Specifies the algorithm to use to when encrypting the object (for example, AES256).
+         * @param customerAlgorithm Algorithm to use when encrypting the object (for example, AES256).
          * 
          * @return builder
          * 
@@ -1304,7 +1324,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerKey Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+         * @param customerKey Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
          * 
          * @return builder
          * 
@@ -1315,7 +1335,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerKey Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
+         * @param customerKey Customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
          * 
          * @return builder
          * 
@@ -1325,7 +1345,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerKeyMd5 Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+         * @param customerKeyMd5 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
          * 
          * @return builder
          * 
@@ -1336,7 +1356,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerKeyMd5 Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+         * @param customerKeyMd5 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
          * 
          * @return builder
          * 
@@ -1524,7 +1544,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsEncryptionContext Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+         * @param kmsEncryptionContext AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
          * 
          * @return builder
          * 
@@ -1535,7 +1555,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsEncryptionContext Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
+         * @param kmsEncryptionContext AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
          * 
          * @return builder
          * 
@@ -1545,7 +1565,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+         * @param kmsKeyId AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
          * 
          * @return builder
          * 
@@ -1556,7 +1576,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
+         * @param kmsKeyId AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
          * 
          * @return builder
          * 
@@ -1608,7 +1628,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataDirective Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+         * @param metadataDirective Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
          * 
          * @return builder
          * 
@@ -1619,7 +1639,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metadataDirective Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
+         * @param metadataDirective Whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
          * 
          * @return builder
          * 
@@ -1629,7 +1649,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param objectLockLegalHoldStatus The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+         * @param objectLockLegalHoldStatus [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
          * 
          * @return builder
          * 
@@ -1640,7 +1660,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param objectLockLegalHoldStatus The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
+         * @param objectLockLegalHoldStatus [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status to apply to the specified object. Valid values are `ON` and `OFF`.
          * 
          * @return builder
          * 
@@ -1764,7 +1784,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
          * 
          * @return builder
          * 
@@ -1775,7 +1795,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
+         * @param serverSideEncryption Server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
          * 
          * @return builder
          * 
@@ -1785,7 +1805,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+         * @param source Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
          * 
          * The following arguments are optional:
          * 
@@ -1798,7 +1818,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
+         * @param source Source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the ARN of the object as accessed through the access point, in the format `arn:aws:s3:&lt;Region&gt;:&lt;account-id&gt;:accesspoint/&lt;access-point-name&gt;/object/&lt;key&gt;`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
          * 
          * The following arguments are optional:
          * 
@@ -1810,7 +1830,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerAlgorithm Specifies the algorithm to use when decrypting the source object (for example, AES256).
+         * @param sourceCustomerAlgorithm Algorithm to use when decrypting the source object (for example, AES256).
          * 
          * @return builder
          * 
@@ -1821,7 +1841,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerAlgorithm Specifies the algorithm to use when decrypting the source object (for example, AES256).
+         * @param sourceCustomerAlgorithm Algorithm to use when decrypting the source object (for example, AES256).
          * 
          * @return builder
          * 
@@ -1831,7 +1851,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerKey Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+         * @param sourceCustomerKey Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
          * 
          * @return builder
          * 
@@ -1842,7 +1862,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerKey Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
+         * @param sourceCustomerKey Customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
          * 
          * @return builder
          * 
@@ -1852,7 +1872,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerKeyMd5 Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+         * @param sourceCustomerKeyMd5 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
          * 
          * @return builder
          * 
@@ -1863,7 +1883,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCustomerKeyMd5 Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+         * @param sourceCustomerKeyMd5 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
          * 
          * @return builder
          * 
@@ -1894,7 +1914,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageClass Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+         * @param storageClass Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
          * 
          * @return builder
          * 
@@ -1905,7 +1925,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageClass Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
+         * @param storageClass Desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
          * 
          * @return builder
          * 
@@ -1915,7 +1935,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taggingDirective Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+         * @param taggingDirective Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
          * 
          * @return builder
          * 
@@ -1926,7 +1946,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taggingDirective Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
+         * @param taggingDirective Whether the object tag-set is copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
          * 
          * @return builder
          * 
@@ -1999,7 +2019,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteRedirect Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+         * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
          * @return builder
          * 
@@ -2010,7 +2030,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param websiteRedirect Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
+         * @param websiteRedirect Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
          * 
          * @return builder
          * 

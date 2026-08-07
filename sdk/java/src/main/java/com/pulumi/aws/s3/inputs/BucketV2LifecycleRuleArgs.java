@@ -25,14 +25,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     public static final BucketV2LifecycleRuleArgs Empty = new BucketV2LifecycleRuleArgs();
 
     /**
-     * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+     * Number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
     @Import(name="abortIncompleteMultipartUploadDays")
     private @Nullable Output<Integer> abortIncompleteMultipartUploadDays;
 
     /**
-     * @return Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+     * @return Number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
     public Optional<Output<Integer>> abortIncompleteMultipartUploadDays() {
@@ -40,14 +40,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies lifecycle rule status.
+     * Lifecycle rule status.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Specifies lifecycle rule status.
+     * @return Lifecycle rule status.
      * 
      */
     public Output<Boolean> enabled() {
@@ -55,14 +55,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * Configuration of the object expiration. See `expiration` Block below for details.
      * 
      */
     @Import(name="expirations")
     private @Nullable Output<List<BucketV2LifecycleRuleExpirationArgs>> expirations;
 
     /**
-     * @return Specifies a period in the object&#39;s expire. See Expiration below for details.
+     * @return Configuration of the object expiration. See `expiration` Block below for details.
      * 
      */
     public Optional<Output<List<BucketV2LifecycleRuleExpirationArgs>>> expirations() {
@@ -85,14 +85,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
      * 
      */
     @Import(name="noncurrentVersionExpirations")
     private @Nullable Output<List<BucketV2LifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpirations;
 
     /**
-     * @return Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+     * @return When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
      * 
      */
     public Optional<Output<List<BucketV2LifecycleRuleNoncurrentVersionExpirationArgs>>> noncurrentVersionExpirations() {
@@ -100,14 +100,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
      * 
      */
     @Import(name="noncurrentVersionTransitions")
     private @Nullable Output<List<BucketV2LifecycleRuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions;
 
     /**
-     * @return Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+     * @return When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
      * 
      */
     public Optional<Output<List<BucketV2LifecycleRuleNoncurrentVersionTransitionArgs>>> noncurrentVersionTransitions() {
@@ -130,14 +130,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies object tags key and value.
+     * Object tags key and value.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Specifies object tags key and value.
+     * @return Object tags key and value.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -145,14 +145,14 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * Configuration of the object transition. See `transition` Block below for details.
      * 
      */
     @Import(name="transitions")
     private @Nullable Output<List<BucketV2LifecycleRuleTransitionArgs>> transitions;
 
     /**
-     * @return Specifies a period in the object&#39;s transitions. See Transition below for details.
+     * @return Configuration of the object transition. See `transition` Block below for details.
      * 
      */
     public Optional<Output<List<BucketV2LifecycleRuleTransitionArgs>>> transitions() {
@@ -192,7 +192,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param abortIncompleteMultipartUploadDays Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+         * @param abortIncompleteMultipartUploadDays Number of days after initiating a multipart upload when the multipart upload must be completed.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param abortIncompleteMultipartUploadDays Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
+         * @param abortIncompleteMultipartUploadDays Number of days after initiating a multipart upload when the multipart upload must be completed.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Specifies lifecycle rule status.
+         * @param enabled Lifecycle rule status.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Specifies lifecycle rule status.
+         * @param enabled Lifecycle rule status.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expirations Configuration of the object expiration. See `expiration` Block below for details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expirations Configuration of the object expiration. See `expiration` Block below for details.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param expirations Specifies a period in the object&#39;s expire. See Expiration below for details.
+         * @param expirations Configuration of the object expiration. See `expiration` Block below for details.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpirations When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpirations When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionExpirations Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+         * @param noncurrentVersionExpirations When noncurrent object versions expire. See `noncurrentVersionExpiration` Block below for details.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param noncurrentVersionTransitions Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+         * @param noncurrentVersionTransitions When noncurrent object versions transition. See `noncurrentVersionTransition` Block below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Specifies object tags key and value.
+         * @param tags Object tags key and value.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags Specifies object tags key and value.
+         * @param tags Object tags key and value.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Configuration of the object transition. See `transition` Block below for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Configuration of the object transition. See `transition` Block below for details.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class BucketV2LifecycleRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param transitions Specifies a period in the object&#39;s transitions. See Transition below for details.
+         * @param transitions Configuration of the object transition. See `transition` Block below for details.
          * 
          * @return builder
          * 

@@ -229,19 +229,19 @@ namespace Pulumi.Aws.SecretsManager
         public string? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public string SecretId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `VersionStage`.
+        /// Unique identifier of the version of the secret that you want to retrieve. Overrides `VersionStage`.
         /// </summary>
         [Input("versionId")]
         public string? VersionId { get; set; }
 
         /// <summary>
-        /// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+        /// Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
         /// </summary>
         [Input("versionStage")]
         public string? VersionStage { get; set; }
@@ -261,19 +261,19 @@ namespace Pulumi.Aws.SecretsManager
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+        /// Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
         public Input<string> SecretId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `VersionStage`.
+        /// Unique identifier of the version of the secret that you want to retrieve. Overrides `VersionStage`.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }
 
         /// <summary>
-        /// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+        /// Secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
         /// </summary>
         [Input("versionStage")]
         public Input<string>? VersionStage { get; set; }
@@ -289,8 +289,7 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionResult
     {
         /// <summary>
-        /// (**Deprecated**) The ARN of the secret.
-        /// Use `SecretArn` instead.
+        /// (**Deprecated**) ARN of the secret. Use `SecretArn` instead.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -303,7 +302,7 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// The ARN of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string SecretArn;
         /// <summary>
@@ -320,6 +319,9 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string VersionId;
         public readonly string? VersionStage;
+        /// <summary>
+        /// List of staging labels attached to this version of the secret.
+        /// </summary>
         public readonly ImmutableArray<string> VersionStages;
 
         [OutputConstructor]

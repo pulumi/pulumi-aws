@@ -65,13 +65,6 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      * 
-     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-     * 
-     * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-     * 
-     * &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-     * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-     * 
      */
     @Import(name="rules")
     private @Nullable Output<List<BucketReplicationConfigRuleArgs>> rules;
@@ -79,29 +72,20 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
     /**
      * @return List of configuration blocks describing the rules managing the replication. See below.
      * 
-     * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-     * 
-     * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-     * 
-     * &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-     * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-     * 
      */
     public Optional<Output<List<BucketReplicationConfigRuleArgs>>> rules() {
         return Optional.ofNullable(this.rules);
     }
 
     /**
-     * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     * Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;. For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
     @Import(name="token")
     private @Nullable Output<String> token;
 
     /**
-     * @return Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-     * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+     * @return Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;. For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
     public Optional<Output<String>> token() {
@@ -202,13 +186,6 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
-         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-         * 
-         * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-         * 
-         * &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-         * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-         * 
          * @return builder
          * 
          */
@@ -220,13 +197,6 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
-         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-         * 
-         * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-         * 
-         * &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-         * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-         * 
          * @return builder
          * 
          */
@@ -237,13 +207,6 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
          * 
-         * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
-         * 
-         * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
-         * 
-         * &gt; **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time and should not be included in your `rule` configurations. Specifying this parameter will result in `MalformedXML` errors.
-         * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
-         * 
          * @return builder
          * 
          */
@@ -252,8 +215,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-         * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;. For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
          * 
          * @return builder
          * 
@@ -264,8 +226,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-         * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
+         * @param token Token to allow replication to be enabled on an Object Lock-enabled bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;. For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
          * 
          * @return builder
          * 

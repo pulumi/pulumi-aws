@@ -64,8 +64,7 @@ export class Stage extends pulumi.CustomResource {
     }
 
     /**
-     * Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+     * Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
     declare public readonly accessLogSettings: pulumi.Output<outputs.apigatewayv2.StageAccessLogSettings | undefined>;
     /**
@@ -81,8 +80,7 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly autoDeploy: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
      */
     declare public readonly clientCertificateId: pulumi.Output<string | undefined>;
     /**
@@ -98,14 +96,11 @@ export class Stage extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute.
-     * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute. For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+     * URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     declare public /*out*/ readonly invokeUrl: pulumi.Output<string>;
     /**
@@ -196,8 +191,7 @@ export class Stage extends pulumi.CustomResource {
  */
 export interface StageState {
     /**
-     * Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+     * Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
     accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings | undefined>;
     /**
@@ -213,8 +207,7 @@ export interface StageState {
      */
     autoDeploy?: pulumi.Input<boolean | undefined>;
     /**
-     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
      */
     clientCertificateId?: pulumi.Input<string | undefined>;
     /**
@@ -230,14 +223,11 @@ export interface StageState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute.
-     * For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute. For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     executionArn?: pulumi.Input<string | undefined>;
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+     * URL to invoke the API pointing to the stage, e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     invokeUrl?: pulumi.Input<string | undefined>;
     /**
@@ -273,8 +263,7 @@ export interface StageState {
  */
 export interface StageArgs {
     /**
-     * Settings for logging access in this stage.
-     * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
+     * Settings for logging access in this stage. Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      */
     accessLogSettings?: pulumi.Input<inputs.apigatewayv2.StageAccessLogSettings | undefined>;
     /**
@@ -286,8 +275,7 @@ export interface StageArgs {
      */
     autoDeploy?: pulumi.Input<boolean | undefined>;
     /**
-     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
-     * Supported only for WebSocket APIs.
+     * Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate. Supported only for WebSocket APIs.
      */
     clientCertificateId?: pulumi.Input<string | undefined>;
     /**

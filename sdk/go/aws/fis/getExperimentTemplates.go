@@ -103,8 +103,7 @@ func GetExperimentTemplates(ctx *pulumi.Context, args *GetExperimentTemplatesArg
 type GetExperimentTemplatesArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired experiment templates.
+	// Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -129,8 +128,7 @@ func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplat
 type GetExperimentTemplatesOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired experiment templates.
+	// Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

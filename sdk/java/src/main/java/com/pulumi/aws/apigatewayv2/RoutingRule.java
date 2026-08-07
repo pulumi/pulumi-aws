@@ -140,14 +140,14 @@ public class RoutingRule extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+     * Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
     /**
-     * @return The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
+     * @return Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can&#39;t have the same priority. Value must be between 1 and 1,000,000.
      * 
      */
     public Output<Integer> priority() {

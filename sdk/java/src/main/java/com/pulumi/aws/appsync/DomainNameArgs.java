@@ -32,14 +32,14 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the Domain Name.
+     * Description of the Domain Name.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the Domain Name.
+     * @return Description of the Domain Name.
      * 
      */
     public Optional<Output<String>> description() {
@@ -125,7 +125,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Domain Name.
+         * @param description Description of the Domain Name.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the Domain Name.
+         * @param description Description of the Domain Name.
          * 
          * @return builder
          * 

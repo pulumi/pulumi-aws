@@ -19,7 +19,7 @@ public final class GetTaskExecutionOverrides {
      */
     private @Nullable List<GetTaskExecutionOverridesContainerOverride> containerOverrides;
     /**
-     * @return The CPU override for the task.
+     * @return CPU override for the task.
      * 
      */
     private @Nullable String cpu;
@@ -29,7 +29,7 @@ public final class GetTaskExecutionOverrides {
      */
     private @Nullable String executionRoleArn;
     /**
-     * @return The memory override for the task.
+     * @return Memory override for the task.
      * 
      */
     private @Nullable String memory;
@@ -48,7 +48,7 @@ public final class GetTaskExecutionOverrides {
         return this.containerOverrides == null ? List.of() : this.containerOverrides;
     }
     /**
-     * @return The CPU override for the task.
+     * @return CPU override for the task.
      * 
      */
     public Optional<String> cpu() {
@@ -62,7 +62,7 @@ public final class GetTaskExecutionOverrides {
         return Optional.ofNullable(this.executionRoleArn);
     }
     /**
-     * @return The memory override for the task.
+     * @return Memory override for the task.
      * 
      */
     public Optional<String> memory() {

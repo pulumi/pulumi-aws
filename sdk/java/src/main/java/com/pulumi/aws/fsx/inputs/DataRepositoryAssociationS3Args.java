@@ -17,14 +17,14 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
     public static final DataRepositoryAssociationS3Args Empty = new DataRepositoryAssociationS3Args();
 
     /**
-     * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+     * Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
      * 
      */
     @Import(name="autoExportPolicy")
     private @Nullable Output<DataRepositoryAssociationS3AutoExportPolicyArgs> autoExportPolicy;
 
     /**
-     * @return Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+     * @return Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
      * 
      */
     public Optional<Output<DataRepositoryAssociationS3AutoExportPolicyArgs>> autoExportPolicy() {
@@ -32,14 +32,14 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+     * Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
      * 
      */
     @Import(name="autoImportPolicy")
     private @Nullable Output<DataRepositoryAssociationS3AutoImportPolicyArgs> autoImportPolicy;
 
     /**
-     * @return Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+     * @return Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
      * 
      */
     public Optional<Output<DataRepositoryAssociationS3AutoImportPolicyArgs>> autoImportPolicy() {
@@ -72,7 +72,7 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
         }
 
         /**
-         * @param autoExportPolicy Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         * @param autoExportPolicy Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
         }
 
         /**
-         * @param autoExportPolicy Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+         * @param autoExportPolicy Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `autoExportPolicy` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
         }
 
         /**
-         * @param autoImportPolicy Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         * @param autoImportPolicy Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataRepositoryAssociationS3Args extends com.pulumi.resources.
         }
 
         /**
-         * @param autoImportPolicy Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+         * @param autoImportPolicy Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `autoImportPolicy` Block below.
          * 
          * @return builder
          * 

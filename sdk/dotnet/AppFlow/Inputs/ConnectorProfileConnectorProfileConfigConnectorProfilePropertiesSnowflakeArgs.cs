@@ -13,23 +13,31 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the account.
+        /// Name of the account.
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
+        /// <summary>
+        /// Name of the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
+        /// <summary>
+        /// Snowflake Private Link service name to be used for private data transfers.
+        /// </summary>
         [Input("privateLinkServiceName")]
         public Input<string>? PrivateLinkServiceName { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -41,7 +49,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> Stage { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Snowflake warehouse.
+        /// Name of the Snowflake warehouse.
         /// </summary>
         [Input("warehouse", required: true)]
         public Input<string> Warehouse { get; set; } = null!;

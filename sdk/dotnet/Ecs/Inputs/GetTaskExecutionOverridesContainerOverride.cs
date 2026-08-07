@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private List<string>? _commands;
 
         /// <summary>
-        /// The command to send to the container that overrides the default command from the Docker image or the task definition.
+        /// Command to send to the container that overrides the default command from the Docker image or the task definition.
         /// </summary>
         public List<string> Commands
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition.
+        /// Number of cpu units reserved for the container, instead of the default value from the task definition.
         /// </summary>
         [Input("cpu")]
         public int? Cpu { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs>? _environments;
 
         /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+        /// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         /// </summary>
         public List<Inputs.GetTaskExecutionOverridesContainerOverrideEnvironmentArgs> Environments
         {
@@ -43,19 +43,19 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
+        /// Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
         /// </summary>
         [Input("memory")]
         public int? Memory { get; set; }
 
         /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
+        /// Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
         /// </summary>
         [Input("memoryReservation")]
         public int? MemoryReservation { get; set; }
 
         /// <summary>
-        /// The name of the container that receives the override. This parameter is required if any override is specified.
+        /// Name of the container that receives the override. This parameter is required if any override is specified.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs>? _resourceRequirements;
 
         /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+        /// Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         /// </summary>
         public List<Inputs.GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs> ResourceRequirements
         {

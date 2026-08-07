@@ -81,7 +81,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
     declare public readonly principal: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      */
     declare public readonly resourceShareArn: pulumi.Output<string>;
 
@@ -131,7 +131,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
  */
 export interface PrincipalAssociationState {
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
     principal?: pulumi.Input<string | undefined>;
     /**
@@ -139,7 +139,7 @@ export interface PrincipalAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
 }
@@ -149,7 +149,7 @@ export interface PrincipalAssociationState {
  */
 export interface PrincipalAssociationArgs {
     /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+     * Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
     principal: pulumi.Input<string>;
     /**
@@ -157,7 +157,7 @@ export interface PrincipalAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      */
     resourceShareArn: pulumi.Input<string>;
 }

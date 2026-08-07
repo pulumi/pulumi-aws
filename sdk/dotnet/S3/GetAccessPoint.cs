@@ -172,7 +172,7 @@ namespace Pulumi.Aws.S3
         public readonly ImmutableDictionary<string, string> Endpoints;
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the access point allows access from the public Internet.
+        /// Whether the access point allows access from the public Internet.
         /// </summary>
         public readonly string NetworkOrigin;
         /// <summary>

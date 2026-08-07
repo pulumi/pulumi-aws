@@ -50,7 +50,7 @@ func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opt
 
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationArgs struct {
-	// The AppIntegrations Event Integration name.
+	// AppIntegrations Event Integration name.
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -60,13 +60,13 @@ type GetEventIntegrationArgs struct {
 
 // A collection of values returned by getEventIntegration.
 type GetEventIntegrationResult struct {
-	// The ARN of the AppIntegrations Event Integration.
+	// ARN of the AppIntegrations Event Integration.
 	Arn string `pulumi:"arn"`
-	// The description of the Event Integration.
+	// Description of the Event Integration.
 	Description string `pulumi:"description"`
-	// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+	// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 	EventFilters []GetEventIntegrationEventFilter `pulumi:"eventFilters"`
-	// The EventBridge bus.
+	// EventBridge bus.
 	EventbridgeBus string `pulumi:"eventbridgeBus"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
@@ -87,7 +87,7 @@ func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutp
 
 // A collection of arguments for invoking getEventIntegration.
 type GetEventIntegrationOutputArgs struct {
-	// The AppIntegrations Event Integration name.
+	// AppIntegrations Event Integration name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -114,22 +114,22 @@ func (o GetEventIntegrationResultOutput) ToGetEventIntegrationResultOutputWithCo
 	return o
 }
 
-// The ARN of the AppIntegrations Event Integration.
+// ARN of the AppIntegrations Event Integration.
 func (o GetEventIntegrationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the Event Integration.
+// Description of the Event Integration.
 func (o GetEventIntegrationResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+// Block that defines the configuration information for the event filter. The Event Filter block is documented below.
 func (o GetEventIntegrationResultOutput) EventFilters() GetEventIntegrationEventFilterArrayOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) []GetEventIntegrationEventFilter { return v.EventFilters }).(GetEventIntegrationEventFilterArrayOutput)
 }
 
-// The EventBridge bus.
+// EventBridge bus.
 func (o GetEventIntegrationResultOutput) EventbridgeBus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.EventbridgeBus }).(pulumi.StringOutput)
 }

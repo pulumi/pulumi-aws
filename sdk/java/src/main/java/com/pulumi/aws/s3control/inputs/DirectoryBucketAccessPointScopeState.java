@@ -17,14 +17,14 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
     public static final DirectoryBucketAccessPointScopeState Empty = new DirectoryBucketAccessPointScopeState();
 
     /**
-     * The AWS account ID that owns the specified access point.
+     * AWS account ID that owns the specified access point.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID that owns the specified access point.
+     * @return AWS account ID that owns the specified access point.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -32,14 +32,14 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
     }
 
     /**
-     * The name of the access point that you want to apply the scope to.
+     * Name of the access point that you want to apply the scope to.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the access point that you want to apply the scope to.
+     * @return Name of the access point that you want to apply the scope to.
      * 
      */
     public Optional<Output<String>> name() {
@@ -104,7 +104,7 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
         }
 
         /**
-         * @param accountId The AWS account ID that owns the specified access point.
+         * @param accountId AWS account ID that owns the specified access point.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
         }
 
         /**
-         * @param accountId The AWS account ID that owns the specified access point.
+         * @param accountId AWS account ID that owns the specified access point.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the access point that you want to apply the scope to.
+         * @param name Name of the access point that you want to apply the scope to.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DirectoryBucketAccessPointScopeState extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the access point that you want to apply the scope to.
+         * @param name Name of the access point that you want to apply the scope to.
          * 
          * @return builder
          * 

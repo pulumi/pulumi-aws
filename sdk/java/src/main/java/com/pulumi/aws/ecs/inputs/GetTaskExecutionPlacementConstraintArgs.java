@@ -17,14 +17,14 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
     public static final GetTaskExecutionPlacementConstraintArgs Empty = new GetTaskExecutionPlacementConstraintArgs();
 
     /**
-     * A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
+     * Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
+     * @return Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -32,14 +32,14 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
     }
 
     /**
-     * The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+     * Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+     * @return Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
      * 
      */
     public Output<String> type() {
@@ -72,7 +72,7 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
         }
 
         /**
-         * @param expression A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
+         * @param expression Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
         }
 
         /**
-         * @param expression A cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
+         * @param expression Cluster query language expression to apply to the constraint. The expression can have a maximum length of 2000 characters. You can&#39;t specify an expression if the constraint type is `distinctInstance`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
         }
 
         /**
-         * @param type The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+         * @param type Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetTaskExecutionPlacementConstraintArgs extends com.pulumi.re
         }
 
         /**
-         * @param type The type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
+         * @param type Type of constraint. Valid values are `distinctInstance` or `memberOf`. Use `distinctInstance` to ensure that each task in a particular group is running on a different container instance. Use `memberOf` to restrict the selection to a group of valid candidates.
          * 
          * @return builder
          * 

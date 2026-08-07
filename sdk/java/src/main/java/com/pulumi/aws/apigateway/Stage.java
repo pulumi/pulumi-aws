@@ -209,34 +209,28 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.documentationVersion);
     }
     /**
-     * Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
-     * @return Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * @return Execution ARN to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
     public Output<String> executionArn() {
         return this.executionArn;
     }
     /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     @Export(name="invokeUrl", refs={String.class}, tree="[0]")
     private Output<String> invokeUrl;
 
     /**
-     * @return URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+     * @return URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
     public Output<String> invokeUrl() {

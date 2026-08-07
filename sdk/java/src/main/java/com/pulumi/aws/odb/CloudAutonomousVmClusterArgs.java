@@ -24,14 +24,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     public static final CloudAutonomousVmClusterArgs Empty = new CloudAutonomousVmClusterArgs();
 
     /**
-     * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="autonomousDataStorageSizeInTbs", required=true)
     private Output<Double> autonomousDataStorageSizeInTbs;
 
     /**
-     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * @return Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Double> autonomousDataStorageSizeInTbs() {
@@ -69,14 +69,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="cpuCoreCountPerNode", required=true)
     private Output<Integer> cpuCoreCountPerNode;
 
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> cpuCoreCountPerNode() {
@@ -84,14 +84,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="dbServers", required=true)
     private Output<List<String>> dbServers;
 
     /**
-     * @return The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<List<String>> dbServers() {
@@ -99,14 +99,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The description of the Autonomous VM cluster.
+     * Description of the Autonomous VM cluster.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Autonomous VM cluster.
+     * @return Description of the Autonomous VM cluster.
      * 
      */
     public Optional<Output<String>> description() {
@@ -114,14 +114,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> displayName() {
@@ -129,14 +129,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="isMtlsEnabledVmCluster")
     private @Nullable Output<Boolean> isMtlsEnabledVmCluster;
 
     /**
-     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Boolean>> isMtlsEnabledVmCluster() {
@@ -144,14 +144,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
     /**
-     * @return The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * @return License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> licenseModel() {
@@ -159,18 +159,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="maintenanceWindow", required=true)
     private Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
+     * @return Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow() {
@@ -178,14 +174,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="memoryPerOracleComputeUnitInGbs", required=true)
     private Output<Integer> memoryPerOracleComputeUnitInGbs;
 
     /**
-     * @return The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * @return Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> memoryPerOracleComputeUnitInGbs() {
@@ -238,14 +234,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="scanListenerPortNonTls", required=true)
     private Output<Integer> scanListenerPortNonTls;
 
     /**
-     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> scanListenerPortNonTls() {
@@ -253,14 +249,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="scanListenerPortTls", required=true)
     private Output<Integer> scanListenerPortTls;
 
     /**
-     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * @return SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> scanListenerPortTls() {
@@ -268,14 +264,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -283,14 +279,14 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * @return Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -305,14 +301,18 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="totalContainerDatabases", required=true)
     private Output<Integer> totalContainerDatabases;
 
     /**
-     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * @return Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<Integer> totalContainerDatabases() {
@@ -363,7 +363,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * @param autonomousDataStorageSizeInTbs Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * @param autonomousDataStorageSizeInTbs Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param cpuCoreCountPerNode Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param cpuCoreCountPerNode Number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param dbServers Database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param description The description of the Autonomous VM cluster.
+         * @param description Description of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param description The description of the Autonomous VM cluster.
+         * @param description Description of the Autonomous VM cluster.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param displayName Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param displayName Display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param isMtlsEnabledVmCluster Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param isMtlsEnabledVmCluster Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * @param licenseModel License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -552,7 +552,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * @param licenseModel License model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -562,9 +562,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-         * 
-         * The following arguments are optional:
+         * @param maintenanceWindow Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -575,9 +573,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
-         * 
-         * The following arguments are optional:
+         * @param maintenanceWindow Maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -587,7 +583,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * @param memoryPerOracleComputeUnitInGbs Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -598,7 +594,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * @param memoryPerOracleComputeUnitInGbs Amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -671,7 +667,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * @param scanListenerPortNonTls SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -682,7 +678,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * @param scanListenerPortNonTls SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -692,7 +688,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * @param scanListenerPortTls SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -703,7 +699,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * @param scanListenerPortTls SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -713,7 +709,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -724,7 +720,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -734,7 +730,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param timeZone Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -745,7 +741,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * @param timeZone Time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -764,7 +760,9 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * @param totalContainerDatabases Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -775,7 +773,9 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * @param totalContainerDatabases Total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

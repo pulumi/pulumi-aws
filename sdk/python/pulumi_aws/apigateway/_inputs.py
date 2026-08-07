@@ -47,32 +47,19 @@ __all__ = [
 
 class AccountThrottleSettingArgsDict(TypedDict):
     burst_limit: pulumi.Input[_builtins.int]
-    """
-    Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-    """
     rate_limit: pulumi.Input[_builtins.float]
-    """
-    Number of times API Gateway allows the API to be called per second on average (RPS).
-    """
 
 @pulumi.input_type
 class AccountThrottleSettingArgs:
     def __init__(__self__, *,
                  burst_limit: pulumi.Input[_builtins.int],
                  rate_limit: pulumi.Input[_builtins.float]):
-        """
-        :param pulumi.Input[_builtins.int] burst_limit: Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        :param pulumi.Input[_builtins.float] rate_limit: Number of times API Gateway allows the API to be called per second on average (RPS).
-        """
         pulumi.set(__self__, "burst_limit", burst_limit)
         pulumi.set(__self__, "rate_limit", rate_limit)
 
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> pulumi.Input[_builtins.int]:
-        """
-        Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -82,9 +69,6 @@ class AccountThrottleSettingArgs:
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> pulumi.Input[_builtins.float]:
-        """
-        Number of times API Gateway allows the API to be called per second on average (RPS).
-        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
@@ -638,8 +622,7 @@ class StageAccessLogSettingsArgsDict(TypedDict):
     """
     format: pulumi.Input[_builtins.str]
     """
-    Formatting and values recorded in the logs.
-    For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+    Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
     """
 
 @pulumi.input_type
@@ -649,8 +632,7 @@ class StageAccessLogSettingsArgs:
                  format: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-        :param pulumi.Input[_builtins.str] format: Formatting and values recorded in the logs.
-               For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        :param pulumi.Input[_builtins.str] format: Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "format", format)
@@ -671,8 +653,7 @@ class StageAccessLogSettingsArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
         """
-        Formatting and values recorded in the logs.
-        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        Formatting and values recorded in the logs. For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
         """
         return pulumi.get(self, "format")
 
@@ -772,15 +753,17 @@ class StageCanarySettingsArgs:
 class UsagePlanApiStageArgsDict(TypedDict):
     api_id: pulumi.Input[_builtins.str]
     """
-    API Id of the associated API stage in a usage plan.
+    API ID of the associated API stage in a usage plan.
     """
     stage: pulumi.Input[_builtins.str]
     """
     API stage name of the associated API stage in a usage plan.
+
+    The following arguments are optional:
     """
     throttles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]]
     """
-    The throttling limits of the usage plan.
+    Throttling limits applied to the API stage. See `throttle` Block below.
     """
 
 @pulumi.input_type
@@ -790,9 +773,11 @@ class UsagePlanApiStageArgs:
                  stage: pulumi.Input[_builtins.str],
                  throttles: pulumi.Input[Optional[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] api_id: API Id of the associated API stage in a usage plan.
+        :param pulumi.Input[_builtins.str] api_id: API ID of the associated API stage in a usage plan.
         :param pulumi.Input[_builtins.str] stage: API stage name of the associated API stage in a usage plan.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: Throttling limits applied to the API stage. See `throttle` Block below.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
@@ -803,7 +788,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[_builtins.str]:
         """
-        API Id of the associated API stage in a usage plan.
+        API ID of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "api_id")
 
@@ -816,6 +801,8 @@ class UsagePlanApiStageArgs:
     def stage(self) -> pulumi.Input[_builtins.str]:
         """
         API stage name of the associated API stage in a usage plan.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "stage")
 
@@ -827,7 +814,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter
     def throttles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
         """
-        The throttling limits of the usage plan.
+        Throttling limits applied to the API stage. See `throttle` Block below.
         """
         return pulumi.get(self, "throttles")
 
@@ -839,15 +826,17 @@ class UsagePlanApiStageArgs:
 class UsagePlanApiStageThrottleArgsDict(TypedDict):
     path: pulumi.Input[_builtins.str]
     """
-    Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+    Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+
+    The following arguments are optional:
     """
     burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+    API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
     """
     rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    The API request steady-state rate limit.
+    API request steady-state rate limit.
     """
 
 @pulumi.input_type
@@ -857,9 +846,11 @@ class UsagePlanApiStageThrottleArgs:
                  burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] path: Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-        :param pulumi.Input[_builtins.int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        :param pulumi.Input[_builtins.float] rate_limit: The API request steady-state rate limit.
+        :param pulumi.Input[_builtins.str] path: Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.int] burst_limit: API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[_builtins.float] rate_limit: API request steady-state rate limit.
         """
         pulumi.set(__self__, "path", path)
         if burst_limit is not None:
@@ -871,7 +862,9 @@ class UsagePlanApiStageThrottleArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[_builtins.str]:
         """
-        Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        Method to apply the throttle settings for. Specify the path and method, for example `/test/GET`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "path")
 
@@ -883,7 +876,7 @@ class UsagePlanApiStageThrottleArgs:
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
         """
         return pulumi.get(self, "burst_limit")
 
@@ -895,7 +888,7 @@ class UsagePlanApiStageThrottleArgs:
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        The API request steady-state rate limit.
+        API request steady-state rate limit.
         """
         return pulumi.get(self, "rate_limit")
 
@@ -911,7 +904,9 @@ class UsagePlanQuotaSettingsArgsDict(TypedDict):
     """
     period: pulumi.Input[_builtins.str]
     """
-    Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+    Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+
+    The following arguments are optional:
     """
     offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -926,7 +921,9 @@ class UsagePlanQuotaSettingsArgs:
                  offset: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] limit: Maximum number of requests that can be made in a given time period.
-        :param pulumi.Input[_builtins.str] period: Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        :param pulumi.Input[_builtins.str] period: Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.int] offset: Number of requests subtracted from the given limit in the initial time period.
         """
         pulumi.set(__self__, "limit", limit)
@@ -950,7 +947,9 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def period(self) -> pulumi.Input[_builtins.str]:
         """
-        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "period")
 
@@ -973,13 +972,23 @@ class UsagePlanQuotaSettingsArgs:
 
 class UsagePlanThrottleSettingsArgsDict(TypedDict):
     burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+    """
     rate_limit: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    API request steady-state rate limit.
+    """
 
 @pulumi.input_type
 class UsagePlanThrottleSettingsArgs:
     def __init__(__self__, *,
                  burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.int] burst_limit: API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[_builtins.float] rate_limit: API request steady-state rate limit.
+        """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
         if rate_limit is not None:
@@ -988,6 +997,9 @@ class UsagePlanThrottleSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
         return pulumi.get(self, "burst_limit")
 
     @burst_limit.setter
@@ -997,6 +1009,9 @@ class UsagePlanThrottleSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        API request steady-state rate limit.
+        """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fsx.Inputs
     public sealed class OntapFileSystemEndpointInterclusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        /// Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }

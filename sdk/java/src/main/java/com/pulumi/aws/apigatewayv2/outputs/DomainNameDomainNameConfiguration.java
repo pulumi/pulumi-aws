@@ -28,7 +28,7 @@ public final class DomainNameDomainNameConfiguration {
      */
     private @Nullable String hostedZoneId;
     /**
-     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+     * @return IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
      * 
      */
     private @Nullable String ipAddressType;
@@ -71,7 +71,7 @@ public final class DomainNameDomainNameConfiguration {
         return Optional.ofNullable(this.hostedZoneId);
     }
     /**
-     * @return The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+     * @return IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
      * 
      */
     public Optional<String> ipAddressType() {

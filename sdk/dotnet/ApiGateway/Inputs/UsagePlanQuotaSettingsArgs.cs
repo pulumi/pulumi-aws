@@ -25,7 +25,9 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<int>? Offset { get; set; }
 
         /// <summary>
-        /// Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+        /// Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("period", required: true)]
         public Input<string> Period { get; set; } = null!;

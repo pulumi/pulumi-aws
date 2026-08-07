@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRouteMatch {
     /**
-     * @return Data to match from the gRPC request.
+     * @return Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
      * 
      */
     private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
@@ -25,7 +25,7 @@ public final class RouteSpecGrpcRouteMatch {
      */
     private @Nullable String methodName;
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -42,7 +42,7 @@ public final class RouteSpecGrpcRouteMatch {
 
     private RouteSpecGrpcRouteMatch() {}
     /**
-     * @return Data to match from the gRPC request.
+     * @return Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
      * 
      */
     public List<RouteSpecGrpcRouteMatchMetadata> metadatas() {
@@ -56,7 +56,7 @@ public final class RouteSpecGrpcRouteMatch {
         return Optional.ofNullable(this.methodName);
     }
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Integer> port() {

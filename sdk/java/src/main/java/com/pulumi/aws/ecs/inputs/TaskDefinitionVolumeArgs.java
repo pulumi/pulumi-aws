@@ -97,16 +97,14 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
+     * Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
+     * @return Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
      * 
      */
     public Output<String> name() {
@@ -264,8 +262,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the volume. This name is referenced in the `sourceVolume`
-         * parameter of container definition in the `mountPoints` section.
+         * @param name Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
          * 
          * @return builder
          * 
@@ -276,8 +273,7 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name Name of the volume. This name is referenced in the `sourceVolume`
-         * parameter of container definition in the `mountPoints` section.
+         * @param name Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
          * 
          * @return builder
          * 

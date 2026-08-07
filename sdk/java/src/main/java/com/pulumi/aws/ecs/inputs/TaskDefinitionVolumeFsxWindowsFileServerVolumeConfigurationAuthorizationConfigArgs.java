@@ -15,14 +15,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
     public static final TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs Empty = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs();
 
     /**
-     * The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     @Import(name="credentialsParameter", required=true)
     private Output<String> credentialsParameter;
 
     /**
-     * @return The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * @return Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     public Output<String> credentialsParameter() {
@@ -30,14 +30,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
     }
 
     /**
-     * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+     * Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+     * @return Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
      * 
      */
     public Output<String> domain() {
@@ -70,7 +70,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param credentialsParameter The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param credentialsParameter The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param domain A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+         * @param domain Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param domain A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+         * @param domain Fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
          * 
          * @return builder
          * 

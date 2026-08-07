@@ -32,14 +32,14 @@ public final class AppBundleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     @Import(name="customerManagedKeyArn")
     private @Nullable Output<String> customerManagedKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
     public Optional<Output<String>> customerManagedKeyArn() {
@@ -141,7 +141,7 @@ public final class AppBundleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyArn The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+         * @param customerManagedKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class AppBundleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerManagedKeyArn The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+         * @param customerManagedKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
          * 
          * @return builder
          * 

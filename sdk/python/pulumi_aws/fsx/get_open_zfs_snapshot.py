@@ -185,8 +185,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
     ```
 
 
-    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
-           supported names are file-system-id or volume-id.
+    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: Configuration block. Detailed below.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param _builtins.str name: Name of the snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -241,8 +240,7 @@ def get_open_zfs_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequenc
     ```
 
 
-    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
-           supported names are file-system-id or volume-id.
+    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: Configuration block. Detailed below.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param _builtins.str name: Name of the snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

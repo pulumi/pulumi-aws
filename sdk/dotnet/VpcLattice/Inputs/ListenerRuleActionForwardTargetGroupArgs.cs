@@ -12,9 +12,15 @@ namespace Pulumi.Aws.VpcLattice.Inputs
 
     public sealed class ListenerRuleActionForwardTargetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID or ARN of the target group.
+        /// </summary>
         [Input("targetGroupIdentifier", required: true)]
         public Input<string> TargetGroupIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+        /// </summary>
         [Input("weight")]
         public Input<int>? Weight { get; set; }
 

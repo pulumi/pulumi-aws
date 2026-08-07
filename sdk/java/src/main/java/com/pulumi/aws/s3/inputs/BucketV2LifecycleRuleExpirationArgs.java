@@ -18,14 +18,14 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
     public static final BucketV2LifecycleRuleExpirationArgs Empty = new BucketV2LifecycleRuleExpirationArgs();
 
     /**
-     * Specifies the date after which you want the corresponding action to take effect.
+     * Date after which you want the corresponding action to take effect.
      * 
      */
     @Import(name="date")
     private @Nullable Output<String> date;
 
     /**
-     * @return Specifies the date after which you want the corresponding action to take effect.
+     * @return Date after which you want the corresponding action to take effect.
      * 
      */
     public Optional<Output<String>> date() {
@@ -33,14 +33,14 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
     }
 
     /**
-     * Specifies the number of days after object creation when the specific rule action takes effect.
+     * Number of days after object creation when the specific rule action takes effect.
      * 
      */
     @Import(name="days")
     private @Nullable Output<Integer> days;
 
     /**
-     * @return Specifies the number of days after object creation when the specific rule action takes effect.
+     * @return Number of days after object creation when the specific rule action takes effect.
      * 
      */
     public Optional<Output<Integer>> days() {
@@ -89,7 +89,7 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
+         * @param date Date after which you want the corresponding action to take effect.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param date Specifies the date after which you want the corresponding action to take effect.
+         * @param date Date after which you want the corresponding action to take effect.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
+         * @param days Number of days after object creation when the specific rule action takes effect.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class BucketV2LifecycleRuleExpirationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param days Specifies the number of days after object creation when the specific rule action takes effect.
+         * @param days Number of days after object creation when the specific rule action takes effect.
          * 
          * @return builder
          * 

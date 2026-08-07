@@ -17,14 +17,14 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
     public static final OntapFileSystemDiskIopsConfigurationArgs Empty = new OntapFileSystemDiskIopsConfigurationArgs();
 
     /**
-     * The total number of SSD IOPS provisioned for the file system.
+     * Total number of SSD IOPS provisioned for the file system.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return The total number of SSD IOPS provisioned for the file system.
+     * @return Total number of SSD IOPS provisioned for the file system.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -32,14 +32,14 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+     * Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+     * @return Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -72,7 +72,7 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param iops The total number of SSD IOPS provisioned for the file system.
+         * @param iops Total number of SSD IOPS provisioned for the file system.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param iops The total number of SSD IOPS provisioned for the file system.
+         * @param iops Total number of SSD IOPS provisioned for the file system.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param mode Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         * @param mode Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OntapFileSystemDiskIopsConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param mode Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         * @param mode Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
          * 
          * @return builder
          * 

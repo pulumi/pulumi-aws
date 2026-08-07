@@ -14,8 +14,6 @@ namespace Pulumi.Aws.Ecs.Inputs
     {
         /// <summary>
         /// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `True` or `False`. Default `False`.
-        /// 
-        /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         /// </summary>
         [Input("assignPublicIp")]
         public Input<bool>? AssignPublicIp { get; set; }
@@ -24,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+        /// Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -36,7 +34,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// The subnets associated with the task or service. Maximum of 16.
+        /// Subnets associated with the task or service. Maximum of 16.
         /// </summary>
         public InputList<string> Subnets
         {

@@ -34,9 +34,9 @@ class ApplicationArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        :param pulumi.Input[_builtins.bool] auto_config_enabled: Whether to automatically configure unmonitored resources in the resource group.
         :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
@@ -79,7 +79,7 @@ class ApplicationArgs:
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        Whether to automatically configure unmonitored resources in the resource group.
         """
         return pulumi.get(self, "auto_config_enabled")
 
@@ -103,7 +103,7 @@ class ApplicationArgs:
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 
@@ -190,9 +190,9 @@ class _ApplicationState:
         Input properties used for looking up and filtering Application resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        :param pulumi.Input[_builtins.bool] auto_config_enabled: Whether to automatically configure unmonitored resources in the resource group.
         :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
@@ -242,7 +242,7 @@ class _ApplicationState:
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        Whether to automatically configure unmonitored resources in the resource group.
         """
         return pulumi.get(self, "auto_config_enabled")
 
@@ -266,7 +266,7 @@ class _ApplicationState:
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 
@@ -412,9 +412,9 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        :param pulumi.Input[_builtins.bool] auto_config_enabled: Whether to automatically configure unmonitored resources in the resource group.
         :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
@@ -538,9 +538,9 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Application.
-        :param pulumi.Input[_builtins.bool] auto_config_enabled: Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        :param pulumi.Input[_builtins.bool] auto_config_enabled: Whether to automatically configure unmonitored resources in the resource group.
         :param pulumi.Input[_builtins.bool] auto_create: Configures all of the resources in the resource group by applying the recommended configurations.
-        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        :param pulumi.Input[_builtins.bool] cwe_monitor_enabled: Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         :param pulumi.Input[_builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[_builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[_builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
@@ -580,7 +580,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="autoConfigEnabled")
     def auto_config_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+        Whether to automatically configure unmonitored resources in the resource group.
         """
         return pulumi.get(self, "auto_config_enabled")
 
@@ -596,7 +596,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="cweMonitorEnabled")
     def cwe_monitor_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+        Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         """
         return pulumi.get(self, "cwe_monitor_enabled")
 

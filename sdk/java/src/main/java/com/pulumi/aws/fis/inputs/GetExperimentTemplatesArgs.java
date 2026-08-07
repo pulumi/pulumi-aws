@@ -32,16 +32,14 @@ public final class GetExperimentTemplatesArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -95,8 +93,7 @@ public final class GetExperimentTemplatesArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired experiment templates.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
          * 
          * @return builder
          * 
@@ -107,8 +104,7 @@ public final class GetExperimentTemplatesArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired experiment templates.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
          * 
          * @return builder
          * 

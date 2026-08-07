@@ -35,7 +35,7 @@ public final class BucketCorsRule {
      */
     private @Nullable List<String> exposeHeaders;
     /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
+     * @return Time in seconds that browser can cache the response for a preflight request.
      * 
      */
     private @Nullable Integer maxAgeSeconds;
@@ -70,7 +70,7 @@ public final class BucketCorsRule {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
     /**
-     * @return Specifies time in seconds that browser can cache the response for a preflight request.
+     * @return Time in seconds that browser can cache the response for a preflight request.
      * 
      */
     public Optional<Integer> maxAgeSeconds() {

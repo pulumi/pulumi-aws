@@ -67,27 +67,25 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        /// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `False`.
         /// </summary>
         [Output("autoUpdate")]
         public Output<bool> AutoUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        /// Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * `SINGLE` - Assigns one availability zone per cluster.
-        /// * `MULTI` - Assigns all the availability zones per cluster.
+        /// Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Output("azMode")]
         public Output<string> AzMode { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier of the changeset of the database that you want to use to ingest data.
+        /// Unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
         [Output("changesetId")]
         public Output<string?> ChangesetId { get; private set; } = null!;
@@ -99,13 +97,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database where you want to create a dataview.
+        /// Name of the database where you want to create a dataview.
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the dataview.
+        /// Description for the dataview.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -117,13 +115,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Output("lastModifiedTimestamp")]
         public Output<string> LastModifiedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the dataview.
+        /// Unique identifier for the dataview.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -131,10 +129,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `AutoUpdate` must be set as `False` if `ReadWrite` is `True` for a dataview.
-        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `ReadWrite` parameter later.
+        /// Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `AutoUpdate` must be `False` when `ReadWrite` is `True`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         /// </summary>
         [Output("readWrite")]
         public Output<bool?> ReadWrite { get; private set; } = null!;
@@ -146,11 +141,14 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See SegmentConfigurations below.
+        /// Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `SegmentConfigurations` below.
         /// </summary>
         [Output("segmentConfigurations")]
         public Output<ImmutableArray<Outputs.KxDataviewSegmentConfiguration>> SegmentConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the dataview.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -213,39 +211,37 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxDataviewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        /// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `False`.
         /// </summary>
         [Input("autoUpdate", required: true)]
         public Input<bool> AutoUpdate { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        /// Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * `SINGLE` - Assigns one availability zone per cluster.
-        /// * `MULTI` - Assigns all the availability zones per cluster.
+        /// Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Input("azMode", required: true)]
         public Input<string> AzMode { get; set; } = null!;
 
         /// <summary>
-        /// A unique identifier of the changeset of the database that you want to use to ingest data.
+        /// Unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
         [Input("changesetId")]
         public Input<string>? ChangesetId { get; set; }
 
         /// <summary>
-        /// The name of the database where you want to create a dataview.
+        /// Name of the database where you want to create a dataview.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// A description for the dataview.
+        /// Description for the dataview.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -257,7 +253,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the dataview.
+        /// Unique identifier for the dataview.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -265,10 +261,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `AutoUpdate` must be set as `False` if `ReadWrite` is `True` for a dataview.
-        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `ReadWrite` parameter later.
+        /// Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `AutoUpdate` must be `False` when `ReadWrite` is `True`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         /// </summary>
         [Input("readWrite")]
         public Input<bool>? ReadWrite { get; set; }
@@ -283,7 +276,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxDataviewSegmentConfigurationArgs>? _segmentConfigurations;
 
         /// <summary>
-        /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See SegmentConfigurations below.
+        /// Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `SegmentConfigurations` below.
         /// </summary>
         public InputList<Inputs.KxDataviewSegmentConfigurationArgs> SegmentConfigurations
         {
@@ -318,27 +311,25 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+        /// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `False`.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
 
         /// <summary>
-        /// The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+        /// Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * `SINGLE` - Assigns one availability zone per cluster.
-        /// * `MULTI` - Assigns all the availability zones per cluster.
+        /// Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Input("azMode")]
         public Input<string>? AzMode { get; set; }
 
         /// <summary>
-        /// A unique identifier of the changeset of the database that you want to use to ingest data.
+        /// Unique identifier of the changeset of the database that you want to use to ingest data.
         /// </summary>
         [Input("changesetId")]
         public Input<string>? ChangesetId { get; set; }
@@ -350,13 +341,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? CreatedTimestamp { get; set; }
 
         /// <summary>
-        /// The name of the database where you want to create a dataview.
+        /// Name of the database where you want to create a dataview.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// A description for the dataview.
+        /// Description for the dataview.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -368,13 +359,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
-        /// The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("lastModifiedTimestamp")]
         public Input<string>? LastModifiedTimestamp { get; set; }
 
         /// <summary>
-        /// A unique identifier for the dataview.
+        /// Unique identifier for the dataview.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -382,10 +373,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `AutoUpdate` must be set as `False` if `ReadWrite` is `True` for a dataview.
-        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `ReadWrite` parameter later.
+        /// Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `AutoUpdate` must be `False` when `ReadWrite` is `True`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
         /// </summary>
         [Input("readWrite")]
         public Input<bool>? ReadWrite { get; set; }
@@ -400,7 +388,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxDataviewSegmentConfigurationGetArgs>? _segmentConfigurations;
 
         /// <summary>
-        /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See SegmentConfigurations below.
+        /// Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `SegmentConfigurations` below.
         /// </summary>
         public InputList<Inputs.KxDataviewSegmentConfigurationGetArgs> SegmentConfigurations
         {
@@ -408,6 +396,9 @@ namespace Pulumi.Aws.FinSpace
             set => _segmentConfigurations = value;
         }
 
+        /// <summary>
+        /// Status of the dataview.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

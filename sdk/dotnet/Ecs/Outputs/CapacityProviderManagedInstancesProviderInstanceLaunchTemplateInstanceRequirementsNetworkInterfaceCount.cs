@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsNetworkInterfaceCount
     {
+        /// <summary>
+        /// Maximum number of network interfaces.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum number of network interfaces.
+        /// </summary>
         public readonly int? Min;
 
         [OutputConstructor]

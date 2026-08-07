@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MultiRegionAccessPointDetailsRegion {
     /**
-     * @return The name of the associated bucket for the Region.
+     * @return Name of the associated bucket for the Region.
      * 
      */
     private String bucket;
     /**
-     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * @return AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
      * 
      */
     private @Nullable String bucketAccountId;
@@ -30,14 +30,14 @@ public final class MultiRegionAccessPointDetailsRegion {
 
     private MultiRegionAccessPointDetailsRegion() {}
     /**
-     * @return The name of the associated bucket for the Region.
+     * @return Name of the associated bucket for the Region.
      * 
      */
     public String bucket() {
         return this.bucket;
     }
     /**
-     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * @return AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
      * 
      */
     public Optional<String> bucketAccountId() {

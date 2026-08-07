@@ -13,15 +13,13 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the rule action that returns a custom HTTP response.
-        /// See `FixedResponse` Block for details.
+        /// Rule action that returns a custom HTTP response. See `FixedResponse` Block for details.
         /// </summary>
         [Input("fixedResponse")]
         public Input<Inputs.ListenerRuleActionFixedResponseArgs>? FixedResponse { get; set; }
 
         /// <summary>
-        /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
-        /// See `Forward` Block for details.
+        /// Forward action. Traffic that matches the rule is forwarded to the specified target groups. See `Forward` Block for details.
         /// </summary>
         [Input("forward")]
         public Input<Inputs.ListenerRuleActionForwardArgs>? Forward { get; set; }

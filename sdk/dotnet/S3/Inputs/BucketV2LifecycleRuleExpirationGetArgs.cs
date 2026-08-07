@@ -13,13 +13,13 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LifecycleRuleExpirationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the date after which you want the corresponding action to take effect.
+        /// Date after which you want the corresponding action to take effect.
         /// </summary>
         [Input("date")]
         public Input<string>? Date { get; set; }
 
         /// <summary>
-        /// Specifies the number of days after object creation when the specific rule action takes effect.
+        /// Number of days after object creation when the specific rule action takes effect.
         /// </summary>
         [Input("days")]
         public Input<int>? Days { get; set; }

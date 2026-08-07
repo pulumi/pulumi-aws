@@ -14,28 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFile {
     /**
-     * @return The specified format for the logs. See `format` Block for details.
+     * @return Specified format for the logs. See `format` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecLoggingAccessLogFileFormat format;
-    /**
-     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     private String path;
 
     private VirtualGatewaySpecLoggingAccessLogFile() {}
     /**
-     * @return The specified format for the logs. See `format` Block for details.
+     * @return Specified format for the logs. See `format` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecLoggingAccessLogFileFormat> format() {
         return Optional.ofNullable(this.format);
     }
-    /**
-     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     public String path() {
         return this.path;
     }

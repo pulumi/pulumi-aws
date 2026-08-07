@@ -17,30 +17,22 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterArgs extends com
 
     public static final GatewayRouteSpecHttp2RouteMatchQueryParameterArgs Empty = new GatewayRouteSpecHttp2RouteMatchQueryParameterArgs();
 
-    /**
-     * The query parameter to match on.
-     * 
-     */
     @Import(name="match")
     private @Nullable Output<GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs> match;
 
-    /**
-     * @return The query parameter to match on.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs>> match() {
         return Optional.ofNullable(this.match);
     }
 
     /**
-     * Name for the query parameter that will be matched on.
+     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name for the query parameter that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -72,29 +64,17 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterArgs extends com
             $ = new GatewayRouteSpecHttp2RouteMatchQueryParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param match The query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(@Nullable Output<GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match The query parameter to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs match) {
             return match(Output.of(match));
         }
 
         /**
-         * @param name Name for the query parameter that will be matched on.
+         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -105,7 +85,7 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterArgs extends com
         }
 
         /**
-         * @param name Name for the query parameter that will be matched on.
+         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
     public static final ListenerRuleMatchHttpMatchHeaderMatchMatchArgs Empty = new ListenerRuleMatchHttpMatchHeaderMatchMatchArgs();
 
     /**
-     * Specifies a contains type match.
+     * Contains type match.
      * 
      */
     @Import(name="contains")
     private @Nullable Output<String> contains;
 
     /**
-     * @return Specifies a contains type match.
+     * @return Contains type match.
      * 
      */
     public Optional<Output<String>> contains() {
@@ -31,14 +31,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
     }
 
     /**
-     * Specifies an exact type match.
+     * Exact type match.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Specifies an exact type match.
+     * @return Exact type match.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -46,16 +46,14 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
     }
 
     /**
-     * Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * Prefix type match. Matches the value with the prefix.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * @return Prefix type match. Matches the value with the prefix.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -89,7 +87,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param contains Specifies a contains type match.
+         * @param contains Contains type match.
          * 
          * @return builder
          * 
@@ -100,7 +98,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param contains Specifies a contains type match.
+         * @param contains Contains type match.
          * 
          * @return builder
          * 
@@ -110,7 +108,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param exact Specifies an exact type match.
+         * @param exact Exact type match.
          * 
          * @return builder
          * 
@@ -121,7 +119,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param exact Specifies an exact type match.
+         * @param exact Exact type match.
          * 
          * @return builder
          * 
@@ -131,8 +129,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * @param prefix Prefix type match. Matches the value with the prefix.
          * 
          * @return builder
          * 
@@ -143,8 +140,7 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs extends com.pu
         }
 
         /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * @param prefix Prefix type match. Matches the value with the prefix.
          * 
          * @return builder
          * 

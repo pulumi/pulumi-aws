@@ -63,7 +63,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
-     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      */
     declare public readonly customerId: pulumi.Output<string | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface ApiKeyState {
      */
     createdDate?: pulumi.Input<string | undefined>;
     /**
-     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      */
     customerId?: pulumi.Input<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface ApiKeyState {
  */
 export interface ApiKeyArgs {
     /**
-     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      */
     customerId?: pulumi.Input<string | undefined>;
     /**

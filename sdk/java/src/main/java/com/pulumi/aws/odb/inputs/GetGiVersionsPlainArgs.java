@@ -30,14 +30,14 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The system shape.
+     * System shape.
      * 
      */
     @Import(name="shape")
     private @Nullable String shape;
 
     /**
-     * @return The system shape.
+     * @return System shape.
      * 
      */
     public Optional<String> shape() {
@@ -81,7 +81,7 @@ public final class GetGiVersionsPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param shape The system shape.
+         * @param shape System shape.
          * 
          * @return builder
          * 

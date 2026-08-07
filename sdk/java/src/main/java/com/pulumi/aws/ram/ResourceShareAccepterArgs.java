@@ -32,14 +32,14 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Import(name="shareArn", required=true)
     private Output<String> shareArn;
 
     /**
-     * @return The ARN of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Output<String> shareArn() {
@@ -93,7 +93,7 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shareArn The ARN of the resource share.
+         * @param shareArn ARN of the resource share.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shareArn The ARN of the resource share.
+         * @param shareArn ARN of the resource share.
          * 
          * @return builder
          * 

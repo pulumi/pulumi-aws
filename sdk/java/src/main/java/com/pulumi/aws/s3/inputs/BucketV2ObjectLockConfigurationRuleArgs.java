@@ -16,14 +16,14 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
     public static final BucketV2ObjectLockConfigurationRuleArgs Empty = new BucketV2ObjectLockConfigurationRuleArgs();
 
     /**
-     * Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
      * 
      */
     @Import(name="defaultRetentions", required=true)
     private Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
 
     /**
-     * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
+     * @return Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
      * 
      */
     public Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions() {
@@ -55,7 +55,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket. See `defaultRetention` Block below for details.
          * 
          * @return builder
          * 

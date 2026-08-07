@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class TargetGroupConfigHealthCheckMatcherGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTP codes to use when checking for a successful response from a target.
+        /// HTTP codes to use when checking for a successful response from a target.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

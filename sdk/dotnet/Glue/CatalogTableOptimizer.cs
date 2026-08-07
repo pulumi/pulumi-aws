@@ -33,6 +33,15 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             RoleArn = "arn:aws:iam::123456789012:role/example-role",
     ///             Enabled = true,
+    ///             CompactionConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationArgs
+    ///             {
+    ///                 IcebergConfiguration = new Aws.Glue.Inputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs
+    ///                 {
+    ///                     Strategy = "binpack",
+    ///                     MinInputFiles = 5,
+    ///                     DeleteFileThreshold = 1,
+    ///                 },
+    ///             },
     ///         },
     ///         Type = "compaction",
     ///     });

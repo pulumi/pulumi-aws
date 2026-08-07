@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationRule {
     /**
-     * @return Configuration block containing settings for abort incomplete multipart upload.
+     * @return Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
      * 
      */
     private @Nullable BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload;
     /**
-     * @return Configuration block containing settings for expiration of objects.
+     * @return Configuration block containing settings for expiration of objects. See `expiration` below.
      * 
      */
     private @Nullable BucketLifecycleConfigurationRuleExpiration expiration;
     /**
-     * @return Configuration block containing settings for filtering.
+     * @return Configuration block containing settings for filtering. See `filter` below.
      * 
      */
     private @Nullable BucketLifecycleConfigurationRuleFilter filter;
@@ -43,21 +43,21 @@ public final class BucketLifecycleConfigurationRule {
 
     private BucketLifecycleConfigurationRule() {}
     /**
-     * @return Configuration block containing settings for abort incomplete multipart upload.
+     * @return Configuration block containing settings for abort incomplete multipart upload. See `abortIncompleteMultipartUpload` below.
      * 
      */
     public Optional<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload> abortIncompleteMultipartUpload() {
         return Optional.ofNullable(this.abortIncompleteMultipartUpload);
     }
     /**
-     * @return Configuration block containing settings for expiration of objects.
+     * @return Configuration block containing settings for expiration of objects. See `expiration` below.
      * 
      */
     public Optional<BucketLifecycleConfigurationRuleExpiration> expiration() {
         return Optional.ofNullable(this.expiration);
     }
     /**
-     * @return Configuration block containing settings for filtering.
+     * @return Configuration block containing settings for filtering. See `filter` below.
      * 
      */
     public Optional<BucketLifecycleConfigurationRuleFilter> filter() {

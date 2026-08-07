@@ -64,14 +64,14 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of the ELB (Classic) to associate with the service.
+     * Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
      * 
      */
     @Import(name="elbName")
     private @Nullable Output<String> elbName;
 
     /**
-     * @return Name of the ELB (Classic) to associate with the service.
+     * @return Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
      * 
      */
     public Optional<Output<String>> elbName() {
@@ -79,7 +79,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * ARN of the Load Balancer target group to associate with the service.
+     * ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
      * 
      * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
@@ -88,7 +88,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
     private @Nullable Output<String> targetGroupArn;
 
     /**
-     * @return ARN of the Load Balancer target group to associate with the service.
+     * @return ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
      * 
      * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
@@ -189,7 +189,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
+         * @param elbName Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
+         * @param elbName Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
+         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
          * 
          * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          * 
@@ -223,7 +223,7 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
+         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
          * 
          * &gt; **Version note:** Multiple `loadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
          * 

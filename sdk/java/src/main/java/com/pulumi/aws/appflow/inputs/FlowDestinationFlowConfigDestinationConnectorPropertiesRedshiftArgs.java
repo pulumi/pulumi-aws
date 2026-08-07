@@ -24,16 +24,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
         return Optional.ofNullable(this.bucketPrefix);
     }
 
+    /**
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig;
 
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
+    /**
+     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * 
+     */
     @Import(name="intermediateBucketName", required=true)
     private Output<String> intermediateBucketName;
 
+    /**
+     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+     * 
+     */
     public Output<String> intermediateBucketName() {
         return this.intermediateBucketName;
     }
@@ -81,20 +97,44 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
+        /**
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intermediateBucketName(Output<String> intermediateBucketName) {
             $.intermediateBucketName = intermediateBucketName;
             return this;
         }
 
+        /**
+         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         * 
+         * @return builder
+         * 
+         */
         public Builder intermediateBucketName(String intermediateBucketName) {
             return intermediateBucketName(Output.of(intermediateBucketName));
         }

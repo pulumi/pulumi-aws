@@ -16,30 +16,22 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
 
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs();
 
-    /**
-     * Local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file;
 
-    /**
-     * @return Local file certificate.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
 
     /**
-     * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     @Import(name="sds")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs> sds;
 
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs>> sds() {
@@ -71,29 +63,17 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
             $ = new VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file Local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs file) {
             return file(Output.of(file));
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 
@@ -104,7 +84,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
         }
 
         /**
-         * @param sds A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
          * 
          * @return builder
          * 

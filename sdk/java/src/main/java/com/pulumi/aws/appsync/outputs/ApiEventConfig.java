@@ -18,62 +18,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApiEventConfig {
     /**
-     * @return List of authentication providers. See Auth Providers below.
+     * @return List of authentication providers. See `event_config.auth_provider` Block below.
      * 
      */
     private List<ApiEventConfigAuthProvider> authProviders;
     /**
-     * @return List of authentication modes for connections. See Auth Modes below.
+     * @return List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
      * 
      */
     private List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
     /**
-     * @return List of default authentication modes for publishing. See Auth Modes below.
+     * @return List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
      * 
      */
     private List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
     /**
-     * @return List of default authentication modes for subscribing. See Auth Modes below.
+     * @return List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
      * 
      */
     private List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
     /**
-     * @return Logging configuration. See Log Config below.
+     * @return Logging configuration. See `logConfig` Block below.
      * 
      */
     private @Nullable ApiEventConfigLogConfig logConfig;
 
     private ApiEventConfig() {}
     /**
-     * @return List of authentication providers. See Auth Providers below.
+     * @return List of authentication providers. See `event_config.auth_provider` Block below.
      * 
      */
     public List<ApiEventConfigAuthProvider> authProviders() {
         return this.authProviders;
     }
     /**
-     * @return List of authentication modes for connections. See Auth Modes below.
+     * @return List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
      * 
      */
     public List<ApiEventConfigConnectionAuthMode> connectionAuthModes() {
         return this.connectionAuthModes;
     }
     /**
-     * @return List of default authentication modes for publishing. See Auth Modes below.
+     * @return List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
      * 
      */
     public List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes() {
         return this.defaultPublishAuthModes;
     }
     /**
-     * @return List of default authentication modes for subscribing. See Auth Modes below.
+     * @return List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
      * 
      */
     public List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes() {
         return this.defaultSubscribeAuthModes;
     }
     /**
-     * @return Logging configuration. See Log Config below.
+     * @return Logging configuration. See `logConfig` Block below.
      * 
      */
     public Optional<ApiEventConfigLogConfig> logConfig() {

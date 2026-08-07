@@ -49,14 +49,14 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
     @Import(name="customerId")
     private @Nullable Output<String> customerId;
 
     /**
-     * @return An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
      * 
      */
     public Optional<Output<String>> customerId() {
@@ -260,7 +260,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerId An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+         * @param customerId Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerId An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+         * @param customerId Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
          * 
          * @return builder
          * 

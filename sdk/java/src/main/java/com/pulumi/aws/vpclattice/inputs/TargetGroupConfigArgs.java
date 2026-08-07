@@ -18,14 +18,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     public static final TargetGroupConfigArgs Empty = new TargetGroupConfigArgs();
 
     /**
-     * The health check configuration.
+     * Health check configuration. See `healthCheck` Block below.
      * 
      */
     @Import(name="healthCheck")
     private @Nullable Output<TargetGroupConfigHealthCheckArgs> healthCheck;
 
     /**
-     * @return The health check configuration.
+     * @return Health check configuration. See `healthCheck` Block below.
      * 
      */
     public Optional<Output<TargetGroupConfigHealthCheckArgs>> healthCheck() {
@@ -33,14 +33,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+     * Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+     * @return Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -48,14 +48,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
      * 
      */
     @Import(name="lambdaEventStructureVersion")
     private @Nullable Output<String> lambdaEventStructureVersion;
 
     /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * @return Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
      * 
      */
     public Optional<Output<String>> lambdaEventStructureVersion() {
@@ -63,14 +63,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The port on which the targets are listening.
+     * Port on which the targets are listening.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the targets are listening.
+     * @return Port on which the targets are listening.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -78,14 +78,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+     * Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+     * @return Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -93,14 +93,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+     * Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
      * 
      */
     @Import(name="protocolVersion")
     private @Nullable Output<String> protocolVersion;
 
     /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+     * @return Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
      * 
      */
     public Optional<Output<String>> protocolVersion() {
@@ -108,14 +108,14 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Import(name="vpcIdentifier")
     private @Nullable Output<String> vpcIdentifier;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Optional<Output<String>> vpcIdentifier() {
@@ -153,7 +153,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param healthCheck The health check configuration.
+         * @param healthCheck Health check configuration. See `healthCheck` Block below.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param healthCheck The health check configuration.
+         * @param healthCheck Health check configuration. See `healthCheck` Block below.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+         * @param ipAddressType Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipAddressType The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+         * @param ipAddressType Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         * @param lambdaEventStructureVersion Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lambdaEventStructureVersion The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+         * @param lambdaEventStructureVersion Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The port on which the targets are listening.
+         * @param port Port on which the targets are listening.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param port The port on which the targets are listening.
+         * @param port Port on which the targets are listening.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+         * @param protocol Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocol The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+         * @param protocol Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocolVersion The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+         * @param protocolVersion Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param protocolVersion The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+         * @param protocolVersion Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class TargetGroupConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vpcIdentifier The ID of the VPC.
+         * @param vpcIdentifier ID of the VPC.
          * 
          * @return builder
          * 

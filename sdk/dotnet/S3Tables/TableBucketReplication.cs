@@ -84,6 +84,9 @@ namespace Pulumi.Aws.S3Tables
         [Output("tableBucketArn")]
         public Output<string> TableBucketArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Version token of the replication configuration.
+        /// </summary>
         [Output("versionToken")]
         public Output<string> VersionToken { get; private set; } = null!;
 
@@ -189,6 +192,9 @@ namespace Pulumi.Aws.S3Tables
         [Input("tableBucketArn")]
         public Input<string>? TableBucketArn { get; set; }
 
+        /// <summary>
+        /// Version token of the replication configuration.
+        /// </summary>
         [Input("versionToken")]
         public Input<string>? VersionToken { get; set; }
 

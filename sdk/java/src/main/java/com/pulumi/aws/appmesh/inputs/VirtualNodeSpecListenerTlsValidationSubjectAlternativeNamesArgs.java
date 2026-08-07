@@ -15,14 +15,14 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
     public static final VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs Empty = new VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs();
 
     /**
-     * Criteria for determining a SAN&#39;s match.
+     * Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> match;
 
     /**
-     * @return Criteria for determining a SAN&#39;s match.
+     * @return Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
      * 
      */
     public Output<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs> match() {
@@ -54,7 +54,7 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
         }
 
         /**
-         * @param match Criteria for determining a SAN&#39;s match.
+         * @param match Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesAr
         }
 
         /**
-         * @param match Criteria for determining a SAN&#39;s match.
+         * @param match Criteria for determining a SAN&#39;s match. See `spec.listener.tls.validation.subject_alternative_names.match` Block for details.
          * 
          * @return builder
          * 

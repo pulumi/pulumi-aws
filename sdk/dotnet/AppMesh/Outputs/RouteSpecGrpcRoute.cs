@@ -14,19 +14,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRoute
     {
         /// <summary>
-        /// Action to take if a match is determined. See `Action` Block for details.
+        /// Action to take if a match is determined. See `spec.tcp_route.action` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteAction Action;
         /// <summary>
-        /// Criteria for determining an gRPC request match. See `Match` Block for details.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteMatch? Match;
         /// <summary>
-        /// Retry policy. See `RetryPolicy` Block for details.
+        /// Retry policy. See `spec.http_route.retry_policy` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteRetryPolicy? RetryPolicy;
         /// <summary>
-        /// Types of timeouts. See `Timeout` Block for details.
+        /// Types of timeouts. See `spec.tcp_route.timeout` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecGrpcRouteTimeout? Timeout;
 

@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlowTask {
     /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
+     * @return Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
      * 
      */
     private @Nullable List<FlowTaskConnectorOperator> connectorOperators;
@@ -43,7 +43,7 @@ public final class FlowTask {
 
     private FlowTask() {}
     /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
+     * @return Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
      * 
      */
     public List<FlowTaskConnectorOperator> connectorOperators() {

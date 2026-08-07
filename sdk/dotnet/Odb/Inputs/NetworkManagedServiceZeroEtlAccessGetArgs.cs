@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb.Inputs
         public Input<string> Cidr { get; set; } = null!;
 
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

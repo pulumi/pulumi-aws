@@ -12,20 +12,28 @@ import java.util.Objects;
 @CustomType
 public final class GetOpenZfsSnapshotFilter {
     /**
-     * @return Name of the snapshot.
+     * @return Name of the field to filter by.
      * 
      */
     private String name;
+    /**
+     * @return Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     private List<String> values;
 
     private GetOpenZfsSnapshotFilter() {}
     /**
-     * @return Name of the snapshot.
+     * @return Name of the field to filter by.
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

@@ -19,14 +19,14 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApiArgs Empty = new ApiArgs();
 
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     @Import(name="eventConfig", required=true)
     private Output<ApiEventConfigArgs> eventConfig;
 
     /**
-     * @return Configuration for the Event API. See Event Config below.
+     * @return Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     public Output<ApiEventConfigArgs> eventConfig() {
@@ -126,7 +126,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventConfig Configuration for the Event API. See Event Config below.
+         * @param eventConfig Configuration for the Event API. See `eventConfig` Block below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventConfig Configuration for the Event API. See Event Config below.
+         * @param eventConfig Configuration for the Event API. See `eventConfig` Block below.
          * 
          * @return builder
          * 

@@ -51,14 +51,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Caching Config. See Caching Config.
+     * Caching Config. See Caching Config.
      * 
      */
     @Import(name="cachingConfig")
     private @Nullable Output<ResolverCachingConfigArgs> cachingConfig;
 
     /**
-     * @return The Caching Config. See Caching Config.
+     * @return Caching Config. See Caching Config.
      * 
      */
     public Optional<Output<ResolverCachingConfigArgs>> cachingConfig() {
@@ -66,14 +66,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     @Import(name="code")
     private @Nullable Output<String> code;
 
     /**
-     * @return The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * @return Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
     public Optional<Output<String>> code() {
@@ -141,14 +141,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The caching configuration for the resolver. See Pipeline Config.
+     * Caching configuration for the resolver. See Pipeline Config.
      * 
      */
     @Import(name="pipelineConfig")
     private @Nullable Output<ResolverPipelineConfigArgs> pipelineConfig;
 
     /**
-     * @return The caching configuration for the resolver. See Pipeline Config.
+     * @return Caching configuration for the resolver. See Pipeline Config.
      * 
      */
     public Optional<Output<ResolverPipelineConfigArgs>> pipelineConfig() {
@@ -201,14 +201,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
     @Import(name="runtime")
     private @Nullable Output<ResolverRuntimeArgs> runtime;
 
     /**
-     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * @return Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
     public Optional<Output<ResolverRuntimeArgs>> runtime() {
@@ -216,14 +216,14 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Sync configuration for a resolver. See Sync Config.
      * 
      */
     @Import(name="syncConfig")
     private @Nullable Output<ResolverSyncConfigArgs> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See Sync Config.
+     * @return Sync configuration for a resolver. See Sync Config.
      * 
      */
     public Optional<Output<ResolverSyncConfigArgs>> syncConfig() {
@@ -326,7 +326,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cachingConfig The Caching Config. See Caching Config.
+         * @param cachingConfig Caching Config. See Caching Config.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cachingConfig The Caching Config. See Caching Config.
+         * @param cachingConfig Caching Config. See Caching Config.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * @param code Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+         * @param code Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineConfig The caching configuration for the resolver. See Pipeline Config.
+         * @param pipelineConfig Caching configuration for the resolver. See Pipeline Config.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineConfig The caching configuration for the resolver. See Pipeline Config.
+         * @param pipelineConfig Caching configuration for the resolver. See Pipeline Config.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+         * @param runtime Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+         * @param runtime Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See Sync Config.
+         * @param syncConfig Sync configuration for a resolver. See Sync Config.
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class ResolverState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param syncConfig Describes a Sync configuration for a resolver. See Sync Config.
+         * @param syncConfig Sync configuration for a resolver. See Sync Config.
          * 
          * @return builder
          * 

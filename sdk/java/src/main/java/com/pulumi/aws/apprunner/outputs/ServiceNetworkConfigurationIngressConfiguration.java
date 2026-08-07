@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceNetworkConfigurationIngressConfiguration {
     /**
-     * @return Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+     * @return Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
      * 
      */
     private @Nullable Boolean isPubliclyAccessible;
 
     private ServiceNetworkConfigurationIngressConfiguration() {}
     /**
-     * @return Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+     * @return Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
      * 
      */
     public Optional<Boolean> isPubliclyAccessible() {

@@ -17,12 +17,12 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
      */
     private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig;
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return Amazon FSx for Windows File Server file system ID to use.
      * 
      */
     private String fileSystemId;
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
     private String rootDirectory;
@@ -36,14 +36,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
         return this.authorizationConfig;
     }
     /**
-     * @return The Amazon FSx for Windows File Server file system ID to use.
+     * @return Amazon FSx for Windows File Server file system ID to use.
      * 
      */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * @return The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
     public String rootDirectory() {

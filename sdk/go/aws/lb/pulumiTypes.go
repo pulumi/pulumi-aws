@@ -4228,7 +4228,7 @@ func (o ListenerRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerRuleC
 type ListenerRuleConditionHostHeader struct {
 	// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
 	RegexValues []string `pulumi:"regexValues"`
-	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
 	Values []string `pulumi:"values"`
 }
 
@@ -4246,7 +4246,7 @@ type ListenerRuleConditionHostHeaderInput interface {
 type ListenerRuleConditionHostHeaderArgs struct {
 	// List of regular expressions to compare against the host header. The maximum length of each string is 128 characters. Conflicts with `values`.
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
-	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+	// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4332,7 +4332,7 @@ func (o ListenerRuleConditionHostHeaderOutput) RegexValues() pulumi.StringArrayO
 	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }
 
-// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHostHeaderOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleConditionHostHeader) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4371,7 +4371,7 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) RegexValues() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Conflicts with `regexValues`.
+// List of host header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case-insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. To match host headers containing a non-standard port (for example, `example.com:8443`), use `regexValues`. Conflicts with `regexValues`.
 func (o ListenerRuleConditionHostHeaderPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) []string {
 		if v == nil {

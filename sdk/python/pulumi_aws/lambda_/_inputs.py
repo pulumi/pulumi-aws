@@ -920,7 +920,7 @@ class EventSourceMappingFilterCriteriaFilterArgs:
 class EventSourceMappingMetricsConfigArgsDict(TypedDict):
     metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+    List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
     """
 
 @pulumi.input_type
@@ -928,7 +928,7 @@ class EventSourceMappingMetricsConfigArgs:
     def __init__(__self__, *,
                  metrics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metrics: List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
         """
         pulumi.set(__self__, "metrics", metrics)
 
@@ -936,7 +936,7 @@ class EventSourceMappingMetricsConfigArgs:
     @pulumi.getter
     def metrics(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+        List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`, `ErrorCount`, `KafkaMetrics`.
         """
         return pulumi.get(self, "metrics")
 

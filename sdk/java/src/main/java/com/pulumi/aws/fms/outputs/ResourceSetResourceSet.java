@@ -24,17 +24,19 @@ public final class ResourceSetResourceSet {
      */
     private @Nullable String id;
     /**
-     * @return Last time that the reosurce set was changed.
+     * @return Last time that the resource set was changed.
      * 
      */
     private @Nullable String lastUpdateTime;
     /**
      * @return Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+     * @return Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     private @Nullable String resourceSetStatus;
@@ -43,6 +45,10 @@ public final class ResourceSetResourceSet {
      * 
      */
     private @Nullable List<String> resourceTypeLists;
+    /**
+     * @return Unique identifier for each update to the resource set.
+     * 
+     */
     private @Nullable String updateToken;
 
     private ResourceSetResourceSet() {}
@@ -61,7 +67,7 @@ public final class ResourceSetResourceSet {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Last time that the reosurce set was changed.
+     * @return Last time that the resource set was changed.
      * 
      */
     public Optional<String> lastUpdateTime() {
@@ -70,12 +76,14 @@ public final class ResourceSetResourceSet {
     /**
      * @return Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
      * 
+     * The following arguments are optional:
+     * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
+     * @return Whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
     public Optional<String> resourceSetStatus() {
@@ -88,6 +96,10 @@ public final class ResourceSetResourceSet {
     public List<String> resourceTypeLists() {
         return this.resourceTypeLists == null ? List.of() : this.resourceTypeLists;
     }
+    /**
+     * @return Unique identifier for each update to the resource set.
+     * 
+     */
     public Optional<String> updateToken() {
         return Optional.ofNullable(this.updateToken);
     }

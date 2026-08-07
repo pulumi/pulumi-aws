@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Odb.Inputs
         }
 
         /// <summary>
-        /// The status of the network resource.
+        /// Status of the network resource.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the endpoint policy for STS access from the ODB network.
+        /// Endpoint policy for STS access from the ODB network.
         /// </summary>
         [Input("stsPolicyDocument", required: true)]
         public Input<string> StsPolicyDocument { get; set; } = null!;

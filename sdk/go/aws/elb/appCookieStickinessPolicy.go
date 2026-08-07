@@ -72,12 +72,9 @@ type AppCookieStickinessPolicy struct {
 
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName pulumi.StringOutput `pulumi:"cookieName"`
-	// Load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
+	// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 	LbPort pulumi.IntOutput `pulumi:"lbPort"`
-	// Name of load balancer to which the policy
-	// should be attached.
+	// Name of load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -132,12 +129,9 @@ func GetAppCookieStickinessPolicy(ctx *pulumi.Context,
 type appCookieStickinessPolicyState struct {
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName *string `pulumi:"cookieName"`
-	// Load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
+	// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 	LbPort *int `pulumi:"lbPort"`
-	// Name of load balancer to which the policy
-	// should be attached.
+	// Name of load balancer to which the policy should be attached.
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name *string `pulumi:"name"`
@@ -148,12 +142,9 @@ type appCookieStickinessPolicyState struct {
 type AppCookieStickinessPolicyState struct {
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName pulumi.StringPtrInput
-	// Load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
+	// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 	LbPort pulumi.IntPtrInput
-	// Name of load balancer to which the policy
-	// should be attached.
+	// Name of load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringPtrInput
 	// Name of the stickiness policy.
 	Name pulumi.StringPtrInput
@@ -168,12 +159,9 @@ func (AppCookieStickinessPolicyState) ElementType() reflect.Type {
 type appCookieStickinessPolicyArgs struct {
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName string `pulumi:"cookieName"`
-	// Load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
+	// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 	LbPort int `pulumi:"lbPort"`
-	// Name of load balancer to which the policy
-	// should be attached.
+	// Name of load balancer to which the policy should be attached.
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name *string `pulumi:"name"`
@@ -185,12 +173,9 @@ type appCookieStickinessPolicyArgs struct {
 type AppCookieStickinessPolicyArgs struct {
 	// Application cookie whose lifetime the ELB's cookie should follow.
 	CookieName pulumi.StringInput
-	// Load balancer port to which the policy
-	// should be applied. This must be an active listener on the load
-	// balancer.
+	// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 	LbPort pulumi.IntInput
-	// Name of load balancer to which the policy
-	// should be attached.
+	// Name of load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringInput
 	// Name of the stickiness policy.
 	Name pulumi.StringPtrInput
@@ -290,15 +275,12 @@ func (o AppCookieStickinessPolicyOutput) CookieName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppCookieStickinessPolicy) pulumi.StringOutput { return v.CookieName }).(pulumi.StringOutput)
 }
 
-// Load balancer port to which the policy
-// should be applied. This must be an active listener on the load
-// balancer.
+// Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
 func (o AppCookieStickinessPolicyOutput) LbPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *AppCookieStickinessPolicy) pulumi.IntOutput { return v.LbPort }).(pulumi.IntOutput)
 }
 
-// Name of load balancer to which the policy
-// should be attached.
+// Name of load balancer to which the policy should be attached.
 func (o AppCookieStickinessPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppCookieStickinessPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }

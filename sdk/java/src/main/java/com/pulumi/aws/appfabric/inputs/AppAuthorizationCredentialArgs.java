@@ -18,14 +18,14 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
     public static final AppAuthorizationCredentialArgs Empty = new AppAuthorizationCredentialArgs();
 
     /**
-     * Contains API key credential information.
+     * API key credential information. See `apiKeyCredential` Block for details.
      * 
      */
     @Import(name="apiKeyCredentials")
     private @Nullable Output<List<AppAuthorizationCredentialApiKeyCredentialArgs>> apiKeyCredentials;
 
     /**
-     * @return Contains API key credential information.
+     * @return API key credential information. See `apiKeyCredential` Block for details.
      * 
      */
     public Optional<Output<List<AppAuthorizationCredentialApiKeyCredentialArgs>>> apiKeyCredentials() {
@@ -33,14 +33,14 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Contains OAuth2 client credential information.
+     * OAuth2 client credential information. See `oauth2Credential` Block for details.
      * 
      */
     @Import(name="oauth2Credential")
     private @Nullable Output<AppAuthorizationCredentialOauth2CredentialArgs> oauth2Credential;
 
     /**
-     * @return Contains OAuth2 client credential information.
+     * @return OAuth2 client credential information. See `oauth2Credential` Block for details.
      * 
      */
     public Optional<Output<AppAuthorizationCredentialOauth2CredentialArgs>> oauth2Credential() {
@@ -73,7 +73,7 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param apiKeyCredentials Contains API key credential information.
+         * @param apiKeyCredentials API key credential information. See `apiKeyCredential` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param apiKeyCredentials Contains API key credential information.
+         * @param apiKeyCredentials API key credential information. See `apiKeyCredential` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param apiKeyCredentials Contains API key credential information.
+         * @param apiKeyCredentials API key credential information. See `apiKeyCredential` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param oauth2Credential Contains OAuth2 client credential information.
+         * @param oauth2Credential OAuth2 client credential information. See `oauth2Credential` Block for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AppAuthorizationCredentialArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param oauth2Credential Contains OAuth2 client credential information.
+         * @param oauth2Credential OAuth2 client credential information. See `oauth2Credential` Block for details.
          * 
          * @return builder
          * 

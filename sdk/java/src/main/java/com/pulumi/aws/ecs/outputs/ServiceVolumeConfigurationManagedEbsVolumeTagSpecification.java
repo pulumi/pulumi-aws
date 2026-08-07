@@ -19,12 +19,12 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
      */
     private @Nullable String propagateTags;
     /**
-     * @return The type of volume resource. Valid values, `volume`.
+     * @return Type of volume resource. Valid values, `volume`.
      * 
      */
     private String resourceType;
     /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+     * @return Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -38,14 +38,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecification {
         return Optional.ofNullable(this.propagateTags);
     }
     /**
-     * @return The type of volume resource. Valid values, `volume`.
+     * @return Type of volume resource. Valid values, `volume`.
      * 
      */
     public String resourceType() {
         return this.resourceType;
     }
     /**
-     * @return The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
+     * @return Tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
      * 
      */
     public Map<String,String> tags() {

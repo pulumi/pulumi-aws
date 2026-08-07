@@ -103,28 +103,44 @@ public class AutoScalingConfigurationVersion extends com.pulumi.resources.Custom
         return this.autoScalingConfigurationName;
     }
     /**
-     * The revision of this auto scaling configuration.
+     * Revision of this auto scaling configuration.
      * 
      */
     @Export(name="autoScalingConfigurationRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> autoScalingConfigurationRevision;
 
     /**
-     * @return The revision of this auto scaling configuration.
+     * @return Revision of this auto scaling configuration.
      * 
      */
     public Output<Integer> autoScalingConfigurationRevision() {
         return this.autoScalingConfigurationRevision;
     }
+    /**
+     * Whether there is an App Runner service associated with this auto scaling configuration.
+     * 
+     */
     @Export(name="hasAssociatedService", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasAssociatedService;
 
+    /**
+     * @return Whether there is an App Runner service associated with this auto scaling configuration.
+     * 
+     */
     public Output<Boolean> hasAssociatedService() {
         return this.hasAssociatedService;
     }
+    /**
+     * Whether the auto scaling configuration is the default for the AWS account and Region.
+     * 
+     */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
+    /**
+     * @return Whether the auto scaling configuration is the default for the AWS account and Region.
+     * 
+     */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }

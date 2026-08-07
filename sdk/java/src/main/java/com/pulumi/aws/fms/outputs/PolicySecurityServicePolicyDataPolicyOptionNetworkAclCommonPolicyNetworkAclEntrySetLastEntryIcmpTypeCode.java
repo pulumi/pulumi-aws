@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode {
     /**
-     * @return An integer value containing ICMP code.
+     * @return ICMP code.
      * 
      */
     private @Nullable Integer code;
     /**
-     * @return An integer value containing ICMP type.
+     * @return ICMP type.
      * 
      */
     private @Nullable Integer type;
 
     private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode() {}
     /**
-     * @return An integer value containing ICMP code.
+     * @return ICMP code.
      * 
      */
     public Optional<Integer> code() {
         return Optional.ofNullable(this.code);
     }
     /**
-     * @return An integer value containing ICMP type.
+     * @return ICMP type.
      * 
      */
     public Optional<Integer> type() {

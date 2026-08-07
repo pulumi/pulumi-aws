@@ -363,9 +363,9 @@ func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 }
 
 type ExtensionActionPoint struct {
-	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+	// Action the extension performs during the AppConfig workflow. Detailed below.
 	Actions []ExtensionActionPointAction `pulumi:"actions"`
-	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+	// Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
 	Point string `pulumi:"point"`
 }
 
@@ -381,9 +381,9 @@ type ExtensionActionPointInput interface {
 }
 
 type ExtensionActionPointArgs struct {
-	// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+	// Action the extension performs during the AppConfig workflow. Detailed below.
 	Actions ExtensionActionPointActionArrayInput `pulumi:"actions"`
-	// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+	// Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
 	Point pulumi.StringInput `pulumi:"point"`
 }
 
@@ -438,12 +438,12 @@ func (o ExtensionActionPointOutput) ToExtensionActionPointOutputWithContext(ctx 
 	return o
 }
 
-// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+// Action the extension performs during the AppConfig workflow. Detailed below.
 func (o ExtensionActionPointOutput) Actions() ExtensionActionPointActionArrayOutput {
 	return o.ApplyT(func(v ExtensionActionPoint) []ExtensionActionPointAction { return v.Actions }).(ExtensionActionPointActionArrayOutput)
 }
 
-// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+// Point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
 func (o ExtensionActionPointOutput) Point() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPoint) string { return v.Point }).(pulumi.StringOutput)
 }
@@ -471,11 +471,11 @@ func (o ExtensionActionPointArrayOutput) Index(i pulumi.IntInput) ExtensionActio
 type ExtensionActionPointAction struct {
 	// Information about the action.
 	Description *string `pulumi:"description"`
-	// The action name.
+	// Action name.
 	Name string `pulumi:"name"`
-	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
 	RoleArn *string `pulumi:"roleArn"`
-	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri string `pulumi:"uri"`
 }
 
@@ -493,11 +493,11 @@ type ExtensionActionPointActionInput interface {
 type ExtensionActionPointActionArgs struct {
 	// Information about the action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The action name.
+	// Action name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -557,17 +557,17 @@ func (o ExtensionActionPointActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The action name.
+// Action name.
 func (o ExtensionActionPointActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
 func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 func (o ExtensionActionPointActionOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -595,7 +595,7 @@ func (o ExtensionActionPointActionArrayOutput) Index(i pulumi.IntInput) Extensio
 type ExtensionParameter struct {
 	// Information about the parameter.
 	Description *string `pulumi:"description"`
-	// The parameter name.
+	// Parameter name.
 	Name string `pulumi:"name"`
 	// Determines if a parameter value must be specified in the extension association.
 	Required *bool `pulumi:"required"`
@@ -615,7 +615,7 @@ type ExtensionParameterInput interface {
 type ExtensionParameterArgs struct {
 	// Information about the parameter.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The parameter name.
+	// Parameter name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Determines if a parameter value must be specified in the extension association.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
@@ -677,7 +677,7 @@ func (o ExtensionParameterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The parameter name.
+// Parameter name.
 func (o ExtensionParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionParameter) string { return v.Name }).(pulumi.StringOutput)
 }

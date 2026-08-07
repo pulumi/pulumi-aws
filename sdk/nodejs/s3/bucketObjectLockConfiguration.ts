@@ -95,7 +95,7 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+     * Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
     declare public readonly objectLockEnabled: pulumi.Output<string | undefined>;
     /**
@@ -107,8 +107,7 @@ export class BucketObjectLockConfiguration extends pulumi.CustomResource {
      */
     declare public readonly rule: pulumi.Output<outputs.s3.BucketObjectLockConfigurationRule | undefined>;
     /**
-     * This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+     * Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
     declare public readonly token: pulumi.Output<string | undefined>;
 
@@ -167,7 +166,7 @@ export interface BucketObjectLockConfigurationState {
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+     * Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
     objectLockEnabled?: pulumi.Input<string | undefined>;
     /**
@@ -179,8 +178,7 @@ export interface BucketObjectLockConfigurationState {
      */
     rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationRule | undefined>;
     /**
-     * This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+     * Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
     token?: pulumi.Input<string | undefined>;
 }
@@ -200,7 +198,7 @@ export interface BucketObjectLockConfigurationArgs {
      */
     expectedBucketOwner?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
+     * Whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      */
     objectLockEnabled?: pulumi.Input<string | undefined>;
     /**
@@ -212,8 +210,7 @@ export interface BucketObjectLockConfigurationArgs {
      */
     rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationRule | undefined>;
     /**
-     * This argument is deprecated and no longer needed to enable Object Lock.
-     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
+     * Token to allow Object Lock to be enabled for an existing bucket. To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
      */
     token?: pulumi.Input<string | undefined>;
 }

@@ -29,11 +29,11 @@ class TargetGroupArgs:
         """
         The set of arguments for constructing a TargetGroup resource.
 
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        :param pulumi.Input[_builtins.str] type: Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
                
                The following arguments are optional:
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        :param pulumi.Input['TargetGroupConfigArgs'] config: Target group configuration. See `config` Block below.
+        :param pulumi.Input[_builtins.str] name: Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -51,7 +51,7 @@ class TargetGroupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 
         The following arguments are optional:
         """
@@ -65,7 +65,7 @@ class TargetGroupArgs:
     @pulumi.getter
     def config(self) -> pulumi.Input[Optional['TargetGroupConfigArgs']]:
         """
-        The target group configuration.
+        Target group configuration. See `config` Block below.
         """
         return pulumi.get(self, "config")
 
@@ -77,7 +77,7 @@ class TargetGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         """
         return pulumi.get(self, "name")
 
@@ -125,13 +125,13 @@ class _TargetGroupState:
         Input properties used for looking up and filtering TargetGroup resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the target group.
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        :param pulumi.Input['TargetGroupConfigArgs'] config: Target group configuration. See `config` Block below.
+        :param pulumi.Input[_builtins.str] name: Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the target group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        :param pulumi.Input[_builtins.str] type: Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
                
                The following arguments are optional:
         """
@@ -168,7 +168,7 @@ class _TargetGroupState:
     @pulumi.getter
     def config(self) -> pulumi.Input[Optional['TargetGroupConfigArgs']]:
         """
-        The target group configuration.
+        Target group configuration. See `config` Block below.
         """
         return pulumi.get(self, "config")
 
@@ -180,7 +180,7 @@ class _TargetGroupState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         """
         return pulumi.get(self, "name")
 
@@ -240,7 +240,7 @@ class _TargetGroupState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 
         The following arguments are optional:
         """
@@ -359,11 +359,11 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: Target group configuration. See `config` Block below.
+        :param pulumi.Input[_builtins.str] name: Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        :param pulumi.Input[_builtins.str] type: Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
                
                The following arguments are optional:
         """
@@ -532,13 +532,13 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the target group.
-        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
-        :param pulumi.Input[_builtins.str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: Target group configuration. See `config` Block below.
+        :param pulumi.Input[_builtins.str] name: Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] status: Status of the target group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        :param pulumi.Input[_builtins.str] type: Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
                
                The following arguments are optional:
         """
@@ -568,7 +568,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional['outputs.TargetGroupConfig']]:
         """
-        The target group configuration.
+        Target group configuration. See `config` Block below.
         """
         return pulumi.get(self, "config")
 
@@ -576,7 +576,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+        Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         """
         return pulumi.get(self, "name")
 
@@ -616,7 +616,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+        Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
 
         The following arguments are optional:
         """

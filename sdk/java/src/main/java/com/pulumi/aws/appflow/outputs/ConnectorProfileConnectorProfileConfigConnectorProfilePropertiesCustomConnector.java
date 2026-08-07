@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
     /**
-     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * @return OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
      * 
      */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties;
     /**
-     * @return A map of properties that are required to create a profile for the custom connector.
+     * @return Map of properties that are required to create a profile for the custom connector.
      * 
      */
     private @Nullable Map<String,String> profileProperties;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector() {}
     /**
-     * @return The OAuth 2.0 properties required for OAuth 2.0 authentication.
+     * @return OAuth 2.0 properties required for OAuth 2.0 authentication. See `connector_profile_config.connector_profile_properties.custom_connector.oauth2_properties` Block for details.
      * 
      */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties> oauth2Properties() {
         return Optional.ofNullable(this.oauth2Properties);
     }
     /**
-     * @return A map of properties that are required to create a profile for the custom connector.
+     * @return Map of properties that are required to create a profile for the custom connector.
      * 
      */
     public Map<String,String> profileProperties() {

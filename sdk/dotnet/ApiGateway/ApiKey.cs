@@ -56,7 +56,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         /// </summary>
         [Output("customerId")]
         public Output<string?> CustomerId { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         /// </summary>
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
         /// </summary>
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }

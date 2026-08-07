@@ -14,86 +14,86 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TargetGroupConfig {
     /**
-     * @return The health check configuration.
+     * @return Health check configuration. See `healthCheck` Block below.
      * 
      */
     private @Nullable TargetGroupConfigHealthCheck healthCheck;
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+     * @return Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
      * 
      */
     private @Nullable String ipAddressType;
     /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * @return Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
      * 
      */
     private @Nullable String lambdaEventStructureVersion;
     /**
-     * @return The port on which the targets are listening.
+     * @return Port on which the targets are listening.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+     * @return Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
      * 
      */
     private @Nullable String protocol;
     /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+     * @return Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
      * 
      */
     private @Nullable String protocolVersion;
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     private @Nullable String vpcIdentifier;
 
     private TargetGroupConfig() {}
     /**
-     * @return The health check configuration.
+     * @return Health check configuration. See `healthCheck` Block below.
      * 
      */
     public Optional<TargetGroupConfigHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
+     * @return Type of IP address used for the target group. Valid values: `IPV4` or `IPV6`.
      * 
      */
     public Optional<String> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
     /**
-     * @return The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
+     * @return Version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid values are `V1` or `V2`.
      * 
      */
     public Optional<String> lambdaEventStructureVersion() {
         return Optional.ofNullable(this.lambdaEventStructureVersion);
     }
     /**
-     * @return The port on which the targets are listening.
+     * @return Port on which the targets are listening.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
+     * @return Protocol to use for routing traffic to the targets. Valid values are `HTTP` or `HTTPS`.
      * 
      */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
     /**
-     * @return The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
+     * @return Protocol version. Valid values are `HTTP1`, `HTTP2`, or `GRPC`. Default value is `HTTP1`.
      * 
      */
     public Optional<String> protocolVersion() {
         return Optional.ofNullable(this.protocolVersion);
     }
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Optional<String> vpcIdentifier() {

@@ -24,7 +24,7 @@ public final class BucketReplicationConfigRule {
      */
     private @Nullable BucketReplicationConfigRuleDeleteMarkerReplication deleteMarkerReplication;
     /**
-     * @return Specifies the destination for the rule. See below.
+     * @return Destination for the rule. See below.
      * 
      */
     private BucketReplicationConfigRuleDestination destination;
@@ -58,7 +58,7 @@ public final class BucketReplicationConfigRule {
      */
     private @Nullable Integer priority;
     /**
-     * @return Specifies special object selection criteria. See below.
+     * @return Special object selection criteria. See below.
      * 
      */
     private @Nullable BucketReplicationConfigRuleSourceSelectionCriteria sourceSelectionCriteria;
@@ -77,7 +77,7 @@ public final class BucketReplicationConfigRule {
         return Optional.ofNullable(this.deleteMarkerReplication);
     }
     /**
-     * @return Specifies the destination for the rule. See below.
+     * @return Destination for the rule. See below.
      * 
      */
     public BucketReplicationConfigRuleDestination destination() {
@@ -123,7 +123,7 @@ public final class BucketReplicationConfigRule {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return Specifies special object selection criteria. See below.
+     * @return Special object selection criteria. See below.
      * 
      */
     public Optional<BucketReplicationConfigRuleSourceSelectionCriteria> sourceSelectionCriteria() {

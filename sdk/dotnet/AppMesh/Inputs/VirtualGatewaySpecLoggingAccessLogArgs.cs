@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecLoggingAccessLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// File object to send virtual gateway access logs to. See `File` Block for details.
+        /// File object to send virtual gateway access logs to. See `spec.logging.access_log.file` Block for details.
         /// </summary>
         [Input("file")]
         public Input<Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs>? File { get; set; }

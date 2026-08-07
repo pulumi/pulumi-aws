@@ -71,28 +71,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation")
 public class DomainNameAccessAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
     @Export(name="accessAssociationSource", refs={String.class}, tree="[0]")
     private Output<String> accessAssociationSource;
 
     /**
-     * @return The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
+     * @return Identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
     public Output<String> accessAssociationSource() {
         return this.accessAssociationSource;
     }
     /**
-     * The type of the domain name access association source. Valid values are `VPCE`.
+     * Type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
     @Export(name="accessAssociationSourceType", refs={String.class}, tree="[0]")
     private Output<String> accessAssociationSourceType;
 
     /**
-     * @return The type of the domain name access association source. Valid values are `VPCE`.
+     * @return Type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
     public Output<String> accessAssociationSourceType() {
@@ -113,14 +113,14 @@ public class DomainNameAccessAssociation extends com.pulumi.resources.CustomReso
         return this.arn;
     }
     /**
-     * The ARN of the domain name.
+     * ARN of the domain name.
      * 
      */
     @Export(name="domainNameArn", refs={String.class}, tree="[0]")
     private Output<String> domainNameArn;
 
     /**
-     * @return The ARN of the domain name.
+     * @return ARN of the domain name.
      * 
      */
     public Output<String> domainNameArn() {

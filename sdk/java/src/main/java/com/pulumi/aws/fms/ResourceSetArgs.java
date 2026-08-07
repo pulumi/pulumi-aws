@@ -35,23 +35,31 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * Details about the resource set to be created or updated. See `resourceSet` Block below.
      * 
      */
     @Import(name="resourceSets")
     private @Nullable Output<List<ResourceSetResourceSetArgs>> resourceSets;
 
     /**
-     * @return Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+     * @return Details about the resource set to be created or updated. See `resourceSet` Block below.
      * 
      */
     public Optional<Output<List<ResourceSetResourceSetArgs>>> resourceSets() {
         return Optional.ofNullable(this.resourceSets);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -112,7 +120,7 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Block below.
          * 
          * @return builder
          * 
@@ -123,7 +131,7 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +141,7 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
+         * @param resourceSets Details about the resource set to be created or updated. See `resourceSet` Block below.
          * 
          * @return builder
          * 
@@ -142,11 +150,23 @@ public final class ResourceSetArgs extends com.pulumi.resources.ResourceArgs {
             return resourceSets(List.of(resourceSets));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

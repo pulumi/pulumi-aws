@@ -76,7 +76,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * IAM policy. The policy string in JSON must not contain newlines or blank lines.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -126,7 +126,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * IAM policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -144,7 +144,7 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * IAM policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy: pulumi.Input<string>;
     /**
@@ -152,7 +152,7 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
     resourceArn: pulumi.Input<string>;
 }

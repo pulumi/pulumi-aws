@@ -17,7 +17,7 @@ public final class GetDbServersArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDbServersArgs Empty = new GetDbServersArgs();
 
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -26,7 +26,7 @@ public final class GetDbServersArgs extends com.pulumi.resources.InvokeArgs {
     private Output<String> cloudExadataInfrastructureId;
 
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -76,7 +76,7 @@ public final class GetDbServersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the cloud vm cluster.
+         * @param cloudExadataInfrastructureId Unique identifier of the cloud vm cluster.
          * 
          * The following arguments are optional:
          * 
@@ -89,7 +89,7 @@ public final class GetDbServersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cloudExadataInfrastructureId The unique identifier of the cloud vm cluster.
+         * @param cloudExadataInfrastructureId Unique identifier of the cloud vm cluster.
          * 
          * The following arguments are optional:
          * 

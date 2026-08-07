@@ -13,27 +13,27 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class TaskSetLoadBalancerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the container to associate with the load balancer (as it appears in a container definition).
+        /// Name of the container to associate with the load balancer (as it appears in a container definition).
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
-        /// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
-        /// 
-        /// &gt; **Note:** Specifying multiple `LoadBalancer` configurations is still not supported by AWS for ECS task set.
+        /// Port on the container to associate with the load balancer. Defaults to `0` if not specified.
         /// </summary>
         [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
-        /// The name of the ELB (Classic) to associate with the service.
+        /// Name of the ELB (Classic) to associate with the service.
         /// </summary>
         [Input("loadBalancerName")]
         public Input<string>? LoadBalancerName { get; set; }
 
         /// <summary>
-        /// The ARN of the Load Balancer target group to associate with the service.
+        /// ARN of the Load Balancer target group to associate with the service.
+        /// 
+        /// &gt; **Note:** Specifying multiple `LoadBalancer` configurations is still not supported by AWS for ECS task set.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }

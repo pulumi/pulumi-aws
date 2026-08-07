@@ -15,14 +15,14 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfigurationArgs();
 
     /**
-     * The size of the tasks volume in GiB. Must be at least 1.
+     * Size of the tasks volume in GiB. Must be at least 1.
      * 
      */
     @Import(name="storageSizeGib", required=true)
     private Output<Integer> storageSizeGib;
 
     /**
-     * @return The size of the tasks volume in GiB. Must be at least 1.
+     * @return Size of the tasks volume in GiB. Must be at least 1.
      * 
      */
     public Output<Integer> storageSizeGib() {
@@ -54,7 +54,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param storageSizeGib The size of the tasks volume in GiB. Must be at least 1.
+         * @param storageSizeGib Size of the tasks volume in GiB. Must be at least 1.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         }
 
         /**
-         * @param storageSizeGib The size of the tasks volume in GiB. Must be at least 1.
+         * @param storageSizeGib Size of the tasks volume in GiB. Must be at least 1.
          * 
          * @return builder
          * 

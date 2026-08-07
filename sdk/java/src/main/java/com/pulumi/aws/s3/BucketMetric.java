@@ -251,14 +251,14 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
         return this.bucket;
     }
     /**
-     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
      * 
      */
     @Export(name="filter", refs={BucketMetricFilter.class}, tree="[0]")
     private Output</* @Nullable */ BucketMetricFilter> filter;
 
     /**
-     * @return [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+     * @return [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags. See below.
      * 
      */
     public Output<Optional<BucketMetricFilter>> filter() {

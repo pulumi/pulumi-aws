@@ -18,14 +18,14 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
     public static final AnalyticsConfigurationStorageClassAnalysisDataExportArgs Empty = new AnalyticsConfigurationStorageClassAnalysisDataExportArgs();
 
     /**
-     * Specifies the destination for the exported analytics data (documented below).
+     * Destination for the exported analytics data (documented below).
      * 
      */
     @Import(name="destination", required=true)
     private Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination;
 
     /**
-     * @return Specifies the destination for the exported analytics data (documented below).
+     * @return Destination for the exported analytics data (documented below).
      * 
      */
     public Output<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination() {
@@ -73,7 +73,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
         }
 
         /**
-         * @param destination Specifies the destination for the exported analytics data (documented below).
+         * @param destination Destination for the exported analytics data (documented below).
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs exte
         }
 
         /**
-         * @param destination Specifies the destination for the exported analytics data (documented below).
+         * @param destination Destination for the exported analytics data (documented below).
          * 
          * @return builder
          * 

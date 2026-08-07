@@ -21,14 +21,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     public static final OpenZfsFileSystemRootVolumeConfigurationArgs Empty = new OpenZfsFileSystemRootVolumeConfigurationArgs();
 
     /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     @Import(name="copyTagsToSnapshots")
     private @Nullable Output<Boolean> copyTagsToSnapshots;
 
     /**
-     * @return A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+     * @return Whether tags for the file system should be copied to snapshots. Default value is false.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToSnapshots() {
@@ -81,14 +81,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
     }
 
     /**
-     * Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     @Import(name="recordSizeKib")
     private @Nullable Output<Integer> recordSizeKib;
 
     /**
-     * @return Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+     * @return Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
      * 
      */
     public Optional<Output<Integer>> recordSizeKib() {
@@ -140,7 +140,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots Whether tags for the file system should be copied to snapshots. Default value is false.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param copyTagsToSnapshots A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+         * @param copyTagsToSnapshots Whether tags for the file system should be copied to snapshots. Default value is false.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param recordSizeKib Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationArgs extends com.pulu
         }
 
         /**
-         * @param recordSizeKib Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+         * @param recordSizeKib Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
          * 
          * @return builder
          * 

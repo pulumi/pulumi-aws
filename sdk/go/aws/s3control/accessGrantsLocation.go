@@ -64,18 +64,17 @@ type AccessGrantsLocation struct {
 	AccessGrantsLocationArn pulumi.StringOutput `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-	// requests to the location.
+	// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+	// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringOutput `pulumi:"locationScope"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,18 +118,17 @@ type accessGrantsLocationState struct {
 	AccessGrantsLocationArn *string `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-	// requests to the location.
+	// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+	// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope *string `pulumi:"locationScope"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -139,18 +137,17 @@ type AccessGrantsLocationState struct {
 	AccessGrantsLocationArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringPtrInput
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-	// requests to the location.
+	// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 	IamRoleArn pulumi.StringPtrInput
-	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+	// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -159,12 +156,11 @@ func (AccessGrantsLocationState) ElementType() reflect.Type {
 }
 
 type accessGrantsLocationArgs struct {
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-	// requests to the location.
+	// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 	IamRoleArn string `pulumi:"iamRoleArn"`
-	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+	// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope string `pulumi:"locationScope"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -174,12 +170,11 @@ type accessGrantsLocationArgs struct {
 
 // The set of arguments for constructing a AccessGrantsLocation resource.
 type AccessGrantsLocationArgs struct {
-	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
-	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-	// requests to the location.
+	// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 	IamRoleArn pulumi.StringInput
-	// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+	// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 	LocationScope pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -284,18 +279,17 @@ func (o AccessGrantsLocationOutput) AccessGrantsLocationId() pulumi.StringOutput
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.AccessGrantsLocationId }).(pulumi.StringOutput)
 }
 
-// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+// AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantsLocationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-// requests to the location.
+// ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
 func (o AccessGrantsLocationOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+// Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
 func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.LocationScope }).(pulumi.StringOutput)
 }
@@ -310,7 +304,7 @@ func (o AccessGrantsLocationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o AccessGrantsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

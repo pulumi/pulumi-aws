@@ -156,8 +156,6 @@ export class KxEnvironment extends pulumi.CustomResource {
     declare public /*out*/ readonly infrastructureAccountId: pulumi.Output<string>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
-     *
-     * The following arguments are optional:
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -166,6 +164,8 @@ export class KxEnvironment extends pulumi.CustomResource {
     declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
      * Name of the KX environment that you want to create.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -271,8 +271,6 @@ export interface KxEnvironmentState {
     infrastructureAccountId?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
-     *
-     * The following arguments are optional:
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -281,6 +279,8 @@ export interface KxEnvironmentState {
     lastModifiedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Name of the KX environment that you want to create.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -319,12 +319,12 @@ export interface KxEnvironmentArgs {
     description?: pulumi.Input<string | undefined>;
     /**
      * KMS key ID to encrypt your data in the FinSpace environment.
-     *
-     * The following arguments are optional:
      */
     kmsKeyId: pulumi.Input<string>;
     /**
      * Name of the KX environment that you want to create.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

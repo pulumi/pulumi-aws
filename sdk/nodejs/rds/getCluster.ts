@@ -65,6 +65,7 @@ export interface GetClusterResult {
     readonly dbClusterParameterGroupName: string;
     readonly dbSubnetGroupName: string;
     readonly dbSystemId: string;
+    readonly deletionProtection: boolean;
     readonly enabledCloudwatchLogsExports: string[];
     readonly endpoint: string;
     readonly engine: string;

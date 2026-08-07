@@ -31,14 +31,14 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
     }
 
     /**
-     * Integration data source configuration for the handler. See Integration below.
+     * Integration data source configuration for the handler. See `integration` below.
      * 
      */
     @Import(name="integration", required=true)
     private Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration;
 
     /**
-     * @return Integration data source configuration for the handler. See Integration below.
+     * @return Integration data source configuration for the handler. See `integration` below.
      * 
      */
     public Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration() {
@@ -92,7 +92,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
         }
 
         /**
-         * @param integration Integration data source configuration for the handler. See Integration below.
+         * @param integration Integration data source configuration for the handler. See `integration` below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
         }
 
         /**
-         * @param integration Integration data source configuration for the handler. See Integration below.
+         * @param integration Integration data source configuration for the handler. See `integration` below.
          * 
          * @return builder
          * 

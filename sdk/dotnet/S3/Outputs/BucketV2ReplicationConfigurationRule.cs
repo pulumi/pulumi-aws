@@ -18,11 +18,11 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? DeleteMarkerReplicationStatus;
         /// <summary>
-        /// Specifies the destination for the rule (documented below).
+        /// Destination for the rule. See `Destination` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestination> Destinations;
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies (documented below).
+        /// Filter that identifies subset of objects to which the replication rule applies. See `Filter` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleFilter> Filters;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Specifies special object selection criteria (documented below).
+        /// Special object selection criteria. See `SourceSelectionCriteria` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> SourceSelectionCriterias;
         /// <summary>

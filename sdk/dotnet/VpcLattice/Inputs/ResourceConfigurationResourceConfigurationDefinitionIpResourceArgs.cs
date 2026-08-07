@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP Address of the Resource for this configuration.
+        /// IP Address of the Resource for this configuration.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;

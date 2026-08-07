@@ -64,26 +64,26 @@ namespace Pulumi.Aws.FinSpace
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Clusters attached to the volume. See `AttachedClusters` Block below.
+        /// </summary>
         [Output("attachedClusters")]
         public Output<ImmutableArray<Outputs.KxVolumeAttachedCluster>> AttachedClusters { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the AWS Availability Zone IDs.
-        /// 
-        /// The following arguments are optional:
+        /// Identifier of the AWS Availability Zone IDs.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-        /// * `SINGLE` - Assigns one availability zone per volume.
+        /// Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
         /// </summary>
         [Output("azMode")]
         public Output<string> AzMode { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
+        /// Unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
@@ -107,13 +107,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> LastModifiedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// Unique name for the volumr that you want to create.
+        /// Unique name for the volume that you want to create.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Argument Reference below.
+        /// Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Block below.
         /// </summary>
         [Output("nas1Configurations")]
         public Output<ImmutableArray<Outputs.KxVolumeNas1Configuration>> Nas1Configurations { get; private set; } = null!;
@@ -125,28 +125,19 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of volume creation.
-        /// * `CREATING` - The volume creation is in progress.
-        /// * `CREATE_FAILED` - The volume creation has failed.
-        /// * `ACTIVE` - The volume is active.
-        /// * `UPDATING` - The volume is in the process of being updated.
-        /// * `UPDATE_FAILED` - The update action failed.
-        /// * `UPDATED` - The volume is successfully updated.
-        /// * `DELETING` - The volume is in the process of being deleted.
-        /// * `DELETE_FAILED` - The system failed to delete the volume.
-        /// * `DELETED` - The volume is successfully deleted.
+        /// Status of volume creation. Values are `CREATING` (volume creation is in progress), `CREATE_FAILED` (volume creation has failed), `ACTIVE` (volume is active), `UPDATING` (volume is in the process of being updated), `UPDATE_FAILED` (update action failed), `UPDATED` (volume is successfully updated), `DELETING` (volume is in the process of being deleted), `DELETE_FAILED` (system failed to delete the volume), and `DELETED` (volume is successfully deleted).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The error message when a failed state occurs.
+        /// Error message when a failed state occurs.
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+        /// Key-value pairs to label the volume. You can add up to 50 tags to a volume.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -155,7 +146,9 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -210,9 +203,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// The identifier of the AWS Availability Zone IDs.
-        /// 
-        /// The following arguments are optional:
+        /// Identifier of the AWS Availability Zone IDs.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -221,8 +212,7 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-        /// * `SINGLE` - Assigns one availability zone per volume.
+        /// Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
         /// </summary>
         [Input("azMode", required: true)]
         public Input<string> AzMode { get; set; } = null!;
@@ -234,13 +224,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
+        /// Unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// Unique name for the volumr that you want to create.
+        /// Unique name for the volume that you want to create.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -249,7 +239,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxVolumeNas1ConfigurationArgs>? _nas1Configurations;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Argument Reference below.
+        /// Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Block below.
         /// </summary>
         public InputList<Inputs.KxVolumeNas1ConfigurationArgs> Nas1Configurations
         {
@@ -267,7 +257,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+        /// Key-value pairs to label the volume. You can add up to 50 tags to a volume.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -276,7 +266,9 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -297,6 +289,10 @@ namespace Pulumi.Aws.FinSpace
 
         [Input("attachedClusters")]
         private InputList<Inputs.KxVolumeAttachedClusterGetArgs>? _attachedClusters;
+
+        /// <summary>
+        /// Clusters attached to the volume. See `AttachedClusters` Block below.
+        /// </summary>
         public InputList<Inputs.KxVolumeAttachedClusterGetArgs> AttachedClusters
         {
             get => _attachedClusters ?? (_attachedClusters = new InputList<Inputs.KxVolumeAttachedClusterGetArgs>());
@@ -307,9 +303,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// The identifier of the AWS Availability Zone IDs.
-        /// 
-        /// The following arguments are optional:
+        /// Identifier of the AWS Availability Zone IDs.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -318,14 +312,13 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-        /// * `SINGLE` - Assigns one availability zone per volume.
+        /// Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
         /// </summary>
         [Input("azMode")]
         public Input<string>? AzMode { get; set; }
 
         /// <summary>
-        /// The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }
@@ -337,7 +330,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A unique identifier for the kdb environment, whose clusters can attach to the volume.
+        /// Unique identifier for the kdb environment, whose clusters can attach to the volume.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
@@ -349,7 +342,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? LastModifiedTimestamp { get; set; }
 
         /// <summary>
-        /// Unique name for the volumr that you want to create.
+        /// Unique name for the volume that you want to create.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -358,7 +351,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxVolumeNas1ConfigurationGetArgs>? _nas1Configurations;
 
         /// <summary>
-        /// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Argument Reference below.
+        /// Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `VolumeType` is `NAS_1`. See `Nas1Configuration` Block below.
         /// </summary>
         public InputList<Inputs.KxVolumeNas1ConfigurationGetArgs> Nas1Configurations
         {
@@ -373,22 +366,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of volume creation.
-        /// * `CREATING` - The volume creation is in progress.
-        /// * `CREATE_FAILED` - The volume creation has failed.
-        /// * `ACTIVE` - The volume is active.
-        /// * `UPDATING` - The volume is in the process of being updated.
-        /// * `UPDATE_FAILED` - The update action failed.
-        /// * `UPDATED` - The volume is successfully updated.
-        /// * `DELETING` - The volume is in the process of being deleted.
-        /// * `DELETE_FAILED` - The system failed to delete the volume.
-        /// * `DELETED` - The volume is successfully deleted.
+        /// Status of volume creation. Values are `CREATING` (volume creation is in progress), `CREATE_FAILED` (volume creation has failed), `ACTIVE` (volume is active), `UPDATING` (volume is in the process of being updated), `UPDATE_FAILED` (update action failed), `UPDATED` (volume is successfully updated), `DELETING` (volume is in the process of being deleted), `DELETE_FAILED` (system failed to delete the volume), and `DELETED` (volume is successfully deleted).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The error message when a failed state occurs.
+        /// Error message when a failed state occurs.
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
@@ -397,7 +381,7 @@ namespace Pulumi.Aws.FinSpace
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+        /// Key-value pairs to label the volume. You can add up to 50 tags to a volume.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -414,7 +398,9 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `Nas1Configuration`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

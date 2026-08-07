@@ -188,70 +188,70 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
     @Export(name="rotateImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rotateImmediately;
 
     /**
-     * @return Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
+     * @return Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotationRules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> rotateImmediately() {
         return Codegen.optional(this.rotateImmediately);
     }
     /**
-     * Specifies whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for this secret.
      * 
      */
     @Export(name="rotationEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> rotationEnabled;
 
     /**
-     * @return Specifies whether automatic rotation is enabled for this secret.
+     * @return Whether automatic rotation is enabled for this secret.
      * 
      */
     public Output<Boolean> rotationEnabled() {
         return this.rotationEnabled;
     }
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+     * ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     @Export(name="rotationLambdaArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rotationLambdaArn;
 
     /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+     * @return ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     public Output<Optional<String>> rotationLambdaArn() {
         return Codegen.optional(this.rotationLambdaArn);
     }
     /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
+     * Structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
     @Export(name="rotationRules", refs={SecretRotationRotationRules.class}, tree="[0]")
     private Output<SecretRotationRotationRules> rotationRules;
 
     /**
-     * @return A structure that defines the rotation configuration for this secret. Defined below.
+     * @return Structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
     public Output<SecretRotationRotationRules> rotationRules() {
         return this.rotationRules;
     }
     /**
-     * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
     @Export(name="secretId", refs={String.class}, tree="[0]")
     private Output<String> secretId;
 
     /**
-     * @return Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * @return Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
     public Output<String> secretId() {

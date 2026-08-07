@@ -61,18 +61,13 @@ type TableBucket struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableBucketEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationOutput `pulumi:"maintenanceConfiguration"`
-	// Name of the table bucket.
-	// Must be between 3 and 63 characters in length.
-	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+	// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -82,7 +77,7 @@ type TableBucket struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -120,18 +115,13 @@ type tableBucketState struct {
 	Arn *string `pulumi:"arn"`
 	// Date and time when the bucket was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Name of the table bucket.
-	// Must be between 3 and 63 characters in length.
-	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+	// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -141,7 +131,7 @@ type tableBucketState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -150,18 +140,13 @@ type TableBucketState struct {
 	Arn pulumi.StringPtrInput
 	// Date and time when the bucket was created.
 	CreatedAt pulumi.StringPtrInput
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolPtrInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
-	// Name of the table bucket.
-	// Must be between 3 and 63 characters in length.
-	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+	// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -171,7 +156,7 @@ type TableBucketState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -180,18 +165,13 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration *TableBucketMaintenanceConfiguration `pulumi:"maintenanceConfiguration"`
-	// Name of the table bucket.
-	// Must be between 3 and 63 characters in length.
-	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+	// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -203,18 +183,13 @@ type tableBucketArgs struct {
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
-	// A single table bucket encryption configuration object.
-	// See `encryptionConfiguration` below.
+	// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
 	// Whether all tables and namespaces within the table bucket should be deleted *when the table bucket is destroyed* so that the table bucket can be destroyed without error. These tables and namespaces are *not* recoverable. This only deletes tables and namespaces when the table bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the table bucket or destroying the table bucket, this flag will not work. Additionally when importing a table bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
 	ForceDestroy pulumi.BoolPtrInput
-	// A single table bucket maintenance configuration object.
-	// See `maintenanceConfiguration` below.
+	// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 	MaintenanceConfiguration TableBucketMaintenanceConfigurationPtrInput
-	// Name of the table bucket.
-	// Must be between 3 and 63 characters in length.
-	// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-	// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+	// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -321,8 +296,7 @@ func (o TableBucketOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// A single table bucket encryption configuration object.
-// See `encryptionConfiguration` below.
+// Encryption configuration for the table bucket. See `encryptionConfiguration` below.
 func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationOutput)
 }
@@ -332,16 +306,12 @@ func (o TableBucketOutput) ForceDestroy() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.BoolOutput { return v.ForceDestroy }).(pulumi.BoolOutput)
 }
 
-// A single table bucket maintenance configuration object.
-// See `maintenanceConfiguration` below.
+// Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
 func (o TableBucketOutput) MaintenanceConfiguration() TableBucketMaintenanceConfigurationOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketMaintenanceConfigurationOutput { return v.MaintenanceConfiguration }).(TableBucketMaintenanceConfigurationOutput)
 }
 
-// Name of the table bucket.
-// Must be between 3 and 63 characters in length.
-// Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-// A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+// Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
 //
 // The following arguments are optional:
 func (o TableBucketOutput) Name() pulumi.StringOutput {
@@ -363,7 +333,7 @@ func (o TableBucketOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TableBucketOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

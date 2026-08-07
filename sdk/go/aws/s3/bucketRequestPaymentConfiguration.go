@@ -71,7 +71,7 @@ type BucketRequestPaymentConfiguration struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -125,7 +125,7 @@ type bucketRequestPaymentConfigurationState struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -138,7 +138,7 @@ type BucketRequestPaymentConfigurationState struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type bucketRequestPaymentConfigurationArgs struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -169,7 +169,7 @@ type BucketRequestPaymentConfigurationArgs struct {
 	//
 	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
-	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+	// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -274,7 +274,7 @@ func (o BucketRequestPaymentConfigurationOutput) ExpectedBucketOwner() pulumi.St
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
+// Who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 func (o BucketRequestPaymentConfigurationOutput) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfiguration) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
 }

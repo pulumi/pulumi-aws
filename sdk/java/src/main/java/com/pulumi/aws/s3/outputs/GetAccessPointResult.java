@@ -52,7 +52,7 @@ public final class GetAccessPointResult {
     private Map<String,String> endpoints;
     private String name;
     /**
-     * @return Indicates whether the access point allows access from the public Internet.
+     * @return Whether the access point allows access from the public Internet.
      * 
      */
     private String networkOrigin;
@@ -130,7 +130,7 @@ public final class GetAccessPointResult {
         return this.name;
     }
     /**
-     * @return Indicates whether the access point allows access from the public Internet.
+     * @return Whether the access point allows access from the public Internet.
      * 
      */
     public String networkOrigin() {

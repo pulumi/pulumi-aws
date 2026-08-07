@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTls
     {
         /// <summary>
-        /// Listener's TLS certificate.
+        /// Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificate Certificate;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context.
+        /// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsValidation? Validation;
 

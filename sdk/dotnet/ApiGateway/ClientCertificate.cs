@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The PEM-encoded public key of the client certificate.
+        /// PEM-encoded public key of the client certificate.
         /// </summary>
         [Output("pemEncodedCertificate")]
         public Output<string> PemEncodedCertificate { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The PEM-encoded public key of the client certificate.
+        /// PEM-encoded public key of the client certificate.
         /// </summary>
         [Input("pemEncodedCertificate")]
         public Input<string>? PemEncodedCertificate { get; set; }

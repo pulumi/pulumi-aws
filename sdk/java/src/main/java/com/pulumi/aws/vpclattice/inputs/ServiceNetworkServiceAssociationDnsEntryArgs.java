@@ -16,14 +16,14 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
     public static final ServiceNetworkServiceAssociationDnsEntryArgs Empty = new ServiceNetworkServiceAssociationDnsEntryArgs();
 
     /**
-     * The domain name of the service.
+     * Domain name of the service.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The domain name of the service.
+     * @return Domain name of the service.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -31,14 +31,14 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
     }
 
     /**
-     * The ID of the hosted zone.
+     * ID of the hosted zone.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return The ID of the hosted zone.
+     * @return ID of the hosted zone.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -71,7 +71,7 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
         }
 
         /**
-         * @param domainName The domain name of the service.
+         * @param domainName Domain name of the service.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
         }
 
         /**
-         * @param domainName The domain name of the service.
+         * @param domainName Domain name of the service.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
         }
 
         /**
-         * @param hostedZoneId The ID of the hosted zone.
+         * @param hostedZoneId ID of the hosted zone.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ServiceNetworkServiceAssociationDnsEntryArgs extends com.pulu
         }
 
         /**
-         * @param hostedZoneId The ID of the hosted zone.
+         * @param hostedZoneId ID of the hosted zone.
          * 
          * @return builder
          * 

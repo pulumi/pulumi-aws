@@ -134,7 +134,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     declare public readonly code: pulumi.Output<string | undefined>;
     /**
@@ -174,11 +174,11 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly responseMappingTemplate: pulumi.Output<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     declare public readonly runtime: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+     * Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     declare public readonly syncConfig: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
 
@@ -250,7 +250,7 @@ export interface FunctionState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     code?: pulumi.Input<string | undefined>;
     /**
@@ -290,11 +290,11 @@ export interface FunctionState {
      */
     responseMappingTemplate?: pulumi.Input<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     runtime?: pulumi.Input<inputs.appsync.FunctionRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+     * Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig | undefined>;
 }
@@ -308,7 +308,7 @@ export interface FunctionArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+     * Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
     code?: pulumi.Input<string | undefined>;
     /**
@@ -344,11 +344,11 @@ export interface FunctionArgs {
      */
     responseMappingTemplate?: pulumi.Input<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+     * Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     runtime?: pulumi.Input<inputs.appsync.FunctionRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+     * Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig | undefined>;
 }

@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/authPolicy:AuthPolicy")
 public class AuthPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * Auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The auth policy. The policy string in JSON must not contain newlines or blank lines.
+     * @return Auth policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     public Output<String> policy() {
@@ -116,28 +116,28 @@ public class AuthPolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     @Export(name="resourceIdentifier", refs={String.class}, tree="[0]")
     private Output<String> resourceIdentifier;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     public Output<String> resourceIdentifier() {
         return this.resourceIdentifier;
     }
     /**
-     * The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+     * State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
     /**
-     * @return The state of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
+     * @return State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client&#39;s IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
      * 
      */
     public Output<Optional<String>> state() {

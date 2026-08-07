@@ -19,7 +19,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         public Input<string> RequestParameterKey { get; set; } = null!;
 
         /// <summary>
-        /// Boolean whether or not the parameter is required.
+        /// Whether the parameter is required.
         /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;

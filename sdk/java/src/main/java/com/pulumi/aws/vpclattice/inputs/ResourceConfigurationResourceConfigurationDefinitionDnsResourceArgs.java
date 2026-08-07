@@ -15,14 +15,14 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
     public static final ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs Empty = new ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs();
 
     /**
-     * The hostname of the Resource for this configuration.
+     * Hostname of the Resource for this configuration.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The hostname of the Resource for this configuration.
+     * @return Hostname of the Resource for this configuration.
      * 
      */
     public Output<String> domainName() {
@@ -30,14 +30,14 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
     }
 
     /**
-     * The IP Address type either `IPV4` or `IPV6`
+     * IP Address type either `IPV4` or `IPV6`
      * 
      */
     @Import(name="ipAddressType", required=true)
     private Output<String> ipAddressType;
 
     /**
-     * @return The IP Address type either `IPV4` or `IPV6`
+     * @return IP Address type either `IPV4` or `IPV6`
      * 
      */
     public Output<String> ipAddressType() {
@@ -70,7 +70,7 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
         }
 
         /**
-         * @param domainName The hostname of the Resource for this configuration.
+         * @param domainName Hostname of the Resource for this configuration.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
         }
 
         /**
-         * @param domainName The hostname of the Resource for this configuration.
+         * @param domainName Hostname of the Resource for this configuration.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
         }
 
         /**
-         * @param ipAddressType The IP Address type either `IPV4` or `IPV6`
+         * @param ipAddressType IP Address type either `IPV4` or `IPV6`
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
         }
 
         /**
-         * @param ipAddressType The IP Address type either `IPV4` or `IPV6`
+         * @param ipAddressType IP Address type either `IPV4` or `IPV6`
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterCapacityProvidersDefaultCapacityProviderStrategy {
     /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     private @Nullable Integer base;
@@ -24,14 +24,14 @@ public final class ClusterCapacityProvidersDefaultCapacityProviderStrategy {
      */
     private String capacityProvider;
     /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     private @Nullable Integer weight;
 
     private ClusterCapacityProvidersDefaultCapacityProviderStrategy() {}
     /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     public Optional<Integer> base() {
@@ -45,7 +45,7 @@ public final class ClusterCapacityProvidersDefaultCapacityProviderStrategy {
         return this.capacityProvider;
     }
     /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     public Optional<Integer> weight() {

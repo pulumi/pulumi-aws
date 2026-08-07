@@ -39,7 +39,7 @@ class GetNetworkPeeringConnectionsResult:
     @pulumi.getter(name="odbPeeringConnections")
     def odb_peering_connections(self) -> Sequence['outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult']:
         """
-        The list of ODB peering connections. A summary of an ODB peering connection.
+        List of ODB peering connections. A summary of an ODB peering connection.
         """
         return pulumi.get(self, "odb_peering_connections")
 

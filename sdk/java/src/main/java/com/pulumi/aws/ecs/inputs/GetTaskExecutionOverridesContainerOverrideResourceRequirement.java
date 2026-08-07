@@ -14,14 +14,14 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
     public static final GetTaskExecutionOverridesContainerOverrideResourceRequirement Empty = new GetTaskExecutionOverridesContainerOverrideResourceRequirement();
 
     /**
-     * The type of resource to assign to a container. Valid values are `GPU`.
+     * Type of resource to assign to a container. Valid values are `GPU`.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return The type of resource to assign to a container. Valid values are `GPU`.
+     * @return Type of resource to assign to a container. Valid values are `GPU`.
      * 
      */
     public String type() {
@@ -29,14 +29,14 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
     }
 
     /**
-     * The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
+     * Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
      * 
      */
     @Import(name="value", required=true)
     private String value;
 
     /**
-     * @return The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
+     * @return Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
      * 
      */
     public String value() {
@@ -69,7 +69,7 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
         }
 
         /**
-         * @param type The type of resource to assign to a container. Valid values are `GPU`.
+         * @param type Type of resource to assign to a container. Valid values are `GPU`.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetTaskExecutionOverridesContainerOverrideResourceRequirement
         }
 
         /**
-         * @param value The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
+         * @param value Value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that&#39;s reserved for all containers in a task can&#39;t exceed the number of available GPUs on the container instance that the task is launched on.
          * 
          * @return builder
          * 

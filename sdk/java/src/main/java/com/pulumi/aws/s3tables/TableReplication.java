@@ -134,9 +134,17 @@ public class TableReplication extends com.pulumi.resources.CustomResource {
     public Output<String> tableArn() {
         return this.tableArn;
     }
+    /**
+     * Identifier for the current version of the replication configuration.
+     * 
+     */
     @Export(name="versionToken", refs={String.class}, tree="[0]")
     private Output<String> versionToken;
 
+    /**
+     * @return Identifier for the current version of the replication configuration.
+     * 
+     */
     public Output<String> versionToken() {
         return this.versionToken;
     }

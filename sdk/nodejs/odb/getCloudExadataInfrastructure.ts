@@ -38,7 +38,7 @@ export function getCloudExadataInfrastructure(args: GetCloudExadataInfrastructur
  */
 export interface GetCloudExadataInfrastructureArgs {
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * Unique identifier of the Exadata infrastructure.
      *
      * The following arguments are optional:
      */
@@ -54,130 +54,136 @@ export interface GetCloudExadataInfrastructureArgs {
  */
 export interface GetCloudExadataInfrastructureResult {
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      */
     readonly activatedStorageCount: number;
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      */
     readonly additionalStorageCount: number;
     /**
-     * The Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * Amazon Resource Name (ARN) for the Exadata infrastructure.
      */
     readonly arn: string;
     /**
-     * The name of the Availability Zone (AZ) where the Exadata infrastructure is located.
+     * Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
      */
     readonly availabilityZone: string;
     /**
-     * The AZ ID of the AZ where the Exadata infrastructure is located.
+     * AZ ID of the AZ where the Exadata infrastructure is located.
      */
     readonly availabilityZoneId: string;
+    /**
+     * Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
+     */
     readonly availableStorageSizeInGbs: number;
     /**
-     * The number of database servers for the Exadata infrastructure.
+     * Number of database servers for the Exadata infrastructure.
      */
     readonly computeCount: number;
     /**
-     * The OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * OCI compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      */
     readonly computeModel: string;
     /**
-     * The total number of CPU cores that are allocated to the Exadata infrastructure.
+     * Total number of CPU cores that are allocated to the Exadata infrastructure.
      */
     readonly cpuCount: number;
     /**
-     * The time when the Exadata infrastructure was created.
+     * Time when the Exadata infrastructure was created.
      */
     readonly createdAt: string;
+    /**
+     * Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure.
+     */
     readonly customerContactsToSendToOcis: outputs.odb.GetCloudExadataInfrastructureCustomerContactsToSendToOci[];
     /**
-     * The size of the Exadata infrastructure's data disk group, in terabytes (TB).
+     * Size of the Exadata infrastructure's data disk group, in terabytes (TB).
      */
     readonly dataStorageSizeInTbs: number;
     /**
-     * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+     * Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
     readonly databaseServerType: string;
     /**
-     * The size of the storage available on each database node, in gigabytes (GB).
+     * Size of the storage available on each database node, in gigabytes (GB).
      */
     readonly dbNodeStorageSizeInGbs: number;
     /**
-     * The version of the Exadata infrastructure.
+     * Version of the Exadata infrastructure.
      */
     readonly dbServerVersion: string;
     /**
-     * The display name of the Exadata infrastructure.
+     * Display name of the Exadata infrastructure.
      */
     readonly displayName: string;
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * Unique identifier of the Exadata infrastructure.
      */
     readonly id: string;
     /**
-     * The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
+     * Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
      */
     readonly lastMaintenanceRunId: string;
     /**
-     * The scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
+     * Scheduling details of the maintenance window. Patching and system updates take place during the maintenance window.
      */
     readonly maintenanceWindows: outputs.odb.GetCloudExadataInfrastructureMaintenanceWindow[];
     /**
-     * The total number of CPU cores available on the Exadata infrastructure.
+     * Total number of CPU cores available on the Exadata infrastructure.
      */
     readonly maxCpuCount: number;
     /**
-     * The total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
+     * Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
      */
     readonly maxDataStorageInTbs: number;
     /**
-     * The total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
+     * Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.
      */
     readonly maxDbNodeStorageSizeInGbs: number;
     /**
-     * The total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
+     * Total amount of memory, in gigabytes (GB), that's available on the Exadata infrastructure.
      */
     readonly maxMemoryInGbs: number;
     /**
-     * The amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
+     * Amount of memory, in gigabytes (GB), that's allocated on the Exadata infrastructure.
      */
     readonly memorySizeInGbs: number;
     /**
-     * The monthly software version of the database servers installed on the Exadata infrastructure.
+     * Monthly software version of the database servers installed on the Exadata infrastructure.
      */
     readonly monthlyDbServerVersion: string;
     /**
-     * The monthly software version of the storage servers installed on the Exadata infrastructure.
+     * Monthly software version of the storage servers installed on the Exadata infrastructure.
      */
     readonly monthlyStorageServerVersion: string;
     /**
-     * The OCID of the next maintenance run for the Exadata infrastructure.
+     * OCID of the next maintenance run for the Exadata infrastructure.
      */
     readonly nextMaintenanceRunId: string;
     /**
-     * The name of the OCI resource anchor for the Exadata infrastructure.
+     * Name of the OCI resource anchor for the Exadata infrastructure.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The HTTPS link to the Exadata infrastructure in OCI.
+     * HTTPS link to the Exadata infrastructure in OCI.
      */
     readonly ociUrl: string;
     /**
-     * The OCID of the Exadata infrastructure in OCI.
+     * OCID of the Exadata infrastructure in OCI.
      */
     readonly ocid: string;
     /**
-     * The amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
+     * Amount of progress made on the current operation on the Exadata infrastructure expressed as a percentage.
      */
     readonly percentProgress: number;
     readonly region: string;
     /**
-     * The model name of the Exadata infrastructure.
+     * Model name of the Exadata infrastructure.
      */
     readonly shape: string;
     /**
-     * The status of the Exadata infrastructure.
+     * Status of the Exadata infrastructure.
      */
     readonly status: string;
     /**
@@ -185,23 +191,23 @@ export interface GetCloudExadataInfrastructureResult {
      */
     readonly statusReason: string;
     /**
-     * The number of storage servers that are activated for the Exadata infrastructure.
+     * Number of storage servers that are activated for the Exadata infrastructure.
      */
     readonly storageCount: number;
     /**
-     * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
+     * Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation.
      */
     readonly storageServerType: string;
     /**
-     * The software version of the storage servers on the Exadata infrastructure.
+     * Software version of the storage servers on the Exadata infrastructure.
      */
     readonly storageServerVersion: string;
     /**
-     * (Optional) A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the Exadata infrastructure.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
+     * Total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
      */
     readonly totalStorageSizeInGbs: number;
 }
@@ -236,7 +242,7 @@ export function getCloudExadataInfrastructureOutput(args: GetCloudExadataInfrast
  */
 export interface GetCloudExadataInfrastructureOutputArgs {
     /**
-     * The unique identifier of the Exadata infrastructure.
+     * Unique identifier of the Exadata infrastructure.
      *
      * The following arguments are optional:
      */

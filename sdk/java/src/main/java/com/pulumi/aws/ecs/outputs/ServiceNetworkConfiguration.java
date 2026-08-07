@@ -27,8 +27,6 @@ public final class ServiceNetworkConfiguration {
     /**
      * @return Subnets associated with the task or service.
      * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-     * 
      */
     private List<String> subnets;
 
@@ -49,8 +47,6 @@ public final class ServiceNetworkConfiguration {
     }
     /**
      * @return Subnets associated with the task or service.
-     * 
-     * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
      * 
      */
     public List<String> subnets() {

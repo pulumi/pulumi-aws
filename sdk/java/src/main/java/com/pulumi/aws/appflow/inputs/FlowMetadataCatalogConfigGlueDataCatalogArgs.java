@@ -15,14 +15,14 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
     public static final FlowMetadataCatalogConfigGlueDataCatalogArgs Empty = new FlowMetadataCatalogConfigGlueDataCatalogArgs();
 
     /**
-     * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+     * Name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+     * @return Name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
      * 
      */
     public Output<String> databaseName() {
@@ -30,14 +30,14 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
     }
 
     /**
-     * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+     * ARN of the IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+     * @return ARN of the IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
      * 
      */
     public Output<String> roleArn() {
@@ -45,14 +45,14 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
     }
 
     /**
-     * A naming prefix for each Data Catalog table that Amazon AppFlow creates
+     * Naming prefix for each Data Catalog table that Amazon AppFlow creates.
      * 
      */
     @Import(name="tablePrefix", required=true)
     private Output<String> tablePrefix;
 
     /**
-     * @return A naming prefix for each Data Catalog table that Amazon AppFlow creates
+     * @return Naming prefix for each Data Catalog table that Amazon AppFlow creates.
      * 
      */
     public Output<String> tablePrefix() {
@@ -86,7 +86,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param databaseName The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+         * @param databaseName Name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param databaseName The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+         * @param databaseName Name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param roleArn The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+         * @param roleArn ARN of the IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param roleArn The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+         * @param roleArn ARN of the IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param tablePrefix A naming prefix for each Data Catalog table that Amazon AppFlow creates
+         * @param tablePrefix Naming prefix for each Data Catalog table that Amazon AppFlow creates.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class FlowMetadataCatalogConfigGlueDataCatalogArgs extends com.pulu
         }
 
         /**
-         * @param tablePrefix A naming prefix for each Data Catalog table that Amazon AppFlow creates
+         * @param tablePrefix Naming prefix for each Data Catalog table that Amazon AppFlow creates.
          * 
          * @return builder
          * 

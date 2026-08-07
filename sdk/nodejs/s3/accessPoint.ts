@@ -136,8 +136,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     declare public readonly bucketAccountId: pulumi.Output<string>;
     /**
-     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
-     * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
@@ -145,7 +144,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoints: pulumi.Output<{[key: string]: string}>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     declare public /*out*/ readonly hasPublicAccessPolicy: pulumi.Output<boolean>;
     /**
@@ -155,7 +154,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+     * Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      */
     declare public /*out*/ readonly networkOrigin: pulumi.Output<string>;
     /**
@@ -264,8 +263,7 @@ export interface AccessPointState {
      */
     bucketAccountId?: pulumi.Input<string | undefined>;
     /**
-     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
-     * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
+     * DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com. S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
@@ -273,7 +271,7 @@ export interface AccessPointState {
      */
     endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      */
     hasPublicAccessPolicy?: pulumi.Input<boolean | undefined>;
     /**
@@ -283,7 +281,7 @@ export interface AccessPointState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
+     * Whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      */
     networkOrigin?: pulumi.Input<string | undefined>;
     /**

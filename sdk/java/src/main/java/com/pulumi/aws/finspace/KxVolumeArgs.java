@@ -20,18 +20,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     public static final KxVolumeArgs Empty = new KxVolumeArgs();
 
     /**
-     * The identifier of the AWS Availability Zone IDs.
-     * 
-     * The following arguments are optional:
+     * Identifier of the AWS Availability Zone IDs.
      * 
      */
     @Import(name="availabilityZones", required=true)
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return The identifier of the AWS Availability Zone IDs.
-     * 
-     * The following arguments are optional:
+     * @return Identifier of the AWS Availability Zone IDs.
      * 
      */
     public Output<List<String>> availabilityZones() {
@@ -39,16 +35,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-     * * `SINGLE` - Assigns one availability zone per volume.
+     * Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
      * 
      */
     @Import(name="azMode", required=true)
     private Output<String> azMode;
 
     /**
-     * @return The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-     * * `SINGLE` - Assigns one availability zone per volume.
+     * @return Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
      * 
      */
     public Output<String> azMode() {
@@ -71,14 +65,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A unique identifier for the kdb environment, whose clusters can attach to the volume.
+     * Unique identifier for the kdb environment, whose clusters can attach to the volume.
      * 
      */
     @Import(name="environmentId", required=true)
     private Output<String> environmentId;
 
     /**
-     * @return A unique identifier for the kdb environment, whose clusters can attach to the volume.
+     * @return Unique identifier for the kdb environment, whose clusters can attach to the volume.
      * 
      */
     public Output<String> environmentId() {
@@ -86,14 +80,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name for the volumr that you want to create.
+     * Unique name for the volume that you want to create.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for the volumr that you want to create.
+     * @return Unique name for the volume that you want to create.
      * 
      */
     public Optional<Output<String>> name() {
@@ -101,14 +95,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+     * Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
      * 
      */
     @Import(name="nas1Configurations")
     private @Nullable Output<List<KxVolumeNas1ConfigurationArgs>> nas1Configurations;
 
     /**
-     * @return Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+     * @return Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
      * 
      */
     public Optional<Output<List<KxVolumeNas1ConfigurationArgs>>> nas1Configurations() {
@@ -131,14 +125,14 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+     * Key-value pairs to label the volume. You can add up to 50 tags to a volume.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+     * @return Key-value pairs to label the volume. You can add up to 50 tags to a volume.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -146,14 +140,18 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * @return Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {
@@ -193,9 +191,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones The identifier of the AWS Availability Zone IDs.
-         * 
-         * The following arguments are optional:
+         * @param availabilityZones Identifier of the AWS Availability Zone IDs.
          * 
          * @return builder
          * 
@@ -206,9 +202,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones The identifier of the AWS Availability Zone IDs.
-         * 
-         * The following arguments are optional:
+         * @param availabilityZones Identifier of the AWS Availability Zone IDs.
          * 
          * @return builder
          * 
@@ -218,9 +212,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZones The identifier of the AWS Availability Zone IDs.
-         * 
-         * The following arguments are optional:
+         * @param availabilityZones Identifier of the AWS Availability Zone IDs.
          * 
          * @return builder
          * 
@@ -230,8 +222,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-         * * `SINGLE` - Assigns one availability zone per volume.
+         * @param azMode Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
          * 
          * @return builder
          * 
@@ -242,8 +233,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param azMode The number of availability zones you want to assign per volume. Currently, Finspace only support SINGLE for volumes.
-         * * `SINGLE` - Assigns one availability zone per volume.
+         * @param azMode Number of availability zones you want to assign per volume. Currently, FinSpace only supports `SINGLE` for volumes, which assigns one availability zone per volume.
          * 
          * @return builder
          * 
@@ -274,7 +264,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId A unique identifier for the kdb environment, whose clusters can attach to the volume.
+         * @param environmentId Unique identifier for the kdb environment, whose clusters can attach to the volume.
          * 
          * @return builder
          * 
@@ -285,7 +275,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environmentId A unique identifier for the kdb environment, whose clusters can attach to the volume.
+         * @param environmentId Unique identifier for the kdb environment, whose clusters can attach to the volume.
          * 
          * @return builder
          * 
@@ -295,7 +285,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for the volumr that you want to create.
+         * @param name Unique name for the volume that you want to create.
          * 
          * @return builder
          * 
@@ -306,7 +296,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for the volumr that you want to create.
+         * @param name Unique name for the volume that you want to create.
          * 
          * @return builder
          * 
@@ -316,7 +306,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nas1Configurations Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+         * @param nas1Configurations Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
          * 
          * @return builder
          * 
@@ -327,7 +317,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nas1Configurations Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+         * @param nas1Configurations Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
          * 
          * @return builder
          * 
@@ -337,7 +327,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nas1Configurations Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
+         * @param nas1Configurations Configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Block below.
          * 
          * @return builder
          * 
@@ -368,7 +358,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+         * @param tags Key-value pairs to label the volume. You can add up to 50 tags to a volume.
          * 
          * @return builder
          * 
@@ -379,7 +369,7 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
+         * @param tags Key-value pairs to label the volume. You can add up to 50 tags to a volume.
          * 
          * @return builder
          * 
@@ -389,7 +379,9 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         * @param type Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -400,7 +392,9 @@ public final class KxVolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         * @param type Type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

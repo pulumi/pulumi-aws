@@ -100,42 +100,42 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * Whether this is the default version of the managed permission.
      * 
      */
     @Export(name="defaultVersion", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultVersion;
 
     /**
-     * @return Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+     * @return Whether this is the default version of the managed permission.
      * 
      */
     public Output<Boolean> defaultVersion() {
         return this.defaultVersion;
     }
     /**
-     * Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+     * @return Name of the customer managed permission. The name must be unique within the AWS Region.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     @Export(name="policyTemplate", refs={String.class}, tree="[0]")
     private Output<String> policyTemplate;
 
     /**
-     * @return A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+     * @return String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
      * 
      */
     public Output<String> policyTemplate() {
@@ -156,56 +156,56 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return Specifies the name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
+     * @return Name of the resource type that this customer managed permission applies to. The format is `&lt;service-code&gt;:&lt;resource-type&gt;` and is not case sensitive.
      * 
      */
     public Output<String> resourceType() {
         return this.resourceType;
     }
     /**
-     * The current status of the permission.
+     * Current status of the permission.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the permission.
+     * @return Current status of the permission.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -218,14 +218,14 @@ public class Permission extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The version of the permission associated with this resource share.
+     * Version of the permission associated with this resource share.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The version of the permission associated with this resource share.
+     * @return Version of the permission associated with this resource share.
      * 
      */
     public Output<String> version() {

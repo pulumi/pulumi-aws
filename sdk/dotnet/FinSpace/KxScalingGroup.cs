@@ -53,33 +53,31 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions.
+        /// Availability zone identifiers for the requested regions.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Managed kdb clusters that are currently active in the given scaling group.
+        /// List of Managed kdb clusters that are currently active in the given scaling group.
         /// </summary>
         [Output("clusters")]
         public Output<ImmutableArray<string>> Clusters { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the kdb environment, where you want to create the scaling group.
+        /// Unique identifier for the kdb environment, where you want to create the scaling group.
         /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-        /// 
-        /// The following arguments are optional:
+        /// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         /// </summary>
         [Output("hostType")]
         public Output<string> HostType { get; private set; } = null!;
@@ -92,6 +90,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// Unique name for the scaling group that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -103,21 +103,13 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The status of scaling group.
-        /// * `CREATING` - The scaling group creation is in progress.
-        /// * `CREATE_FAILED` - The scaling group creation has failed.
-        /// * `ACTIVE` - The scaling group is active.
-        /// * `UPDATING` - The scaling group is in the process of being updated.
-        /// * `UPDATE_FAILED` - The update action failed.
-        /// * `DELETING` - The scaling group is in the process of being deleted.
-        /// * `DELETE_FAILED` - The system failed to delete the scaling group.
-        /// * `DELETED` - The scaling group is successfully deleted.
+        /// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The error message when a failed state occurs.
+        /// Error message when a failed state occurs.
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
@@ -181,27 +173,27 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxScalingGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The availability zone identifiers for the requested regions.
+        /// Availability zone identifiers for the requested regions.
         /// </summary>
         [Input("availabilityZoneId", required: true)]
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the kdb environment, where you want to create the scaling group.
+        /// Unique identifier for the kdb environment, where you want to create the scaling group.
         /// </summary>
         [Input("environmentId", required: true)]
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-        /// 
-        /// The following arguments are optional:
+        /// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         /// </summary>
         [Input("hostType", required: true)]
         public Input<string> HostType { get; set; } = null!;
 
         /// <summary>
         /// Unique name for the scaling group that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -239,7 +231,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions.
+        /// Availability zone identifiers for the requested regions.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -248,7 +240,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<string>? _clusters;
 
         /// <summary>
-        /// The list of Managed kdb clusters that are currently active in the given scaling group.
+        /// List of Managed kdb clusters that are currently active in the given scaling group.
         /// </summary>
         public InputList<string> Clusters
         {
@@ -257,21 +249,19 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+        /// Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
         /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }
 
         /// <summary>
-        /// A unique identifier for the kdb environment, where you want to create the scaling group.
+        /// Unique identifier for the kdb environment, where you want to create the scaling group.
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
-        /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-        /// 
-        /// The following arguments are optional:
+        /// Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         /// </summary>
         [Input("hostType")]
         public Input<string>? HostType { get; set; }
@@ -284,6 +274,8 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// Unique name for the scaling group that you want to create.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -295,21 +287,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The status of scaling group.
-        /// * `CREATING` - The scaling group creation is in progress.
-        /// * `CREATE_FAILED` - The scaling group creation has failed.
-        /// * `ACTIVE` - The scaling group is active.
-        /// * `UPDATING` - The scaling group is in the process of being updated.
-        /// * `UPDATE_FAILED` - The update action failed.
-        /// * `DELETING` - The scaling group is in the process of being deleted.
-        /// * `DELETE_FAILED` - The system failed to delete the scaling group.
-        /// * `DELETED` - The scaling group is successfully deleted.
+        /// Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The error message when a failed state occurs.
+        /// Error message when a failed state occurs.
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }

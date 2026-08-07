@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ram
     public partial class PrincipalAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        /// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ram
     public sealed class PrincipalAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        /// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         [Input("resourceShareArn", required: true)]
         public Input<string> ResourceShareArn { get; set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ram
     public sealed class PrincipalAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        /// Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         /// </summary>
         [Input("principal")]
         public Input<string>? Principal { get; set; }
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource share.
+        /// Amazon Resource Name (ARN) of the resource share.
         /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class OpenZfsFileSystemRootVolumeConfiguration
     {
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default value is false.
         /// </summary>
         public readonly bool? CopyTagsToSnapshots;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly bool? ReadOnly;
         /// <summary>
-        /// Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        /// Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         /// </summary>
         public readonly int? RecordSizeKib;
         /// <summary>

@@ -16,14 +16,14 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDbNodePlainArgs Empty = new GetDbNodePlainArgs();
 
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      * 
      */
     @Import(name="cloudVmClusterId", required=true)
     private String cloudVmClusterId;
 
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      */
     public String cloudVmClusterId() {
@@ -31,7 +31,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The unique identifier of db node associated with vm cluster.
+     * Unique identifier of db node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -40,7 +40,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
     private String id;
 
     /**
-     * @return The unique identifier of db node associated with vm cluster.
+     * @return Unique identifier of db node associated with vm cluster.
      * 
      * The following arguments are optional:
      * 
@@ -91,7 +91,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param cloudVmClusterId The unique identifier of the cloud vm cluster.
+         * @param cloudVmClusterId Unique identifier of the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetDbNodePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id The unique identifier of db node associated with vm cluster.
+         * @param id Unique identifier of db node associated with vm cluster.
          * 
          * The following arguments are optional:
          * 

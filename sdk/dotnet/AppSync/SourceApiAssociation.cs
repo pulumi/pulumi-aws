@@ -87,6 +87,9 @@ namespace Pulumi.Aws.AppSync
         [Output("sourceApiArn")]
         public Output<string> SourceApiArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Source API Association configuration. See `SourceApiAssociationConfig` Block for details.
+        /// </summary>
         [Output("sourceApiAssociationConfigs")]
         public Output<ImmutableArray<Outputs.SourceApiAssociationSourceApiAssociationConfig>> SourceApiAssociationConfigs { get; private set; } = null!;
 
@@ -177,6 +180,10 @@ namespace Pulumi.Aws.AppSync
 
         [Input("sourceApiAssociationConfigs")]
         private InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>? _sourceApiAssociationConfigs;
+
+        /// <summary>
+        /// Source API Association configuration. See `SourceApiAssociationConfig` Block for details.
+        /// </summary>
         public InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs> SourceApiAssociationConfigs
         {
             get => _sourceApiAssociationConfigs ?? (_sourceApiAssociationConfigs = new InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigArgs>());
@@ -244,6 +251,10 @@ namespace Pulumi.Aws.AppSync
 
         [Input("sourceApiAssociationConfigs")]
         private InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigGetArgs>? _sourceApiAssociationConfigs;
+
+        /// <summary>
+        /// Source API Association configuration. See `SourceApiAssociationConfig` Block for details.
+        /// </summary>
         public InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigGetArgs> SourceApiAssociationConfigs
         {
             get => _sourceApiAssociationConfigs ?? (_sourceApiAssociationConfigs = new InputList<Inputs.SourceApiAssociationSourceApiAssociationConfigGetArgs>());

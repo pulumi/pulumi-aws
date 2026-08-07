@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<Inputs.ApiEventConfigAuthProviderGetArgs>? _authProviders;
 
         /// <summary>
-        /// List of authentication providers. See Auth Providers below.
+        /// List of authentication providers. See `event_config.auth_provider` Block below.
         /// </summary>
         public InputList<Inputs.ApiEventConfigAuthProviderGetArgs> AuthProviders
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<Inputs.ApiEventConfigConnectionAuthModeGetArgs>? _connectionAuthModes;
 
         /// <summary>
-        /// List of authentication modes for connections. See Auth Modes below.
+        /// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
         /// </summary>
         public InputList<Inputs.ApiEventConfigConnectionAuthModeGetArgs> ConnectionAuthModes
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<Inputs.ApiEventConfigDefaultPublishAuthModeGetArgs>? _defaultPublishAuthModes;
 
         /// <summary>
-        /// List of default authentication modes for publishing. See Auth Modes below.
+        /// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
         /// </summary>
         public InputList<Inputs.ApiEventConfigDefaultPublishAuthModeGetArgs> DefaultPublishAuthModes
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         private InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeGetArgs>? _defaultSubscribeAuthModes;
 
         /// <summary>
-        /// List of default authentication modes for subscribing. See Auth Modes below.
+        /// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
         /// </summary>
         public InputList<Inputs.ApiEventConfigDefaultSubscribeAuthModeGetArgs> DefaultSubscribeAuthModes
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         }
 
         /// <summary>
-        /// Logging configuration. See Log Config below.
+        /// Logging configuration. See `LogConfig` Block below.
         /// </summary>
         [Input("logConfig")]
         public Input<Inputs.ApiEventConfigLogConfigGetArgs>? LogConfig { get; set; }

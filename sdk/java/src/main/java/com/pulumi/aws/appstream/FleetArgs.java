@@ -203,14 +203,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * Maximum number of user sessions on an instance. This only applies to multi-session fleets.
      * 
      */
     @Import(name="maxSessionsPerInstance")
     private @Nullable Output<Integer> maxSessionsPerInstance;
 
     /**
-     * @return The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+     * @return Maximum number of user sessions on an instance. This only applies to multi-session fleets.
      * 
      */
     public Optional<Output<Integer>> maxSessionsPerInstance() {
@@ -606,7 +606,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSessionsPerInstance The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+         * @param maxSessionsPerInstance Maximum number of user sessions on an instance. This only applies to multi-session fleets.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxSessionsPerInstance The maximum number of user sessions on an instance. This only applies to multi-session fleets.
+         * @param maxSessionsPerInstance Maximum number of user sessions on an instance. This only applies to multi-session fleets.
          * 
          * @return builder
          * 

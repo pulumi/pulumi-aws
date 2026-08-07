@@ -24,17 +24,17 @@ public final class VirtualNodeSpecListenerHealthCheck {
      */
     private Integer intervalMillis;
     /**
-     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     private @Nullable String path;
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+     * @return Port used for the port mapping.
      * 
      */
     private @Nullable Integer port;
     /**
-     * @return Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
     private String protocol;
@@ -65,21 +65,21 @@ public final class VirtualNodeSpecListenerHealthCheck {
         return this.intervalMillis;
     }
     /**
-     * @return Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
     public Optional<String> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Destination port for the health check request. This port must match the port defined in the `portMapping` for the listener.
+     * @return Port used for the port mapping.
      * 
      */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+     * @return Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
     public String protocol() {

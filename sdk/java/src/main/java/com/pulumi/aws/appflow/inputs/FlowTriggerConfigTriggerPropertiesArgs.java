@@ -15,9 +15,17 @@ public final class FlowTriggerConfigTriggerPropertiesArgs extends com.pulumi.res
 
     public static final FlowTriggerConfigTriggerPropertiesArgs Empty = new FlowTriggerConfigTriggerPropertiesArgs();
 
+    /**
+     * Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+     * 
+     */
     @Import(name="scheduled")
     private @Nullable Output<FlowTriggerConfigTriggerPropertiesScheduledArgs> scheduled;
 
+    /**
+     * @return Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+     * 
+     */
     public Optional<Output<FlowTriggerConfigTriggerPropertiesScheduledArgs>> scheduled() {
         return Optional.ofNullable(this.scheduled);
     }
@@ -46,11 +54,23 @@ public final class FlowTriggerConfigTriggerPropertiesArgs extends com.pulumi.res
             $ = new FlowTriggerConfigTriggerPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param scheduled Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduled(@Nullable Output<FlowTriggerConfigTriggerPropertiesScheduledArgs> scheduled) {
             $.scheduled = scheduled;
             return this;
         }
 
+        /**
+         * @param scheduled Configuration details of a schedule-triggered flow. See the `trigger_config.trigger_properties.scheduled` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scheduled(FlowTriggerConfigTriggerPropertiesScheduledArgs scheduled) {
             return scheduled(Output.of(scheduled));
         }

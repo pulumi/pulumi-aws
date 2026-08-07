@@ -16,14 +16,14 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
     public static final ListenerRuleMatchHttpMatchPathMatchMatchArgs Empty = new ListenerRuleMatchHttpMatchPathMatchMatchArgs();
 
     /**
-     * Specifies an exact type match.
+     * Exact type match.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Specifies an exact type match.
+     * @return Exact type match.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -31,16 +31,14 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
     }
 
     /**
-     * Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * Prefix type match. Matches the value with the prefix.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Specifies a prefix type match.
-     * Matches the value with the prefix.
+     * @return Prefix type match. Matches the value with the prefix.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -73,7 +71,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param exact Specifies an exact type match.
+         * @param exact Exact type match.
          * 
          * @return builder
          * 
@@ -84,7 +82,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param exact Specifies an exact type match.
+         * @param exact Exact type match.
          * 
          * @return builder
          * 
@@ -94,8 +92,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * @param prefix Prefix type match. Matches the value with the prefix.
          * 
          * @return builder
          * 
@@ -106,8 +103,7 @@ public final class ListenerRuleMatchHttpMatchPathMatchMatchArgs extends com.pulu
         }
 
         /**
-         * @param prefix Specifies a prefix type match.
-         * Matches the value with the prefix.
+         * @param prefix Prefix type match. Matches the value with the prefix.
          * 
          * @return builder
          * 

@@ -30,7 +30,7 @@ func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.
 type GetGiVersionsArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The system shape.
+	// System shape.
 	Shape *string `pulumi:"shape"`
 }
 
@@ -55,7 +55,7 @@ func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts
 type GetGiVersionsOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The system shape.
+	// System shape.
 	Shape pulumi.StringPtrInput `pulumi:"shape"`
 }
 

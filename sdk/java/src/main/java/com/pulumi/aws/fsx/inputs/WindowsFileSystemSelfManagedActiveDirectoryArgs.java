@@ -19,14 +19,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     public static final WindowsFileSystemSelfManagedActiveDirectoryArgs Empty = new WindowsFileSystemSelfManagedActiveDirectoryArgs();
 
     /**
-     * A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+     * List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
      * 
      */
     @Import(name="dnsIps", required=true)
     private Output<List<String>> dnsIps;
 
     /**
-     * @return A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+     * @return List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
      * 
      */
     public Output<List<String>> dnsIps() {
@@ -34,14 +34,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     @Import(name="domainJoinServiceAccountSecret")
     private @Nullable Output<String> domainJoinServiceAccountSecret;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * @return Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
      * 
      */
     public Optional<Output<String>> domainJoinServiceAccountSecret() {
@@ -49,14 +49,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+     * Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
     /**
-     * @return The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+     * @return Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
     public Output<String> domainName() {
@@ -64,14 +64,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+     * Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
      * 
      */
     @Import(name="fileSystemAdministratorsGroup")
     private @Nullable Output<String> fileSystemAdministratorsGroup;
 
     /**
-     * @return The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+     * @return Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
      * 
      */
     public Optional<Output<String>> fileSystemAdministratorsGroup() {
@@ -79,14 +79,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+     * Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
      * 
      */
     @Import(name="organizationalUnitDistinguishedName")
     private @Nullable Output<String> organizationalUnitDistinguishedName;
 
     /**
-     * @return The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+     * @return Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
      * 
      */
     public Optional<Output<String>> organizationalUnitDistinguishedName() {
@@ -94,14 +94,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+     * @return Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
      * 
      */
     public Optional<Output<String>> password() {
@@ -110,7 +110,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
      * 
      */
     @Import(name="passwordWo")
@@ -118,7 +118,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
      * 
      */
     public Optional<Output<String>> passwordWo() {
@@ -141,14 +141,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+     * User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
     @Import(name="username")
     private @Nullable Output<String> username;
 
     /**
-     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+     * @return User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
     public Optional<Output<String>> username() {
@@ -188,7 +188,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param dnsIps A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+         * @param dnsIps List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param dnsIps A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+         * @param dnsIps List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param dnsIps A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+         * @param dnsIps List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainJoinServiceAccountSecret The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * @param domainJoinServiceAccountSecret Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainJoinServiceAccountSecret The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * @param domainJoinServiceAccountSecret Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainName The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         * @param domainName Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param domainName The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         * @param domainName Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param fileSystemAdministratorsGroup The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         * @param fileSystemAdministratorsGroup Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param fileSystemAdministratorsGroup The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         * @param fileSystemAdministratorsGroup Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param organizationalUnitDistinguishedName The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         * @param organizationalUnitDistinguishedName Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param organizationalUnitDistinguishedName The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         * @param organizationalUnitDistinguishedName Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+         * @param password Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
+         * @param password Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+         * @param username User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
+         * @param username User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 

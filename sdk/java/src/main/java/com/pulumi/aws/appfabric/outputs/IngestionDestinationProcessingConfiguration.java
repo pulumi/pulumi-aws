@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class IngestionDestinationProcessingConfiguration {
     /**
-     * @return Contains information about an audit log processing configuration.
+     * @return Audit log processing configuration. See `processing_configuration.audit_log` Block below.
      * 
      */
     private IngestionDestinationProcessingConfigurationAuditLog auditLog;
 
     private IngestionDestinationProcessingConfiguration() {}
     /**
-     * @return Contains information about an audit log processing configuration.
+     * @return Audit log processing configuration. See `processing_configuration.audit_log` Block below.
      * 
      */
     public IngestionDestinationProcessingConfigurationAuditLog auditLog() {

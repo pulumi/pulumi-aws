@@ -122,14 +122,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.creationTime;
     }
     /**
-     * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      * 
      */
     @Export(name="customerOwnedIpv4Pool", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerOwnedIpv4Pool;
 
     /**
-     * @return The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+     * @return ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      * 
      */
     public Output<Optional<String>> customerOwnedIpv4Pool() {

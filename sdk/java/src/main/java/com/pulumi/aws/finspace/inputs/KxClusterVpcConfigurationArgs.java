@@ -32,7 +32,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     @Import(name="securityGroupIds", required=true)
@@ -40,29 +39,36 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
     /**
      * @return Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-     * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
 
+    /**
+     * Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+     * 
+     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
     /**
-     * Identifier of the VPC endpoint
+     * Identifier of the VPC endpoint.
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return Identifier of the VPC endpoint
+     * @return Identifier of the VPC endpoint.
      * 
      */
     public Output<String> vpcId() {
@@ -119,7 +125,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 
@@ -131,7 +136,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 
@@ -142,7 +146,6 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
 
         /**
          * @param securityGroupIds Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-         * * ` subnetIds  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
          * 
          * @return builder
          * 
@@ -151,21 +154,39 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnetIds Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
         /**
-         * @param vpcId Identifier of the VPC endpoint
+         * @param vpcId Identifier of the VPC endpoint.
          * 
          * @return builder
          * 
@@ -176,7 +197,7 @@ public final class KxClusterVpcConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vpcId Identifier of the VPC endpoint
+         * @param vpcId Identifier of the VPC endpoint.
          * 
          * @return builder
          * 

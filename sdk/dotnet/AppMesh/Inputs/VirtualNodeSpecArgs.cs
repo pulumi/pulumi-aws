@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defaults for backends. See `BackendDefaults` Block for details.
+        /// Defaults for backends. See `spec.backend_defaults` Block for details.
         /// </summary>
         [Input("backendDefaults")]
         public Input<Inputs.VirtualNodeSpecBackendDefaultsArgs>? BackendDefaults { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecBackendArgs>? _backends;
 
         /// <summary>
-        /// Backends to which the virtual node is expected to send outbound traffic. See `Backend` Block for details.
+        /// Backends to which the virtual node is expected to send outbound traffic. See `spec.backend` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecBackendArgs> Backends
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecListenerArgs>? _listeners;
 
         /// <summary>
-        /// Listeners from which the virtual node is expected to receive inbound traffic. See `Listener` Block for details.
+        /// Listeners from which the virtual node is expected to receive inbound traffic. See `spec.listener` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecListenerArgs> Listeners
         {
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// Inbound and outbound access logging information for the virtual node. See `Logging` Block for details.
+        /// Inbound and outbound access logging information for the virtual node. See `spec.logging` Block for details.
         /// </summary>
         [Input("logging")]
         public Input<Inputs.VirtualNodeSpecLoggingArgs>? Logging { get; set; }
 
         /// <summary>
-        /// Service discovery information for the virtual node. See `ServiceDiscovery` Block for details.
+        /// Service discovery information for the virtual node. See `spec.service_discovery` Block for details.
         /// </summary>
         [Input("serviceDiscovery")]
         public Input<Inputs.VirtualNodeSpecServiceDiscoveryArgs>? ServiceDiscovery { get; set; }

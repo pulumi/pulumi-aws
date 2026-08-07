@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig
     {
         /// <summary>
-        /// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+        /// Maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
         /// </summary>
         public readonly int MaxPageSize;
 

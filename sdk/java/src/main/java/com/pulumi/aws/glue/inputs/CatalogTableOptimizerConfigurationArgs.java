@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.glue.inputs;
 
+import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationCompactionConfigurationArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs;
 import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs;
 import com.pulumi.core.Output;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CatalogTableOptimizerConfigurationArgs Empty = new CatalogTableOptimizerConfigurationArgs();
+
+    /**
+     * The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * 
+     */
+    @Import(name="compactionConfiguration")
+    private @Nullable Output<CatalogTableOptimizerConfigurationCompactionConfigurationArgs> compactionConfiguration;
+
+    /**
+     * @return The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+     * 
+     */
+    public Optional<Output<CatalogTableOptimizerConfigurationCompactionConfigurationArgs>> compactionConfiguration() {
+        return Optional.ofNullable(this.compactionConfiguration);
+    }
 
     /**
      * Indicates whether the table optimizer is enabled.
@@ -82,6 +98,7 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
     private CatalogTableOptimizerConfigurationArgs() {}
 
     private CatalogTableOptimizerConfigurationArgs(CatalogTableOptimizerConfigurationArgs $) {
+        this.compactionConfiguration = $.compactionConfiguration;
         this.enabled = $.enabled;
         this.orphanFileDeletionConfiguration = $.orphanFileDeletionConfiguration;
         this.retentionConfiguration = $.retentionConfiguration;
@@ -104,6 +121,27 @@ public final class CatalogTableOptimizerConfigurationArgs extends com.pulumi.res
 
         public Builder(CatalogTableOptimizerConfigurationArgs defaults) {
             $ = new CatalogTableOptimizerConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param compactionConfiguration The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compactionConfiguration(@Nullable Output<CatalogTableOptimizerConfigurationCompactionConfigurationArgs> compactionConfiguration) {
+            $.compactionConfiguration = compactionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param compactionConfiguration The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compactionConfiguration(CatalogTableOptimizerConfigurationCompactionConfigurationArgs compactionConfiguration) {
+            return compactionConfiguration(Output.of(compactionConfiguration));
         }
 
         /**

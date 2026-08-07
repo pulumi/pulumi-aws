@@ -53,7 +53,7 @@ import (
 type CustomDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+	// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayOutput `pulumi:"certificateValidationRecords"`
 	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringOutput `pulumi:"dnsTarget"`
@@ -105,7 +105,7 @@ func GetCustomDomainAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomainAssociation resources.
 type customDomainAssociationState struct {
-	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+	// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords []CustomDomainAssociationCertificateValidationRecord `pulumi:"certificateValidationRecords"`
 	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget *string `pulumi:"dnsTarget"`
@@ -122,7 +122,7 @@ type customDomainAssociationState struct {
 }
 
 type CustomDomainAssociationState struct {
-	// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+	// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayInput
 	// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringPtrInput
@@ -252,7 +252,7 @@ func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutputWithContex
 	return o
 }
 
-// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+// Set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
 func (o CustomDomainAssociationOutput) CertificateValidationRecords() CustomDomainAssociationCertificateValidationRecordArrayOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) CustomDomainAssociationCertificateValidationRecordArrayOutput {
 		return v.CertificateValidationRecords

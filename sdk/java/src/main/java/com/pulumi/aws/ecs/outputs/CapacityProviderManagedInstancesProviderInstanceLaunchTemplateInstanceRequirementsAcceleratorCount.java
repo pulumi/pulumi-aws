@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount {
+    /**
+     * @return Maximum number of accelerators.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum number of accelerators.
+     * 
+     */
     private @Nullable Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorCount() {}
+    /**
+     * @return Maximum number of accelerators.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum number of accelerators.
+     * 
+     */
     public Optional<Integer> min() {
         return Optional.ofNullable(this.min);
     }

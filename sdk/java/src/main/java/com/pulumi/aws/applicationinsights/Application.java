@@ -96,14 +96,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * Whether to automatically configure unmonitored resources in the resource group.
      * 
      */
     @Export(name="autoConfigEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoConfigEnabled;
 
     /**
-     * @return Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * @return Whether to automatically configure unmonitored resources in the resource group.
      * 
      */
     public Output<Optional<Boolean>> autoConfigEnabled() {
@@ -124,14 +124,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoCreate);
     }
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
     @Export(name="cweMonitorEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cweMonitorEnabled;
 
     /**
-     * @return Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * @return Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
     public Output<Optional<Boolean>> cweMonitorEnabled() {

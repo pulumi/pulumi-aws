@@ -67,7 +67,7 @@ export interface GetTaskExecutionArgs {
      */
     capacityProviderStrategies?: inputs.ecs.GetTaskExecutionCapacityProviderStrategy[];
     /**
-     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      */
     clientToken?: string;
     /**
@@ -79,11 +79,11 @@ export interface GetTaskExecutionArgs {
      */
     desiredCount?: number;
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     enableEcsManagedTags?: boolean;
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: boolean;
     /**
@@ -99,27 +99,27 @@ export interface GetTaskExecutionArgs {
      */
     networkConfiguration?: inputs.ecs.GetTaskExecutionNetworkConfiguration;
     /**
-     * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+     * List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      */
     overrides?: inputs.ecs.GetTaskExecutionOverrides;
     /**
-     * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+     * Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      */
     placementConstraints?: inputs.ecs.GetTaskExecutionPlacementConstraint[];
     /**
-     * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+     * Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      */
     placementStrategies?: inputs.ecs.GetTaskExecutionPlacementStrategy[];
     /**
-     * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+     * Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
      */
     platformVersion?: string;
     /**
-     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+     * Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
      */
     propagateTags?: string;
     /**
-     * The reference ID to use for the task.
+     * Reference ID to use for the task.
      */
     referenceId?: string;
     /**
@@ -127,7 +127,7 @@ export interface GetTaskExecutionArgs {
      */
     region?: string;
     /**
-     * An optional tag specified when a task is started.
+     * Optional tag specified when a task is started.
      */
     startedBy?: string;
     /**
@@ -135,7 +135,7 @@ export interface GetTaskExecutionArgs {
      */
     tags?: {[key: string]: string};
     /**
-     * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
      *
      * The following arguments are optional:
      */
@@ -169,7 +169,7 @@ export interface GetTaskExecutionResult {
     readonly startedBy?: string;
     readonly tags?: {[key: string]: string};
     /**
-     * A list of the provisioned task ARNs.
+     * List of the provisioned task ARNs.
      */
     readonly taskArns: string[];
     readonly taskDefinition: string;
@@ -234,7 +234,7 @@ export interface GetTaskExecutionOutputArgs {
      */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionCapacityProviderStrategyArgs>[] | undefined>;
     /**
-     * An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+     * Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
      */
     clientToken?: pulumi.Input<string | undefined>;
     /**
@@ -246,11 +246,11 @@ export interface GetTaskExecutionOutputArgs {
      */
     desiredCount?: pulumi.Input<number | undefined>;
     /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+     * Whether to enable Amazon ECS managed tags for the tasks within the service.
      */
     enableEcsManagedTags?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+     * Whether to enable Amazon ECS Exec for the tasks within the service.
      */
     enableExecuteCommand?: pulumi.Input<boolean | undefined>;
     /**
@@ -266,27 +266,27 @@ export interface GetTaskExecutionOutputArgs {
      */
     networkConfiguration?: pulumi.Input<inputs.ecs.GetTaskExecutionNetworkConfigurationArgs | undefined>;
     /**
-     * A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+     * List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
      */
     overrides?: pulumi.Input<inputs.ecs.GetTaskExecutionOverridesArgs | undefined>;
     /**
-     * An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+     * Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
      */
     placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementConstraintArgs>[] | undefined>;
     /**
-     * The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+     * Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
      */
     placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.GetTaskExecutionPlacementStrategyArgs>[] | undefined>;
     /**
-     * The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+     * Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
      */
     platformVersion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+     * Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
      */
     propagateTags?: pulumi.Input<string | undefined>;
     /**
-     * The reference ID to use for the task.
+     * Reference ID to use for the task.
      */
     referenceId?: pulumi.Input<string | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface GetTaskExecutionOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An optional tag specified when a task is started.
+     * Optional tag specified when a task is started.
      */
     startedBy?: pulumi.Input<string | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface GetTaskExecutionOutputArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+     * Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
      *
      * The following arguments are optional:
      */

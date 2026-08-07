@@ -33,14 +33,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude lowercase letters from the password.
+     * Whether to exclude lowercase letters from the password.
      * 
      */
     @Import(name="excludeLowercase")
     private @Nullable Output<Boolean> excludeLowercase;
 
     /**
-     * @return Specifies whether to exclude lowercase letters from the password.
+     * @return Whether to exclude lowercase letters from the password.
      * 
      */
     public Optional<Output<Boolean>> excludeLowercase() {
@@ -48,14 +48,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude numbers from the password.
+     * Whether to exclude numbers from the password.
      * 
      */
     @Import(name="excludeNumbers")
     private @Nullable Output<Boolean> excludeNumbers;
 
     /**
-     * @return Specifies whether to exclude numbers from the password.
+     * @return Whether to exclude numbers from the password.
      * 
      */
     public Optional<Output<Boolean>> excludeNumbers() {
@@ -63,14 +63,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     @Import(name="excludePunctuation")
     private @Nullable Output<Boolean> excludePunctuation;
 
     /**
-     * @return Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+     * @return Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
      * 
      */
     public Optional<Output<Boolean>> excludePunctuation() {
@@ -78,14 +78,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to exclude uppercase letters from the password.
+     * Whether to exclude uppercase letters from the password.
      * 
      */
     @Import(name="excludeUppercase")
     private @Nullable Output<Boolean> excludeUppercase;
 
     /**
-     * @return Specifies whether to exclude uppercase letters from the password.
+     * @return Whether to exclude uppercase letters from the password.
      * 
      */
     public Optional<Output<Boolean>> excludeUppercase() {
@@ -93,14 +93,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to include the space character.
+     * Whether to include the space character.
      * 
      */
     @Import(name="includeSpace")
     private @Nullable Output<Boolean> includeSpace;
 
     /**
-     * @return Specifies whether to include the space character.
+     * @return Whether to include the space character.
      * 
      */
     public Optional<Output<Boolean>> includeSpace() {
@@ -138,14 +138,14 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+     * Whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
     @Import(name="requireEachIncludedType")
     private @Nullable Output<Boolean> requireEachIncludedType;
 
     /**
-     * @return Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+     * @return Whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
     public Optional<Output<Boolean>> requireEachIncludedType() {
@@ -206,7 +206,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeLowercase Specifies whether to exclude lowercase letters from the password.
+         * @param excludeLowercase Whether to exclude lowercase letters from the password.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeLowercase Specifies whether to exclude lowercase letters from the password.
+         * @param excludeLowercase Whether to exclude lowercase letters from the password.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeNumbers Specifies whether to exclude numbers from the password.
+         * @param excludeNumbers Whether to exclude numbers from the password.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeNumbers Specifies whether to exclude numbers from the password.
+         * @param excludeNumbers Whether to exclude numbers from the password.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludePunctuation Specifies whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
+         * @param excludePunctuation Whether to exclude the following punctuation characters from the password: ``! &#34; # $ % &amp; &#39; ( ) * + , - . / : ; &lt; = &gt; ? {@literal @} [ \ ] ^ _ ` { | } ~ .``
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeUppercase Specifies whether to exclude uppercase letters from the password.
+         * @param excludeUppercase Whether to exclude uppercase letters from the password.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param excludeUppercase Specifies whether to exclude uppercase letters from the password.
+         * @param excludeUppercase Whether to exclude uppercase letters from the password.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param includeSpace Specifies whether to include the space character.
+         * @param includeSpace Whether to include the space character.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param includeSpace Specifies whether to include the space character.
+         * @param includeSpace Whether to include the space character.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param requireEachIncludedType Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+         * @param requireEachIncludedType Whether to include at least one upper and lowercase letter, one number, and one punctuation.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param requireEachIncludedType Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+         * @param requireEachIncludedType Whether to include at least one upper and lowercase letter, one number, and one punctuation.
          * 
          * @return builder
          * 

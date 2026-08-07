@@ -25,7 +25,7 @@ public final class RouteSpecHttp2RouteRetryPolicy {
      */
     private Integer maxRetries;
     /**
-     * @return Per-retry timeout.
+     * @return Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     private RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout;
@@ -51,7 +51,7 @@ public final class RouteSpecHttp2RouteRetryPolicy {
         return this.maxRetries;
     }
     /**
-     * @return Per-retry timeout.
+     * @return Per-retry timeout. See `spec.http_route.retry_policy.per_retry_timeout` Block for details.
      * 
      */
     public RouteSpecHttp2RouteRetryPolicyPerRetryTimeout perRetryTimeout() {

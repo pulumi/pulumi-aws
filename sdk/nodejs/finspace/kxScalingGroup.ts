@@ -64,25 +64,23 @@ export class KxScalingGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The availability zone identifiers for the requested regions.
+     * Availability zone identifiers for the requested regions.
      */
     declare public readonly availabilityZoneId: pulumi.Output<string>;
     /**
-     * The list of Managed kdb clusters that are currently active in the given scaling group.
+     * List of Managed kdb clusters that are currently active in the given scaling group.
      */
     declare public /*out*/ readonly clusters: pulumi.Output<string[]>;
     /**
-     * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
     declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
-     * A unique identifier for the kdb environment, where you want to create the scaling group.
+     * Unique identifier for the kdb environment, where you want to create the scaling group.
      */
     declare public readonly environmentId: pulumi.Output<string>;
     /**
-     * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     *
-     * The following arguments are optional:
+     * Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      */
     declare public readonly hostType: pulumi.Output<string>;
     /**
@@ -91,6 +89,8 @@ export class KxScalingGroup extends pulumi.CustomResource {
     declare public /*out*/ readonly lastModifiedTimestamp: pulumi.Output<string>;
     /**
      * Unique name for the scaling group that you want to create.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -98,19 +98,11 @@ export class KxScalingGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The status of scaling group.
-     * * `CREATING` - The scaling group creation is in progress.
-     * * `CREATE_FAILED` - The scaling group creation has failed.
-     * * `ACTIVE` - The scaling group is active.
-     * * `UPDATING` - The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `DELETING` - The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the scaling group.
-     * * `DELETED` - The scaling group is successfully deleted.
+     * Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
-     * The error message when a failed state occurs.
+     * Error message when a failed state occurs.
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
@@ -187,25 +179,23 @@ export interface KxScalingGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The availability zone identifiers for the requested regions.
+     * Availability zone identifiers for the requested regions.
      */
     availabilityZoneId?: pulumi.Input<string | undefined>;
     /**
-     * The list of Managed kdb clusters that are currently active in the given scaling group.
+     * List of Managed kdb clusters that are currently active in the given scaling group.
      */
     clusters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      */
     createdTimestamp?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier for the kdb environment, where you want to create the scaling group.
+     * Unique identifier for the kdb environment, where you want to create the scaling group.
      */
     environmentId?: pulumi.Input<string | undefined>;
     /**
-     * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     *
-     * The following arguments are optional:
+     * Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      */
     hostType?: pulumi.Input<string | undefined>;
     /**
@@ -214,6 +204,8 @@ export interface KxScalingGroupState {
     lastModifiedTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Unique name for the scaling group that you want to create.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -221,19 +213,11 @@ export interface KxScalingGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The status of scaling group.
-     * * `CREATING` - The scaling group creation is in progress.
-     * * `CREATE_FAILED` - The scaling group creation has failed.
-     * * `ACTIVE` - The scaling group is active.
-     * * `UPDATING` - The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `DELETING` - The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the scaling group.
-     * * `DELETED` - The scaling group is successfully deleted.
+     * Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * The error message when a failed state occurs.
+     * Error message when a failed state occurs.
      */
     statusReason?: pulumi.Input<string | undefined>;
     /**
@@ -251,21 +235,21 @@ export interface KxScalingGroupState {
  */
 export interface KxScalingGroupArgs {
     /**
-     * The availability zone identifiers for the requested regions.
+     * Availability zone identifiers for the requested regions.
      */
     availabilityZoneId: pulumi.Input<string>;
     /**
-     * A unique identifier for the kdb environment, where you want to create the scaling group.
+     * Unique identifier for the kdb environment, where you want to create the scaling group.
      */
     environmentId: pulumi.Input<string>;
     /**
-     * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     *
-     * The following arguments are optional:
+     * Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      */
     hostType: pulumi.Input<string>;
     /**
      * Unique name for the scaling group that you want to create.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

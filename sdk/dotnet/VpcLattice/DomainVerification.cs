@@ -82,19 +82,19 @@ namespace Pulumi.Aws.VpcLattice
     public partial class DomainVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the domain verification.
+        /// Amazon Resource Name (ARN) of the domain verification.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time that the domain verification was created, in ISO-8601 format.
+        /// Date and time that the domain verification was created, in ISO-8601 format.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name to verify ownership for.
+        /// Domain name to verify ownership for.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time that the domain was last successfully verified, in ISO-8601 format.
+        /// Date and time that the domain was last successfully verified, in ISO-8601 format.
         /// </summary>
         [Output("lastVerifiedTime")]
         public Output<string> LastVerifiedTime { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+        /// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -132,13 +132,13 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the TXT record that must be created for domain verification.
+        /// Name of the TXT record that must be created for domain verification.
         /// </summary>
         [Output("txtRecordName")]
         public Output<string> TxtRecordName { get; private set; } = null!;
 
         /// <summary>
-        /// The value that must be added to the TXT record for domain verification.
+        /// Value that must be added to the TXT record for domain verification.
         /// </summary>
         [Output("txtRecordValue")]
         public Output<string> TxtRecordValue { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class DomainVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name to verify ownership for.
+        /// Domain name to verify ownership for.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -224,19 +224,19 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class DomainVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the domain verification.
+        /// Amazon Resource Name (ARN) of the domain verification.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The date and time that the domain verification was created, in ISO-8601 format.
+        /// Date and time that the domain verification was created, in ISO-8601 format.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The domain name to verify ownership for.
+        /// Domain name to verify ownership for.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The date and time that the domain was last successfully verified, in ISO-8601 format.
+        /// Date and time that the domain was last successfully verified, in ISO-8601 format.
         /// </summary>
         [Input("lastVerifiedTime")]
         public Input<string>? LastVerifiedTime { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+        /// Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -286,13 +286,13 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
-        /// The name of the TXT record that must be created for domain verification.
+        /// Name of the TXT record that must be created for domain verification.
         /// </summary>
         [Input("txtRecordName")]
         public Input<string>? TxtRecordName { get; set; }
 
         /// <summary>
-        /// The value that must be added to the TXT record for domain verification.
+        /// Value that must be added to the TXT record for domain verification.
         /// </summary>
         [Input("txtRecordValue")]
         public Input<string>? TxtRecordValue { get; set; }

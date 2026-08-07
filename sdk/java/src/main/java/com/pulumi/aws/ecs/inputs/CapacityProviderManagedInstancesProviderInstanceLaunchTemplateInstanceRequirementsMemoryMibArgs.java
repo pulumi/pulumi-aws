@@ -16,16 +16,32 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
 
     public static final CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs Empty = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs();
 
+    /**
+     * Maximum amount of memory, in MiB.
+     * 
+     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
+    /**
+     * @return Maximum amount of memory, in MiB.
+     * 
+     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
+    /**
+     * Minimum amount of memory, in MiB.
+     * 
+     */
     @Import(name="min", required=true)
     private Output<Integer> min;
 
+    /**
+     * @return Minimum amount of memory, in MiB.
+     * 
+     */
     public Output<Integer> min() {
         return this.min;
     }
@@ -55,20 +71,44 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
             $ = new CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMibArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param max Maximum amount of memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
+        /**
+         * @param max Maximum amount of memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
+        /**
+         * @param min Minimum amount of memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Output<Integer> min) {
             $.min = min;
             return this;
         }
 
+        /**
+         * @param min Minimum amount of memory, in MiB.
+         * 
+         * @return builder
+         * 
+         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

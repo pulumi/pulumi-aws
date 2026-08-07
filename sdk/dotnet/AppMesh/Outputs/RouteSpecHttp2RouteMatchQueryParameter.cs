@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecHttp2RouteMatchQueryParameter
     {
         /// <summary>
-        /// The query parameter to match on.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         public readonly Outputs.RouteSpecHttp2RouteMatchQueryParameterMatch? Match;
         /// <summary>
-        /// Name for the query parameter that will be matched on.
+        /// Name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         public readonly string Name;
 

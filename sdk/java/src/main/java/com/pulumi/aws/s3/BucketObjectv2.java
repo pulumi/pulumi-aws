@@ -450,84 +450,84 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cacheControl);
     }
     /**
-     * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     @Export(name="checksumAlgorithm", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> checksumAlgorithm;
 
     /**
-     * @return Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
+     * @return Algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
     public Output<Optional<String>> checksumAlgorithm() {
         return Codegen.optional(this.checksumAlgorithm);
     }
     /**
-     * The base64-encoded, 32-bit CRC32 checksum of the object.
+     * Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     @Export(name="checksumCrc32", refs={String.class}, tree="[0]")
     private Output<String> checksumCrc32;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     public Output<String> checksumCrc32() {
         return this.checksumCrc32;
     }
     /**
-     * The base64-encoded, 32-bit CRC32C checksum of the object.
+     * Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     @Export(name="checksumCrc32c", refs={String.class}, tree="[0]")
     private Output<String> checksumCrc32c;
 
     /**
-     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     public Output<String> checksumCrc32c() {
         return this.checksumCrc32c;
     }
     /**
-     * The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     @Export(name="checksumCrc64nvme", refs={String.class}, tree="[0]")
     private Output<String> checksumCrc64nvme;
 
     /**
-     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * @return Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     public Output<String> checksumCrc64nvme() {
         return this.checksumCrc64nvme;
     }
     /**
-     * The base64-encoded, 160-bit SHA-1 digest of the object.
+     * Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     @Export(name="checksumSha1", refs={String.class}, tree="[0]")
     private Output<String> checksumSha1;
 
     /**
-     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * @return Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     public Output<String> checksumSha1() {
         return this.checksumSha1;
     }
     /**
-     * The base64-encoded, 256-bit SHA-256 digest of the object.
+     * Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     @Export(name="checksumSha256", refs={String.class}, tree="[0]")
     private Output<String> checksumSha256;
 
     /**
-     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * @return Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     public Output<String> checksumSha256() {
@@ -734,14 +734,14 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectLockRetainUntilDate);
     }
     /**
-     * Override provider-level configuration options. See Override Provider below for more details.
+     * Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     @Export(name="overrideProvider", refs={BucketObjectv2OverrideProvider.class}, tree="[0]")
     private Output</* @Nullable */ BucketObjectv2OverrideProvider> overrideProvider;
 
     /**
-     * @return Override provider-level configuration options. See Override Provider below for more details.
+     * @return Override provider-level configuration options. See `overrideProvider` Block below for more details.
      * 
      */
     public Output<Optional<BucketObjectv2OverrideProvider>> overrideProvider() {
@@ -862,7 +862,7 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 
@@ -875,7 +875,7 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * @return Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
-     * If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
+     * &gt; **Note:** If no content is provided through `source`, `content` or `contentBase64`, then the object will be empty.
      * 
      * &gt; **Note:** If you specify `contentEncoding` you are responsible for encoding the body appropriately. `source`, `content`, and `contentBase64` all expect already encoded/compressed bytes.
      * 

@@ -21,14 +21,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     public static final RouteSpecHttp2RouteMatchArgs Empty = new RouteSpecHttp2RouteMatchArgs();
 
     /**
-     * Client request headers to match on. See `header` Block for details.
+     * Client request headers to match on. See `spec.http_route.match.header` Block for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<RouteSpecHttp2RouteMatchHeaderArgs>> headers;
 
     /**
-     * @return Client request headers to match on. See `header` Block for details.
+     * @return Client request headers to match on. See `spec.http_route.match.header` Block for details.
      * 
      */
     public Optional<Output<List<RouteSpecHttp2RouteMatchHeaderArgs>>> headers() {
@@ -51,14 +51,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Client request path to match on. See `path` Block for details.
+     * Client request path to match on. See `spec.http_route.match.path` Block for details.
      * 
      */
     @Import(name="path")
     private @Nullable Output<RouteSpecHttp2RouteMatchPathArgs> path;
 
     /**
-     * @return Client request path to match on. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http_route.match.path` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteMatchPathArgs>> path() {
@@ -66,14 +66,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The port number to match from the request.
+     * Port number to match from the request.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port number to match from the request.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -96,14 +96,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Client request query parameters to match on. See `queryParameter` Block for details.
+     * Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
      * 
      */
     @Import(name="queryParameters")
     private @Nullable Output<List<RouteSpecHttp2RouteMatchQueryParameterArgs>> queryParameters;
 
     /**
-     * @return Client request query parameters to match on. See `queryParameter` Block for details.
+     * @return Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
      * 
      */
     public Optional<Output<List<RouteSpecHttp2RouteMatchQueryParameterArgs>>> queryParameters() {
@@ -156,7 +156,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on. See `header` Block for details.
+         * @param headers Client request headers to match on. See `spec.http_route.match.header` Block for details.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Client request path to match on. See `path` Block for details.
+         * @param path Client request path to match on. See `spec.http_route.match.path` Block for details.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Client request path to match on. See `path` Block for details.
+         * @param path Client request path to match on. See `spec.http_route.match.path` Block for details.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port number to match from the request.
+         * @param port Port number to match from the request.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
+         * @param queryParameters Client request query parameters to match on. See `spec.http_route.match.query_parameter` Block for details.
          * 
          * @return builder
          * 

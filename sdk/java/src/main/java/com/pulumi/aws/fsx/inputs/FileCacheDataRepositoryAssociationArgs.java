@@ -20,22 +20,30 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
 
     public static final FileCacheDataRepositoryAssociationArgs Empty = new FileCacheDataRepositoryAssociationArgs();
 
+    /**
+     * System-generated, unique ID of the data repository association.
+     * 
+     */
     @Import(name="associationId")
     private @Nullable Output<String> associationId;
 
+    /**
+     * @return System-generated, unique ID of the data repository association.
+     * 
+     */
     public Optional<Output<String>> associationId() {
         return Optional.ofNullable(this.associationId);
     }
 
     /**
-     * The path to the S3 or NFS data repository that links to the cache.
+     * Path to the S3 or NFS data repository that links to the cache.
      * 
      */
     @Import(name="dataRepositoryPath", required=true)
     private Output<String> dataRepositoryPath;
 
     /**
-     * @return The path to the S3 or NFS data repository that links to the cache.
+     * @return Path to the S3 or NFS data repository that links to the cache.
      * 
      */
     public Output<String> dataRepositoryPath() {
@@ -43,14 +51,14 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+     * NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
      * 
      */
     @Import(name="dataRepositorySubdirectories")
     private @Nullable Output<List<String>> dataRepositorySubdirectories;
 
     /**
-     * @return A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+     * @return NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
      * 
      */
     public Optional<Output<List<String>>> dataRepositorySubdirectories() {
@@ -58,14 +66,14 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * The system-generated, unique ID of the cache.
+     * System-generated, unique ID of the cache.
      * 
      */
     @Import(name="fileCacheId")
     private @Nullable Output<String> fileCacheId;
 
     /**
-     * @return The system-generated, unique ID of the cache.
+     * @return System-generated, unique ID of the cache.
      * 
      */
     public Optional<Output<String>> fileCacheId() {
@@ -73,72 +81,104 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+     * Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
      * 
      */
     @Import(name="fileCachePath", required=true)
     private Output<String> fileCachePath;
 
     /**
-     * @return A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+     * @return Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
      * 
      */
     public Output<String> fileCachePath() {
         return this.fileCachePath;
     }
 
+    /**
+     * ID of the file system for an NFS data repository association.
+     * 
+     */
     @Import(name="fileSystemId")
     private @Nullable Output<String> fileSystemId;
 
+    /**
+     * @return ID of the file system for an NFS data repository association.
+     * 
+     */
     public Optional<Output<String>> fileSystemId() {
         return Optional.ofNullable(this.fileSystemId);
     }
 
+    /**
+     * Path to the data repository on the file system.
+     * 
+     */
     @Import(name="fileSystemPath")
     private @Nullable Output<String> fileSystemPath;
 
+    /**
+     * @return Path to the data repository on the file system.
+     * 
+     */
     public Optional<Output<String>> fileSystemPath() {
         return Optional.ofNullable(this.fileSystemPath);
     }
 
+    /**
+     * Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+     * 
+     */
     @Import(name="importedFileChunkSize")
     private @Nullable Output<Integer> importedFileChunkSize;
 
+    /**
+     * @return Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+     * 
+     */
     public Optional<Output<Integer>> importedFileChunkSize() {
         return Optional.ofNullable(this.importedFileChunkSize);
     }
 
     /**
-     * (Optional) See the `nfs` configuration block.
+     * Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
      * 
      */
     @Import(name="nfs")
     private @Nullable Output<List<FileCacheDataRepositoryAssociationNfArgs>> nfs;
 
     /**
-     * @return (Optional) See the `nfs` configuration block.
+     * @return Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
      * 
      */
     public Optional<Output<List<FileCacheDataRepositoryAssociationNfArgs>>> nfs() {
         return Optional.ofNullable(this.nfs);
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the data repository association.
+     * 
+     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
+    /**
+     * @return Amazon Resource Name (ARN) of the data repository association.
+     * 
+     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
 
     /**
-     * A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -179,17 +219,29 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
             $ = new FileCacheDataRepositoryAssociationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param associationId System-generated, unique ID of the data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationId(@Nullable Output<String> associationId) {
             $.associationId = associationId;
             return this;
         }
 
+        /**
+         * @param associationId System-generated, unique ID of the data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder associationId(String associationId) {
             return associationId(Output.of(associationId));
         }
 
         /**
-         * @param dataRepositoryPath The path to the S3 or NFS data repository that links to the cache.
+         * @param dataRepositoryPath Path to the S3 or NFS data repository that links to the cache.
          * 
          * @return builder
          * 
@@ -200,7 +252,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataRepositoryPath The path to the S3 or NFS data repository that links to the cache.
+         * @param dataRepositoryPath Path to the S3 or NFS data repository that links to the cache.
          * 
          * @return builder
          * 
@@ -210,7 +262,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataRepositorySubdirectories A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+         * @param dataRepositorySubdirectories NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
          * 
          * @return builder
          * 
@@ -221,7 +273,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataRepositorySubdirectories A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+         * @param dataRepositorySubdirectories NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
          * 
          * @return builder
          * 
@@ -231,7 +283,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataRepositorySubdirectories A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+         * @param dataRepositorySubdirectories NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `dataRepositoryPath` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
          * 
          * @return builder
          * 
@@ -241,7 +293,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileCacheId The system-generated, unique ID of the cache.
+         * @param fileCacheId System-generated, unique ID of the cache.
          * 
          * @return builder
          * 
@@ -252,7 +304,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileCacheId The system-generated, unique ID of the cache.
+         * @param fileCacheId System-generated, unique ID of the cache.
          * 
          * @return builder
          * 
@@ -262,7 +314,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileCachePath A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+         * @param fileCachePath Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
          * 
          * @return builder
          * 
@@ -273,7 +325,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileCachePath A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+         * @param fileCachePath Path on the cache that maps 1-1 with `dataRepositoryPath`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
          * 
          * @return builder
          * 
@@ -282,35 +334,71 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
             return fileCachePath(Output.of(fileCachePath));
         }
 
+        /**
+         * @param fileSystemId ID of the file system for an NFS data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(@Nullable Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
+        /**
+         * @param fileSystemId ID of the file system for an NFS data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
+        /**
+         * @param fileSystemPath Path to the data repository on the file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemPath(@Nullable Output<String> fileSystemPath) {
             $.fileSystemPath = fileSystemPath;
             return this;
         }
 
+        /**
+         * @param fileSystemPath Path to the data repository on the file system.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fileSystemPath(String fileSystemPath) {
             return fileSystemPath(Output.of(fileSystemPath));
         }
 
+        /**
+         * @param importedFileChunkSize Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder importedFileChunkSize(@Nullable Output<Integer> importedFileChunkSize) {
             $.importedFileChunkSize = importedFileChunkSize;
             return this;
         }
 
+        /**
+         * @param importedFileChunkSize Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+         * 
+         * @return builder
+         * 
+         */
         public Builder importedFileChunkSize(Integer importedFileChunkSize) {
             return importedFileChunkSize(Output.of(importedFileChunkSize));
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
          * 
          * @return builder
          * 
@@ -321,7 +409,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
          * 
          * @return builder
          * 
@@ -331,7 +419,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs (Optional) See the `nfs` configuration block.
+         * @param nfs Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
          * 
          * @return builder
          * 
@@ -340,17 +428,29 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
             return nfs(List.of(nfs));
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
+        /**
+         * @param resourceArn Amazon Resource Name (ARN) of the data repository association.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }
 
         /**
-         * @param tags A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -361,7 +461,7 @@ public final class FileCacheDataRepositoryAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param tags A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

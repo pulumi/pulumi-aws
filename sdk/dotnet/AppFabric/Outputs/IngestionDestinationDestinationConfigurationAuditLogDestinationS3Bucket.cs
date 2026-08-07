@@ -13,9 +13,12 @@ namespace Pulumi.Aws.AppFabric.Outputs
     [OutputType]
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket.
+        /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The object key to use.
+        /// Object key to use.
         /// </summary>
         public readonly string? Prefix;
 

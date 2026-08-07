@@ -16,16 +16,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
     public static final TableMaintenanceConfigurationIcebergSnapshotManagementArgs Empty = new TableMaintenanceConfigurationIcebergSnapshotManagementArgs();
 
     /**
-     * Settings object for snapshot management.
-     * See `iceberg_snapshot_management.settings` below.
+     * Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
      * 
      */
     @Import(name="settings", required=true)
     private Output<TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs> settings;
 
     /**
-     * @return Settings object for snapshot management.
-     * See `iceberg_snapshot_management.settings` below.
+     * @return Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
      * 
      */
     public Output<TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs> settings() {
@@ -33,16 +31,14 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
     }
 
     /**
-     * Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
+     * Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
      * 
      */
     @Import(name="status", required=true)
     private Output<String> status;
 
     /**
-     * @return Whether the configuration is enabled.
-     * Valid values are `enabled` and `disabled`.
+     * @return Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
      * 
      */
     public Output<String> status() {
@@ -75,8 +71,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param settings Settings object for snapshot management.
-         * See `iceberg_snapshot_management.settings` below.
+         * @param settings Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder
          * 
@@ -87,8 +82,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param settings Settings object for snapshot management.
-         * See `iceberg_snapshot_management.settings` below.
+         * @param settings Settings object for snapshot management. See `iceberg_snapshot_management.settings` below.
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * @param status Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          * 
          * @return builder
          * 
@@ -110,8 +103,7 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementArgs ex
         }
 
         /**
-         * @param status Whether the configuration is enabled.
-         * Valid values are `enabled` and `disabled`.
+         * @param status Whether the configuration is enabled. Valid values are `enabled` and `disabled`.
          * 
          * @return builder
          * 

@@ -66,14 +66,14 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      * 
      */
     @Import(name="handlerConfigs")
     private @Nullable Output<ChannelNamespaceHandlerConfigsArgs> handlerConfigs;
 
     /**
-     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+     * @return Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
      * 
      */
     public Optional<Output<ChannelNamespaceHandlerConfigsArgs>> handlerConfigs() {
@@ -100,14 +100,14 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      * 
      */
     @Import(name="publishAuthModes")
     private @Nullable Output<List<ChannelNamespacePublishAuthModeArgs>> publishAuthModes;
 
     /**
-     * @return Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * @return Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
      * 
      */
     public Optional<Output<List<ChannelNamespacePublishAuthModeArgs>>> publishAuthModes() {
@@ -130,14 +130,14 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      * 
      */
     @Import(name="subscribeAuthModes")
     private @Nullable Output<List<ChannelNamespaceSubscribeAuthModeArgs>> subscribeAuthModes;
 
     /**
-     * @return Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+     * @return Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
      * 
      */
     public Optional<Output<List<ChannelNamespaceSubscribeAuthModeArgs>>> subscribeAuthModes() {
@@ -271,7 +271,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See Handler Configs below.
+         * @param handlerConfigs Configuration for the `onPublish` and `onSubscribe` handlers. See `handlerConfigs` below.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param publishAuthModes Authorization modes to use for publishing messages on the channel namespace. This configuration overrides the default API authorization configuration. See `publishAuthMode` below.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class ChannelNamespaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See Auth Modes below.
+         * @param subscribeAuthModes Authorization modes to use for subscribing to messages on the channel namespace. This configuration overrides the default API authorization configuration. See `subscribeAuthMode` below.
          * 
          * @return builder
          * 

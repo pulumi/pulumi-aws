@@ -15,76 +15,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
     /**
-     * @return Dimensions of the metric.
+     * @return Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
      * 
      */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private @Nullable String metricName;
     /**
-     * @return Metrics to include, as a metric data query.
+     * @return Metrics to include, as a metric data query. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics` Block for details.
      * 
      */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private @Nullable String namespace;
     /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * @return Statistic of the metric. Valid values are `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     private @Nullable String statistic;
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification() {}
     /**
-     * @return Dimensions of the metric.
+     * @return Dimensions of the metric. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics.metric_stat.metric.dimensions` Block for details.
      * 
      */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Optional<String> metricName() {
         return Optional.ofNullable(this.metricName);
     }
     /**
-     * @return Metrics to include, as a metric data query.
+     * @return Metrics to include, as a metric data query. See `target_tracking_scaling_policy_configuration.customized_metric_specification.metrics` Block for details.
      * 
      */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics() {
         return this.metrics == null ? List.of() : this.metrics;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+     * @return Statistic of the metric. Valid values are `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
     public Optional<String> statistic() {
         return Optional.ofNullable(this.statistic);
     }
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

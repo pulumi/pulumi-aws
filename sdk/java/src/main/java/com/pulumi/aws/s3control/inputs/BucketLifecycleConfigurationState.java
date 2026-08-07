@@ -48,14 +48,14 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
     }
 
     /**
-     * Configuration block(s) containing lifecycle rules for the bucket.
+     * Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<BucketLifecycleConfigurationRuleArgs>> rules;
 
     /**
-     * @return Configuration block(s) containing lifecycle rules for the bucket.
+     * @return Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
      * 
      */
     public Optional<Output<List<BucketLifecycleConfigurationRuleArgs>>> rules() {
@@ -131,7 +131,7 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
+         * @param rules Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
+         * @param rules Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class BucketLifecycleConfigurationState extends com.pulumi.resource
         }
 
         /**
-         * @param rules Configuration block(s) containing lifecycle rules for the bucket.
+         * @param rules Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
          * 
          * @return builder
          * 

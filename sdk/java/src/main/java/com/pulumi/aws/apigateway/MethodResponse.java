@@ -211,14 +211,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apigateway/methodResponse:MethodResponse")
 public class MethodResponse extends com.pulumi.resources.CustomResource {
     /**
-     * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+     * HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
     /**
-     * @return The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+     * @return HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
     public Output<String> httpMethod() {
@@ -239,74 +239,70 @@ public class MethodResponse extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Resource identifier for the method resource.
+     * Resource identifier for the method resource.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The Resource identifier for the method resource.
+     * @return Resource identifier for the method resource.
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+     * Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     @Export(name="responseModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
     /**
-     * @return A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
+     * @return Map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
     /**
-     * A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-     * 
-     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+     * Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     @Export(name="responseParameters", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output</* @Nullable */ Map<String,Boolean>> responseParameters;
 
     /**
-     * @return A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
-     * 
-     * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
+     * @return Map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
     public Output<Optional<Map<String,Boolean>>> responseParameters() {
         return Codegen.optional(this.responseParameters);
     }
     /**
-     * The string identifier of the associated REST API.
+     * String identifier of the associated REST API.
      * 
      */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
     /**
-     * @return The string identifier of the associated REST API.
+     * @return String identifier of the associated REST API.
      * 
      */
     public Output<String> restApi() {
         return this.restApi;
     }
     /**
-     * The method response&#39;s status code.
+     * Method response&#39;s status code.
      * 
      */
     @Export(name="statusCode", refs={String.class}, tree="[0]")
     private Output<String> statusCode;
 
     /**
-     * @return The method response&#39;s status code.
+     * @return Method response&#39;s status code.
      * 
      */
     public Output<String> statusCode() {

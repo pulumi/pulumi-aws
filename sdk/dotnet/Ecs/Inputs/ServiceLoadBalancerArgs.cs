@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<int> ContainerPort { get; set; } = null!;
 
         /// <summary>
-        /// Name of the ELB (Classic) to associate with the service.
+        /// Name of the ELB (Classic) to associate with the service. Required for ELB Classic.
         /// </summary>
         [Input("elbName")]
         public Input<string>? ElbName { get; set; }
 
         /// <summary>
-        /// ARN of the Load Balancer target group to associate with the service.
+        /// ARN of the Load Balancer target group to associate with the service. Required for ALB/NLB.
         /// 
         /// &gt; **Version note:** Multiple `LoadBalancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
         /// </summary>

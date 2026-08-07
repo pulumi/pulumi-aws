@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Access Key portion of the credentials.
+        /// Access Key portion of the credentials.
         /// </summary>
         [Input("accessKeyId", required: true)]
         public Input<string> AccessKeyId { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private Input<string>? _secretAccessKey;
 
         /// <summary>
-        /// The secret key used to sign requests.
+        /// Secret key used to sign requests.
         /// </summary>
         public Input<string>? SecretAccessKey
         {

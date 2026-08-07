@@ -115,35 +115,35 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/domainVerification:DomainVerification")
 public class DomainVerification extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the domain verification.
+     * Amazon Resource Name (ARN) of the domain verification.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the domain verification.
+     * @return Amazon Resource Name (ARN) of the domain verification.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date and time that the domain verification was created, in ISO-8601 format.
+     * Date and time that the domain verification was created, in ISO-8601 format.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The date and time that the domain verification was created, in ISO-8601 format.
+     * @return Date and time that the domain verification was created, in ISO-8601 format.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The domain name to verify ownership for.
+     * Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -152,7 +152,7 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
     private Output<String> domainName;
 
     /**
-     * @return The domain name to verify ownership for.
+     * @return Domain name to verify ownership for.
      * 
      * The following arguments are optional:
      * 
@@ -161,14 +161,14 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * Date and time that the domain was last successfully verified, in ISO-8601 format.
      * 
      */
     @Export(name="lastVerifiedTime", refs={String.class}, tree="[0]")
     private Output<String> lastVerifiedTime;
 
     /**
-     * @return The date and time that the domain was last successfully verified, in ISO-8601 format.
+     * @return Date and time that the domain was last successfully verified, in ISO-8601 format.
      * 
      */
     public Output<String> lastVerifiedTime() {
@@ -189,14 +189,14 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
+     * @return Current status of the domain verification process. Valid values: `VERIFIED`, `PENDING`, `VERIFICATION_TIMED_OUT`.
      * 
      */
     public Output<String> status() {
@@ -231,28 +231,28 @@ public class DomainVerification extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The name of the TXT record that must be created for domain verification.
+     * Name of the TXT record that must be created for domain verification.
      * 
      */
     @Export(name="txtRecordName", refs={String.class}, tree="[0]")
     private Output<String> txtRecordName;
 
     /**
-     * @return The name of the TXT record that must be created for domain verification.
+     * @return Name of the TXT record that must be created for domain verification.
      * 
      */
     public Output<String> txtRecordName() {
         return this.txtRecordName;
     }
     /**
-     * The value that must be added to the TXT record for domain verification.
+     * Value that must be added to the TXT record for domain verification.
      * 
      */
     @Export(name="txtRecordValue", refs={String.class}, tree="[0]")
     private Output<String> txtRecordValue;
 
     /**
-     * @return The value that must be added to the TXT record for domain verification.
+     * @return Value that must be added to the TXT record for domain verification.
      * 
      */
     public Output<String> txtRecordValue() {

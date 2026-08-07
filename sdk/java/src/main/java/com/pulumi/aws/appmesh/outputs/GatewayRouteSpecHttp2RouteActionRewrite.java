@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionRewrite {
     /**
-     * @return Host name to rewrite. See `hostname` Block for details.
+     * @return Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
     /**
-     * @return Exact path to rewrite. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewritePath path;
     /**
-     * @return Specified beginning characters to rewrite. See `prefix` Block for details.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
 
     private GatewayRouteSpecHttp2RouteActionRewrite() {}
     /**
-     * @return Host name to rewrite. See `hostname` Block for details.
+     * @return Host name to match on. See `spec.http2_route.match.hostname` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewriteHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return Exact path to rewrite. See `path` Block for details.
+     * @return Client request path to match on. See `spec.http2_route.match.path` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewritePath> path() {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Specified beginning characters to rewrite. See `prefix` Block for details.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewritePrefix> prefix() {

@@ -20,14 +20,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     public static final RouteSpecArgs Empty = new RouteSpecArgs();
 
     /**
-     * GRPC routing information for the route. See `grpcRoute` Block for details.
+     * GRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     @Import(name="grpcRoute")
     private @Nullable Output<RouteSpecGrpcRouteArgs> grpcRoute;
 
     /**
-     * @return GRPC routing information for the route. See `grpcRoute` Block for details.
+     * @return GRPC routing information for the route. See `spec.grpc_route` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteArgs>> grpcRoute() {
@@ -35,14 +35,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * HTTP/2 routing information for the route. See `http2Route` Block for details.
+     * HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
      * 
      */
     @Import(name="http2Route")
     private @Nullable Output<RouteSpecHttp2RouteArgs> http2Route;
 
     /**
-     * @return HTTP/2 routing information for the route. See `http2Route` Block for details.
+     * @return HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteArgs>> http2Route() {
@@ -50,14 +50,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * HTTP routing information for the route. See `httpRoute` Block for details.
+     * HTTP routing information for the route. See `spec.http_route` Block for details.
      * 
      */
     @Import(name="httpRoute")
     private @Nullable Output<RouteSpecHttpRouteArgs> httpRoute;
 
     /**
-     * @return HTTP routing information for the route. See `httpRoute` Block for details.
+     * @return HTTP routing information for the route. See `spec.http_route` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttpRouteArgs>> httpRoute() {
@@ -80,14 +80,14 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * TCP routing information for the route. See `tcpRoute` Block for details.
+     * TCP routing information for the route. See `spec.tcp_route` Block for details.
      * 
      */
     @Import(name="tcpRoute")
     private @Nullable Output<RouteSpecTcpRouteArgs> tcpRoute;
 
     /**
-     * @return TCP routing information for the route. See `tcpRoute` Block for details.
+     * @return TCP routing information for the route. See `spec.tcp_route` Block for details.
      * 
      */
     public Optional<Output<RouteSpecTcpRouteArgs>> tcpRoute() {
@@ -123,7 +123,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute GRPC routing information for the route. See `grpcRoute` Block for details.
+         * @param grpcRoute GRPC routing information for the route. See `spec.grpc_route` Block for details.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grpcRoute GRPC routing information for the route. See `grpcRoute` Block for details.
+         * @param grpcRoute GRPC routing information for the route. See `spec.grpc_route` Block for details.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param http2Route HTTP/2 routing information for the route. See `http2Route` Block for details.
+         * @param http2Route HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param http2Route HTTP/2 routing information for the route. See `http2Route` Block for details.
+         * @param http2Route HTTP/2 routing information for the route. See `spec.http2_route` Block for details.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpRoute HTTP routing information for the route. See `httpRoute` Block for details.
+         * @param httpRoute HTTP routing information for the route. See `spec.http_route` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpRoute HTTP routing information for the route. See `httpRoute` Block for details.
+         * @param httpRoute HTTP routing information for the route. See `spec.http_route` Block for details.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpRoute TCP routing information for the route. See `tcpRoute` Block for details.
+         * @param tcpRoute TCP routing information for the route. See `spec.tcp_route` Block for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class RouteSpecArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tcpRoute TCP routing information for the route. See `tcpRoute` Block for details.
+         * @param tcpRoute TCP routing information for the route. See `spec.tcp_route` Block for details.
          * 
          * @return builder
          * 

@@ -26779,7 +26779,7 @@ class EvaluationJobEvaluationConfigArgs:
 class EvaluationJobEvaluationConfigAutomatedArgsDict(TypedDict):
     dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgsDict']]]
     """
-    One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+    One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
     """
     custom_metric_config: NotRequired[pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgsDict']]]
     """
@@ -26797,7 +26797,7 @@ class EvaluationJobEvaluationConfigAutomatedArgs:
                  custom_metric_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs']] = None,
                  evaluator_model_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
         :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedCustomMetricConfigArgs'] custom_metric_config: Configuration for custom metrics to compute for the evaluation job. See `custom_metric_config` Block below.
         :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigArgs'] evaluator_model_config: Configuration for the evaluator (judge) model. Required for automated jobs that use an LLM-as-judge metric, or that evaluate a knowledge base. See `evaluator_model_config` Block below.
         """
@@ -26811,7 +26811,7 @@ class EvaluationJobEvaluationConfigAutomatedArgs:
     @pulumi.getter(name="datasetMetricConfigs")
     def dataset_metric_configs(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs']]]:
         """
-        One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block below.
+        One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.automated.dataset_metric_config` Block below.
         """
         return pulumi.get(self, "dataset_metric_configs")
 
@@ -27149,7 +27149,7 @@ class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgsDict(TypedDic
     """
     task_type: pulumi.Input[_builtins.str]
     """
-    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
     """
 
 @pulumi.input_type
@@ -27161,7 +27161,7 @@ class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs:
         """
         :param pulumi.Input['EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs'] dataset: Prompt dataset to use. See `dataset` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to use for the evaluation job.
-        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "metric_names", metric_names)
@@ -27195,7 +27195,7 @@ class EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs:
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
         """
         return pulumi.get(self, "task_type")
 
@@ -27339,7 +27339,7 @@ class EvaluationJobEvaluationConfigAutomatedEvaluatorModelConfigBedrockEvaluator
 class EvaluationJobEvaluationConfigHumanArgsDict(TypedDict):
     dataset_metric_configs: pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgsDict']]]
     """
-    One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+    One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
     """
     custom_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgsDict']]]]]
     """
@@ -27357,7 +27357,7 @@ class EvaluationJobEvaluationConfigHumanArgs:
                  custom_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]]] = None,
                  human_workflow_config: pulumi.Input[Optional['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]] dataset_metric_configs: One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanCustomMetricArgs']]] custom_metrics: One or more custom metrics for your human workers to use. See `evaluation_config.human.custom_metric` Block below.
         :param pulumi.Input['EvaluationJobEvaluationConfigHumanHumanWorkflowConfigArgs'] human_workflow_config: Configuration for the human workflow. See `human_workflow_config` Block below.
         """
@@ -27371,7 +27371,7 @@ class EvaluationJobEvaluationConfigHumanArgs:
     @pulumi.getter(name="datasetMetricConfigs")
     def dataset_metric_configs(self) -> pulumi.Input[Sequence[pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs']]]:
         """
-        One or more configurations for the prompt datasets and metrics to use. See `dataset_metric_config` Block above.
+        One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
         """
         return pulumi.get(self, "dataset_metric_configs")
 
@@ -27482,7 +27482,7 @@ class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgsDict(TypedDict):
     """
     task_type: pulumi.Input[_builtins.str]
     """
-    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+    Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
     """
 
 @pulumi.input_type
@@ -27494,7 +27494,7 @@ class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs:
         """
         :param pulumi.Input['EvaluationJobEvaluationConfigHumanDatasetMetricConfigDatasetArgs'] dataset: Prompt dataset to use. See `dataset` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] metric_names: Names of the metrics to use for the evaluation job.
-        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        :param pulumi.Input[_builtins.str] task_type: Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "metric_names", metric_names)
@@ -27528,7 +27528,7 @@ class EvaluationJobEvaluationConfigHumanDatasetMetricConfigArgs:
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`. Use `General` for automated evaluation jobs that use a judge model (`evaluator_model_config`).
+        Type of task to evaluate. Common values are `Summarization`, `Classification`, `QuestionAndAnswer`, `Generation`, and `Custom`.
         """
         return pulumi.get(self, "task_type")
 

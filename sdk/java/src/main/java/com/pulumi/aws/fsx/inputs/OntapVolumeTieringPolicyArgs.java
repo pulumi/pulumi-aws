@@ -17,14 +17,14 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
     public static final OntapVolumeTieringPolicyArgs Empty = new OntapVolumeTieringPolicyArgs();
 
     /**
-     * Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * Number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
      * 
      */
     @Import(name="coolingPeriod")
     private @Nullable Output<Integer> coolingPeriod;
 
     /**
-     * @return Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * @return Number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
      * 
      */
     public Optional<Output<Integer>> coolingPeriod() {
@@ -32,14 +32,14 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+     * Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+     * @return Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -72,7 +72,7 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coolingPeriod Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         * @param coolingPeriod Number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param coolingPeriod Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         * @param coolingPeriod Number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+         * @param name Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OntapVolumeTieringPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+         * @param name Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
          * 
          * @return builder
          * 

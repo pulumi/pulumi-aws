@@ -33,14 +33,14 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      * 
      */
     @Import(name="extensionArn")
     private @Nullable Output<String> extensionArn;
 
     /**
-     * @return The ARN of the extension defined in the association.
+     * @return ARN of the extension defined in the association.
      * 
      */
     public Optional<Output<String>> extensionArn() {
@@ -48,14 +48,14 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version number for the extension defined in the association.
+     * Version number for the extension defined in the association.
      * 
      */
     @Import(name="extensionVersion")
     private @Nullable Output<Integer> extensionVersion;
 
     /**
-     * @return The version number for the extension defined in the association.
+     * @return Version number for the extension defined in the association.
      * 
      */
     public Optional<Output<Integer>> extensionVersion() {
@@ -63,14 +63,14 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return The parameter names and values defined for the association.
+     * @return Parameter names and values defined for the association.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -93,14 +93,14 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
+     * @return ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -158,7 +158,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionArn The ARN of the extension defined in the association.
+         * @param extensionArn ARN of the extension defined in the association.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionArn The ARN of the extension defined in the association.
+         * @param extensionArn ARN of the extension defined in the association.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionVersion The version number for the extension defined in the association.
+         * @param extensionVersion Version number for the extension defined in the association.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionVersion The version number for the extension defined in the association.
+         * @param extensionVersion Version number for the extension defined in the association.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parameters The parameter names and values defined for the association.
+         * @param parameters Parameter names and values defined for the association.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parameters The parameter names and values defined for the association.
+         * @param parameters Parameter names and values defined for the association.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
+         * @param resourceArn ARN of the application, configuration profile, or environment to associate with the extension.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ExtensionAssociationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
+         * @param resourceArn ARN of the application, configuration profile, or environment to associate with the extension.
          * 
          * @return builder
          * 

@@ -208,15 +208,15 @@ class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
     """
     abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict']]]
     """
-    Configuration block containing settings for abort incomplete multipart upload.
+    Configuration block containing settings for abort incomplete multipart upload. See `abort_incomplete_multipart_upload` below.
     """
     expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgsDict']]]
     """
-    Configuration block containing settings for expiration of objects.
+    Configuration block containing settings for expiration of objects. See `expiration` below.
     """
     filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgsDict']]]
     """
-    Configuration block containing settings for filtering.
+    Configuration block containing settings for filtering. See `filter` below.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -233,9 +233,9 @@ class BucketLifecycleConfigurationRuleArgs:
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] id: Unique identifier for the rule.
-        :param pulumi.Input['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Configuration block containing settings for abort incomplete multipart upload.
-        :param pulumi.Input['BucketLifecycleConfigurationRuleExpirationArgs'] expiration: Configuration block containing settings for expiration of objects.
-        :param pulumi.Input['BucketLifecycleConfigurationRuleFilterArgs'] filter: Configuration block containing settings for filtering.
+        :param pulumi.Input['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Configuration block containing settings for abort incomplete multipart upload. See `abort_incomplete_multipart_upload` below.
+        :param pulumi.Input['BucketLifecycleConfigurationRuleExpirationArgs'] expiration: Configuration block containing settings for expiration of objects. See `expiration` below.
+        :param pulumi.Input['BucketLifecycleConfigurationRuleFilterArgs'] filter: Configuration block containing settings for filtering. See `filter` below.
         :param pulumi.Input[_builtins.str] status: Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         pulumi.set(__self__, "id", id)
@@ -264,7 +264,7 @@ class BucketLifecycleConfigurationRuleArgs:
     @pulumi.getter(name="abortIncompleteMultipartUpload")
     def abort_incomplete_multipart_upload(self) -> pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs']]:
         """
-        Configuration block containing settings for abort incomplete multipart upload.
+        Configuration block containing settings for abort incomplete multipart upload. See `abort_incomplete_multipart_upload` below.
         """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
@@ -276,7 +276,7 @@ class BucketLifecycleConfigurationRuleArgs:
     @pulumi.getter
     def expiration(self) -> pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgs']]:
         """
-        Configuration block containing settings for expiration of objects.
+        Configuration block containing settings for expiration of objects. See `expiration` below.
         """
         return pulumi.get(self, "expiration")
 
@@ -288,7 +288,7 @@ class BucketLifecycleConfigurationRuleArgs:
     @pulumi.getter
     def filter(self) -> pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgs']]:
         """
-        Configuration block containing settings for filtering.
+        Configuration block containing settings for filtering. See `filter` below.
         """
         return pulumi.get(self, "filter")
 
@@ -463,8 +463,6 @@ class DirectoryBucketAccessPointScopeScopeArgsDict(TypedDict):
     prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-
-    * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
     """
 
 @pulumi.input_type
@@ -475,8 +473,6 @@ class DirectoryBucketAccessPointScopeScopeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: You can specify a list of API operations as permissions for the access point.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefixes: You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-               
-               * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -500,8 +496,6 @@ class DirectoryBucketAccessPointScopeScopeArgs:
     def prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-
-        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
         """
         return pulumi.get(self, "prefixes")
 
@@ -513,17 +507,15 @@ class DirectoryBucketAccessPointScopeScopeArgs:
 class MultiRegionAccessPointDetailsArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the Multi-Region Access Point.
+    Name of the Multi-Region Access Point.
     """
     regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgsDict']]]
     """
-    The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-
-    For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+    Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
     """
     public_access_block: NotRequired[pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]]
     """
-    Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+    Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `public_access_block` Block below.
     """
 
 @pulumi.input_type
@@ -533,11 +525,9 @@ class MultiRegionAccessPointDetailsArgs:
                  regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]],
                  public_access_block: pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the Multi-Region Access Point.
-        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-               
-               For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
-        :param pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs'] public_access_block: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
+        :param pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs'] public_access_block: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `public_access_block` Block below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
@@ -548,7 +538,7 @@ class MultiRegionAccessPointDetailsArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Multi-Region Access Point.
+        Name of the Multi-Region Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -560,9 +550,7 @@ class MultiRegionAccessPointDetailsArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]]:
         """
-        The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
-
-        For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+        Region configuration block to specify the bucket associated with the Multi-Region Access Point. See `region` Block below.
         """
         return pulumi.get(self, "regions")
 
@@ -574,7 +562,7 @@ class MultiRegionAccessPointDetailsArgs:
     @pulumi.getter(name="publicAccessBlock")
     def public_access_block(self) -> pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgs']]:
         """
-        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See `public_access_block` Block below.
         """
         return pulumi.get(self, "public_access_block")
 
@@ -586,25 +574,19 @@ class MultiRegionAccessPointDetailsArgs:
 class MultiRegionAccessPointDetailsPublicAccessBlockArgsDict(TypedDict):
     block_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-    * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-    * PUT Object calls fail if the request includes a public ACL.
-    * PUT Bucket calls fail if the request includes a public ACL.
+    Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
     """
     block_public_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-    * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+    Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
     """
     ignore_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-    * Ignore all public ACLs on buckets in this account and any objects that they contain.
+    Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
     """
     restrict_public_buckets: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-    * Only the bucket owner and AWS Services can access buckets with public policies.
+    Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
     """
 
 @pulumi.input_type
@@ -615,16 +597,10 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
                  ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
                  restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-               * PUT Object calls fail if the request includes a public ACL.
-               * PUT Bucket calls fail if the request includes a public ACL.
-        :param pulumi.Input[_builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param pulumi.Input[_builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore all public ACLs on buckets in this account and any objects that they contain.
-        :param pulumi.Input[_builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access buckets with public policies.
+        :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
+        :param pulumi.Input[_builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
+        :param pulumi.Input[_builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
+        :param pulumi.Input[_builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -639,10 +615,7 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-        * PUT Object calls fail if the request includes a public ACL.
-        * PUT Bucket calls fail if the request includes a public ACL.
+        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true`, PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public, PUT Object calls fail if the request includes a public ACL, and PUT Bucket calls fail if the request includes a public ACL.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -654,8 +627,7 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true`, Amazon S3 rejects calls to PUT Bucket policy if the specified bucket policy allows public access.
         """
         return pulumi.get(self, "block_public_policy")
 
@@ -667,8 +639,7 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-        * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true`, Amazon S3 ignores all public ACLs on buckets in this account and any objects that they contain.
         """
         return pulumi.get(self, "ignore_public_acls")
 
@@ -680,8 +651,7 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-        * Only the bucket owner and AWS Services can access buckets with public policies.
+        Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`, only the bucket owner and AWS Services can access buckets with public policies.
         """
         return pulumi.get(self, "restrict_public_buckets")
 
@@ -693,11 +663,11 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
 class MultiRegionAccessPointDetailsRegionArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
     """
-    The name of the associated bucket for the Region.
+    Name of the associated bucket for the Region.
     """
     bucket_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+    AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
     """
     region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -711,8 +681,8 @@ class MultiRegionAccessPointDetailsRegionArgs:
                  bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bucket: The name of the associated bucket for the Region.
-        :param pulumi.Input[_builtins.str] bucket_account_id: The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        :param pulumi.Input[_builtins.str] bucket: Name of the associated bucket for the Region.
+        :param pulumi.Input[_builtins.str] bucket_account_id: AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -725,7 +695,7 @@ class MultiRegionAccessPointDetailsRegionArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the associated bucket for the Region.
+        Name of the associated bucket for the Region.
         """
         return pulumi.get(self, "bucket")
 
@@ -737,7 +707,7 @@ class MultiRegionAccessPointDetailsRegionArgs:
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
         """
         return pulumi.get(self, "bucket_account_id")
 
@@ -761,11 +731,11 @@ class MultiRegionAccessPointDetailsRegionArgs:
 class MultiRegionAccessPointPolicyDetailsArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the Multi-Region Access Point.
+    Name of the Multi-Region Access Point.
     """
     policy: pulumi.Input[_builtins.str]
     """
-    A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+    Valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
 
     > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
     """
@@ -776,8 +746,8 @@ class MultiRegionAccessPointPolicyDetailsArgs:
                  name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the Multi-Region Access Point.
-        :param pulumi.Input[_builtins.str] policy: A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+        :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
+        :param pulumi.Input[_builtins.str] policy: Valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
                
                > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
         """
@@ -788,7 +758,7 @@ class MultiRegionAccessPointPolicyDetailsArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Multi-Region Access Point.
+        Name of the Multi-Region Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -800,7 +770,7 @@ class MultiRegionAccessPointPolicyDetailsArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[_builtins.str]:
         """
-        A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+        Valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
 
         > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
         """
@@ -884,7 +854,7 @@ class ObjectLambdaAccessPointConfigurationArgsDict(TypedDict):
     """
     transformation_configurations: pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict']]]
     """
-    List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+    List of transformation configurations for the Object Lambda Access Point. See `transformation_configuration` Block below for more details.
     """
     allowed_features: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -904,7 +874,7 @@ class ObjectLambdaAccessPointConfigurationArgs:
                  cloud_watch_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] supporting_access_point: Standard access point associated with the Object Lambda Access Point.
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See `transformation_configuration` Block below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
         :param pulumi.Input[_builtins.bool] cloud_watch_metrics_enabled: Whether or not the CloudWatch metrics configuration is enabled.
         """
@@ -931,7 +901,7 @@ class ObjectLambdaAccessPointConfigurationArgs:
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]]:
         """
-        List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        List of transformation configurations for the Object Lambda Access Point. See `transformation_configuration` Block below for more details.
         """
         return pulumi.get(self, "transformation_configurations")
 
@@ -967,11 +937,11 @@ class ObjectLambdaAccessPointConfigurationArgs:
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict(TypedDict):
     actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+    Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
     """
     content_transformation: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict']
     """
-    The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+    Content transformation of an Object Lambda Access Point configuration. See `content_transformation` Block below for more details.
     """
 
 @pulumi.input_type
@@ -980,8 +950,8 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  content_transformation: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs']):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs'] content_transformation: The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] actions: Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs'] content_transformation: Content transformation of an Object Lambda Access Point configuration. See `content_transformation` Block below for more details.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "content_transformation", content_transformation)
@@ -990,7 +960,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        Actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
         """
         return pulumi.get(self, "actions")
 
@@ -1002,7 +972,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
     @pulumi.getter(name="contentTransformation")
     def content_transformation(self) -> pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs']:
         """
-        The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        Content transformation of an Object Lambda Access Point configuration. See `content_transformation` Block below for more details.
         """
         return pulumi.get(self, "content_transformation")
 
@@ -1014,7 +984,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict(TypedDict):
     aws_lambda: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict']
     """
-    Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+    Configuration for an AWS Lambda function. See `aws_lambda` Block below for more details.
     """
 
 @pulumi.input_type
@@ -1022,7 +992,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     def __init__(__self__, *,
                  aws_lambda: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs']):
         """
-        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs'] aws_lambda: Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs'] aws_lambda: Configuration for an AWS Lambda function. See `aws_lambda` Block below for more details.
         """
         pulumi.set(__self__, "aws_lambda", aws_lambda)
 
@@ -1030,7 +1000,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     @pulumi.getter(name="awsLambda")
     def aws_lambda(self) -> pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs']:
         """
-        Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        Configuration for an AWS Lambda function. See `aws_lambda` Block below for more details.
         """
         return pulumi.get(self, "aws_lambda")
 
@@ -1042,7 +1012,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict(TypedDict):
     function_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the AWS Lambda function.
+    Amazon Resource Name (ARN) of the AWS Lambda function.
     """
     function_payload: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1055,7 +1025,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
                  function_arn: pulumi.Input[_builtins.str],
                  function_payload: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function.
+        :param pulumi.Input[_builtins.str] function_arn: Amazon Resource Name (ARN) of the AWS Lambda function.
         :param pulumi.Input[_builtins.str] function_payload: Additional JSON that provides supplemental data to the Lambda function used to transform objects.
         """
         pulumi.set(__self__, "function_arn", function_arn)
@@ -1066,7 +1036,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Lambda function.
+        Amazon Resource Name (ARN) of the AWS Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
@@ -1090,7 +1060,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
     account_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict']
     """
-    The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+    Account-level configurations of the S3 Storage Lens configuration. See `account_level` below for more details.
     """
     enabled: pulumi.Input[_builtins.bool]
     """
@@ -1098,23 +1068,23 @@ class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
     """
     aws_org: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict']]]
     """
-    The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+    Amazon Web Services organization for the S3 Storage Lens configuration. See `aws_org` below for more details.
     """
     data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportArgsDict']]]
     """
-    Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+    Properties of S3 Storage Lens metrics export including the destination, schema and format. See `data_export` below for more details.
     """
     exclude: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExcludeArgsDict']]]
     """
-    What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+    What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
     """
     expanded_prefixes_data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict']]]
     """
-    Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+    Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expanded_prefixes_data_export` below for more details.
     """
     include: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationIncludeArgsDict']]]
     """
-    What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+    What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
     """
     prefix_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1133,13 +1103,13 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
                  include: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationIncludeArgs']] = None,
                  prefix_delimiter: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgs'] account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgs'] account_level: Account-level configurations of the S3 Storage Lens configuration. See `account_level` below for more details.
         :param pulumi.Input[_builtins.bool] enabled: Whether the S3 Storage Lens configuration is enabled.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs'] aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgs'] data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgs'] exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs'] expanded_prefixes_data_export: Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs'] include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs'] aws_org: Amazon Web Services organization for the S3 Storage Lens configuration. See `aws_org` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgs'] data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See `data_export` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgs'] exclude: What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs'] expanded_prefixes_data_export: Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expanded_prefixes_data_export` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgs'] include: What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
         :param pulumi.Input[_builtins.str] prefix_delimiter: Prefix delimiter used for object keys in this S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
@@ -1161,7 +1131,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter(name="accountLevel")
     def account_level(self) -> pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgs']:
         """
-        The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        Account-level configurations of the S3 Storage Lens configuration. See `account_level` below for more details.
         """
         return pulumi.get(self, "account_level")
 
@@ -1185,7 +1155,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter(name="awsOrg")
     def aws_org(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs']]:
         """
-        The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+        Amazon Web Services organization for the S3 Storage Lens configuration. See `aws_org` below for more details.
         """
         return pulumi.get(self, "aws_org")
 
@@ -1197,7 +1167,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter(name="dataExport")
     def data_export(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportArgs']]:
         """
-        Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+        Properties of S3 Storage Lens metrics export including the destination, schema and format. See `data_export` below for more details.
         """
         return pulumi.get(self, "data_export")
 
@@ -1209,7 +1179,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter
     def exclude(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExcludeArgs']]:
         """
-        What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        What is excluded in this configuration. Conflicts with `include`. See `exclude` below for more details.
         """
         return pulumi.get(self, "exclude")
 
@@ -1221,7 +1191,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter(name="expandedPrefixesDataExport")
     def expanded_prefixes_data_export(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs']]:
         """
-        Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+        Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `expanded_prefixes_data_export` below for more details.
         """
         return pulumi.get(self, "expanded_prefixes_data_export")
 
@@ -1233,7 +1203,7 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
     @pulumi.getter
     def include(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationIncludeArgs']]:
         """
-        What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        What is included in this configuration. Conflicts with `exclude`. See `include` below for more details.
         """
         return pulumi.get(self, "include")
 
@@ -1257,27 +1227,27 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
 class StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict(TypedDict):
     bucket_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict']
     """
-    S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+    S3 Storage Lens bucket-level configuration. See `bucket_level` below for more details.
     """
     activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict']]]
     """
-    S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+    S3 Storage Lens activity metrics. See `activity_metrics` below for more details.
     """
     advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict']]]
     """
-    Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+    Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` below for more details.
     """
     advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict']]]
     """
-    Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+    Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` below for more details.
     """
     advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgsDict']]]
     """
-    Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+    Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` below for more details.
     """
     detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict']]]
     """
-    Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+    Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` below for more details.
     """
 
 @pulumi.input_type
@@ -1290,12 +1260,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
                  advanced_performance_metrics: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs']] = None,
                  detailed_status_code_metrics: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs'] bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs'] bucket_level: S3 Storage Lens bucket-level configuration. See `bucket_level` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See `activity_metrics` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` below for more details.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -1313,7 +1283,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs']:
         """
-        S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+        S3 Storage Lens bucket-level configuration. See `bucket_level` below for more details.
         """
         return pulumi.get(self, "bucket_level")
 
@@ -1325,7 +1295,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs']]:
         """
-        S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+        S3 Storage Lens activity metrics. See `activity_metrics` below for more details.
         """
         return pulumi.get(self, "activity_metrics")
 
@@ -1337,7 +1307,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs']]:
         """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+        Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` below for more details.
         """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
@@ -1349,7 +1319,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs']]:
         """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+        Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` below for more details.
         """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
@@ -1361,7 +1331,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs']]:
         """
-        Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
+        Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` below for more details.
         """
         return pulumi.get(self, "advanced_performance_metrics")
 
@@ -1373,7 +1343,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
     @pulumi.getter(name="detailedStatusCodeMetrics")
     def detailed_status_code_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']]:
         """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+        Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` below for more details.
         """
         return pulumi.get(self, "detailed_status_code_metrics")
 
@@ -1501,27 +1471,27 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerfor
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict(TypedDict):
     activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict']]]
     """
-    S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+    S3 Storage Lens activity metrics. See `activity_metrics` above for more details.
     """
     advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict']]]
     """
-    Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+    Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` above for more details.
     """
     advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict']]]
     """
-    Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+    Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` above for more details.
     """
     advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgsDict']]]
     """
-    Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+    Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` above for more details.
     """
     detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict']]]
     """
-    Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+    Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` above for more details.
     """
     prefix_level: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict']]]
     """
-    Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+    Prefix-level metrics for S3 Storage Lens. See `prefix_level` below for more details.
     """
 
 @pulumi.input_type
@@ -1534,12 +1504,12 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
                  detailed_status_code_metrics: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']] = None,
                  prefix_level: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs']] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs'] prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs'] activity_metrics: S3 Storage Lens activity metrics. See `activity_metrics` above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs'] detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` above for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs'] prefix_level: Prefix-level metrics for S3 Storage Lens. See `prefix_level` below for more details.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -1558,7 +1528,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs']]:
         """
-        S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        S3 Storage Lens activity metrics. See `activity_metrics` above for more details.
         """
         return pulumi.get(self, "activity_metrics")
 
@@ -1570,7 +1540,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs']]:
         """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        Advanced cost-optimization metrics for S3 Storage Lens. See `advanced_cost_optimization_metrics` above for more details.
         """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
@@ -1582,7 +1552,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs']]:
         """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        Advanced data-protection metrics for S3 Storage Lens. See `advanced_data_protection_metrics` above for more details.
         """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
@@ -1594,7 +1564,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs']]:
         """
-        Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+        Advanced performance metrics for S3 Storage Lens. See `advanced_performance_metrics` above for more details.
         """
         return pulumi.get(self, "advanced_performance_metrics")
 
@@ -1606,7 +1576,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="detailedStatusCodeMetrics")
     def detailed_status_code_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']]:
         """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+        Detailed status code metrics for S3 Storage Lens. See `detailed_status_code_metrics` above for more details.
         """
         return pulumi.get(self, "detailed_status_code_metrics")
 
@@ -1618,7 +1588,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
     @pulumi.getter(name="prefixLevel")
     def prefix_level(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs']]:
         """
-        Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        Prefix-level metrics for S3 Storage Lens. See `prefix_level` below for more details.
         """
         return pulumi.get(self, "prefix_level")
 
@@ -1775,7 +1745,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDet
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict(TypedDict):
     storage_metrics: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict']
     """
-    Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+    Prefix-level storage metrics for S3 Storage Lens. See `storage_metrics` below for more details.
     """
 
 @pulumi.input_type
@@ -1783,7 +1753,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     def __init__(__self__, *,
                  storage_metrics: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs']):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs'] storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs'] storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See `storage_metrics` below for more details.
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
@@ -1791,7 +1761,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @pulumi.getter(name="storageMetrics")
     def storage_metrics(self) -> pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs']:
         """
-        Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+        Prefix-level storage metrics for S3 Storage Lens. See `storage_metrics` below for more details.
         """
         return pulumi.get(self, "storage_metrics")
 
@@ -1807,7 +1777,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     """
     selection_criteria: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict']]]
     """
-    Selection criteria. See Selection Criteria below for more details.
+    Selection criteria. See `selection_criteria` below for more details.
     """
 
 @pulumi.input_type
@@ -1817,7 +1787,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
                  selection_criteria: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether prefix-level storage metrics are enabled.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs'] selection_criteria: Selection criteria. See Selection Criteria below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs'] selection_criteria: Selection criteria. See `selection_criteria` below for more details.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1840,7 +1810,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs']]:
         """
-        Selection criteria. See Selection Criteria below for more details.
+        Selection criteria. See `selection_criteria` below for more details.
         """
         return pulumi.get(self, "selection_criteria")
 
@@ -1852,15 +1822,15 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict(TypedDict):
     delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The delimiter of the selection criteria being used.
+    Delimiter of the selection criteria being used.
     """
     max_depth: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The max depth of the selection criteria.
+    Max depth of the selection criteria.
     """
     min_storage_bytes_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
-    The minimum number of storage bytes percentage whose metrics will be selected.
+    Minimum number of storage bytes percentage whose metrics will be selected.
     """
 
 @pulumi.input_type
@@ -1870,9 +1840,9 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
                  max_depth: pulumi.Input[Optional[_builtins.int]] = None,
                  min_storage_bytes_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] delimiter: The delimiter of the selection criteria being used.
-        :param pulumi.Input[_builtins.int] max_depth: The max depth of the selection criteria.
-        :param pulumi.Input[_builtins.float] min_storage_bytes_percentage: The minimum number of storage bytes percentage whose metrics will be selected.
+        :param pulumi.Input[_builtins.str] delimiter: Delimiter of the selection criteria being used.
+        :param pulumi.Input[_builtins.int] max_depth: Max depth of the selection criteria.
+        :param pulumi.Input[_builtins.float] min_storage_bytes_percentage: Minimum number of storage bytes percentage whose metrics will be selected.
         """
         if delimiter is not None:
             pulumi.set(__self__, "delimiter", delimiter)
@@ -1885,7 +1855,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @pulumi.getter
     def delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The delimiter of the selection criteria being used.
+        Delimiter of the selection criteria being used.
         """
         return pulumi.get(self, "delimiter")
 
@@ -1897,7 +1867,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @pulumi.getter(name="maxDepth")
     def max_depth(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The max depth of the selection criteria.
+        Max depth of the selection criteria.
         """
         return pulumi.get(self, "max_depth")
 
@@ -1909,7 +1879,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     @pulumi.getter(name="minStorageBytesPercentage")
     def min_storage_bytes_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
-        The minimum number of storage bytes percentage whose metrics will be selected.
+        Minimum number of storage bytes percentage whose metrics will be selected.
         """
         return pulumi.get(self, "min_storage_bytes_percentage")
 
@@ -1950,7 +1920,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatus
 class StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+    Amazon Resource Name (ARN) of the Amazon Web Services organization.
     """
 
 @pulumi.input_type
@@ -1958,7 +1928,7 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Amazon Web Services organization.
         """
         pulumi.set(__self__, "arn", arn)
 
@@ -1966,7 +1936,7 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+        Amazon Resource Name (ARN) of the Amazon Web Services organization.
         """
         return pulumi.get(self, "arn")
 
@@ -1978,15 +1948,15 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
 class StorageLensConfigurationStorageLensConfigurationDataExportArgsDict(TypedDict):
     cloud_watch_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict']]]
     """
-    Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+    Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloud_watch_metrics` below for more details.
     """
     s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict']]]
     """
-    The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+    Bucket where the S3 Storage Lens metrics export will be located. See `s3_bucket_destination` below for more details.
     """
     storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgsDict']]]
     """
-    S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+    S3 table bucket where the S3 Storage Lens metrics export will be located. See `storage_lens_table_destination` below for more details.
     """
 
 @pulumi.input_type
@@ -1996,9 +1966,9 @@ class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
                  s3_bucket_destination: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs']] = None,
                  storage_lens_table_destination: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs']] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs'] cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs'] s3_bucket_destination: The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs'] storage_lens_table_destination: S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs'] cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloud_watch_metrics` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs'] s3_bucket_destination: Bucket where the S3 Storage Lens metrics export will be located. See `s3_bucket_destination` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs'] storage_lens_table_destination: S3 table bucket where the S3 Storage Lens metrics export will be located. See `storage_lens_table_destination` below for more details.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -2011,7 +1981,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
     @pulumi.getter(name="cloudWatchMetrics")
     def cloud_watch_metrics(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs']]:
         """
-        Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+        Amazon CloudWatch publishing for S3 Storage Lens metrics. See `cloud_watch_metrics` below for more details.
         """
         return pulumi.get(self, "cloud_watch_metrics")
 
@@ -2023,7 +1993,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs']]:
         """
-        The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+        Bucket where the S3 Storage Lens metrics export will be located. See `s3_bucket_destination` below for more details.
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -2035,7 +2005,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs']]:
         """
-        S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
+        S3 table bucket where the S3 Storage Lens metrics export will be located. See `storage_lens_table_destination` below for more details.
         """
         return pulumi.get(self, "storage_lens_table_destination")
 
@@ -2075,27 +2045,27 @@ class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetric
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict(TypedDict):
     account_id: pulumi.Input[_builtins.str]
     """
-    The account ID of the owner of the S3 Storage Lens metrics export bucket.
+    Account ID of the owner of the S3 Storage Lens metrics export bucket.
     """
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the bucket.
+    Amazon Resource Name (ARN) of the bucket.
     """
     format: pulumi.Input[_builtins.str]
     """
-    The export format. Valid values: `CSV`, `Parquet`.
+    Export format. Valid values: `CSV`, `Parquet`.
     """
     output_schema_version: pulumi.Input[_builtins.str]
     """
-    The schema version of the export file. Valid values: `V_1`.
+    Schema version of the export file. Valid values: `V_1`.
     """
     encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict']]]
     """
-    Encryption of the metrics exports in this bucket. See Encryption below for more details.
+    Encryption of the metrics exports in this bucket. See `encryption` below for more details.
     """
     prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The prefix of the destination bucket where the metrics export will be delivered.
+    Prefix of the destination bucket where the metrics export will be delivered.
     """
 
 @pulumi.input_type
@@ -2108,12 +2078,12 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  encryption: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs']] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[_builtins.str] format: The export format. Valid values: `CSV`, `Parquet`.
-        :param pulumi.Input[_builtins.str] output_schema_version: The schema version of the export file. Valid values: `V_1`.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
-        :param pulumi.Input[_builtins.str] prefix: The prefix of the destination bucket where the metrics export will be delivered.
+        :param pulumi.Input[_builtins.str] account_id: Account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] format: Export format. Valid values: `CSV`, `Parquet`.
+        :param pulumi.Input[_builtins.str] output_schema_version: Schema version of the export file. Valid values: `V_1`.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See `encryption` below for more details.
+        :param pulumi.Input[_builtins.str] prefix: Prefix of the destination bucket where the metrics export will be delivered.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "arn", arn)
@@ -2128,7 +2098,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        Account ID of the owner of the S3 Storage Lens metrics export bucket.
         """
         return pulumi.get(self, "account_id")
 
@@ -2140,7 +2110,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the bucket.
+        Amazon Resource Name (ARN) of the bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -2152,7 +2122,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
         """
-        The export format. Valid values: `CSV`, `Parquet`.
+        Export format. Valid values: `CSV`, `Parquet`.
         """
         return pulumi.get(self, "format")
 
@@ -2164,7 +2134,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="outputSchemaVersion")
     def output_schema_version(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema version of the export file. Valid values: `V_1`.
+        Schema version of the export file. Valid values: `V_1`.
         """
         return pulumi.get(self, "output_schema_version")
 
@@ -2176,7 +2146,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs']]:
         """
-        Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        Encryption of the metrics exports in this bucket. See `encryption` below for more details.
         """
         return pulumi.get(self, "encryption")
 
@@ -2188,7 +2158,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter
     def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The prefix of the destination bucket where the metrics export will be delivered.
+        Prefix of the destination bucket where the metrics export will be delivered.
         """
         return pulumi.get(self, "prefix")
 
@@ -2200,7 +2170,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
     sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]]
     """
-    SSE-KMS encryption. See SSE KMS below for more details.
+    SSE-KMS encryption. See `sse_kms` below for more details.
     """
     sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]]
     """
@@ -2213,7 +2183,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  sse_kms: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs']] = None,
                  sse_s3s: pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args']]]] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See `sse_kms` below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
         """
         if sse_kms is not None:
@@ -2225,7 +2195,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     @pulumi.getter(name="sseKms")
     def sse_kms(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs']]:
         """
-        SSE-KMS encryption. See SSE KMS below for more details.
+        SSE-KMS encryption. See `sse_kms` below for more details.
         """
         return pulumi.get(self, "sse_kms")
 
@@ -2290,7 +2260,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
     """
     encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgsDict']]]
     """
-    Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+    Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
     """
 
 @pulumi.input_type
@@ -2300,7 +2270,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
                  encryption: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether S3 Storage Lens export to S3 tables is enabled.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
         """
         pulumi.set(__self__, "enabled", enabled)
         if encryption is not None:
@@ -2322,7 +2292,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs']]:
         """
-        Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
         """
         return pulumi.get(self, "encryption")
 
@@ -2334,7 +2304,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
 class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgsDict(TypedDict):
     sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict']]]
     """
-    SSE-KMS encryption. See SSE KMS below for more details.
+    SSE-KMS encryption. See `sse_kms` below for more details.
     """
     sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict']]]]]
     """
@@ -2347,7 +2317,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
                  sse_kms: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs']] = None,
                  sse_s3s: pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3Args']]]] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See `sse_kms` below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
         """
         if sse_kms is not None:
@@ -2359,7 +2329,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
     @pulumi.getter(name="sseKms")
     def sse_kms(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]:
         """
-        SSE-KMS encryption. See SSE KMS below for more details.
+        SSE-KMS encryption. See `sse_kms` below for more details.
         """
         return pulumi.get(self, "sse_kms")
 
@@ -2469,11 +2439,11 @@ class StorageLensConfigurationStorageLensConfigurationExcludeArgs:
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict(TypedDict):
     s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict']]]
     """
-    The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+    Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3_bucket_destination` below for more details.
     """
     storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgsDict']]]
     """
-    S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+    S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storage_lens_table_destination` below for more details.
     """
 
 @pulumi.input_type
@@ -2482,8 +2452,8 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  s3_bucket_destination: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']] = None,
                  storage_lens_table_destination: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs'] s3_bucket_destination: The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs'] storage_lens_table_destination: S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs'] s3_bucket_destination: Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3_bucket_destination` below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs'] storage_lens_table_destination: S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storage_lens_table_destination` below for more details.
         """
         if s3_bucket_destination is not None:
             pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
@@ -2494,7 +2464,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']]:
         """
-        The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+        Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3_bucket_destination` below for more details.
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -2506,7 +2476,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']]:
         """
-        S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+        S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storage_lens_table_destination` below for more details.
         """
         return pulumi.get(self, "storage_lens_table_destination")
 
@@ -2518,27 +2488,27 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict(TypedDict):
     account_id: pulumi.Input[_builtins.str]
     """
-    The account ID of the owner of the S3 Storage Lens metrics export bucket.
+    Account ID of the owner of the S3 Storage Lens metrics export bucket.
     """
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the bucket.
+    Amazon Resource Name (ARN) of the bucket.
     """
     format: pulumi.Input[_builtins.str]
     """
-    The export format. Valid values: `CSV`, `Parquet`.
+    Export format. Valid values: `CSV`, `Parquet`.
     """
     output_schema_version: pulumi.Input[_builtins.str]
     """
-    The schema version of the export file. Valid values: `V_1`.
+    Schema version of the export file. Valid values: `V_1`.
     """
     encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict']]]
     """
-    Encryption of the metrics exports in this bucket. See Encryption below for more details.
+    Encryption of the metrics exports in this bucket. See `encryption` below for more details.
     """
     prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The prefix of the destination bucket where the metrics export will be delivered.
+    Prefix of the destination bucket where the metrics export will be delivered.
     """
 
 @pulumi.input_type
@@ -2551,12 +2521,12 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  encryption: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] account_id: The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[_builtins.str] format: The export format. Valid values: `CSV`, `Parquet`.
-        :param pulumi.Input[_builtins.str] output_schema_version: The schema version of the export file. Valid values: `V_1`.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
-        :param pulumi.Input[_builtins.str] prefix: The prefix of the destination bucket where the metrics export will be delivered.
+        :param pulumi.Input[_builtins.str] account_id: Account ID of the owner of the S3 Storage Lens metrics export bucket.
+        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] format: Export format. Valid values: `CSV`, `Parquet`.
+        :param pulumi.Input[_builtins.str] output_schema_version: Schema version of the export file. Valid values: `V_1`.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this bucket. See `encryption` below for more details.
+        :param pulumi.Input[_builtins.str] prefix: Prefix of the destination bucket where the metrics export will be delivered.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "arn", arn)
@@ -2571,7 +2541,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
+        Account ID of the owner of the S3 Storage Lens metrics export bucket.
         """
         return pulumi.get(self, "account_id")
 
@@ -2583,7 +2553,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the bucket.
+        Amazon Resource Name (ARN) of the bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -2595,7 +2565,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
         """
-        The export format. Valid values: `CSV`, `Parquet`.
+        Export format. Valid values: `CSV`, `Parquet`.
         """
         return pulumi.get(self, "format")
 
@@ -2607,7 +2577,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="outputSchemaVersion")
     def output_schema_version(self) -> pulumi.Input[_builtins.str]:
         """
-        The schema version of the export file. Valid values: `V_1`.
+        Schema version of the export file. Valid values: `V_1`.
         """
         return pulumi.get(self, "output_schema_version")
 
@@ -2619,7 +2589,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']]:
         """
-        Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        Encryption of the metrics exports in this bucket. See `encryption` below for more details.
         """
         return pulumi.get(self, "encryption")
 
@@ -2631,7 +2601,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The prefix of the destination bucket where the metrics export will be delivered.
+        Prefix of the destination bucket where the metrics export will be delivered.
         """
         return pulumi.get(self, "prefix")
 
@@ -2643,7 +2613,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
     sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]]
     """
-    SSE-KMS encryption. See SSE KMS below for more details.
+    SSE-KMS encryption. See `sse_kms` below for more details.
     """
     sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]]
     """
@@ -2656,7 +2626,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  sse_kms: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']] = None,
                  sse_s3s: pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]]] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See `sse_kms` below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
         """
         if sse_kms is not None:
@@ -2668,7 +2638,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="sseKms")
     def sse_kms(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']]:
         """
-        SSE-KMS encryption. See SSE KMS below for more details.
+        SSE-KMS encryption. See `sse_kms` below for more details.
         """
         return pulumi.get(self, "sse_kms")
 
@@ -2733,7 +2703,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     """
     encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict']]]
     """
-    Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+    Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
     """
 
 @pulumi.input_type
@@ -2743,7 +2713,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  encryption: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether S3 Storage Lens export to S3 tables is enabled.
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs'] encryption: Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
         """
         pulumi.set(__self__, "enabled", enabled)
         if encryption is not None:
@@ -2765,7 +2735,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter
     def encryption(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']]:
         """
-        Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+        Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
         """
         return pulumi.get(self, "encryption")
 
@@ -2777,7 +2747,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict(TypedDict):
     sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict']]]
     """
-    SSE-KMS encryption. See SSE KMS below for more details.
+    SSE-KMS encryption. See `sse_kms` below for more details.
     """
     sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict']]]]]
     """
@@ -2790,7 +2760,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
                  sse_kms: pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']] = None,
                  sse_s3s: pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]]] = None):
         """
-        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs'] sse_kms: SSE-KMS encryption. See `sse_kms` below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
         """
         if sse_kms is not None:
@@ -2802,7 +2772,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     @pulumi.getter(name="sseKms")
     def sse_kms(self) -> pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]:
         """
-        SSE-KMS encryption. See SSE KMS below for more details.
+        SSE-KMS encryption. See `sse_kms` below for more details.
         """
         return pulumi.get(self, "sse_kms")
 

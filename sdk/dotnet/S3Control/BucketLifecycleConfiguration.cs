@@ -85,7 +85,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
+        /// Configuration block(s) containing lifecycle rules for the bucket. See `Rule` below.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.BucketLifecycleConfigurationRule>> Rules { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.S3Control
         private InputList<Inputs.BucketLifecycleConfigurationRuleArgs>? _rules;
 
         /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
+        /// Configuration block(s) containing lifecycle rules for the bucket. See `Rule` below.
         /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationRuleArgs> Rules
         {
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.S3Control
         private InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Configuration block(s) containing lifecycle rules for the bucket.
+        /// Configuration block(s) containing lifecycle rules for the bucket. See `Rule` below.
         /// </summary>
         public InputList<Inputs.BucketLifecycleConfigurationRuleGetArgs> Rules
         {

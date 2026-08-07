@@ -16,14 +16,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     public static final ResourcePolicyState Empty = new ResourcePolicyState();
 
     /**
-     * An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * IAM policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+     * @return IAM policy. The policy string in JSON must not contain newlines or blank lines.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -46,14 +46,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * @return ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -87,7 +87,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+         * @param policy IAM policy. The policy string in JSON must not contain newlines or blank lines.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy An IAM policy. The policy string in JSON must not contain newlines or blank lines.
+         * @param policy IAM policy. The policy string in JSON must not contain newlines or blank lines.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceArn ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+         * @param resourceArn ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
          * 
          * @return builder
          * 

@@ -12,6 +12,9 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// </summary>
         [Input("apiKey", required: true)]
         public Input<string> ApiKey { get; set; } = null!;
 
@@ -19,7 +22,7 @@ namespace Pulumi.Aws.AppFlow.Inputs
         private Input<string>? _secretKey;
 
         /// <summary>
-        /// The Secret Access Key portion of the credentials.
+        /// Secret Access Key portion of the credentials.
         /// </summary>
         public Input<string>? SecretKey
         {

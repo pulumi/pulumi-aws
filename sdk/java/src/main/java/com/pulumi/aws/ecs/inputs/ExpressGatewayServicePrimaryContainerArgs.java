@@ -22,9 +22,17 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
 
     public static final ExpressGatewayServicePrimaryContainerArgs Empty = new ExpressGatewayServicePrimaryContainerArgs();
 
+    /**
+     * CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+     * 
+     */
     @Import(name="awsLogsConfigurations")
     private @Nullable Output<List<ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs>> awsLogsConfigurations;
 
+    /**
+     * @return CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+     * 
+     */
     public Optional<Output<List<ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs>>> awsLogsConfigurations() {
         return Optional.ofNullable(this.awsLogsConfigurations);
     }
@@ -125,15 +133,33 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
             $ = new ExpressGatewayServicePrimaryContainerArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsLogsConfigurations CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsLogsConfigurations(@Nullable Output<List<ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs>> awsLogsConfigurations) {
             $.awsLogsConfigurations = awsLogsConfigurations;
             return this;
         }
 
+        /**
+         * @param awsLogsConfigurations CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsLogsConfigurations(List<ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs> awsLogsConfigurations) {
             return awsLogsConfigurations(Output.of(awsLogsConfigurations));
         }
 
+        /**
+         * @param awsLogsConfigurations CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsLogsConfigurations(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs... awsLogsConfigurations) {
             return awsLogsConfigurations(List.of(awsLogsConfigurations));
         }

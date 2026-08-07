@@ -19,16 +19,14 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     public static final StageDefaultRouteSettingsArgs Empty = new StageDefaultRouteSettingsArgs();
 
     /**
-     * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
+     * Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     @Import(name="dataTraceEnabled")
     private @Nullable Output<Boolean> dataTraceEnabled;
 
     /**
-     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Defaults to `false`. Supported only for WebSocket APIs.
+     * @return Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
     public Optional<Output<Boolean>> dataTraceEnabled() {
@@ -51,16 +49,14 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+     * Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     @Import(name="loggingLevel")
     private @Nullable Output<String> loggingLevel;
 
     /**
-     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-     * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+     * @return Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
     public Optional<Output<String>> loggingLevel() {
@@ -126,8 +122,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataTraceEnabled Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Defaults to `false`. Supported only for WebSocket APIs.
+         * @param dataTraceEnabled Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -138,8 +133,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param dataTraceEnabled Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Defaults to `false`. Supported only for WebSocket APIs.
+         * @param dataTraceEnabled Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
          * 
          * @return builder
          * 
@@ -170,8 +164,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 
@@ -182,8 +175,7 @@ public final class StageDefaultRouteSettingsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-         * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+         * @param loggingLevel Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
          * 
          * @return builder
          * 

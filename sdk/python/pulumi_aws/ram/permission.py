@@ -30,11 +30,11 @@ class PermissionArgs:
         """
         The set of arguments for constructing a Permission resource.
 
-        :param pulumi.Input[_builtins.str] policy_template: A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
-        :param pulumi.Input[_builtins.str] resource_type: Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        :param pulumi.Input[_builtins.str] policy_template: String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        :param pulumi.Input[_builtins.str] resource_type: Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        :param pulumi.Input[_builtins.str] name: Name of the customer managed permission. The name must be unique within the AWS Region.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "policy_template", policy_template)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -51,7 +51,7 @@ class PermissionArgs:
     @pulumi.getter(name="policyTemplate")
     def policy_template(self) -> pulumi.Input[_builtins.str]:
         """
-        A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         """
         return pulumi.get(self, "policy_template")
 
@@ -63,7 +63,7 @@ class PermissionArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
         """
         return pulumi.get(self, "resource_type")
 
@@ -75,7 +75,7 @@ class PermissionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        Name of the customer managed permission. The name must be unique within the AWS Region.
         """
         return pulumi.get(self, "name")
 
@@ -99,7 +99,7 @@ class PermissionArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -135,15 +135,15 @@ class _PermissionState:
         Input properties used for looking up and filtering Permission resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the permission.
-        :param pulumi.Input[_builtins.bool] default_version: Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
-        :param pulumi.Input[_builtins.str] policy_template: A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        :param pulumi.Input[_builtins.bool] default_version: Whether this is the default version of the managed permission.
+        :param pulumi.Input[_builtins.str] name: Name of the customer managed permission. The name must be unique within the AWS Region.
+        :param pulumi.Input[_builtins.str] policy_template: String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
-        :param pulumi.Input[_builtins.str] status: The current status of the permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The version of the permission associated with this resource share.
+        :param pulumi.Input[_builtins.str] resource_type: Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        :param pulumi.Input[_builtins.str] status: Current status of the permission.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] version: Version of the permission associated with this resource share.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -184,7 +184,7 @@ class _PermissionState:
     @pulumi.getter(name="defaultVersion")
     def default_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+        Whether this is the default version of the managed permission.
         """
         return pulumi.get(self, "default_version")
 
@@ -196,7 +196,7 @@ class _PermissionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        Name of the customer managed permission. The name must be unique within the AWS Region.
         """
         return pulumi.get(self, "name")
 
@@ -208,7 +208,7 @@ class _PermissionState:
     @pulumi.getter(name="policyTemplate")
     def policy_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         """
         return pulumi.get(self, "policy_template")
 
@@ -232,7 +232,7 @@ class _PermissionState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
         """
         return pulumi.get(self, "resource_type")
 
@@ -244,7 +244,7 @@ class _PermissionState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current status of the permission.
+        Current status of the permission.
         """
         return pulumi.get(self, "status")
 
@@ -256,7 +256,7 @@ class _PermissionState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -268,7 +268,7 @@ class _PermissionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -289,7 +289,7 @@ class _PermissionState:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the permission associated with this resource share.
+        Version of the permission associated with this resource share.
         """
         return pulumi.get(self, "version")
 
@@ -357,11 +357,11 @@ class Permission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
-        :param pulumi.Input[_builtins.str] policy_template: A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        :param pulumi.Input[_builtins.str] name: Name of the customer managed permission. The name must be unique within the AWS Region.
+        :param pulumi.Input[_builtins.str] policy_template: String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] resource_type: Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -487,15 +487,15 @@ class Permission(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the permission.
-        :param pulumi.Input[_builtins.bool] default_version: Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
-        :param pulumi.Input[_builtins.str] policy_template: A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        :param pulumi.Input[_builtins.bool] default_version: Whether this is the default version of the managed permission.
+        :param pulumi.Input[_builtins.str] name: Name of the customer managed permission. The name must be unique within the AWS Region.
+        :param pulumi.Input[_builtins.str] policy_template: String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_type: Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
-        :param pulumi.Input[_builtins.str] status: The current status of the permission.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] version: The version of the permission associated with this resource share.
+        :param pulumi.Input[_builtins.str] resource_type: Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        :param pulumi.Input[_builtins.str] status: Current status of the permission.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] version: Version of the permission associated with this resource share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -526,7 +526,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="defaultVersion")
     def default_version(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the version of the managed permission used by this resource share is the default version for this managed permission.
+        Whether this is the default version of the managed permission.
         """
         return pulumi.get(self, "default_version")
 
@@ -534,7 +534,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the customer managed permission. The name must be unique within the AWS Region.
+        Name of the customer managed permission. The name must be unique within the AWS Region.
         """
         return pulumi.get(self, "name")
 
@@ -542,7 +542,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="policyTemplate")
     def policy_template(self) -> pulumi.Output[_builtins.str]:
         """
-        A string in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
+        String in JSON format string that contains the following elements of a resource-based policy: Effect, Action and Condition.
         """
         return pulumi.get(self, "policy_template")
 
@@ -558,7 +558,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
+        Name of the resource type that this customer managed permission applies to. The format is `<service-code>:<resource-type>` and is not case sensitive.
         """
         return pulumi.get(self, "resource_type")
 
@@ -566,7 +566,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The current status of the permission.
+        Current status of the permission.
         """
         return pulumi.get(self, "status")
 
@@ -574,7 +574,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -582,7 +582,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -595,7 +595,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of the permission associated with this resource share.
+        Version of the permission associated with this resource share.
         """
         return pulumi.get(self, "version")
 

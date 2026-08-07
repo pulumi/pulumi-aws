@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class CloudVmClusterDataCollectionOptions
     {
+        /// <summary>
+        /// Whether to enable diagnostic events for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         public readonly bool IsDiagnosticsEventsEnabled;
+        /// <summary>
+        /// Whether to enable health monitoring for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         public readonly bool IsHealthMonitoringEnabled;
+        /// <summary>
+        /// Whether to enable incident logs for the VM cluster. Changing this will create a new resource.
+        /// </summary>
         public readonly bool IsIncidentLogsEnabled;
 
         [OutputConstructor]

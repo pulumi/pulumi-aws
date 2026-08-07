@@ -84,7 +84,7 @@ export class Extension extends pulumi.CustomResource {
     }
 
     /**
-     * The action points defined in the extension. Detailed below.
+     * Action points defined in the extension. Detailed below.
      */
     declare public readonly actionPoints: pulumi.Output<outputs.appconfig.ExtensionActionPoint[]>;
     /**
@@ -96,11 +96,11 @@ export class Extension extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
     declare public readonly parameters: pulumi.Output<outputs.appconfig.ExtensionParameter[]>;
     /**
@@ -113,7 +113,7 @@ export class Extension extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The version number for the extension.
+     * Version number for the extension.
      */
     declare public /*out*/ readonly version: pulumi.Output<number>;
 
@@ -164,7 +164,7 @@ export class Extension extends pulumi.CustomResource {
  */
 export interface ExtensionState {
     /**
-     * The action points defined in the extension. Detailed below.
+     * Action points defined in the extension. Detailed below.
      */
     actionPoints?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[] | undefined>;
     /**
@@ -176,11 +176,11 @@ export interface ExtensionState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[] | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface ExtensionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The version number for the extension.
+     * Version number for the extension.
      */
     version?: pulumi.Input<number | undefined>;
 }
@@ -203,7 +203,7 @@ export interface ExtensionState {
  */
 export interface ExtensionArgs {
     /**
-     * The action points defined in the extension. Detailed below.
+     * Action points defined in the extension. Detailed below.
      */
     actionPoints: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionActionPoint>[]>;
     /**
@@ -211,11 +211,11 @@ export interface ExtensionArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
+     * Name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
+     * Parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.appconfig.ExtensionParameter>[] | undefined>;
     /**

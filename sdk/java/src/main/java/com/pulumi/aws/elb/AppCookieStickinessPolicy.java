@@ -95,34 +95,28 @@ public class AppCookieStickinessPolicy extends com.pulumi.resources.CustomResour
         return this.cookieName;
     }
     /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      * 
      */
     @Export(name="lbPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> lbPort;
 
     /**
-     * @return Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * @return Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      * 
      */
     public Output<Integer> lbPort() {
         return this.lbPort;
     }
     /**
-     * Name of load balancer to which the policy
-     * should be attached.
+     * Name of load balancer to which the policy should be attached.
      * 
      */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
     /**
-     * @return Name of load balancer to which the policy
-     * should be attached.
+     * @return Name of load balancer to which the policy should be attached.
      * 
      */
     public Output<String> loadBalancer() {

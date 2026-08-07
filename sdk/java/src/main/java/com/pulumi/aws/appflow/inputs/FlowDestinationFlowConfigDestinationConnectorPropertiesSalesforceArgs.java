@@ -25,16 +25,32 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
         return Optional.ofNullable(this.dataTransferApi);
     }
 
+    /**
+     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig;
 
+    /**
+     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+     * 
+     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
+    /**
+     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * 
+     */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
+    /**
+     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+     * 
+     */
     public Optional<Output<List<String>>> idFieldNames() {
         return Optional.ofNullable(this.idFieldNames);
     }
@@ -46,9 +62,17 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
         return this.object;
     }
 
+    /**
+     * Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * 
+     */
     @Import(name="writeOperationType")
     private @Nullable Output<String> writeOperationType;
 
+    /**
+     * @return Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+     * 
+     */
     public Optional<Output<String>> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }
@@ -90,24 +114,54 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
             return dataTransferApi(Output.of(dataTransferApi));
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
+        /**
+         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See the `destination_flow_config.destination_connector_properties.zendesk.error_handling_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
+        /**
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idFieldNames(@Nullable Output<List<String>> idFieldNames) {
             $.idFieldNames = idFieldNames;
             return this;
         }
 
+        /**
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idFieldNames(List<String> idFieldNames) {
             return idFieldNames(Output.of(idFieldNames));
         }
 
+        /**
+         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         * 
+         * @return builder
+         * 
+         */
         public Builder idFieldNames(String... idFieldNames) {
             return idFieldNames(List.of(idFieldNames));
         }
@@ -121,11 +175,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
             return object(Output.of(object));
         }
 
+        /**
+         * @param writeOperationType Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeOperationType(@Nullable Output<String> writeOperationType) {
             $.writeOperationType = writeOperationType;
             return this;
         }
 
+        /**
+         * @param writeOperationType Type of write operation to be performed in Zendesk. When the value is `UPSERT`, `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder writeOperationType(String writeOperationType) {
             return writeOperationType(Output.of(writeOperationType));
         }

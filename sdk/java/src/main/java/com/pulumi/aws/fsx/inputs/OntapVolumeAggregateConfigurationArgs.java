@@ -18,14 +18,14 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
     public static final OntapVolumeAggregateConfigurationArgs Empty = new OntapVolumeAggregateConfigurationArgs();
 
     /**
-     * Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+     * Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
      * 
      */
     @Import(name="aggregates")
     private @Nullable Output<List<String>> aggregates;
 
     /**
-     * @return Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+     * @return Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
      * 
      */
     public Optional<Output<List<String>>> aggregates() {
@@ -33,14 +33,14 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+     * Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
      * 
      */
     @Import(name="constituentsPerAggregate")
     private @Nullable Output<Integer> constituentsPerAggregate;
 
     /**
-     * @return Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+     * @return Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
      * 
      */
     public Optional<Output<Integer>> constituentsPerAggregate() {
@@ -48,14 +48,14 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
     }
 
     /**
-     * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+     * Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     @Import(name="totalConstituents")
     private @Nullable Output<Integer> totalConstituents;
 
     /**
-     * @return The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+     * @return Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
      * 
      */
     public Optional<Output<Integer>> totalConstituents() {
@@ -89,7 +89,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+         * @param aggregates Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+         * @param aggregates Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param aggregates Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+         * @param aggregates Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param constituentsPerAggregate Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+         * @param constituentsPerAggregate Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param constituentsPerAggregate Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+         * @param constituentsPerAggregate Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+         * @param totalConstituents Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class OntapVolumeAggregateConfigurationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param totalConstituents The total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
+         * @param totalConstituents Total amount of constituents for a `FLEXGROUP` volume. This would equal constituentsPerAggregate x aggregates.
          * 
          * @return builder
          * 

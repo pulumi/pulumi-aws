@@ -130,13 +130,13 @@ type ResourceGateway struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 	Ipv4AddressesPerEni pulumi.IntOutput `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 	ResourceConfigDnsResolution pulumi.StringOutput `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -195,13 +195,13 @@ type resourceGatewayState struct {
 	Arn *string `pulumi:"arn"`
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 	ResourceConfigDnsResolution *string `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -225,13 +225,13 @@ type ResourceGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringPtrInput
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 	ResourceConfigDnsResolution pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -257,13 +257,13 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 type resourceGatewayArgs struct {
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 	Ipv4AddressesPerEni *int `pulumi:"ipv4AddressesPerEni"`
 	// Name of the resource gateway.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 	ResourceConfigDnsResolution *string `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -282,13 +282,13 @@ type resourceGatewayArgs struct {
 type ResourceGatewayArgs struct {
 	// IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
 	IpAddressType pulumi.StringPtrInput
-	// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+	// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 	Ipv4AddressesPerEni pulumi.IntPtrInput
 	// Name of the resource gateway.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 	ResourceConfigDnsResolution pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -400,7 +400,7 @@ func (o ResourceGatewayOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+// Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
 func (o ResourceGatewayOutput) Ipv4AddressesPerEni() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.IntOutput { return v.Ipv4AddressesPerEni }).(pulumi.IntOutput)
 }
@@ -415,7 +415,7 @@ func (o ResourceGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+// How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
 func (o ResourceGatewayOutput) ResourceConfigDnsResolution() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.ResourceConfigDnsResolution }).(pulumi.StringOutput)
 }

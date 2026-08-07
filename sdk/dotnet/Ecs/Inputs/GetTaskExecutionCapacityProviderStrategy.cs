@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ecs.Inputs
     public sealed class GetTaskExecutionCapacityProviderStrategyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        /// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
         /// </summary>
         [Input("base")]
         public int? Base { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public string CapacityProvider { get; set; } = null!;
 
         /// <summary>
-        /// The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `Weight` value is taken into consideration after the `Base` count of tasks has been satisfied. Defaults to `0`.
+        /// Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `Weight` value is taken into consideration after the `Base` count of tasks has been satisfied. Defaults to `0`.
         /// </summary>
         [Input("weight")]
         public int? Weight { get; set; }

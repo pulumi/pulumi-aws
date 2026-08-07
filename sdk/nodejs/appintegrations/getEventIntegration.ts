@@ -35,7 +35,7 @@ export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi
  */
 export interface GetEventIntegrationArgs {
     /**
-     * The AppIntegrations Event Integration name.
+     * AppIntegrations Event Integration name.
      */
     name: string;
     /**
@@ -53,19 +53,19 @@ export interface GetEventIntegrationArgs {
  */
 export interface GetEventIntegrationResult {
     /**
-     * The ARN of the AppIntegrations Event Integration.
+     * ARN of the AppIntegrations Event Integration.
      */
     readonly arn: string;
     /**
-     * The description of the Event Integration.
+     * Description of the Event Integration.
      */
     readonly description: string;
     /**
-     * A block that defines the configuration information for the event filter. The Event Filter block is documented below.
+     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      */
     readonly eventFilters: outputs.appintegrations.GetEventIntegrationEventFilter[];
     /**
-     * The EventBridge bus.
+     * EventBridge bus.
      */
     readonly eventbridgeBus: string;
     /**
@@ -107,7 +107,7 @@ export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, o
  */
 export interface GetEventIntegrationOutputArgs {
     /**
-     * The AppIntegrations Event Integration name.
+     * AppIntegrations Event Integration name.
      */
     name: pulumi.Input<string>;
     /**

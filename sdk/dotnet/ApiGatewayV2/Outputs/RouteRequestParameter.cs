@@ -18,7 +18,7 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// </summary>
         public readonly string RequestParameterKey;
         /// <summary>
-        /// Boolean whether or not the parameter is required.
+        /// Whether the parameter is required.
         /// </summary>
         public readonly bool Required;
 

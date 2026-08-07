@@ -77,14 +77,14 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The PEM-encoded public key of the client certificate.
+     * PEM-encoded public key of the client certificate.
      * 
      */
     @Import(name="pemEncodedCertificate")
     private @Nullable Output<String> pemEncodedCertificate;
 
     /**
-     * @return The PEM-encoded public key of the client certificate.
+     * @return PEM-encoded public key of the client certificate.
      * 
      */
     public Optional<Output<String>> pemEncodedCertificate() {
@@ -252,7 +252,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pemEncodedCertificate The PEM-encoded public key of the client certificate.
+         * @param pemEncodedCertificate PEM-encoded public key of the client certificate.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ClientCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pemEncodedCertificate The PEM-encoded public key of the client certificate.
+         * @param pemEncodedCertificate PEM-encoded public key of the client certificate.
          * 
          * @return builder
          * 

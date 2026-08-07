@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VpcLattice.Outputs
     public sealed class ServiceNetworkResourceAssociationDnsEntry
     {
         /// <summary>
-        /// The domain name of the association in the service network.
+        /// Domain name of the association in the service network.
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// The ID of the hosted zone containing the domain name.
+        /// ID of the hosted zone containing the domain name.
         /// </summary>
         public readonly string HostedZoneId;
 

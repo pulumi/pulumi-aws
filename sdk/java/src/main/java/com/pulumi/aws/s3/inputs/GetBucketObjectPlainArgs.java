@@ -17,7 +17,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetBucketObjectPlainArgs Empty = new GetBucketObjectPlainArgs();
 
     /**
-     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
@@ -28,7 +28,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
     private String bucket;
 
     /**
-     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
      * 
      * @deprecated
      * bucket is deprecated. Use the aws.s3.BucketObjectv2 data source instead.
@@ -54,9 +54,17 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         return this.key;
     }
 
+    /**
+     * Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+     * 
+     */
     @Import(name="range")
     private @Nullable String range;
 
+    /**
+     * @return Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+     * 
+     */
     public Optional<String> range() {
         return Optional.ofNullable(this.range);
     }
@@ -136,7 +144,7 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
          * 
          * @return builder
          * 
@@ -161,6 +169,12 @@ public final class GetBucketObjectPlainArgs extends com.pulumi.resources.InvokeA
             return this;
         }
 
+        /**
+         * @param range Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+         * 
+         * @return builder
+         * 
+         */
         public Builder range(@Nullable String range) {
             $.range = range;
             return this;

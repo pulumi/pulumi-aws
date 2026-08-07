@@ -19,17 +19,17 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
      */
     private @Nullable String documentType;
     /**
-     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * @return Whether to include all versions of files in the Veeva document extract flow.
      * 
      */
     private @Nullable Boolean includeAllVersions;
     /**
-     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * @return Whether to include file renditions in the Veeva document extract flow.
      * 
      */
     private @Nullable Boolean includeRenditions;
     /**
-     * @return Boolean value to include source files in Veeva document extract flow.
+     * @return Whether to include source files in the Veeva document extract flow.
      * 
      */
     private @Nullable Boolean includeSourceFiles;
@@ -44,21 +44,21 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
         return Optional.ofNullable(this.documentType);
     }
     /**
-     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * @return Whether to include all versions of files in the Veeva document extract flow.
      * 
      */
     public Optional<Boolean> includeAllVersions() {
         return Optional.ofNullable(this.includeAllVersions);
     }
     /**
-     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * @return Whether to include file renditions in the Veeva document extract flow.
      * 
      */
     public Optional<Boolean> includeRenditions() {
         return Optional.ofNullable(this.includeRenditions);
     }
     /**
-     * @return Boolean value to include source files in Veeva document extract flow.
+     * @return Whether to include source files in the Veeva document extract flow.
      * 
      */
     public Optional<Boolean> includeSourceFiles() {

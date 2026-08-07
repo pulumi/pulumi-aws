@@ -34,9 +34,7 @@ namespace Pulumi.Aws.Fis.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// The resource type parameters.
-        /// 
-        /// &gt; **NOTE:** The `Target` configuration block requires either `ResourceArns` or `ResourceTag`.
+        /// Resource type parameters.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -76,6 +74,8 @@ namespace Pulumi.Aws.Fis.Inputs
 
         /// <summary>
         /// Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `N` of the identified resources), `PERCENT(n)` (randomly select `N` percent of the identified resources).
+        /// 
+        /// &gt; **NOTE:** The `Target` configuration block requires either `ResourceArns` or `ResourceTag`.
         /// </summary>
         [Input("selectionMode", required: true)]
         public Input<string> SelectionMode { get; set; } = null!;

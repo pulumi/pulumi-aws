@@ -11,12 +11,12 @@ import java.util.Objects;
 @CustomType
 public final class GetMultiRegionAccessPointRegion {
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     private String bucket;
     /**
-     * @return The AWS account ID that owns the bucket.
+     * @return AWS account ID that owns the bucket.
      * 
      */
     private String bucketAccountId;
@@ -28,14 +28,14 @@ public final class GetMultiRegionAccessPointRegion {
 
     private GetMultiRegionAccessPointRegion() {}
     /**
-     * @return The name of the bucket.
+     * @return Name of the bucket.
      * 
      */
     public String bucket() {
         return this.bucket;
     }
     /**
-     * @return The AWS account ID that owns the bucket.
+     * @return AWS account ID that owns the bucket.
      * 
      */
     public String bucketAccountId() {

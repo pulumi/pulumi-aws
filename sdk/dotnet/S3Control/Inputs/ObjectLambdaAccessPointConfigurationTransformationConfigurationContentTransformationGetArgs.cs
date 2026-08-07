@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        /// Configuration for an AWS Lambda function. See `AwsLambda` Block below for more details.
         /// </summary>
         [Input("awsLambda", required: true)]
         public Input<Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaGetArgs> AwsLambda { get; set; } = null!;

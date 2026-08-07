@@ -16,14 +16,14 @@ public final class GetCloudAutonomousVmClusterPlainArgs extends com.pulumi.resou
     public static final GetCloudAutonomousVmClusterPlainArgs Empty = new GetCloudAutonomousVmClusterPlainArgs();
 
     /**
-     * The unique identifier of the cloud autonomous vm cluster.
+     * Unique identifier of the cloud autonomous vm cluster.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The unique identifier of the cloud autonomous vm cluster.
+     * @return Unique identifier of the cloud autonomous vm cluster.
      * 
      */
     public String id() {
@@ -71,7 +71,7 @@ public final class GetCloudAutonomousVmClusterPlainArgs extends com.pulumi.resou
         }
 
         /**
-         * @param id The unique identifier of the cloud autonomous vm cluster.
+         * @param id Unique identifier of the cloud autonomous vm cluster.
          * 
          * @return builder
          * 

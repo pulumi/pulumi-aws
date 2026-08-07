@@ -15,14 +15,14 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
     public static final IngestionDestinationProcessingConfigurationAuditLogArgs Empty = new IngestionDestinationProcessingConfigurationAuditLogArgs();
 
     /**
-     * The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+     * Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+     * @return Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
      * 
      */
     public Output<String> format() {
@@ -30,14 +30,14 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
     }
 
     /**
-     * The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+     * Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+     * @return Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
      * 
      */
     public Output<String> schema() {
@@ -70,7 +70,7 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
         }
 
         /**
-         * @param format The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+         * @param format Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
         }
 
         /**
-         * @param format The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+         * @param format Format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
         }
 
         /**
-         * @param schema The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+         * @param schema Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs exten
         }
 
         /**
-         * @param schema The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+         * @param schema Event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
          * 
          * @return builder
          * 

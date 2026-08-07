@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
     /**
-     * @return The Access Key portion of the credentials.
+     * @return Access Key portion of the credentials.
      * 
      */
     private String accessKeyId;
@@ -21,7 +21,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      */
     private String datakey;
     /**
-     * @return The secret key used to sign requests.
+     * @return Secret key used to sign requests.
      * 
      */
     private String secretAccessKey;
@@ -33,7 +33,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus() {}
     /**
-     * @return The Access Key portion of the credentials.
+     * @return Access Key portion of the credentials.
      * 
      */
     public String accessKeyId() {
@@ -47,7 +47,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.datakey;
     }
     /**
-     * @return The secret key used to sign requests.
+     * @return Secret key used to sign requests.
      * 
      */
     public String secretAccessKey() {

@@ -52,112 +52,112 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * @return Name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
-     * @return The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * @return AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
     /**
-     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="backupSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> backupSubnetCidr;
 
     /**
-     * @return The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * @return CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> backupSubnetCidr() {
         return this.backupSubnetCidr;
     }
     /**
-     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * CIDR notation for the network resource. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="clientSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> clientSubnetCidr;
 
     /**
-     * @return The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * @return CIDR notation for the network resource. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> clientSubnetCidr() {
         return this.clientSubnetCidr;
     }
     /**
-     * The date and time when the ODB network was created.
+     * Date and time when the ODB network was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The date and time when the ODB network was created.
+     * @return Date and time when the ODB network was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The list of regions enabled for cross-region restore in the ODB network.
+     * List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     @Export(name="crossRegionS3RestoreSourcesAccesses", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> crossRegionS3RestoreSourcesAccesses;
 
     /**
-     * @return The list of regions enabled for cross-region restore in the ODB network.
+     * @return List of regions enabled for cross-region restore in the ODB network.
      * 
      */
     public Output<List<String>> crossRegionS3RestoreSourcesAccesses() {
         return this.crossRegionS3RestoreSourcesAccesses;
     }
     /**
-     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customDomainName;
 
     /**
-     * @return The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
+     * @return Name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> customDomainName() {
         return Codegen.optional(this.customDomainName);
     }
     /**
-     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="defaultDnsPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultDnsPrefix;
 
     /**
-     * @return The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * @return Default DNS prefix for the network resource. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> defaultDnsPrefix() {
@@ -178,182 +178,182 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.deleteAssociatedResources;
     }
     /**
-     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * User-friendly name for the odb network. Changing this will force terraform to create a new resource.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * @return User-friendly name for the odb network. Changing this will force terraform to create a new resource.
      * 
      */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * A list of EC2 placement group IDs associated with the ODB network.
+     * List of EC2 placement group IDs associated with the ODB network.
      * 
      */
     @Export(name="ec2PlacementGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> ec2PlacementGroupIds;
 
     /**
-     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * @return List of EC2 placement group IDs associated with the ODB network.
      * 
      */
     public Output<List<String>> ec2PlacementGroupIds() {
         return this.ec2PlacementGroupIds;
     }
     /**
-     * Specifies the configuration for KMS access from the ODB network.
+     * Configuration for KMS access from the ODB network.
      * 
      */
     @Export(name="kmsAccess", refs={String.class}, tree="[0]")
     private Output<String> kmsAccess;
 
     /**
-     * @return Specifies the configuration for KMS access from the ODB network.
+     * @return Configuration for KMS access from the ODB network.
      * 
      */
     public Output<String> kmsAccess() {
         return this.kmsAccess;
     }
     /**
-     * Specifies the endpoint policy for KMS access from the ODB network.
+     * Endpoint policy for KMS access from the ODB network.
      * 
      */
     @Export(name="kmsPolicyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsPolicyDocument;
 
     /**
-     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * @return Endpoint policy for KMS access from the ODB network.
      * 
      */
     public Output<Optional<String>> kmsPolicyDocument() {
         return Codegen.optional(this.kmsPolicyDocument);
     }
     /**
-     * The managed services configuration for the ODB network.
+     * Managed services configuration for the ODB network.
      * 
      */
     @Export(name="managedServices", refs={List.class,NetworkManagedService.class}, tree="[0,1]")
     private Output<List<NetworkManagedService>> managedServices;
 
     /**
-     * @return The managed services configuration for the ODB network.
+     * @return Managed services configuration for the ODB network.
      * 
      */
     public Output<List<NetworkManagedService>> managedServices() {
         return this.managedServices;
     }
     /**
-     * The number of storage servers requested for the Exadata infrastructure.
+     * Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     @Export(name="ociDnsForwardingConfigs", refs={List.class,NetworkOciDnsForwardingConfig.class}, tree="[0,1]")
     private Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs;
 
     /**
-     * @return The number of storage servers requested for the Exadata infrastructure.
+     * @return Number of storage servers requested for the Exadata infrastructure.
      * 
      */
     public Output<List<NetworkOciDnsForwardingConfig>> ociDnsForwardingConfigs() {
         return this.ociDnsForwardingConfigs;
     }
     /**
-     * The unique identifier of the OCI network anchor for the ODB network.
+     * Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     @Export(name="ociNetworkAnchorId", refs={String.class}, tree="[0]")
     private Output<String> ociNetworkAnchorId;
 
     /**
-     * @return The unique identifier of the OCI network anchor for the ODB network.
+     * @return Unique identifier of the OCI network anchor for the ODB network.
      * 
      */
     public Output<String> ociNetworkAnchorId() {
         return this.ociNetworkAnchorId;
     }
     /**
-     * The URL of the OCI network anchor for the ODB network.
+     * URL of the OCI network anchor for the ODB network.
      * 
      */
     @Export(name="ociNetworkAnchorUrl", refs={String.class}, tree="[0]")
     private Output<String> ociNetworkAnchorUrl;
 
     /**
-     * @return The URL of the OCI network anchor for the ODB network.
+     * @return URL of the OCI network anchor for the ODB network.
      * 
      */
     public Output<String> ociNetworkAnchorUrl() {
         return this.ociNetworkAnchorUrl;
     }
     /**
-     * The name of the OCI resource anchor for the ODB network.
+     * Name of the OCI resource anchor for the ODB network.
      * 
      */
     @Export(name="ociResourceAnchorName", refs={String.class}, tree="[0]")
     private Output<String> ociResourceAnchorName;
 
     /**
-     * @return The name of the OCI resource anchor for the ODB network.
+     * @return Name of the OCI resource anchor for the ODB network.
      * 
      */
     public Output<String> ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     @Export(name="ociVcnId", refs={String.class}, tree="[0]")
     private Output<String> ociVcnId;
 
     /**
-     * @return The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+     * @return Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
      * 
      */
     public Output<String> ociVcnId() {
         return this.ociVcnId;
     }
     /**
-     * The URL of the OCI VCN for the ODB network.
+     * URL of the OCI VCN for the ODB network.
      * 
      */
     @Export(name="ociVcnUrl", refs={String.class}, tree="[0]")
     private Output<String> ociVcnUrl;
 
     /**
-     * @return The URL of the OCI VCN for the ODB network.
+     * @return URL of the OCI VCN for the ODB network.
      * 
      */
     public Output<String> ociVcnUrl() {
         return this.ociVcnUrl;
     }
     /**
-     * The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      * 
      */
     @Export(name="peeredCidrs", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> peeredCidrs;
 
     /**
-     * @return The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+     * @return List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
      * 
      */
     public Output<List<String>> peeredCidrs() {
         return this.peeredCidrs;
     }
     /**
-     * The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      * 
      */
     @Export(name="percentProgress", refs={Double.class}, tree="[0]")
     private Output<Double> percentProgress;
 
     /**
-     * @return The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+     * @return Amount of progress made on the current operation on the ODB network, expressed as a percentage.
      * 
      */
     public Output<Double> percentProgress() {
@@ -374,42 +374,42 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the configuration for Amazon S3 access from the ODB network.
+     * Configuration for Amazon S3 access from the ODB network.
      * 
      */
     @Export(name="s3Access", refs={String.class}, tree="[0]")
     private Output<String> s3Access;
 
     /**
-     * @return Specifies the configuration for Amazon S3 access from the ODB network.
+     * @return Configuration for Amazon S3 access from the ODB network.
      * 
      */
     public Output<String> s3Access() {
         return this.s3Access;
     }
     /**
-     * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * Endpoint policy for Amazon S3 access from the ODB network.
      * 
      */
     @Export(name="s3PolicyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> s3PolicyDocument;
 
     /**
-     * @return Specifies the endpoint policy for Amazon S3 access from the ODB network.
+     * @return Endpoint policy for Amazon S3 access from the ODB network.
      * 
      */
     public Output<Optional<String>> s3PolicyDocument() {
         return Codegen.optional(this.s3PolicyDocument);
     }
     /**
-     * The status of the network resource.
+     * Status of the network resource.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public Output<String> status() {
@@ -430,42 +430,42 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.statusReason;
     }
     /**
-     * Specifies the configuration for STS access from the ODB network.
+     * Configuration for STS access from the ODB network.
      * 
      */
     @Export(name="stsAccess", refs={String.class}, tree="[0]")
     private Output<String> stsAccess;
 
     /**
-     * @return Specifies the configuration for STS access from the ODB network.
+     * @return Configuration for STS access from the ODB network.
      * 
      */
     public Output<String> stsAccess() {
         return this.stsAccess;
     }
     /**
-     * Specifies the endpoint policy for STS access from the ODB network.
+     * Endpoint policy for STS access from the ODB network.
      * 
      */
     @Export(name="stsPolicyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stsPolicyDocument;
 
     /**
-     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * @return Endpoint policy for STS access from the ODB network.
      * 
      */
     public Output<Optional<String>> stsPolicyDocument() {
         return Codegen.optional(this.stsPolicyDocument);
     }
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -484,7 +484,7 @@ public class Network extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Specifies the configuration for Zero-ETL access from the ODB network.
+     * Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 
@@ -493,7 +493,7 @@ public class Network extends com.pulumi.resources.CustomResource {
     private Output<String> zeroEtlAccess;
 
     /**
-     * @return Specifies the configuration for Zero-ETL access from the ODB network.
+     * @return Configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
      * 

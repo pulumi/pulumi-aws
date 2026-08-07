@@ -261,7 +261,7 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly deliverCrossAccountRole: pulumi.Output<string | undefined>;
     /**
-     * Describes the destination options for a flow log. More details below.
+     * Destination options for a flow log. More details below.
      */
     declare public readonly destinationOptions: pulumi.Output<outputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
@@ -281,13 +281,11 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly logDestinationType: pulumi.Output<string | undefined>;
     /**
-     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+     * Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     declare public readonly logFormat: pulumi.Output<string>;
     /**
-     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+     * Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     declare public readonly maxAggregationInterval: pulumi.Output<number | undefined>;
     /**
@@ -311,11 +309,11 @@ export class FlowLog extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
+     * Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     declare public readonly trafficType: pulumi.Output<string | undefined>;
     /**
@@ -405,7 +403,7 @@ export interface FlowLogState {
      */
     deliverCrossAccountRole?: pulumi.Input<string | undefined>;
     /**
-     * Describes the destination options for a flow log. More details below.
+     * Destination options for a flow log. More details below.
      */
     destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
@@ -425,13 +423,11 @@ export interface FlowLogState {
      */
     logDestinationType?: pulumi.Input<string | undefined>;
     /**
-     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+     * Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string | undefined>;
     /**
-     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+     * Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number | undefined>;
     /**
@@ -455,11 +451,11 @@ export interface FlowLogState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
+     * Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     trafficType?: pulumi.Input<string | undefined>;
     /**
@@ -487,7 +483,7 @@ export interface FlowLogArgs {
      */
     deliverCrossAccountRole?: pulumi.Input<string | undefined>;
     /**
-     * Describes the destination options for a flow log. More details below.
+     * Destination options for a flow log. More details below.
      */
     destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
@@ -507,13 +503,11 @@ export interface FlowLogArgs {
      */
     logDestinationType?: pulumi.Input<string | undefined>;
     /**
-     * The fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
+     * Fields to include in the flow log record. Accepted format example: `"$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}"`.
      */
     logFormat?: pulumi.Input<string | undefined>;
     /**
-     * The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record.
-     * Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`.
-     * When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
+     * Maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. Valid Values: `60` seconds (1 minute) or `600` seconds (10 minutes). Default: `600`. When `transitGatewayId` or `transitGatewayAttachmentId` is specified, `maxAggregationInterval` *must* be 60 seconds (1 minute).
      */
     maxAggregationInterval?: pulumi.Input<number | undefined>;
     /**
@@ -537,7 +531,7 @@ export interface FlowLogArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
+     * Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eniId`, `regionalNatGatewayId`, `subnetId`, or `vpcId` is specified.
      */
     trafficType?: pulumi.Input<string | undefined>;
     /**

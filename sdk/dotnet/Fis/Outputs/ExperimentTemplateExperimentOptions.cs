@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fis.Outputs
     public sealed class ExperimentTemplateExperimentOptions
     {
         /// <summary>
-        /// Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        /// Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
         /// </summary>
         public readonly string? AccountTargeting;
         /// <summary>
-        /// Specifies the empty target resolution mode for experiment options. Supports `Fail` and `Skip`.
+        /// Empty target resolution mode for experiment options. Supports `Fail` and `Skip`.
         /// </summary>
         public readonly string? EmptyTargetResolutionMode;
 

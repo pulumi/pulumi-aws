@@ -73,7 +73,8 @@ type TableReplication struct {
 	// Replication rules. See Rule below for more details.
 	Rule TableReplicationRulePtrOutput `pulumi:"rule"`
 	// ARN referencing the Table that owns this replication configuration.
-	TableArn     pulumi.StringOutput `pulumi:"tableArn"`
+	TableArn pulumi.StringOutput `pulumi:"tableArn"`
+	// Identifier for the current version of the replication configuration.
 	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
 }
 
@@ -120,7 +121,8 @@ type tableReplicationState struct {
 	// Replication rules. See Rule below for more details.
 	Rule *TableReplicationRule `pulumi:"rule"`
 	// ARN referencing the Table that owns this replication configuration.
-	TableArn     *string `pulumi:"tableArn"`
+	TableArn *string `pulumi:"tableArn"`
+	// Identifier for the current version of the replication configuration.
 	VersionToken *string `pulumi:"versionToken"`
 }
 
@@ -132,7 +134,8 @@ type TableReplicationState struct {
 	// Replication rules. See Rule below for more details.
 	Rule TableReplicationRulePtrInput
 	// ARN referencing the Table that owns this replication configuration.
-	TableArn     pulumi.StringPtrInput
+	TableArn pulumi.StringPtrInput
+	// Identifier for the current version of the replication configuration.
 	VersionToken pulumi.StringPtrInput
 }
 
@@ -270,6 +273,7 @@ func (o TableReplicationOutput) TableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplication) pulumi.StringOutput { return v.TableArn }).(pulumi.StringOutput)
 }
 
+// Identifier for the current version of the replication configuration.
 func (o TableReplicationOutput) VersionToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableReplication) pulumi.StringOutput { return v.VersionToken }).(pulumi.StringOutput)
 }

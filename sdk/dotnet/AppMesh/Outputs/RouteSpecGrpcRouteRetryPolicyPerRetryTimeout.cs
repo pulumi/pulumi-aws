@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout
     {
         /// <summary>
-        /// Retry unit. Valid values: `Ms`, `S`.
+        /// Unit of time. Valid values: `Ms`, `S`.
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// Retry value.
+        /// Number of time units. Minimum value of `0`.
         /// </summary>
         public readonly int Value;
 

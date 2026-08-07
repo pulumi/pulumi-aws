@@ -13,13 +13,13 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
     public sealed class RoutingRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base path to be matched. See below.
+        /// Base path to be matched. See below.
         /// </summary>
         [Input("matchBasePaths")]
         public Input<Inputs.RoutingRuleConditionMatchBasePathsArgs>? MatchBasePaths { get; set; }
 
         /// <summary>
-        /// The headers to be matched. See below.
+        /// Headers to be matched. See below.
         /// </summary>
         [Input("matchHeaders")]
         public Input<Inputs.RoutingRuleConditionMatchHeadersArgs>? MatchHeaders { get; set; }

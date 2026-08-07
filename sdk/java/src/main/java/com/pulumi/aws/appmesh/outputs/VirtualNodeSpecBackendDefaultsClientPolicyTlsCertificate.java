@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file;
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds;
 
     private VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate() {}
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile> file() {
         return Optional.ofNullable(this.file);
     }
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds> sds() {

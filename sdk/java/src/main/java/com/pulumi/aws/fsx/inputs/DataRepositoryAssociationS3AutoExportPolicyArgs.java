@@ -17,14 +17,14 @@ public final class DataRepositoryAssociationS3AutoExportPolicyArgs extends com.p
     public static final DataRepositoryAssociationS3AutoExportPolicyArgs Empty = new DataRepositoryAssociationS3AutoExportPolicyArgs();
 
     /**
-     * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+     * List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
      * 
      */
     @Import(name="events")
     private @Nullable Output<List<String>> events;
 
     /**
-     * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+     * @return List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
      * 
      */
     public Optional<Output<List<String>>> events() {
@@ -56,7 +56,7 @@ public final class DataRepositoryAssociationS3AutoExportPolicyArgs extends com.p
         }
 
         /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         * @param events List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class DataRepositoryAssociationS3AutoExportPolicyArgs extends com.p
         }
 
         /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         * @param events List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class DataRepositoryAssociationS3AutoExportPolicyArgs extends com.p
         }
 
         /**
-         * @param events A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+         * @param events List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
          * 
          * @return builder
          * 

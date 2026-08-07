@@ -152,14 +152,14 @@ public class IntegrationResponse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseTemplates);
     }
     /**
-     * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
     @Export(name="templateSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateSelectionExpression;
 
     /**
-     * @return The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
+     * @return [Template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
     public Output<Optional<String>> templateSelectionExpression() {

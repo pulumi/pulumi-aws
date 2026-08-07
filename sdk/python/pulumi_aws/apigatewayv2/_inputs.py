@@ -246,7 +246,7 @@ class DomainNameDomainNameConfigurationArgsDict(TypedDict):
     """
     ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+    IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
     """
     ownership_verification_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -272,7 +272,7 @@ class DomainNameDomainNameConfigurationArgs:
         :param pulumi.Input[_builtins.str] endpoint_type: Endpoint type. Valid values: `REGIONAL`.
         :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: Amazon Route 53 Hosted Zone ID of the endpoint.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         :param pulumi.Input[_builtins.str] target_domain_name: Target domain name.
         """
@@ -340,7 +340,7 @@ class DomainNameDomainNameConfigurationArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+        IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -424,8 +424,7 @@ class DomainNameMutualTlsAuthenticationArgs:
 class IntegrationResponseParameterArgsDict(TypedDict):
     mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
     """
-    Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-    See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+    Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
     """
     status_code: pulumi.Input[_builtins.str]
     """
@@ -438,8 +437,7 @@ class IntegrationResponseParameterArgs:
                  mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  status_code: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] mappings: Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-               See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] mappings: Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         :param pulumi.Input[_builtins.str] status_code: HTTP status code in the range 200-599.
         """
         pulumi.set(__self__, "mappings", mappings)
@@ -449,8 +447,7 @@ class IntegrationResponseParameterArgs:
     @pulumi.getter
     def mappings(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
         """
-        Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         """
         return pulumi.get(self, "mappings")
 
@@ -507,7 +504,7 @@ class RouteRequestParameterArgsDict(TypedDict):
     """
     required: pulumi.Input[_builtins.bool]
     """
-    Boolean whether or not the parameter is required.
+    Whether the parameter is required.
     """
 
 @pulumi.input_type
@@ -517,7 +514,7 @@ class RouteRequestParameterArgs:
                  required: pulumi.Input[_builtins.bool]):
         """
         :param pulumi.Input[_builtins.str] request_parameter_key: Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
-        :param pulumi.Input[_builtins.bool] required: Boolean whether or not the parameter is required.
+        :param pulumi.Input[_builtins.bool] required: Whether the parameter is required.
         """
         pulumi.set(__self__, "request_parameter_key", request_parameter_key)
         pulumi.set(__self__, "required", required)
@@ -538,7 +535,7 @@ class RouteRequestParameterArgs:
     @pulumi.getter
     def required(self) -> pulumi.Input[_builtins.bool]:
         """
-        Boolean whether or not the parameter is required.
+        Whether the parameter is required.
         """
         return pulumi.get(self, "required")
 
@@ -645,11 +642,11 @@ class RoutingRuleActionInvokeApiArgs:
 class RoutingRuleConditionArgsDict(TypedDict):
     match_base_paths: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchBasePathsArgsDict']]]
     """
-    The base path to be matched. See below.
+    Base path to be matched. See below.
     """
     match_headers: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchHeadersArgsDict']]]
     """
-    The headers to be matched. See below.
+    Headers to be matched. See below.
     """
 
 @pulumi.input_type
@@ -658,8 +655,8 @@ class RoutingRuleConditionArgs:
                  match_base_paths: pulumi.Input[Optional['RoutingRuleConditionMatchBasePathsArgs']] = None,
                  match_headers: pulumi.Input[Optional['RoutingRuleConditionMatchHeadersArgs']] = None):
         """
-        :param pulumi.Input['RoutingRuleConditionMatchBasePathsArgs'] match_base_paths: The base path to be matched. See below.
-        :param pulumi.Input['RoutingRuleConditionMatchHeadersArgs'] match_headers: The headers to be matched. See below.
+        :param pulumi.Input['RoutingRuleConditionMatchBasePathsArgs'] match_base_paths: Base path to be matched. See below.
+        :param pulumi.Input['RoutingRuleConditionMatchHeadersArgs'] match_headers: Headers to be matched. See below.
         """
         if match_base_paths is not None:
             pulumi.set(__self__, "match_base_paths", match_base_paths)
@@ -670,7 +667,7 @@ class RoutingRuleConditionArgs:
     @pulumi.getter(name="matchBasePaths")
     def match_base_paths(self) -> pulumi.Input[Optional['RoutingRuleConditionMatchBasePathsArgs']]:
         """
-        The base path to be matched. See below.
+        Base path to be matched. See below.
         """
         return pulumi.get(self, "match_base_paths")
 
@@ -682,7 +679,7 @@ class RoutingRuleConditionArgs:
     @pulumi.getter(name="matchHeaders")
     def match_headers(self) -> pulumi.Input[Optional['RoutingRuleConditionMatchHeadersArgs']]:
         """
-        The headers to be matched. See below.
+        Headers to be matched. See below.
         """
         return pulumi.get(self, "match_headers")
 
@@ -750,11 +747,11 @@ class RoutingRuleConditionMatchHeadersArgs:
 class RoutingRuleConditionMatchHeadersAnyOfArgsDict(TypedDict):
     header: pulumi.Input[_builtins.str]
     """
-    The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+    Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
     """
     value_glob: pulumi.Input[_builtins.str]
     """
-    The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+    Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
     """
 
 @pulumi.input_type
@@ -763,8 +760,8 @@ class RoutingRuleConditionMatchHeadersAnyOfArgs:
                  header: pulumi.Input[_builtins.str],
                  value_glob: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] header: The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
-        :param pulumi.Input[_builtins.str] value_glob: The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+        :param pulumi.Input[_builtins.str] header: Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+        :param pulumi.Input[_builtins.str] value_glob: Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
         """
         pulumi.set(__self__, "header", header)
         pulumi.set(__self__, "value_glob", value_glob)
@@ -773,7 +770,7 @@ class RoutingRuleConditionMatchHeadersAnyOfArgs:
     @pulumi.getter
     def header(self) -> pulumi.Input[_builtins.str]:
         """
-        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+        Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
         """
         return pulumi.get(self, "header")
 
@@ -785,7 +782,7 @@ class RoutingRuleConditionMatchHeadersAnyOfArgs:
     @pulumi.getter(name="valueGlob")
     def value_glob(self) -> pulumi.Input[_builtins.str]:
         """
-        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+        Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
         """
         return pulumi.get(self, "value_glob")
 
@@ -844,8 +841,7 @@ class StageAccessLogSettingsArgs:
 class StageDefaultRouteSettingsArgsDict(TypedDict):
     data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-    Defaults to `false`. Supported only for WebSocket APIs.
+    Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
     """
     detailed_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -853,8 +849,7 @@ class StageDefaultRouteSettingsArgsDict(TypedDict):
     """
     logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-    Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+    Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
     """
     throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -874,11 +869,9 @@ class StageDefaultRouteSettingsArgs:
                  throttling_burst_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.bool] data_trace_enabled: Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-               Defaults to `false`. Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.bool] data_trace_enabled: Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the default route. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] logging_level: Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-               Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[_builtins.str] logging_level: Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.int] throttling_burst_limit: Throttling burst limit for the default route.
         :param pulumi.Input[_builtins.float] throttling_rate_limit: Throttling rate limit for the default route.
         """
@@ -897,8 +890,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Defaults to `false`. Supported only for WebSocket APIs.
+        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
@@ -922,8 +914,7 @@ class StageDefaultRouteSettingsArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
 
@@ -963,8 +954,7 @@ class StageRouteSettingArgsDict(TypedDict):
     """
     data_trace_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-    Defaults to `false`. Supported only for WebSocket APIs.
+    Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
     """
     detailed_metrics_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -972,8 +962,7 @@ class StageRouteSettingArgsDict(TypedDict):
     """
     logging_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-    Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+    Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
     """
     throttling_burst_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -995,11 +984,9 @@ class StageRouteSettingArgs:
                  throttling_rate_limit: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.str] route_key: Route key.
-        :param pulumi.Input[_builtins.bool] data_trace_enabled: Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-               Defaults to `false`. Supported only for WebSocket APIs.
+        :param pulumi.Input[_builtins.bool] data_trace_enabled: Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
         :param pulumi.Input[_builtins.bool] detailed_metrics_enabled: Whether detailed metrics are enabled for the route. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] logging_level: Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-               Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        :param pulumi.Input[_builtins.str] logging_level: Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.int] throttling_burst_limit: Throttling burst limit for the route.
         :param pulumi.Input[_builtins.float] throttling_rate_limit: Throttling rate limit for the route.
         """
@@ -1031,8 +1018,7 @@ class StageRouteSettingArgs:
     @pulumi.getter(name="dataTraceEnabled")
     def data_trace_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Defaults to `false`. Supported only for WebSocket APIs.
+        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "data_trace_enabled")
 
@@ -1056,8 +1042,7 @@ class StageRouteSettingArgs:
     @pulumi.getter(name="loggingLevel")
     def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
         """
         return pulumi.get(self, "logging_level")
 

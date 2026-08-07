@@ -13,6 +13,7669 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type RuleSetRule struct {
+	// One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+	Actions []RuleSetRuleAction `pulumi:"actions"`
+	// One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+	Conditions []RuleSetRuleCondition `pulumi:"conditions"`
+	// Name of the rule.
+	Name *string `pulumi:"name"`
+	// One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+	Unlesses []RuleSetRuleUnless `pulumi:"unlesses"`
+}
+
+// RuleSetRuleInput is an input type that accepts RuleSetRuleArgs and RuleSetRuleOutput values.
+// You can construct a concrete instance of `RuleSetRuleInput` via:
+//
+//	RuleSetRuleArgs{...}
+type RuleSetRuleInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleOutput() RuleSetRuleOutput
+	ToRuleSetRuleOutputWithContext(context.Context) RuleSetRuleOutput
+}
+
+type RuleSetRuleArgs struct {
+	// One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+	Actions RuleSetRuleActionArrayInput `pulumi:"actions"`
+	// One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+	Conditions RuleSetRuleConditionArrayInput `pulumi:"conditions"`
+	// Name of the rule.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+	Unlesses RuleSetRuleUnlessArrayInput `pulumi:"unlesses"`
+}
+
+func (RuleSetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRule)(nil)).Elem()
+}
+
+func (i RuleSetRuleArgs) ToRuleSetRuleOutput() RuleSetRuleOutput {
+	return i.ToRuleSetRuleOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleArgs) ToRuleSetRuleOutputWithContext(ctx context.Context) RuleSetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleOutput)
+}
+
+// RuleSetRuleArrayInput is an input type that accepts RuleSetRuleArray and RuleSetRuleArrayOutput values.
+// You can construct a concrete instance of `RuleSetRuleArrayInput` via:
+//
+//	RuleSetRuleArray{ RuleSetRuleArgs{...} }
+type RuleSetRuleArrayInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleArrayOutput() RuleSetRuleArrayOutput
+	ToRuleSetRuleArrayOutputWithContext(context.Context) RuleSetRuleArrayOutput
+}
+
+type RuleSetRuleArray []RuleSetRuleInput
+
+func (RuleSetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRule)(nil)).Elem()
+}
+
+func (i RuleSetRuleArray) ToRuleSetRuleArrayOutput() RuleSetRuleArrayOutput {
+	return i.ToRuleSetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleArray) ToRuleSetRuleArrayOutputWithContext(ctx context.Context) RuleSetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleArrayOutput)
+}
+
+type RuleSetRuleOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRule)(nil)).Elem()
+}
+
+func (o RuleSetRuleOutput) ToRuleSetRuleOutput() RuleSetRuleOutput {
+	return o
+}
+
+func (o RuleSetRuleOutput) ToRuleSetRuleOutputWithContext(ctx context.Context) RuleSetRuleOutput {
+	return o
+}
+
+// One or more actions to execute when all conditions match. Between 1 and 10 actions are supported. Each action must contain exactly one action configuration. See `action` Block.
+func (o RuleSetRuleOutput) Actions() RuleSetRuleActionArrayOutput {
+	return o.ApplyT(func(v RuleSetRule) []RuleSetRuleAction { return v.Actions }).(RuleSetRuleActionArrayOutput)
+}
+
+// One or more conditions that must all evaluate to true for the rule to match. Up to 10 conditions are supported. See `condition` Block.
+func (o RuleSetRuleOutput) Conditions() RuleSetRuleConditionArrayOutput {
+	return o.ApplyT(func(v RuleSetRule) []RuleSetRuleCondition { return v.Conditions }).(RuleSetRuleConditionArrayOutput)
+}
+
+// Name of the rule.
+func (o RuleSetRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRule) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// One or more conditions that prevent the rule from matching when any evaluates to true. Up to 10 conditions are supported. See `condition` Block.
+func (o RuleSetRuleOutput) Unlesses() RuleSetRuleUnlessArrayOutput {
+	return o.ApplyT(func(v RuleSetRule) []RuleSetRuleUnless { return v.Unlesses }).(RuleSetRuleUnlessArrayOutput)
+}
+
+type RuleSetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRule)(nil)).Elem()
+}
+
+func (o RuleSetRuleArrayOutput) ToRuleSetRuleArrayOutput() RuleSetRuleArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleArrayOutput) ToRuleSetRuleArrayOutputWithContext(ctx context.Context) RuleSetRuleArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleArrayOutput) Index(i pulumi.IntInput) RuleSetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSetRule {
+		return vs[0].([]RuleSetRule)[vs[1].(int)]
+	}).(RuleSetRuleOutput)
+}
+
+type RuleSetRuleAction struct {
+	// Adds a header to the email. See `addHeader` Block.
+	AddHeader *RuleSetRuleActionAddHeader `pulumi:"addHeader"`
+	// Archives the email. See `archive` Block.
+	Archive *RuleSetRuleActionArchive `pulumi:"archive"`
+	// Sends a bounce response. See `bounce` Block.
+	Bounce *RuleSetRuleActionBounce `pulumi:"bounce"`
+	// Delivers the email to a WorkMail mailbox. See `deliverToMailbox` Block.
+	DeliverToMailbox *RuleSetRuleActionDeliverToMailbox `pulumi:"deliverToMailbox"`
+	// Delivers the email to an Amazon Q Business application. See `deliverToQBusiness` Block.
+	DeliverToQBusiness *RuleSetRuleActionDeliverToQBusiness `pulumi:"deliverToQBusiness"`
+	// Stops rule evaluation and drops the email.
+	Drop *RuleSetRuleActionDrop `pulumi:"drop"`
+	// Invokes a Lambda function. See `invokeLambda` Block.
+	InvokeLambda *RuleSetRuleActionInvokeLambda `pulumi:"invokeLambda"`
+	// Publishes the email to an SNS topic. See `publishToSns` Block.
+	PublishToSns *RuleSetRuleActionPublishToSns `pulumi:"publishToSns"`
+	// Relays the email to an SMTP server. See `relay` Block.
+	Relay *RuleSetRuleActionRelay `pulumi:"relay"`
+	// Replaces envelope recipients. See `replaceRecipient` Block.
+	ReplaceRecipient *RuleSetRuleActionReplaceRecipient `pulumi:"replaceRecipient"`
+	// Sends the email to the internet. See `send` Block.
+	Send *RuleSetRuleActionSend `pulumi:"send"`
+	// Writes the email MIME content to an S3 bucket. See `writeToS3` Block.
+	WriteToS3 *RuleSetRuleActionWriteToS3 `pulumi:"writeToS3"`
+}
+
+// RuleSetRuleActionInput is an input type that accepts RuleSetRuleActionArgs and RuleSetRuleActionOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionInput` via:
+//
+//	RuleSetRuleActionArgs{...}
+type RuleSetRuleActionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionOutput() RuleSetRuleActionOutput
+	ToRuleSetRuleActionOutputWithContext(context.Context) RuleSetRuleActionOutput
+}
+
+type RuleSetRuleActionArgs struct {
+	// Adds a header to the email. See `addHeader` Block.
+	AddHeader RuleSetRuleActionAddHeaderPtrInput `pulumi:"addHeader"`
+	// Archives the email. See `archive` Block.
+	Archive RuleSetRuleActionArchivePtrInput `pulumi:"archive"`
+	// Sends a bounce response. See `bounce` Block.
+	Bounce RuleSetRuleActionBouncePtrInput `pulumi:"bounce"`
+	// Delivers the email to a WorkMail mailbox. See `deliverToMailbox` Block.
+	DeliverToMailbox RuleSetRuleActionDeliverToMailboxPtrInput `pulumi:"deliverToMailbox"`
+	// Delivers the email to an Amazon Q Business application. See `deliverToQBusiness` Block.
+	DeliverToQBusiness RuleSetRuleActionDeliverToQBusinessPtrInput `pulumi:"deliverToQBusiness"`
+	// Stops rule evaluation and drops the email.
+	Drop RuleSetRuleActionDropPtrInput `pulumi:"drop"`
+	// Invokes a Lambda function. See `invokeLambda` Block.
+	InvokeLambda RuleSetRuleActionInvokeLambdaPtrInput `pulumi:"invokeLambda"`
+	// Publishes the email to an SNS topic. See `publishToSns` Block.
+	PublishToSns RuleSetRuleActionPublishToSnsPtrInput `pulumi:"publishToSns"`
+	// Relays the email to an SMTP server. See `relay` Block.
+	Relay RuleSetRuleActionRelayPtrInput `pulumi:"relay"`
+	// Replaces envelope recipients. See `replaceRecipient` Block.
+	ReplaceRecipient RuleSetRuleActionReplaceRecipientPtrInput `pulumi:"replaceRecipient"`
+	// Sends the email to the internet. See `send` Block.
+	Send RuleSetRuleActionSendPtrInput `pulumi:"send"`
+	// Writes the email MIME content to an S3 bucket. See `writeToS3` Block.
+	WriteToS3 RuleSetRuleActionWriteToS3PtrInput `pulumi:"writeToS3"`
+}
+
+func (RuleSetRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleAction)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionArgs) ToRuleSetRuleActionOutput() RuleSetRuleActionOutput {
+	return i.ToRuleSetRuleActionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionArgs) ToRuleSetRuleActionOutputWithContext(ctx context.Context) RuleSetRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionOutput)
+}
+
+// RuleSetRuleActionArrayInput is an input type that accepts RuleSetRuleActionArray and RuleSetRuleActionArrayOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionArrayInput` via:
+//
+//	RuleSetRuleActionArray{ RuleSetRuleActionArgs{...} }
+type RuleSetRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionArrayOutput() RuleSetRuleActionArrayOutput
+	ToRuleSetRuleActionArrayOutputWithContext(context.Context) RuleSetRuleActionArrayOutput
+}
+
+type RuleSetRuleActionArray []RuleSetRuleActionInput
+
+func (RuleSetRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleAction)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionArray) ToRuleSetRuleActionArrayOutput() RuleSetRuleActionArrayOutput {
+	return i.ToRuleSetRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionArray) ToRuleSetRuleActionArrayOutputWithContext(ctx context.Context) RuleSetRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionArrayOutput)
+}
+
+type RuleSetRuleActionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleAction)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionOutput) ToRuleSetRuleActionOutput() RuleSetRuleActionOutput {
+	return o
+}
+
+func (o RuleSetRuleActionOutput) ToRuleSetRuleActionOutputWithContext(ctx context.Context) RuleSetRuleActionOutput {
+	return o
+}
+
+// Adds a header to the email. See `addHeader` Block.
+func (o RuleSetRuleActionOutput) AddHeader() RuleSetRuleActionAddHeaderPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionAddHeader { return v.AddHeader }).(RuleSetRuleActionAddHeaderPtrOutput)
+}
+
+// Archives the email. See `archive` Block.
+func (o RuleSetRuleActionOutput) Archive() RuleSetRuleActionArchivePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionArchive { return v.Archive }).(RuleSetRuleActionArchivePtrOutput)
+}
+
+// Sends a bounce response. See `bounce` Block.
+func (o RuleSetRuleActionOutput) Bounce() RuleSetRuleActionBouncePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionBounce { return v.Bounce }).(RuleSetRuleActionBouncePtrOutput)
+}
+
+// Delivers the email to a WorkMail mailbox. See `deliverToMailbox` Block.
+func (o RuleSetRuleActionOutput) DeliverToMailbox() RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionDeliverToMailbox { return v.DeliverToMailbox }).(RuleSetRuleActionDeliverToMailboxPtrOutput)
+}
+
+// Delivers the email to an Amazon Q Business application. See `deliverToQBusiness` Block.
+func (o RuleSetRuleActionOutput) DeliverToQBusiness() RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionDeliverToQBusiness { return v.DeliverToQBusiness }).(RuleSetRuleActionDeliverToQBusinessPtrOutput)
+}
+
+// Stops rule evaluation and drops the email.
+func (o RuleSetRuleActionOutput) Drop() RuleSetRuleActionDropPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionDrop { return v.Drop }).(RuleSetRuleActionDropPtrOutput)
+}
+
+// Invokes a Lambda function. See `invokeLambda` Block.
+func (o RuleSetRuleActionOutput) InvokeLambda() RuleSetRuleActionInvokeLambdaPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionInvokeLambda { return v.InvokeLambda }).(RuleSetRuleActionInvokeLambdaPtrOutput)
+}
+
+// Publishes the email to an SNS topic. See `publishToSns` Block.
+func (o RuleSetRuleActionOutput) PublishToSns() RuleSetRuleActionPublishToSnsPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionPublishToSns { return v.PublishToSns }).(RuleSetRuleActionPublishToSnsPtrOutput)
+}
+
+// Relays the email to an SMTP server. See `relay` Block.
+func (o RuleSetRuleActionOutput) Relay() RuleSetRuleActionRelayPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionRelay { return v.Relay }).(RuleSetRuleActionRelayPtrOutput)
+}
+
+// Replaces envelope recipients. See `replaceRecipient` Block.
+func (o RuleSetRuleActionOutput) ReplaceRecipient() RuleSetRuleActionReplaceRecipientPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionReplaceRecipient { return v.ReplaceRecipient }).(RuleSetRuleActionReplaceRecipientPtrOutput)
+}
+
+// Sends the email to the internet. See `send` Block.
+func (o RuleSetRuleActionOutput) Send() RuleSetRuleActionSendPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionSend { return v.Send }).(RuleSetRuleActionSendPtrOutput)
+}
+
+// Writes the email MIME content to an S3 bucket. See `writeToS3` Block.
+func (o RuleSetRuleActionOutput) WriteToS3() RuleSetRuleActionWriteToS3PtrOutput {
+	return o.ApplyT(func(v RuleSetRuleAction) *RuleSetRuleActionWriteToS3 { return v.WriteToS3 }).(RuleSetRuleActionWriteToS3PtrOutput)
+}
+
+type RuleSetRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleAction)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionArrayOutput) ToRuleSetRuleActionArrayOutput() RuleSetRuleActionArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArrayOutput) ToRuleSetRuleActionArrayOutputWithContext(ctx context.Context) RuleSetRuleActionArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArrayOutput) Index(i pulumi.IntInput) RuleSetRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSetRuleAction {
+		return vs[0].([]RuleSetRuleAction)[vs[1].(int)]
+	}).(RuleSetRuleActionOutput)
+}
+
+type RuleSetRuleActionAddHeader struct {
+	// Header name. Must begin with `X-`.
+	HeaderName string `pulumi:"headerName"`
+	// Header value.
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// RuleSetRuleActionAddHeaderInput is an input type that accepts RuleSetRuleActionAddHeaderArgs and RuleSetRuleActionAddHeaderOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionAddHeaderInput` via:
+//
+//	RuleSetRuleActionAddHeaderArgs{...}
+type RuleSetRuleActionAddHeaderInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionAddHeaderOutput() RuleSetRuleActionAddHeaderOutput
+	ToRuleSetRuleActionAddHeaderOutputWithContext(context.Context) RuleSetRuleActionAddHeaderOutput
+}
+
+type RuleSetRuleActionAddHeaderArgs struct {
+	// Header name. Must begin with `X-`.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Header value.
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (RuleSetRuleActionAddHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionAddHeader)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionAddHeaderArgs) ToRuleSetRuleActionAddHeaderOutput() RuleSetRuleActionAddHeaderOutput {
+	return i.ToRuleSetRuleActionAddHeaderOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionAddHeaderArgs) ToRuleSetRuleActionAddHeaderOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionAddHeaderOutput)
+}
+
+func (i RuleSetRuleActionAddHeaderArgs) ToRuleSetRuleActionAddHeaderPtrOutput() RuleSetRuleActionAddHeaderPtrOutput {
+	return i.ToRuleSetRuleActionAddHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionAddHeaderArgs) ToRuleSetRuleActionAddHeaderPtrOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionAddHeaderOutput).ToRuleSetRuleActionAddHeaderPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionAddHeaderPtrInput is an input type that accepts RuleSetRuleActionAddHeaderArgs, RuleSetRuleActionAddHeaderPtr and RuleSetRuleActionAddHeaderPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionAddHeaderPtrInput` via:
+//
+//	        RuleSetRuleActionAddHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionAddHeaderPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionAddHeaderPtrOutput() RuleSetRuleActionAddHeaderPtrOutput
+	ToRuleSetRuleActionAddHeaderPtrOutputWithContext(context.Context) RuleSetRuleActionAddHeaderPtrOutput
+}
+
+type ruleSetRuleActionAddHeaderPtrType RuleSetRuleActionAddHeaderArgs
+
+func RuleSetRuleActionAddHeaderPtr(v *RuleSetRuleActionAddHeaderArgs) RuleSetRuleActionAddHeaderPtrInput {
+	return (*ruleSetRuleActionAddHeaderPtrType)(v)
+}
+
+func (*ruleSetRuleActionAddHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionAddHeader)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionAddHeaderPtrType) ToRuleSetRuleActionAddHeaderPtrOutput() RuleSetRuleActionAddHeaderPtrOutput {
+	return i.ToRuleSetRuleActionAddHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionAddHeaderPtrType) ToRuleSetRuleActionAddHeaderPtrOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionAddHeaderPtrOutput)
+}
+
+type RuleSetRuleActionAddHeaderOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionAddHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionAddHeader)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionAddHeaderOutput) ToRuleSetRuleActionAddHeaderOutput() RuleSetRuleActionAddHeaderOutput {
+	return o
+}
+
+func (o RuleSetRuleActionAddHeaderOutput) ToRuleSetRuleActionAddHeaderOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderOutput {
+	return o
+}
+
+func (o RuleSetRuleActionAddHeaderOutput) ToRuleSetRuleActionAddHeaderPtrOutput() RuleSetRuleActionAddHeaderPtrOutput {
+	return o.ToRuleSetRuleActionAddHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionAddHeaderOutput) ToRuleSetRuleActionAddHeaderPtrOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionAddHeader) *RuleSetRuleActionAddHeader {
+		return &v
+	}).(RuleSetRuleActionAddHeaderPtrOutput)
+}
+
+// Header name. Must begin with `X-`.
+func (o RuleSetRuleActionAddHeaderOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionAddHeader) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// Header value.
+func (o RuleSetRuleActionAddHeaderOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionAddHeader) string { return v.HeaderValue }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionAddHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionAddHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionAddHeader)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionAddHeaderPtrOutput) ToRuleSetRuleActionAddHeaderPtrOutput() RuleSetRuleActionAddHeaderPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionAddHeaderPtrOutput) ToRuleSetRuleActionAddHeaderPtrOutputWithContext(ctx context.Context) RuleSetRuleActionAddHeaderPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionAddHeaderPtrOutput) Elem() RuleSetRuleActionAddHeaderOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionAddHeader) RuleSetRuleActionAddHeader {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionAddHeader
+		return ret
+	}).(RuleSetRuleActionAddHeaderOutput)
+}
+
+// Header name. Must begin with `X-`.
+func (o RuleSetRuleActionAddHeaderPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionAddHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Header value.
+func (o RuleSetRuleActionAddHeaderPtrOutput) HeaderValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionAddHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionArchive struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// Identifier of the archive.
+	TargetArchive string `pulumi:"targetArchive"`
+}
+
+// RuleSetRuleActionArchiveInput is an input type that accepts RuleSetRuleActionArchiveArgs and RuleSetRuleActionArchiveOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionArchiveInput` via:
+//
+//	RuleSetRuleActionArchiveArgs{...}
+type RuleSetRuleActionArchiveInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionArchiveOutput() RuleSetRuleActionArchiveOutput
+	ToRuleSetRuleActionArchiveOutputWithContext(context.Context) RuleSetRuleActionArchiveOutput
+}
+
+type RuleSetRuleActionArchiveArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// Identifier of the archive.
+	TargetArchive pulumi.StringInput `pulumi:"targetArchive"`
+}
+
+func (RuleSetRuleActionArchiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionArchive)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionArchiveArgs) ToRuleSetRuleActionArchiveOutput() RuleSetRuleActionArchiveOutput {
+	return i.ToRuleSetRuleActionArchiveOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionArchiveArgs) ToRuleSetRuleActionArchiveOutputWithContext(ctx context.Context) RuleSetRuleActionArchiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionArchiveOutput)
+}
+
+func (i RuleSetRuleActionArchiveArgs) ToRuleSetRuleActionArchivePtrOutput() RuleSetRuleActionArchivePtrOutput {
+	return i.ToRuleSetRuleActionArchivePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionArchiveArgs) ToRuleSetRuleActionArchivePtrOutputWithContext(ctx context.Context) RuleSetRuleActionArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionArchiveOutput).ToRuleSetRuleActionArchivePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionArchivePtrInput is an input type that accepts RuleSetRuleActionArchiveArgs, RuleSetRuleActionArchivePtr and RuleSetRuleActionArchivePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionArchivePtrInput` via:
+//
+//	        RuleSetRuleActionArchiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionArchivePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionArchivePtrOutput() RuleSetRuleActionArchivePtrOutput
+	ToRuleSetRuleActionArchivePtrOutputWithContext(context.Context) RuleSetRuleActionArchivePtrOutput
+}
+
+type ruleSetRuleActionArchivePtrType RuleSetRuleActionArchiveArgs
+
+func RuleSetRuleActionArchivePtr(v *RuleSetRuleActionArchiveArgs) RuleSetRuleActionArchivePtrInput {
+	return (*ruleSetRuleActionArchivePtrType)(v)
+}
+
+func (*ruleSetRuleActionArchivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionArchive)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionArchivePtrType) ToRuleSetRuleActionArchivePtrOutput() RuleSetRuleActionArchivePtrOutput {
+	return i.ToRuleSetRuleActionArchivePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionArchivePtrType) ToRuleSetRuleActionArchivePtrOutputWithContext(ctx context.Context) RuleSetRuleActionArchivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionArchivePtrOutput)
+}
+
+type RuleSetRuleActionArchiveOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionArchiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionArchive)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionArchiveOutput) ToRuleSetRuleActionArchiveOutput() RuleSetRuleActionArchiveOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArchiveOutput) ToRuleSetRuleActionArchiveOutputWithContext(ctx context.Context) RuleSetRuleActionArchiveOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArchiveOutput) ToRuleSetRuleActionArchivePtrOutput() RuleSetRuleActionArchivePtrOutput {
+	return o.ToRuleSetRuleActionArchivePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionArchiveOutput) ToRuleSetRuleActionArchivePtrOutputWithContext(ctx context.Context) RuleSetRuleActionArchivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionArchive) *RuleSetRuleActionArchive {
+		return &v
+	}).(RuleSetRuleActionArchivePtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionArchiveOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionArchive) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the archive.
+func (o RuleSetRuleActionArchiveOutput) TargetArchive() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionArchive) string { return v.TargetArchive }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionArchivePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionArchivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionArchive)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionArchivePtrOutput) ToRuleSetRuleActionArchivePtrOutput() RuleSetRuleActionArchivePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArchivePtrOutput) ToRuleSetRuleActionArchivePtrOutputWithContext(ctx context.Context) RuleSetRuleActionArchivePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionArchivePtrOutput) Elem() RuleSetRuleActionArchiveOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionArchive) RuleSetRuleActionArchive {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionArchive
+		return ret
+	}).(RuleSetRuleActionArchiveOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionArchivePtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the archive.
+func (o RuleSetRuleActionArchivePtrOutput) TargetArchive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionArchive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetArchive
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionBounce struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// Diagnostic message included in the bounce.
+	DiagnosticMessage string `pulumi:"diagnosticMessage"`
+	// Human-readable bounce message.
+	Message *string `pulumi:"message"`
+	// ARN of the IAM role used to send the bounce.
+	RoleArn string `pulumi:"roleArn"`
+	// Sender address of the bounce.
+	Sender string `pulumi:"sender"`
+	// SMTP reply code.
+	SmtpReplyCode string `pulumi:"smtpReplyCode"`
+	// Enhanced status code.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// RuleSetRuleActionBounceInput is an input type that accepts RuleSetRuleActionBounceArgs and RuleSetRuleActionBounceOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionBounceInput` via:
+//
+//	RuleSetRuleActionBounceArgs{...}
+type RuleSetRuleActionBounceInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionBounceOutput() RuleSetRuleActionBounceOutput
+	ToRuleSetRuleActionBounceOutputWithContext(context.Context) RuleSetRuleActionBounceOutput
+}
+
+type RuleSetRuleActionBounceArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// Diagnostic message included in the bounce.
+	DiagnosticMessage pulumi.StringInput `pulumi:"diagnosticMessage"`
+	// Human-readable bounce message.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// ARN of the IAM role used to send the bounce.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Sender address of the bounce.
+	Sender pulumi.StringInput `pulumi:"sender"`
+	// SMTP reply code.
+	SmtpReplyCode pulumi.StringInput `pulumi:"smtpReplyCode"`
+	// Enhanced status code.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (RuleSetRuleActionBounceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionBounce)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionBounceArgs) ToRuleSetRuleActionBounceOutput() RuleSetRuleActionBounceOutput {
+	return i.ToRuleSetRuleActionBounceOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionBounceArgs) ToRuleSetRuleActionBounceOutputWithContext(ctx context.Context) RuleSetRuleActionBounceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionBounceOutput)
+}
+
+func (i RuleSetRuleActionBounceArgs) ToRuleSetRuleActionBouncePtrOutput() RuleSetRuleActionBouncePtrOutput {
+	return i.ToRuleSetRuleActionBouncePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionBounceArgs) ToRuleSetRuleActionBouncePtrOutputWithContext(ctx context.Context) RuleSetRuleActionBouncePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionBounceOutput).ToRuleSetRuleActionBouncePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionBouncePtrInput is an input type that accepts RuleSetRuleActionBounceArgs, RuleSetRuleActionBouncePtr and RuleSetRuleActionBouncePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionBouncePtrInput` via:
+//
+//	        RuleSetRuleActionBounceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionBouncePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionBouncePtrOutput() RuleSetRuleActionBouncePtrOutput
+	ToRuleSetRuleActionBouncePtrOutputWithContext(context.Context) RuleSetRuleActionBouncePtrOutput
+}
+
+type ruleSetRuleActionBouncePtrType RuleSetRuleActionBounceArgs
+
+func RuleSetRuleActionBouncePtr(v *RuleSetRuleActionBounceArgs) RuleSetRuleActionBouncePtrInput {
+	return (*ruleSetRuleActionBouncePtrType)(v)
+}
+
+func (*ruleSetRuleActionBouncePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionBounce)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionBouncePtrType) ToRuleSetRuleActionBouncePtrOutput() RuleSetRuleActionBouncePtrOutput {
+	return i.ToRuleSetRuleActionBouncePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionBouncePtrType) ToRuleSetRuleActionBouncePtrOutputWithContext(ctx context.Context) RuleSetRuleActionBouncePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionBouncePtrOutput)
+}
+
+type RuleSetRuleActionBounceOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionBounceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionBounce)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionBounceOutput) ToRuleSetRuleActionBounceOutput() RuleSetRuleActionBounceOutput {
+	return o
+}
+
+func (o RuleSetRuleActionBounceOutput) ToRuleSetRuleActionBounceOutputWithContext(ctx context.Context) RuleSetRuleActionBounceOutput {
+	return o
+}
+
+func (o RuleSetRuleActionBounceOutput) ToRuleSetRuleActionBouncePtrOutput() RuleSetRuleActionBouncePtrOutput {
+	return o.ToRuleSetRuleActionBouncePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionBounceOutput) ToRuleSetRuleActionBouncePtrOutputWithContext(ctx context.Context) RuleSetRuleActionBouncePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionBounce) *RuleSetRuleActionBounce {
+		return &v
+	}).(RuleSetRuleActionBouncePtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionBounceOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic message included in the bounce.
+func (o RuleSetRuleActionBounceOutput) DiagnosticMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) string { return v.DiagnosticMessage }).(pulumi.StringOutput)
+}
+
+// Human-readable bounce message.
+func (o RuleSetRuleActionBounceOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to send the bounce.
+func (o RuleSetRuleActionBounceOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Sender address of the bounce.
+func (o RuleSetRuleActionBounceOutput) Sender() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) string { return v.Sender }).(pulumi.StringOutput)
+}
+
+// SMTP reply code.
+func (o RuleSetRuleActionBounceOutput) SmtpReplyCode() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) string { return v.SmtpReplyCode }).(pulumi.StringOutput)
+}
+
+// Enhanced status code.
+func (o RuleSetRuleActionBounceOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionBounce) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionBouncePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionBouncePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionBounce)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionBouncePtrOutput) ToRuleSetRuleActionBouncePtrOutput() RuleSetRuleActionBouncePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionBouncePtrOutput) ToRuleSetRuleActionBouncePtrOutputWithContext(ctx context.Context) RuleSetRuleActionBouncePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionBouncePtrOutput) Elem() RuleSetRuleActionBounceOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) RuleSetRuleActionBounce {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionBounce
+		return ret
+	}).(RuleSetRuleActionBounceOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionBouncePtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic message included in the bounce.
+func (o RuleSetRuleActionBouncePtrOutput) DiagnosticMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DiagnosticMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Human-readable bounce message.
+func (o RuleSetRuleActionBouncePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to send the bounce.
+func (o RuleSetRuleActionBouncePtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sender address of the bounce.
+func (o RuleSetRuleActionBouncePtrOutput) Sender() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Sender
+	}).(pulumi.StringPtrOutput)
+}
+
+// SMTP reply code.
+func (o RuleSetRuleActionBouncePtrOutput) SmtpReplyCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SmtpReplyCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enhanced status code.
+func (o RuleSetRuleActionBouncePtrOutput) StatusCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionBounce) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StatusCode
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionDeliverToMailbox struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// ARN of the WorkMail organization.
+	MailboxArn string `pulumi:"mailboxArn"`
+	// ARN of the IAM role used to deliver the email.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// RuleSetRuleActionDeliverToMailboxInput is an input type that accepts RuleSetRuleActionDeliverToMailboxArgs and RuleSetRuleActionDeliverToMailboxOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDeliverToMailboxInput` via:
+//
+//	RuleSetRuleActionDeliverToMailboxArgs{...}
+type RuleSetRuleActionDeliverToMailboxInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDeliverToMailboxOutput() RuleSetRuleActionDeliverToMailboxOutput
+	ToRuleSetRuleActionDeliverToMailboxOutputWithContext(context.Context) RuleSetRuleActionDeliverToMailboxOutput
+}
+
+type RuleSetRuleActionDeliverToMailboxArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// ARN of the WorkMail organization.
+	MailboxArn pulumi.StringInput `pulumi:"mailboxArn"`
+	// ARN of the IAM role used to deliver the email.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (RuleSetRuleActionDeliverToMailboxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDeliverToMailbox)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionDeliverToMailboxArgs) ToRuleSetRuleActionDeliverToMailboxOutput() RuleSetRuleActionDeliverToMailboxOutput {
+	return i.ToRuleSetRuleActionDeliverToMailboxOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDeliverToMailboxArgs) ToRuleSetRuleActionDeliverToMailboxOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToMailboxOutput)
+}
+
+func (i RuleSetRuleActionDeliverToMailboxArgs) ToRuleSetRuleActionDeliverToMailboxPtrOutput() RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return i.ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDeliverToMailboxArgs) ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToMailboxOutput).ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionDeliverToMailboxPtrInput is an input type that accepts RuleSetRuleActionDeliverToMailboxArgs, RuleSetRuleActionDeliverToMailboxPtr and RuleSetRuleActionDeliverToMailboxPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDeliverToMailboxPtrInput` via:
+//
+//	        RuleSetRuleActionDeliverToMailboxArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionDeliverToMailboxPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDeliverToMailboxPtrOutput() RuleSetRuleActionDeliverToMailboxPtrOutput
+	ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(context.Context) RuleSetRuleActionDeliverToMailboxPtrOutput
+}
+
+type ruleSetRuleActionDeliverToMailboxPtrType RuleSetRuleActionDeliverToMailboxArgs
+
+func RuleSetRuleActionDeliverToMailboxPtr(v *RuleSetRuleActionDeliverToMailboxArgs) RuleSetRuleActionDeliverToMailboxPtrInput {
+	return (*ruleSetRuleActionDeliverToMailboxPtrType)(v)
+}
+
+func (*ruleSetRuleActionDeliverToMailboxPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDeliverToMailbox)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionDeliverToMailboxPtrType) ToRuleSetRuleActionDeliverToMailboxPtrOutput() RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return i.ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionDeliverToMailboxPtrType) ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToMailboxPtrOutput)
+}
+
+type RuleSetRuleActionDeliverToMailboxOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDeliverToMailboxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDeliverToMailbox)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDeliverToMailboxOutput) ToRuleSetRuleActionDeliverToMailboxOutput() RuleSetRuleActionDeliverToMailboxOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToMailboxOutput) ToRuleSetRuleActionDeliverToMailboxOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToMailboxOutput) ToRuleSetRuleActionDeliverToMailboxPtrOutput() RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return o.ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionDeliverToMailboxOutput) ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionDeliverToMailbox) *RuleSetRuleActionDeliverToMailbox {
+		return &v
+	}).(RuleSetRuleActionDeliverToMailboxPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionDeliverToMailboxOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToMailbox) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the WorkMail organization.
+func (o RuleSetRuleActionDeliverToMailboxOutput) MailboxArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToMailbox) string { return v.MailboxArn }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role used to deliver the email.
+func (o RuleSetRuleActionDeliverToMailboxOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToMailbox) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionDeliverToMailboxPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDeliverToMailboxPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDeliverToMailbox)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) ToRuleSetRuleActionDeliverToMailboxPtrOutput() RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) ToRuleSetRuleActionDeliverToMailboxPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToMailboxPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) Elem() RuleSetRuleActionDeliverToMailboxOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToMailbox) RuleSetRuleActionDeliverToMailbox {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionDeliverToMailbox
+		return ret
+	}).(RuleSetRuleActionDeliverToMailboxOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToMailbox) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the WorkMail organization.
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) MailboxArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToMailbox) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MailboxArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to deliver the email.
+func (o RuleSetRuleActionDeliverToMailboxPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToMailbox) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionDeliverToQBusiness struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// Q Business application identifier.
+	ApplicationId string `pulumi:"applicationId"`
+	// Q Business index identifier.
+	IndexId string `pulumi:"indexId"`
+	// ARN of the IAM role used to deliver the email.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// RuleSetRuleActionDeliverToQBusinessInput is an input type that accepts RuleSetRuleActionDeliverToQBusinessArgs and RuleSetRuleActionDeliverToQBusinessOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDeliverToQBusinessInput` via:
+//
+//	RuleSetRuleActionDeliverToQBusinessArgs{...}
+type RuleSetRuleActionDeliverToQBusinessInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDeliverToQBusinessOutput() RuleSetRuleActionDeliverToQBusinessOutput
+	ToRuleSetRuleActionDeliverToQBusinessOutputWithContext(context.Context) RuleSetRuleActionDeliverToQBusinessOutput
+}
+
+type RuleSetRuleActionDeliverToQBusinessArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// Q Business application identifier.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// Q Business index identifier.
+	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// ARN of the IAM role used to deliver the email.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (RuleSetRuleActionDeliverToQBusinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDeliverToQBusiness)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionDeliverToQBusinessArgs) ToRuleSetRuleActionDeliverToQBusinessOutput() RuleSetRuleActionDeliverToQBusinessOutput {
+	return i.ToRuleSetRuleActionDeliverToQBusinessOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDeliverToQBusinessArgs) ToRuleSetRuleActionDeliverToQBusinessOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToQBusinessOutput)
+}
+
+func (i RuleSetRuleActionDeliverToQBusinessArgs) ToRuleSetRuleActionDeliverToQBusinessPtrOutput() RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return i.ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDeliverToQBusinessArgs) ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToQBusinessOutput).ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionDeliverToQBusinessPtrInput is an input type that accepts RuleSetRuleActionDeliverToQBusinessArgs, RuleSetRuleActionDeliverToQBusinessPtr and RuleSetRuleActionDeliverToQBusinessPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDeliverToQBusinessPtrInput` via:
+//
+//	        RuleSetRuleActionDeliverToQBusinessArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionDeliverToQBusinessPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDeliverToQBusinessPtrOutput() RuleSetRuleActionDeliverToQBusinessPtrOutput
+	ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(context.Context) RuleSetRuleActionDeliverToQBusinessPtrOutput
+}
+
+type ruleSetRuleActionDeliverToQBusinessPtrType RuleSetRuleActionDeliverToQBusinessArgs
+
+func RuleSetRuleActionDeliverToQBusinessPtr(v *RuleSetRuleActionDeliverToQBusinessArgs) RuleSetRuleActionDeliverToQBusinessPtrInput {
+	return (*ruleSetRuleActionDeliverToQBusinessPtrType)(v)
+}
+
+func (*ruleSetRuleActionDeliverToQBusinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDeliverToQBusiness)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionDeliverToQBusinessPtrType) ToRuleSetRuleActionDeliverToQBusinessPtrOutput() RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return i.ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionDeliverToQBusinessPtrType) ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDeliverToQBusinessPtrOutput)
+}
+
+type RuleSetRuleActionDeliverToQBusinessOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDeliverToQBusinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDeliverToQBusiness)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ToRuleSetRuleActionDeliverToQBusinessOutput() RuleSetRuleActionDeliverToQBusinessOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ToRuleSetRuleActionDeliverToQBusinessOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ToRuleSetRuleActionDeliverToQBusinessPtrOutput() RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return o.ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionDeliverToQBusiness) *RuleSetRuleActionDeliverToQBusiness {
+		return &v
+	}).(RuleSetRuleActionDeliverToQBusinessPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToQBusiness) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// Q Business application identifier.
+func (o RuleSetRuleActionDeliverToQBusinessOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToQBusiness) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// Q Business index identifier.
+func (o RuleSetRuleActionDeliverToQBusinessOutput) IndexId() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToQBusiness) string { return v.IndexId }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role used to deliver the email.
+func (o RuleSetRuleActionDeliverToQBusinessOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionDeliverToQBusiness) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionDeliverToQBusinessPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDeliverToQBusinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDeliverToQBusiness)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) ToRuleSetRuleActionDeliverToQBusinessPtrOutput() RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) ToRuleSetRuleActionDeliverToQBusinessPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDeliverToQBusinessPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) Elem() RuleSetRuleActionDeliverToQBusinessOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToQBusiness) RuleSetRuleActionDeliverToQBusiness {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionDeliverToQBusiness
+		return ret
+	}).(RuleSetRuleActionDeliverToQBusinessOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToQBusiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Q Business application identifier.
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToQBusiness) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Q Business index identifier.
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) IndexId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToQBusiness) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IndexId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to deliver the email.
+func (o RuleSetRuleActionDeliverToQBusinessPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDeliverToQBusiness) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionDrop struct {
+}
+
+// RuleSetRuleActionDropInput is an input type that accepts RuleSetRuleActionDropArgs and RuleSetRuleActionDropOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDropInput` via:
+//
+//	RuleSetRuleActionDropArgs{...}
+type RuleSetRuleActionDropInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDropOutput() RuleSetRuleActionDropOutput
+	ToRuleSetRuleActionDropOutputWithContext(context.Context) RuleSetRuleActionDropOutput
+}
+
+type RuleSetRuleActionDropArgs struct {
+}
+
+func (RuleSetRuleActionDropArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDrop)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionDropArgs) ToRuleSetRuleActionDropOutput() RuleSetRuleActionDropOutput {
+	return i.ToRuleSetRuleActionDropOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDropArgs) ToRuleSetRuleActionDropOutputWithContext(ctx context.Context) RuleSetRuleActionDropOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDropOutput)
+}
+
+func (i RuleSetRuleActionDropArgs) ToRuleSetRuleActionDropPtrOutput() RuleSetRuleActionDropPtrOutput {
+	return i.ToRuleSetRuleActionDropPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionDropArgs) ToRuleSetRuleActionDropPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDropPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDropOutput).ToRuleSetRuleActionDropPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionDropPtrInput is an input type that accepts RuleSetRuleActionDropArgs, RuleSetRuleActionDropPtr and RuleSetRuleActionDropPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionDropPtrInput` via:
+//
+//	        RuleSetRuleActionDropArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionDropPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionDropPtrOutput() RuleSetRuleActionDropPtrOutput
+	ToRuleSetRuleActionDropPtrOutputWithContext(context.Context) RuleSetRuleActionDropPtrOutput
+}
+
+type ruleSetRuleActionDropPtrType RuleSetRuleActionDropArgs
+
+func RuleSetRuleActionDropPtr(v *RuleSetRuleActionDropArgs) RuleSetRuleActionDropPtrInput {
+	return (*ruleSetRuleActionDropPtrType)(v)
+}
+
+func (*ruleSetRuleActionDropPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDrop)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionDropPtrType) ToRuleSetRuleActionDropPtrOutput() RuleSetRuleActionDropPtrOutput {
+	return i.ToRuleSetRuleActionDropPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionDropPtrType) ToRuleSetRuleActionDropPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDropPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionDropPtrOutput)
+}
+
+type RuleSetRuleActionDropOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDropOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionDrop)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDropOutput) ToRuleSetRuleActionDropOutput() RuleSetRuleActionDropOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDropOutput) ToRuleSetRuleActionDropOutputWithContext(ctx context.Context) RuleSetRuleActionDropOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDropOutput) ToRuleSetRuleActionDropPtrOutput() RuleSetRuleActionDropPtrOutput {
+	return o.ToRuleSetRuleActionDropPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionDropOutput) ToRuleSetRuleActionDropPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDropPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionDrop) *RuleSetRuleActionDrop {
+		return &v
+	}).(RuleSetRuleActionDropPtrOutput)
+}
+
+type RuleSetRuleActionDropPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionDropPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionDrop)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionDropPtrOutput) ToRuleSetRuleActionDropPtrOutput() RuleSetRuleActionDropPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDropPtrOutput) ToRuleSetRuleActionDropPtrOutputWithContext(ctx context.Context) RuleSetRuleActionDropPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionDropPtrOutput) Elem() RuleSetRuleActionDropOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionDrop) RuleSetRuleActionDrop {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionDrop
+		return ret
+	}).(RuleSetRuleActionDropOutput)
+}
+
+type RuleSetRuleActionInvokeLambda struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// ARN of the Lambda function.
+	FunctionArn string `pulumi:"functionArn"`
+	// Lambda invocation type.
+	InvocationType string `pulumi:"invocationType"`
+	// Maximum retry time in minutes.
+	RetryTimeMinutes *int `pulumi:"retryTimeMinutes"`
+	// ARN of the IAM role used to invoke the function.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// RuleSetRuleActionInvokeLambdaInput is an input type that accepts RuleSetRuleActionInvokeLambdaArgs and RuleSetRuleActionInvokeLambdaOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionInvokeLambdaInput` via:
+//
+//	RuleSetRuleActionInvokeLambdaArgs{...}
+type RuleSetRuleActionInvokeLambdaInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionInvokeLambdaOutput() RuleSetRuleActionInvokeLambdaOutput
+	ToRuleSetRuleActionInvokeLambdaOutputWithContext(context.Context) RuleSetRuleActionInvokeLambdaOutput
+}
+
+type RuleSetRuleActionInvokeLambdaArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// ARN of the Lambda function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// Lambda invocation type.
+	InvocationType pulumi.StringInput `pulumi:"invocationType"`
+	// Maximum retry time in minutes.
+	RetryTimeMinutes pulumi.IntPtrInput `pulumi:"retryTimeMinutes"`
+	// ARN of the IAM role used to invoke the function.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (RuleSetRuleActionInvokeLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionInvokeLambda)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionInvokeLambdaArgs) ToRuleSetRuleActionInvokeLambdaOutput() RuleSetRuleActionInvokeLambdaOutput {
+	return i.ToRuleSetRuleActionInvokeLambdaOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionInvokeLambdaArgs) ToRuleSetRuleActionInvokeLambdaOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionInvokeLambdaOutput)
+}
+
+func (i RuleSetRuleActionInvokeLambdaArgs) ToRuleSetRuleActionInvokeLambdaPtrOutput() RuleSetRuleActionInvokeLambdaPtrOutput {
+	return i.ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionInvokeLambdaArgs) ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionInvokeLambdaOutput).ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionInvokeLambdaPtrInput is an input type that accepts RuleSetRuleActionInvokeLambdaArgs, RuleSetRuleActionInvokeLambdaPtr and RuleSetRuleActionInvokeLambdaPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionInvokeLambdaPtrInput` via:
+//
+//	        RuleSetRuleActionInvokeLambdaArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionInvokeLambdaPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionInvokeLambdaPtrOutput() RuleSetRuleActionInvokeLambdaPtrOutput
+	ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(context.Context) RuleSetRuleActionInvokeLambdaPtrOutput
+}
+
+type ruleSetRuleActionInvokeLambdaPtrType RuleSetRuleActionInvokeLambdaArgs
+
+func RuleSetRuleActionInvokeLambdaPtr(v *RuleSetRuleActionInvokeLambdaArgs) RuleSetRuleActionInvokeLambdaPtrInput {
+	return (*ruleSetRuleActionInvokeLambdaPtrType)(v)
+}
+
+func (*ruleSetRuleActionInvokeLambdaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionInvokeLambda)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionInvokeLambdaPtrType) ToRuleSetRuleActionInvokeLambdaPtrOutput() RuleSetRuleActionInvokeLambdaPtrOutput {
+	return i.ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionInvokeLambdaPtrType) ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionInvokeLambdaPtrOutput)
+}
+
+type RuleSetRuleActionInvokeLambdaOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionInvokeLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionInvokeLambda)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionInvokeLambdaOutput) ToRuleSetRuleActionInvokeLambdaOutput() RuleSetRuleActionInvokeLambdaOutput {
+	return o
+}
+
+func (o RuleSetRuleActionInvokeLambdaOutput) ToRuleSetRuleActionInvokeLambdaOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaOutput {
+	return o
+}
+
+func (o RuleSetRuleActionInvokeLambdaOutput) ToRuleSetRuleActionInvokeLambdaPtrOutput() RuleSetRuleActionInvokeLambdaPtrOutput {
+	return o.ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionInvokeLambdaOutput) ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionInvokeLambda) *RuleSetRuleActionInvokeLambda {
+		return &v
+	}).(RuleSetRuleActionInvokeLambdaPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionInvokeLambdaOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionInvokeLambda) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Lambda function.
+func (o RuleSetRuleActionInvokeLambdaOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionInvokeLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
+}
+
+// Lambda invocation type.
+func (o RuleSetRuleActionInvokeLambdaOutput) InvocationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionInvokeLambda) string { return v.InvocationType }).(pulumi.StringOutput)
+}
+
+// Maximum retry time in minutes.
+func (o RuleSetRuleActionInvokeLambdaOutput) RetryTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionInvokeLambda) *int { return v.RetryTimeMinutes }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to invoke the function.
+func (o RuleSetRuleActionInvokeLambdaOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionInvokeLambda) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionInvokeLambdaPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionInvokeLambdaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionInvokeLambda)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) ToRuleSetRuleActionInvokeLambdaPtrOutput() RuleSetRuleActionInvokeLambdaPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) ToRuleSetRuleActionInvokeLambdaPtrOutputWithContext(ctx context.Context) RuleSetRuleActionInvokeLambdaPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) Elem() RuleSetRuleActionInvokeLambdaOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) RuleSetRuleActionInvokeLambda {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionInvokeLambda
+		return ret
+	}).(RuleSetRuleActionInvokeLambdaOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Lambda function.
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Lambda invocation type.
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) InvocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InvocationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum retry time in minutes.
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) RetryTimeMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryTimeMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the IAM role used to invoke the function.
+func (o RuleSetRuleActionInvokeLambdaPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionInvokeLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionPublishToSns struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// Email encoding in the notification.
+	Encoding *string `pulumi:"encoding"`
+	// Notification payload type.
+	PayloadType *string `pulumi:"payloadType"`
+	// ARN of the IAM role used to publish the email.
+	RoleArn string `pulumi:"roleArn"`
+	// ARN of the SNS topic.
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// RuleSetRuleActionPublishToSnsInput is an input type that accepts RuleSetRuleActionPublishToSnsArgs and RuleSetRuleActionPublishToSnsOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionPublishToSnsInput` via:
+//
+//	RuleSetRuleActionPublishToSnsArgs{...}
+type RuleSetRuleActionPublishToSnsInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionPublishToSnsOutput() RuleSetRuleActionPublishToSnsOutput
+	ToRuleSetRuleActionPublishToSnsOutputWithContext(context.Context) RuleSetRuleActionPublishToSnsOutput
+}
+
+type RuleSetRuleActionPublishToSnsArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// Email encoding in the notification.
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// Notification payload type.
+	PayloadType pulumi.StringPtrInput `pulumi:"payloadType"`
+	// ARN of the IAM role used to publish the email.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// ARN of the SNS topic.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (RuleSetRuleActionPublishToSnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionPublishToSns)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionPublishToSnsArgs) ToRuleSetRuleActionPublishToSnsOutput() RuleSetRuleActionPublishToSnsOutput {
+	return i.ToRuleSetRuleActionPublishToSnsOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionPublishToSnsArgs) ToRuleSetRuleActionPublishToSnsOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionPublishToSnsOutput)
+}
+
+func (i RuleSetRuleActionPublishToSnsArgs) ToRuleSetRuleActionPublishToSnsPtrOutput() RuleSetRuleActionPublishToSnsPtrOutput {
+	return i.ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionPublishToSnsArgs) ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionPublishToSnsOutput).ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionPublishToSnsPtrInput is an input type that accepts RuleSetRuleActionPublishToSnsArgs, RuleSetRuleActionPublishToSnsPtr and RuleSetRuleActionPublishToSnsPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionPublishToSnsPtrInput` via:
+//
+//	        RuleSetRuleActionPublishToSnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionPublishToSnsPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionPublishToSnsPtrOutput() RuleSetRuleActionPublishToSnsPtrOutput
+	ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(context.Context) RuleSetRuleActionPublishToSnsPtrOutput
+}
+
+type ruleSetRuleActionPublishToSnsPtrType RuleSetRuleActionPublishToSnsArgs
+
+func RuleSetRuleActionPublishToSnsPtr(v *RuleSetRuleActionPublishToSnsArgs) RuleSetRuleActionPublishToSnsPtrInput {
+	return (*ruleSetRuleActionPublishToSnsPtrType)(v)
+}
+
+func (*ruleSetRuleActionPublishToSnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionPublishToSns)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionPublishToSnsPtrType) ToRuleSetRuleActionPublishToSnsPtrOutput() RuleSetRuleActionPublishToSnsPtrOutput {
+	return i.ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionPublishToSnsPtrType) ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionPublishToSnsPtrOutput)
+}
+
+type RuleSetRuleActionPublishToSnsOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionPublishToSnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionPublishToSns)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionPublishToSnsOutput) ToRuleSetRuleActionPublishToSnsOutput() RuleSetRuleActionPublishToSnsOutput {
+	return o
+}
+
+func (o RuleSetRuleActionPublishToSnsOutput) ToRuleSetRuleActionPublishToSnsOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsOutput {
+	return o
+}
+
+func (o RuleSetRuleActionPublishToSnsOutput) ToRuleSetRuleActionPublishToSnsPtrOutput() RuleSetRuleActionPublishToSnsPtrOutput {
+	return o.ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionPublishToSnsOutput) ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionPublishToSns) *RuleSetRuleActionPublishToSns {
+		return &v
+	}).(RuleSetRuleActionPublishToSnsPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionPublishToSnsOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionPublishToSns) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// Email encoding in the notification.
+func (o RuleSetRuleActionPublishToSnsOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionPublishToSns) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// Notification payload type.
+func (o RuleSetRuleActionPublishToSnsOutput) PayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionPublishToSns) *string { return v.PayloadType }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to publish the email.
+func (o RuleSetRuleActionPublishToSnsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionPublishToSns) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the SNS topic.
+func (o RuleSetRuleActionPublishToSnsOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionPublishToSns) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionPublishToSnsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionPublishToSnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionPublishToSns)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionPublishToSnsPtrOutput) ToRuleSetRuleActionPublishToSnsPtrOutput() RuleSetRuleActionPublishToSnsPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionPublishToSnsPtrOutput) ToRuleSetRuleActionPublishToSnsPtrOutputWithContext(ctx context.Context) RuleSetRuleActionPublishToSnsPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionPublishToSnsPtrOutput) Elem() RuleSetRuleActionPublishToSnsOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) RuleSetRuleActionPublishToSns {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionPublishToSns
+		return ret
+	}).(RuleSetRuleActionPublishToSnsOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionPublishToSnsPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Email encoding in the notification.
+func (o RuleSetRuleActionPublishToSnsPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// Notification payload type.
+func (o RuleSetRuleActionPublishToSnsPtrOutput) PayloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to publish the email.
+func (o RuleSetRuleActionPublishToSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the SNS topic.
+func (o RuleSetRuleActionPublishToSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionPublishToSns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionRelay struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// Whether to preserve or replace the original MAIL FROM address.
+	MailFrom *string `pulumi:"mailFrom"`
+	// Identifier of the relay resource.
+	Relay string `pulumi:"relay"`
+}
+
+// RuleSetRuleActionRelayInput is an input type that accepts RuleSetRuleActionRelayArgs and RuleSetRuleActionRelayOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionRelayInput` via:
+//
+//	RuleSetRuleActionRelayArgs{...}
+type RuleSetRuleActionRelayInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionRelayOutput() RuleSetRuleActionRelayOutput
+	ToRuleSetRuleActionRelayOutputWithContext(context.Context) RuleSetRuleActionRelayOutput
+}
+
+type RuleSetRuleActionRelayArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// Whether to preserve or replace the original MAIL FROM address.
+	MailFrom pulumi.StringPtrInput `pulumi:"mailFrom"`
+	// Identifier of the relay resource.
+	Relay pulumi.StringInput `pulumi:"relay"`
+}
+
+func (RuleSetRuleActionRelayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionRelay)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionRelayArgs) ToRuleSetRuleActionRelayOutput() RuleSetRuleActionRelayOutput {
+	return i.ToRuleSetRuleActionRelayOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionRelayArgs) ToRuleSetRuleActionRelayOutputWithContext(ctx context.Context) RuleSetRuleActionRelayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionRelayOutput)
+}
+
+func (i RuleSetRuleActionRelayArgs) ToRuleSetRuleActionRelayPtrOutput() RuleSetRuleActionRelayPtrOutput {
+	return i.ToRuleSetRuleActionRelayPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionRelayArgs) ToRuleSetRuleActionRelayPtrOutputWithContext(ctx context.Context) RuleSetRuleActionRelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionRelayOutput).ToRuleSetRuleActionRelayPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionRelayPtrInput is an input type that accepts RuleSetRuleActionRelayArgs, RuleSetRuleActionRelayPtr and RuleSetRuleActionRelayPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionRelayPtrInput` via:
+//
+//	        RuleSetRuleActionRelayArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionRelayPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionRelayPtrOutput() RuleSetRuleActionRelayPtrOutput
+	ToRuleSetRuleActionRelayPtrOutputWithContext(context.Context) RuleSetRuleActionRelayPtrOutput
+}
+
+type ruleSetRuleActionRelayPtrType RuleSetRuleActionRelayArgs
+
+func RuleSetRuleActionRelayPtr(v *RuleSetRuleActionRelayArgs) RuleSetRuleActionRelayPtrInput {
+	return (*ruleSetRuleActionRelayPtrType)(v)
+}
+
+func (*ruleSetRuleActionRelayPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionRelay)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionRelayPtrType) ToRuleSetRuleActionRelayPtrOutput() RuleSetRuleActionRelayPtrOutput {
+	return i.ToRuleSetRuleActionRelayPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionRelayPtrType) ToRuleSetRuleActionRelayPtrOutputWithContext(ctx context.Context) RuleSetRuleActionRelayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionRelayPtrOutput)
+}
+
+type RuleSetRuleActionRelayOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionRelayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionRelay)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionRelayOutput) ToRuleSetRuleActionRelayOutput() RuleSetRuleActionRelayOutput {
+	return o
+}
+
+func (o RuleSetRuleActionRelayOutput) ToRuleSetRuleActionRelayOutputWithContext(ctx context.Context) RuleSetRuleActionRelayOutput {
+	return o
+}
+
+func (o RuleSetRuleActionRelayOutput) ToRuleSetRuleActionRelayPtrOutput() RuleSetRuleActionRelayPtrOutput {
+	return o.ToRuleSetRuleActionRelayPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionRelayOutput) ToRuleSetRuleActionRelayPtrOutputWithContext(ctx context.Context) RuleSetRuleActionRelayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionRelay) *RuleSetRuleActionRelay {
+		return &v
+	}).(RuleSetRuleActionRelayPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionRelayOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionRelay) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// Whether to preserve or replace the original MAIL FROM address.
+func (o RuleSetRuleActionRelayOutput) MailFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionRelay) *string { return v.MailFrom }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the relay resource.
+func (o RuleSetRuleActionRelayOutput) Relay() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionRelay) string { return v.Relay }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionRelayPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionRelayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionRelay)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionRelayPtrOutput) ToRuleSetRuleActionRelayPtrOutput() RuleSetRuleActionRelayPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionRelayPtrOutput) ToRuleSetRuleActionRelayPtrOutputWithContext(ctx context.Context) RuleSetRuleActionRelayPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionRelayPtrOutput) Elem() RuleSetRuleActionRelayOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionRelay) RuleSetRuleActionRelay {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionRelay
+		return ret
+	}).(RuleSetRuleActionRelayOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionRelayPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionRelay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to preserve or replace the original MAIL FROM address.
+func (o RuleSetRuleActionRelayPtrOutput) MailFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionRelay) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the relay resource.
+func (o RuleSetRuleActionRelayPtrOutput) Relay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionRelay) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Relay
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionReplaceRecipient struct {
+	// Replacement envelope recipient addresses.
+	ReplaceWiths []string `pulumi:"replaceWiths"`
+}
+
+// RuleSetRuleActionReplaceRecipientInput is an input type that accepts RuleSetRuleActionReplaceRecipientArgs and RuleSetRuleActionReplaceRecipientOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionReplaceRecipientInput` via:
+//
+//	RuleSetRuleActionReplaceRecipientArgs{...}
+type RuleSetRuleActionReplaceRecipientInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionReplaceRecipientOutput() RuleSetRuleActionReplaceRecipientOutput
+	ToRuleSetRuleActionReplaceRecipientOutputWithContext(context.Context) RuleSetRuleActionReplaceRecipientOutput
+}
+
+type RuleSetRuleActionReplaceRecipientArgs struct {
+	// Replacement envelope recipient addresses.
+	ReplaceWiths pulumi.StringArrayInput `pulumi:"replaceWiths"`
+}
+
+func (RuleSetRuleActionReplaceRecipientArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionReplaceRecipient)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionReplaceRecipientArgs) ToRuleSetRuleActionReplaceRecipientOutput() RuleSetRuleActionReplaceRecipientOutput {
+	return i.ToRuleSetRuleActionReplaceRecipientOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionReplaceRecipientArgs) ToRuleSetRuleActionReplaceRecipientOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionReplaceRecipientOutput)
+}
+
+func (i RuleSetRuleActionReplaceRecipientArgs) ToRuleSetRuleActionReplaceRecipientPtrOutput() RuleSetRuleActionReplaceRecipientPtrOutput {
+	return i.ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionReplaceRecipientArgs) ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionReplaceRecipientOutput).ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionReplaceRecipientPtrInput is an input type that accepts RuleSetRuleActionReplaceRecipientArgs, RuleSetRuleActionReplaceRecipientPtr and RuleSetRuleActionReplaceRecipientPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionReplaceRecipientPtrInput` via:
+//
+//	        RuleSetRuleActionReplaceRecipientArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionReplaceRecipientPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionReplaceRecipientPtrOutput() RuleSetRuleActionReplaceRecipientPtrOutput
+	ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(context.Context) RuleSetRuleActionReplaceRecipientPtrOutput
+}
+
+type ruleSetRuleActionReplaceRecipientPtrType RuleSetRuleActionReplaceRecipientArgs
+
+func RuleSetRuleActionReplaceRecipientPtr(v *RuleSetRuleActionReplaceRecipientArgs) RuleSetRuleActionReplaceRecipientPtrInput {
+	return (*ruleSetRuleActionReplaceRecipientPtrType)(v)
+}
+
+func (*ruleSetRuleActionReplaceRecipientPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionReplaceRecipient)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionReplaceRecipientPtrType) ToRuleSetRuleActionReplaceRecipientPtrOutput() RuleSetRuleActionReplaceRecipientPtrOutput {
+	return i.ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionReplaceRecipientPtrType) ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionReplaceRecipientPtrOutput)
+}
+
+type RuleSetRuleActionReplaceRecipientOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionReplaceRecipientOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionReplaceRecipient)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionReplaceRecipientOutput) ToRuleSetRuleActionReplaceRecipientOutput() RuleSetRuleActionReplaceRecipientOutput {
+	return o
+}
+
+func (o RuleSetRuleActionReplaceRecipientOutput) ToRuleSetRuleActionReplaceRecipientOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientOutput {
+	return o
+}
+
+func (o RuleSetRuleActionReplaceRecipientOutput) ToRuleSetRuleActionReplaceRecipientPtrOutput() RuleSetRuleActionReplaceRecipientPtrOutput {
+	return o.ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionReplaceRecipientOutput) ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionReplaceRecipient) *RuleSetRuleActionReplaceRecipient {
+		return &v
+	}).(RuleSetRuleActionReplaceRecipientPtrOutput)
+}
+
+// Replacement envelope recipient addresses.
+func (o RuleSetRuleActionReplaceRecipientOutput) ReplaceWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleActionReplaceRecipient) []string { return v.ReplaceWiths }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleActionReplaceRecipientPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionReplaceRecipientPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionReplaceRecipient)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionReplaceRecipientPtrOutput) ToRuleSetRuleActionReplaceRecipientPtrOutput() RuleSetRuleActionReplaceRecipientPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionReplaceRecipientPtrOutput) ToRuleSetRuleActionReplaceRecipientPtrOutputWithContext(ctx context.Context) RuleSetRuleActionReplaceRecipientPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionReplaceRecipientPtrOutput) Elem() RuleSetRuleActionReplaceRecipientOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionReplaceRecipient) RuleSetRuleActionReplaceRecipient {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionReplaceRecipient
+		return ret
+	}).(RuleSetRuleActionReplaceRecipientOutput)
+}
+
+// Replacement envelope recipient addresses.
+func (o RuleSetRuleActionReplaceRecipientPtrOutput) ReplaceWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionReplaceRecipient) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplaceWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleActionSend struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// ARN of the IAM role used to send the email.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// RuleSetRuleActionSendInput is an input type that accepts RuleSetRuleActionSendArgs and RuleSetRuleActionSendOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionSendInput` via:
+//
+//	RuleSetRuleActionSendArgs{...}
+type RuleSetRuleActionSendInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionSendOutput() RuleSetRuleActionSendOutput
+	ToRuleSetRuleActionSendOutputWithContext(context.Context) RuleSetRuleActionSendOutput
+}
+
+type RuleSetRuleActionSendArgs struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// ARN of the IAM role used to send the email.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (RuleSetRuleActionSendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionSend)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionSendArgs) ToRuleSetRuleActionSendOutput() RuleSetRuleActionSendOutput {
+	return i.ToRuleSetRuleActionSendOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionSendArgs) ToRuleSetRuleActionSendOutputWithContext(ctx context.Context) RuleSetRuleActionSendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionSendOutput)
+}
+
+func (i RuleSetRuleActionSendArgs) ToRuleSetRuleActionSendPtrOutput() RuleSetRuleActionSendPtrOutput {
+	return i.ToRuleSetRuleActionSendPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionSendArgs) ToRuleSetRuleActionSendPtrOutputWithContext(ctx context.Context) RuleSetRuleActionSendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionSendOutput).ToRuleSetRuleActionSendPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionSendPtrInput is an input type that accepts RuleSetRuleActionSendArgs, RuleSetRuleActionSendPtr and RuleSetRuleActionSendPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionSendPtrInput` via:
+//
+//	        RuleSetRuleActionSendArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionSendPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionSendPtrOutput() RuleSetRuleActionSendPtrOutput
+	ToRuleSetRuleActionSendPtrOutputWithContext(context.Context) RuleSetRuleActionSendPtrOutput
+}
+
+type ruleSetRuleActionSendPtrType RuleSetRuleActionSendArgs
+
+func RuleSetRuleActionSendPtr(v *RuleSetRuleActionSendArgs) RuleSetRuleActionSendPtrInput {
+	return (*ruleSetRuleActionSendPtrType)(v)
+}
+
+func (*ruleSetRuleActionSendPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionSend)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionSendPtrType) ToRuleSetRuleActionSendPtrOutput() RuleSetRuleActionSendPtrOutput {
+	return i.ToRuleSetRuleActionSendPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionSendPtrType) ToRuleSetRuleActionSendPtrOutputWithContext(ctx context.Context) RuleSetRuleActionSendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionSendPtrOutput)
+}
+
+type RuleSetRuleActionSendOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionSendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionSend)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionSendOutput) ToRuleSetRuleActionSendOutput() RuleSetRuleActionSendOutput {
+	return o
+}
+
+func (o RuleSetRuleActionSendOutput) ToRuleSetRuleActionSendOutputWithContext(ctx context.Context) RuleSetRuleActionSendOutput {
+	return o
+}
+
+func (o RuleSetRuleActionSendOutput) ToRuleSetRuleActionSendPtrOutput() RuleSetRuleActionSendPtrOutput {
+	return o.ToRuleSetRuleActionSendPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionSendOutput) ToRuleSetRuleActionSendPtrOutputWithContext(ctx context.Context) RuleSetRuleActionSendPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionSend) *RuleSetRuleActionSend {
+		return &v
+	}).(RuleSetRuleActionSendPtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionSendOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionSend) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to send the email.
+func (o RuleSetRuleActionSendOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionSend) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleActionSendPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionSendPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionSend)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionSendPtrOutput) ToRuleSetRuleActionSendPtrOutput() RuleSetRuleActionSendPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionSendPtrOutput) ToRuleSetRuleActionSendPtrOutputWithContext(ctx context.Context) RuleSetRuleActionSendPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionSendPtrOutput) Elem() RuleSetRuleActionSendOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionSend) RuleSetRuleActionSend {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionSend
+		return ret
+	}).(RuleSetRuleActionSendOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionSendPtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionSend) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to send the email.
+func (o RuleSetRuleActionSendPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionSend) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionWriteToS3 struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy *string `pulumi:"actionFailurePolicy"`
+	// ARN of the IAM role used to write to S3.
+	RoleArn string `pulumi:"roleArn"`
+	// Name of the S3 bucket.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// S3 object key prefix.
+	S3Prefix *string `pulumi:"s3Prefix"`
+	// KMS key identifier used to encrypt the email.
+	S3SseKmsKeyId *string `pulumi:"s3SseKmsKeyId"`
+}
+
+// RuleSetRuleActionWriteToS3Input is an input type that accepts RuleSetRuleActionWriteToS3Args and RuleSetRuleActionWriteToS3Output values.
+// You can construct a concrete instance of `RuleSetRuleActionWriteToS3Input` via:
+//
+//	RuleSetRuleActionWriteToS3Args{...}
+type RuleSetRuleActionWriteToS3Input interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionWriteToS3Output() RuleSetRuleActionWriteToS3Output
+	ToRuleSetRuleActionWriteToS3OutputWithContext(context.Context) RuleSetRuleActionWriteToS3Output
+}
+
+type RuleSetRuleActionWriteToS3Args struct {
+	// Policy applied when the action fails.
+	ActionFailurePolicy pulumi.StringPtrInput `pulumi:"actionFailurePolicy"`
+	// ARN of the IAM role used to write to S3.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// Name of the S3 bucket.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// S3 object key prefix.
+	S3Prefix pulumi.StringPtrInput `pulumi:"s3Prefix"`
+	// KMS key identifier used to encrypt the email.
+	S3SseKmsKeyId pulumi.StringPtrInput `pulumi:"s3SseKmsKeyId"`
+}
+
+func (RuleSetRuleActionWriteToS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionWriteToS3)(nil)).Elem()
+}
+
+func (i RuleSetRuleActionWriteToS3Args) ToRuleSetRuleActionWriteToS3Output() RuleSetRuleActionWriteToS3Output {
+	return i.ToRuleSetRuleActionWriteToS3OutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionWriteToS3Args) ToRuleSetRuleActionWriteToS3OutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionWriteToS3Output)
+}
+
+func (i RuleSetRuleActionWriteToS3Args) ToRuleSetRuleActionWriteToS3PtrOutput() RuleSetRuleActionWriteToS3PtrOutput {
+	return i.ToRuleSetRuleActionWriteToS3PtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleActionWriteToS3Args) ToRuleSetRuleActionWriteToS3PtrOutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionWriteToS3Output).ToRuleSetRuleActionWriteToS3PtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleActionWriteToS3PtrInput is an input type that accepts RuleSetRuleActionWriteToS3Args, RuleSetRuleActionWriteToS3Ptr and RuleSetRuleActionWriteToS3PtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleActionWriteToS3PtrInput` via:
+//
+//	        RuleSetRuleActionWriteToS3Args{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleActionWriteToS3PtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleActionWriteToS3PtrOutput() RuleSetRuleActionWriteToS3PtrOutput
+	ToRuleSetRuleActionWriteToS3PtrOutputWithContext(context.Context) RuleSetRuleActionWriteToS3PtrOutput
+}
+
+type ruleSetRuleActionWriteToS3PtrType RuleSetRuleActionWriteToS3Args
+
+func RuleSetRuleActionWriteToS3Ptr(v *RuleSetRuleActionWriteToS3Args) RuleSetRuleActionWriteToS3PtrInput {
+	return (*ruleSetRuleActionWriteToS3PtrType)(v)
+}
+
+func (*ruleSetRuleActionWriteToS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionWriteToS3)(nil)).Elem()
+}
+
+func (i *ruleSetRuleActionWriteToS3PtrType) ToRuleSetRuleActionWriteToS3PtrOutput() RuleSetRuleActionWriteToS3PtrOutput {
+	return i.ToRuleSetRuleActionWriteToS3PtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleActionWriteToS3PtrType) ToRuleSetRuleActionWriteToS3PtrOutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleActionWriteToS3PtrOutput)
+}
+
+type RuleSetRuleActionWriteToS3Output struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionWriteToS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleActionWriteToS3)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionWriteToS3Output) ToRuleSetRuleActionWriteToS3Output() RuleSetRuleActionWriteToS3Output {
+	return o
+}
+
+func (o RuleSetRuleActionWriteToS3Output) ToRuleSetRuleActionWriteToS3OutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3Output {
+	return o
+}
+
+func (o RuleSetRuleActionWriteToS3Output) ToRuleSetRuleActionWriteToS3PtrOutput() RuleSetRuleActionWriteToS3PtrOutput {
+	return o.ToRuleSetRuleActionWriteToS3PtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleActionWriteToS3Output) ToRuleSetRuleActionWriteToS3PtrOutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleActionWriteToS3) *RuleSetRuleActionWriteToS3 {
+		return &v
+	}).(RuleSetRuleActionWriteToS3PtrOutput)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionWriteToS3Output) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionWriteToS3) *string { return v.ActionFailurePolicy }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to write to S3.
+func (o RuleSetRuleActionWriteToS3Output) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionWriteToS3) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// Name of the S3 bucket.
+func (o RuleSetRuleActionWriteToS3Output) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleActionWriteToS3) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// S3 object key prefix.
+func (o RuleSetRuleActionWriteToS3Output) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionWriteToS3) *string { return v.S3Prefix }).(pulumi.StringPtrOutput)
+}
+
+// KMS key identifier used to encrypt the email.
+func (o RuleSetRuleActionWriteToS3Output) S3SseKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleActionWriteToS3) *string { return v.S3SseKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleActionWriteToS3PtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleActionWriteToS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleActionWriteToS3)(nil)).Elem()
+}
+
+func (o RuleSetRuleActionWriteToS3PtrOutput) ToRuleSetRuleActionWriteToS3PtrOutput() RuleSetRuleActionWriteToS3PtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionWriteToS3PtrOutput) ToRuleSetRuleActionWriteToS3PtrOutputWithContext(ctx context.Context) RuleSetRuleActionWriteToS3PtrOutput {
+	return o
+}
+
+func (o RuleSetRuleActionWriteToS3PtrOutput) Elem() RuleSetRuleActionWriteToS3Output {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) RuleSetRuleActionWriteToS3 {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleActionWriteToS3
+		return ret
+	}).(RuleSetRuleActionWriteToS3Output)
+}
+
+// Policy applied when the action fails.
+func (o RuleSetRuleActionWriteToS3PtrOutput) ActionFailurePolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionFailurePolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to write to S3.
+func (o RuleSetRuleActionWriteToS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the S3 bucket.
+func (o RuleSetRuleActionWriteToS3PtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object key prefix.
+func (o RuleSetRuleActionWriteToS3PtrOutput) S3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// KMS key identifier used to encrypt the email.
+func (o RuleSetRuleActionWriteToS3PtrOutput) S3SseKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleActionWriteToS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3SseKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleCondition struct {
+	// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+	BooleanExpression *RuleSetRuleConditionBooleanExpression `pulumi:"booleanExpression"`
+	// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+	DmarcExpression *RuleSetRuleConditionDmarcExpression `pulumi:"dmarcExpression"`
+	// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+	IpExpression *RuleSetRuleConditionIpExpression `pulumi:"ipExpression"`
+	// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+	NumberExpression *RuleSetRuleConditionNumberExpression `pulumi:"numberExpression"`
+	// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+	StringExpression *RuleSetRuleConditionStringExpression `pulumi:"stringExpression"`
+	// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+	VerdictExpression *RuleSetRuleConditionVerdictExpression `pulumi:"verdictExpression"`
+}
+
+// RuleSetRuleConditionInput is an input type that accepts RuleSetRuleConditionArgs and RuleSetRuleConditionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionInput` via:
+//
+//	RuleSetRuleConditionArgs{...}
+type RuleSetRuleConditionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionOutput() RuleSetRuleConditionOutput
+	ToRuleSetRuleConditionOutputWithContext(context.Context) RuleSetRuleConditionOutput
+}
+
+type RuleSetRuleConditionArgs struct {
+	// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+	BooleanExpression RuleSetRuleConditionBooleanExpressionPtrInput `pulumi:"booleanExpression"`
+	// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+	DmarcExpression RuleSetRuleConditionDmarcExpressionPtrInput `pulumi:"dmarcExpression"`
+	// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+	IpExpression RuleSetRuleConditionIpExpressionPtrInput `pulumi:"ipExpression"`
+	// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+	NumberExpression RuleSetRuleConditionNumberExpressionPtrInput `pulumi:"numberExpression"`
+	// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+	StringExpression RuleSetRuleConditionStringExpressionPtrInput `pulumi:"stringExpression"`
+	// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+	VerdictExpression RuleSetRuleConditionVerdictExpressionPtrInput `pulumi:"verdictExpression"`
+}
+
+func (RuleSetRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleCondition)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionArgs) ToRuleSetRuleConditionOutput() RuleSetRuleConditionOutput {
+	return i.ToRuleSetRuleConditionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionArgs) ToRuleSetRuleConditionOutputWithContext(ctx context.Context) RuleSetRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionOutput)
+}
+
+// RuleSetRuleConditionArrayInput is an input type that accepts RuleSetRuleConditionArray and RuleSetRuleConditionArrayOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionArrayInput` via:
+//
+//	RuleSetRuleConditionArray{ RuleSetRuleConditionArgs{...} }
+type RuleSetRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionArrayOutput() RuleSetRuleConditionArrayOutput
+	ToRuleSetRuleConditionArrayOutputWithContext(context.Context) RuleSetRuleConditionArrayOutput
+}
+
+type RuleSetRuleConditionArray []RuleSetRuleConditionInput
+
+func (RuleSetRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleCondition)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionArray) ToRuleSetRuleConditionArrayOutput() RuleSetRuleConditionArrayOutput {
+	return i.ToRuleSetRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionArray) ToRuleSetRuleConditionArrayOutputWithContext(ctx context.Context) RuleSetRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionArrayOutput)
+}
+
+type RuleSetRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleCondition)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionOutput) ToRuleSetRuleConditionOutput() RuleSetRuleConditionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionOutput) ToRuleSetRuleConditionOutputWithContext(ctx context.Context) RuleSetRuleConditionOutput {
+	return o
+}
+
+// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+func (o RuleSetRuleConditionOutput) BooleanExpression() RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionBooleanExpression { return v.BooleanExpression }).(RuleSetRuleConditionBooleanExpressionPtrOutput)
+}
+
+// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+func (o RuleSetRuleConditionOutput) DmarcExpression() RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionDmarcExpression { return v.DmarcExpression }).(RuleSetRuleConditionDmarcExpressionPtrOutput)
+}
+
+// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+func (o RuleSetRuleConditionOutput) IpExpression() RuleSetRuleConditionIpExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionIpExpression { return v.IpExpression }).(RuleSetRuleConditionIpExpressionPtrOutput)
+}
+
+// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+func (o RuleSetRuleConditionOutput) NumberExpression() RuleSetRuleConditionNumberExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionNumberExpression { return v.NumberExpression }).(RuleSetRuleConditionNumberExpressionPtrOutput)
+}
+
+// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+func (o RuleSetRuleConditionOutput) StringExpression() RuleSetRuleConditionStringExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionStringExpression { return v.StringExpression }).(RuleSetRuleConditionStringExpressionPtrOutput)
+}
+
+// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+func (o RuleSetRuleConditionOutput) VerdictExpression() RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleCondition) *RuleSetRuleConditionVerdictExpression { return v.VerdictExpression }).(RuleSetRuleConditionVerdictExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleCondition)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionArrayOutput) ToRuleSetRuleConditionArrayOutput() RuleSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionArrayOutput) ToRuleSetRuleConditionArrayOutputWithContext(ctx context.Context) RuleSetRuleConditionArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionArrayOutput) Index(i pulumi.IntInput) RuleSetRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSetRuleCondition {
+		return vs[0].([]RuleSetRuleCondition)[vs[1].(int)]
+	}).(RuleSetRuleConditionOutput)
+}
+
+type RuleSetRuleConditionBooleanExpression struct {
+	// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+	Evaluate *RuleSetRuleConditionBooleanExpressionEvaluate `pulumi:"evaluate"`
+	// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+	Operator string `pulumi:"operator"`
+}
+
+// RuleSetRuleConditionBooleanExpressionInput is an input type that accepts RuleSetRuleConditionBooleanExpressionArgs and RuleSetRuleConditionBooleanExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionInput` via:
+//
+//	RuleSetRuleConditionBooleanExpressionArgs{...}
+type RuleSetRuleConditionBooleanExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionOutput() RuleSetRuleConditionBooleanExpressionOutput
+	ToRuleSetRuleConditionBooleanExpressionOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionOutput
+}
+
+type RuleSetRuleConditionBooleanExpressionArgs struct {
+	// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+	Evaluate RuleSetRuleConditionBooleanExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RuleSetRuleConditionBooleanExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionBooleanExpressionArgs) ToRuleSetRuleConditionBooleanExpressionOutput() RuleSetRuleConditionBooleanExpressionOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionArgs) ToRuleSetRuleConditionBooleanExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionOutput)
+}
+
+func (i RuleSetRuleConditionBooleanExpressionArgs) ToRuleSetRuleConditionBooleanExpressionPtrOutput() RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionArgs) ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionOutput).ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionBooleanExpressionPtrInput is an input type that accepts RuleSetRuleConditionBooleanExpressionArgs, RuleSetRuleConditionBooleanExpressionPtr and RuleSetRuleConditionBooleanExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionBooleanExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionBooleanExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionPtrOutput() RuleSetRuleConditionBooleanExpressionPtrOutput
+	ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionPtrOutput
+}
+
+type ruleSetRuleConditionBooleanExpressionPtrType RuleSetRuleConditionBooleanExpressionArgs
+
+func RuleSetRuleConditionBooleanExpressionPtr(v *RuleSetRuleConditionBooleanExpressionArgs) RuleSetRuleConditionBooleanExpressionPtrInput {
+	return (*ruleSetRuleConditionBooleanExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionBooleanExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionPtrType) ToRuleSetRuleConditionBooleanExpressionPtrOutput() RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionPtrType) ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionOutput) ToRuleSetRuleConditionBooleanExpressionOutput() RuleSetRuleConditionBooleanExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionOutput) ToRuleSetRuleConditionBooleanExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionOutput) ToRuleSetRuleConditionBooleanExpressionPtrOutput() RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionBooleanExpressionOutput) ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionBooleanExpression) *RuleSetRuleConditionBooleanExpression {
+		return &v
+	}).(RuleSetRuleConditionBooleanExpressionPtrOutput)
+}
+
+// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+func (o RuleSetRuleConditionBooleanExpressionOutput) Evaluate() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpression) *RuleSetRuleConditionBooleanExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput)
+}
+
+// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+func (o RuleSetRuleConditionBooleanExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionPtrOutput) ToRuleSetRuleConditionBooleanExpressionPtrOutput() RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionPtrOutput) ToRuleSetRuleConditionBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionPtrOutput) Elem() RuleSetRuleConditionBooleanExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpression) RuleSetRuleConditionBooleanExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionBooleanExpression
+		return ret
+	}).(RuleSetRuleConditionBooleanExpressionOutput)
+}
+
+// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+func (o RuleSetRuleConditionBooleanExpressionPtrOutput) Evaluate() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpression) *RuleSetRuleConditionBooleanExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput)
+}
+
+// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+func (o RuleSetRuleConditionBooleanExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+	// Address-list membership expression.
+	IsInAddressList *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList `pulumi:"isInAddressList"`
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluateInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateArgs and RuleSetRuleConditionBooleanExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluateInput` via:
+//
+//	RuleSetRuleConditionBooleanExpressionEvaluateArgs{...}
+type RuleSetRuleConditionBooleanExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluateOutput() RuleSetRuleConditionBooleanExpressionEvaluateOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluateOutput
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Address-list membership expression.
+	IsInAddressList RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput `pulumi:"isInAddressList"`
+}
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateOutput() RuleSetRuleConditionBooleanExpressionEvaluateOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateArgs) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutput() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateArgs) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateOutput).ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateArgs, RuleSetRuleConditionBooleanExpressionEvaluatePtr and RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleConditionBooleanExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionBooleanExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutput() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleConditionBooleanExpressionEvaluatePtrType RuleSetRuleConditionBooleanExpressionEvaluateArgs
+
+func RuleSetRuleConditionBooleanExpressionEvaluatePtr(v *RuleSetRuleConditionBooleanExpressionEvaluateArgs) RuleSetRuleConditionBooleanExpressionEvaluatePtrInput {
+	return (*ruleSetRuleConditionBooleanExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleConditionBooleanExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluatePtrType) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutput() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluatePtrType) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateOutput() RuleSetRuleConditionBooleanExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutput() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionBooleanExpressionEvaluate) *RuleSetRuleConditionBooleanExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) Analysis() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluate) *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Address-list membership expression.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateOutput) IsInAddressList() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluate) *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList {
+		return v.IsInAddressList
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutput() RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) Elem() RuleSetRuleConditionBooleanExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluate) RuleSetRuleConditionBooleanExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionBooleanExpressionEvaluate
+		return ret
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) Analysis() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluate) *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address-list membership expression.
+func (o RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput) IsInAddressList() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluate) *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList {
+		if v == nil {
+			return nil
+		}
+		return v.IsInAddressList
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs and RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput).ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs, RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtr and RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrType RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtr(v *RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) RuleSetRuleConditionBooleanExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionBooleanExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList struct {
+	// List containing exactly one address list ARN or identifier.
+	AddressLists []string `pulumi:"addressLists"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs and RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListInput` via:
+//
+//	RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs{...}
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs struct {
+	// List containing exactly one address list ARN or identifier.
+	AddressLists pulumi.StringArrayInput `pulumi:"addressLists"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput)
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput).ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput is an input type that accepts RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs, RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtr and RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput` via:
+//
+//	        RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput
+	ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput
+}
+
+type ruleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrType RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs
+
+func RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtr(v *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput {
+	return (*ruleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrType)(v)
+}
+
+func (*ruleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrType) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return i.ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrType) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList {
+		return &v
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+// List containing exactly one address list ARN or identifier.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) []string { return v.AddressLists }).(pulumi.StringArrayOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) ToRuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) Elem() RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList
+		return ret
+	}).(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput)
+}
+
+// List containing exactly one address list ARN or identifier.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressList) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionDmarcExpression struct {
+	// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator string `pulumi:"operator"`
+	// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleConditionDmarcExpressionInput is an input type that accepts RuleSetRuleConditionDmarcExpressionArgs and RuleSetRuleConditionDmarcExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionDmarcExpressionInput` via:
+//
+//	RuleSetRuleConditionDmarcExpressionArgs{...}
+type RuleSetRuleConditionDmarcExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionDmarcExpressionOutput() RuleSetRuleConditionDmarcExpressionOutput
+	ToRuleSetRuleConditionDmarcExpressionOutputWithContext(context.Context) RuleSetRuleConditionDmarcExpressionOutput
+}
+
+type RuleSetRuleConditionDmarcExpressionArgs struct {
+	// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleConditionDmarcExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionDmarcExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionDmarcExpressionArgs) ToRuleSetRuleConditionDmarcExpressionOutput() RuleSetRuleConditionDmarcExpressionOutput {
+	return i.ToRuleSetRuleConditionDmarcExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionDmarcExpressionArgs) ToRuleSetRuleConditionDmarcExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionDmarcExpressionOutput)
+}
+
+func (i RuleSetRuleConditionDmarcExpressionArgs) ToRuleSetRuleConditionDmarcExpressionPtrOutput() RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionDmarcExpressionArgs) ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionDmarcExpressionOutput).ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionDmarcExpressionPtrInput is an input type that accepts RuleSetRuleConditionDmarcExpressionArgs, RuleSetRuleConditionDmarcExpressionPtr and RuleSetRuleConditionDmarcExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionDmarcExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionDmarcExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionDmarcExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionDmarcExpressionPtrOutput() RuleSetRuleConditionDmarcExpressionPtrOutput
+	ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionDmarcExpressionPtrOutput
+}
+
+type ruleSetRuleConditionDmarcExpressionPtrType RuleSetRuleConditionDmarcExpressionArgs
+
+func RuleSetRuleConditionDmarcExpressionPtr(v *RuleSetRuleConditionDmarcExpressionArgs) RuleSetRuleConditionDmarcExpressionPtrInput {
+	return (*ruleSetRuleConditionDmarcExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionDmarcExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionDmarcExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionDmarcExpressionPtrType) ToRuleSetRuleConditionDmarcExpressionPtrOutput() RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionDmarcExpressionPtrType) ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionDmarcExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionDmarcExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionDmarcExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionDmarcExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionDmarcExpressionOutput) ToRuleSetRuleConditionDmarcExpressionOutput() RuleSetRuleConditionDmarcExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionDmarcExpressionOutput) ToRuleSetRuleConditionDmarcExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionDmarcExpressionOutput) ToRuleSetRuleConditionDmarcExpressionPtrOutput() RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionDmarcExpressionOutput) ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionDmarcExpression) *RuleSetRuleConditionDmarcExpression {
+		return &v
+	}).(RuleSetRuleConditionDmarcExpressionPtrOutput)
+}
+
+// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleConditionDmarcExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionDmarcExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+func (o RuleSetRuleConditionDmarcExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionDmarcExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionDmarcExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionDmarcExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionDmarcExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionDmarcExpressionPtrOutput) ToRuleSetRuleConditionDmarcExpressionPtrOutput() RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionDmarcExpressionPtrOutput) ToRuleSetRuleConditionDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionDmarcExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionDmarcExpressionPtrOutput) Elem() RuleSetRuleConditionDmarcExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionDmarcExpression) RuleSetRuleConditionDmarcExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionDmarcExpression
+		return ret
+	}).(RuleSetRuleConditionDmarcExpressionOutput)
+}
+
+// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleConditionDmarcExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionDmarcExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+func (o RuleSetRuleConditionDmarcExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionDmarcExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionIpExpression struct {
+	// Left-hand operand of the expression.
+	Evaluate *RuleSetRuleConditionIpExpressionEvaluate `pulumi:"evaluate"`
+	// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+	Operator string `pulumi:"operator"`
+	// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleConditionIpExpressionInput is an input type that accepts RuleSetRuleConditionIpExpressionArgs and RuleSetRuleConditionIpExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionIpExpressionInput` via:
+//
+//	RuleSetRuleConditionIpExpressionArgs{...}
+type RuleSetRuleConditionIpExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionIpExpressionOutput() RuleSetRuleConditionIpExpressionOutput
+	ToRuleSetRuleConditionIpExpressionOutputWithContext(context.Context) RuleSetRuleConditionIpExpressionOutput
+}
+
+type RuleSetRuleConditionIpExpressionArgs struct {
+	// Left-hand operand of the expression.
+	Evaluate RuleSetRuleConditionIpExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleConditionIpExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionIpExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionIpExpressionArgs) ToRuleSetRuleConditionIpExpressionOutput() RuleSetRuleConditionIpExpressionOutput {
+	return i.ToRuleSetRuleConditionIpExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionIpExpressionArgs) ToRuleSetRuleConditionIpExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionOutput)
+}
+
+func (i RuleSetRuleConditionIpExpressionArgs) ToRuleSetRuleConditionIpExpressionPtrOutput() RuleSetRuleConditionIpExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionIpExpressionArgs) ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionOutput).ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionIpExpressionPtrInput is an input type that accepts RuleSetRuleConditionIpExpressionArgs, RuleSetRuleConditionIpExpressionPtr and RuleSetRuleConditionIpExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionIpExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionIpExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionIpExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionIpExpressionPtrOutput() RuleSetRuleConditionIpExpressionPtrOutput
+	ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionIpExpressionPtrOutput
+}
+
+type ruleSetRuleConditionIpExpressionPtrType RuleSetRuleConditionIpExpressionArgs
+
+func RuleSetRuleConditionIpExpressionPtr(v *RuleSetRuleConditionIpExpressionArgs) RuleSetRuleConditionIpExpressionPtrInput {
+	return (*ruleSetRuleConditionIpExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionIpExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionIpExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionIpExpressionPtrType) ToRuleSetRuleConditionIpExpressionPtrOutput() RuleSetRuleConditionIpExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionIpExpressionPtrType) ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionIpExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionIpExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionIpExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionIpExpressionOutput) ToRuleSetRuleConditionIpExpressionOutput() RuleSetRuleConditionIpExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionOutput) ToRuleSetRuleConditionIpExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionOutput) ToRuleSetRuleConditionIpExpressionPtrOutput() RuleSetRuleConditionIpExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionIpExpressionOutput) ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionIpExpression) *RuleSetRuleConditionIpExpression {
+		return &v
+	}).(RuleSetRuleConditionIpExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleConditionIpExpressionOutput) Evaluate() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionIpExpression) *RuleSetRuleConditionIpExpressionEvaluate { return v.Evaluate }).(RuleSetRuleConditionIpExpressionEvaluatePtrOutput)
+}
+
+// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+func (o RuleSetRuleConditionIpExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionIpExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+func (o RuleSetRuleConditionIpExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionIpExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionIpExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionIpExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionIpExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionIpExpressionPtrOutput) ToRuleSetRuleConditionIpExpressionPtrOutput() RuleSetRuleConditionIpExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionPtrOutput) ToRuleSetRuleConditionIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionPtrOutput) Elem() RuleSetRuleConditionIpExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpression) RuleSetRuleConditionIpExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionIpExpression
+		return ret
+	}).(RuleSetRuleConditionIpExpressionOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleConditionIpExpressionPtrOutput) Evaluate() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpression) *RuleSetRuleConditionIpExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleConditionIpExpressionEvaluatePtrOutput)
+}
+
+// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+func (o RuleSetRuleConditionIpExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+func (o RuleSetRuleConditionIpExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionIpExpressionEvaluate struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleConditionIpExpressionEvaluateInput is an input type that accepts RuleSetRuleConditionIpExpressionEvaluateArgs and RuleSetRuleConditionIpExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionIpExpressionEvaluateInput` via:
+//
+//	RuleSetRuleConditionIpExpressionEvaluateArgs{...}
+type RuleSetRuleConditionIpExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionIpExpressionEvaluateOutput() RuleSetRuleConditionIpExpressionEvaluateOutput
+	ToRuleSetRuleConditionIpExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleConditionIpExpressionEvaluateOutput
+}
+
+type RuleSetRuleConditionIpExpressionEvaluateArgs struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleConditionIpExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionIpExpressionEvaluateArgs) ToRuleSetRuleConditionIpExpressionEvaluateOutput() RuleSetRuleConditionIpExpressionEvaluateOutput {
+	return i.ToRuleSetRuleConditionIpExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionIpExpressionEvaluateArgs) ToRuleSetRuleConditionIpExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleConditionIpExpressionEvaluateArgs) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutput() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionIpExpressionEvaluateArgs) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionEvaluateOutput).ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionIpExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleConditionIpExpressionEvaluateArgs, RuleSetRuleConditionIpExpressionEvaluatePtr and RuleSetRuleConditionIpExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionIpExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleConditionIpExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionIpExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionIpExpressionEvaluatePtrOutput() RuleSetRuleConditionIpExpressionEvaluatePtrOutput
+	ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleConditionIpExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleConditionIpExpressionEvaluatePtrType RuleSetRuleConditionIpExpressionEvaluateArgs
+
+func RuleSetRuleConditionIpExpressionEvaluatePtr(v *RuleSetRuleConditionIpExpressionEvaluateArgs) RuleSetRuleConditionIpExpressionEvaluatePtrInput {
+	return (*ruleSetRuleConditionIpExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleConditionIpExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionIpExpressionEvaluatePtrType) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutput() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionIpExpressionEvaluatePtrType) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionIpExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleConditionIpExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionIpExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluateOutput) ToRuleSetRuleConditionIpExpressionEvaluateOutput() RuleSetRuleConditionIpExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluateOutput) ToRuleSetRuleConditionIpExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluateOutput) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutput() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluateOutput) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionIpExpressionEvaluate) *RuleSetRuleConditionIpExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleConditionIpExpressionEvaluatePtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionIpExpressionEvaluateOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionIpExpressionEvaluate) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionIpExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionIpExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluatePtrOutput) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutput() RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluatePtrOutput) ToRuleSetRuleConditionIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionIpExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionIpExpressionEvaluatePtrOutput) Elem() RuleSetRuleConditionIpExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpressionEvaluate) RuleSetRuleConditionIpExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionIpExpressionEvaluate
+		return ret
+	}).(RuleSetRuleConditionIpExpressionEvaluateOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionIpExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionIpExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionNumberExpression struct {
+	// Left-hand operand of the expression.
+	Evaluate *RuleSetRuleConditionNumberExpressionEvaluate `pulumi:"evaluate"`
+	// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+	Operator string `pulumi:"operator"`
+	// Numeric value to compare against.
+	Value float64 `pulumi:"value"`
+}
+
+// RuleSetRuleConditionNumberExpressionInput is an input type that accepts RuleSetRuleConditionNumberExpressionArgs and RuleSetRuleConditionNumberExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionNumberExpressionInput` via:
+//
+//	RuleSetRuleConditionNumberExpressionArgs{...}
+type RuleSetRuleConditionNumberExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionNumberExpressionOutput() RuleSetRuleConditionNumberExpressionOutput
+	ToRuleSetRuleConditionNumberExpressionOutputWithContext(context.Context) RuleSetRuleConditionNumberExpressionOutput
+}
+
+type RuleSetRuleConditionNumberExpressionArgs struct {
+	// Left-hand operand of the expression.
+	Evaluate RuleSetRuleConditionNumberExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Numeric value to compare against.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (RuleSetRuleConditionNumberExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionNumberExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionNumberExpressionArgs) ToRuleSetRuleConditionNumberExpressionOutput() RuleSetRuleConditionNumberExpressionOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionNumberExpressionArgs) ToRuleSetRuleConditionNumberExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionOutput)
+}
+
+func (i RuleSetRuleConditionNumberExpressionArgs) ToRuleSetRuleConditionNumberExpressionPtrOutput() RuleSetRuleConditionNumberExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionNumberExpressionArgs) ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionOutput).ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionNumberExpressionPtrInput is an input type that accepts RuleSetRuleConditionNumberExpressionArgs, RuleSetRuleConditionNumberExpressionPtr and RuleSetRuleConditionNumberExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionNumberExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionNumberExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionNumberExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionNumberExpressionPtrOutput() RuleSetRuleConditionNumberExpressionPtrOutput
+	ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionNumberExpressionPtrOutput
+}
+
+type ruleSetRuleConditionNumberExpressionPtrType RuleSetRuleConditionNumberExpressionArgs
+
+func RuleSetRuleConditionNumberExpressionPtr(v *RuleSetRuleConditionNumberExpressionArgs) RuleSetRuleConditionNumberExpressionPtrInput {
+	return (*ruleSetRuleConditionNumberExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionNumberExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionNumberExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionNumberExpressionPtrType) ToRuleSetRuleConditionNumberExpressionPtrOutput() RuleSetRuleConditionNumberExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionNumberExpressionPtrType) ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionNumberExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionNumberExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionNumberExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionNumberExpressionOutput) ToRuleSetRuleConditionNumberExpressionOutput() RuleSetRuleConditionNumberExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionOutput) ToRuleSetRuleConditionNumberExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionOutput) ToRuleSetRuleConditionNumberExpressionPtrOutput() RuleSetRuleConditionNumberExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionNumberExpressionOutput) ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionNumberExpression) *RuleSetRuleConditionNumberExpression {
+		return &v
+	}).(RuleSetRuleConditionNumberExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleConditionNumberExpressionOutput) Evaluate() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionNumberExpression) *RuleSetRuleConditionNumberExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleConditionNumberExpressionEvaluatePtrOutput)
+}
+
+// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+func (o RuleSetRuleConditionNumberExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionNumberExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Numeric value to compare against.
+func (o RuleSetRuleConditionNumberExpressionOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v RuleSetRuleConditionNumberExpression) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type RuleSetRuleConditionNumberExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionNumberExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionNumberExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) ToRuleSetRuleConditionNumberExpressionPtrOutput() RuleSetRuleConditionNumberExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) ToRuleSetRuleConditionNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) Elem() RuleSetRuleConditionNumberExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpression) RuleSetRuleConditionNumberExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionNumberExpression
+		return ret
+	}).(RuleSetRuleConditionNumberExpressionOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) Evaluate() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpression) *RuleSetRuleConditionNumberExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleConditionNumberExpressionEvaluatePtrOutput)
+}
+
+// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Numeric value to compare against.
+func (o RuleSetRuleConditionNumberExpressionPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpression) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type RuleSetRuleConditionNumberExpressionEvaluate struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleConditionNumberExpressionEvaluateInput is an input type that accepts RuleSetRuleConditionNumberExpressionEvaluateArgs and RuleSetRuleConditionNumberExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionNumberExpressionEvaluateInput` via:
+//
+//	RuleSetRuleConditionNumberExpressionEvaluateArgs{...}
+type RuleSetRuleConditionNumberExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionNumberExpressionEvaluateOutput() RuleSetRuleConditionNumberExpressionEvaluateOutput
+	ToRuleSetRuleConditionNumberExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleConditionNumberExpressionEvaluateOutput
+}
+
+type RuleSetRuleConditionNumberExpressionEvaluateArgs struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleConditionNumberExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionNumberExpressionEvaluateArgs) ToRuleSetRuleConditionNumberExpressionEvaluateOutput() RuleSetRuleConditionNumberExpressionEvaluateOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionNumberExpressionEvaluateArgs) ToRuleSetRuleConditionNumberExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleConditionNumberExpressionEvaluateArgs) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutput() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionNumberExpressionEvaluateArgs) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionEvaluateOutput).ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionNumberExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleConditionNumberExpressionEvaluateArgs, RuleSetRuleConditionNumberExpressionEvaluatePtr and RuleSetRuleConditionNumberExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionNumberExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleConditionNumberExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionNumberExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutput() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput
+	ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleConditionNumberExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleConditionNumberExpressionEvaluatePtrType RuleSetRuleConditionNumberExpressionEvaluateArgs
+
+func RuleSetRuleConditionNumberExpressionEvaluatePtr(v *RuleSetRuleConditionNumberExpressionEvaluateArgs) RuleSetRuleConditionNumberExpressionEvaluatePtrInput {
+	return (*ruleSetRuleConditionNumberExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleConditionNumberExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionNumberExpressionEvaluatePtrType) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutput() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionNumberExpressionEvaluatePtrType) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionNumberExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleConditionNumberExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionNumberExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluateOutput) ToRuleSetRuleConditionNumberExpressionEvaluateOutput() RuleSetRuleConditionNumberExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluateOutput) ToRuleSetRuleConditionNumberExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluateOutput) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutput() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluateOutput) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionNumberExpressionEvaluate) *RuleSetRuleConditionNumberExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleConditionNumberExpressionEvaluatePtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionNumberExpressionEvaluateOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionNumberExpressionEvaluate) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionNumberExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionNumberExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluatePtrOutput) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutput() RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluatePtrOutput) ToRuleSetRuleConditionNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionNumberExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionNumberExpressionEvaluatePtrOutput) Elem() RuleSetRuleConditionNumberExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpressionEvaluate) RuleSetRuleConditionNumberExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionNumberExpressionEvaluate
+		return ret
+	}).(RuleSetRuleConditionNumberExpressionEvaluateOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionNumberExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionNumberExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionStringExpression struct {
+	// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+	Evaluate *RuleSetRuleConditionStringExpressionEvaluate `pulumi:"evaluate"`
+	// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+	Operator string `pulumi:"operator"`
+	// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleConditionStringExpressionInput is an input type that accepts RuleSetRuleConditionStringExpressionArgs and RuleSetRuleConditionStringExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionInput` via:
+//
+//	RuleSetRuleConditionStringExpressionArgs{...}
+type RuleSetRuleConditionStringExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionOutput() RuleSetRuleConditionStringExpressionOutput
+	ToRuleSetRuleConditionStringExpressionOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionOutput
+}
+
+type RuleSetRuleConditionStringExpressionArgs struct {
+	// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+	Evaluate RuleSetRuleConditionStringExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleConditionStringExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionStringExpressionArgs) ToRuleSetRuleConditionStringExpressionOutput() RuleSetRuleConditionStringExpressionOutput {
+	return i.ToRuleSetRuleConditionStringExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionArgs) ToRuleSetRuleConditionStringExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionOutput)
+}
+
+func (i RuleSetRuleConditionStringExpressionArgs) ToRuleSetRuleConditionStringExpressionPtrOutput() RuleSetRuleConditionStringExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionArgs) ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionOutput).ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionStringExpressionPtrInput is an input type that accepts RuleSetRuleConditionStringExpressionArgs, RuleSetRuleConditionStringExpressionPtr and RuleSetRuleConditionStringExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionStringExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionStringExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionPtrOutput() RuleSetRuleConditionStringExpressionPtrOutput
+	ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionPtrOutput
+}
+
+type ruleSetRuleConditionStringExpressionPtrType RuleSetRuleConditionStringExpressionArgs
+
+func RuleSetRuleConditionStringExpressionPtr(v *RuleSetRuleConditionStringExpressionArgs) RuleSetRuleConditionStringExpressionPtrInput {
+	return (*ruleSetRuleConditionStringExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionStringExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionStringExpressionPtrType) ToRuleSetRuleConditionStringExpressionPtrOutput() RuleSetRuleConditionStringExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionStringExpressionPtrType) ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionStringExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionOutput) ToRuleSetRuleConditionStringExpressionOutput() RuleSetRuleConditionStringExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionOutput) ToRuleSetRuleConditionStringExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionOutput) ToRuleSetRuleConditionStringExpressionPtrOutput() RuleSetRuleConditionStringExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionStringExpressionOutput) ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionStringExpression) *RuleSetRuleConditionStringExpression {
+		return &v
+	}).(RuleSetRuleConditionStringExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+func (o RuleSetRuleConditionStringExpressionOutput) Evaluate() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpression) *RuleSetRuleConditionStringExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleConditionStringExpressionEvaluatePtrOutput)
+}
+
+// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+func (o RuleSetRuleConditionStringExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+func (o RuleSetRuleConditionStringExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionStringExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionPtrOutput) ToRuleSetRuleConditionStringExpressionPtrOutput() RuleSetRuleConditionStringExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionPtrOutput) ToRuleSetRuleConditionStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionPtrOutput) Elem() RuleSetRuleConditionStringExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpression) RuleSetRuleConditionStringExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionStringExpression
+		return ret
+	}).(RuleSetRuleConditionStringExpressionOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+func (o RuleSetRuleConditionStringExpressionPtrOutput) Evaluate() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpression) *RuleSetRuleConditionStringExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleConditionStringExpressionEvaluatePtrOutput)
+}
+
+// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+func (o RuleSetRuleConditionStringExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+func (o RuleSetRuleConditionStringExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleConditionStringExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+	// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+	ClientCertificateAttribute *string `pulumi:"clientCertificateAttribute"`
+	// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+	MimeHeaderAttribute *string `pulumi:"mimeHeaderAttribute"`
+}
+
+// RuleSetRuleConditionStringExpressionEvaluateInput is an input type that accepts RuleSetRuleConditionStringExpressionEvaluateArgs and RuleSetRuleConditionStringExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionEvaluateInput` via:
+//
+//	RuleSetRuleConditionStringExpressionEvaluateArgs{...}
+type RuleSetRuleConditionStringExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionEvaluateOutput() RuleSetRuleConditionStringExpressionEvaluateOutput
+	ToRuleSetRuleConditionStringExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionEvaluateOutput
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+	ClientCertificateAttribute pulumi.StringPtrInput `pulumi:"clientCertificateAttribute"`
+	// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+	MimeHeaderAttribute pulumi.StringPtrInput `pulumi:"mimeHeaderAttribute"`
+}
+
+func (RuleSetRuleConditionStringExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateArgs) ToRuleSetRuleConditionStringExpressionEvaluateOutput() RuleSetRuleConditionStringExpressionEvaluateOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateArgs) ToRuleSetRuleConditionStringExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateArgs) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutput() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateArgs) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluateOutput).ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionStringExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleConditionStringExpressionEvaluateArgs, RuleSetRuleConditionStringExpressionEvaluatePtr and RuleSetRuleConditionStringExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleConditionStringExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionStringExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionEvaluatePtrOutput() RuleSetRuleConditionStringExpressionEvaluatePtrOutput
+	ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleConditionStringExpressionEvaluatePtrType RuleSetRuleConditionStringExpressionEvaluateArgs
+
+func RuleSetRuleConditionStringExpressionEvaluatePtr(v *RuleSetRuleConditionStringExpressionEvaluateArgs) RuleSetRuleConditionStringExpressionEvaluatePtrInput {
+	return (*ruleSetRuleConditionStringExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleConditionStringExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionStringExpressionEvaluatePtrType) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutput() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionStringExpressionEvaluatePtrType) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) ToRuleSetRuleConditionStringExpressionEvaluateOutput() RuleSetRuleConditionStringExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) ToRuleSetRuleConditionStringExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutput() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionStringExpressionEvaluate) *RuleSetRuleConditionStringExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleConditionStringExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) Analysis() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluate) *RuleSetRuleConditionStringExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) ClientCertificateAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluate) *string { return v.ClientCertificateAttribute }).(pulumi.StringPtrOutput)
+}
+
+// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+func (o RuleSetRuleConditionStringExpressionEvaluateOutput) MimeHeaderAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluate) *string { return v.MimeHeaderAttribute }).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutput() RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) ToRuleSetRuleConditionStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) Elem() RuleSetRuleConditionStringExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluate) RuleSetRuleConditionStringExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionStringExpressionEvaluate
+		return ret
+	}).(RuleSetRuleConditionStringExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) Analysis() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluate) *RuleSetRuleConditionStringExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) ClientCertificateAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+func (o RuleSetRuleConditionStringExpressionEvaluatePtrOutput) MimeHeaderAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MimeHeaderAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleConditionStringExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs and RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleConditionStringExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput).ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs, RuleSetRuleConditionStringExpressionEvaluateAnalysisPtr and RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleConditionStringExpressionEvaluateAnalysisPtrType RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleConditionStringExpressionEvaluateAnalysisPtr(v *RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleConditionStringExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleConditionStringExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionStringExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionStringExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionStringExpressionEvaluateAnalysis) *RuleSetRuleConditionStringExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionStringExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluateAnalysis) RuleSetRuleConditionStringExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionStringExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionStringExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpression struct {
+	// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+	Evaluate *RuleSetRuleConditionVerdictExpressionEvaluate `pulumi:"evaluate"`
+	// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator string `pulumi:"operator"`
+	// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleConditionVerdictExpressionInput is an input type that accepts RuleSetRuleConditionVerdictExpressionArgs and RuleSetRuleConditionVerdictExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionInput` via:
+//
+//	RuleSetRuleConditionVerdictExpressionArgs{...}
+type RuleSetRuleConditionVerdictExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionOutput() RuleSetRuleConditionVerdictExpressionOutput
+	ToRuleSetRuleConditionVerdictExpressionOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionOutput
+}
+
+type RuleSetRuleConditionVerdictExpressionArgs struct {
+	// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+	Evaluate RuleSetRuleConditionVerdictExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleConditionVerdictExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionVerdictExpressionArgs) ToRuleSetRuleConditionVerdictExpressionOutput() RuleSetRuleConditionVerdictExpressionOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionArgs) ToRuleSetRuleConditionVerdictExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionOutput)
+}
+
+func (i RuleSetRuleConditionVerdictExpressionArgs) ToRuleSetRuleConditionVerdictExpressionPtrOutput() RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionArgs) ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionOutput).ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionVerdictExpressionPtrInput is an input type that accepts RuleSetRuleConditionVerdictExpressionArgs, RuleSetRuleConditionVerdictExpressionPtr and RuleSetRuleConditionVerdictExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionPtrInput` via:
+//
+//	        RuleSetRuleConditionVerdictExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionVerdictExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionPtrOutput() RuleSetRuleConditionVerdictExpressionPtrOutput
+	ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionPtrOutput
+}
+
+type ruleSetRuleConditionVerdictExpressionPtrType RuleSetRuleConditionVerdictExpressionArgs
+
+func RuleSetRuleConditionVerdictExpressionPtr(v *RuleSetRuleConditionVerdictExpressionArgs) RuleSetRuleConditionVerdictExpressionPtrInput {
+	return (*ruleSetRuleConditionVerdictExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleConditionVerdictExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionPtrType) ToRuleSetRuleConditionVerdictExpressionPtrOutput() RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionPtrType) ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionPtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionOutput) ToRuleSetRuleConditionVerdictExpressionOutput() RuleSetRuleConditionVerdictExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionOutput) ToRuleSetRuleConditionVerdictExpressionOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionOutput) ToRuleSetRuleConditionVerdictExpressionPtrOutput() RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return o.ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionVerdictExpressionOutput) ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionVerdictExpression) *RuleSetRuleConditionVerdictExpression {
+		return &v
+	}).(RuleSetRuleConditionVerdictExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+func (o RuleSetRuleConditionVerdictExpressionOutput) Evaluate() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpression) *RuleSetRuleConditionVerdictExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput)
+}
+
+// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleConditionVerdictExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+func (o RuleSetRuleConditionVerdictExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) ToRuleSetRuleConditionVerdictExpressionPtrOutput() RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) ToRuleSetRuleConditionVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) Elem() RuleSetRuleConditionVerdictExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpression) RuleSetRuleConditionVerdictExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionVerdictExpression
+		return ret
+	}).(RuleSetRuleConditionVerdictExpressionOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) Evaluate() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpression) *RuleSetRuleConditionVerdictExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput)
+}
+
+// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+func (o RuleSetRuleConditionVerdictExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+}
+
+// RuleSetRuleConditionVerdictExpressionEvaluateInput is an input type that accepts RuleSetRuleConditionVerdictExpressionEvaluateArgs and RuleSetRuleConditionVerdictExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionEvaluateInput` via:
+//
+//	RuleSetRuleConditionVerdictExpressionEvaluateArgs{...}
+type RuleSetRuleConditionVerdictExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionEvaluateOutput() RuleSetRuleConditionVerdictExpressionEvaluateOutput
+	ToRuleSetRuleConditionVerdictExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionEvaluateOutput
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleConditionVerdictExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateOutput() RuleSetRuleConditionVerdictExpressionEvaluateOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateArgs) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutput() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateArgs) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluateOutput).ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionVerdictExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleConditionVerdictExpressionEvaluateArgs, RuleSetRuleConditionVerdictExpressionEvaluatePtr and RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleConditionVerdictExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionVerdictExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutput() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput
+	ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleConditionVerdictExpressionEvaluatePtrType RuleSetRuleConditionVerdictExpressionEvaluateArgs
+
+func RuleSetRuleConditionVerdictExpressionEvaluatePtr(v *RuleSetRuleConditionVerdictExpressionEvaluateArgs) RuleSetRuleConditionVerdictExpressionEvaluatePtrInput {
+	return (*ruleSetRuleConditionVerdictExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleConditionVerdictExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionEvaluatePtrType) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutput() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionEvaluatePtrType) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateOutput() RuleSetRuleConditionVerdictExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutput() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionVerdictExpressionEvaluate) *RuleSetRuleConditionVerdictExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) Analysis() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpressionEvaluate) *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutput() RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) ToRuleSetRuleConditionVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) Elem() RuleSetRuleConditionVerdictExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluate) RuleSetRuleConditionVerdictExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionVerdictExpressionEvaluate
+		return ret
+	}).(RuleSetRuleConditionVerdictExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) Analysis() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluate) *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleConditionVerdictExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs and RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput).ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs, RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtr and RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrType RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtr(v *RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrType) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleConditionVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) RuleSetRuleConditionVerdictExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleConditionVerdictExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleConditionVerdictExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnless struct {
+	// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+	BooleanExpression *RuleSetRuleUnlessBooleanExpression `pulumi:"booleanExpression"`
+	// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+	DmarcExpression *RuleSetRuleUnlessDmarcExpression `pulumi:"dmarcExpression"`
+	// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+	IpExpression *RuleSetRuleUnlessIpExpression `pulumi:"ipExpression"`
+	// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+	NumberExpression *RuleSetRuleUnlessNumberExpression `pulumi:"numberExpression"`
+	// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+	StringExpression *RuleSetRuleUnlessStringExpression `pulumi:"stringExpression"`
+	// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+	VerdictExpression *RuleSetRuleUnlessVerdictExpression `pulumi:"verdictExpression"`
+}
+
+// RuleSetRuleUnlessInput is an input type that accepts RuleSetRuleUnlessArgs and RuleSetRuleUnlessOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessInput` via:
+//
+//	RuleSetRuleUnlessArgs{...}
+type RuleSetRuleUnlessInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessOutput() RuleSetRuleUnlessOutput
+	ToRuleSetRuleUnlessOutputWithContext(context.Context) RuleSetRuleUnlessOutput
+}
+
+type RuleSetRuleUnlessArgs struct {
+	// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+	BooleanExpression RuleSetRuleUnlessBooleanExpressionPtrInput `pulumi:"booleanExpression"`
+	// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+	DmarcExpression RuleSetRuleUnlessDmarcExpressionPtrInput `pulumi:"dmarcExpression"`
+	// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+	IpExpression RuleSetRuleUnlessIpExpressionPtrInput `pulumi:"ipExpression"`
+	// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+	NumberExpression RuleSetRuleUnlessNumberExpressionPtrInput `pulumi:"numberExpression"`
+	// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+	StringExpression RuleSetRuleUnlessStringExpressionPtrInput `pulumi:"stringExpression"`
+	// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+	VerdictExpression RuleSetRuleUnlessVerdictExpressionPtrInput `pulumi:"verdictExpression"`
+}
+
+func (RuleSetRuleUnlessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnless)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessArgs) ToRuleSetRuleUnlessOutput() RuleSetRuleUnlessOutput {
+	return i.ToRuleSetRuleUnlessOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessArgs) ToRuleSetRuleUnlessOutputWithContext(ctx context.Context) RuleSetRuleUnlessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessOutput)
+}
+
+// RuleSetRuleUnlessArrayInput is an input type that accepts RuleSetRuleUnlessArray and RuleSetRuleUnlessArrayOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessArrayInput` via:
+//
+//	RuleSetRuleUnlessArray{ RuleSetRuleUnlessArgs{...} }
+type RuleSetRuleUnlessArrayInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessArrayOutput() RuleSetRuleUnlessArrayOutput
+	ToRuleSetRuleUnlessArrayOutputWithContext(context.Context) RuleSetRuleUnlessArrayOutput
+}
+
+type RuleSetRuleUnlessArray []RuleSetRuleUnlessInput
+
+func (RuleSetRuleUnlessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleUnless)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessArray) ToRuleSetRuleUnlessArrayOutput() RuleSetRuleUnlessArrayOutput {
+	return i.ToRuleSetRuleUnlessArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessArray) ToRuleSetRuleUnlessArrayOutputWithContext(ctx context.Context) RuleSetRuleUnlessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessArrayOutput)
+}
+
+type RuleSetRuleUnlessOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnless)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessOutput) ToRuleSetRuleUnlessOutput() RuleSetRuleUnlessOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessOutput) ToRuleSetRuleUnlessOutputWithContext(ctx context.Context) RuleSetRuleUnlessOutput {
+	return o
+}
+
+// Boolean expression evaluated against an email attribute or Add On result. See `booleanExpression` Block.
+func (o RuleSetRuleUnlessOutput) BooleanExpression() RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessBooleanExpression { return v.BooleanExpression }).(RuleSetRuleUnlessBooleanExpressionPtrOutput)
+}
+
+// DMARC policy expression evaluated against the email's DMARC result. See `dmarcExpression` Block.
+func (o RuleSetRuleUnlessOutput) DmarcExpression() RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessDmarcExpression { return v.DmarcExpression }).(RuleSetRuleUnlessDmarcExpressionPtrOutput)
+}
+
+// IP CIDR expression evaluated against the sender IP address. See `ipExpression` Block.
+func (o RuleSetRuleUnlessOutput) IpExpression() RuleSetRuleUnlessIpExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessIpExpression { return v.IpExpression }).(RuleSetRuleUnlessIpExpressionPtrOutput)
+}
+
+// Numeric expression evaluated against an email attribute such as message size. See `numberExpression` Block.
+func (o RuleSetRuleUnlessOutput) NumberExpression() RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessNumberExpression { return v.NumberExpression }).(RuleSetRuleUnlessNumberExpressionPtrOutput)
+}
+
+// String expression evaluated against an email attribute, MIME header, client certificate field, or Add On result. See `stringExpression` Block.
+func (o RuleSetRuleUnlessOutput) StringExpression() RuleSetRuleUnlessStringExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessStringExpression { return v.StringExpression }).(RuleSetRuleUnlessStringExpressionPtrOutput)
+}
+
+// Verdict expression evaluated against email authentication results such as SPF or DKIM. See `verdictExpression` Block.
+func (o RuleSetRuleUnlessOutput) VerdictExpression() RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnless) *RuleSetRuleUnlessVerdictExpression { return v.VerdictExpression }).(RuleSetRuleUnlessVerdictExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSetRuleUnless)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessArrayOutput) ToRuleSetRuleUnlessArrayOutput() RuleSetRuleUnlessArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessArrayOutput) ToRuleSetRuleUnlessArrayOutputWithContext(ctx context.Context) RuleSetRuleUnlessArrayOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessArrayOutput) Index(i pulumi.IntInput) RuleSetRuleUnlessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSetRuleUnless {
+		return vs[0].([]RuleSetRuleUnless)[vs[1].(int)]
+	}).(RuleSetRuleUnlessOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpression struct {
+	// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+	Evaluate *RuleSetRuleUnlessBooleanExpressionEvaluate `pulumi:"evaluate"`
+	// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+	Operator string `pulumi:"operator"`
+}
+
+// RuleSetRuleUnlessBooleanExpressionInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionArgs and RuleSetRuleUnlessBooleanExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionInput` via:
+//
+//	RuleSetRuleUnlessBooleanExpressionArgs{...}
+type RuleSetRuleUnlessBooleanExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionOutput() RuleSetRuleUnlessBooleanExpressionOutput
+	ToRuleSetRuleUnlessBooleanExpressionOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionOutput
+}
+
+type RuleSetRuleUnlessBooleanExpressionArgs struct {
+	// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+	Evaluate RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (RuleSetRuleUnlessBooleanExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionArgs) ToRuleSetRuleUnlessBooleanExpressionOutput() RuleSetRuleUnlessBooleanExpressionOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionArgs) ToRuleSetRuleUnlessBooleanExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionArgs) ToRuleSetRuleUnlessBooleanExpressionPtrOutput() RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionArgs) ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionOutput).ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessBooleanExpressionPtrInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionArgs, RuleSetRuleUnlessBooleanExpressionPtr and RuleSetRuleUnlessBooleanExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessBooleanExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessBooleanExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionPtrOutput() RuleSetRuleUnlessBooleanExpressionPtrOutput
+	ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessBooleanExpressionPtrType RuleSetRuleUnlessBooleanExpressionArgs
+
+func RuleSetRuleUnlessBooleanExpressionPtr(v *RuleSetRuleUnlessBooleanExpressionArgs) RuleSetRuleUnlessBooleanExpressionPtrInput {
+	return (*ruleSetRuleUnlessBooleanExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessBooleanExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionPtrType) ToRuleSetRuleUnlessBooleanExpressionPtrOutput() RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionPtrType) ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionOutput) ToRuleSetRuleUnlessBooleanExpressionOutput() RuleSetRuleUnlessBooleanExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionOutput) ToRuleSetRuleUnlessBooleanExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionOutput) ToRuleSetRuleUnlessBooleanExpressionPtrOutput() RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionOutput) ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessBooleanExpression) *RuleSetRuleUnlessBooleanExpression {
+		return &v
+	}).(RuleSetRuleUnlessBooleanExpressionPtrOutput)
+}
+
+// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+func (o RuleSetRuleUnlessBooleanExpressionOutput) Evaluate() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpression) *RuleSetRuleUnlessBooleanExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput)
+}
+
+// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+func (o RuleSetRuleUnlessBooleanExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionPtrOutput) ToRuleSetRuleUnlessBooleanExpressionPtrOutput() RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionPtrOutput) ToRuleSetRuleUnlessBooleanExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionPtrOutput) Elem() RuleSetRuleUnlessBooleanExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpression) RuleSetRuleUnlessBooleanExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessBooleanExpression
+		return ret
+	}).(RuleSetRuleUnlessBooleanExpressionOutput)
+}
+
+// Operand evaluated by the expression. Exactly one of `analysis`, `attribute`, or `isInAddressList` must be configured.
+func (o RuleSetRuleUnlessBooleanExpressionPtrOutput) Evaluate() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpression) *RuleSetRuleUnlessBooleanExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput)
+}
+
+// Boolean matching operator. Valid values are `IS_TRUE` and `IS_FALSE`.
+func (o RuleSetRuleUnlessBooleanExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+	// Address-list membership expression.
+	IsInAddressList *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList `pulumi:"isInAddressList"`
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluateInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateArgs and RuleSetRuleUnlessBooleanExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluateInput` via:
+//
+//	RuleSetRuleUnlessBooleanExpressionEvaluateArgs{...}
+type RuleSetRuleUnlessBooleanExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateOutput() RuleSetRuleUnlessBooleanExpressionEvaluateOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateOutput
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Address-list membership expression.
+	IsInAddressList RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput `pulumi:"isInAddressList"`
+}
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateOutput() RuleSetRuleUnlessBooleanExpressionEvaluateOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateOutput).ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateArgs, RuleSetRuleUnlessBooleanExpressionEvaluatePtr and RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleUnlessBooleanExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleUnlessBooleanExpressionEvaluatePtrType RuleSetRuleUnlessBooleanExpressionEvaluateArgs
+
+func RuleSetRuleUnlessBooleanExpressionEvaluatePtr(v *RuleSetRuleUnlessBooleanExpressionEvaluateArgs) RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput {
+	return (*ruleSetRuleUnlessBooleanExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleUnlessBooleanExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluatePtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluatePtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateOutput() RuleSetRuleUnlessBooleanExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessBooleanExpressionEvaluate) *RuleSetRuleUnlessBooleanExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) Analysis() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluate) *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Address-list membership expression.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateOutput) IsInAddressList() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluate) *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList {
+		return v.IsInAddressList
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) Elem() RuleSetRuleUnlessBooleanExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluate) RuleSetRuleUnlessBooleanExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessBooleanExpressionEvaluate
+		return ret
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) Analysis() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluate) *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Address-list membership expression.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput) IsInAddressList() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluate) *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList {
+		if v == nil {
+			return nil
+		}
+		return v.IsInAddressList
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs and RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput).ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs, RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtr and RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrType RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtr(v *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList struct {
+	// List containing exactly one address list ARN or identifier.
+	AddressLists []string `pulumi:"addressLists"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs and RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListInput` via:
+//
+//	RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs{...}
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs struct {
+	// List containing exactly one address list ARN or identifier.
+	AddressLists pulumi.StringArrayInput `pulumi:"addressLists"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput)
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput).ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput is an input type that accepts RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs, RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtr and RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput` via:
+//
+//	        RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput
+	ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput
+}
+
+type ruleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrType RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs
+
+func RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtr(v *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput {
+	return (*ruleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return i.ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrType) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList {
+		return &v
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput)
+}
+
+// List containing exactly one address list ARN or identifier.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) []string { return v.AddressLists }).(pulumi.StringArrayOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) ToRuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) Elem() RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList
+		return ret
+	}).(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput)
+}
+
+// List containing exactly one address list ARN or identifier.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) AddressLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressList) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessDmarcExpression struct {
+	// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator string `pulumi:"operator"`
+	// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleUnlessDmarcExpressionInput is an input type that accepts RuleSetRuleUnlessDmarcExpressionArgs and RuleSetRuleUnlessDmarcExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessDmarcExpressionInput` via:
+//
+//	RuleSetRuleUnlessDmarcExpressionArgs{...}
+type RuleSetRuleUnlessDmarcExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessDmarcExpressionOutput() RuleSetRuleUnlessDmarcExpressionOutput
+	ToRuleSetRuleUnlessDmarcExpressionOutputWithContext(context.Context) RuleSetRuleUnlessDmarcExpressionOutput
+}
+
+type RuleSetRuleUnlessDmarcExpressionArgs struct {
+	// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleUnlessDmarcExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessDmarcExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessDmarcExpressionArgs) ToRuleSetRuleUnlessDmarcExpressionOutput() RuleSetRuleUnlessDmarcExpressionOutput {
+	return i.ToRuleSetRuleUnlessDmarcExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessDmarcExpressionArgs) ToRuleSetRuleUnlessDmarcExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessDmarcExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessDmarcExpressionArgs) ToRuleSetRuleUnlessDmarcExpressionPtrOutput() RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessDmarcExpressionArgs) ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessDmarcExpressionOutput).ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessDmarcExpressionPtrInput is an input type that accepts RuleSetRuleUnlessDmarcExpressionArgs, RuleSetRuleUnlessDmarcExpressionPtr and RuleSetRuleUnlessDmarcExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessDmarcExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessDmarcExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessDmarcExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessDmarcExpressionPtrOutput() RuleSetRuleUnlessDmarcExpressionPtrOutput
+	ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessDmarcExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessDmarcExpressionPtrType RuleSetRuleUnlessDmarcExpressionArgs
+
+func RuleSetRuleUnlessDmarcExpressionPtr(v *RuleSetRuleUnlessDmarcExpressionArgs) RuleSetRuleUnlessDmarcExpressionPtrInput {
+	return (*ruleSetRuleUnlessDmarcExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessDmarcExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessDmarcExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessDmarcExpressionPtrType) ToRuleSetRuleUnlessDmarcExpressionPtrOutput() RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessDmarcExpressionPtrType) ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessDmarcExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessDmarcExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessDmarcExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessDmarcExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionOutput) ToRuleSetRuleUnlessDmarcExpressionOutput() RuleSetRuleUnlessDmarcExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionOutput) ToRuleSetRuleUnlessDmarcExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionOutput) ToRuleSetRuleUnlessDmarcExpressionPtrOutput() RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionOutput) ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessDmarcExpression) *RuleSetRuleUnlessDmarcExpression {
+		return &v
+	}).(RuleSetRuleUnlessDmarcExpressionPtrOutput)
+}
+
+// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleUnlessDmarcExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessDmarcExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+func (o RuleSetRuleUnlessDmarcExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessDmarcExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessDmarcExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessDmarcExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessDmarcExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionPtrOutput) ToRuleSetRuleUnlessDmarcExpressionPtrOutput() RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionPtrOutput) ToRuleSetRuleUnlessDmarcExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessDmarcExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessDmarcExpressionPtrOutput) Elem() RuleSetRuleUnlessDmarcExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessDmarcExpression) RuleSetRuleUnlessDmarcExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessDmarcExpression
+		return ret
+	}).(RuleSetRuleUnlessDmarcExpressionOutput)
+}
+
+// DMARC policy matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleUnlessDmarcExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessDmarcExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of DMARC policy values. Valid values are `NONE`, `QUARANTINE`, and `REJECT`.
+func (o RuleSetRuleUnlessDmarcExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessDmarcExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessIpExpression struct {
+	// Left-hand operand of the expression.
+	Evaluate *RuleSetRuleUnlessIpExpressionEvaluate `pulumi:"evaluate"`
+	// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+	Operator string `pulumi:"operator"`
+	// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleUnlessIpExpressionInput is an input type that accepts RuleSetRuleUnlessIpExpressionArgs and RuleSetRuleUnlessIpExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessIpExpressionInput` via:
+//
+//	RuleSetRuleUnlessIpExpressionArgs{...}
+type RuleSetRuleUnlessIpExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessIpExpressionOutput() RuleSetRuleUnlessIpExpressionOutput
+	ToRuleSetRuleUnlessIpExpressionOutputWithContext(context.Context) RuleSetRuleUnlessIpExpressionOutput
+}
+
+type RuleSetRuleUnlessIpExpressionArgs struct {
+	// Left-hand operand of the expression.
+	Evaluate RuleSetRuleUnlessIpExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleUnlessIpExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessIpExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessIpExpressionArgs) ToRuleSetRuleUnlessIpExpressionOutput() RuleSetRuleUnlessIpExpressionOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessIpExpressionArgs) ToRuleSetRuleUnlessIpExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessIpExpressionArgs) ToRuleSetRuleUnlessIpExpressionPtrOutput() RuleSetRuleUnlessIpExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessIpExpressionArgs) ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionOutput).ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessIpExpressionPtrInput is an input type that accepts RuleSetRuleUnlessIpExpressionArgs, RuleSetRuleUnlessIpExpressionPtr and RuleSetRuleUnlessIpExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessIpExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessIpExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessIpExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessIpExpressionPtrOutput() RuleSetRuleUnlessIpExpressionPtrOutput
+	ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessIpExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessIpExpressionPtrType RuleSetRuleUnlessIpExpressionArgs
+
+func RuleSetRuleUnlessIpExpressionPtr(v *RuleSetRuleUnlessIpExpressionArgs) RuleSetRuleUnlessIpExpressionPtrInput {
+	return (*ruleSetRuleUnlessIpExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessIpExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessIpExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessIpExpressionPtrType) ToRuleSetRuleUnlessIpExpressionPtrOutput() RuleSetRuleUnlessIpExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessIpExpressionPtrType) ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessIpExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessIpExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessIpExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessIpExpressionOutput) ToRuleSetRuleUnlessIpExpressionOutput() RuleSetRuleUnlessIpExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionOutput) ToRuleSetRuleUnlessIpExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionOutput) ToRuleSetRuleUnlessIpExpressionPtrOutput() RuleSetRuleUnlessIpExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessIpExpressionOutput) ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessIpExpression) *RuleSetRuleUnlessIpExpression {
+		return &v
+	}).(RuleSetRuleUnlessIpExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleUnlessIpExpressionOutput) Evaluate() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessIpExpression) *RuleSetRuleUnlessIpExpressionEvaluate { return v.Evaluate }).(RuleSetRuleUnlessIpExpressionEvaluatePtrOutput)
+}
+
+// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+func (o RuleSetRuleUnlessIpExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessIpExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+func (o RuleSetRuleUnlessIpExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessIpExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessIpExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessIpExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessIpExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) ToRuleSetRuleUnlessIpExpressionPtrOutput() RuleSetRuleUnlessIpExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) ToRuleSetRuleUnlessIpExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) Elem() RuleSetRuleUnlessIpExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpression) RuleSetRuleUnlessIpExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessIpExpression
+		return ret
+	}).(RuleSetRuleUnlessIpExpressionOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) Evaluate() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpression) *RuleSetRuleUnlessIpExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleUnlessIpExpressionEvaluatePtrOutput)
+}
+
+// CIDR matching operator. Valid values are `CIDR_MATCHES` and `NOT_CIDR_MATCHES`.
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of IP CIDR ranges against which the sender IP address is evaluated. Between 1 and 10 values are supported.
+func (o RuleSetRuleUnlessIpExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessIpExpressionEvaluate struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleUnlessIpExpressionEvaluateInput is an input type that accepts RuleSetRuleUnlessIpExpressionEvaluateArgs and RuleSetRuleUnlessIpExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessIpExpressionEvaluateInput` via:
+//
+//	RuleSetRuleUnlessIpExpressionEvaluateArgs{...}
+type RuleSetRuleUnlessIpExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessIpExpressionEvaluateOutput() RuleSetRuleUnlessIpExpressionEvaluateOutput
+	ToRuleSetRuleUnlessIpExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleUnlessIpExpressionEvaluateOutput
+}
+
+type RuleSetRuleUnlessIpExpressionEvaluateArgs struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleUnlessIpExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessIpExpressionEvaluateArgs) ToRuleSetRuleUnlessIpExpressionEvaluateOutput() RuleSetRuleUnlessIpExpressionEvaluateOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessIpExpressionEvaluateArgs) ToRuleSetRuleUnlessIpExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleUnlessIpExpressionEvaluateArgs) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutput() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessIpExpressionEvaluateArgs) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionEvaluateOutput).ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessIpExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleUnlessIpExpressionEvaluateArgs, RuleSetRuleUnlessIpExpressionEvaluatePtr and RuleSetRuleUnlessIpExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessIpExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleUnlessIpExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessIpExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutput() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput
+	ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleUnlessIpExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleUnlessIpExpressionEvaluatePtrType RuleSetRuleUnlessIpExpressionEvaluateArgs
+
+func RuleSetRuleUnlessIpExpressionEvaluatePtr(v *RuleSetRuleUnlessIpExpressionEvaluateArgs) RuleSetRuleUnlessIpExpressionEvaluatePtrInput {
+	return (*ruleSetRuleUnlessIpExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleUnlessIpExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessIpExpressionEvaluatePtrType) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutput() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessIpExpressionEvaluatePtrType) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessIpExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleUnlessIpExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessIpExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluateOutput) ToRuleSetRuleUnlessIpExpressionEvaluateOutput() RuleSetRuleUnlessIpExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluateOutput) ToRuleSetRuleUnlessIpExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluateOutput) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutput() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluateOutput) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessIpExpressionEvaluate) *RuleSetRuleUnlessIpExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleUnlessIpExpressionEvaluatePtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessIpExpressionEvaluateOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessIpExpressionEvaluate) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessIpExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessIpExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessIpExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutput() RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessIpExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessIpExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessIpExpressionEvaluatePtrOutput) Elem() RuleSetRuleUnlessIpExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpressionEvaluate) RuleSetRuleUnlessIpExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessIpExpressionEvaluate
+		return ret
+	}).(RuleSetRuleUnlessIpExpressionEvaluateOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessIpExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessIpExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessNumberExpression struct {
+	// Left-hand operand of the expression.
+	Evaluate *RuleSetRuleUnlessNumberExpressionEvaluate `pulumi:"evaluate"`
+	// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+	Operator string `pulumi:"operator"`
+	// Numeric value to compare against.
+	Value float64 `pulumi:"value"`
+}
+
+// RuleSetRuleUnlessNumberExpressionInput is an input type that accepts RuleSetRuleUnlessNumberExpressionArgs and RuleSetRuleUnlessNumberExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessNumberExpressionInput` via:
+//
+//	RuleSetRuleUnlessNumberExpressionArgs{...}
+type RuleSetRuleUnlessNumberExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessNumberExpressionOutput() RuleSetRuleUnlessNumberExpressionOutput
+	ToRuleSetRuleUnlessNumberExpressionOutputWithContext(context.Context) RuleSetRuleUnlessNumberExpressionOutput
+}
+
+type RuleSetRuleUnlessNumberExpressionArgs struct {
+	// Left-hand operand of the expression.
+	Evaluate RuleSetRuleUnlessNumberExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Numeric value to compare against.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (RuleSetRuleUnlessNumberExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessNumberExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessNumberExpressionArgs) ToRuleSetRuleUnlessNumberExpressionOutput() RuleSetRuleUnlessNumberExpressionOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessNumberExpressionArgs) ToRuleSetRuleUnlessNumberExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessNumberExpressionArgs) ToRuleSetRuleUnlessNumberExpressionPtrOutput() RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessNumberExpressionArgs) ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionOutput).ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessNumberExpressionPtrInput is an input type that accepts RuleSetRuleUnlessNumberExpressionArgs, RuleSetRuleUnlessNumberExpressionPtr and RuleSetRuleUnlessNumberExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessNumberExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessNumberExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessNumberExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessNumberExpressionPtrOutput() RuleSetRuleUnlessNumberExpressionPtrOutput
+	ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessNumberExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessNumberExpressionPtrType RuleSetRuleUnlessNumberExpressionArgs
+
+func RuleSetRuleUnlessNumberExpressionPtr(v *RuleSetRuleUnlessNumberExpressionArgs) RuleSetRuleUnlessNumberExpressionPtrInput {
+	return (*ruleSetRuleUnlessNumberExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessNumberExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessNumberExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessNumberExpressionPtrType) ToRuleSetRuleUnlessNumberExpressionPtrOutput() RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessNumberExpressionPtrType) ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessNumberExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessNumberExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessNumberExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessNumberExpressionOutput) ToRuleSetRuleUnlessNumberExpressionOutput() RuleSetRuleUnlessNumberExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionOutput) ToRuleSetRuleUnlessNumberExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionOutput) ToRuleSetRuleUnlessNumberExpressionPtrOutput() RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessNumberExpressionOutput) ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessNumberExpression) *RuleSetRuleUnlessNumberExpression {
+		return &v
+	}).(RuleSetRuleUnlessNumberExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleUnlessNumberExpressionOutput) Evaluate() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessNumberExpression) *RuleSetRuleUnlessNumberExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput)
+}
+
+// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+func (o RuleSetRuleUnlessNumberExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessNumberExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Numeric value to compare against.
+func (o RuleSetRuleUnlessNumberExpressionOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v RuleSetRuleUnlessNumberExpression) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+type RuleSetRuleUnlessNumberExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessNumberExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessNumberExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) ToRuleSetRuleUnlessNumberExpressionPtrOutput() RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) ToRuleSetRuleUnlessNumberExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) Elem() RuleSetRuleUnlessNumberExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpression) RuleSetRuleUnlessNumberExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessNumberExpression
+		return ret
+	}).(RuleSetRuleUnlessNumberExpressionOutput)
+}
+
+// Left-hand operand of the expression.
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) Evaluate() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpression) *RuleSetRuleUnlessNumberExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput)
+}
+
+// Numeric comparison operator. Valid values are `EQUALS`, `NOT_EQUALS`, `LESS_THAN`, `GREATER_THAN`, `LESS_THAN_OR_EQUAL`, and `GREATER_THAN_OR_EQUAL`.
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Numeric value to compare against.
+func (o RuleSetRuleUnlessNumberExpressionPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpression) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type RuleSetRuleUnlessNumberExpressionEvaluate struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute string `pulumi:"attribute"`
+}
+
+// RuleSetRuleUnlessNumberExpressionEvaluateInput is an input type that accepts RuleSetRuleUnlessNumberExpressionEvaluateArgs and RuleSetRuleUnlessNumberExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessNumberExpressionEvaluateInput` via:
+//
+//	RuleSetRuleUnlessNumberExpressionEvaluateArgs{...}
+type RuleSetRuleUnlessNumberExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessNumberExpressionEvaluateOutput() RuleSetRuleUnlessNumberExpressionEvaluateOutput
+	ToRuleSetRuleUnlessNumberExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleUnlessNumberExpressionEvaluateOutput
+}
+
+type RuleSetRuleUnlessNumberExpressionEvaluateArgs struct {
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleUnlessNumberExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessNumberExpressionEvaluateArgs) ToRuleSetRuleUnlessNumberExpressionEvaluateOutput() RuleSetRuleUnlessNumberExpressionEvaluateOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessNumberExpressionEvaluateArgs) ToRuleSetRuleUnlessNumberExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleUnlessNumberExpressionEvaluateArgs) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutput() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessNumberExpressionEvaluateArgs) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionEvaluateOutput).ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessNumberExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleUnlessNumberExpressionEvaluateArgs, RuleSetRuleUnlessNumberExpressionEvaluatePtr and RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessNumberExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleUnlessNumberExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessNumberExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutput() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput
+	ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleUnlessNumberExpressionEvaluatePtrType RuleSetRuleUnlessNumberExpressionEvaluateArgs
+
+func RuleSetRuleUnlessNumberExpressionEvaluatePtr(v *RuleSetRuleUnlessNumberExpressionEvaluateArgs) RuleSetRuleUnlessNumberExpressionEvaluatePtrInput {
+	return (*ruleSetRuleUnlessNumberExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleUnlessNumberExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessNumberExpressionEvaluatePtrType) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutput() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessNumberExpressionEvaluatePtrType) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleUnlessNumberExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessNumberExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluateOutput) ToRuleSetRuleUnlessNumberExpressionEvaluateOutput() RuleSetRuleUnlessNumberExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluateOutput) ToRuleSetRuleUnlessNumberExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluateOutput) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutput() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluateOutput) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessNumberExpressionEvaluate) *RuleSetRuleUnlessNumberExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessNumberExpressionEvaluateOutput) Attribute() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessNumberExpressionEvaluate) string { return v.Attribute }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessNumberExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutput() RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessNumberExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput) Elem() RuleSetRuleUnlessNumberExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpressionEvaluate) RuleSetRuleUnlessNumberExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessNumberExpressionEvaluate
+		return ret
+	}).(RuleSetRuleUnlessNumberExpressionEvaluateOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessNumberExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpression struct {
+	// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+	Evaluate *RuleSetRuleUnlessStringExpressionEvaluate `pulumi:"evaluate"`
+	// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+	Operator string `pulumi:"operator"`
+	// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleUnlessStringExpressionInput is an input type that accepts RuleSetRuleUnlessStringExpressionArgs and RuleSetRuleUnlessStringExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionInput` via:
+//
+//	RuleSetRuleUnlessStringExpressionArgs{...}
+type RuleSetRuleUnlessStringExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionOutput() RuleSetRuleUnlessStringExpressionOutput
+	ToRuleSetRuleUnlessStringExpressionOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionOutput
+}
+
+type RuleSetRuleUnlessStringExpressionArgs struct {
+	// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+	Evaluate RuleSetRuleUnlessStringExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleUnlessStringExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessStringExpressionArgs) ToRuleSetRuleUnlessStringExpressionOutput() RuleSetRuleUnlessStringExpressionOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionArgs) ToRuleSetRuleUnlessStringExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessStringExpressionArgs) ToRuleSetRuleUnlessStringExpressionPtrOutput() RuleSetRuleUnlessStringExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionArgs) ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionOutput).ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessStringExpressionPtrInput is an input type that accepts RuleSetRuleUnlessStringExpressionArgs, RuleSetRuleUnlessStringExpressionPtr and RuleSetRuleUnlessStringExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessStringExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessStringExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionPtrOutput() RuleSetRuleUnlessStringExpressionPtrOutput
+	ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessStringExpressionPtrType RuleSetRuleUnlessStringExpressionArgs
+
+func RuleSetRuleUnlessStringExpressionPtr(v *RuleSetRuleUnlessStringExpressionArgs) RuleSetRuleUnlessStringExpressionPtrInput {
+	return (*ruleSetRuleUnlessStringExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessStringExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessStringExpressionPtrType) ToRuleSetRuleUnlessStringExpressionPtrOutput() RuleSetRuleUnlessStringExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessStringExpressionPtrType) ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionOutput) ToRuleSetRuleUnlessStringExpressionOutput() RuleSetRuleUnlessStringExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionOutput) ToRuleSetRuleUnlessStringExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionOutput) ToRuleSetRuleUnlessStringExpressionPtrOutput() RuleSetRuleUnlessStringExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessStringExpressionOutput) ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessStringExpression) *RuleSetRuleUnlessStringExpression {
+		return &v
+	}).(RuleSetRuleUnlessStringExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+func (o RuleSetRuleUnlessStringExpressionOutput) Evaluate() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpression) *RuleSetRuleUnlessStringExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleUnlessStringExpressionEvaluatePtrOutput)
+}
+
+// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+func (o RuleSetRuleUnlessStringExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+func (o RuleSetRuleUnlessStringExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) ToRuleSetRuleUnlessStringExpressionPtrOutput() RuleSetRuleUnlessStringExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) ToRuleSetRuleUnlessStringExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) Elem() RuleSetRuleUnlessStringExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpression) RuleSetRuleUnlessStringExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessStringExpression
+		return ret
+	}).(RuleSetRuleUnlessStringExpressionOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis`, `attribute`, `clientCertificateAttribute`, or `mimeHeaderAttribute` must be configured.
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) Evaluate() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpression) *RuleSetRuleUnlessStringExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleUnlessStringExpressionEvaluatePtrOutput)
+}
+
+// String matching operator. Valid values are `EQUALS`, `NOT_EQUALS`, `STARTS_WITH`, `ENDS_WITH`, and `CONTAINS`.
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of strings against which the selected operand is evaluated. Between 1 and 10 values are supported, each up to 4096 characters.
+func (o RuleSetRuleUnlessStringExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleUnlessStringExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+	// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+	ClientCertificateAttribute *string `pulumi:"clientCertificateAttribute"`
+	// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+	MimeHeaderAttribute *string `pulumi:"mimeHeaderAttribute"`
+}
+
+// RuleSetRuleUnlessStringExpressionEvaluateInput is an input type that accepts RuleSetRuleUnlessStringExpressionEvaluateArgs and RuleSetRuleUnlessStringExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionEvaluateInput` via:
+//
+//	RuleSetRuleUnlessStringExpressionEvaluateArgs{...}
+type RuleSetRuleUnlessStringExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionEvaluateOutput() RuleSetRuleUnlessStringExpressionEvaluateOutput
+	ToRuleSetRuleUnlessStringExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionEvaluateOutput
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+	// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+	ClientCertificateAttribute pulumi.StringPtrInput `pulumi:"clientCertificateAttribute"`
+	// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+	MimeHeaderAttribute pulumi.StringPtrInput `pulumi:"mimeHeaderAttribute"`
+}
+
+func (RuleSetRuleUnlessStringExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateArgs) ToRuleSetRuleUnlessStringExpressionEvaluateOutput() RuleSetRuleUnlessStringExpressionEvaluateOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateArgs) ToRuleSetRuleUnlessStringExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateArgs) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutput() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateArgs) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluateOutput).ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessStringExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleUnlessStringExpressionEvaluateArgs, RuleSetRuleUnlessStringExpressionEvaluatePtr and RuleSetRuleUnlessStringExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleUnlessStringExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessStringExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutput() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput
+	ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleUnlessStringExpressionEvaluatePtrType RuleSetRuleUnlessStringExpressionEvaluateArgs
+
+func RuleSetRuleUnlessStringExpressionEvaluatePtr(v *RuleSetRuleUnlessStringExpressionEvaluateArgs) RuleSetRuleUnlessStringExpressionEvaluatePtrInput {
+	return (*ruleSetRuleUnlessStringExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleUnlessStringExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessStringExpressionEvaluatePtrType) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutput() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessStringExpressionEvaluatePtrType) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) ToRuleSetRuleUnlessStringExpressionEvaluateOutput() RuleSetRuleUnlessStringExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) ToRuleSetRuleUnlessStringExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutput() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessStringExpressionEvaluate) *RuleSetRuleUnlessStringExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleUnlessStringExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) Analysis() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluate) *RuleSetRuleUnlessStringExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) ClientCertificateAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluate) *string { return v.ClientCertificateAttribute }).(pulumi.StringPtrOutput)
+}
+
+// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+func (o RuleSetRuleUnlessStringExpressionEvaluateOutput) MimeHeaderAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluate) *string { return v.MimeHeaderAttribute }).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutput() RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessStringExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) Elem() RuleSetRuleUnlessStringExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluate) RuleSetRuleUnlessStringExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessStringExpressionEvaluate
+		return ret
+	}).(RuleSetRuleUnlessStringExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) Analysis() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluate) *RuleSetRuleUnlessStringExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client certificate field to evaluate. Valid values are `CN`, `SAN_RFC822_NAME`, `SAN_DNS_NAME`, `SAN_DIRECTORY_NAME`, `SAN_UNIFORM_RESOURCE_IDENTIFIER`, `SAN_IP_ADDRESS`, `SAN_REGISTERED_ID`, and `SERIAL_NUMBER`.
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) ClientCertificateAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// MIME header name to evaluate. Must contain between 1 and 256 characters and begin with `X-` or `x-`.
+func (o RuleSetRuleUnlessStringExpressionEvaluatePtrOutput) MimeHeaderAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MimeHeaderAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleUnlessStringExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs and RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput).ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs, RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtr and RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleUnlessStringExpressionEvaluateAnalysisPtrType RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtr(v *RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleUnlessStringExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessStringExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessStringExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessStringExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessStringExpressionEvaluateAnalysis) *RuleSetRuleUnlessStringExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessStringExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessStringExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluateAnalysis) RuleSetRuleUnlessStringExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessStringExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessStringExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpression struct {
+	// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+	Evaluate *RuleSetRuleUnlessVerdictExpressionEvaluate `pulumi:"evaluate"`
+	// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator string `pulumi:"operator"`
+	// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+	Values []string `pulumi:"values"`
+}
+
+// RuleSetRuleUnlessVerdictExpressionInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionArgs and RuleSetRuleUnlessVerdictExpressionOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionInput` via:
+//
+//	RuleSetRuleUnlessVerdictExpressionArgs{...}
+type RuleSetRuleUnlessVerdictExpressionInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionOutput() RuleSetRuleUnlessVerdictExpressionOutput
+	ToRuleSetRuleUnlessVerdictExpressionOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionOutput
+}
+
+type RuleSetRuleUnlessVerdictExpressionArgs struct {
+	// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+	Evaluate RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput `pulumi:"evaluate"`
+	// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (RuleSetRuleUnlessVerdictExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpression)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionArgs) ToRuleSetRuleUnlessVerdictExpressionOutput() RuleSetRuleUnlessVerdictExpressionOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionArgs) ToRuleSetRuleUnlessVerdictExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionOutput)
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionArgs) ToRuleSetRuleUnlessVerdictExpressionPtrOutput() RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionArgs) ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionOutput).ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessVerdictExpressionPtrInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionArgs, RuleSetRuleUnlessVerdictExpressionPtr and RuleSetRuleUnlessVerdictExpressionPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionPtrInput` via:
+//
+//	        RuleSetRuleUnlessVerdictExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessVerdictExpressionPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionPtrOutput() RuleSetRuleUnlessVerdictExpressionPtrOutput
+	ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionPtrOutput
+}
+
+type ruleSetRuleUnlessVerdictExpressionPtrType RuleSetRuleUnlessVerdictExpressionArgs
+
+func RuleSetRuleUnlessVerdictExpressionPtr(v *RuleSetRuleUnlessVerdictExpressionArgs) RuleSetRuleUnlessVerdictExpressionPtrInput {
+	return (*ruleSetRuleUnlessVerdictExpressionPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessVerdictExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpression)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionPtrType) ToRuleSetRuleUnlessVerdictExpressionPtrOutput() RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionPtrType) ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionPtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionOutput) ToRuleSetRuleUnlessVerdictExpressionOutput() RuleSetRuleUnlessVerdictExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionOutput) ToRuleSetRuleUnlessVerdictExpressionOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionOutput) ToRuleSetRuleUnlessVerdictExpressionPtrOutput() RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return o.ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionOutput) ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessVerdictExpression) *RuleSetRuleUnlessVerdictExpression {
+		return &v
+	}).(RuleSetRuleUnlessVerdictExpressionPtrOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+func (o RuleSetRuleUnlessVerdictExpressionOutput) Evaluate() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpression) *RuleSetRuleUnlessVerdictExpressionEvaluate {
+		return v.Evaluate
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput)
+}
+
+// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleUnlessVerdictExpressionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpression) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+func (o RuleSetRuleUnlessVerdictExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpression)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) ToRuleSetRuleUnlessVerdictExpressionPtrOutput() RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) ToRuleSetRuleUnlessVerdictExpressionPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) Elem() RuleSetRuleUnlessVerdictExpressionOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpression) RuleSetRuleUnlessVerdictExpression {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessVerdictExpression
+		return ret
+	}).(RuleSetRuleUnlessVerdictExpressionOutput)
+}
+
+// Left-hand operand of the expression. Exactly one of `analysis` or `attribute` must be configured.
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) Evaluate() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpression) *RuleSetRuleUnlessVerdictExpressionEvaluate {
+		if v == nil {
+			return nil
+		}
+		return v.Evaluate
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput)
+}
+
+// Verdict matching operator. Valid values are `EQUALS` and `NOT_EQUALS`.
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpression) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of verdict values. Valid values are `PASS`, `FAIL`, `GRAY`, and `PROCESSING_FAILED`. Between 1 and 10 values are supported.
+func (o RuleSetRuleUnlessVerdictExpressionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpression) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluate struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute *string `pulumi:"attribute"`
+}
+
+// RuleSetRuleUnlessVerdictExpressionEvaluateInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionEvaluateArgs and RuleSetRuleUnlessVerdictExpressionEvaluateOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionEvaluateInput` via:
+//
+//	RuleSetRuleUnlessVerdictExpressionEvaluateArgs{...}
+type RuleSetRuleUnlessVerdictExpressionEvaluateInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateOutput() RuleSetRuleUnlessVerdictExpressionEvaluateOutput
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateOutput
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateArgs struct {
+	// Add On result to evaluate. See `analysis` Block.
+	Analysis RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput `pulumi:"analysis"`
+	// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+	Attribute pulumi.StringPtrInput `pulumi:"attribute"`
+}
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateOutput() RuleSetRuleUnlessVerdictExpressionEvaluateOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluateOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluateOutput)
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluateOutput).ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionEvaluateArgs, RuleSetRuleUnlessVerdictExpressionEvaluatePtr and RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput` via:
+//
+//	        RuleSetRuleUnlessVerdictExpressionEvaluateArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput
+	ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput
+}
+
+type ruleSetRuleUnlessVerdictExpressionEvaluatePtrType RuleSetRuleUnlessVerdictExpressionEvaluateArgs
+
+func RuleSetRuleUnlessVerdictExpressionEvaluatePtr(v *RuleSetRuleUnlessVerdictExpressionEvaluateArgs) RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput {
+	return (*ruleSetRuleUnlessVerdictExpressionEvaluatePtrType)(v)
+}
+
+func (*ruleSetRuleUnlessVerdictExpressionEvaluatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionEvaluatePtrType) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionEvaluatePtrType) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateOutput() RuleSetRuleUnlessVerdictExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o.ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessVerdictExpressionEvaluate) *RuleSetRuleUnlessVerdictExpressionEvaluate {
+		return &v
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) Analysis() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpressionEvaluate) *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis {
+		return v.Analysis
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpressionEvaluate) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpressionEvaluate)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluatePtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) Elem() RuleSetRuleUnlessVerdictExpressionEvaluateOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluate) RuleSetRuleUnlessVerdictExpressionEvaluate {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessVerdictExpressionEvaluate
+		return ret
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluateOutput)
+}
+
+// Add On result to evaluate. See `analysis` Block.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) Analysis() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluate) *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// Email authentication attribute to evaluate. Valid values are `SPF` and `DKIM`.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer string `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField string `pulumi:"resultField"`
+}
+
+// RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs and RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisInput` via:
+//
+//	RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs{...}
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs struct {
+	// ARN of the Mail Manager Add On.
+	Analyzer pulumi.StringInput `pulumi:"analyzer"`
+	// Result field returned by the Add On. Must contain between 1 and 256 characters.
+	ResultField pulumi.StringInput `pulumi:"resultField"`
+}
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput)
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput).ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx)
+}
+
+// RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput is an input type that accepts RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs, RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtr and RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput values.
+// You can construct a concrete instance of `RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput` via:
+//
+//	        RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput interface {
+	pulumi.Input
+
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput
+	ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput
+}
+
+type ruleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrType RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs
+
+func RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtr(v *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput {
+	return (*ruleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrType)(v)
+}
+
+func (*ruleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return i.ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrType) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis {
+		return &v
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) Analyzer() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) string { return v.Analyzer }).(pulumi.StringOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput) ResultField() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) string { return v.ResultField }).(pulumi.StringOutput)
+}
+
+type RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis)(nil)).Elem()
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) ToRuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutputWithContext(ctx context.Context) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput {
+	return o
+}
+
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) Elem() RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis
+		return ret
+	}).(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput)
+}
+
+// ARN of the Mail Manager Add On.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Analyzer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Result field returned by the Add On. Must contain between 1 and 256 characters.
+func (o RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput) ResultField() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSetRuleUnlessVerdictExpressionEvaluateAnalysis) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResultField
+	}).(pulumi.StringPtrOutput)
+}
+
 type TrafficPolicyPolicyStatement struct {
 	// Action applied when all conditions match. Valid values are `ALLOW` and `DENY`.
 	Action string `pulumi:"action"`
@@ -2322,6 +9985,98 @@ func (o TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrOutput) Att
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleInput)(nil)).Elem(), RuleSetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleArrayInput)(nil)).Elem(), RuleSetRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionInput)(nil)).Elem(), RuleSetRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionArrayInput)(nil)).Elem(), RuleSetRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionAddHeaderInput)(nil)).Elem(), RuleSetRuleActionAddHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionAddHeaderPtrInput)(nil)).Elem(), RuleSetRuleActionAddHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionArchiveInput)(nil)).Elem(), RuleSetRuleActionArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionArchivePtrInput)(nil)).Elem(), RuleSetRuleActionArchiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionBounceInput)(nil)).Elem(), RuleSetRuleActionBounceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionBouncePtrInput)(nil)).Elem(), RuleSetRuleActionBounceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDeliverToMailboxInput)(nil)).Elem(), RuleSetRuleActionDeliverToMailboxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDeliverToMailboxPtrInput)(nil)).Elem(), RuleSetRuleActionDeliverToMailboxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDeliverToQBusinessInput)(nil)).Elem(), RuleSetRuleActionDeliverToQBusinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDeliverToQBusinessPtrInput)(nil)).Elem(), RuleSetRuleActionDeliverToQBusinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDropInput)(nil)).Elem(), RuleSetRuleActionDropArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionDropPtrInput)(nil)).Elem(), RuleSetRuleActionDropArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionInvokeLambdaInput)(nil)).Elem(), RuleSetRuleActionInvokeLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionInvokeLambdaPtrInput)(nil)).Elem(), RuleSetRuleActionInvokeLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionPublishToSnsInput)(nil)).Elem(), RuleSetRuleActionPublishToSnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionPublishToSnsPtrInput)(nil)).Elem(), RuleSetRuleActionPublishToSnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionRelayInput)(nil)).Elem(), RuleSetRuleActionRelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionRelayPtrInput)(nil)).Elem(), RuleSetRuleActionRelayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionReplaceRecipientInput)(nil)).Elem(), RuleSetRuleActionReplaceRecipientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionReplaceRecipientPtrInput)(nil)).Elem(), RuleSetRuleActionReplaceRecipientArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionSendInput)(nil)).Elem(), RuleSetRuleActionSendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionSendPtrInput)(nil)).Elem(), RuleSetRuleActionSendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionWriteToS3Input)(nil)).Elem(), RuleSetRuleActionWriteToS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleActionWriteToS3PtrInput)(nil)).Elem(), RuleSetRuleActionWriteToS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionInput)(nil)).Elem(), RuleSetRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionArrayInput)(nil)).Elem(), RuleSetRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrInput)(nil)).Elem(), RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionDmarcExpressionInput)(nil)).Elem(), RuleSetRuleConditionDmarcExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionDmarcExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionDmarcExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionIpExpressionInput)(nil)).Elem(), RuleSetRuleConditionIpExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionIpExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionIpExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionIpExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleConditionIpExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionIpExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleConditionIpExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionNumberExpressionInput)(nil)).Elem(), RuleSetRuleConditionNumberExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionNumberExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionNumberExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionNumberExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleConditionNumberExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionNumberExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleConditionNumberExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleConditionStringExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionPtrInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleConditionVerdictExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessInput)(nil)).Elem(), RuleSetRuleUnlessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessArrayInput)(nil)).Elem(), RuleSetRuleUnlessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrInput)(nil)).Elem(), RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessDmarcExpressionInput)(nil)).Elem(), RuleSetRuleUnlessDmarcExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessDmarcExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessDmarcExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessIpExpressionInput)(nil)).Elem(), RuleSetRuleUnlessIpExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessIpExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessIpExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessIpExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleUnlessIpExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessIpExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleUnlessIpExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionInput)(nil)).Elem(), RuleSetRuleUnlessNumberExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessNumberExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleUnlessNumberExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessNumberExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleUnlessNumberExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleUnlessStringExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionPtrInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluateInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluatePtrInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionEvaluateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrInput)(nil)).Elem(), RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementInput)(nil)).Elem(), TrafficPolicyPolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementArrayInput)(nil)).Elem(), TrafficPolicyPolicyStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionArgs{})
@@ -2352,6 +10107,98 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionPtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficPolicyPolicyStatementConditionTlsExpressionEvaluatePtrInput)(nil)).Elem(), TrafficPolicyPolicyStatementConditionTlsExpressionEvaluateArgs{})
+	pulumi.RegisterOutputType(RuleSetRuleOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleArrayOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionAddHeaderOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionAddHeaderPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionArchiveOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionArchivePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionBounceOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionBouncePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDeliverToMailboxOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDeliverToMailboxPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDeliverToQBusinessOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDeliverToQBusinessPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDropOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionDropPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionInvokeLambdaOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionInvokeLambdaPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionPublishToSnsOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionPublishToSnsPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionRelayOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionRelayPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionReplaceRecipientOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionReplaceRecipientPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionSendOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionSendPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleActionWriteToS3Output{})
+	pulumi.RegisterOutputType(RuleSetRuleActionWriteToS3PtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluateAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionBooleanExpressionEvaluateIsInAddressListPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionDmarcExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionDmarcExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionIpExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionIpExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionIpExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionIpExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionNumberExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionNumberExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionNumberExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionNumberExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionStringExpressionEvaluateAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleConditionVerdictExpressionEvaluateAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessArrayOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluateAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessBooleanExpressionEvaluateIsInAddressListPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessDmarcExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessDmarcExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessIpExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessIpExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessIpExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessIpExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessNumberExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessNumberExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessNumberExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessNumberExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessStringExpressionEvaluateAnalysisPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionPtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionEvaluateOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionEvaluatePtrOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisOutput{})
+	pulumi.RegisterOutputType(RuleSetRuleUnlessVerdictExpressionEvaluateAnalysisPtrOutput{})
 	pulumi.RegisterOutputType(TrafficPolicyPolicyStatementOutput{})
 	pulumi.RegisterOutputType(TrafficPolicyPolicyStatementArrayOutput{})
 	pulumi.RegisterOutputType(TrafficPolicyPolicyStatementConditionOutput{})

@@ -49,30 +49,46 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
     }
 
     /**
-     * The revision of this auto scaling configuration.
+     * Revision of this auto scaling configuration.
      * 
      */
     @Import(name="autoScalingConfigurationRevision")
     private @Nullable Output<Integer> autoScalingConfigurationRevision;
 
     /**
-     * @return The revision of this auto scaling configuration.
+     * @return Revision of this auto scaling configuration.
      * 
      */
     public Optional<Output<Integer>> autoScalingConfigurationRevision() {
         return Optional.ofNullable(this.autoScalingConfigurationRevision);
     }
 
+    /**
+     * Whether there is an App Runner service associated with this auto scaling configuration.
+     * 
+     */
     @Import(name="hasAssociatedService")
     private @Nullable Output<Boolean> hasAssociatedService;
 
+    /**
+     * @return Whether there is an App Runner service associated with this auto scaling configuration.
+     * 
+     */
     public Optional<Output<Boolean>> hasAssociatedService() {
         return Optional.ofNullable(this.hasAssociatedService);
     }
 
+    /**
+     * Whether the auto scaling configuration is the default for the AWS account and Region.
+     * 
+     */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
+    /**
+     * @return Whether the auto scaling configuration is the default for the AWS account and Region.
+     * 
+     */
     public Optional<Output<Boolean>> isDefault() {
         return Optional.ofNullable(this.isDefault);
     }
@@ -276,7 +292,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param autoScalingConfigurationRevision The revision of this auto scaling configuration.
+         * @param autoScalingConfigurationRevision Revision of this auto scaling configuration.
          * 
          * @return builder
          * 
@@ -287,7 +303,7 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
         }
 
         /**
-         * @param autoScalingConfigurationRevision The revision of this auto scaling configuration.
+         * @param autoScalingConfigurationRevision Revision of this auto scaling configuration.
          * 
          * @return builder
          * 
@@ -296,20 +312,44 @@ public final class AutoScalingConfigurationVersionState extends com.pulumi.resou
             return autoScalingConfigurationRevision(Output.of(autoScalingConfigurationRevision));
         }
 
+        /**
+         * @param hasAssociatedService Whether there is an App Runner service associated with this auto scaling configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasAssociatedService(@Nullable Output<Boolean> hasAssociatedService) {
             $.hasAssociatedService = hasAssociatedService;
             return this;
         }
 
+        /**
+         * @param hasAssociatedService Whether there is an App Runner service associated with this auto scaling configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hasAssociatedService(Boolean hasAssociatedService) {
             return hasAssociatedService(Output.of(hasAssociatedService));
         }
 
+        /**
+         * @param isDefault Whether the auto scaling configuration is the default for the AWS account and Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isDefault(@Nullable Output<Boolean> isDefault) {
             $.isDefault = isDefault;
             return this;
         }
 
+        /**
+         * @param isDefault Whether the auto scaling configuration is the default for the AWS account and Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
         }

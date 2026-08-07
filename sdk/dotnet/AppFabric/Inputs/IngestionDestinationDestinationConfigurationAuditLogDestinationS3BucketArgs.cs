@@ -12,11 +12,14 @@ namespace Pulumi.Aws.AppFabric.Inputs
 
     public sealed class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The object key to use.
+        /// Object key to use.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }

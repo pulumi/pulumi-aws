@@ -48,7 +48,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * The unique ID of the operation associated with deployment.
+     * Unique ID of the operation associated with deployment.
      */
     declare public /*out*/ readonly operationId: pulumi.Output<string>;
     /**
@@ -56,11 +56,11 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
-     * The current status of the App Runner service deployment.
+     * Current status of the App Runner service deployment.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.apprunner.DeploymentTimeouts | undefined>;
@@ -104,7 +104,7 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
-     * The unique ID of the operation associated with deployment.
+     * Unique ID of the operation associated with deployment.
      */
     operationId?: pulumi.Input<string | undefined>;
     /**
@@ -112,11 +112,11 @@ export interface DeploymentState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the App Runner service deployment.
+     * Current status of the App Runner service deployment.
      */
     status?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts | undefined>;
@@ -131,7 +131,7 @@ export interface DeploymentArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+     * Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      */
     serviceArn: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.apprunner.DeploymentTimeouts | undefined>;

@@ -282,11 +282,8 @@ class _StageState:
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] description: Description of the stage.
         :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
@@ -447,9 +444,7 @@ class _StageState:
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        Execution ARN to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
         return pulumi.get(self, "execution_arn")
 
@@ -461,8 +456,7 @@ class _StageState:
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
 
@@ -783,11 +777,8 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] deployment: ID of the deployment that the stage points to
         :param pulumi.Input[_builtins.str] description: Description of the stage.
         :param pulumi.Input[_builtins.str] documentation_version: Version of the associated API documentation.
-        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[_builtins.str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        :param pulumi.Input[_builtins.str] invoke_url: URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] stage_name: Name of the stage
@@ -898,9 +889,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        Execution ARN to be used in `lambda_permission`'s `source_arn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
         return pulumi.get(self, "execution_arn")
 
@@ -908,8 +897,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="invokeUrl")
     def invoke_url(self) -> pulumi.Output[_builtins.str]:
         """
-        URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         """
         return pulumi.get(self, "invoke_url")
 

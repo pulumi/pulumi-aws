@@ -408,7 +408,7 @@ type DomainNameDomainNameConfiguration struct {
 	EndpointType string `pulumi:"endpointType"`
 	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+	// IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
@@ -436,7 +436,7 @@ type DomainNameDomainNameConfigurationArgs struct {
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
 	// Amazon Route 53 Hosted Zone ID of the endpoint.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
-	// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+	// IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
@@ -538,7 +538,7 @@ func (o DomainNameDomainNameConfigurationOutput) HostedZoneId() pulumi.StringPtr
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+// IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
 func (o DomainNameDomainNameConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -612,7 +612,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+// IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
 func (o DomainNameDomainNameConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -809,8 +809,7 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 }
 
 type IntegrationResponseParameter struct {
-	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	Mappings map[string]string `pulumi:"mappings"`
 	// HTTP status code in the range 200-599.
 	StatusCode string `pulumi:"statusCode"`
@@ -828,8 +827,7 @@ type IntegrationResponseParameterInput interface {
 }
 
 type IntegrationResponseParameterArgs struct {
-	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+	// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 	Mappings pulumi.StringMapInput `pulumi:"mappings"`
 	// HTTP status code in the range 200-599.
 	StatusCode pulumi.StringInput `pulumi:"statusCode"`
@@ -886,8 +884,7 @@ func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutput
 	return o
 }
 
-// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+// Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter. See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
 func (o IntegrationResponseParameterOutput) Mappings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationResponseParameter) map[string]string { return v.Mappings }).(pulumi.StringMapOutput)
 }
@@ -1057,7 +1054,7 @@ func (o IntegrationTlsConfigPtrOutput) ServerNameToVerify() pulumi.StringPtrOutp
 type RouteRequestParameter struct {
 	// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
 	RequestParameterKey string `pulumi:"requestParameterKey"`
-	// Boolean whether or not the parameter is required.
+	// Whether the parameter is required.
 	Required bool `pulumi:"required"`
 }
 
@@ -1075,7 +1072,7 @@ type RouteRequestParameterInput interface {
 type RouteRequestParameterArgs struct {
 	// Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
 	RequestParameterKey pulumi.StringInput `pulumi:"requestParameterKey"`
-	// Boolean whether or not the parameter is required.
+	// Whether the parameter is required.
 	Required pulumi.BoolInput `pulumi:"required"`
 }
 
@@ -1135,7 +1132,7 @@ func (o RouteRequestParameterOutput) RequestParameterKey() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteRequestParameter) string { return v.RequestParameterKey }).(pulumi.StringOutput)
 }
 
-// Boolean whether or not the parameter is required.
+// Whether the parameter is required.
 func (o RouteRequestParameterOutput) Required() pulumi.BoolOutput {
 	return o.ApplyT(func(v RouteRequestParameter) bool { return v.Required }).(pulumi.BoolOutput)
 }
@@ -1328,9 +1325,9 @@ func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
 }
 
 type RoutingRuleCondition struct {
-	// The base path to be matched. See below.
+	// Base path to be matched. See below.
 	MatchBasePaths *RoutingRuleConditionMatchBasePaths `pulumi:"matchBasePaths"`
-	// The headers to be matched. See below.
+	// Headers to be matched. See below.
 	MatchHeaders *RoutingRuleConditionMatchHeaders `pulumi:"matchHeaders"`
 }
 
@@ -1346,9 +1343,9 @@ type RoutingRuleConditionInput interface {
 }
 
 type RoutingRuleConditionArgs struct {
-	// The base path to be matched. See below.
+	// Base path to be matched. See below.
 	MatchBasePaths RoutingRuleConditionMatchBasePathsPtrInput `pulumi:"matchBasePaths"`
-	// The headers to be matched. See below.
+	// Headers to be matched. See below.
 	MatchHeaders RoutingRuleConditionMatchHeadersPtrInput `pulumi:"matchHeaders"`
 }
 
@@ -1403,12 +1400,12 @@ func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutputWithContext(ctx 
 	return o
 }
 
-// The base path to be matched. See below.
+// Base path to be matched. See below.
 func (o RoutingRuleConditionOutput) MatchBasePaths() RoutingRuleConditionMatchBasePathsPtrOutput {
 	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleConditionMatchBasePaths { return v.MatchBasePaths }).(RoutingRuleConditionMatchBasePathsPtrOutput)
 }
 
-// The headers to be matched. See below.
+// Headers to be matched. See below.
 func (o RoutingRuleConditionOutput) MatchHeaders() RoutingRuleConditionMatchHeadersPtrOutput {
 	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleConditionMatchHeaders { return v.MatchHeaders }).(RoutingRuleConditionMatchHeadersPtrOutput)
 }
@@ -1708,9 +1705,9 @@ func (o RoutingRuleConditionMatchHeadersPtrOutput) AnyOf() RoutingRuleConditionM
 }
 
 type RoutingRuleConditionMatchHeadersAnyOf struct {
-	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+	// Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
 	Header string `pulumi:"header"`
-	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+	// Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
 	ValueGlob string `pulumi:"valueGlob"`
 }
 
@@ -1726,9 +1723,9 @@ type RoutingRuleConditionMatchHeadersAnyOfInput interface {
 }
 
 type RoutingRuleConditionMatchHeadersAnyOfArgs struct {
-	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+	// Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
 	Header pulumi.StringInput `pulumi:"header"`
-	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+	// Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
 	ValueGlob pulumi.StringInput `pulumi:"valueGlob"`
 }
 
@@ -1809,12 +1806,12 @@ func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ToRoutingRuleConditionMatch
 	}).(RoutingRuleConditionMatchHeadersAnyOfPtrOutput)
 }
 
-// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+// Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
 func (o RoutingRuleConditionMatchHeadersAnyOfOutput) Header() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleConditionMatchHeadersAnyOf) string { return v.Header }).(pulumi.StringOutput)
 }
 
-// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+// Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
 func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ValueGlob() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleConditionMatchHeadersAnyOf) string { return v.ValueGlob }).(pulumi.StringOutput)
 }
@@ -1843,7 +1840,7 @@ func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) Elem() RoutingRuleCondit
 	}).(RoutingRuleConditionMatchHeadersAnyOfOutput)
 }
 
-// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+// Case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
 func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) Header() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoutingRuleConditionMatchHeadersAnyOf) *string {
 		if v == nil {
@@ -1853,7 +1850,7 @@ func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) Header() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+// Case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
 func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) ValueGlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RoutingRuleConditionMatchHeadersAnyOf) *string {
 		if v == nil {
@@ -2020,13 +2017,11 @@ func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 }
 
 type StageDefaultRouteSettings struct {
-	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
 	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
 	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// Throttling burst limit for the default route.
 	ThrottlingBurstLimit *int `pulumi:"throttlingBurstLimit"`
@@ -2046,13 +2041,11 @@ type StageDefaultRouteSettingsInput interface {
 }
 
 type StageDefaultRouteSettingsArgs struct {
-	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
 	// Whether detailed metrics are enabled for the default route. Defaults to `false`.
 	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+	// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
 	// Throttling burst limit for the default route.
 	ThrottlingBurstLimit pulumi.IntPtrInput `pulumi:"throttlingBurstLimit"`
@@ -2137,8 +2130,7 @@ func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutputWit
 	}).(StageDefaultRouteSettingsPtrOutput)
 }
 
-// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Defaults to `false`. Supported only for WebSocket APIs.
+// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2148,8 +2140,7 @@ func (o StageDefaultRouteSettingsOutput) DetailedMetricsEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v StageDefaultRouteSettings) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 func (o StageDefaultRouteSettingsOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageDefaultRouteSettings) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }
@@ -2188,8 +2179,7 @@ func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutp
 	}).(StageDefaultRouteSettingsOutput)
 }
 
-// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Defaults to `false`. Supported only for WebSocket APIs.
+// Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageDefaultRouteSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *bool {
 		if v == nil {
@@ -2209,8 +2199,7 @@ func (o StageDefaultRouteSettingsPtrOutput) DetailedMetricsEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+// Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 func (o StageDefaultRouteSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StageDefaultRouteSettings) *string {
 		if v == nil {
@@ -2241,13 +2230,11 @@ func (o StageDefaultRouteSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64
 }
 
 type StageRouteSetting struct {
-	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled *bool `pulumi:"dataTraceEnabled"`
 	// Whether detailed metrics are enabled for the route. Defaults to `false`.
 	DetailedMetricsEnabled *bool `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel *string `pulumi:"loggingLevel"`
 	// Route key.
 	RouteKey string `pulumi:"routeKey"`
@@ -2269,13 +2256,11 @@ type StageRouteSettingInput interface {
 }
 
 type StageRouteSettingArgs struct {
-	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Defaults to `false`. Supported only for WebSocket APIs.
+	// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 	DataTraceEnabled pulumi.BoolPtrInput `pulumi:"dataTraceEnabled"`
 	// Whether detailed metrics are enabled for the route. Defaults to `false`.
 	DetailedMetricsEnabled pulumi.BoolPtrInput `pulumi:"detailedMetricsEnabled"`
-	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-	// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+	// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 	LoggingLevel pulumi.StringPtrInput `pulumi:"loggingLevel"`
 	// Route key.
 	RouteKey pulumi.StringInput `pulumi:"routeKey"`
@@ -2336,8 +2321,7 @@ func (o StageRouteSettingOutput) ToStageRouteSettingOutputWithContext(ctx contex
 	return o
 }
 
-// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Defaults to `false`. Supported only for WebSocket APIs.
+// Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Defaults to `false`. Supported only for WebSocket APIs.
 func (o StageRouteSettingOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageRouteSetting) *bool { return v.DataTraceEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2347,8 +2331,7 @@ func (o StageRouteSettingOutput) DetailedMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageRouteSetting) *bool { return v.DetailedMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-// Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+// Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs. Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
 func (o StageRouteSettingOutput) LoggingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StageRouteSetting) *string { return v.LoggingLevel }).(pulumi.StringPtrOutput)
 }

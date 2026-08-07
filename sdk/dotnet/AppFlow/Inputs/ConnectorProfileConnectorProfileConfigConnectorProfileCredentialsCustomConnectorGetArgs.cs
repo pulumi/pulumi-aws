@@ -12,29 +12,32 @@ namespace Pulumi.Aws.AppFlow.Inputs
 
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        /// </summary>
         [Input("apiKey")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyGetArgs>? ApiKey { get; set; }
 
         /// <summary>
-        /// The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+        /// Authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Basic credentials that are required for the authentication of the user.
+        /// Basic credentials that are required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.basic` Block for details.
         /// </summary>
         [Input("basic")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicGetArgs>? Basic { get; set; }
 
         /// <summary>
-        /// If the connector uses the custom authentication mechanism, this holds the required credentials.
+        /// Credentials required when the connector uses the custom authentication mechanism. See `connector_profile_config.connector_profile_credentials.custom_connector.custom` Block for details.
         /// </summary>
         [Input("custom")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomGetArgs>? Custom { get; set; }
 
         /// <summary>
-        /// OAuth 2.0 credentials required for the authentication of the user.
+        /// OAuth 2.0 credentials required for the authentication of the user. See `connector_profile_config.connector_profile_credentials.custom_connector.oauth2` Block for details.
         /// </summary>
         [Input("oauth2")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2GetArgs>? Oauth2 { get; set; }

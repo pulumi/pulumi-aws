@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppFabric.Inputs
         private InputList<Inputs.AppAuthorizationCredentialApiKeyCredentialGetArgs>? _apiKeyCredentials;
 
         /// <summary>
-        /// Contains API key credential information.
+        /// API key credential information. See `ApiKeyCredential` Block for details.
         /// </summary>
         public InputList<Inputs.AppAuthorizationCredentialApiKeyCredentialGetArgs> ApiKeyCredentials
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppFabric.Inputs
         }
 
         /// <summary>
-        /// Contains OAuth2 client credential information.
+        /// OAuth2 client credential information. See `Oauth2Credential` Block for details.
         /// </summary>
         [Input("oauth2Credential")]
         public Input<Inputs.AppAuthorizationCredentialOauth2CredentialGetArgs>? Oauth2Credential { get; set; }

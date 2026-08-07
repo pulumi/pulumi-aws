@@ -58,7 +58,7 @@ type GetNetworkPeeringConnectionsArgs struct {
 
 // A collection of values returned by getNetworkPeeringConnections.
 type GetNetworkPeeringConnectionsResult struct {
-	// The list of ODB peering connections. A summary of an ODB peering connection.
+	// List of ODB peering connections. A summary of an ODB peering connection.
 	OdbPeeringConnections []GetNetworkPeeringConnectionsOdbPeeringConnection `pulumi:"odbPeeringConnections"`
 	Region                string                                             `pulumi:"region"`
 }
@@ -97,7 +97,7 @@ func (o GetNetworkPeeringConnectionsResultOutput) ToGetNetworkPeeringConnections
 	return o
 }
 
-// The list of ODB peering connections. A summary of an ODB peering connection.
+// List of ODB peering connections. A summary of an ODB peering connection.
 func (o GetNetworkPeeringConnectionsResultOutput) OdbPeeringConnections() GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsResult) []GetNetworkPeeringConnectionsOdbPeeringConnection {
 		return v.OdbPeeringConnections

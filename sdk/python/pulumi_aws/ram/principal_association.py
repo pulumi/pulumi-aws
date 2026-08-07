@@ -25,8 +25,8 @@ class PrincipalAssociationArgs:
         """
         The set of arguments for constructing a PrincipalAssociation resource.
 
-        :param pulumi.Input[_builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] principal: Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "principal", principal)
@@ -38,7 +38,7 @@ class PrincipalAssociationArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[_builtins.str]:
         """
-        The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         """
         return pulumi.get(self, "principal")
 
@@ -50,7 +50,7 @@ class PrincipalAssociationArgs:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        Amazon Resource Name (ARN) of the resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -80,9 +80,9 @@ class _PrincipalAssociationState:
         """
         Input properties used for looking up and filtering PrincipalAssociation resources.
 
-        :param pulumi.Input[_builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[_builtins.str] principal: Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share.
         """
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
@@ -95,7 +95,7 @@ class _PrincipalAssociationState:
     @pulumi.getter
     def principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         """
         return pulumi.get(self, "principal")
 
@@ -119,7 +119,7 @@ class _PrincipalAssociationState:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        Amazon Resource Name (ARN) of the resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -187,9 +187,9 @@ class PrincipalAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[_builtins.str] principal: Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share.
         """
         ...
     @overload
@@ -298,9 +298,9 @@ class PrincipalAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] principal: The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        :param pulumi.Input[_builtins.str] principal: Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) of the resource share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,7 +315,7 @@ class PrincipalAssociation(pulumi.CustomResource):
     @pulumi.getter
     def principal(self) -> pulumi.Output[_builtins.str]:
         """
-        The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
+        Principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
         """
         return pulumi.get(self, "principal")
 
@@ -331,7 +331,7 @@ class PrincipalAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the resource share.
+        Amazon Resource Name (ARN) of the resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 

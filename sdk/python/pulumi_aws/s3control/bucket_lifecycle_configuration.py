@@ -28,7 +28,7 @@ class BucketLifecycleConfigurationArgs:
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
 
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -52,7 +52,7 @@ class BucketLifecycleConfigurationArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]:
         """
-        Configuration block(s) containing lifecycle rules for the bucket.
+        Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         return pulumi.get(self, "rules")
 
@@ -84,7 +84,7 @@ class _BucketLifecycleConfigurationState:
 
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -121,7 +121,7 @@ class _BucketLifecycleConfigurationState:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]]:
         """
-        Configuration block(s) containing lifecycle rules for the bucket.
+        Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         return pulumi.get(self, "rules")
 
@@ -190,7 +190,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         ...
     @overload
@@ -300,7 +300,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -331,7 +331,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.BucketLifecycleConfigurationRule']]:
         """
-        Configuration block(s) containing lifecycle rules for the bucket.
+        Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
         return pulumi.get(self, "rules")
 

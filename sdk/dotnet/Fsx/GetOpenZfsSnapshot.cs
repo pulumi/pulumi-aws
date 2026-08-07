@@ -130,8 +130,7 @@ namespace Pulumi.Aws.Fsx
         private List<Inputs.GetOpenZfsSnapshotFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. The
-        /// supported names are file-system-id or volume-id.
+        /// Configuration block. Detailed below.
         /// </summary>
         public List<Inputs.GetOpenZfsSnapshotFilterArgs> Filters
         {
@@ -193,8 +192,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<Inputs.GetOpenZfsSnapshotFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. The
-        /// supported names are file-system-id or volume-id.
+        /// Configuration block. Detailed below.
         /// </summary>
         public InputList<Inputs.GetOpenZfsSnapshotFilterInputArgs> Filters
         {

@@ -64,7 +64,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public readonly certificateArn: pulumi.Output<string>;
     /**
-     * A description of the Domain Name.
+     * Description of the Domain Name.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -132,7 +132,7 @@ export interface DomainNameState {
      */
     certificateArn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the Domain Name.
+     * Description of the Domain Name.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface DomainNameArgs {
      */
     certificateArn: pulumi.Input<string>;
     /**
-     * A description of the Domain Name.
+     * Description of the Domain Name.
      */
     description?: pulumi.Input<string | undefined>;
     /**

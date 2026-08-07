@@ -17,14 +17,14 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
     public static final ExperimentTemplateExperimentReportConfigurationDataSourcesArgs Empty = new ExperimentTemplateExperimentReportConfigurationDataSourcesArgs();
 
     /**
-     * The data sources for the experiment report. See below.
+     * Data sources for the experiment report. See below.
      * 
      */
     @Import(name="cloudwatchDashboards")
     private @Nullable Output<List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>> cloudwatchDashboards;
 
     /**
-     * @return The data sources for the experiment report. See below.
+     * @return Data sources for the experiment report. See below.
      * 
      */
     public Optional<Output<List<ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs>>> cloudwatchDashboards() {
@@ -56,7 +56,7 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
         }
 
         /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
+         * @param cloudwatchDashboards Data sources for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
         }
 
         /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
+         * @param cloudwatchDashboards Data sources for the experiment report. See below.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ExperimentTemplateExperimentReportConfigurationDataSourcesArg
         }
 
         /**
-         * @param cloudwatchDashboards The data sources for the experiment report. See below.
+         * @param cloudwatchDashboards Data sources for the experiment report. See below.
          * 
          * @return builder
          * 

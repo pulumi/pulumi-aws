@@ -38,7 +38,7 @@ export function getCloudVmCluster(args: GetCloudVmClusterArgs, opts?: pulumi.Inv
  */
 export interface GetCloudVmClusterArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */
@@ -54,143 +54,149 @@ export interface GetCloudVmClusterArgs {
  */
 export interface GetCloudVmClusterResult {
     /**
-     * The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * Amazon Resource Name (ARN) for the cloud vm cluster.
      */
     readonly arn: string;
+    /**
+     * ARN of the Cloud Exadata Infrastructure.
+     */
     readonly cloudExadataInfrastructureArn: string;
     /**
-     * The ID of the Cloud Exadata Infrastructure.
+     * ID of the Cloud Exadata Infrastructure.
      */
     readonly cloudExadataInfrastructureId: string;
     /**
-     * The name of the Grid Infrastructure (GI) cluster.
+     * Name of the Grid Infrastructure (GI) cluster.
      */
     readonly clusterName: string;
     /**
-     * The OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
+     * OCI model compute model used when you create or clone an instance: ECPU or OCPU. An ECPU is an abstracted measure of compute resources. ECPUs are based on the number of cores elastically allocated from a pool of compute and storage servers. An OCPU is a legacy physical measure of compute resources. OCPUs are based on the physical core of a processor with hyper-threading enabled.
      */
     readonly computeModel: string;
     /**
-     * The number of CPU cores enabled on the VM cluster.
+     * Number of CPU cores enabled on the VM cluster.
      */
     readonly cpuCoreCount: number;
     /**
-     * The time when the VM cluster was created.
+     * Time when the VM cluster was created.
      */
     readonly createdAt: string;
     /**
-     * The set of diagnostic collection options enabled for the VM cluster.
+     * Set of diagnostic collection options enabled for the VM cluster.
      */
     readonly dataCollectionOptions: outputs.odb.GetCloudVmClusterDataCollectionOption[];
     /**
-     * The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
+     * Size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
      */
     readonly dataStorageSizeInTbs: number;
     /**
-     * The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
+     * Amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
      */
     readonly dbNodeStorageSizeInGbs: number;
     /**
-     * The list of database servers for the VM cluster.
+     * List of database servers for the VM cluster.
      */
     readonly dbServers: string[];
     /**
-     * The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
+     * Type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
      */
     readonly diskRedundancy: string;
     /**
-     * The display name of the VM cluster.
+     * Display name of the VM cluster.
      */
     readonly displayName: string;
     /**
-     * The domain name of the VM cluster.
+     * Domain name of the VM cluster.
      */
     readonly domain: string;
     /**
-     * The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
+     * Software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
      */
     readonly giVersion: string;
     /**
-     * The computed hostname prefix for the VM cluster.
+     * Computed hostname prefix for the VM cluster.
      */
     readonly hostnamePrefixComputed: string;
     readonly id: string;
     /**
-     * The ExadataIormConfig cache details for the VM cluster.
+     * ExadataIormConfig cache details for the VM cluster.
      */
     readonly iormConfigCaches: outputs.odb.GetCloudVmClusterIormConfigCache[];
     /**
-     * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
+     * Whether database backups to local Exadata storage is enabled for the VM cluster.
      */
     readonly isLocalBackupEnabled: boolean;
     /**
-     * Indicates whether the VM cluster is configured with a sparse disk group.
+     * Whether the VM cluster is configured with a sparse disk group.
      */
     readonly isSparseDiskGroupEnabled: boolean;
     /**
-     * The Oracle Cloud ID (OCID) of the last maintenance update history entry.
+     * Oracle Cloud ID (OCID) of the last maintenance update history entry.
      */
     readonly lastUpdateHistoryEntryId: string;
     /**
-     * The Oracle license model applied to the VM cluster.
+     * Oracle license model applied to the VM cluster.
      */
     readonly licenseModel: string;
     /**
-     * The port number configured for the listener on the VM cluster.
+     * Port number configured for the listener on the VM cluster.
      */
     readonly listenerPort: number;
     /**
-     * The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
+     * Amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
      */
     readonly memorySizeInGbs: number;
     /**
-     * The number of nodes in the VM cluster.
+     * Number of nodes in the VM cluster.
      */
     readonly nodeCount: number;
     /**
-     * The name of the OCI Resource Anchor.
+     * Name of the OCI Resource Anchor.
      */
     readonly ociResourceAnchorName: string;
     /**
-     * The HTTPS link to the VM cluster in OCI.
+     * HTTPS link to the VM cluster in OCI.
      */
     readonly ociUrl: string;
     /**
-     * The OCID of the VM cluster.
+     * OCID of the VM cluster.
      */
     readonly ocid: string;
+    /**
+     * ARN of the ODB network.
+     */
     readonly odbNetworkArn: string;
     /**
-     * The ID of the ODB network.
+     * ID of the ODB network.
      */
     readonly odbNetworkId: string;
     /**
-     * The amount of progress made on the current operation on the VM cluster, expressed as a percentage.
+     * Amount of progress made on the current operation on the VM cluster, expressed as a percentage.
      */
     readonly percentProgress: number;
     readonly region: string;
     /**
-     * The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
+     * FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.
      */
     readonly scanDnsName: string;
     /**
-     * The OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
+     * OCID of the DNS record for the SCAN IP addresses that are associated with the VM cluster.
      */
     readonly scanDnsRecordId: string;
     /**
-     * The OCID of the SCAN IP addresses that are associated with the VM cluster.
+     * OCID of the SCAN IP addresses that are associated with the VM cluster.
      */
     readonly scanIpIds: string[];
     /**
-     * The hardware model name of the Exadata infrastructure that's running the VM cluster.
+     * Hardware model name of the Exadata infrastructure that's running the VM cluster.
      */
     readonly shape: string;
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster.
+     * Public key portion of one or more key pairs used for SSH access to the VM cluster.
      */
     readonly sshPublicKeys: string[];
     /**
-     * The status of the VM cluster.
+     * Status of the VM cluster.
      */
     readonly status: string;
     /**
@@ -198,20 +204,23 @@ export interface GetCloudVmClusterResult {
      */
     readonly statusReason: string;
     /**
-     * The amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
+     * Amount of local node storage, in gigabytes (GB), that's allocated to the VM cluster.
      */
     readonly storageSizeInGbs: number;
     /**
-     * The operating system version of the image chosen for the VM cluster.
+     * Operating system version of the image chosen for the VM cluster.
      */
     readonly systemVersion: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
     /**
-     * The time zone of the VM cluster.
+     * Time zone of the VM cluster.
      */
     readonly timezone: string;
     /**
-     * The virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
+     * Virtual IP (VIP) addresses that are associated with the VM cluster. Oracle's Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the VM cluster to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster.
      */
     readonly vipIds: string[];
 }
@@ -246,7 +255,7 @@ export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?
  */
 export interface GetCloudVmClusterOutputArgs {
     /**
-     * The unique identifier of the cloud vm cluster.
+     * Unique identifier of the cloud vm cluster.
      *
      * The following arguments are optional:
      */

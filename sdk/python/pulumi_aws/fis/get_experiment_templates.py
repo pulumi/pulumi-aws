@@ -108,8 +108,7 @@ def get_experiment_templates(region: Optional[_builtins.str] = None,
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired experiment templates.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -162,8 +161,7 @@ def get_experiment_templates_output(region: pulumi.Input[Optional[Optional[_buil
 
 
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired experiment templates.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
     """
     __args__ = dict()
     __args__['region'] = region

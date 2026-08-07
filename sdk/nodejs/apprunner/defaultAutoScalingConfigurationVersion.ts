@@ -62,7 +62,7 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
     }
 
     /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     declare public readonly autoScalingConfigurationArn: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class DefaultAutoScalingConfigurationVersion extends pulumi.CustomResourc
  */
 export interface DefaultAutoScalingConfigurationVersionState {
     /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     autoScalingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -117,7 +117,7 @@ export interface DefaultAutoScalingConfigurationVersionState {
  */
 export interface DefaultAutoScalingConfigurationVersionArgs {
     /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * ARN of the App Runner auto scaling configuration that you want to set as the default.
      */
     autoScalingConfigurationArn: pulumi.Input<string>;
     /**

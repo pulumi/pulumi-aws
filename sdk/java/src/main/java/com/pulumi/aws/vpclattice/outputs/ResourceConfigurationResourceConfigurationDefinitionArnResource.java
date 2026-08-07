@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ResourceConfigurationResourceConfigurationDefinitionArnResource {
     /**
-     * @return The ARN of the Resource for this configuration.
+     * @return ARN of the Resource for this configuration.
      * 
      */
     private String arn;
 
     private ResourceConfigurationResourceConfigurationDefinitionArnResource() {}
     /**
-     * @return The ARN of the Resource for this configuration.
+     * @return ARN of the Resource for this configuration.
      * 
      */
     public String arn() {

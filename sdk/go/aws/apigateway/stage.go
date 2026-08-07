@@ -94,12 +94,9 @@ type Stage struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -176,12 +173,9 @@ type stageState struct {
 	Description *string `pulumi:"description"`
 	// Version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
-	// URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -220,12 +214,9 @@ type StageState struct {
 	Description pulumi.StringPtrInput
 	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
-	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput
-	// URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -444,15 +435,12 @@ func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
 
-// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-// when allowing API Gateway to invoke a Lambda function,
-// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+// Execution ARN to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 func (o StageOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
 }
 
-// URL to invoke the API pointing to the stage,
-// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+// URL to invoke the API pointing to the stage, e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
 }

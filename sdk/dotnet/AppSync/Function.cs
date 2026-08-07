@@ -136,7 +136,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
         [Output("code")]
         public Output<string?> Code { get; private set; } = null!;
@@ -196,13 +196,13 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> ResponseMappingTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
+        /// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
         /// </summary>
         [Output("runtime")]
         public Output<Outputs.FunctionRuntime?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `SyncConfig` Block for details.
+        /// Sync configuration for a resolver. See `SyncConfig` Block for details.
         /// </summary>
         [Output("syncConfig")]
         public Output<Outputs.FunctionSyncConfig?> SyncConfig { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }
@@ -314,13 +314,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ResponseMappingTemplate { get; set; }
 
         /// <summary>
-        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
+        /// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
         /// </summary>
         [Input("runtime")]
         public Input<Inputs.FunctionRuntimeArgs>? Runtime { get; set; }
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `SyncConfig` Block for details.
+        /// Sync configuration for a resolver. See `SyncConfig` Block for details.
         /// </summary>
         [Input("syncConfig")]
         public Input<Inputs.FunctionSyncConfigArgs>? SyncConfig { get; set; }
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+        /// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }
@@ -406,13 +406,13 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ResponseMappingTemplate { get; set; }
 
         /// <summary>
-        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
+        /// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `Runtime` Block for details.
         /// </summary>
         [Input("runtime")]
         public Input<Inputs.FunctionRuntimeGetArgs>? Runtime { get; set; }
 
         /// <summary>
-        /// Describes a Sync configuration for a resolver. See `SyncConfig` Block for details.
+        /// Sync configuration for a resolver. See `SyncConfig` Block for details.
         /// </summary>
         [Input("syncConfig")]
         public Input<Inputs.FunctionSyncConfigGetArgs>? SyncConfig { get; set; }

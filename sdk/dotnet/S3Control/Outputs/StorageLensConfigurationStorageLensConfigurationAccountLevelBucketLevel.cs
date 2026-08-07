@@ -14,27 +14,27 @@ namespace Pulumi.Aws.S3Control.Outputs
     public sealed class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
     {
         /// <summary>
-        /// S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        /// S3 Storage Lens activity metrics. See `ActivityMetrics` above for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics? ActivityMetrics;
         /// <summary>
-        /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        /// Advanced cost-optimization metrics for S3 Storage Lens. See `AdvancedCostOptimizationMetrics` above for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics;
         /// <summary>
-        /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        /// Advanced data-protection metrics for S3 Storage Lens. See `AdvancedDataProtectionMetrics` above for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
         /// <summary>
-        /// Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
+        /// Advanced performance metrics for S3 Storage Lens. See `AdvancedPerformanceMetrics` above for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetrics? AdvancedPerformanceMetrics;
         /// <summary>
-        /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+        /// Detailed status code metrics for S3 Storage Lens. See `DetailedStatusCodeMetrics` above for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics? DetailedStatusCodeMetrics;
         /// <summary>
-        /// Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        /// Prefix-level metrics for S3 Storage Lens. See `PrefixLevel` below for more details.
         /// </summary>
         public readonly Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel? PrefixLevel;
 

@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ram
         private List<Inputs.GetResourceShareFilterArgs>? _filters;
 
         /// <summary>
-        /// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list e.g., by tags. See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetResourceShareFilterArgs> Filters
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ram
         public string ResourceOwner { get; set; } = null!;
 
         /// <summary>
-        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+        /// Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
         /// </summary>
         [Input("resourceShareStatus")]
         public string? ResourceShareStatus { get; set; }
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Ram
         private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Filter used to scope the list of owned shares e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// Filter used to scope the list e.g., by tags. See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetResourceShareFilterInputArgs> Filters
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Ram
         public Input<string> ResourceOwner { get; set; } = null!;
 
         /// <summary>
-        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+        /// Status of resource shares to retrieve. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
         /// </summary>
         [Input("resourceShareStatus")]
         public Input<string>? ResourceShareStatus { get; set; }
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ram
         public readonly string OwningAccountId;
         public readonly string Region;
         /// <summary>
-        /// A list of resource ARNs associated with the resource share.
+        /// List of resource ARNs associated with the resource share.
         /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
         public readonly string ResourceOwner;

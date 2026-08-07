@@ -83,27 +83,27 @@ export class AccessGrant extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accessGrantId: pulumi.Output<string>;
     /**
-     * See Location Configuration below for more details.
+     * See `accessGrantsLocationConfiguration` Block below for more details.
      */
     declare public readonly accessGrantsLocationConfiguration: pulumi.Output<outputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
+     * ID of the S3 Access Grants location to with the access grant is giving access.
      */
     declare public readonly accessGrantsLocationId: pulumi.Output<string>;
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The access grant's scope.
+     * Access grant's scope.
      */
     declare public /*out*/ readonly grantScope: pulumi.Output<string>;
     /**
-     * See Grantee below for more details.
+     * See `grantee` Block below for more details.
      */
     declare public readonly grantee: pulumi.Output<outputs.s3control.AccessGrantGrantee>;
     /**
-     * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
     declare public readonly permission: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class AccessGrant extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -190,27 +190,27 @@ export interface AccessGrantState {
      */
     accessGrantId?: pulumi.Input<string | undefined>;
     /**
-     * See Location Configuration below for more details.
+     * See `accessGrantsLocationConfiguration` Block below for more details.
      */
     accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
+     * ID of the S3 Access Grants location to with the access grant is giving access.
      */
     accessGrantsLocationId?: pulumi.Input<string | undefined>;
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The access grant's scope.
+     * Access grant's scope.
      */
     grantScope?: pulumi.Input<string | undefined>;
     /**
-     * See Grantee below for more details.
+     * See `grantee` Block below for more details.
      */
     grantee?: pulumi.Input<inputs.s3control.AccessGrantGrantee | undefined>;
     /**
-     * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
     permission?: pulumi.Input<string | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface AccessGrantState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -236,23 +236,23 @@ export interface AccessGrantState {
  */
 export interface AccessGrantArgs {
     /**
-     * See Location Configuration below for more details.
+     * See `accessGrantsLocationConfiguration` Block below for more details.
      */
     accessGrantsLocationConfiguration?: pulumi.Input<inputs.s3control.AccessGrantAccessGrantsLocationConfiguration | undefined>;
     /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
+     * ID of the S3 Access Grants location to with the access grant is giving access.
      */
     accessGrantsLocationId: pulumi.Input<string>;
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * See Grantee below for more details.
+     * See `grantee` Block below for more details.
      */
     grantee: pulumi.Input<inputs.s3control.AccessGrantGrantee>;
     /**
-     * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
     permission: pulumi.Input<string>;
     /**

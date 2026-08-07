@@ -14,34 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
     /**
-     * @return Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+     * @return Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
      * 
      */
     private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues codeConfigurationValues;
     /**
-     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-     * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-     *   source code repository and ignores the CodeConfigurationValues parameter.
-     * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-     *   parameter and ignores the apprunner.yaml file in the source code repository.
+     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
      * 
      */
     private String configurationSource;
 
     private ServiceSourceConfigurationCodeRepositoryCodeConfiguration() {}
     /**
-     * @return Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+     * @return Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `codeConfigurationValues` below.
      * 
      */
     public Optional<ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues> codeConfigurationValues() {
         return Optional.ofNullable(this.codeConfigurationValues);
     }
     /**
-     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-     * * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-     *   source code repository and ignores the CodeConfigurationValues parameter.
-     * * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-     *   parameter and ignores the apprunner.yaml file in the source code repository.
+     * @return Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `codeConfigurationValues`. Use `API` to have App Runner use the configuration values provided in `codeConfigurationValues` and ignore the `apprunner.yaml` file in the source code repository.
      * 
      */
     public String configurationSource() {

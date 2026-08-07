@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Ecs.Inputs
 
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum total accelerator memory, in MiB.
+        /// </summary>
         [Input("max")]
         public Input<int>? Max { get; set; }
 
+        /// <summary>
+        /// Minimum total accelerator memory, in MiB.
+        /// </summary>
         [Input("min")]
         public Input<int>? Min { get; set; }
 

@@ -11,13 +11,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+    /**
+     * @return Maximum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     private @Nullable Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps() {}
+    /**
+     * @return Maximum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum baseline Amazon EBS bandwidth, in Mbps.
+     * 
+     */
     public Optional<Integer> min() {
         return Optional.ofNullable(this.min);
     }

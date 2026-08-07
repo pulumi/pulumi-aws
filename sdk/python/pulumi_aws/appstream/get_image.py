@@ -90,7 +90,7 @@ class GetImageResult:
     @pulumi.getter
     def applications(self) -> Sequence['outputs.GetImageApplicationResult']:
         """
-        A application object that contains the following:
+        Application object that contains the following:
         """
         return pulumi.get(self, "applications")
 
@@ -146,7 +146,7 @@ class GetImageResult:
     @pulumi.getter(name="imageBuilderName")
     def image_builder_name(self) -> _builtins.str:
         """
-        The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
+        Name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
         """
         return pulumi.get(self, "image_builder_name")
 
@@ -281,7 +281,7 @@ def get_image(arn: Optional[_builtins.str] = None,
     :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
     :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+    :param _builtins.str type: Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -340,7 +340,7 @@ def get_image_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None
     :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
     :param _builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with `arn` or `name`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str type: The type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
+    :param _builtins.str type: Type of image which must be (`PUBLIC`, `PRIVATE`, or `SHARED`).
     """
     __args__ = dict()
     __args__['arn'] = arn

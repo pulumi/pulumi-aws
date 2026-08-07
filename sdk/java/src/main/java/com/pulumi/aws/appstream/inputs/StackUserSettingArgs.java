@@ -15,16 +15,14 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
     public static final StackUserSettingArgs Empty = new StackUserSettingArgs();
 
     /**
-     * Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+     * Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+     * @return Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
      * 
      */
     public Output<String> action() {
@@ -32,16 +30,14 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
+     * Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
      * 
      */
     @Import(name="permission", required=true)
     private Output<String> permission;
 
     /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
+     * @return Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
      * 
      */
     public Output<String> permission() {
@@ -74,8 +70,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Action that is enabled or disabled.
-         * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+         * @param action Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
          * 
          * @return builder
          * 
@@ -86,8 +81,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param action Action that is enabled or disabled.
-         * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
+         * @param action Action that is enabled or disabled. Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
          * 
          * @return builder
          * 
@@ -97,8 +91,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Whether the action is enabled or disabled.
-         * Valid values are `ENABLED` or `DISABLED`.
+         * @param permission Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
          * 
          * @return builder
          * 
@@ -109,8 +102,7 @@ public final class StackUserSettingArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param permission Whether the action is enabled or disabled.
-         * Valid values are `ENABLED` or `DISABLED`.
+         * @param permission Whether the action is enabled or disabled. Valid values are `ENABLED` or `DISABLED`.
          * 
          * @return builder
          * 

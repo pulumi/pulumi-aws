@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class ResourceConfigurationResourceConfigurationDefinitionDnsResource {
     /**
-     * @return The hostname of the Resource for this configuration.
+     * @return Hostname of the Resource for this configuration.
      * 
      */
     private String domainName;
     /**
-     * @return The IP Address type either `IPV4` or `IPV6`
+     * @return IP Address type either `IPV4` or `IPV6`
      * 
      */
     private String ipAddressType;
 
     private ResourceConfigurationResourceConfigurationDefinitionDnsResource() {}
     /**
-     * @return The hostname of the Resource for this configuration.
+     * @return Hostname of the Resource for this configuration.
      * 
      */
     public String domainName() {
         return this.domainName;
     }
     /**
-     * @return The IP Address type either `IPV4` or `IPV6`
+     * @return IP Address type either `IPV4` or `IPV6`
      * 
      */
     public String ipAddressType() {

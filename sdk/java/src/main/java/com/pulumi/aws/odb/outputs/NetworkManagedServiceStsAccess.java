@@ -14,12 +14,12 @@ public final class NetworkManagedServiceStsAccess {
     private String domainName;
     private List<String> ipv4Addresses;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
     /**
-     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * @return Endpoint policy for STS access from the ODB network.
      * 
      */
     private String stsPolicyDocument;
@@ -32,14 +32,14 @@ public final class NetworkManagedServiceStsAccess {
         return this.ipv4Addresses;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * @return Endpoint policy for STS access from the ODB network.
      * 
      */
     public String stsPolicyDocument() {

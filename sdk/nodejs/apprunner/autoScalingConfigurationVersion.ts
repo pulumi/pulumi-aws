@@ -75,10 +75,16 @@ export class AutoScalingConfigurationVersion extends pulumi.CustomResource {
      */
     declare public readonly autoScalingConfigurationName: pulumi.Output<string>;
     /**
-     * The revision of this auto scaling configuration.
+     * Revision of this auto scaling configuration.
      */
     declare public /*out*/ readonly autoScalingConfigurationRevision: pulumi.Output<number>;
+    /**
+     * Whether there is an App Runner service associated with this auto scaling configuration.
+     */
     declare public /*out*/ readonly hasAssociatedService: pulumi.Output<boolean>;
+    /**
+     * Whether the auto scaling configuration is the default for the AWS account and Region.
+     */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.
@@ -176,10 +182,16 @@ export interface AutoScalingConfigurationVersionState {
      */
     autoScalingConfigurationName?: pulumi.Input<string | undefined>;
     /**
-     * The revision of this auto scaling configuration.
+     * Revision of this auto scaling configuration.
      */
     autoScalingConfigurationRevision?: pulumi.Input<number | undefined>;
+    /**
+     * Whether there is an App Runner service associated with this auto scaling configuration.
+     */
     hasAssociatedService?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether the auto scaling configuration is the default for the AWS account and Region.
+     */
     isDefault?: pulumi.Input<boolean | undefined>;
     /**
      * Whether the auto scaling configuration has the highest `autoScalingConfigurationRevision` among all configurations that share the same `autoScalingConfigurationName`.

@@ -101,10 +101,10 @@ type KxUser struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// IAM role ARN to be associated with the user.
+	IamRole pulumi.StringOutput `pulumi:"iamRole"`
+	// Unique identifier for the user.
 	//
 	// The following arguments are optional:
-	IamRole pulumi.StringOutput `pulumi:"iamRole"`
-	// A unique identifier for the user.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -155,10 +155,10 @@ type kxUserState struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// IAM role ARN to be associated with the user.
+	IamRole *string `pulumi:"iamRole"`
+	// Unique identifier for the user.
 	//
 	// The following arguments are optional:
-	IamRole *string `pulumi:"iamRole"`
-	// A unique identifier for the user.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -174,10 +174,10 @@ type KxUserState struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringPtrInput
 	// IAM role ARN to be associated with the user.
+	IamRole pulumi.StringPtrInput
+	// Unique identifier for the user.
 	//
 	// The following arguments are optional:
-	IamRole pulumi.StringPtrInput
-	// A unique identifier for the user.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -195,10 +195,10 @@ type kxUserArgs struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId string `pulumi:"environmentId"`
 	// IAM role ARN to be associated with the user.
+	IamRole string `pulumi:"iamRole"`
+	// Unique identifier for the user.
 	//
 	// The following arguments are optional:
-	IamRole string `pulumi:"iamRole"`
-	// A unique identifier for the user.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -211,10 +211,10 @@ type KxUserArgs struct {
 	// Unique identifier for the KX environment.
 	EnvironmentId pulumi.StringInput
 	// IAM role ARN to be associated with the user.
+	IamRole pulumi.StringInput
+	// Unique identifier for the user.
 	//
 	// The following arguments are optional:
-	IamRole pulumi.StringInput
-	// A unique identifier for the user.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -320,13 +320,13 @@ func (o KxUserOutput) EnvironmentId() pulumi.StringOutput {
 }
 
 // IAM role ARN to be associated with the user.
-//
-// The following arguments are optional:
 func (o KxUserOutput) IamRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.IamRole }).(pulumi.StringOutput)
 }
 
-// A unique identifier for the user.
+// Unique identifier for the user.
+//
+// The following arguments are optional:
 func (o KxUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

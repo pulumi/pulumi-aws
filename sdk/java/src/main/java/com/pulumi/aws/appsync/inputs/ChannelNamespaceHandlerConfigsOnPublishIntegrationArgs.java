@@ -33,14 +33,14 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs extend
     }
 
     /**
-     * Configuration for a Lambda data source. See Lambda Config below.
+     * Configuration for a Lambda data source. See `lambdaConfig` below.
      * 
      */
     @Import(name="lambdaConfig")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs> lambdaConfig;
 
     /**
-     * @return Configuration for a Lambda data source. See Lambda Config below.
+     * @return Configuration for a Lambda data source. See `lambdaConfig` below.
      * 
      */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs>> lambdaConfig() {
@@ -94,7 +94,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs extend
         }
 
         /**
-         * @param lambdaConfig Configuration for a Lambda data source. See Lambda Config below.
+         * @param lambdaConfig Configuration for a Lambda data source. See `lambdaConfig` below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs extend
         }
 
         /**
-         * @param lambdaConfig Configuration for a Lambda data source. See Lambda Config below.
+         * @param lambdaConfig Configuration for a Lambda data source. See `lambdaConfig` below.
          * 
          * @return builder
          * 

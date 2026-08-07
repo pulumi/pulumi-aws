@@ -26,14 +26,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
     }
 
     /**
-     * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
      * 
      */
     @Import(name="paginationConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs> paginationConfig;
 
     /**
-     * @return Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+     * @return Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs>> paginationConfig() {
@@ -41,14 +41,14 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
     }
 
     /**
-     * Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
      * 
      */
     @Import(name="parallelismConfig")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs> parallelismConfig;
 
     /**
-     * @return Sets the number of concurrent processes that transfers OData records from your SAP instance.
+     * @return Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
      * 
      */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs>> parallelismConfig() {
@@ -91,7 +91,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         }
 
         /**
-         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         * @param paginationConfig Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         }
 
         /**
-         * @param paginationConfig Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+         * @param paginationConfig Page size for each concurrent process that transfers OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.pagination_config` Block for details.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         }
 
         /**
-         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         * @param parallelismConfig Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs ext
         }
 
         /**
-         * @param parallelismConfig Sets the number of concurrent processes that transfers OData records from your SAP instance.
+         * @param parallelismConfig Number of concurrent processes that transfer OData records from your SAP instance. See the `source_flow_config.source_connector_properties.sapo_data.parallelism_config` Block for details.
          * 
          * @return builder
          * 

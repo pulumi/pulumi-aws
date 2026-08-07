@@ -69,7 +69,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * Whether to automatically configure unmonitored resources in the resource group.
      */
     declare public readonly autoConfigEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -77,7 +77,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly autoCreate: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
     declare public readonly cweMonitorEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -166,7 +166,7 @@ export interface ApplicationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * Whether to automatically configure unmonitored resources in the resource group.
      */
     autoConfigEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ApplicationState {
      */
     autoCreate?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
     cweMonitorEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface ApplicationState {
  */
 export interface ApplicationArgs {
     /**
-     * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
+     * Whether to automatically configure unmonitored resources in the resource group.
      */
     autoConfigEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface ApplicationArgs {
      */
     autoCreate?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
+     * Whether to enable Application Insights to listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      */
     cweMonitorEnabled?: pulumi.Input<boolean | undefined>;
     /**

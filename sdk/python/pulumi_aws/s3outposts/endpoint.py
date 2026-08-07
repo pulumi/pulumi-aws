@@ -34,7 +34,7 @@ class EndpointArgs:
         :param pulumi.Input[_builtins.str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[_builtins.str] subnet_id: Identifier of the EC2 Subnet.
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
@@ -99,7 +99,7 @@ class EndpointArgs:
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
@@ -140,7 +140,7 @@ class _EndpointState:
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the endpoint.
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[_builtins.str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -220,7 +220,7 @@ class _EndpointState:
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
@@ -329,7 +329,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_id: Identifier of the EC2 Security Group.
@@ -442,7 +442,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the endpoint.
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[_builtins.str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -501,7 +501,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 

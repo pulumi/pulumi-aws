@@ -19,14 +19,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs();
 
     /**
-     * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
      * 
      */
     @Import(name="aggregationConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> aggregationConfig;
 
     /**
-     * @return Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+     * @return Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs>> aggregationConfig() {
@@ -34,14 +34,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     @Import(name="fileType")
     private @Nullable Output<String> fileType;
 
     /**
-     * @return File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+     * @return File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
     public Optional<Output<String>> fileType() {
@@ -49,14 +49,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+     * Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
      * 
      */
     @Import(name="prefixConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs> prefixConfig;
 
     /**
-     * @return Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+     * @return Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
      * 
      */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs>> prefixConfig() {
@@ -64,14 +64,14 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
     }
 
     /**
-     * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * Whether to preserve the data types from the source system. Only valid for the `PARQUET` file type.
      * 
      */
     @Import(name="preserveSourceDataTyping")
     private @Nullable Output<Boolean> preserveSourceDataTyping;
 
     /**
-     * @return Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+     * @return Whether to preserve the data types from the source system. Only valid for the `PARQUET` file type.
      * 
      */
     public Optional<Output<Boolean>> preserveSourceDataTyping() {
@@ -106,7 +106,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         * @param aggregationConfig Aggregation settings that you can use to customize the output format of your flow data. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.aggregation_config` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * @param fileType File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param fileType File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         * @param fileType File type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         * @param prefixConfig Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param prefixConfig Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         * @param prefixConfig Prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config.prefix_config` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+         * @param preserveSourceDataTyping Whether to preserve the data types from the source system. Only valid for the `PARQUET` file type.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
         }
 
         /**
-         * @param preserveSourceDataTyping Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+         * @param preserveSourceDataTyping Whether to preserve the data types from the source system. Only valid for the `PARQUET` file type.
          * 
          * @return builder
          * 

@@ -99,7 +99,7 @@ class GetDbServerResult:
     @pulumi.getter(name="autonomousVirtualMachineIds")
     def autonomous_virtual_machine_ids(self) -> Sequence[_builtins.str]:
         """
-        The list of unique identifiers for the Autonomous VMs associated with this database server.
+        List of unique identifiers for the Autonomous VMs associated with this database server.
         """
         return pulumi.get(self, "autonomous_virtual_machine_ids")
 
@@ -107,7 +107,7 @@ class GetDbServerResult:
     @pulumi.getter(name="autonomousVmClusterIds")
     def autonomous_vm_cluster_ids(self) -> Sequence[_builtins.str]:
         """
-        The OCID of the autonomous VM clusters that are associated with the database server.
+        OCID of the autonomous VM clusters that are associated with the database server.
         """
         return pulumi.get(self, "autonomous_vm_cluster_ids")
 
@@ -120,7 +120,7 @@ class GetDbServerResult:
     @pulumi.getter(name="computeModel")
     def compute_model(self) -> _builtins.str:
         """
-        The compute model of the database server.
+        Compute model of the database server.
         """
         return pulumi.get(self, "compute_model")
 
@@ -128,7 +128,7 @@ class GetDbServerResult:
     @pulumi.getter(name="cpuCoreCount")
     def cpu_core_count(self) -> _builtins.int:
         """
-        The number of CPU cores enabled on the database server.
+        Number of CPU cores enabled on the database server.
         """
         return pulumi.get(self, "cpu_core_count")
 
@@ -136,7 +136,7 @@ class GetDbServerResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The date and time when the database server was created.
+        Date and time when the database server was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -144,7 +144,7 @@ class GetDbServerResult:
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
     def db_node_storage_size_in_gbs(self) -> _builtins.int:
         """
-        The allocated local node storage in GBs on the database server.
+        Allocated local node storage in GBs on the database server.
         """
         return pulumi.get(self, "db_node_storage_size_in_gbs")
 
@@ -152,7 +152,7 @@ class GetDbServerResult:
     @pulumi.getter(name="dbServerPatchingDetails")
     def db_server_patching_details(self) -> Sequence['outputs.GetDbServerDbServerPatchingDetailResult']:
         """
-        The scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
+        Scheduling details for the quarterly maintenance window. Patching and system updates take place during the maintenance window.
         """
         return pulumi.get(self, "db_server_patching_details")
 
@@ -160,7 +160,7 @@ class GetDbServerResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
         """
-        The display name of the database server.
+        Display name of the database server.
         """
         return pulumi.get(self, "display_name")
 
@@ -168,7 +168,7 @@ class GetDbServerResult:
     @pulumi.getter(name="exadataInfrastructureId")
     def exadata_infrastructure_id(self) -> _builtins.str:
         """
-        The exadata infrastructure ID of the database server.
+        Exadata infrastructure ID of the database server.
         """
         return pulumi.get(self, "exadata_infrastructure_id")
 
@@ -181,7 +181,7 @@ class GetDbServerResult:
     @pulumi.getter(name="maxCpuCount")
     def max_cpu_count(self) -> _builtins.int:
         """
-        The total number of CPU cores available.
+        Total number of CPU cores available.
         """
         return pulumi.get(self, "max_cpu_count")
 
@@ -189,7 +189,7 @@ class GetDbServerResult:
     @pulumi.getter(name="maxDbNodeStorageInGbs")
     def max_db_node_storage_in_gbs(self) -> _builtins.int:
         """
-        The total local node storage available in GBs.
+        Total local node storage available in GBs.
         """
         return pulumi.get(self, "max_db_node_storage_in_gbs")
 
@@ -197,7 +197,7 @@ class GetDbServerResult:
     @pulumi.getter(name="maxMemoryInGbs")
     def max_memory_in_gbs(self) -> _builtins.int:
         """
-        The total memory available in GBs.
+        Total memory available in GBs.
         """
         return pulumi.get(self, "max_memory_in_gbs")
 
@@ -205,7 +205,7 @@ class GetDbServerResult:
     @pulumi.getter(name="memorySizeInGbs")
     def memory_size_in_gbs(self) -> _builtins.int:
         """
-        The allocated memory in GBs on the database server.
+        Allocated memory in GBs on the database server.
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
@@ -213,7 +213,7 @@ class GetDbServerResult:
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
         """
-        The name of the OCI resource anchor.
+        Name of the OCI resource anchor.
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -221,7 +221,7 @@ class GetDbServerResult:
     @pulumi.getter
     def ocid(self) -> _builtins.str:
         """
-        The OCID of the database server to retrieve information about.
+        OCID of the database server to retrieve information about.
         """
         return pulumi.get(self, "ocid")
 
@@ -234,7 +234,7 @@ class GetDbServerResult:
     @pulumi.getter
     def shape(self) -> _builtins.str:
         """
-        The shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
+        Shape of the database server. The shape determines the amount of CPU, storage, and memory resources available.
         """
         return pulumi.get(self, "shape")
 
@@ -242,7 +242,7 @@ class GetDbServerResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the database server.
+        Status of the database server.
         """
         return pulumi.get(self, "status")
 
@@ -258,7 +258,7 @@ class GetDbServerResult:
     @pulumi.getter(name="vmClusterIds")
     def vm_cluster_ids(self) -> Sequence[_builtins.str]:
         """
-        The OCID of the VM clusters that are associated with the database server.
+        OCID of the VM clusters that are associated with the database server.
         """
         return pulumi.get(self, "vm_cluster_ids")
 
@@ -315,8 +315,8 @@ def get_db_server(cloud_exadata_infrastructure_id: Optional[_builtins.str] = Non
     ```
 
 
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
+    :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
+    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -373,8 +373,8 @@ def get_db_server_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional[
     ```
 
 
-    :param _builtins.str cloud_exadata_infrastructure_id: The unique identifier of the cloud vm cluster.
-    :param _builtins.str id: The unique identifier of db node associated with vm cluster.
+    :param _builtins.str cloud_exadata_infrastructure_id: Unique identifier of the cloud vm cluster.
+    :param _builtins.str id: Unique identifier of db node associated with vm cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

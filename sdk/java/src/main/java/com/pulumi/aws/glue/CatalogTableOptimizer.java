@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.CatalogTableOptimizer;
  * import com.pulumi.aws.glue.CatalogTableOptimizerArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationCompactionConfigurationArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -51,6 +53,13 @@ import javax.annotation.Nullable;
  *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
  *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
  *                 .enabled(true)
+ *                 .compactionConfiguration(CatalogTableOptimizerConfigurationCompactionConfigurationArgs.builder()
+ *                     .icebergConfiguration(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs.builder()
+ *                         .strategy("binpack")
+ *                         .minInputFiles(5)
+ *                         .deleteFileThreshold(1)
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .type("compaction")
  *             .build());

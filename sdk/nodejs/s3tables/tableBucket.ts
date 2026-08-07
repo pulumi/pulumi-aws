@@ -72,8 +72,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration>;
     /**
@@ -81,15 +80,11 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public readonly forceDestroy: pulumi.Output<boolean>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      */
     declare public readonly maintenanceConfiguration: pulumi.Output<outputs.s3tables.TableBucketMaintenanceConfiguration>;
     /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following arguments are optional:
      */
@@ -107,7 +102,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -165,8 +160,7 @@ export interface TableBucketState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
@@ -174,15 +168,11 @@ export interface TableBucketState {
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration | undefined>;
     /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following arguments are optional:
      */
@@ -200,7 +190,7 @@ export interface TableBucketState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -210,8 +200,7 @@ export interface TableBucketState {
  */
 export interface TableBucketArgs {
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Encryption configuration for the table bucket. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     /**
@@ -219,15 +208,11 @@ export interface TableBucketArgs {
      */
     forceDestroy?: pulumi.Input<boolean | undefined>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Maintenance configuration for the table bucket. See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMaintenanceConfiguration | undefined>;
     /**
-     * Name of the table bucket.
-     * Must be between 3 and 63 characters in length.
-     * Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number.
-     * A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
+     * Name of the table bucket. Must be between 3 and 63 characters in length. Can consist of lowercase letters, numbers, and hyphens, and must begin and end with a lowercase letter or number. A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
      *
      * The following arguments are optional:
      */

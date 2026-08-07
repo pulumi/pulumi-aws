@@ -90,11 +90,11 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID that owns the specified access point.
+     * AWS account ID that owns the specified access point.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The name of the access point that you want to apply the scope to.
+     * Name of the access point that you want to apply the scope to.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -146,11 +146,11 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
  */
 export interface DirectoryBucketAccessPointScopeState {
     /**
-     * The AWS account ID that owns the specified access point.
+     * AWS account ID that owns the specified access point.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the access point that you want to apply the scope to.
+     * Name of the access point that you want to apply the scope to.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -168,11 +168,11 @@ export interface DirectoryBucketAccessPointScopeState {
  */
 export interface DirectoryBucketAccessPointScopeArgs {
     /**
-     * The AWS account ID that owns the specified access point.
+     * AWS account ID that owns the specified access point.
      */
     accountId: pulumi.Input<string>;
     /**
-     * The name of the access point that you want to apply the scope to.
+     * Name of the access point that you want to apply the scope to.
      */
     name?: pulumi.Input<string | undefined>;
     /**

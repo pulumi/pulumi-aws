@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTlsCertificate
     {
         /// <summary>
-        /// An AWS Certificate Manager (ACM) certificate.
+        /// AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateAcm? Acm;
         /// <summary>
-        /// Local file certificate.
+        /// File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateFile? File;
         /// <summary>
-        /// A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTlsCertificateSds? Sds;
 

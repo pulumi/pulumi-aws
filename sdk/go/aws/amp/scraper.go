@@ -117,6 +117,52 @@ import (
 //
 // ```
 //
+// ### CloudWatch Destination
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amp.NewScraper(ctx, "example", &amp.ScraperArgs{
+//				Source: &amp.ScraperSourceArgs{
+//					Eks: &amp.ScraperSourceEksArgs{
+//						ClusterArn: pulumi.Any(exampleAwsEksCluster.Arn),
+//						SubnetIds:  pulumi.Any(exampleAwsEksCluster.VpcConfig[0].SubnetIds),
+//					},
+//				},
+//				Destination: &amp.ScraperDestinationArgs{
+//					Cloudwatch: &amp.ScraperDestinationCloudwatchArgs{
+//						DatasetArn: pulumi.String("arn:aws:cloudwatch:us-west-2:123456789012:dataset/default"),
+//					},
+//				},
+//				ScrapeConfiguration: pulumi.String(`global:
+//	  scrape_interval: 30s
+//
+// scrape_configs:
+//   - job_name: pod_exporter
+//     kubernetes_sd_configs:
+//   - role: pod
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### VPC Configuration
 //
 // ```go
@@ -333,34 +379,47 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import the Managed Scraper using its identifier.
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) ID of the scraper.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import scrapers using `id`.
 // For example:
 //
 // ```sh
-// $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+// $ pulumi import aws:amp/scraper:Scraper example s-b6f487db-4761-4930-9215-e9d588a7efe2
 // ```
 type Scraper struct {
 	pulumi.CustomResourceState
 
-	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+	// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias pulumi.StringPtrOutput `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the new scraper.
+	// ARN of the scraper.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Configuration block for the managed scraper to send metrics to. See `destination`.
+	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationOutput `pulumi:"destination"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 	RoleConfiguration ScraperRoleConfigurationPtrOutput `pulumi:"roleConfiguration"`
-	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+	// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration pulumi.StringOutput `pulumi:"scrapeConfiguration"`
-	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+	// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 	//
 	// The following arguments are optional:
-	Source   ScraperSourcePtrOutput   `pulumi:"source"`
-	Tags     pulumi.StringMapOutput   `pulumi:"tags"`
+	Source ScraperSourcePtrOutput `pulumi:"source"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	Timeouts ScraperTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -401,49 +460,53 @@ func GetScraper(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Scraper resources.
 type scraperState struct {
-	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+	// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias *string `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the new scraper.
+	// ARN of the scraper.
 	Arn *string `pulumi:"arn"`
-	// Configuration block for the managed scraper to send metrics to. See `destination`.
+	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination *ScraperDestination `pulumi:"destination"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn *string `pulumi:"roleArn"`
-	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
-	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+	// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration *string `pulumi:"scrapeConfiguration"`
-	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+	// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 	//
 	// The following arguments are optional:
-	Source   *ScraperSource    `pulumi:"source"`
-	Tags     map[string]string `pulumi:"tags"`
+	Source *ScraperSource `pulumi:"source"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ScraperTimeouts  `pulumi:"timeouts"`
 }
 
 type ScraperState struct {
-	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+	// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the new scraper.
+	// ARN of the scraper.
 	Arn pulumi.StringPtrInput
-	// Configuration block for the managed scraper to send metrics to. See `destination`.
+	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+	// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 	RoleArn pulumi.StringPtrInput
-	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 	RoleConfiguration ScraperRoleConfigurationPtrInput
-	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+	// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration pulumi.StringPtrInput
-	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+	// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 	//
 	// The following arguments are optional:
-	Source   ScraperSourcePtrInput
-	Tags     pulumi.StringMapInput
+	Source ScraperSourcePtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ScraperTimeoutsPtrInput
 }
@@ -453,40 +516,42 @@ func (ScraperState) ElementType() reflect.Type {
 }
 
 type scraperArgs struct {
-	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+	// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias *string `pulumi:"alias"`
-	// Configuration block for the managed scraper to send metrics to. See `destination`.
+	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestination `pulumi:"destination"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 	RoleConfiguration *ScraperRoleConfiguration `pulumi:"roleConfiguration"`
-	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+	// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration string `pulumi:"scrapeConfiguration"`
-	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+	// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 	//
 	// The following arguments are optional:
-	Source   *ScraperSource    `pulumi:"source"`
+	Source *ScraperSource `pulumi:"source"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ScraperTimeouts  `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Scraper resource.
 type ScraperArgs struct {
-	// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+	// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 	Alias pulumi.StringPtrInput
-	// Configuration block for the managed scraper to send metrics to. See `destination`.
+	// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 	Destination ScraperDestinationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+	// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 	RoleConfiguration ScraperRoleConfigurationPtrInput
-	// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+	// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 	ScrapeConfiguration pulumi.StringInput
-	// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+	// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 	//
 	// The following arguments are optional:
-	Source   ScraperSourcePtrInput
+	Source ScraperSourcePtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ScraperTimeoutsPtrInput
 }
@@ -578,17 +643,17 @@ func (o ScraperOutput) ToScraperOutputWithContext(ctx context.Context) ScraperOu
 	return o
 }
 
-// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+// Name to associate with the managed scraper. This is for your use, and does not need to be unique.
 func (o ScraperOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringPtrOutput { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the new scraper.
+// ARN of the scraper.
 func (o ScraperOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration block for the managed scraper to send metrics to. See `destination`.
+// Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
 func (o ScraperOutput) Destination() ScraperDestinationOutput {
 	return o.ApplyT(func(v *Scraper) ScraperDestinationOutput { return v.Destination }).(ScraperDestinationOutput)
 }
@@ -598,32 +663,34 @@ func (o ScraperOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+// ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
 func (o ScraperOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
 func (o ScraperOutput) RoleConfiguration() ScraperRoleConfigurationPtrOutput {
 	return o.ApplyT(func(v *Scraper) ScraperRoleConfigurationPtrOutput { return v.RoleConfiguration }).(ScraperRoleConfigurationPtrOutput)
 }
 
-// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+// Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
 func (o ScraperOutput) ScrapeConfiguration() pulumi.StringOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringOutput { return v.ScrapeConfiguration }).(pulumi.StringOutput)
 }
 
-// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+// Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
 //
 // The following arguments are optional:
 func (o ScraperOutput) Source() ScraperSourcePtrOutput {
 	return o.ApplyT(func(v *Scraper) ScraperSourcePtrOutput { return v.Source }).(ScraperSourcePtrOutput)
 }
 
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ScraperOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ScraperOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Scraper) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

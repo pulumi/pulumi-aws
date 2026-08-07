@@ -204,7 +204,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
-     * Route specification to apply.
+     * Route specification to apply. See `spec` Block for details.
      */
     declare public readonly spec: pulumi.Output<outputs.appmesh.RouteSpec>;
     /**
@@ -311,7 +311,7 @@ export interface RouteState {
      */
     resourceOwner?: pulumi.Input<string | undefined>;
     /**
-     * Route specification to apply.
+     * Route specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.RouteSpec | undefined>;
     /**
@@ -349,7 +349,7 @@ export interface RouteArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Route specification to apply.
+     * Route specification to apply. See `spec` Block for details.
      */
     spec: pulumi.Input<inputs.appmesh.RouteSpec>;
     /**

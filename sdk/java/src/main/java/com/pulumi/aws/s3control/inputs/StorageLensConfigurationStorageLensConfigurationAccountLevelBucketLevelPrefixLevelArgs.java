@@ -15,14 +15,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     public static final StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs Empty = new StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs();
 
     /**
-     * Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+     * Prefix-level storage metrics for S3 Storage Lens. See `storageMetrics` below for more details.
      * 
      */
     @Import(name="storageMetrics", required=true)
     private Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics;
 
     /**
-     * @return Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+     * @return Prefix-level storage metrics for S3 Storage Lens. See `storageMetrics` below for more details.
      * 
      */
     public Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics() {
@@ -54,7 +54,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See `storageMetrics` below for more details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+         * @param storageMetrics Prefix-level storage metrics for S3 Storage Lens. See `storageMetrics` below for more details.
          * 
          * @return builder
          * 

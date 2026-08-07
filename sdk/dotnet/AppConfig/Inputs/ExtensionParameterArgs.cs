@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppConfig.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The parameter name.
+        /// Parameter name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -14,27 +14,27 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListener
     {
         /// <summary>
-        /// Connection pool information for the listener. See `ConnectionPool` Block for details.
+        /// Connection pool information for the listener. See `spec.listener.connection_pool` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerConnectionPool? ConnectionPool;
         /// <summary>
-        /// Health check information for the listener. See `HealthCheck` Block for details.
+        /// Health check information for the listener. See `spec.listener.health_check` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerHealthCheck? HealthCheck;
         /// <summary>
-        /// Outlier detection information for the listener. See `OutlierDetection` Block for details.
+        /// Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerOutlierDetection? OutlierDetection;
         /// <summary>
-        /// Port mapping information for the listener. See `PortMapping` Block for details.
+        /// Port mapping information for the listener. See `spec.listener.port_mapping` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerPortMapping PortMapping;
         /// <summary>
-        /// Timeouts for different protocols. See `Timeout` Block for details.
+        /// Timeouts for different protocols. See `spec.listener.timeout` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeout? Timeout;
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `Tls` Block for details.
+        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTls? Tls;
 

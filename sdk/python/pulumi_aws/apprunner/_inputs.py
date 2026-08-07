@@ -431,11 +431,11 @@ class ServiceInstanceConfigurationArgs:
 class ServiceNetworkConfigurationArgsDict(TypedDict):
     egress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationEgressConfigurationArgsDict']]]
     """
-    Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+    Network configuration settings for outbound message traffic. See `egress_configuration` below.
     """
     ingress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationIngressConfigurationArgsDict']]]
     """
-    Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+    Network configuration settings for inbound network traffic. See `ingress_configuration` below.
     """
     ip_address_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -449,8 +449,8 @@ class ServiceNetworkConfigurationArgs:
                  ingress_configuration: pulumi.Input[Optional['ServiceNetworkConfigurationIngressConfigurationArgs']] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic. See `egress_configuration` below.
+        :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic. See `ingress_configuration` below.
         :param pulumi.Input[_builtins.str] ip_address_type: App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
         """
         if egress_configuration is not None:
@@ -464,7 +464,7 @@ class ServiceNetworkConfigurationArgs:
     @pulumi.getter(name="egressConfiguration")
     def egress_configuration(self) -> pulumi.Input[Optional['ServiceNetworkConfigurationEgressConfigurationArgs']]:
         """
-        Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+        Network configuration settings for outbound message traffic. See `egress_configuration` below.
         """
         return pulumi.get(self, "egress_configuration")
 
@@ -476,7 +476,7 @@ class ServiceNetworkConfigurationArgs:
     @pulumi.getter(name="ingressConfiguration")
     def ingress_configuration(self) -> pulumi.Input[Optional['ServiceNetworkConfigurationIngressConfigurationArgs']]:
         """
-        Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        Network configuration settings for inbound network traffic. See `ingress_configuration` below.
         """
         return pulumi.get(self, "ingress_configuration")
 
@@ -500,11 +500,11 @@ class ServiceNetworkConfigurationArgs:
 class ServiceNetworkConfigurationEgressConfigurationArgsDict(TypedDict):
     egress_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+    Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
     """
     vpc_connector_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+    Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
     """
 
 @pulumi.input_type
@@ -513,8 +513,8 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
                  egress_type: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_connector_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] egress_type: The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-        :param pulumi.Input[_builtins.str] vpc_connector_arn: The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+        :param pulumi.Input[_builtins.str] egress_type: Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+        :param pulumi.Input[_builtins.str] vpc_connector_arn: Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         if egress_type is not None:
             pulumi.set(__self__, "egress_type", egress_type)
@@ -525,7 +525,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="egressType")
     def egress_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
+        Type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
         """
         return pulumi.get(self, "egress_type")
 
@@ -537,7 +537,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @pulumi.getter(name="vpcConnectorArn")
     def vpc_connector_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+        Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         """
         return pulumi.get(self, "vpc_connector_arn")
 
@@ -549,7 +549,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
 class ServiceNetworkConfigurationIngressConfigurationArgsDict(TypedDict):
     is_publicly_accessible: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+    Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
     """
 
 @pulumi.input_type
@@ -557,7 +557,7 @@ class ServiceNetworkConfigurationIngressConfigurationArgs:
     def __init__(__self__, *,
                  is_publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] is_publicly_accessible: Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+        :param pulumi.Input[_builtins.bool] is_publicly_accessible: Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
         """
         if is_publicly_accessible is not None:
             pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
@@ -566,7 +566,7 @@ class ServiceNetworkConfigurationIngressConfigurationArgs:
     @pulumi.getter(name="isPubliclyAccessible")
     def is_publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
+        Whether your App Runner service is publicly accessible. To make the service publicly accessible set it to `true`. To make the service privately accessible, from only within an Amazon VPC, set it to `false`.
         """
         return pulumi.get(self, "is_publicly_accessible")
 
@@ -626,7 +626,7 @@ class ServiceObservabilityConfigurationArgs:
 class ServiceSourceConfigurationArgsDict(TypedDict):
     authentication_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationAuthenticationConfigurationArgsDict']]]
     """
-    Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+    Configuration for resources needed to authenticate access to some source repositories. See `authentication_configuration` below.
     """
     auto_deployments_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -634,11 +634,11 @@ class ServiceSourceConfigurationArgsDict(TypedDict):
     """
     code_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryArgsDict']]]
     """
-    Description of a source code repository. See Code Repository below for more details.
+    Description of a source code repository. See `code_repository` below.
     """
     image_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryArgsDict']]]
     """
-    Description of a source image repository. See Image Repository below for more details.
+    Description of a source image repository. See `image_repository` below.
     """
 
 @pulumi.input_type
@@ -649,10 +649,10 @@ class ServiceSourceConfigurationArgs:
                  code_repository: pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryArgs']] = None,
                  image_repository: pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryArgs']] = None):
         """
-        :param pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs'] authentication_configuration: Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs'] authentication_configuration: Configuration for resources needed to authenticate access to some source repositories. See `authentication_configuration` below.
         :param pulumi.Input[_builtins.bool] auto_deployments_enabled: Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs'] code_repository: Description of a source code repository. See Code Repository below for more details.
-        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs'] image_repository: Description of a source image repository. See Image Repository below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs'] code_repository: Description of a source code repository. See `code_repository` below.
+        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs'] image_repository: Description of a source image repository. See `image_repository` below.
         """
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -667,7 +667,7 @@ class ServiceSourceConfigurationArgs:
     @pulumi.getter(name="authenticationConfiguration")
     def authentication_configuration(self) -> pulumi.Input[Optional['ServiceSourceConfigurationAuthenticationConfigurationArgs']]:
         """
-        Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+        Configuration for resources needed to authenticate access to some source repositories. See `authentication_configuration` below.
         """
         return pulumi.get(self, "authentication_configuration")
 
@@ -691,7 +691,7 @@ class ServiceSourceConfigurationArgs:
     @pulumi.getter(name="codeRepository")
     def code_repository(self) -> pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryArgs']]:
         """
-        Description of a source code repository. See Code Repository below for more details.
+        Description of a source code repository. See `code_repository` below.
         """
         return pulumi.get(self, "code_repository")
 
@@ -703,7 +703,7 @@ class ServiceSourceConfigurationArgs:
     @pulumi.getter(name="imageRepository")
     def image_repository(self) -> pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryArgs']]:
         """
-        Description of a source image repository. See Image Repository below for more details.
+        Description of a source image repository. See `image_repository` below.
         """
         return pulumi.get(self, "image_repository")
 
@@ -768,15 +768,15 @@ class ServiceSourceConfigurationCodeRepositoryArgsDict(TypedDict):
     """
     source_code_version: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgsDict']
     """
-    Version that should be used within the source code repository. See Source Code Version below for more details.
+    Version that should be used within the source code repository. See `source_code_version` below.
     """
     code_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgsDict']]]
     """
-    Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+    Configuration for building and running the service from a source code repository. See `code_configuration` below.
     """
     source_directory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+    Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
     """
 
 @pulumi.input_type
@@ -788,9 +788,9 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
                  source_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] repository_url: Location of the repository that contains the source code.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
-        :param pulumi.Input[_builtins.str] source_directory: The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: Version that should be used within the source code repository. See `source_code_version` below.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository. See `code_configuration` below.
+        :param pulumi.Input[_builtins.str] source_directory: Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
@@ -815,7 +815,7 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
     @pulumi.getter(name="sourceCodeVersion")
     def source_code_version(self) -> pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs']:
         """
-        Version that should be used within the source code repository. See Source Code Version below for more details.
+        Version that should be used within the source code repository. See `source_code_version` below.
         """
         return pulumi.get(self, "source_code_version")
 
@@ -827,7 +827,7 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
     @pulumi.getter(name="codeConfiguration")
     def code_configuration(self) -> pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']]:
         """
-        Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+        Configuration for building and running the service from a source code repository. See `code_configuration` below.
         """
         return pulumi.get(self, "code_configuration")
 
@@ -839,7 +839,7 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
     @pulumi.getter(name="sourceDirectory")
     def source_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
+        Path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
         """
         return pulumi.get(self, "source_directory")
 
@@ -851,15 +851,11 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
 class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgsDict(TypedDict):
     configuration_source: pulumi.Input[_builtins.str]
     """
-    Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-    * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-      source code repository and ignores the CodeConfigurationValues parameter.
-    * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-      parameter and ignores the apprunner.yaml file in the source code repository.
+    Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `code_configuration_values`. Use `API` to have App Runner use the configuration values provided in `code_configuration_values` and ignore the `apprunner.yaml` file in the source code repository.
     """
     code_configuration_values: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgsDict']]]
     """
-    Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+    Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `code_configuration_values` below.
     """
 
 @pulumi.input_type
@@ -868,12 +864,8 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
                  configuration_source: pulumi.Input[_builtins.str],
                  code_configuration_values: pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-               * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-                 source code repository and ignores the CodeConfigurationValues parameter.
-               * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-                 parameter and ignores the apprunner.yaml file in the source code repository.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        :param pulumi.Input[_builtins.str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `code_configuration_values`. Use `API` to have App Runner use the configuration values provided in `code_configuration_values` and ignore the `apprunner.yaml` file in the source code repository.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `code_configuration_values` below.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -883,11 +875,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
     @pulumi.getter(name="configurationSource")
     def configuration_source(self) -> pulumi.Input[_builtins.str]:
         """
-        Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-        * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-          source code repository and ignores the CodeConfigurationValues parameter.
-        * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-          parameter and ignores the apprunner.yaml file in the source code repository.
+        Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Use `REPOSITORY` to have App Runner read configuration values from the `apprunner.yaml` file in the source code repository and ignore `code_configuration_values`. Use `API` to have App Runner use the configuration values provided in `code_configuration_values` and ignore the `apprunner.yaml` file in the source code repository.
         """
         return pulumi.get(self, "configuration_source")
 
@@ -899,7 +887,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
     @pulumi.getter(name="codeConfigurationValues")
     def code_configuration_values(self) -> pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']]:
         """
-        Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See `code_configuration_values` below.
         """
         return pulumi.get(self, "code_configuration_values")
 
@@ -1086,16 +1074,15 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
 class ServiceSourceConfigurationImageRepositoryArgsDict(TypedDict):
     image_identifier: pulumi.Input[_builtins.str]
     """
-    Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-    image name format, see Pulling an image in the Amazon ECR User Guide.
+    Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
     """
     image_repository_type: pulumi.Input[_builtins.str]
     """
-    Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+    Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
     """
     image_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryImageConfigurationArgsDict']]]
     """
-    Configuration for running the identified image. See Image Configuration below for more details.
+    Configuration for running the identified image. See `image_configuration` below.
     """
 
 @pulumi.input_type
@@ -1105,10 +1092,9 @@ class ServiceSourceConfigurationImageRepositoryArgs:
                  image_repository_type: pulumi.Input[_builtins.str],
                  image_configuration: pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] image_identifier: Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-               image name format, see Pulling an image in the Amazon ECR User Guide.
-        :param pulumi.Input[_builtins.str] image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs'] image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
+        :param pulumi.Input[_builtins.str] image_identifier: Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
+        :param pulumi.Input[_builtins.str] image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
+        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs'] image_configuration: Configuration for running the identified image. See `image_configuration` below.
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -1119,8 +1105,7 @@ class ServiceSourceConfigurationImageRepositoryArgs:
     @pulumi.getter(name="imageIdentifier")
     def image_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-        image name format, see Pulling an image in the Amazon ECR User Guide.
+        Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
         """
         return pulumi.get(self, "image_identifier")
 
@@ -1132,7 +1117,7 @@ class ServiceSourceConfigurationImageRepositoryArgs:
     @pulumi.getter(name="imageRepositoryType")
     def image_repository_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+        Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
         """
         return pulumi.get(self, "image_repository_type")
 
@@ -1144,7 +1129,7 @@ class ServiceSourceConfigurationImageRepositoryArgs:
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']]:
         """
-        Configuration for running the identified image. See Image Configuration below for more details.
+        Configuration for running the identified image. See `image_configuration` below.
         """
         return pulumi.get(self, "image_configuration")
 
@@ -1245,11 +1230,11 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
 class VpcIngressConnectionIngressVpcConfigurationArgsDict(TypedDict):
     vpc_endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the VPC endpoint that your App Runner service connects to.
+    ID of the VPC endpoint that your App Runner service connects to.
     """
     vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the VPC that is used for the VPC endpoint.
+    ID of the VPC that is used for the VPC endpoint.
     """
 
 @pulumi.input_type
@@ -1258,8 +1243,8 @@ class VpcIngressConnectionIngressVpcConfigurationArgs:
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that is used for the VPC endpoint.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint that your App Runner service connects to.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC that is used for the VPC endpoint.
         """
         if vpc_endpoint_id is not None:
             pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -1270,7 +1255,7 @@ class VpcIngressConnectionIngressVpcConfigurationArgs:
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC endpoint that your App Runner service connects to.
+        ID of the VPC endpoint that your App Runner service connects to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -1282,7 +1267,7 @@ class VpcIngressConnectionIngressVpcConfigurationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC that is used for the VPC endpoint.
+        ID of the VPC that is used for the VPC endpoint.
         """
         return pulumi.get(self, "vpc_id")
 

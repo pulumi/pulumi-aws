@@ -191,7 +191,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> DomainVerificationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         /// </summary>
         [Output("domainVerificationId")]
         public Output<string> DomainVerificationId { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
-        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         /// </summary>
         [Input("domainVerificationId")]
         public Input<string>? DomainVerificationId { get; set; }
@@ -435,7 +435,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? DomainVerificationArn { get; set; }
 
         /// <summary>
-        /// The domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
+        /// Domain verification ID of your verified custom domain name. If you don't provide an ID, you must configure the DNS settings yourself.
         /// </summary>
         [Input("domainVerificationId")]
         public Input<string>? DomainVerificationId { get; set; }

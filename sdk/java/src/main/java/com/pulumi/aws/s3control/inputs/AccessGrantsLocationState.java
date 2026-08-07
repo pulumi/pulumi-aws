@@ -47,14 +47,14 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Optional<Output<String>> accountId() {
@@ -62,16 +62,14 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     @Import(name="iamRoleArn")
     private @Nullable Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * @return ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     public Optional<Output<String>> iamRoleArn() {
@@ -79,14 +77,14 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     @Import(name="locationScope")
     private @Nullable Output<String> locationScope;
 
     /**
-     * @return The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * @return Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     public Optional<Output<String>> locationScope() {
@@ -124,14 +122,14 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -212,7 +210,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -223,7 +221,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * @param accountId AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
          * 
          * @return builder
          * 
@@ -233,8 +231,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
+         * @param iamRoleArn ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
          * 
          * @return builder
          * 
@@ -245,8 +242,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param iamRoleArn The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-         * requests to the location.
+         * @param iamRoleArn ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
          * 
          * @return builder
          * 
@@ -256,7 +252,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+         * @param locationScope Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
          * 
          * @return builder
          * 
@@ -267,7 +263,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param locationScope The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+         * @param locationScope Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
          * 
          * @return builder
          * 
@@ -319,7 +315,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -330,7 +326,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

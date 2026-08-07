@@ -19,14 +19,14 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
     public static final VpcIngressConnectionArgs Empty = new VpcIngressConnectionArgs();
 
     /**
-     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      * 
      */
     @Import(name="ingressVpcConfiguration", required=true)
     private Output<VpcIngressConnectionIngressVpcConfigurationArgs> ingressVpcConfiguration;
 
     /**
-     * @return Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+     * @return Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
      * 
      */
     public Output<VpcIngressConnectionIngressVpcConfigurationArgs> ingressVpcConfiguration() {
@@ -34,14 +34,14 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+     * @return Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     @Import(name="serviceArn", required=true)
     private Output<String> serviceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+     * @return Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
     public Output<String> serviceArn() {
@@ -122,7 +122,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingressVpcConfiguration Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+         * @param ingressVpcConfiguration Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingressVpcConfiguration Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+         * @param ingressVpcConfiguration Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See `ingressVpcConfiguration` Block below for more details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+         * @param name Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
+         * @param name Name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serviceArn The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+         * @param serviceArn Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class VpcIngressConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serviceArn The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
+         * @param serviceArn Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
          * 
          * @return builder
          * 

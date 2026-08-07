@@ -4,6 +4,7 @@
 package com.pulumi.aws.amp.outputs;
 
 import com.pulumi.aws.amp.outputs.ScraperDestinationAmp;
+import com.pulumi.aws.amp.outputs.ScraperDestinationCloudwatch;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,18 +13,34 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScraperDestination {
     /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
      * 
      */
     private @Nullable ScraperDestinationAmp amp;
+    /**
+     * @return Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+     * 
+     * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+     * 
+     */
+    private @Nullable ScraperDestinationCloudwatch cloudwatch;
 
     private ScraperDestination() {}
     /**
-     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+     * @return Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
      * 
      */
     public Optional<ScraperDestinationAmp> amp() {
         return Optional.ofNullable(this.amp);
+    }
+    /**
+     * @return Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+     * 
+     * &gt; **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+     * 
+     */
+    public Optional<ScraperDestinationCloudwatch> cloudwatch() {
+        return Optional.ofNullable(this.cloudwatch);
     }
 
     public static Builder builder() {
@@ -36,10 +53,12 @@ public final class ScraperDestination {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable ScraperDestinationAmp amp;
+        private @Nullable ScraperDestinationCloudwatch cloudwatch;
         public Builder() {}
         public Builder(ScraperDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amp = defaults.amp;
+    	      this.cloudwatch = defaults.cloudwatch;
         }
 
         @CustomType.Setter
@@ -48,9 +67,16 @@ public final class ScraperDestination {
             this.amp = amp;
             return this;
         }
+        @CustomType.Setter
+        public Builder cloudwatch(@Nullable ScraperDestinationCloudwatch cloudwatch) {
+
+            this.cloudwatch = cloudwatch;
+            return this;
+        }
         public ScraperDestination build() {
             final var _resultValue = new ScraperDestination();
             _resultValue.amp = amp;
+            _resultValue.cloudwatch = cloudwatch;
             return _resultValue;
         }
     }

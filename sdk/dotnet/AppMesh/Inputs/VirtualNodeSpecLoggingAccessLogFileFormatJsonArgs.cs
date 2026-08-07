@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The specified key for the JSON. Must be between 1 and 100 characters in length.
+        /// Key for the JSON. Must be between 1 and 100 characters in length.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The specified value for the JSON. Must be between 1 and 100 characters in length.
+        /// Value for the JSON. Must be between 1 and 100 characters in length.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

@@ -118,84 +118,84 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
         return this.accessGrantId;
     }
     /**
-     * See Location Configuration below for more details.
+     * See `accessGrantsLocationConfiguration` Block below for more details.
      * 
      */
     @Export(name="accessGrantsLocationConfiguration", refs={AccessGrantAccessGrantsLocationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AccessGrantAccessGrantsLocationConfiguration> accessGrantsLocationConfiguration;
 
     /**
-     * @return See Location Configuration below for more details.
+     * @return See `accessGrantsLocationConfiguration` Block below for more details.
      * 
      */
     public Output<Optional<AccessGrantAccessGrantsLocationConfiguration>> accessGrantsLocationConfiguration() {
         return Codegen.optional(this.accessGrantsLocationConfiguration);
     }
     /**
-     * The ID of the S3 Access Grants location to with the access grant is giving access.
+     * ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
     @Export(name="accessGrantsLocationId", refs={String.class}, tree="[0]")
     private Output<String> accessGrantsLocationId;
 
     /**
-     * @return The ID of the S3 Access Grants location to with the access grant is giving access.
+     * @return ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
     public Output<String> accessGrantsLocationId() {
         return this.accessGrantsLocationId;
     }
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The access grant&#39;s scope.
+     * Access grant&#39;s scope.
      * 
      */
     @Export(name="grantScope", refs={String.class}, tree="[0]")
     private Output<String> grantScope;
 
     /**
-     * @return The access grant&#39;s scope.
+     * @return Access grant&#39;s scope.
      * 
      */
     public Output<String> grantScope() {
         return this.grantScope;
     }
     /**
-     * See Grantee below for more details.
+     * See `grantee` Block below for more details.
      * 
      */
     @Export(name="grantee", refs={AccessGrantGrantee.class}, tree="[0]")
     private Output<AccessGrantGrantee> grantee;
 
     /**
-     * @return See Grantee below for more details.
+     * @return See `grantee` Block below for more details.
      * 
      */
     public Output<AccessGrantGrantee> grantee() {
         return this.grantee;
     }
     /**
-     * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
     @Export(name="permission", refs={String.class}, tree="[0]")
     private Output<String> permission;
 
     /**
-     * @return The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
+     * @return Access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
     public Output<String> permission() {
@@ -244,14 +244,14 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

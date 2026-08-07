@@ -94,14 +94,14 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("iamRole")]
         public Output<string> IamRole { get; private set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the user.
+        /// Unique identifier for the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -178,14 +178,14 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("iamRole", required: true)]
         public Input<string> IamRole { get; set; } = null!;
 
         /// <summary>
-        /// A unique identifier for the user.
+        /// Unique identifier for the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -230,14 +230,14 @@ namespace Pulumi.Aws.FinSpace
 
         /// <summary>
         /// IAM role ARN to be associated with the user.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("iamRole")]
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// A unique identifier for the user.
+        /// Unique identifier for the user.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

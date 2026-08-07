@@ -34,7 +34,7 @@ class RoutingRuleArgs:
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] priority: The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        :param pulumi.Input[_builtins.int] priority: Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "actions", actions)
@@ -86,7 +86,7 @@ class RoutingRuleArgs:
     @pulumi.getter
     def priority(self) -> pulumi.Input[_builtins.int]:
         """
-        The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         """
         return pulumi.get(self, "priority")
 
@@ -125,7 +125,7 @@ class _RoutingRuleState:
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] priority: The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        :param pulumi.Input[_builtins.int] priority: Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_rule_arn: ARN of the Routing Rule.
         :param pulumi.Input[_builtins.str] routing_rule_id: ID of the Routing Rule.
@@ -187,7 +187,7 @@ class _RoutingRuleState:
     @pulumi.getter
     def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         """
         return pulumi.get(self, "priority")
 
@@ -297,7 +297,7 @@ class RoutingRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] priority: The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        :param pulumi.Input[_builtins.int] priority: Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -425,7 +425,7 @@ class RoutingRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] priority: The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        :param pulumi.Input[_builtins.int] priority: Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] routing_rule_arn: ARN of the Routing Rule.
         :param pulumi.Input[_builtins.str] routing_rule_id: ID of the Routing Rule.
@@ -473,7 +473,7 @@ class RoutingRule(pulumi.CustomResource):
     @pulumi.getter
     def priority(self) -> pulumi.Output[_builtins.int]:
         """
-        The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
+        Order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
         """
         return pulumi.get(self, "priority")
 

@@ -15,14 +15,14 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
     public static final GetDbSystemShapesPlainArgs Empty = new GetDbSystemShapesPlainArgs();
 
     /**
-     * The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+     * Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
      * 
      */
     @Import(name="availabilityZoneId")
     private @Nullable String availabilityZoneId;
 
     /**
-     * @return The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+     * @return Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
      * 
      */
     public Optional<String> availabilityZoneId() {
@@ -70,7 +70,7 @@ public final class GetDbSystemShapesPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param availabilityZoneId The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+         * @param availabilityZoneId Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
          * 
          * @return builder
          * 

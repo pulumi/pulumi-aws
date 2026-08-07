@@ -130,42 +130,42 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The ARN of the extension defined in the association.
+     * ARN of the extension defined in the association.
      * 
      */
     @Export(name="extensionArn", refs={String.class}, tree="[0]")
     private Output<String> extensionArn;
 
     /**
-     * @return The ARN of the extension defined in the association.
+     * @return ARN of the extension defined in the association.
      * 
      */
     public Output<String> extensionArn() {
         return this.extensionArn;
     }
     /**
-     * The version number for the extension defined in the association.
+     * Version number for the extension defined in the association.
      * 
      */
     @Export(name="extensionVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> extensionVersion;
 
     /**
-     * @return The version number for the extension defined in the association.
+     * @return Version number for the extension defined in the association.
      * 
      */
     public Output<Integer> extensionVersion() {
         return this.extensionVersion;
     }
     /**
-     * The parameter names and values defined for the association.
+     * Parameter names and values defined for the association.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
     /**
-     * @return The parameter names and values defined for the association.
+     * @return Parameter names and values defined for the association.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {
@@ -186,14 +186,14 @@ public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
+     * ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
+     * @return ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
     public Output<String> resourceArn() {

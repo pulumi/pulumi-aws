@@ -33,30 +33,22 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.r
         return Optional.ofNullable(this.invert);
     }
 
-    /**
-     * Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     @Import(name="match")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHeaderMatchArgs> match;
 
-    /**
-     * @return Method and value to match the header value sent with a request. Specify one match method.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHeaderMatchArgs>> match() {
         return Optional.ofNullable(this.match);
     }
 
     /**
-     * Name for the HTTP header in the client request that will be matched on.
+     * Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name for the HTTP header in the client request that will be matched on.
+     * @return Name to use for the gateway route. Must be between 1 and 255 characters in length.
      * 
      */
     public Output<String> name() {
@@ -110,29 +102,17 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.r
             return invert(Output.of(invert));
         }
 
-        /**
-         * @param match Method and value to match the header value sent with a request. Specify one match method.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(@Nullable Output<GatewayRouteSpecHttpRouteMatchHeaderMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Method and value to match the header value sent with a request. Specify one match method.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(GatewayRouteSpecHttpRouteMatchHeaderMatchArgs match) {
             return match(Output.of(match));
         }
 
         /**
-         * @param name Name for the HTTP header in the client request that will be matched on.
+         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 
@@ -143,7 +123,7 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderArgs extends com.pulumi.r
         }
 
         /**
-         * @param name Name for the HTTP header in the client request that will be matched on.
+         * @param name Name to use for the gateway route. Must be between 1 and 255 characters in length.
          * 
          * @return builder
          * 

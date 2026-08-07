@@ -18,14 +18,14 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     public static final ServiceSourceConfigurationImageRepositoryArgs Empty = new ServiceSourceConfigurationImageRepositoryArgs();
 
     /**
-     * Configuration for running the identified image. See Image Configuration below for more details.
+     * Configuration for running the identified image. See `imageConfiguration` below.
      * 
      */
     @Import(name="imageConfiguration")
     private @Nullable Output<ServiceSourceConfigurationImageRepositoryImageConfigurationArgs> imageConfiguration;
 
     /**
-     * @return Configuration for running the identified image. See Image Configuration below for more details.
+     * @return Configuration for running the identified image. See `imageConfiguration` below.
      * 
      */
     public Optional<Output<ServiceSourceConfigurationImageRepositoryImageConfigurationArgs>> imageConfiguration() {
@@ -33,16 +33,14 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     }
 
     /**
-     * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
+     * Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
     @Import(name="imageIdentifier", required=true)
     private Output<String> imageIdentifier;
 
     /**
-     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-     * image name format, see Pulling an image in the Amazon ECR User Guide.
+     * @return Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
     public Output<String> imageIdentifier() {
@@ -50,14 +48,14 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
     }
 
     /**
-     * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
      * 
      */
     @Import(name="imageRepositoryType", required=true)
     private Output<String> imageRepositoryType;
 
     /**
-     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+     * @return Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
      * 
      */
     public Output<String> imageRepositoryType() {
@@ -91,7 +89,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageConfiguration Configuration for running the identified image. See Image Configuration below for more details.
+         * @param imageConfiguration Configuration for running the identified image. See `imageConfiguration` below.
          * 
          * @return builder
          * 
@@ -102,7 +100,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageConfiguration Configuration for running the identified image. See Image Configuration below for more details.
+         * @param imageConfiguration Configuration for running the identified image. See `imageConfiguration` below.
          * 
          * @return builder
          * 
@@ -112,8 +110,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-         * image name format, see Pulling an image in the Amazon ECR User Guide.
+         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
          * 
          * @return builder
          * 
@@ -124,8 +121,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
-         * image name format, see Pulling an image in the Amazon ECR User Guide.
+         * @param imageIdentifier Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see Pulling an image in the Amazon ECR User Guide.
          * 
          * @return builder
          * 
@@ -135,7 +131,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
          * 
          * @return builder
          * 
@@ -146,7 +142,7 @@ public final class ServiceSourceConfigurationImageRepositoryArgs extends com.pul
         }
 
         /**
-         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
+         * @param imageRepositoryType Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR`, `ECR_PUBLIC`.
          * 
          * @return builder
          * 

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
 		r = &AlertManagerDefinition{}
+	case "aws:amp/anomalyDetector:AnomalyDetector":
+		r = &AnomalyDetector{}
 	case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
 		r = &QueryLoggingConfiguration{}
 	case "aws:amp/resourcePolicy:ResourcePolicy":
@@ -31,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RuleGroupNamespace{}
 	case "aws:amp/scraper:Scraper":
 		r = &Scraper{}
+	case "aws:amp/scraperLoggingConfiguration:ScraperLoggingConfiguration":
+		r = &ScraperLoggingConfiguration{}
 	case "aws:amp/workspace:Workspace":
 		r = &Workspace{}
 	case "aws:amp/workspaceConfiguration:WorkspaceConfiguration":
@@ -55,6 +59,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"amp/anomalyDetector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"amp/queryLoggingConfiguration",
 		&module{version},
 	)
@@ -71,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amp/scraper",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/scraperLoggingConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

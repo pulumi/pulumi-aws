@@ -14,12 +14,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLoggingAccessLogFile
     {
         /// <summary>
-        /// The specified format for the logs. See `Format` Block for details.
+        /// Specified format for the logs. See `Format` Block for details.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecLoggingAccessLogFileFormat? Format;
-        /// <summary>
-        /// File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-        /// </summary>
         public readonly string Path;
 
         [OutputConstructor]

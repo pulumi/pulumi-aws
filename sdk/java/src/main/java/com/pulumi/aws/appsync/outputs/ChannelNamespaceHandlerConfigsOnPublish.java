@@ -17,7 +17,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
      */
     private String behavior;
     /**
-     * @return Integration data source configuration for the handler. See Integration below.
+     * @return Integration data source configuration for the handler. See `integration` below.
      * 
      */
     private ChannelNamespaceHandlerConfigsOnPublishIntegration integration;
@@ -31,7 +31,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublish {
         return this.behavior;
     }
     /**
-     * @return Integration data source configuration for the handler. See Integration below.
+     * @return Integration data source configuration for the handler. See `integration` below.
      * 
      */
     public ChannelNamespaceHandlerConfigsOnPublishIntegration integration() {

@@ -14,21 +14,27 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class FileCacheLustreConfiguration
     {
         /// <summary>
-        /// Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        /// Cache deployment type. The only supported value is `CACHE_1`.
         /// </summary>
         public readonly string DeploymentType;
+        /// <summary>
+        /// Configuration for Lustre logging used to write the enabled logging events for the cache.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheLustreConfigurationLogConfiguration> LogConfigurations;
         /// <summary>
-        /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `MetadataConfiguration` block.
+        /// Configuration for a Lustre MDT (Metadata Target) storage volume. See `MetadataConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheLustreConfigurationMetadataConfiguration> MetadataConfigurations;
+        /// <summary>
+        /// Mount name of the cache.
+        /// </summary>
         public readonly string? MountName;
         /// <summary>
-        /// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        /// Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         /// </summary>
         public readonly int PerUnitStorageThroughput;
         /// <summary>
-        /// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        /// Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         /// </summary>
         public readonly string? WeeklyMaintenanceStartTime;
 

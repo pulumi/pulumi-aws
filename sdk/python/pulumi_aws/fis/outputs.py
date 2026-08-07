@@ -138,8 +138,6 @@ class ExperimentTemplateActionParameter(dict):
         """
         :param _builtins.str key: Parameter name.
         :param _builtins.str value: Parameter value.
-               
-               For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -157,8 +155,6 @@ class ExperimentTemplateActionParameter(dict):
     def value(self) -> _builtins.str:
         """
         Parameter value.
-
-        For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         """
         return pulumi.get(self, "value")
 
@@ -168,27 +164,17 @@ class ExperimentTemplateActionTarget(dict):
     def __init__(__self__, *,
                  key: _builtins.str,
                  value: _builtins.str):
-        """
-        :param _builtins.str key: Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `MultiRegionClusters` (MemoryDB Multi-Region clusters), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-        :param _builtins.str value: Target name, referencing a corresponding target.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def key(self) -> _builtins.str:
-        """
-        Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Functions` (Lambda Functions), `Instances` (EC2 Instances), `KinesisStreams` (Kinesis Data Streams), `ManagedResources` (EKS clusters, Application and Network Load Balancers, and EC2 Auto Scaling groups that are enabled for ARC zonal shift), `MultiRegionClusters` (MemoryDB Multi-Region clusters), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes), `VPCEndpoints` (Amazon VPC endpoints). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/action-sequence.html#action-targets) for more details.
-        """
         return pulumi.get(self, "key")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
-        """
-        Target name, referencing a corresponding target.
-        """
         return pulumi.get(self, "value")
 
 
@@ -217,8 +203,8 @@ class ExperimentTemplateExperimentOptions(dict):
                  account_targeting: Optional[_builtins.str] = None,
                  empty_target_resolution_mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.str account_targeting: Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
-        :param _builtins.str empty_target_resolution_mode: Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        :param _builtins.str account_targeting: Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        :param _builtins.str empty_target_resolution_mode: Empty target resolution mode for experiment options. Supports `fail` and `skip`.
         """
         if account_targeting is not None:
             pulumi.set(__self__, "account_targeting", account_targeting)
@@ -229,7 +215,7 @@ class ExperimentTemplateExperimentOptions(dict):
     @pulumi.getter(name="accountTargeting")
     def account_targeting(self) -> Optional[_builtins.str]:
         """
-        Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
+        Account targeting setting for experiment options. Supports `single-account` and `multi-account`.
         """
         return pulumi.get(self, "account_targeting")
 
@@ -237,7 +223,7 @@ class ExperimentTemplateExperimentOptions(dict):
     @pulumi.getter(name="emptyTargetResolutionMode")
     def empty_target_resolution_mode(self) -> Optional[_builtins.str]:
         """
-        Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
+        Empty target resolution mode for experiment options. Supports `fail` and `skip`.
         """
         return pulumi.get(self, "empty_target_resolution_mode")
 
@@ -271,10 +257,10 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
                  post_experiment_duration: Optional[_builtins.str] = None,
                  pre_experiment_duration: Optional[_builtins.str] = None):
         """
-        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesArgs' data_sources: The data sources for the experiment report. See below.
-        :param 'ExperimentTemplateExperimentReportConfigurationOutputsArgs' outputs: The outputs for the experiment report. See below.
-        :param _builtins.str post_experiment_duration: The duration of the post-experiment period. Defaults to `PT20M`.
-        :param _builtins.str pre_experiment_duration: The duration of the pre-experiment period. Defaults to `PT20M`.
+        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesArgs' data_sources: Data sources for the experiment report. See below.
+        :param 'ExperimentTemplateExperimentReportConfigurationOutputsArgs' outputs: Outputs for the experiment report. See below.
+        :param _builtins.str post_experiment_duration: Duration of the post-experiment period. Defaults to `PT20M`.
+        :param _builtins.str pre_experiment_duration: Duration of the pre-experiment period. Defaults to `PT20M`.
         """
         if data_sources is not None:
             pulumi.set(__self__, "data_sources", data_sources)
@@ -289,7 +275,7 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationDataSources']:
         """
-        The data sources for the experiment report. See below.
+        Data sources for the experiment report. See below.
         """
         return pulumi.get(self, "data_sources")
 
@@ -297,7 +283,7 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
     @pulumi.getter
     def outputs(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputs']:
         """
-        The outputs for the experiment report. See below.
+        Outputs for the experiment report. See below.
         """
         return pulumi.get(self, "outputs")
 
@@ -305,7 +291,7 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
     @pulumi.getter(name="postExperimentDuration")
     def post_experiment_duration(self) -> Optional[_builtins.str]:
         """
-        The duration of the post-experiment period. Defaults to `PT20M`.
+        Duration of the post-experiment period. Defaults to `PT20M`.
         """
         return pulumi.get(self, "post_experiment_duration")
 
@@ -313,7 +299,7 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
     @pulumi.getter(name="preExperimentDuration")
     def pre_experiment_duration(self) -> Optional[_builtins.str]:
         """
-        The duration of the pre-experiment period. Defaults to `PT20M`.
+        Duration of the pre-experiment period. Defaults to `PT20M`.
         """
         return pulumi.get(self, "pre_experiment_duration")
 
@@ -340,7 +326,7 @@ class ExperimentTemplateExperimentReportConfigurationDataSources(dict):
     def __init__(__self__, *,
                  cloudwatch_dashboards: Optional[Sequence['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard']] = None):
         """
-        :param Sequence['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs'] cloudwatch_dashboards: The data sources for the experiment report. See below.
+        :param Sequence['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs'] cloudwatch_dashboards: Data sources for the experiment report. See below.
         """
         if cloudwatch_dashboards is not None:
             pulumi.set(__self__, "cloudwatch_dashboards", cloudwatch_dashboards)
@@ -349,7 +335,7 @@ class ExperimentTemplateExperimentReportConfigurationDataSources(dict):
     @pulumi.getter(name="cloudwatchDashboards")
     def cloudwatch_dashboards(self) -> Optional[Sequence['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboard']]:
         """
-        The data sources for the experiment report. See below.
+        Data sources for the experiment report. See below.
         """
         return pulumi.get(self, "cloudwatch_dashboards")
 
@@ -376,7 +362,7 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashbo
     def __init__(__self__, *,
                  dashboard_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str dashboard_arn: The ARN of the CloudWatch dashboard.
+        :param _builtins.str dashboard_arn: ARN of the CloudWatch dashboard.
         """
         if dashboard_arn is not None:
             pulumi.set(__self__, "dashboard_arn", dashboard_arn)
@@ -385,7 +371,7 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashbo
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the CloudWatch dashboard.
+        ARN of the CloudWatch dashboard.
         """
         return pulumi.get(self, "dashboard_arn")
 
@@ -412,7 +398,7 @@ class ExperimentTemplateExperimentReportConfigurationOutputs(dict):
     def __init__(__self__, *,
                  s3_configuration: Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration'] = None):
         """
-        :param 'ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs' s3_configuration: The data sources for the experiment report. See below.
+        :param 'ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs' s3_configuration: Data sources for the experiment report. See below.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -421,7 +407,7 @@ class ExperimentTemplateExperimentReportConfigurationOutputs(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration']:
         """
-        The data sources for the experiment report. See below.
+        Data sources for the experiment report. See below.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -448,10 +434,6 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration(dict
     def __init__(__self__, *,
                  bucket_name: _builtins.str,
                  prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_name: The name of the destination bucket.
-        :param _builtins.str prefix: The bucket prefix.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -459,17 +441,11 @@ class ExperimentTemplateExperimentReportConfigurationOutputsS3Configuration(dict
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        The name of the destination bucket.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        The bucket prefix.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -501,9 +477,9 @@ class ExperimentTemplateLogConfiguration(dict):
                  cloudwatch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration'] = None,
                  s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration'] = None):
         """
-        :param _builtins.int log_schema_version: The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs' cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        :param 'ExperimentTemplateLogConfigurationS3ConfigurationArgs' s3_configuration: The configuration for experiment logging to Amazon S3. See below.
+        :param _builtins.int log_schema_version: Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+        :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs' cloudwatch_logs_configuration: Configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        :param 'ExperimentTemplateLogConfigurationS3ConfigurationArgs' s3_configuration: Configuration for experiment logging to Amazon S3. See below.
         """
         pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloudwatch_logs_configuration is not None:
@@ -515,7 +491,7 @@ class ExperimentTemplateLogConfiguration(dict):
     @pulumi.getter(name="logSchemaVersion")
     def log_schema_version(self) -> _builtins.int:
         """
-        The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+        Schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
         """
         return pulumi.get(self, "log_schema_version")
 
@@ -523,7 +499,7 @@ class ExperimentTemplateLogConfiguration(dict):
     @pulumi.getter(name="cloudwatchLogsConfiguration")
     def cloudwatch_logs_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration']:
         """
-        The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        Configuration for experiment logging to Amazon CloudWatch Logs. See below.
         """
         return pulumi.get(self, "cloudwatch_logs_configuration")
 
@@ -531,7 +507,7 @@ class ExperimentTemplateLogConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration']:
         """
-        The configuration for experiment logging to Amazon S3. See below.
+        Configuration for experiment logging to Amazon S3. See below.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -558,7 +534,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
         """
-        :param _builtins.str log_group_arn: The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        :param _builtins.str log_group_arn: Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -566,7 +542,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -593,10 +569,6 @@ class ExperimentTemplateLogConfigurationS3Configuration(dict):
     def __init__(__self__, *,
                  bucket_name: _builtins.str,
                  prefix: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str bucket_name: The name of the destination bucket.
-        :param _builtins.str prefix: The bucket prefix.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
@@ -604,17 +576,11 @@ class ExperimentTemplateLogConfigurationS3Configuration(dict):
     @_builtins.property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> _builtins.str:
-        """
-        The name of the destination bucket.
-        """
         return pulumi.get(self, "bucket_name")
 
     @_builtins.property
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
-        """
-        The bucket prefix.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -685,10 +651,10 @@ class ExperimentTemplateTarget(dict):
         :param _builtins.str name: Friendly name given to the target.
         :param _builtins.str resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
         :param _builtins.str selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        :param Sequence['ExperimentTemplateTargetFilterArgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        :param Mapping[str, _builtins.str] parameters: The resource type parameters.
                
                > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        :param Sequence['ExperimentTemplateTargetFilterArgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
+        :param Mapping[str, _builtins.str] parameters: Resource type parameters.
         :param Sequence[_builtins.str] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         :param Sequence['ExperimentTemplateTargetResourceTagArgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
@@ -725,6 +691,8 @@ class ExperimentTemplateTarget(dict):
     def selection_mode(self) -> _builtins.str:
         """
         Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+
+        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         """
         return pulumi.get(self, "selection_mode")
 
@@ -740,9 +708,7 @@ class ExperimentTemplateTarget(dict):
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The resource type parameters.
-
-        > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        Resource type parameters.
         """
         return pulumi.get(self, "parameters")
 

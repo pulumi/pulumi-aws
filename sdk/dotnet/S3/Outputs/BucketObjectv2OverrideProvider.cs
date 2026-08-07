@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketObjectv2OverrideProvider
     {
         /// <summary>
-        /// Override the provider `DefaultTags` configuration block.
+        /// Override the provider `DefaultTags` configuration block. See `DefaultTags` Block below for more details.
         /// </summary>
         public readonly Outputs.BucketObjectv2OverrideProviderDefaultTags? DefaultTags;
 

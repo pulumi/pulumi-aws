@@ -15,14 +15,14 @@ public final class AppAuthorizationCredentialApiKeyCredentialArgs extends com.pu
     public static final AppAuthorizationCredentialApiKeyCredentialArgs Empty = new AppAuthorizationCredentialApiKeyCredentialArgs();
 
     /**
-     * Contains API key credential information.
+     * API key.
      * 
      */
     @Import(name="apiKey", required=true)
     private Output<String> apiKey;
 
     /**
-     * @return Contains API key credential information.
+     * @return API key.
      * 
      */
     public Output<String> apiKey() {
@@ -54,7 +54,7 @@ public final class AppAuthorizationCredentialApiKeyCredentialArgs extends com.pu
         }
 
         /**
-         * @param apiKey Contains API key credential information.
+         * @param apiKey API key.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AppAuthorizationCredentialApiKeyCredentialArgs extends com.pu
         }
 
         /**
-         * @param apiKey Contains API key credential information.
+         * @param apiKey API key.
          * 
          * @return builder
          * 

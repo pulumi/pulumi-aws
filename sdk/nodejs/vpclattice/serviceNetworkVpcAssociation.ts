@@ -62,11 +62,11 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The account that created the association.
+     * Account that created the association.
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
@@ -82,16 +82,15 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     declare public readonly serviceNetworkIdentifier: pulumi.Output<string>;
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -103,7 +102,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     declare public readonly vpcIdentifier: pulumi.Output<string>;
 
@@ -161,11 +160,11 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
  */
 export interface ServiceNetworkVpcAssociationState {
     /**
-     * The ARN of the Association.
+     * ARN of the Association.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The account that created the association.
+     * Account that created the association.
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
@@ -181,16 +180,15 @@ export interface ServiceNetworkVpcAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     serviceNetworkIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
+     * Operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -202,7 +200,7 @@ export interface ServiceNetworkVpcAssociationState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     vpcIdentifier?: pulumi.Input<string | undefined>;
 }
@@ -224,12 +222,11 @@ export interface ServiceNetworkVpcAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The IDs of the security groups.
+     * IDs of the security groups.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
+     * ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
     /**
@@ -237,7 +234,7 @@ export interface ServiceNetworkVpcAssociationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      */
     vpcIdentifier: pulumi.Input<string>;
 }

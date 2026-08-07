@@ -110,8 +110,8 @@ class DataRepositoryAssociationS3(dict):
                  auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
                  auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None):
         """
-        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `auto_export_policy` Block below.
+        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `auto_import_policy` Block below.
         """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
@@ -122,7 +122,7 @@ class DataRepositoryAssociationS3(dict):
     @pulumi.getter(name="autoExportPolicy")
     def auto_export_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy']:
         """
-        Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        Type of updated objects that are automatically exported from your file system to the linked S3 bucket. See the `auto_export_policy` Block below.
         """
         return pulumi.get(self, "auto_export_policy")
 
@@ -130,7 +130,7 @@ class DataRepositoryAssociationS3(dict):
     @pulumi.getter(name="autoImportPolicy")
     def auto_import_policy(self) -> Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy']:
         """
-        Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        Type of updated objects that are automatically imported from the linked S3 bucket to your file system. See the `auto_import_policy` Block below.
         """
         return pulumi.get(self, "auto_import_policy")
 
@@ -140,7 +140,7 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        :param Sequence[_builtins.str] events: List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -149,7 +149,7 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
     @pulumi.getter
     def events(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        List of file event types to automatically export to your linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         return pulumi.get(self, "events")
 
@@ -159,7 +159,7 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] events: A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        :param Sequence[_builtins.str] events: List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         if events is not None:
             pulumi.set(__self__, "events", events)
@@ -168,7 +168,7 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
     @pulumi.getter
     def events(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
+        List of file event types to automatically import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
         """
         return pulumi.get(self, "events")
 
@@ -221,12 +221,17 @@ class FileCacheDataRepositoryAssociation(dict):
                  resource_arn: Optional[_builtins.str] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
-        :param _builtins.str data_repository_path: The path to the S3 or NFS data repository that links to the cache.
-        :param _builtins.str file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
-        :param Sequence[_builtins.str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
-        :param _builtins.str file_cache_id: The system-generated, unique ID of the cache.
-        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: (Optional) See the `nfs` configuration block.
-        :param Mapping[str, _builtins.str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param _builtins.str data_repository_path: Path to the S3 or NFS data repository that links to the cache.
+        :param _builtins.str file_cache_path: Path on the cache that maps 1-1 with `data_repository_path`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
+        :param _builtins.str association_id: System-generated, unique ID of the data repository association.
+        :param Sequence[_builtins.str] data_repository_subdirectories: NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `data_repository_path` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
+        :param _builtins.str file_cache_id: System-generated, unique ID of the cache.
+        :param _builtins.str file_system_id: ID of the file system for an NFS data repository association.
+        :param _builtins.str file_system_path: Path to the data repository on the file system.
+        :param _builtins.int imported_file_chunk_size: Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
+        :param _builtins.str resource_arn: Amazon Resource Name (ARN) of the data repository association.
+        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
         pulumi.set(__self__, "file_cache_path", file_cache_path)
@@ -253,7 +258,7 @@ class FileCacheDataRepositoryAssociation(dict):
     @pulumi.getter(name="dataRepositoryPath")
     def data_repository_path(self) -> _builtins.str:
         """
-        The path to the S3 or NFS data repository that links to the cache.
+        Path to the S3 or NFS data repository that links to the cache.
         """
         return pulumi.get(self, "data_repository_path")
 
@@ -261,20 +266,23 @@ class FileCacheDataRepositoryAssociation(dict):
     @pulumi.getter(name="fileCachePath")
     def file_cache_path(self) -> _builtins.str:
         """
-        A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        Path on the cache that maps 1-1 with `data_repository_path`. Must begin with a forward slash and cannot overlap the cache path of another data repository association.
         """
         return pulumi.get(self, "file_cache_path")
 
     @_builtins.property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[_builtins.str]:
+        """
+        System-generated, unique ID of the data repository association.
+        """
         return pulumi.get(self, "association_id")
 
     @_builtins.property
     @pulumi.getter(name="dataRepositorySubdirectories")
     def data_repository_subdirectories(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        NFS exports linked with this data repository association, in the format `/exportpath1`. Configure `data_repository_path` as the domain name of the NFS file system to use this argument. Not supported for S3 data repositories. Maximum of 500.
         """
         return pulumi.get(self, "data_repository_subdirectories")
 
@@ -282,43 +290,55 @@ class FileCacheDataRepositoryAssociation(dict):
     @pulumi.getter(name="fileCacheId")
     def file_cache_id(self) -> Optional[_builtins.str]:
         """
-        The system-generated, unique ID of the cache.
+        System-generated, unique ID of the cache.
         """
         return pulumi.get(self, "file_cache_id")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the file system for an NFS data repository association.
+        """
         return pulumi.get(self, "file_system_id")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[_builtins.str]:
+        """
+        Path to the data repository on the file system.
+        """
         return pulumi.get(self, "file_system_path")
 
     @_builtins.property
     @pulumi.getter(name="importedFileChunkSize")
     def imported_file_chunk_size(self) -> Optional[_builtins.int]:
+        """
+        Size, in mebibytes (MiB), of the data blocks used to represent imported files.
+        """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @_builtins.property
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.FileCacheDataRepositoryAssociationNf']]:
         """
-        (Optional) See the `nfs` configuration block.
+        Configuration for a data repository association linked to an NFS file system. See `nfs` Block below.
         """
         return pulumi.get(self, "nfs")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the data repository association.
+        """
         return pulumi.get(self, "resource_arn")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -346,8 +366,8 @@ class FileCacheDataRepositoryAssociationNf(dict):
                  version: _builtins.str,
                  dns_ips: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str version: The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
-        :param Sequence[_builtins.str] dns_ips: A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        :param _builtins.str version: Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
+        :param Sequence[_builtins.str] dns_ips: Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
         """
         pulumi.set(__self__, "version", version)
         if dns_ips is not None:
@@ -357,7 +377,7 @@ class FileCacheDataRepositoryAssociationNf(dict):
     @pulumi.getter
     def version(self) -> _builtins.str:
         """
-        The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        Version of the NFS protocol of the NFS data repository. The only supported value is `NFS3`.
         """
         return pulumi.get(self, "version")
 
@@ -365,7 +385,7 @@ class FileCacheDataRepositoryAssociationNf(dict):
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        Up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name.
         """
         return pulumi.get(self, "dns_ips")
 
@@ -407,10 +427,12 @@ class FileCacheLustreConfiguration(dict):
                  mount_name: Optional[_builtins.str] = None,
                  weekly_maintenance_start_time: Optional[_builtins.str] = None):
         """
-        :param _builtins.str deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
-        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArgs'] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
-        :param _builtins.int per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
-        :param _builtins.str weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        :param _builtins.str deployment_type: Cache deployment type. The only supported value is `CACHE_1`.
+        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArgs'] metadata_configurations: Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadata_configuration` Block below.
+        :param _builtins.int per_unit_storage_throughput: Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        :param Sequence['FileCacheLustreConfigurationLogConfigurationArgs'] log_configurations: Configuration for Lustre logging used to write the enabled logging events for the cache.
+        :param _builtins.str mount_name: Mount name of the cache.
+        :param _builtins.str weekly_maintenance_start_time: Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
         pulumi.set(__self__, "deployment_type", deployment_type)
         pulumi.set(__self__, "metadata_configurations", metadata_configurations)
@@ -426,7 +448,7 @@ class FileCacheLustreConfiguration(dict):
     @pulumi.getter(name="deploymentType")
     def deployment_type(self) -> _builtins.str:
         """
-        Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        Cache deployment type. The only supported value is `CACHE_1`.
         """
         return pulumi.get(self, "deployment_type")
 
@@ -434,7 +456,7 @@ class FileCacheLustreConfiguration(dict):
     @pulumi.getter(name="metadataConfigurations")
     def metadata_configurations(self) -> Sequence['outputs.FileCacheLustreConfigurationMetadataConfiguration']:
         """
-        The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadata_configuration` Block below.
         """
         return pulumi.get(self, "metadata_configurations")
 
@@ -442,25 +464,31 @@ class FileCacheLustreConfiguration(dict):
     @pulumi.getter(name="perUnitStorageThroughput")
     def per_unit_storage_throughput(self) -> _builtins.int:
         """
-        Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         """
         return pulumi.get(self, "per_unit_storage_throughput")
 
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
     def log_configurations(self) -> Optional[Sequence['outputs.FileCacheLustreConfigurationLogConfiguration']]:
+        """
+        Configuration for Lustre logging used to write the enabled logging events for the cache.
+        """
         return pulumi.get(self, "log_configurations")
 
     @_builtins.property
     @pulumi.getter(name="mountName")
     def mount_name(self) -> Optional[_builtins.str]:
+        """
+        Mount name of the cache.
+        """
         return pulumi.get(self, "mount_name")
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[_builtins.str]:
         """
-        A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
         return pulumi.get(self, "weekly_maintenance_start_time")
 
@@ -508,7 +536,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     def __init__(__self__, *,
                  storage_capacity: _builtins.int):
         """
-        :param _builtins.int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        :param _builtins.int storage_capacity: Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
@@ -516,7 +544,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> _builtins.int:
         """
-        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        Storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -574,7 +602,7 @@ class LustreFileSystemLogConfiguration(dict):
                  destination: Optional[_builtins.str] = None,
                  level: Optional[_builtins.str] = None):
         """
-        :param _builtins.str destination: The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        :param _builtins.str destination: Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         :param _builtins.str level: Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         """
         if destination is not None:
@@ -586,7 +614,7 @@ class LustreFileSystemLogConfiguration(dict):
     @pulumi.getter
     def destination(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         """
         return pulumi.get(self, "destination")
 
@@ -690,8 +718,8 @@ class OntapFileSystemDiskIopsConfiguration(dict):
                  iops: Optional[_builtins.int] = None,
                  mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.int iops: The total number of SSD IOPS provisioned for the file system.
-        :param _builtins.str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        :param _builtins.int iops: Total number of SSD IOPS provisioned for the file system.
+        :param _builtins.str mode: Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -702,7 +730,7 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def iops(self) -> Optional[_builtins.int]:
         """
-        The total number of SSD IOPS provisioned for the file system.
+        Total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -710,7 +738,7 @@ class OntapFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        Whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         return pulumi.get(self, "mode")
 
@@ -721,8 +749,8 @@ class OntapFileSystemEndpoint(dict):
                  interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
                  managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None):
         """
-        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         if interclusters is not None:
             pulumi.set(__self__, "interclusters", interclusters)
@@ -733,7 +761,7 @@ class OntapFileSystemEndpoint(dict):
     @pulumi.getter
     def interclusters(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']]:
         """
-        An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
         """
         return pulumi.get(self, "interclusters")
 
@@ -741,7 +769,7 @@ class OntapFileSystemEndpoint(dict):
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointManagement']]:
         """
-        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         return pulumi.get(self, "managements")
 
@@ -771,7 +799,7 @@ class OntapFileSystemEndpointIntercluster(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the file system endpoint.
         """
         if dns_name is not None:
@@ -783,7 +811,7 @@ class OntapFileSystemEndpointIntercluster(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -821,7 +849,7 @@ class OntapFileSystemEndpointManagement(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the file system endpoint.
         """
         if dns_name is not None:
@@ -833,7 +861,7 @@ class OntapFileSystemEndpointManagement(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -871,7 +899,8 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
                  netbios_name: Optional[_builtins.str] = None,
                  self_managed_active_directory_configuration: Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration'] = None):
         """
-        :param _builtins.str netbios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        :param _builtins.str netbios_name: NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        :param 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs' self_managed_active_directory_configuration: Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
         """
         if netbios_name is not None:
             pulumi.set(__self__, "netbios_name", netbios_name)
@@ -882,13 +911,16 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
     @pulumi.getter(name="netbiosName")
     def netbios_name(self) -> Optional[_builtins.str]:
         """
-        The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
         """
         return pulumi.get(self, "netbios_name")
 
     @_builtins.property
     @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
     def self_managed_active_directory_configuration(self) -> Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration']:
+        """
+        Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+        """
         return pulumi.get(self, "self_managed_active_directory_configuration")
 
 
@@ -925,12 +957,12 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  file_system_administrators_group: Optional[_builtins.str] = None,
                  organizational_unit_distinguished_name: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-        :param _builtins.str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        :param _builtins.str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        :param _builtins.str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        :param _builtins.str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        :param _builtins.str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        :param Sequence[_builtins.str] dns_ips: List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        :param _builtins.str domain_name: Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        :param _builtins.str password: Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param _builtins.str username: User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param _builtins.str file_system_administrators_group: Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        :param _builtins.str organizational_unit_distinguished_name: Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -945,7 +977,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[_builtins.str]:
         """
-        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
         """
         return pulumi.get(self, "dns_ips")
 
@@ -953,7 +985,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
         """
-        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
@@ -961,7 +993,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter
     def password(self) -> _builtins.str:
         """
-        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         """
         return pulumi.get(self, "password")
 
@@ -969,7 +1001,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter
     def username(self) -> _builtins.str:
         """
-        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         """
         return pulumi.get(self, "username")
 
@@ -977,7 +1009,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> Optional[_builtins.str]:
         """
-        The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        Name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         """
         return pulumi.get(self, "file_system_administrators_group")
 
@@ -985,7 +1017,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[_builtins.str]:
         """
-        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
@@ -998,10 +1030,10 @@ class OntapStorageVirtualMachineEndpoint(dict):
                  nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
                  smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
         """
-        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
         if iscsis is not None:
             pulumi.set(__self__, "iscsis", iscsis)
@@ -1016,7 +1048,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def iscsis(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']]:
         """
-        An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         """
         return pulumi.get(self, "iscsis")
 
@@ -1024,7 +1056,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']]:
         """
-        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         return pulumi.get(self, "managements")
 
@@ -1032,7 +1064,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']]:
         """
-        An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         """
         return pulumi.get(self, "nfs")
 
@@ -1040,7 +1072,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def smbs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']]:
         """
-        An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
         return pulumi.get(self, "smbs")
 
@@ -1070,7 +1102,7 @@ class OntapStorageVirtualMachineEndpointIscsi(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
         if dns_name is not None:
@@ -1082,7 +1114,7 @@ class OntapStorageVirtualMachineEndpointIscsi(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1120,7 +1152,7 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
         if dns_name is not None:
@@ -1132,7 +1164,7 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1170,7 +1202,7 @@ class OntapStorageVirtualMachineEndpointNf(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
         if dns_name is not None:
@@ -1182,7 +1214,7 @@ class OntapStorageVirtualMachineEndpointNf(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1220,7 +1252,7 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
                  dns_name: Optional[_builtins.str] = None,
                  ip_addresses: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param _builtins.str dns_name: Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         :param Sequence[_builtins.str] ip_addresses: IP addresses of the storage virtual machine endpoint.
         """
         if dns_name is not None:
@@ -1232,7 +1264,7 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[_builtins.str]:
         """
-        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -1271,9 +1303,9 @@ class OntapVolumeAggregateConfiguration(dict):
                  constituents_per_aggregate: Optional[_builtins.int] = None,
                  total_constituents: Optional[_builtins.int] = None):
         """
-        :param Sequence[_builtins.str] aggregates: Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
-        :param _builtins.int constituents_per_aggregate: Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
-        :param _builtins.int total_constituents: The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        :param Sequence[_builtins.str] aggregates: Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        :param _builtins.int constituents_per_aggregate: Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        :param _builtins.int total_constituents: Total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
         """
         if aggregates is not None:
             pulumi.set(__self__, "aggregates", aggregates)
@@ -1286,7 +1318,7 @@ class OntapVolumeAggregateConfiguration(dict):
     @pulumi.getter
     def aggregates(self) -> Optional[Sequence[_builtins.str]]:
         """
-        Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        Names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
         """
         return pulumi.get(self, "aggregates")
 
@@ -1294,7 +1326,7 @@ class OntapVolumeAggregateConfiguration(dict):
     @pulumi.getter(name="constituentsPerAggregate")
     def constituents_per_aggregate(self) -> Optional[_builtins.int]:
         """
-        Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        Number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
         """
         return pulumi.get(self, "constituents_per_aggregate")
 
@@ -1302,7 +1334,7 @@ class OntapVolumeAggregateConfiguration(dict):
     @pulumi.getter(name="totalConstituents")
     def total_constituents(self) -> Optional[_builtins.int]:
         """
-        The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        Total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
         """
         return pulumi.get(self, "total_constituents")
 
@@ -1344,12 +1376,12 @@ class OntapVolumeSnaplockConfiguration(dict):
                  retention_period: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriod'] = None,
                  volume_append_mode_enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
-        :param _builtins.bool audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-        :param 'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs' autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
-        :param _builtins.str privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs' retention_period: The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
-        :param _builtins.bool volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        :param _builtins.str snaplock_type: Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+        :param _builtins.bool audit_log_volume: Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        :param 'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs' autocommit_period: Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+        :param _builtins.str privileged_delete: Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs' retention_period: Retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+        :param _builtins.bool volume_append_mode_enabled: Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         pulumi.set(__self__, "snaplock_type", snaplock_type)
         if audit_log_volume is not None:
@@ -1367,7 +1399,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="snaplockType")
     def snaplock_type(self) -> _builtins.str:
         """
-        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+        Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
         """
         return pulumi.get(self, "snaplock_type")
 
@@ -1375,7 +1407,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="auditLogVolume")
     def audit_log_volume(self) -> Optional[_builtins.bool]:
         """
-        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         return pulumi.get(self, "audit_log_volume")
 
@@ -1383,7 +1415,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="autocommitPeriod")
     def autocommit_period(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationAutocommitPeriod']:
         """
-        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
+        Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         """
         return pulumi.get(self, "autocommit_period")
 
@@ -1391,7 +1423,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="privilegedDelete")
     def privileged_delete(self) -> Optional[_builtins.str]:
         """
-        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+        Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
         """
         return pulumi.get(self, "privileged_delete")
 
@@ -1399,7 +1431,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriod']:
         """
-        The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
+        Retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         """
         return pulumi.get(self, "retention_period")
 
@@ -1407,7 +1439,7 @@ class OntapVolumeSnaplockConfiguration(dict):
     @pulumi.getter(name="volumeAppendModeEnabled")
     def volume_append_mode_enabled(self) -> Optional[_builtins.bool]:
         """
-        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         return pulumi.get(self, "volume_append_mode_enabled")
 
@@ -1418,8 +1450,8 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.int] = None):
         """
-        :param _builtins.str type: The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
-        :param _builtins.int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        :param _builtins.str type: Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        :param _builtins.int value: Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1430,7 +1462,7 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        Type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
         """
         return pulumi.get(self, "type")
 
@@ -1438,7 +1470,7 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.int]:
         """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         return pulumi.get(self, "value")
 
@@ -1471,9 +1503,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
                  maximum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention'] = None,
                  minimum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention'] = None):
         """
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs' default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs' maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs' minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs' default_retention: Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs' maximum_retention: Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs' minimum_retention: Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
@@ -1486,7 +1518,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention']:
         """
-        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
+        Retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
         """
         return pulumi.get(self, "default_retention")
 
@@ -1494,7 +1526,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
     @pulumi.getter(name="maximumRetention")
     def maximum_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention']:
         """
-        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
+        Longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
         """
         return pulumi.get(self, "maximum_retention")
 
@@ -1502,7 +1534,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
     @pulumi.getter(name="minimumRetention")
     def minimum_retention(self) -> Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention']:
         """
-        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
+        Shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         """
         return pulumi.get(self, "minimum_retention")
 
@@ -1513,8 +1545,8 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.int] = None):
         """
-        :param _builtins.str type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
-        :param _builtins.int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        :param _builtins.str type: Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param _builtins.int value: Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1525,7 +1557,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
         """
         return pulumi.get(self, "type")
 
@@ -1533,7 +1565,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.int]:
         """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         return pulumi.get(self, "value")
 
@@ -1544,8 +1576,8 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.int] = None):
         """
-        :param _builtins.str type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
-        :param _builtins.int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        :param _builtins.str type: Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param _builtins.int value: Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1556,7 +1588,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
         """
         return pulumi.get(self, "type")
 
@@ -1564,7 +1596,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.int]:
         """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         return pulumi.get(self, "value")
 
@@ -1575,8 +1607,8 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
                  type: Optional[_builtins.str] = None,
                  value: Optional[_builtins.int] = None):
         """
-        :param _builtins.str type: The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
-        :param _builtins.int value: The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        :param _builtins.str type: Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        :param _builtins.int value: Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1587,7 +1619,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
+        Type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
         """
         return pulumi.get(self, "type")
 
@@ -1595,7 +1627,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.int]:
         """
-        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        Amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
         """
         return pulumi.get(self, "value")
 
@@ -1623,8 +1655,8 @@ class OntapVolumeTieringPolicy(dict):
                  cooling_period: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None):
         """
-        :param _builtins.int cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
-        :param _builtins.str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        :param _builtins.int cooling_period: Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        :param _builtins.str name: Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         if cooling_period is not None:
             pulumi.set(__self__, "cooling_period", cooling_period)
@@ -1635,7 +1667,7 @@ class OntapVolumeTieringPolicy(dict):
     @pulumi.getter(name="coolingPeriod")
     def cooling_period(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        Number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         """
         return pulumi.get(self, "cooling_period")
 
@@ -1643,7 +1675,7 @@ class OntapVolumeTieringPolicy(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        Tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         return pulumi.get(self, "name")
 
@@ -1654,8 +1686,8 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
                  iops: Optional[_builtins.int] = None,
                  mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.int iops: The total number of SSD IOPS provisioned for the file system.
-        :param _builtins.str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        :param _builtins.int iops: Total number of SSD IOPS provisioned for the file system.
+        :param _builtins.str mode: How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -1666,7 +1698,7 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def iops(self) -> Optional[_builtins.int]:
         """
-        The total number of SSD IOPS provisioned for the file system.
+        Total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -1674,7 +1706,7 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        How the number of IOPS for the file system is set. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         return pulumi.get(self, "mode")
 
@@ -1703,7 +1735,7 @@ class OpenZfsFileSystemReadCacheConfiguration(dict):
                  sizing_mode: Optional[_builtins.str] = None):
         """
         :param _builtins.int size: Size of the file system's SSD read cache, in gibibytes (GiB). Required when `sizing_mode` is set to `USER_PROVISIONED`. Must not be set when any other `sizing_mode` is used.
-        :param _builtins.str sizing_mode: Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+        :param _builtins.str sizing_mode: How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
         """
         if size is not None:
             pulumi.set(__self__, "size", size)
@@ -1722,7 +1754,7 @@ class OpenZfsFileSystemReadCacheConfiguration(dict):
     @pulumi.getter(name="sizingMode")
     def sizing_mode(self) -> Optional[_builtins.str]:
         """
-        Specifies how the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
+        How the provisioned SSD read cache is sized. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_OpenZFSReadCacheConfiguration.html) for more information.
         """
         return pulumi.get(self, "sizing_mode")
 
@@ -1764,11 +1796,11 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
                  record_size_kib: Optional[_builtins.int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
         """
-        :param _builtins.bool copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        :param _builtins.bool copy_tags_to_snapshots: Whether tags for the file system should be copied to snapshots. Default value is false.
         :param _builtins.str data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
         :param _builtins.bool read_only: specifies whether the volume is read-only. Default is false.
-        :param _builtins.int record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param _builtins.int record_size_kib: Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
         """
         if copy_tags_to_snapshots is not None:
@@ -1788,7 +1820,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> Optional[_builtins.bool]:
         """
-        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        Whether tags for the file system should be copied to snapshots. Default value is false.
         """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
@@ -1820,7 +1852,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="recordSizeKib")
     def record_size_kib(self) -> Optional[_builtins.int]:
         """
-        Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        Record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. Default is `128` KiB.
         """
         return pulumi.get(self, "record_size_kib")
 
@@ -1855,7 +1887,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1863,7 +1895,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']:
         """
-        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
+        List of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block for details.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -1874,8 +1906,8 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
                  clients: _builtins.str,
                  options: Sequence[_builtins.str]):
         """
-        :param _builtins.str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param Sequence[_builtins.str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        :param _builtins.str clients: Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param Sequence[_builtins.str] options: Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -1884,7 +1916,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     @pulumi.getter
     def clients(self) -> _builtins.str:
         """
-        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
         """
         return pulumi.get(self, "clients")
 
@@ -1892,7 +1924,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     @pulumi.getter
     def options(self) -> Sequence[_builtins.str]:
         """
-        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         return pulumi.get(self, "options")
 
@@ -1921,9 +1953,9 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
                  storage_capacity_quota_gib: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int id: The ID of the user or group. Valid values between `0` and `2147483647`
-        :param _builtins.int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        :param _builtins.str type: A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        :param _builtins.int id: ID of the user or group. Valid values between `0` and `2147483647`
+        :param _builtins.int storage_capacity_quota_gib: Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        :param _builtins.str type: Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -1933,7 +1965,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter
     def id(self) -> _builtins.int:
         """
-        The ID of the user or group. Valid values between `0` and `2147483647`
+        ID of the user or group. Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "id")
 
@@ -1941,7 +1973,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> _builtins.int:
         """
-        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        Amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
@@ -1949,7 +1981,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        Value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         return pulumi.get(self, "type")
 
@@ -2092,7 +2124,7 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
         """
         :param _builtins.int id: The ID of the user or group. Valid values between `0` and `2147483647`
         :param _builtins.int storage_capacity_quota_gib: The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-               * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        :param _builtins.str type: A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -2111,13 +2143,15 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
     def storage_capacity_quota_gib(self) -> _builtins.int:
         """
         The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-        * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         return pulumi.get(self, "storage_capacity_quota_gib")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> _builtins.str:
+        """
+        A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
         return pulumi.get(self, "type")
 
 
@@ -2417,7 +2451,7 @@ class WindowsFileSystemAuditLogConfiguration(dict):
                  file_access_audit_log_level: Optional[_builtins.str] = None,
                  file_share_access_audit_log_level: Optional[_builtins.str] = None):
         """
-        :param _builtins.str audit_log_destination: The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        :param _builtins.str audit_log_destination: Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
         :param _builtins.str file_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         :param _builtins.str file_share_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         """
@@ -2432,7 +2466,7 @@ class WindowsFileSystemAuditLogConfiguration(dict):
     @pulumi.getter(name="auditLogDestination")
     def audit_log_destination(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
         """
         return pulumi.get(self, "audit_log_destination")
 
@@ -2459,8 +2493,8 @@ class WindowsFileSystemDiskIopsConfiguration(dict):
                  iops: Optional[_builtins.int] = None,
                  mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.int iops: The total number of SSD IOPS provisioned for the file system.
-        :param _builtins.str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        :param _builtins.int iops: Total number of SSD IOPS provisioned for the file system.
+        :param _builtins.str mode: Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -2471,7 +2505,7 @@ class WindowsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def iops(self) -> Optional[_builtins.int]:
         """
-        The total number of SSD IOPS provisioned for the file system.
+        Total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -2479,7 +2513,7 @@ class WindowsFileSystemDiskIopsConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        Mode for the number of IOPS for the file system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
         """
         return pulumi.get(self, "mode")
 
@@ -2526,16 +2560,16 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
                  password_wo_version: Optional[_builtins.int] = None,
                  username: Optional[_builtins.str] = None):
         """
-        :param Sequence[_builtins.str] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
-        :param _builtins.str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        :param _builtins.str domain_join_service_account_secret: The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
-        :param _builtins.str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
-        :param _builtins.str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
-        :param _builtins.str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
+        :param Sequence[_builtins.str] dns_ips: List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        :param _builtins.str domain_name: Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        :param _builtins.str domain_join_service_account_secret: Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+        :param _builtins.str file_system_administrators_group: Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        :param _builtins.str organizational_unit_distinguished_name: Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        :param _builtins.str password: Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
         :param _builtins.str password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
+               Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
         :param _builtins.int password_wo_version: Version of the password. Required with `password_wo`. Update this argument when the value of `password_wo` has changed to trigger an update to the remote password.
-        :param _builtins.str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
+        :param _builtins.str username: User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -2558,7 +2592,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[_builtins.str]:
         """
-        A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        List of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         """
         return pulumi.get(self, "dns_ips")
 
@@ -2566,7 +2600,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
         """
-        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        Fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         """
         return pulumi.get(self, "domain_name")
 
@@ -2574,7 +2608,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="domainJoinServiceAccountSecret")
     def domain_join_service_account_secret(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+        Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
         """
         return pulumi.get(self, "domain_join_service_account_secret")
 
@@ -2582,7 +2616,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> Optional[_builtins.str]:
         """
-        The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        Name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         """
         return pulumi.get(self, "file_system_administrators_group")
 
@@ -2590,7 +2624,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[_builtins.str]:
         """
-        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
@@ -2598,7 +2632,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
         """
-        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
+        Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
         """
         return pulumi.get(self, "password")
 
@@ -2607,7 +2641,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     def password_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
+        Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
         """
         return pulumi.get(self, "password_wo")
 
@@ -2623,7 +2657,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter
     def username(self) -> Optional[_builtins.str]:
         """
-        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
+        User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
         """
         return pulumi.get(self, "username")
 
@@ -2634,8 +2668,8 @@ class GetOntapFileSystemDiskIopsConfigurationResult(dict):
                  iops: _builtins.int,
                  mode: _builtins.str):
         """
-        :param _builtins.int iops: The total number of SSD IOPS provisioned for the file system.
-        :param _builtins.str mode: Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+        :param _builtins.int iops: Total number of SSD IOPS provisioned for the file system.
+        :param _builtins.str mode: Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
         """
         pulumi.set(__self__, "iops", iops)
         pulumi.set(__self__, "mode", mode)
@@ -2644,7 +2678,7 @@ class GetOntapFileSystemDiskIopsConfigurationResult(dict):
     @pulumi.getter
     def iops(self) -> _builtins.int:
         """
-        The total number of SSD IOPS provisioned for the file system.
+        Total number of SSD IOPS provisioned for the file system.
         """
         return pulumi.get(self, "iops")
 
@@ -2652,7 +2686,7 @@ class GetOntapFileSystemDiskIopsConfigurationResult(dict):
     @pulumi.getter
     def mode(self) -> _builtins.str:
         """
-        Specifies whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
+        Whether the file system is using the `AUTOMATIC` setting of SSD IOPS of 3 IOPS per GB of storage capacity, or if it using a `USER_PROVISIONED` value.
         """
         return pulumi.get(self, "mode")
 
@@ -2663,8 +2697,8 @@ class GetOntapFileSystemEndpointResult(dict):
                  interclusters: Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult'],
                  managements: Sequence['outputs.GetOntapFileSystemEndpointManagementResult']):
         """
-        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
-        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
         """
         pulumi.set(__self__, "interclusters", interclusters)
         pulumi.set(__self__, "managements", managements)
@@ -2673,7 +2707,7 @@ class GetOntapFileSystemEndpointResult(dict):
     @pulumi.getter
     def interclusters(self) -> Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult']:
         """
-        A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+        FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
         """
         return pulumi.get(self, "interclusters")
 
@@ -2681,7 +2715,7 @@ class GetOntapFileSystemEndpointResult(dict):
     @pulumi.getter
     def managements(self) -> Sequence['outputs.GetOntapFileSystemEndpointManagementResult']:
         """
-        A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+        FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
         """
         return pulumi.get(self, "managements")
 
@@ -2742,7 +2776,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
                  netbios_name: _builtins.str,
                  self_managed_active_directory_configurations: Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult']):
         """
-        :param _builtins.str netbios_name: The NetBIOS name of the AD computer object to which the SVM is joined.
+        :param _builtins.str netbios_name: NetBIOS name of the AD computer object to which the SVM is joined.
         """
         pulumi.set(__self__, "netbios_name", netbios_name)
         pulumi.set(__self__, "self_managed_active_directory_configurations", self_managed_active_directory_configurations)
@@ -2751,7 +2785,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
     @pulumi.getter(name="netbiosName")
     def netbios_name(self) -> _builtins.str:
         """
-        The NetBIOS name of the AD computer object to which the SVM is joined.
+        NetBIOS name of the AD computer object to which the SVM is joined.
         """
         return pulumi.get(self, "netbios_name")
 
@@ -2770,11 +2804,11 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
                  organizational_unit_distinguished_name: _builtins.str,
                  username: _builtins.str):
         """
-        :param Sequence[_builtins.str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
-        :param _builtins.str domain_name: The fully qualified domain name of the self-managed AD directory.
-        :param _builtins.str file_system_administrators_group: The name of the domain group whose members have administrative privileges for the FSx file system.
-        :param _builtins.str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
-        :param _builtins.str username: The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+        :param Sequence[_builtins.str] dns_ips: List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        :param _builtins.str domain_name: Fully qualified domain name of the self-managed AD directory.
+        :param _builtins.str file_system_administrators_group: Name of the domain group whose members have administrative privileges for the FSx file system.
+        :param _builtins.str organizational_unit_distinguished_name: Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        :param _builtins.str username: User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -2786,7 +2820,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
     @pulumi.getter(name="dnsIps")
     def dns_ips(self) -> Sequence[_builtins.str]:
         """
-        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        List of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
         """
         return pulumi.get(self, "dns_ips")
 
@@ -2794,7 +2828,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
     @pulumi.getter(name="domainName")
     def domain_name(self) -> _builtins.str:
         """
-        The fully qualified domain name of the self-managed AD directory.
+        Fully qualified domain name of the self-managed AD directory.
         """
         return pulumi.get(self, "domain_name")
 
@@ -2802,7 +2836,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
     @pulumi.getter(name="fileSystemAdministratorsGroup")
     def file_system_administrators_group(self) -> _builtins.str:
         """
-        The name of the domain group whose members have administrative privileges for the FSx file system.
+        Name of the domain group whose members have administrative privileges for the FSx file system.
         """
         return pulumi.get(self, "file_system_administrators_group")
 
@@ -2810,7 +2844,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> _builtins.str:
         """
-        The fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+        Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
@@ -2818,7 +2852,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
     @pulumi.getter
     def username(self) -> _builtins.str:
         """
-        The user name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
+        User name for the service account on your self-managed AD domain that FSx uses to join to your AD domain.
         """
         return pulumi.get(self, "username")
 
@@ -2831,9 +2865,9 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
                  nfs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult'],
                  smbs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult']):
         """
-        :param Sequence['GetOntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
-        :param Sequence['GetOntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
-        :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointManagementArgs'] managements: Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointNfArgs'] nfs: Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArgs'] smbs: Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
         """
         pulumi.set(__self__, "iscsis", iscsis)
         pulumi.set(__self__, "managements", managements)
@@ -2849,7 +2883,7 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
     @pulumi.getter
     def managements(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointManagementResult']:
         """
-        An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
         """
         return pulumi.get(self, "managements")
 
@@ -2857,7 +2891,7 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
     @pulumi.getter
     def nfs(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult']:
         """
-        An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
         """
         return pulumi.get(self, "nfs")
 
@@ -2865,7 +2899,7 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
     @pulumi.getter
     def smbs(self) -> Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult']:
         """
-        An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
         """
         return pulumi.get(self, "smbs")
 
@@ -2980,7 +3014,7 @@ class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
     def __init__(__self__, *,
                  message: _builtins.str):
         """
-        :param _builtins.str message: A detailed message.
+        :param _builtins.str message: Detailed message.
         """
         pulumi.set(__self__, "message", message)
 
@@ -2988,7 +3022,7 @@ class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
     @pulumi.getter
     def message(self) -> _builtins.str:
         """
-        A detailed message.
+        Detailed message.
         """
         return pulumi.get(self, "message")
 
@@ -3028,7 +3062,8 @@ class GetOpenZfsSnapshotFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the snapshot.
+        :param _builtins.str name: Name of the field to filter by.
+        :param Sequence[_builtins.str] values: Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -3037,13 +3072,16 @@ class GetOpenZfsSnapshotFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the snapshot.
+        Name of the field to filter by.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+        """
         return pulumi.get(self, "values")
 
 

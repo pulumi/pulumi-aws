@@ -12,16 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackStreamingExperienceSettings {
     /**
-     * @return The preferred protocol that you want to use while streaming your application.
-     * Valid values are `TCP` and `UDP`.
+     * @return Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
      * 
      */
     private @Nullable String preferredProtocol;
 
     private StackStreamingExperienceSettings() {}
     /**
-     * @return The preferred protocol that you want to use while streaming your application.
-     * Valid values are `TCP` and `UDP`.
+     * @return Preferred protocol that you want to use while streaming your application. Valid values are `TCP` and `UDP`.
      * 
      */
     public Optional<String> preferredProtocol() {

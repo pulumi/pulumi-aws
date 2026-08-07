@@ -29,6 +29,68 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Container Logging, Environment Variables, and Secrets
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.ExpressGatewayService("example", {
+ *     executionRoleArn: execution.arn,
+ *     infrastructureRoleArn: infrastructure.arn,
+ *     healthCheckPath: "/health",
+ *     primaryContainer: {
+ *         image: "my-app:latest",
+ *         containerPort: 8080,
+ *         commands: ["./start.sh"],
+ *         awsLogsConfigurations: [{
+ *             logGroup: app.name,
+ *         }],
+ *         environments: [
+ *             {
+ *                 name: "ENV",
+ *                 value: "production",
+ *             },
+ *             {
+ *                 name: "PORT",
+ *                 value: "8080",
+ *             },
+ *         ],
+ *         secrets: [{
+ *             name: "DB_PASSWORD",
+ *             valueFrom: dbPassword.arn,
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ### Custom Networking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ecs.ExpressGatewayService("example", {
+ *     serviceName: "my-express-service",
+ *     cluster: main.name,
+ *     executionRoleArn: execution.arn,
+ *     infrastructureRoleArn: infrastructure.arn,
+ *     cpu: "256",
+ *     memory: "512",
+ *     primaryContainer: {
+ *         image: "nginx:latest",
+ *         containerPort: 80,
+ *     },
+ *     networkConfigurations: [{
+ *         subnets: [
+ *             privateA.id,
+ *             privateB.id,
+ *         ],
+ *         securityGroups: [app.id],
+ *     }],
+ * });
+ * ```
+ *
  * ### Service Updates and Deletion
  *
  * ### Updates
@@ -111,12 +173,18 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     declare public readonly memory: pulumi.Output<string>;
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block below.
+     */
     declare public readonly networkConfigurations: pulumi.Output<outputs.ecs.ExpressGatewayServiceNetworkConfiguration[]>;
     declare public readonly primaryContainer: pulumi.Output<outputs.ecs.ExpressGatewayServicePrimaryContainer>;
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     */
     declare public readonly scalingTargets: pulumi.Output<outputs.ecs.ExpressGatewayServiceScalingTarget[]>;
     /**
      * ARN of the Express Gateway Service.
@@ -258,12 +326,18 @@ export interface ExpressGatewayServiceState {
      * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     memory?: pulumi.Input<string | undefined>;
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block below.
+     */
     networkConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfiguration>[] | undefined>;
     primaryContainer?: pulumi.Input<inputs.ecs.ExpressGatewayServicePrimaryContainer | undefined>;
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     */
     scalingTargets?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceScalingTarget>[] | undefined>;
     /**
      * ARN of the Express Gateway Service.
@@ -326,12 +400,18 @@ export interface ExpressGatewayServiceArgs {
      * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     memory?: pulumi.Input<string | undefined>;
+    /**
+     * Network configuration for the service. See `networkConfiguration` Block below.
+     */
     networkConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfiguration>[] | undefined>;
     primaryContainer: pulumi.Input<inputs.ecs.ExpressGatewayServicePrimaryContainer>;
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Auto-scaling configuration for the service. See `scalingTarget` Block below.
+     */
     scalingTargets?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceScalingTarget>[] | undefined>;
     /**
      * Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketMetadataConfigurationMetadataConfiguration
     {
         /// <summary>
-        /// Destination information for the S3 Metadata configuration.
+        /// Destination information for the S3 Metadata configuration. See `Destination` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketMetadataConfigurationMetadataConfigurationDestination> Destinations;
         /// <summary>

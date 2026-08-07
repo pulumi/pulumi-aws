@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyStepScalingPolicyConfigurationStepAdjustment {
     /**
-     * @return Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+     * @return Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as negative infinity.
      * 
      */
     private @Nullable String metricIntervalLowerBound;
     /**
-     * @return Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+     * @return Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as infinity. The upper bound must be greater than the lower bound.
      * 
      */
     private @Nullable String metricIntervalUpperBound;
@@ -31,14 +31,14 @@ public final class PolicyStepScalingPolicyConfigurationStepAdjustment {
 
     private PolicyStepScalingPolicyConfigurationStepAdjustment() {}
     /**
-     * @return Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as negative infinity.
+     * @return Lower bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as negative infinity.
      * 
      */
     public Optional<String> metricIntervalLowerBound() {
         return Optional.ofNullable(this.metricIntervalLowerBound);
     }
     /**
-     * @return Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS will treat this bound as infinity. The upper bound must be greater than the lower bound.
+     * @return Upper bound for the difference between the alarm threshold and the CloudWatch metric. Without a value, AWS treats this bound as infinity. The upper bound must be greater than the lower bound.
      * 
      */
     public Optional<String> metricIntervalUpperBound() {

@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .alert_manager_definition import *
+from .anomaly_detector import *
 from .get_default_scraper_configuration import *
 from .get_workspace import *
 from .get_workspaces import *
@@ -14,6 +15,7 @@ from .query_logging_configuration import *
 from .resource_policy import *
 from .rule_group_namespace import *
 from .scraper import *
+from .scraper_logging_configuration import *
 from .workspace import *
 from .workspace_configuration import *
 from ._inputs import *

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount {
+    /**
+     * @return Maximum number of vCPUs.
+     * 
+     */
     private @Nullable Integer max;
+    /**
+     * @return Minimum number of vCPUs.
+     * 
+     */
     private Integer min;
 
     private CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsVcpuCount() {}
+    /**
+     * @return Maximum number of vCPUs.
+     * 
+     */
     public Optional<Integer> max() {
         return Optional.ofNullable(this.max);
     }
+    /**
+     * @return Minimum number of vCPUs.
+     * 
+     */
     public Integer min() {
         return this.min;
     }

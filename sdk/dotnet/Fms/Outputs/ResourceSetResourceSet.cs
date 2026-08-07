@@ -22,21 +22,26 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Last time that the reosurce set was changed.
+        /// Last time that the resource set was changed.
         /// </summary>
         public readonly string? LastUpdateTime;
         /// <summary>
         /// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
+        /// Whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         /// </summary>
         public readonly string? ResourceSetStatus;
         /// <summary>
         /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypeLists;
+        /// <summary>
+        /// Unique identifier for each update to the resource set.
+        /// </summary>
         public readonly string? UpdateToken;
 
         [OutputConstructor]

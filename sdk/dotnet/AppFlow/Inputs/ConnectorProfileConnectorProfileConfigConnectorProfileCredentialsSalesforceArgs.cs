@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AppFlow.Inputs
     {
         [Input("accessToken")]
         private Input<string>? _accessToken;
+
+        /// <summary>
+        /// Credentials used to access protected Zendesk resources.
+        /// </summary>
         public Input<string>? AccessToken
         {
             get => _accessToken;
@@ -25,23 +29,32 @@ namespace Pulumi.Aws.AppFlow.Inputs
         }
 
         /// <summary>
-        /// The secret manager ARN, which contains the client ID and client secret of the connected app.
+        /// Secret manager ARN, which contains the client ID and client secret of the connected app.
         /// </summary>
         [Input("clientCredentialsArn")]
         public Input<string>? ClientCredentialsArn { get; set; }
 
         /// <summary>
-        /// A JSON web token (JWT) that authorizes access to Salesforce records.
+        /// JSON web token (JWT) that authorizes access to Salesforce records.
         /// </summary>
         [Input("jwtToken")]
         public Input<string>? JwtToken { get; set; }
 
+        /// <summary>
+        /// OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+        /// </summary>
         [Input("oauth2GrantType")]
         public Input<string>? Oauth2GrantType { get; set; }
 
+        /// <summary>
+        /// OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+        /// </summary>
         [Input("oauthRequest")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs>? OauthRequest { get; set; }
 
+        /// <summary>
+        /// Refresh token used to refresh an expired access token.
+        /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }
 

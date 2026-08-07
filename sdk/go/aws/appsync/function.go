@@ -155,7 +155,7 @@ type Function struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// ARN of the Function object.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code pulumi.StringPtrOutput `pulumi:"code"`
 	// Function data source name.
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
@@ -175,9 +175,9 @@ type Function struct {
 	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringPtrOutput `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+	// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 	Runtime FunctionRuntimePtrOutput `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+	// Sync configuration for a resolver. See `syncConfig` Block for details.
 	SyncConfig FunctionSyncConfigPtrOutput `pulumi:"syncConfig"`
 }
 
@@ -221,7 +221,7 @@ type functionState struct {
 	ApiId *string `pulumi:"apiId"`
 	// ARN of the Function object.
 	Arn *string `pulumi:"arn"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code *string `pulumi:"code"`
 	// Function data source name.
 	DataSource *string `pulumi:"dataSource"`
@@ -241,9 +241,9 @@ type functionState struct {
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
 	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+	// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 	Runtime *FunctionRuntime `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+	// Sync configuration for a resolver. See `syncConfig` Block for details.
 	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
 }
 
@@ -252,7 +252,7 @@ type FunctionState struct {
 	ApiId pulumi.StringPtrInput
 	// ARN of the Function object.
 	Arn pulumi.StringPtrInput
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code pulumi.StringPtrInput
 	// Function data source name.
 	DataSource pulumi.StringPtrInput
@@ -272,9 +272,9 @@ type FunctionState struct {
 	RequestMappingTemplate pulumi.StringPtrInput
 	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringPtrInput
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+	// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 	Runtime FunctionRuntimePtrInput
-	// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+	// Sync configuration for a resolver. See `syncConfig` Block for details.
 	SyncConfig FunctionSyncConfigPtrInput
 }
 
@@ -285,7 +285,7 @@ func (FunctionState) ElementType() reflect.Type {
 type functionArgs struct {
 	// ID of the associated AppSync API.
 	ApiId string `pulumi:"apiId"`
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code *string `pulumi:"code"`
 	// Function data source name.
 	DataSource string `pulumi:"dataSource"`
@@ -303,9 +303,9 @@ type functionArgs struct {
 	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
 	// Function response mapping template.
 	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+	// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 	Runtime *FunctionRuntime `pulumi:"runtime"`
-	// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+	// Sync configuration for a resolver. See `syncConfig` Block for details.
 	SyncConfig *FunctionSyncConfig `pulumi:"syncConfig"`
 }
 
@@ -313,7 +313,7 @@ type functionArgs struct {
 type FunctionArgs struct {
 	// ID of the associated AppSync API.
 	ApiId pulumi.StringInput
-	// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+	// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 	Code pulumi.StringPtrInput
 	// Function data source name.
 	DataSource pulumi.StringInput
@@ -331,9 +331,9 @@ type FunctionArgs struct {
 	RequestMappingTemplate pulumi.StringPtrInput
 	// Function response mapping template.
 	ResponseMappingTemplate pulumi.StringPtrInput
-	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+	// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 	Runtime FunctionRuntimePtrInput
-	// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+	// Sync configuration for a resolver. See `syncConfig` Block for details.
 	SyncConfig FunctionSyncConfigPtrInput
 }
 
@@ -434,7 +434,7 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
+// Function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
 func (o FunctionOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
 }
@@ -484,12 +484,12 @@ func (o FunctionOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+// Runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
 func (o FunctionOutput) Runtime() FunctionRuntimePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionRuntimePtrOutput { return v.Runtime }).(FunctionRuntimePtrOutput)
 }
 
-// Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
+// Sync configuration for a resolver. See `syncConfig` Block for details.
 func (o FunctionOutput) SyncConfig() FunctionSyncConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSyncConfigPtrOutput { return v.SyncConfig }).(FunctionSyncConfigPtrOutput)
 }

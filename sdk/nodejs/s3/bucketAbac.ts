@@ -76,12 +76,12 @@ export class BucketAbac extends pulumi.CustomResource {
 
     /**
      * ABAC status configuration. See `abacStatus` Block for details.
-     *
-     * The following arguments are optional:
      */
     declare public readonly abacStatus: pulumi.Output<outputs.s3.BucketAbacAbacStatus>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
+     *
+     * The following arguments are optional:
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
@@ -136,12 +136,12 @@ export class BucketAbac extends pulumi.CustomResource {
 export interface BucketAbacState {
     /**
      * ABAC status configuration. See `abacStatus` Block for details.
-     *
-     * The following arguments are optional:
      */
     abacStatus?: pulumi.Input<inputs.s3.BucketAbacAbacStatus | undefined>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
+     *
+     * The following arguments are optional:
      */
     bucket?: pulumi.Input<string | undefined>;
     /**
@@ -162,12 +162,12 @@ export interface BucketAbacState {
 export interface BucketAbacArgs {
     /**
      * ABAC status configuration. See `abacStatus` Block for details.
-     *
-     * The following arguments are optional:
      */
     abacStatus: pulumi.Input<inputs.s3.BucketAbacAbacStatus>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
+     *
+     * The following arguments are optional:
      */
     bucket: pulumi.Input<string>;
     /**

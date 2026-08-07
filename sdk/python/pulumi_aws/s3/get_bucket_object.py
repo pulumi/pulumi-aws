@@ -115,6 +115,9 @@ class GetBucketObjectResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the object.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -135,7 +138,7 @@ class GetBucketObjectResult:
     @pulumi.getter(name="bucketKeyEnabled")
     def bucket_key_enabled(self) -> _builtins.bool:
         """
-        (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         return pulumi.get(self, "bucket_key_enabled")
 
@@ -244,7 +247,7 @@ class GetBucketObjectResult:
     @pulumi.getter(name="objectLockLegalHoldStatus")
     def object_lock_legal_hold_status(self) -> _builtins.str:
         """
-        Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+        Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         """
         return pulumi.get(self, "object_lock_legal_hold_status")
 
@@ -260,7 +263,7 @@ class GetBucketObjectResult:
     @pulumi.getter(name="objectLockRetainUntilDate")
     def object_lock_retain_until_date(self) -> _builtins.str:
         """
-        The date and time when this object's object lock will expire.
+        Date and time when this object's object lock will expire.
         """
         return pulumi.get(self, "object_lock_retain_until_date")
 
@@ -426,8 +429,9 @@ def get_bucket_object(bucket: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` data source instead.
     :param _builtins.str key: Full path to the object inside the bucket
+    :param _builtins.str range: Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
     :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
@@ -538,8 +542,9 @@ def get_bucket_object_output(bucket: pulumi.Input[Optional[_builtins.str]] = Non
     ```
 
 
-    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` data source instead.
     :param _builtins.str key: Full path to the object inside the bucket
+    :param _builtins.str range: Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
     :param _builtins.str version_id: Specific version ID of the object returned (defaults to latest version)

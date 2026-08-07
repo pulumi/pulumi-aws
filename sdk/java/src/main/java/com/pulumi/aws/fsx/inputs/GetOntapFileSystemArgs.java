@@ -48,14 +48,14 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The tags associated with the file system.
+     * Tags associated with the file system.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return The tags associated with the file system.
+     * @return Tags associated with the file system.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,7 +131,7 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags The tags associated with the file system.
+         * @param tags Tags associated with the file system.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetOntapFileSystemArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags The tags associated with the file system.
+         * @param tags Tags associated with the file system.
          * 
          * @return builder
          * 

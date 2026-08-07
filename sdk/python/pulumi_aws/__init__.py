@@ -887,6 +887,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "amp/anomalyDetector",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/anomalyDetector:AnomalyDetector": "AnomalyDetector"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "amp/queryLoggingConfiguration",
   "fqn": "pulumi_aws.amp",
   "classes": {
@@ -915,6 +923,14 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/scraper:Scraper": "Scraper"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/scraperLoggingConfiguration",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/scraperLoggingConfiguration:ScraperLoggingConfiguration": "ScraperLoggingConfiguration"
   }
  },
  {
@@ -8751,6 +8767,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "mailmanager/ruleSet",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/ruleSet:RuleSet": "RuleSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "mailmanager/trafficPolicy",
   "fqn": "pulumi_aws.mailmanager",
   "classes": {
@@ -10771,6 +10795,14 @@ _utilities.register(
   "fqn": "pulumi_aws.resiliencehub",
   "classes": {
    "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy": "ResiliencyPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "resiliencehub/v2Policy",
+  "fqn": "pulumi_aws.resiliencehub",
+  "classes": {
+   "aws:resiliencehub/v2Policy:V2Policy": "V2Policy"
   }
  },
  {

@@ -17,23 +17,31 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
     public static final OntapStorageVirtualMachineActiveDirectoryConfigurationArgs Empty = new OntapStorageVirtualMachineActiveDirectoryConfigurationArgs();
 
     /**
-     * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+     * NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     @Import(name="netbiosName")
     private @Nullable Output<String> netbiosName;
 
     /**
-     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+     * @return NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     public Optional<Output<String>> netbiosName() {
         return Optional.ofNullable(this.netbiosName);
     }
 
+    /**
+     * Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+     * 
+     */
     @Import(name="selfManagedActiveDirectoryConfiguration")
     private @Nullable Output<OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs> selfManagedActiveDirectoryConfiguration;
 
+    /**
+     * @return Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+     * 
+     */
     public Optional<Output<OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs>> selfManagedActiveDirectoryConfiguration() {
         return Optional.ofNullable(this.selfManagedActiveDirectoryConfiguration);
     }
@@ -64,7 +72,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
         }
 
         /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+         * @param netbiosName NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
          * 
          * @return builder
          * 
@@ -75,7 +83,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
         }
 
         /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+         * @param netbiosName NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
          * 
          * @return builder
          * 
@@ -84,11 +92,23 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
             return netbiosName(Output.of(netbiosName));
         }
 
+        /**
+         * @param selfManagedActiveDirectoryConfiguration Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedActiveDirectoryConfiguration(@Nullable Output<OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs> selfManagedActiveDirectoryConfiguration) {
             $.selfManagedActiveDirectoryConfiguration = selfManagedActiveDirectoryConfiguration;
             return this;
         }
 
+        /**
+         * @param selfManagedActiveDirectoryConfiguration Configuration block that Amazon FSx uses to join the SVM to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder selfManagedActiveDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs selfManagedActiveDirectoryConfiguration) {
             return selfManagedActiveDirectoryConfiguration(Output.of(selfManagedActiveDirectoryConfiguration));
         }

@@ -43,8 +43,7 @@ public final class TaskDefinitionVolume {
      */
     private @Nullable String hostPath;
     /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
+     * @return Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
      * 
      */
     private String name;
@@ -91,8 +90,7 @@ public final class TaskDefinitionVolume {
         return Optional.ofNullable(this.hostPath);
     }
     /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
+     * @return Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
      * 
      */
     public String name() {

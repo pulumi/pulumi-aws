@@ -18,7 +18,7 @@ public final class KxClusterAutoScalingConfiguration {
      */
     private String autoScalingMetric;
     /**
-     * @return Highest number of nodes to scale. Cannot be greater than 5
+     * @return Highest number of nodes to scale. Cannot be greater than 5.
      * 
      */
     private Integer maxNodeCount;
@@ -52,7 +52,7 @@ public final class KxClusterAutoScalingConfiguration {
         return this.autoScalingMetric;
     }
     /**
-     * @return Highest number of nodes to scale. Cannot be greater than 5
+     * @return Highest number of nodes to scale. Cannot be greater than 5.
      * 
      */
     public Integer maxNodeCount() {

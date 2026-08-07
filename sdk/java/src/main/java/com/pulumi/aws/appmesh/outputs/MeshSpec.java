@@ -18,7 +18,7 @@ public final class MeshSpec {
      */
     private @Nullable MeshSpecEgressFilter egressFilter;
     /**
-     * @return The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+     * @return Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
      * 
      */
     private @Nullable MeshSpecServiceDiscovery serviceDiscovery;
@@ -32,7 +32,7 @@ public final class MeshSpec {
         return Optional.ofNullable(this.egressFilter);
     }
     /**
-     * @return The service discovery information for the service mesh. See `serviceDiscovery` Block for details.
+     * @return Service discovery information for the service mesh. See `serviceDiscovery` Block for details.
      * 
      */
     public Optional<MeshSpecServiceDiscovery> serviceDiscovery() {

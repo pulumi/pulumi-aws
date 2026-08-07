@@ -23,16 +23,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     public static final StackState Empty = new StackState();
 
     /**
-     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
+     * Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
      * 
      */
     @Import(name="accessEndpoints")
     private @Nullable Output<List<StackAccessEndpointArgs>> accessEndpoints;
 
     /**
-     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-     * See `accessEndpoints` below.
+     * @return Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
      * 
      */
     public Optional<Output<List<StackAccessEndpointArgs>>> accessEndpoints() {
@@ -40,16 +38,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Settings for application settings persistence.
-     * See `applicationSettings` below.
+     * Settings for application settings persistence. See `applicationSettings` below.
      * 
      */
     @Import(name="applicationSettings")
     private @Nullable Output<StackApplicationSettingsArgs> applicationSettings;
 
     /**
-     * @return Settings for application settings persistence.
-     * See `applicationSettings` below.
+     * @return Settings for application settings persistence. See `applicationSettings` below.
      * 
      */
     public Optional<Output<StackApplicationSettingsArgs>> applicationSettings() {
@@ -196,16 +192,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
+     * Configuration block for the storage connectors to enable. See `storageConnectors` below.
      * 
      */
     @Import(name="storageConnectors")
     private @Nullable Output<List<StackStorageConnectorArgs>> storageConnectors;
 
     /**
-     * @return Configuration block for the storage connectors to enable.
-     * See `storageConnectors` below.
+     * @return Configuration block for the storage connectors to enable. See `storageConnectors` below.
      * 
      */
     public Optional<Output<List<StackStorageConnectorArgs>>> storageConnectors() {
@@ -213,16 +207,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
+     * Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
      * 
      */
     @Import(name="streamingExperienceSettings")
     private @Nullable Output<StackStreamingExperienceSettingsArgs> streamingExperienceSettings;
 
     /**
-     * @return The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-     * See `streamingExperienceSettings` below.
+     * @return Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
      * 
      */
     public Optional<Output<StackStreamingExperienceSettingsArgs>> streamingExperienceSettings() {
@@ -252,16 +244,14 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
+     * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
      * 
      */
     @Import(name="userSettings")
     private @Nullable Output<List<StackUserSettingArgs>> userSettings;
 
     /**
-     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-     * See `userSettings` below.
+     * @return Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
      * 
      */
     public Optional<Output<List<StackUserSettingArgs>>> userSettings() {
@@ -308,8 +298,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-         * See `accessEndpoints` below.
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
          * 
          * @return builder
          * 
@@ -320,8 +309,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-         * See `accessEndpoints` below.
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
          * 
          * @return builder
          * 
@@ -331,8 +319,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-         * See `accessEndpoints` below.
+         * @param accessEndpoints Set of configuration blocks defining the interface VPC endpoints. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. See `accessEndpoints` below.
          * 
          * @return builder
          * 
@@ -342,8 +329,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSettings Settings for application settings persistence.
-         * See `applicationSettings` below.
+         * @param applicationSettings Settings for application settings persistence. See `applicationSettings` below.
          * 
          * @return builder
          * 
@@ -354,8 +340,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationSettings Settings for application settings persistence.
-         * See `applicationSettings` below.
+         * @param applicationSettings Settings for application settings persistence. See `applicationSettings` below.
          * 
          * @return builder
          * 
@@ -568,8 +553,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageConnectors Configuration block for the storage connectors to enable.
-         * See `storageConnectors` below.
+         * @param storageConnectors Configuration block for the storage connectors to enable. See `storageConnectors` below.
          * 
          * @return builder
          * 
@@ -580,8 +564,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageConnectors Configuration block for the storage connectors to enable.
-         * See `storageConnectors` below.
+         * @param storageConnectors Configuration block for the storage connectors to enable. See `storageConnectors` below.
          * 
          * @return builder
          * 
@@ -591,8 +574,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageConnectors Configuration block for the storage connectors to enable.
-         * See `storageConnectors` below.
+         * @param storageConnectors Configuration block for the storage connectors to enable. See `storageConnectors` below.
          * 
          * @return builder
          * 
@@ -602,8 +584,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamingExperienceSettings The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-         * See `streamingExperienceSettings` below.
+         * @param streamingExperienceSettings Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
          * 
          * @return builder
          * 
@@ -614,8 +595,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamingExperienceSettings The streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
-         * See `streamingExperienceSettings` below.
+         * @param streamingExperienceSettings Streaming protocol you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client. See `streamingExperienceSettings` below.
          * 
          * @return builder
          * 
@@ -655,8 +635,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-         * See `userSettings` below.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
          * 
          * @return builder
          * 
@@ -667,8 +646,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-         * See `userSettings` below.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
          * 
          * @return builder
          * 
@@ -678,8 +656,7 @@ public final class StackState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
-         * See `userSettings` below.
+         * @param userSettings Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action. See `userSettings` below.
          * 
          * @return builder
          * 

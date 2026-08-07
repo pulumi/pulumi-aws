@@ -10,6 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ExpressGatewayServicePrimaryContainerSecret {
+    /**
+     * @return Name of the secret.
+     * 
+     */
     private String name;
     /**
      * @return ARN of the AWS Secrets Manager secret or AWS Systems Manager parameter containing the secret value.
@@ -18,6 +22,10 @@ public final class ExpressGatewayServicePrimaryContainerSecret {
     private String valueFrom;
 
     private ExpressGatewayServicePrimaryContainerSecret() {}
+    /**
+     * @return Name of the secret.
+     * 
+     */
     public String name() {
         return this.name;
     }

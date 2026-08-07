@@ -15,14 +15,14 @@ public final class IngestionDestinationDestinationConfigurationAuditLogArgs exte
     public static final IngestionDestinationDestinationConfigurationAuditLogArgs Empty = new IngestionDestinationDestinationConfigurationAuditLogArgs();
 
     /**
-     * Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+     * Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
      * 
      */
     @Import(name="destination", required=true)
     private Output<IngestionDestinationDestinationConfigurationAuditLogDestinationArgs> destination;
 
     /**
-     * @return Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+     * @return Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
      * 
      */
     public Output<IngestionDestinationDestinationConfigurationAuditLogDestinationArgs> destination() {
@@ -54,7 +54,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogArgs exte
         }
 
         /**
-         * @param destination Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+         * @param destination Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogArgs exte
         }
 
         /**
-         * @param destination Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+         * @param destination Destination for the audit log. Only one destination, either `firehoseStream` or `s3Bucket`, can be specified. See `destination_configuration.audit_log.destination` Block below.
          * 
          * @return builder
          * 

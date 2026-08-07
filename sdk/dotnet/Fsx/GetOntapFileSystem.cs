@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Fsx
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// The tags associated with the file system.
+        /// Tags associated with the file system.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags associated with the file system.
+        /// Tags associated with the file system.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -164,19 +164,19 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The number of days to retain automatic backups.
+        /// Number of days to retain automatic backups.
         /// </summary>
         public readonly int AutomaticBackupRetentionDays;
         /// <summary>
-        /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+        /// Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
         public readonly string DailyAutomaticBackupStartTime;
         /// <summary>
-        /// The file system deployment type.
+        /// File system deployment type.
         /// </summary>
         public readonly string DeploymentType;
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
         /// <summary>
@@ -184,15 +184,15 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string DnsName;
         /// <summary>
-        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
+        /// (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
         /// </summary>
         public readonly string EndpointIpAddressRange;
         /// <summary>
-        /// The Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+        /// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemEndpointResult> Endpoints;
         /// <summary>
-        /// The number of HA pairs for the file system.
+        /// Number of HA pairs for the file system.
         /// </summary>
         public readonly int HaPairs;
         /// <summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// The IDs of the elastic network interfaces from which a specific file system is accessible.
+        /// IDs of the elastic network interfaces from which a specific file system is accessible.
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaceIds;
         /// <summary>
@@ -212,44 +212,44 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string OwnerId;
         /// <summary>
-        /// Specifies the subnet in which you want the preferred file server to be located.
+        /// Subnet in which you want the preferred file server to be located.
         /// </summary>
         public readonly string PreferredSubnetId;
         public readonly string Region;
         /// <summary>
-        /// (Multi-AZ only) The VPC route tables in which your file system's endpoints exist.
+        /// (Multi-AZ only) VPC route tables in which your file system's endpoints exist.
         /// </summary>
         public readonly ImmutableArray<string> RouteTableIds;
         /// <summary>
-        /// The storage capacity of the file system in gibibytes (GiB).
+        /// Storage capacity of the file system in gibibytes (GiB).
         /// </summary>
         public readonly int StorageCapacity;
         /// <summary>
-        /// The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+        /// Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
         /// </summary>
         public readonly string StorageType;
         /// <summary>
-        /// Specifies the IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `PreferredSubnetId` property.
+        /// IDs of the subnets that the file system is accessible from. For the MULTI_AZ_1 file system deployment type, there are two subnet IDs, one for the preferred file server and one for the standby file server. The preferred file server subnet identified in the `PreferredSubnetId` property.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The tags associated with the file system.
+        /// Tags associated with the file system.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal ThrouthputCapacityPerHaPair x ha_pairs
+        /// Sustained throughput of an Amazon FSx file system in Megabytes per second (MBps). If the file system uses multiple HA pairs this will equal ThrouthputCapacityPerHaPair x ha_pairs
         /// </summary>
         public readonly int ThroughputCapacity;
         /// <summary>
-        /// The sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
+        /// Sustained throughput of each HA pair for an Amazon FSx file system in Megabytes per second (MBps).
         /// </summary>
         public readonly int ThroughputCapacityPerHaPair;
         /// <summary>
-        /// The ID of the primary virtual private cloud (VPC) for the file system.
+        /// ID of the primary virtual private cloud (VPC) for the file system.
         /// </summary>
         public readonly string VpcId;
         /// <summary>
-        /// The preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `D:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         public readonly string WeeklyMaintenanceStartTime;
 

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
  *
+ * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -58,14 +60,15 @@ export interface GetOntapStorageVirtualMachineArgs {
     filters?: inputs.fsx.GetOntapStorageVirtualMachineFilter[];
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
-     *
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -74,7 +77,7 @@ export interface GetOntapStorageVirtualMachineArgs {
  */
 export interface GetOntapStorageVirtualMachineResult {
     /**
-     * The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+     * Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
      */
     readonly activeDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
     /**
@@ -82,11 +85,11 @@ export interface GetOntapStorageVirtualMachineResult {
      */
     readonly arn: string;
     /**
-     * The time that the SVM was created.
+     * Time that the SVM was created.
      */
     readonly creationTime: string;
     /**
-     * The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+     * Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
      */
     readonly endpoints: outputs.fsx.GetOntapStorageVirtualMachineEndpoint[];
     /**
@@ -95,34 +98,39 @@ export interface GetOntapStorageVirtualMachineResult {
     readonly fileSystemId: string;
     readonly filters?: outputs.fsx.GetOntapStorageVirtualMachineFilter[];
     /**
-     * The SVM's system generated unique ID.
+     * SVM's system generated unique ID.
      */
     readonly id: string;
     /**
-     * The SVM's lifecycle status.
+     * SVM's lifecycle status.
      */
     readonly lifecycleStatus: string;
     /**
-     * Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+     * Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
      */
     readonly lifecycleTransitionReasons: outputs.fsx.GetOntapStorageVirtualMachineLifecycleTransitionReason[];
     /**
-     * The name of the SVM, if provisioned.
+     * Name of the SVM, if provisioned.
      */
     readonly name: string;
     readonly region: string;
     /**
-     * The SVM's subtype.
+     * SVM's subtype.
      */
     readonly subtype: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
     /**
-     * The SVM's UUID.
+     * SVM's UUID.
      */
     readonly uuid: string;
 }
 /**
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+ *
+ * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
  *
  * ## Example Usage
  *
@@ -172,13 +180,14 @@ export interface GetOntapStorageVirtualMachineOutputArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachineFilterArgs>[] | undefined>;
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
-     *
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

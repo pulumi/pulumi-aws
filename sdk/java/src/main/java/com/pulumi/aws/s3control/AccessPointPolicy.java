@@ -97,42 +97,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/accessPointPolicy:AccessPointPolicy")
 public class AccessPointPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      * 
      */
     @Export(name="accessPointArn", refs={String.class}, tree="[0]")
     private Output<String> accessPointArn;
 
     /**
-     * @return The ARN of the access point that you want to associate with the specified policy.
+     * @return ARN of the access point that you want to associate with the specified policy.
      * 
      */
     public Output<String> accessPointArn() {
         return this.accessPointArn;
     }
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      * 
      */
     @Export(name="hasPublicAccessPolicy", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> hasPublicAccessPolicy;
 
     /**
-     * @return Indicates whether this access point currently has a policy that allows public access.
+     * @return Whether this access point currently has a policy that allows public access.
      * 
      */
     public Output<Boolean> hasPublicAccessPolicy() {
         return this.hasPublicAccessPolicy;
     }
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy that you want to apply to the specified access point.
+     * @return Policy that you want to apply to the specified access point.
      * 
      */
     public Output<String> policy() {

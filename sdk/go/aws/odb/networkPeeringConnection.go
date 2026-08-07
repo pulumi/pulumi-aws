@@ -59,16 +59,15 @@ import (
 type NetworkPeeringConnection struct {
 	pulumi.CustomResourceState
 
+	// ARN of the ODB network peering connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Created time of the ODB network peering connection.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-	//
-	// The following arguments are optional:
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
 	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
-	// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+	// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 	OdbNetworkId pulumi.StringOutput `pulumi:"odbNetworkId"`
 	// Type of the ODB peering connection.
 	OdbPeeringConnectionType pulumi.StringOutput `pulumi:"odbPeeringConnectionType"`
@@ -76,7 +75,9 @@ type NetworkPeeringConnection struct {
 	PeerNetworkArn pulumi.StringOutput `pulumi:"peerNetworkArn"`
 	// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
 	PeerNetworkCidrs pulumi.StringArrayOutput `pulumi:"peerNetworkCidrs"`
-	// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	//
+	// The following arguments are optional:
 	PeerNetworkId pulumi.StringOutput `pulumi:"peerNetworkId"`
 	// Progress of the ODB network peering connection.
 	PercentProgress pulumi.Float64Output `pulumi:"percentProgress"`
@@ -84,11 +85,11 @@ type NetworkPeeringConnection struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the ODB network peering connection.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The reason for the current status of the ODB peering connection.
+	// Reason for the current status of the ODB peering connection.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including inherited tags.
+	// Map of tags assigned to the resource, including inherited tags.
 	TagsAll  pulumi.StringMapOutput                    `pulumi:"tagsAll"`
 	Timeouts NetworkPeeringConnectionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -129,16 +130,15 @@ func GetNetworkPeeringConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkPeeringConnection resources.
 type networkPeeringConnectionState struct {
+	// ARN of the ODB network peering connection.
 	Arn *string `pulumi:"arn"`
 	// Created time of the ODB network peering connection.
 	CreatedAt *string `pulumi:"createdAt"`
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-	//
-	// The following arguments are optional:
 	DisplayName *string `pulumi:"displayName"`
 	// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
-	// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+	// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 	OdbNetworkId *string `pulumi:"odbNetworkId"`
 	// Type of the ODB peering connection.
 	OdbPeeringConnectionType *string `pulumi:"odbPeeringConnectionType"`
@@ -146,7 +146,9 @@ type networkPeeringConnectionState struct {
 	PeerNetworkArn *string `pulumi:"peerNetworkArn"`
 	// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
 	PeerNetworkCidrs []string `pulumi:"peerNetworkCidrs"`
-	// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	//
+	// The following arguments are optional:
 	PeerNetworkId *string `pulumi:"peerNetworkId"`
 	// Progress of the ODB network peering connection.
 	PercentProgress *float64 `pulumi:"percentProgress"`
@@ -154,26 +156,25 @@ type networkPeeringConnectionState struct {
 	Region *string `pulumi:"region"`
 	// Status of the ODB network peering connection.
 	Status *string `pulumi:"status"`
-	// The reason for the current status of the ODB peering connection.
+	// Reason for the current status of the ODB peering connection.
 	StatusReason *string `pulumi:"statusReason"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including inherited tags.
+	// Map of tags assigned to the resource, including inherited tags.
 	TagsAll  map[string]string                 `pulumi:"tagsAll"`
 	Timeouts *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
 }
 
 type NetworkPeeringConnectionState struct {
+	// ARN of the ODB network peering connection.
 	Arn pulumi.StringPtrInput
 	// Created time of the ODB network peering connection.
 	CreatedAt pulumi.StringPtrInput
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-	//
-	// The following arguments are optional:
 	DisplayName pulumi.StringPtrInput
 	// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
 	OdbNetworkArn pulumi.StringPtrInput
-	// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+	// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 	OdbNetworkId pulumi.StringPtrInput
 	// Type of the ODB peering connection.
 	OdbPeeringConnectionType pulumi.StringPtrInput
@@ -181,7 +182,9 @@ type NetworkPeeringConnectionState struct {
 	PeerNetworkArn pulumi.StringPtrInput
 	// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
 	PeerNetworkCidrs pulumi.StringArrayInput
-	// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	//
+	// The following arguments are optional:
 	PeerNetworkId pulumi.StringPtrInput
 	// Progress of the ODB network peering connection.
 	PercentProgress pulumi.Float64PtrInput
@@ -189,11 +192,11 @@ type NetworkPeeringConnectionState struct {
 	Region pulumi.StringPtrInput
 	// Status of the ODB network peering connection.
 	Status pulumi.StringPtrInput
-	// The reason for the current status of the ODB peering connection.
+	// Reason for the current status of the ODB peering connection.
 	StatusReason pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including inherited tags.
+	// Map of tags assigned to the resource, including inherited tags.
 	TagsAll  pulumi.StringMapInput
 	Timeouts NetworkPeeringConnectionTimeoutsPtrInput
 }
@@ -204,20 +207,20 @@ func (NetworkPeeringConnectionState) ElementType() reflect.Type {
 
 type networkPeeringConnectionArgs struct {
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-	//
-	// The following arguments are optional:
 	DisplayName string `pulumi:"displayName"`
 	// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
-	// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+	// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 	OdbNetworkId *string `pulumi:"odbNetworkId"`
 	// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
 	PeerNetworkCidrs []string `pulumi:"peerNetworkCidrs"`
-	// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	//
+	// The following arguments are optional:
 	PeerNetworkId string `pulumi:"peerNetworkId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                 `pulumi:"tags"`
 	Timeouts *NetworkPeeringConnectionTimeouts `pulumi:"timeouts"`
 }
@@ -225,20 +228,20 @@ type networkPeeringConnectionArgs struct {
 // The set of arguments for constructing a NetworkPeeringConnection resource.
 type NetworkPeeringConnectionArgs struct {
 	// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-	//
-	// The following arguments are optional:
 	DisplayName pulumi.StringInput
 	// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
 	OdbNetworkArn pulumi.StringPtrInput
-	// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+	// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 	OdbNetworkId pulumi.StringPtrInput
 	// Set of peer network cidrs. Add remove is only supported during update operation. During create this attribute is compute only.
 	PeerNetworkCidrs pulumi.StringArrayInput
-	// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+	//
+	// The following arguments are optional:
 	PeerNetworkId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts NetworkPeeringConnectionTimeoutsPtrInput
 }
@@ -330,6 +333,7 @@ func (o NetworkPeeringConnectionOutput) ToNetworkPeeringConnectionOutputWithCont
 	return o
 }
 
+// ARN of the ODB network peering connection.
 func (o NetworkPeeringConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -340,8 +344,6 @@ func (o NetworkPeeringConnectionOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
-//
-// The following arguments are optional:
 func (o NetworkPeeringConnectionOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -351,7 +353,7 @@ func (o NetworkPeeringConnectionOutput) OdbNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+// Unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
 func (o NetworkPeeringConnectionOutput) OdbNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.OdbNetworkId }).(pulumi.StringOutput)
 }
@@ -371,7 +373,9 @@ func (o NetworkPeeringConnectionOutput) PeerNetworkCidrs() pulumi.StringArrayOut
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringArrayOutput { return v.PeerNetworkCidrs }).(pulumi.StringArrayOutput)
 }
 
-// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+// Unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+//
+// The following arguments are optional:
 func (o NetworkPeeringConnectionOutput) PeerNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.PeerNetworkId }).(pulumi.StringOutput)
 }
@@ -391,17 +395,17 @@ func (o NetworkPeeringConnectionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// The reason for the current status of the ODB peering connection.
+// Reason for the current status of the ODB peering connection.
 func (o NetworkPeeringConnectionOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkPeeringConnectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including inherited tags.
+// Map of tags assigned to the resource, including inherited tags.
 func (o NetworkPeeringConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkPeeringConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -266,26 +266,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive")
 public class ResourceShareAssociationsExclusive extends com.pulumi.resources.CustomResource {
     /**
-     * A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      * 
      */
     @Export(name="principals", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> principals;
 
     /**
-     * @return A set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include:
-     * * AWS account ID (exactly 12 digits, e.g., `123456789012`)
-     * * AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`)
-     * * AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`)
-     * * IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`)
-     * * IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`)
-     * * Service principal (e.g., `ec2.amazonaws.com`)
+     * @return Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
      * 
      */
     public Output<Optional<List<String>>> principals() {
@@ -306,42 +294,42 @@ public class ResourceShareAssociationsExclusive extends com.pulumi.resources.Cus
         return this.region;
     }
     /**
-     * A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     @Export(name="resourceArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> resourceArns;
 
     /**
-     * @return A set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+     * @return Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
      * 
      */
     public Output<Optional<List<String>>> resourceArns() {
         return Codegen.optional(this.resourceArns);
     }
     /**
-     * The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+     * @return Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
      * 
      */
     public Output<String> resourceShareArn() {
         return this.resourceShareArn;
     }
     /**
-     * A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      * 
      */
     @Export(name="sources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sources;
 
     /**
-     * @return A set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
+     * @return Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
      * 
      */
     public Output<Optional<List<String>>> sources() {

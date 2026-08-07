@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class FlowSourceFlowConfig
     {
         /// <summary>
-        /// API version that the destination connector uses.
+        /// API version that the source connector uses.
         /// </summary>
         public readonly string? ApiVersion;
         /// <summary>
-        /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+        /// Name of the connector profile. Must be unique for each connector profile in the AWS account.
         /// </summary>
         public readonly string? ConnectorProfileName;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string ConnectorType;
         /// <summary>
-        /// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+        /// Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigIncrementalPullConfig? IncrementalPullConfig;
         /// <summary>
-        /// Information that is required to query a particular source connector. See Source Connector Properties for details.
+        /// Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorProperties SourceConnectorProperties;
 

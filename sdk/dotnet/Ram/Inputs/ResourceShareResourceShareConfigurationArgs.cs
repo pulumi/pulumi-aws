@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ram.Inputs
     public sealed class ResourceShareResourceShareConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        /// Whether consumer account retains access to resource share after leaving AWS organization.
         /// </summary>
         [Input("retainSharingOnAccountLeaveOrganization")]
         public Input<bool>? RetainSharingOnAccountLeaveOrganization { get; set; }

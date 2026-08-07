@@ -74,7 +74,8 @@ type TableBucketReplication struct {
 	Rule TableBucketReplicationRulePtrOutput `pulumi:"rule"`
 	// ARN referencing the Table Bucket that owns this replication configuration.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
-	VersionToken   pulumi.StringOutput `pulumi:"versionToken"`
+	// Version token of the replication configuration.
+	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
 }
 
 // NewTableBucketReplication registers a new resource with the given unique name, arguments, and options.
@@ -121,7 +122,8 @@ type tableBucketReplicationState struct {
 	Rule *TableBucketReplicationRule `pulumi:"rule"`
 	// ARN referencing the Table Bucket that owns this replication configuration.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
-	VersionToken   *string `pulumi:"versionToken"`
+	// Version token of the replication configuration.
+	VersionToken *string `pulumi:"versionToken"`
 }
 
 type TableBucketReplicationState struct {
@@ -133,7 +135,8 @@ type TableBucketReplicationState struct {
 	Rule TableBucketReplicationRulePtrInput
 	// ARN referencing the Table Bucket that owns this replication configuration.
 	TableBucketArn pulumi.StringPtrInput
-	VersionToken   pulumi.StringPtrInput
+	// Version token of the replication configuration.
+	VersionToken pulumi.StringPtrInput
 }
 
 func (TableBucketReplicationState) ElementType() reflect.Type {
@@ -270,6 +273,7 @@ func (o TableBucketReplicationOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketReplication) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }
 
+// Version token of the replication configuration.
 func (o TableBucketReplicationOutput) VersionToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketReplication) pulumi.StringOutput { return v.VersionToken }).(pulumi.StringOutput)
 }

@@ -31,14 +31,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationAr
     }
 
     /**
-     * Number of time units. Minimum value of `0`.
+     * Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     @Import(name="value", required=true)
     private Output<Integer> value;
 
     /**
-     * @return Number of time units. Minimum value of `0`.
+     * @return Value for the JSON. Must be between 1 and 100 characters in length.
      * 
      */
     public Output<Integer> value() {
@@ -92,7 +92,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationAr
         }
 
         /**
-         * @param value Number of time units. Minimum value of `0`.
+         * @param value Value for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationAr
         }
 
         /**
-         * @param value Number of time units. Minimum value of `0`.
+         * @param value Value for the JSON. Must be between 1 and 100 characters in length.
          * 
          * @return builder
          * 

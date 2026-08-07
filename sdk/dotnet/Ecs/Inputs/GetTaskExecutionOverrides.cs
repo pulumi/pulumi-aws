@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// The CPU override for the task.
+        /// CPU override for the task.
         /// </summary>
         [Input("cpu")]
         public string? Cpu { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         public string? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// The memory override for the task.
+        /// Memory override for the task.
         /// </summary>
         [Input("memory")]
         public string? Memory { get; set; }

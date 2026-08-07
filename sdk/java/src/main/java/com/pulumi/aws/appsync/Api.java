@@ -253,14 +253,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.dns;
     }
     /**
-     * Configuration for the Event API. See Event Config below.
+     * Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     @Export(name="eventConfig", refs={ApiEventConfig.class}, tree="[0]")
     private Output<ApiEventConfig> eventConfig;
 
     /**
-     * @return Configuration for the Event API. See Event Config below.
+     * @return Configuration for the Event API. See `eventConfig` Block below.
      * 
      */
     public Output<ApiEventConfig> eventConfig() {
@@ -354,9 +354,17 @@ public class Api extends com.pulumi.resources.CustomResource {
     public Output<String> wafWebAclArn() {
         return this.wafWebAclArn;
     }
+    /**
+     * Whether X-Ray tracing is enabled for the Event API.
+     * 
+     */
     @Export(name="xrayEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> xrayEnabled;
 
+    /**
+     * @return Whether X-Ray tracing is enabled for the Event API.
+     * 
+     */
     public Output<Boolean> xrayEnabled() {
         return this.xrayEnabled;
     }

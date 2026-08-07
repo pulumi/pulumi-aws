@@ -64,15 +64,15 @@ func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...p
 type GetTaskExecutionArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
-	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken *string `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster string `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount *int `pulumi:"desiredCount"`
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Name of the task group to associate with the task. The default value is the family name of the task definition.
 	Group *string `pulumi:"group"`
@@ -80,25 +80,25 @@ type GetTaskExecutionArgs struct {
 	LaunchType *string `pulumi:"launchType"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration *GetTaskExecutionNetworkConfiguration `pulumi:"networkConfiguration"`
-	// A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+	// List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
 	Overrides *GetTaskExecutionOverrides `pulumi:"overrides"`
-	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+	// Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
 	PlacementConstraints []GetTaskExecutionPlacementConstraint `pulumi:"placementConstraints"`
-	// The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+	// Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
 	PlacementStrategies []GetTaskExecutionPlacementStrategy `pulumi:"placementStrategies"`
-	// The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+	// Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
 	PlatformVersion *string `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+	// Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
 	PropagateTags *string `pulumi:"propagateTags"`
-	// The reference ID to use for the task.
+	// Reference ID to use for the task.
 	ReferenceId *string `pulumi:"referenceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An optional tag specified when a task is started.
+	// Optional tag specified when a task is started.
 	StartedBy *string `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
 	//
 	// The following arguments are optional:
 	TaskDefinition string `pulumi:"taskDefinition"`
@@ -126,7 +126,7 @@ type GetTaskExecutionResult struct {
 	Region               string                                `pulumi:"region"`
 	StartedBy            *string                               `pulumi:"startedBy"`
 	Tags                 map[string]string                     `pulumi:"tags"`
-	// A list of the provisioned task ARNs.
+	// List of the provisioned task ARNs.
 	TaskArns       []string `pulumi:"taskArns"`
 	TaskDefinition string   `pulumi:"taskDefinition"`
 }
@@ -144,15 +144,15 @@ func GetTaskExecutionOutput(ctx *pulumi.Context, args GetTaskExecutionOutputArgs
 type GetTaskExecutionOutputArgs struct {
 	// Set of capacity provider strategies to use for the cluster. See below.
 	CapacityProviderStrategies GetTaskExecutionCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
-	// An identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
+	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken pulumi.StringPtrInput `pulumi:"clientToken"`
 	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount pulumi.IntPtrInput `pulumi:"desiredCount"`
-	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	// Whether to enable Amazon ECS managed tags for the tasks within the service.
 	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
-	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
+	// Whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// Name of the task group to associate with the task. The default value is the family name of the task definition.
 	Group pulumi.StringPtrInput `pulumi:"group"`
@@ -160,25 +160,25 @@ type GetTaskExecutionOutputArgs struct {
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
 	// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
 	NetworkConfiguration GetTaskExecutionNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
-	// A list of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
+	// List of container overrides that specify the name of a container in the specified task definition and the overrides it should receive.
 	Overrides GetTaskExecutionOverridesPtrInput `pulumi:"overrides"`
-	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
+	// Array of placement constraint objects to use for the task. You can specify up to 10 constraints for each task. See below.
 	PlacementConstraints GetTaskExecutionPlacementConstraintArrayInput `pulumi:"placementConstraints"`
-	// The placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
+	// Placement strategy objects to use for the task. You can specify a maximum of 5 strategy rules for each task. See below.
 	PlacementStrategies GetTaskExecutionPlacementStrategyArrayInput `pulumi:"placementStrategies"`
-	// The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
+	// Platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
 	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
-	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
+	// Whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
-	// The reference ID to use for the task.
+	// Reference ID to use for the task.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// An optional tag specified when a task is started.
+	// Optional tag specified when a task is started.
 	StartedBy pulumi.StringPtrInput `pulumi:"startedBy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
+	// Family and revision (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
 	//
 	// The following arguments are optional:
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
@@ -282,7 +282,7 @@ func (o GetTaskExecutionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetTaskExecutionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of the provisioned task ARNs.
+// List of the provisioned task ARNs.
 func (o GetTaskExecutionResultOutput) TaskArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTaskExecutionResult) []string { return v.TaskArns }).(pulumi.StringArrayOutput)
 }

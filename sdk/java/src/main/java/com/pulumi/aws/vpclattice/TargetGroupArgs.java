@@ -19,14 +19,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final TargetGroupArgs Empty = new TargetGroupArgs();
 
     /**
-     * The target group configuration.
+     * Target group configuration. See `config` Block below.
      * 
      */
     @Import(name="config")
     private @Nullable Output<TargetGroupConfigArgs> config;
 
     /**
-     * @return The target group configuration.
+     * @return Target group configuration. See `config` Block below.
      * 
      */
     public Optional<Output<TargetGroupConfigArgs>> config() {
@@ -34,14 +34,14 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+     * @return Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,7 +79,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      * 
      * The following arguments are optional:
      * 
@@ -88,7 +88,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> type;
 
     /**
-     * @return The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * @return Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      * 
      * The following arguments are optional:
      * 
@@ -126,7 +126,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The target group configuration.
+         * @param config Target group configuration. See `config` Block below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config The target group configuration.
+         * @param config Target group configuration. See `config` Block below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+         * @param name Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
+         * @param name Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+         * @param type Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
          * 
          * The following arguments are optional:
          * 
@@ -223,7 +223,7 @@ public final class TargetGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+         * @param type Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
          * 
          * The following arguments are optional:
          * 

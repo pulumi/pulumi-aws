@@ -18,77 +18,37 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
 
     public static final PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs Empty = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs();
 
-    /**
-     * Math expression to perform on the returned data, if this object is performing a math expression.
-     * 
-     */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
-    /**
-     * @return Math expression to perform on the returned data, if this object is performing a math expression.
-     * 
-     */
     public Optional<Output<String>> expression() {
         return Optional.ofNullable(this.expression);
     }
 
-    /**
-     * Short name that identifies the object&#39;s results in the response.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Short name that identifies the object&#39;s results in the response.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Human-readable label for this metric or expression.
-     * 
-     */
     @Import(name="label")
     private @Nullable Output<String> label;
 
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     public Optional<Output<String>> label() {
         return Optional.ofNullable(this.label);
     }
 
-    /**
-     * Information about the metric data to return. See supported fields below.
-     * 
-     */
     @Import(name="metricStat")
     private @Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs> metricStat;
 
-    /**
-     * @return Information about the metric data to return. See supported fields below.
-     * 
-     */
     public Optional<Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs>> metricStat() {
         return Optional.ofNullable(this.metricStat);
     }
 
-    /**
-     * Whether to return the timestamps and raw data values of this metric.
-     * 
-     */
     @Import(name="returnData")
     private @Nullable Output<Boolean> returnData;
 
-    /**
-     * @return Whether to return the timestamps and raw data values of this metric.
-     * 
-     */
     public Optional<Output<Boolean>> returnData() {
         return Optional.ofNullable(this.returnData);
     }
@@ -121,107 +81,47 @@ public final class PolicyPredictiveScalingPolicyConfigurationMetricSpecification
             $ = new PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param expression Math expression to perform on the returned data, if this object is performing a math expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(@Nullable Output<String> expression) {
             $.expression = expression;
             return this;
         }
 
-        /**
-         * @param expression Math expression to perform on the returned data, if this object is performing a math expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expression(String expression) {
             return expression(Output.of(expression));
         }
 
-        /**
-         * @param id Short name that identifies the object&#39;s results in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Short name that identifies the object&#39;s results in the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param label Human-readable label for this metric or expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(@Nullable Output<String> label) {
             $.label = label;
             return this;
         }
 
-        /**
-         * @param label Human-readable label for this metric or expression.
-         * 
-         * @return builder
-         * 
-         */
         public Builder label(String label) {
             return label(Output.of(label));
         }
 
-        /**
-         * @param metricStat Information about the metric data to return. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricStat(@Nullable Output<PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs> metricStat) {
             $.metricStat = metricStat;
             return this;
         }
 
-        /**
-         * @param metricStat Information about the metric data to return. See supported fields below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricStat(PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs metricStat) {
             return metricStat(Output.of(metricStat));
         }
 
-        /**
-         * @param returnData Whether to return the timestamps and raw data values of this metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(@Nullable Output<Boolean> returnData) {
             $.returnData = returnData;
             return this;
         }
 
-        /**
-         * @param returnData Whether to return the timestamps and raw data values of this metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder returnData(Boolean returnData) {
             return returnData(Output.of(returnData));
         }

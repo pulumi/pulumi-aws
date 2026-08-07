@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow {
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow() {}
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

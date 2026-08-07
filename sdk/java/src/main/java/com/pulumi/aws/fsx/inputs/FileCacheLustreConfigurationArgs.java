@@ -21,58 +21,74 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
     public static final FileCacheLustreConfigurationArgs Empty = new FileCacheLustreConfigurationArgs();
 
     /**
-     * Specifies the cache deployment type. The only supported value is `CACHE_1`.
+     * Cache deployment type. The only supported value is `CACHE_1`.
      * 
      */
     @Import(name="deploymentType", required=true)
     private Output<String> deploymentType;
 
     /**
-     * @return Specifies the cache deployment type. The only supported value is `CACHE_1`.
+     * @return Cache deployment type. The only supported value is `CACHE_1`.
      * 
      */
     public Output<String> deploymentType() {
         return this.deploymentType;
     }
 
+    /**
+     * Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * 
+     */
     @Import(name="logConfigurations")
     private @Nullable Output<List<FileCacheLustreConfigurationLogConfigurationArgs>> logConfigurations;
 
+    /**
+     * @return Configuration for Lustre logging used to write the enabled logging events for the cache.
+     * 
+     */
     public Optional<Output<List<FileCacheLustreConfigurationLogConfigurationArgs>>> logConfigurations() {
         return Optional.ofNullable(this.logConfigurations);
     }
 
     /**
-     * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+     * Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
      * 
      */
     @Import(name="metadataConfigurations", required=true)
     private Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations;
 
     /**
-     * @return The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+     * @return Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
      * 
      */
     public Output<List<FileCacheLustreConfigurationMetadataConfigurationArgs>> metadataConfigurations() {
         return this.metadataConfigurations;
     }
 
+    /**
+     * Mount name of the cache.
+     * 
+     */
     @Import(name="mountName")
     private @Nullable Output<String> mountName;
 
+    /**
+     * @return Mount name of the cache.
+     * 
+     */
     public Optional<Output<String>> mountName() {
         return Optional.ofNullable(this.mountName);
     }
 
     /**
-     * Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+     * Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
      * 
      */
     @Import(name="perUnitStorageThroughput", required=true)
     private Output<Integer> perUnitStorageThroughput;
 
     /**
-     * @return Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+     * @return Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
      * 
      */
     public Output<Integer> perUnitStorageThroughput() {
@@ -80,14 +96,14 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
     }
 
     /**
-     * A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+     * Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
      * 
      */
     @Import(name="weeklyMaintenanceStartTime")
     private @Nullable Output<String> weeklyMaintenanceStartTime;
 
     /**
-     * @return A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+     * @return Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
      * 
      */
     public Optional<Output<String>> weeklyMaintenanceStartTime() {
@@ -124,7 +140,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param deploymentType Specifies the cache deployment type. The only supported value is `CACHE_1`.
+         * @param deploymentType Cache deployment type. The only supported value is `CACHE_1`.
          * 
          * @return builder
          * 
@@ -135,7 +151,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param deploymentType Specifies the cache deployment type. The only supported value is `CACHE_1`.
+         * @param deploymentType Cache deployment type. The only supported value is `CACHE_1`.
          * 
          * @return builder
          * 
@@ -144,21 +160,39 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
             return deploymentType(Output.of(deploymentType));
         }
 
+        /**
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logConfigurations(@Nullable Output<List<FileCacheLustreConfigurationLogConfigurationArgs>> logConfigurations) {
             $.logConfigurations = logConfigurations;
             return this;
         }
 
+        /**
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logConfigurations(List<FileCacheLustreConfigurationLogConfigurationArgs> logConfigurations) {
             return logConfigurations(Output.of(logConfigurations));
         }
 
+        /**
+         * @param logConfigurations Configuration for Lustre logging used to write the enabled logging events for the cache.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logConfigurations(FileCacheLustreConfigurationLogConfigurationArgs... logConfigurations) {
             return logConfigurations(List.of(logConfigurations));
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+         * @param metadataConfigurations Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -169,7 +203,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+         * @param metadataConfigurations Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -179,7 +213,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param metadataConfigurations The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadataConfiguration` block.
+         * @param metadataConfigurations Configuration for a Lustre MDT (Metadata Target) storage volume. See `metadataConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -188,17 +222,29 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
             return metadataConfigurations(List.of(metadataConfigurations));
         }
 
+        /**
+         * @param mountName Mount name of the cache.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountName(@Nullable Output<String> mountName) {
             $.mountName = mountName;
             return this;
         }
 
+        /**
+         * @param mountName Mount name of the cache.
+         * 
+         * @return builder
+         * 
+         */
         public Builder mountName(String mountName) {
             return mountName(Output.of(mountName));
         }
 
         /**
-         * @param perUnitStorageThroughput Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+         * @param perUnitStorageThroughput Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
          * 
          * @return builder
          * 
@@ -209,7 +255,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param perUnitStorageThroughput Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+         * @param perUnitStorageThroughput Throughput provisioned for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
          * 
          * @return builder
          * 
@@ -219,7 +265,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param weeklyMaintenanceStartTime A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+         * @param weeklyMaintenanceStartTime Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
          * 
          * @return builder
          * 
@@ -230,7 +276,7 @@ public final class FileCacheLustreConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param weeklyMaintenanceStartTime A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+         * @param weeklyMaintenanceStartTime Recurring weekly time to start maintenance, in the format `D:HH:MM`. `D` is the day of the week, where `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
          * 
          * @return builder
          * 

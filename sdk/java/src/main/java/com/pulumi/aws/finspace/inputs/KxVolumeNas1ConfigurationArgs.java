@@ -16,14 +16,14 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
     public static final KxVolumeNas1ConfigurationArgs Empty = new KxVolumeNas1ConfigurationArgs();
 
     /**
-     * The size of the network attached storage.
+     * Size of the network attached storage.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return The size of the network attached storage.
+     * @return Size of the network attached storage.
      * 
      */
     public Output<Integer> size() {
@@ -31,14 +31,14 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The type of the network attached storage.
+     * Type of the network attached storage.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the network attached storage.
+     * @return Type of the network attached storage.
      * 
      */
     public Output<String> type() {
@@ -71,7 +71,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param size The size of the network attached storage.
+         * @param size Size of the network attached storage.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param size The size of the network attached storage.
+         * @param size Size of the network attached storage.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of the network attached storage.
+         * @param type Type of the network attached storage.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class KxVolumeNas1ConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type The type of the network attached storage.
+         * @param type Type of the network attached storage.
          * 
          * @return builder
          * 

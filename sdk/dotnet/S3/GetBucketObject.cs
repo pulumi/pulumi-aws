@@ -274,7 +274,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
         /// </summary>
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
@@ -285,6 +285,9 @@ namespace Pulumi.Aws.S3
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
+        /// <summary>
+        /// Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+        /// </summary>
         [Input("range")]
         public string? Range { get; set; }
 
@@ -321,7 +324,7 @@ namespace Pulumi.Aws.S3
     public sealed class GetBucketObjectInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `aws.s3.BucketObjectv2` data source instead.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
@@ -332,6 +335,9 @@ namespace Pulumi.Aws.S3
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
+        /// </summary>
         [Input("range")]
         public Input<string>? Range { get; set; }
 
@@ -369,6 +375,9 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetBucketObjectResult
     {
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// Object data (see **limitations above** to understand cases in which this field is actually available)
@@ -376,7 +385,7 @@ namespace Pulumi.Aws.S3
         public readonly string Body;
         public readonly string Bucket;
         /// <summary>
-        /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+        /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         /// </summary>
         public readonly bool BucketKeyEnabled;
         /// <summary>
@@ -429,7 +438,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
-        /// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+        /// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
         /// </summary>
         public readonly string ObjectLockLegalHoldStatus;
         /// <summary>
@@ -437,7 +446,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string ObjectLockMode;
         /// <summary>
-        /// The date and time when this object's object lock will expire.
+        /// Date and time when this object's object lock will expire.
         /// </summary>
         public readonly string ObjectLockRetainUntilDate;
         public readonly string? Range;

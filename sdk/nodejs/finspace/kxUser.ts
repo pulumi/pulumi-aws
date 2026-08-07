@@ -90,12 +90,12 @@ export class KxUser extends pulumi.CustomResource {
     declare public readonly environmentId: pulumi.Output<string>;
     /**
      * IAM role ARN to be associated with the user.
-     *
-     * The following arguments are optional:
      */
     declare public readonly iamRole: pulumi.Output<string>;
     /**
-     * A unique identifier for the user.
+     * Unique identifier for the user.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -166,12 +166,12 @@ export interface KxUserState {
     environmentId?: pulumi.Input<string | undefined>;
     /**
      * IAM role ARN to be associated with the user.
-     *
-     * The following arguments are optional:
      */
     iamRole?: pulumi.Input<string | undefined>;
     /**
-     * A unique identifier for the user.
+     * Unique identifier for the user.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -198,12 +198,12 @@ export interface KxUserArgs {
     environmentId: pulumi.Input<string>;
     /**
      * IAM role ARN to be associated with the user.
-     *
-     * The following arguments are optional:
      */
     iamRole: pulumi.Input<string>;
     /**
-     * A unique identifier for the user.
+     * Unique identifier for the user.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**

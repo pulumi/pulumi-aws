@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> DataSourceName { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for a Lambda data source. See Lambda Config below.
+        /// Configuration for a Lambda data source. See `LambdaConfig` below.
         /// </summary>
         [Input("lambdaConfig")]
         public Input<Inputs.ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigGetArgs>? LambdaConfig { get; set; }

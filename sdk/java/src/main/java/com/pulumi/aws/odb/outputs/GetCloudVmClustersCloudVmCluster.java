@@ -11,98 +11,98 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudVmClustersCloudVmCluster {
     /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     private String arn;
     /**
-     * @return The ID of the Cloud Exadata Infrastructure.
+     * @return ID of the Cloud Exadata Infrastructure.
      * 
      */
     private String cloudExadataInfrastructureId;
     /**
-     * @return The display name of the VM cluster.
+     * @return Display name of the VM cluster.
      * 
      */
     private String displayName;
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      */
     private String id;
     /**
-     * @return The name of the OCI Resource Anchor.
+     * @return Name of the OCI Resource Anchor.
      * 
      */
     private String ociResourceAnchorName;
     /**
-     * @return The HTTPS link to the VM cluster in OCI.
+     * @return HTTPS link to the VM cluster in OCI.
      * 
      */
     private String ociUrl;
     /**
-     * @return The OCID of the VM cluster.
+     * @return OCID of the VM cluster.
      * 
      */
     private String ocid;
     /**
-     * @return The ID of the ODB network.
+     * @return ID of the ODB network.
      * 
      */
     private String odbNetworkId;
 
     private GetCloudVmClustersCloudVmCluster() {}
     /**
-     * @return The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The ID of the Cloud Exadata Infrastructure.
+     * @return ID of the Cloud Exadata Infrastructure.
      * 
      */
     public String cloudExadataInfrastructureId() {
         return this.cloudExadataInfrastructureId;
     }
     /**
-     * @return The display name of the VM cluster.
+     * @return Display name of the VM cluster.
      * 
      */
     public String displayName() {
         return this.displayName;
     }
     /**
-     * @return The unique identifier of the cloud vm cluster.
+     * @return Unique identifier of the cloud vm cluster.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The name of the OCI Resource Anchor.
+     * @return Name of the OCI Resource Anchor.
      * 
      */
     public String ociResourceAnchorName() {
         return this.ociResourceAnchorName;
     }
     /**
-     * @return The HTTPS link to the VM cluster in OCI.
+     * @return HTTPS link to the VM cluster in OCI.
      * 
      */
     public String ociUrl() {
         return this.ociUrl;
     }
     /**
-     * @return The OCID of the VM cluster.
+     * @return OCID of the VM cluster.
      * 
      */
     public String ocid() {
         return this.ocid;
     }
     /**
-     * @return The ID of the ODB network.
+     * @return ID of the ODB network.
      * 
      */
     public String odbNetworkId() {

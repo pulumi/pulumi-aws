@@ -79,25 +79,25 @@ namespace Pulumi.Aws.Fsx
         public Output<string> AutoImportPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
         public Output<int> AutomaticBackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        /// Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         /// </summary>
         [Output("copyTagsToBackups")]
         public Output<bool?> CopyTagsToBackups { get; private set; } = null!;
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.LustreFileSystemDataReadCacheConfiguration?> DataReadCacheConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        /// Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string?> DeploymentType { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        /// Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         /// </summary>
         [Output("driveCacheType")]
         public Output<string?> DriveCacheType { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> FileSystemTypeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
@@ -174,19 +174,19 @@ namespace Pulumi.Aws.Fsx
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
+        /// Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.LustreFileSystemLogConfiguration> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
+        /// Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
         /// </summary>
         [Output("metadataConfiguration")]
         public Output<Outputs.LustreFileSystemMetadataConfiguration> MetadataConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The value to be used when mounting the filesystem.
+        /// Value to be used when mounting the filesystem.
         /// </summary>
         [Output("mountName")]
         public Output<string> MountName { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Output("perUnitStorageThroughput")]
         public Output<int?> PerUnitStorageThroughput { get; private set; } = null!;
@@ -216,13 +216,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
+        /// Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
         /// </summary>
         [Output("rootSquashConfiguration")]
         public Output<Outputs.LustreFileSystemRootSquashConfiguration?> RootSquashConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -236,33 +236,31 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        /// Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+        /// Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
-        /// 
-        /// The following arguments are optional:
+        /// List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         /// </summary>
         [Output("subnetIds")]
         public Output<string> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -280,7 +278,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Output("weeklyMaintenanceStartTime")]
         public Output<string> WeeklyMaintenanceStartTime { get; private set; } = null!;
@@ -338,25 +336,25 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? AutoImportPolicy { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        /// Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -371,13 +369,13 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.LustreFileSystemDataReadCacheConfigurationArgs>? DataReadCacheConfiguration { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        /// Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        /// Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         /// </summary>
         [Input("driveCacheType")]
         public Input<string>? DriveCacheType { get; set; }
@@ -404,7 +402,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _finalBackupTags;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
@@ -433,19 +431,19 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
+        /// Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.LustreFileSystemLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
-        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
+        /// Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
         /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.LustreFileSystemMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
-        /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }
@@ -457,7 +455,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
+        /// Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
         /// </summary>
         [Input("rootSquashConfiguration")]
         public Input<Inputs.LustreFileSystemRootSquashConfigurationArgs>? RootSquashConfiguration { get; set; }
@@ -466,7 +464,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -483,21 +481,19 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        /// Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+        /// Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
-        /// 
-        /// The following arguments are optional:
+        /// List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         /// </summary>
         [Input("subnetIds", required: true)]
         public Input<string> SubnetIds { get; set; } = null!;
@@ -506,7 +502,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -521,7 +517,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }
@@ -547,25 +543,25 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? AutoImportPolicy { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
+        /// Whether to copy tags for the file system to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -580,7 +576,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.LustreFileSystemDataReadCacheConfigurationGetArgs>? DataReadCacheConfiguration { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
+        /// Filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -592,7 +588,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
+        /// Type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         /// </summary>
         [Input("driveCacheType")]
         public Input<string>? DriveCacheType { get; set; }
@@ -619,7 +615,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _finalBackupTags;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
@@ -648,19 +644,19 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
+        /// Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `LogConfiguration` Block for details.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.LustreFileSystemLogConfigurationGetArgs>? LogConfiguration { get; set; }
 
         /// <summary>
-        /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
+        /// Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `DeploymentType` is set to `PERSISTENT_2`. See `MetadataConfiguration` Block for details.
         /// </summary>
         [Input("metadataConfiguration")]
         public Input<Inputs.LustreFileSystemMetadataConfigurationGetArgs>? MetadataConfiguration { get; set; }
 
         /// <summary>
-        /// The value to be used when mounting the filesystem.
+        /// Value to be used when mounting the filesystem.
         /// </summary>
         [Input("mountName")]
         public Input<string>? MountName { get; set; }
@@ -684,7 +680,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
+        /// Amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` DeploymentType and `SSD` StorageType are 50, 100, 200. Valid values for `PERSISTENT_1` DeploymentType and `HDD` StorageType are 12, 40. Valid values for `PERSISTENT_2` DeploymentType and ` SSD` StorageType are 125, 250, 500, 1000.
         /// </summary>
         [Input("perUnitStorageThroughput")]
         public Input<int>? PerUnitStorageThroughput { get; set; }
@@ -696,7 +692,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
+        /// Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `RootSquashConfiguration` Block for details.
         /// </summary>
         [Input("rootSquashConfiguration")]
         public Input<Inputs.LustreFileSystemRootSquashConfigurationGetArgs>? RootSquashConfiguration { get; set; }
@@ -705,7 +701,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -722,21 +718,19 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        /// Storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
+        /// Filesystem storage type. One of `SSD`, `HDD` or `INTELLIGENT_TIERING`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types. `INTELLIGENT_TIERING` requires `DataReadCacheConfiguration` and `MetadataConfiguration` to be set and is only supported for `PERSISTENT_2` deployment types.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
-        /// 
-        /// The following arguments are optional:
+        /// List of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         /// </summary>
         [Input("subnetIds")]
         public Input<string>? SubnetIds { get; set; }
@@ -745,7 +739,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -757,7 +751,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -778,7 +772,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }

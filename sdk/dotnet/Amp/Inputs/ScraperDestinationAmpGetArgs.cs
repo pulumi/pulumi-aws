@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Amp.Inputs
     public sealed class ScraperDestinationAmpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the prometheus workspace.
+        /// ARN of the prometheus workspace.
         /// </summary>
         [Input("workspaceArn", required: true)]
         public Input<string> WorkspaceArn { get; set; } = null!;

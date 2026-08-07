@@ -24,14 +24,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     public static final TaskSetState Empty = new TaskSetState();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the task set.
+     * Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the task set.
+     * @return Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -39,14 +39,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * Capacity provider strategy to use for the service. Can be one or more. Defined below.
      * 
      */
     @Import(name="capacityProviderStrategies")
     private @Nullable Output<List<TaskSetCapacityProviderStrategyArgs>> capacityProviderStrategies;
 
     /**
-     * @return The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * @return Capacity provider strategy to use for the service. Can be one or more. Defined below.
      * 
      */
     public Optional<Output<List<TaskSetCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
@@ -54,14 +54,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The short name or ARN of the cluster that hosts the service to create the task set in.
+     * Short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
     @Import(name="cluster")
     private @Nullable Output<String> cluster;
 
     /**
-     * @return The short name or ARN of the cluster that hosts the service to create the task set in.
+     * @return Short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
     public Optional<Output<String>> cluster() {
@@ -69,14 +69,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The external ID associated with the task set.
+     * External ID associated with the task set.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return The external ID associated with the task set.
+     * @return External ID associated with the task set.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -99,14 +99,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
     @Import(name="launchType")
     private @Nullable Output<String> launchType;
 
     /**
-     * @return The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * @return Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
     public Optional<Output<String>> launchType() {
@@ -129,14 +129,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+     * Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<TaskSetNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+     * @return Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
      * 
      */
     public Optional<Output<TaskSetNetworkConfigurationArgs>> networkConfiguration() {
@@ -144,14 +144,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Import(name="platformVersion")
     private @Nullable Output<String> platformVersion;
 
     /**
-     * @return The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Optional<Output<String>> platformVersion() {
@@ -174,14 +174,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+     * Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
     @Import(name="scale")
     private @Nullable Output<TaskSetScaleArgs> scale;
 
     /**
-     * @return A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+     * @return Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
     public Optional<Output<TaskSetScaleArgs>> scale() {
@@ -189,14 +189,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The short name or ARN of the ECS service.
+     * Short name or ARN of the ECS service.
      * 
      */
     @Import(name="service")
     private @Nullable Output<String> service;
 
     /**
-     * @return The short name or ARN of the ECS service.
+     * @return Short name or ARN of the ECS service.
      * 
      */
     public Optional<Output<String>> service() {
@@ -204,14 +204,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     @Import(name="serviceRegistries")
     private @Nullable Output<TaskSetServiceRegistriesArgs> serviceRegistries;
 
     /**
-     * @return The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+     * @return Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     public Optional<Output<TaskSetServiceRegistriesArgs>> serviceRegistries() {
@@ -219,14 +219,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The stability status. This indicates whether the task set has reached a steady state.
+     * Stability status. This indicates whether the task set has reached a steady state.
      * 
      */
     @Import(name="stabilityStatus")
     private @Nullable Output<String> stabilityStatus;
 
     /**
-     * @return The stability status. This indicates whether the task set has reached a steady state.
+     * @return Stability status. This indicates whether the task set has reached a steady state.
      * 
      */
     public Optional<Output<String>> stabilityStatus() {
@@ -234,14 +234,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The status of the task set.
+     * Status of the task set.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the task set.
+     * @return Status of the task set.
      * 
      */
     public Optional<Output<String>> status() {
@@ -249,14 +249,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -264,14 +264,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -279,7 +279,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
      * 
      * The following arguments are optional:
      * 
@@ -288,7 +288,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> taskDefinition;
 
     /**
-     * @return The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * @return Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
      * 
      * The following arguments are optional:
      * 
@@ -298,14 +298,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the task set.
+     * ID of the task set.
      * 
      */
     @Import(name="taskSetId")
     private @Nullable Output<String> taskSetId;
 
     /**
-     * @return The ID of the task set.
+     * @return ID of the task set.
      * 
      */
     public Optional<Output<String>> taskSetId() {
@@ -387,7 +387,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the task set.
+         * @param arn Amazon Resource Name (ARN) that identifies the task set.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the task set.
+         * @param arn Amazon Resource Name (ARN) that identifies the task set.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+         * @param capacityProviderStrategies Capacity provider strategy to use for the service. Can be one or more. Defined below.
          * 
          * @return builder
          * 
@@ -419,7 +419,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+         * @param capacityProviderStrategies Capacity provider strategy to use for the service. Can be one or more. Defined below.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviderStrategies The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+         * @param capacityProviderStrategies Capacity provider strategy to use for the service. Can be one or more. Defined below.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cluster The short name or ARN of the cluster that hosts the service to create the task set in.
+         * @param cluster Short name or ARN of the cluster that hosts the service to create the task set in.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cluster The short name or ARN of the cluster that hosts the service to create the task set in.
+         * @param cluster Short name or ARN of the cluster that hosts the service to create the task set in.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The external ID associated with the task set.
+         * @param externalId External ID associated with the task set.
          * 
          * @return builder
          * 
@@ -471,7 +471,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalId The external ID associated with the task set.
+         * @param externalId External ID associated with the task set.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchType The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+         * @param launchType Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchType The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+         * @param launchType Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+         * @param networkConfiguration Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+         * @param networkConfiguration Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformVersion The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param platformVersion The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+         * @param platformVersion Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+         * @param scale Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+         * @param scale Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param service The short name or ARN of the ECS service.
+         * @param service Short name or ARN of the ECS service.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param service The short name or ARN of the ECS service.
+         * @param service Short name or ARN of the ECS service.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegistries The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+         * @param serviceRegistries Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegistries The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+         * @param serviceRegistries Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stabilityStatus The stability status. This indicates whether the task set has reached a steady state.
+         * @param stabilityStatus Stability status. This indicates whether the task set has reached a steady state.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stabilityStatus The stability status. This indicates whether the task set has reached a steady state.
+         * @param stabilityStatus Stability status. This indicates whether the task set has reached a steady state.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the task set.
+         * @param status Status of the task set.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The status of the task set.
+         * @param status Status of the task set.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+         * @param tags Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskDefinition The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+         * @param taskDefinition Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
          * 
          * The following arguments are optional:
          * 
@@ -777,7 +777,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskDefinition The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+         * @param taskDefinition Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
          * 
          * The following arguments are optional:
          * 
@@ -789,7 +789,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskSetId The ID of the task set.
+         * @param taskSetId ID of the task set.
          * 
          * @return builder
          * 
@@ -800,7 +800,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskSetId The ID of the task set.
+         * @param taskSetId ID of the task set.
          * 
          * @return builder
          * 

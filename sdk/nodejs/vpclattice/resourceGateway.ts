@@ -104,7 +104,7 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     declare public readonly ipAddressType: pulumi.Output<string>;
     /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
      */
     declare public readonly ipv4AddressesPerEni: pulumi.Output<number>;
     /**
@@ -116,7 +116,7 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
      */
     declare public readonly resourceConfigDnsResolution: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export interface ResourceGatewayState {
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
      */
     ipv4AddressesPerEni?: pulumi.Input<number | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface ResourceGatewayState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
      */
     resourceConfigDnsResolution?: pulumi.Input<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface ResourceGatewayArgs {
      */
     ipAddressType?: pulumi.Input<string | undefined>;
     /**
-     * The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
+     * Number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
      */
     ipv4AddressesPerEni?: pulumi.Input<number | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface ResourceGatewayArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * How DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
      */
     resourceConfigDnsResolution?: pulumi.Input<string | undefined>;
     /**

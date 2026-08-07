@@ -279,19 +279,19 @@ namespace Pulumi.Aws.Fis
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
+        /// Experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions> ExperimentOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         /// </summary>
         [Output("experimentReportConfiguration")]
         public Output<Outputs.ExperimentTemplateExperimentReportConfiguration?> ExperimentReportConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for experiment logging. See below.
+        /// Configuration for experiment logging. See below.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
@@ -396,19 +396,19 @@ namespace Pulumi.Aws.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
+        /// Experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
         /// <summary>
-        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         /// </summary>
         [Input("experimentReportConfiguration")]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationArgs>? ExperimentReportConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for experiment logging. See below.
+        /// Configuration for experiment logging. See below.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }
@@ -490,19 +490,19 @@ namespace Pulumi.Aws.Fis
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The experiment options for the experiment template. See ExperimentOptions below for more details!
+        /// Experiment options for the experiment template. See ExperimentOptions below for more details!
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsGetArgs>? ExperimentOptions { get; set; }
 
         /// <summary>
-        /// The configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
+        /// Configuration for [experiment reporting](https://docs.aws.amazon.com/fis/latest/userguide/experiment-report-configuration.html). See below.
         /// </summary>
         [Input("experimentReportConfiguration")]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationGetArgs>? ExperimentReportConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for experiment logging. See below.
+        /// Configuration for experiment logging. See below.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationGetArgs>? LogConfiguration { get; set; }

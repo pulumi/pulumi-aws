@@ -20,14 +20,14 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
     public static final FlowTaskArgs Empty = new FlowTaskArgs();
 
     /**
-     * Operation to be performed on the provided source fields. See Connector Operator for details.
+     * Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
      * 
      */
     @Import(name="connectorOperators")
     private @Nullable Output<List<FlowTaskConnectorOperatorArgs>> connectorOperators;
 
     /**
-     * @return Operation to be performed on the provided source fields. See Connector Operator for details.
+     * @return Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
      * 
      */
     public Optional<Output<List<FlowTaskConnectorOperatorArgs>>> connectorOperators() {
@@ -123,7 +123,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class FlowTaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectorOperators Operation to be performed on the provided source fields. See Connector Operator for details.
+         * @param connectorOperators Operation to be performed on the provided source fields. See the `task.connector_operator` Block for details.
          * 
          * @return builder
          * 

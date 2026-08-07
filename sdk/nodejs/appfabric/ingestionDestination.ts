@@ -68,7 +68,7 @@ export class IngestionDestination extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
     declare public readonly appBundleArn: pulumi.Output<string>;
     /**
@@ -76,15 +76,17 @@ export class IngestionDestination extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Contains information about the destination of ingested data.
+     * Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      */
     declare public readonly destinationConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
     declare public readonly ingestionArn: pulumi.Output<string>;
     /**
-     * Contains information about how ingested data is processed.
+     * Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly processingConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationProcessingConfiguration>;
     /**
@@ -157,7 +159,7 @@ export class IngestionDestination extends pulumi.CustomResource {
  */
 export interface IngestionDestinationState {
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
     appBundleArn?: pulumi.Input<string | undefined>;
     /**
@@ -165,15 +167,17 @@ export interface IngestionDestinationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Contains information about the destination of ingested data.
+     * Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      */
     destinationConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
     ingestionArn?: pulumi.Input<string | undefined>;
     /**
-     * Contains information about how ingested data is processed.
+     * Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     *
+     * The following arguments are optional:
      */
     processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration | undefined>;
     /**
@@ -196,19 +200,21 @@ export interface IngestionDestinationState {
  */
 export interface IngestionDestinationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      */
     appBundleArn: pulumi.Input<string>;
     /**
-     * Contains information about the destination of ingested data.
+     * Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      */
     destinationConfiguration: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
     ingestionArn: pulumi.Input<string>;
     /**
-     * Contains information about how ingested data is processed.
+     * Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     *
+     * The following arguments are optional:
      */
     processingConfiguration: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
     /**

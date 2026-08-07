@@ -15,23 +15,31 @@ public final class GetOpenZfsSnapshotFilter extends com.pulumi.resources.InvokeA
     public static final GetOpenZfsSnapshotFilter Empty = new GetOpenZfsSnapshotFilter();
 
     /**
-     * Name of the snapshot.
+     * Name of the field to filter by.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the snapshot.
+     * @return Name of the field to filter by.
      * 
      */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     @Import(name="values", required=true)
     private List<String> values;
 
+    /**
+     * @return Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }
@@ -62,7 +70,7 @@ public final class GetOpenZfsSnapshotFilter extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param name Name of the snapshot.
+         * @param name Name of the field to filter by.
          * 
          * @return builder
          * 
@@ -72,11 +80,23 @@ public final class GetOpenZfsSnapshotFilter extends com.pulumi.resources.InvokeA
             return this;
         }
 
+        /**
+         * @param values Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of values that are used to filter. A snapshot is returned only if it matches all of the specified filters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

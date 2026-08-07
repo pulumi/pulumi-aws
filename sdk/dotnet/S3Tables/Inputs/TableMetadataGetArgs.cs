@@ -13,8 +13,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMetadataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-        /// See `Iceberg` below.
+        /// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format. See `Iceberg` below.
         /// </summary>
         [Input("iceberg", required: true)]
         public Input<Inputs.TableMetadataIcebergGetArgs> Iceberg { get; set; } = null!;

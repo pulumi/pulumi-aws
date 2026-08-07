@@ -16,14 +16,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs();
 
     /**
-     * The beginning port number of the range.
+     * Beginning port number of the range.
      * 
      */
     @Import(name="from")
     private @Nullable Output<Integer> from;
 
     /**
-     * @return The beginning port number of the range.
+     * @return Beginning port number of the range.
      * 
      */
     public Optional<Output<Integer>> from() {
@@ -31,14 +31,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
     }
 
     /**
-     * The ending port number of the range.
+     * Ending port number of the range.
      * 
      */
     @Import(name="to")
     private @Nullable Output<Integer> to;
 
     /**
-     * @return The ending port number of the range.
+     * @return Ending port number of the range.
      * 
      */
     public Optional<Output<Integer>> to() {
@@ -71,7 +71,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param from The beginning port number of the range.
+         * @param from Beginning port number of the range.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param from The beginning port number of the range.
+         * @param from Beginning port number of the range.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param to The ending port number of the range.
+         * @param to Ending port number of the range.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
         }
 
         /**
-         * @param to The ending port number of the range.
+         * @param to Ending port number of the range.
          * 
          * @return builder
          * 

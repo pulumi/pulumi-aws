@@ -16,22 +16,30 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
 
     public static final IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs Empty = new IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs();
 
+    /**
+     * Name of the Amazon S3 bucket.
+     * 
+     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
+    /**
+     * @return Name of the Amazon S3 bucket.
+     * 
+     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
     /**
-     * The object key to use.
+     * Object key to use.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The object key to use.
+     * @return Object key to use.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -63,17 +71,29 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
             $ = new IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
+        /**
+         * @param bucketName Name of the Amazon S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
         /**
-         * @param prefix The object key to use.
+         * @param prefix Object key to use.
          * 
          * @return builder
          * 
@@ -84,7 +104,7 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
         }
 
         /**
-         * @param prefix The object key to use.
+         * @param prefix Object key to use.
          * 
          * @return builder
          * 

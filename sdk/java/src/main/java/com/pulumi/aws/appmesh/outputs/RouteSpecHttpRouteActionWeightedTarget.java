@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttpRouteActionWeightedTarget {
     /**
-     * @return The targeted port of the weighted object.
+     * @return Port number to match from the request.
      * 
      */
     private @Nullable Integer port;
@@ -31,7 +31,7 @@ public final class RouteSpecHttpRouteActionWeightedTarget {
 
     private RouteSpecHttpRouteActionWeightedTarget() {}
     /**
-     * @return The targeted port of the weighted object.
+     * @return Port number to match from the request.
      * 
      */
     public Optional<Integer> port() {

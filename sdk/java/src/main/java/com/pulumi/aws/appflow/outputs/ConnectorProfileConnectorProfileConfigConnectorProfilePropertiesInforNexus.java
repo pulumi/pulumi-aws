@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus {
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus() {}
+    /**
+     * @return Location of the Zendesk resource.
+     * 
+     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

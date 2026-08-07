@@ -17,14 +17,14 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
     public static final ChannelNamespaceHandlerConfigsArgs Empty = new ChannelNamespaceHandlerConfigsArgs();
 
     /**
-     * Handler configuration. See Handler Config below.
+     * Handler configuration for published events. See `onPublish` below.
      * 
      */
     @Import(name="onPublish")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnPublishArgs> onPublish;
 
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for published events. See `onPublish` below.
      * 
      */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnPublishArgs>> onPublish() {
@@ -32,14 +32,14 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
     }
 
     /**
-     * Handler configuration. See Handler Config below.
+     * Handler configuration for subscribe requests. See `onSubscribe` below.
      * 
      */
     @Import(name="onSubscribe")
     private @Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeArgs> onSubscribe;
 
     /**
-     * @return Handler configuration. See Handler Config below.
+     * @return Handler configuration for subscribe requests. See `onSubscribe` below.
      * 
      */
     public Optional<Output<ChannelNamespaceHandlerConfigsOnSubscribeArgs>> onSubscribe() {
@@ -72,7 +72,7 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param onPublish Handler configuration. See Handler Config below.
+         * @param onPublish Handler configuration for published events. See `onPublish` below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param onPublish Handler configuration. See Handler Config below.
+         * @param onPublish Handler configuration for published events. See `onPublish` below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param onSubscribe Handler configuration. See Handler Config below.
+         * @param onSubscribe Handler configuration for subscribe requests. See `onSubscribe` below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ChannelNamespaceHandlerConfigsArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param onSubscribe Handler configuration. See Handler Config below.
+         * @param onSubscribe Handler configuration for subscribe requests. See `onSubscribe` below.
          * 
          * @return builder
          * 

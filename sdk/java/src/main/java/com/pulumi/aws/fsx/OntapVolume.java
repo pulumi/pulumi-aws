@@ -119,14 +119,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/ontapVolume:OntapVolume")
 public class OntapVolume extends com.pulumi.resources.CustomResource {
     /**
-     * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+     * Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     @Export(name="aggregateConfiguration", refs={OntapVolumeAggregateConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeAggregateConfiguration> aggregateConfiguration;
 
     /**
-     * @return The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
+     * @return Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
      * 
      */
     public Output<Optional<OntapVolumeAggregateConfiguration>> aggregateConfiguration() {
@@ -147,112 +147,112 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     @Export(name="bypassSnaplockEnterpriseRetention", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> bypassSnaplockEnterpriseRetention;
 
     /**
-     * @return Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * @return Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> bypassSnaplockEnterpriseRetention() {
         return Codegen.optional(this.bypassSnaplockEnterpriseRetention);
     }
     /**
-     * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * Whether tags for the volume should be copied to backups. This value defaults to `false`.
      * 
      */
     @Export(name="copyTagsToBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToBackups;
 
     /**
-     * @return A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
+     * @return Whether tags for the volume should be copied to backups. This value defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToBackups() {
         return Codegen.optional(this.copyTagsToBackups);
     }
     /**
-     * Describes the file system for the volume, e.g. `fs-12345679`
+     * File system for the volume, e.g. `fs-12345679`
      * 
      */
     @Export(name="fileSystemId", refs={String.class}, tree="[0]")
     private Output<String> fileSystemId;
 
     /**
-     * @return Describes the file system for the volume, e.g. `fs-12345679`
+     * @return File system for the volume, e.g. `fs-12345679`
      * 
      */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * A map of tags to apply to the volume&#39;s final backup.
+     * Map of tags to apply to the volume&#39;s final backup.
      * 
      */
     @Export(name="finalBackupTags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> finalBackupTags;
 
     /**
-     * @return A map of tags to apply to the volume&#39;s final backup.
+     * @return Map of tags to apply to the volume&#39;s final backup.
      * 
      */
     public Output<Optional<Map<String,String>>> finalBackupTags() {
         return Codegen.optional(this.finalBackupTags);
     }
     /**
-     * Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      * 
      */
     @Export(name="flexcacheEndpointType", refs={String.class}, tree="[0]")
     private Output<String> flexcacheEndpointType;
 
     /**
-     * @return Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
+     * @return FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
      * 
      */
     public Output<String> flexcacheEndpointType() {
         return this.flexcacheEndpointType;
     }
     /**
-     * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     * Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     @Export(name="junctionPath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> junctionPath;
 
     /**
-     * @return Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
+     * @return Location in the storage virtual machine&#39;s namespace where the volume is mounted. The junctionPath must have a leading forward slash, such as `/vol3`
      * 
      */
     public Output<Optional<String>> junctionPath() {
         return Codegen.optional(this.junctionPath);
     }
     /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
+     * @return Name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     @Export(name="ontapVolumeType", refs={String.class}, tree="[0]")
     private Output<String> ontapVolumeType;
 
     /**
-     * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * @return Type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     public Output<String> ontapVolumeType() {
@@ -273,105 +273,105 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+     * Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Export(name="securityStyle", refs={String.class}, tree="[0]")
     private Output<String> securityStyle;
 
     /**
-     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
+     * @return Volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     public Output<String> securityStyle() {
         return this.securityStyle;
     }
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Export(name="sizeInBytes", refs={String.class}, tree="[0]")
     private Output<String> sizeInBytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Output<String> sizeInBytes() {
         return this.sizeInBytes;
     }
     /**
-     * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     @Export(name="sizeInMegabytes", refs={Integer.class}, tree="[0]")
     private Output<Integer> sizeInMegabytes;
 
     /**
-     * @return Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
+     * @return Size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either sizeInBytes or sizeInMegabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
     public Output<Integer> sizeInMegabytes() {
         return this.sizeInMegabytes;
     }
     /**
-     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     @Export(name="skipFinalBackup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalBackup;
 
     /**
-     * @return When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * @return Whether to skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> skipFinalBackup() {
         return Codegen.optional(this.skipFinalBackup);
     }
     /**
-     * The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+     * SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     @Export(name="snaplockConfiguration", refs={OntapVolumeSnaplockConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeSnaplockConfiguration> snaplockConfiguration;
 
     /**
-     * @return The SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
+     * @return SnapLock configuration for an FSx for ONTAP volume. See `snaplockConfiguration` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeSnaplockConfiguration>> snaplockConfiguration() {
         return Codegen.optional(this.snaplockConfiguration);
     }
     /**
-     * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
     @Export(name="snapshotPolicy", refs={String.class}, tree="[0]")
     private Output<String> snapshotPolicy;
 
     /**
-     * @return Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
+     * @return Snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
     public Output<String> snapshotPolicy() {
         return this.snapshotPolicy;
     }
     /**
-     * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
     @Export(name="storageEfficiencyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageEfficiencyEnabled;
 
     /**
-     * @return Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
+     * @return Whether to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
     public Output<Optional<Boolean>> storageEfficiencyEnabled() {
         return Codegen.optional(this.storageEfficiencyEnabled);
     }
     /**
-     * Specifies the storage virtual machine in which to create the volume.
+     * Storage virtual machine in which to create the volume.
      * 
      * The following arguments are optional:
      * 
@@ -380,7 +380,7 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
     private Output<String> storageVirtualMachineId;
 
     /**
-     * @return Specifies the storage virtual machine in which to create the volume.
+     * @return Storage virtual machine in which to create the volume.
      * 
      * The following arguments are optional:
      * 
@@ -389,84 +389,84 @@ public class OntapVolume extends com.pulumi.resources.CustomResource {
         return this.storageVirtualMachineId;
     }
     /**
-     * A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+     * Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     @Export(name="tieringPolicy", refs={OntapVolumeTieringPolicy.class}, tree="[0]")
     private Output</* @Nullable */ OntapVolumeTieringPolicy> tieringPolicy;
 
     /**
-     * @return The data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
+     * @return Data tiering policy for an FSx for ONTAP volume. See `tieringPolicy` Block for details.
      * 
      */
     public Output<Optional<OntapVolumeTieringPolicy>> tieringPolicy() {
         return Codegen.optional(this.tieringPolicy);
     }
     /**
-     * The Volume&#39;s UUID (universally unique identifier).
+     * Volume&#39;s UUID (universally unique identifier).
      * 
      */
     @Export(name="uuid", refs={String.class}, tree="[0]")
     private Output<String> uuid;
 
     /**
-     * @return The Volume&#39;s UUID (universally unique identifier).
+     * @return Volume&#39;s UUID (universally unique identifier).
      * 
      */
     public Output<String> uuid() {
         return this.uuid;
     }
     /**
-     * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      * 
      */
     @Export(name="volumeStyle", refs={String.class}, tree="[0]")
     private Output<String> volumeStyle;
 
     /**
-     * @return Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
+     * @return Styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      * 
      */
     public Output<String> volumeStyle() {
         return this.volumeStyle;
     }
     /**
-     * The type of volume, currently the only valid value is `ONTAP`.
+     * Type of volume, currently the only valid value is `ONTAP`.
      * 
      */
     @Export(name="volumeType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> volumeType;
 
     /**
-     * @return The type of volume, currently the only valid value is `ONTAP`.
+     * @return Type of volume, currently the only valid value is `ONTAP`.
      * 
      */
     public Output<Optional<String>> volumeType() {

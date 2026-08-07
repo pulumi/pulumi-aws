@@ -15,12 +15,12 @@ public final class GetBucketReplicationConfigurationResult {
     private String bucket;
     private String region;
     /**
-     * @return The ARN of the IAM role that Amazon S3 assumes when replicating objects.
+     * @return ARN of the IAM role that Amazon S3 assumes when replicating objects.
      * 
      */
     private String role;
     /**
-     * @return An unordered list of configuration blocks that define the rules managing replication.
+     * @return Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
      * 
      */
     private List<GetBucketReplicationConfigurationRule> rules;
@@ -33,14 +33,14 @@ public final class GetBucketReplicationConfigurationResult {
         return this.region;
     }
     /**
-     * @return The ARN of the IAM role that Amazon S3 assumes when replicating objects.
+     * @return ARN of the IAM role that Amazon S3 assumes when replicating objects.
      * 
      */
     public String role() {
         return this.role;
     }
     /**
-     * @return An unordered list of configuration blocks that define the rules managing replication.
+     * @return Unordered list of configuration blocks that define the rules managing replication. See the `awsS3ReplicationConfiguration` resource documentation for details about the `rule` block (excluding the `and` block within the `filter` block).
      * 
      */
     public List<GetBucketReplicationConfigurationRule> rules() {

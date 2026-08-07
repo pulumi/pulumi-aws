@@ -75,7 +75,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -87,11 +87,11 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      */
     declare public readonly configuration: pulumi.Output<outputs.s3control.ObjectLambdaAccessPointConfiguration>;
     /**
-     * The name for this Object Lambda Access Point.
+     * Name for this Object Lambda Access Point.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
  */
 export interface ObjectLambdaAccessPointState {
     /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -152,11 +152,11 @@ export interface ObjectLambdaAccessPointState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      */
     configuration?: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration | undefined>;
     /**
-     * The name for this Object Lambda Access Point.
+     * Name for this Object Lambda Access Point.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -170,15 +170,15 @@ export interface ObjectLambdaAccessPointState {
  */
 export interface ObjectLambdaAccessPointArgs {
     /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+     * Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
      */
     configuration: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
     /**
-     * The name for this Object Lambda Access Point.
+     * Name for this Object Lambda Access Point.
      */
     name?: pulumi.Input<string | undefined>;
     /**

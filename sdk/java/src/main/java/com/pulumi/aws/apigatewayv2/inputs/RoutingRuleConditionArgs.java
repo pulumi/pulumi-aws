@@ -17,14 +17,14 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
     public static final RoutingRuleConditionArgs Empty = new RoutingRuleConditionArgs();
 
     /**
-     * The base path to be matched. See below.
+     * Base path to be matched. See below.
      * 
      */
     @Import(name="matchBasePaths")
     private @Nullable Output<RoutingRuleConditionMatchBasePathsArgs> matchBasePaths;
 
     /**
-     * @return The base path to be matched. See below.
+     * @return Base path to be matched. See below.
      * 
      */
     public Optional<Output<RoutingRuleConditionMatchBasePathsArgs>> matchBasePaths() {
@@ -32,14 +32,14 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The headers to be matched. See below.
+     * Headers to be matched. See below.
      * 
      */
     @Import(name="matchHeaders")
     private @Nullable Output<RoutingRuleConditionMatchHeadersArgs> matchHeaders;
 
     /**
-     * @return The headers to be matched. See below.
+     * @return Headers to be matched. See below.
      * 
      */
     public Optional<Output<RoutingRuleConditionMatchHeadersArgs>> matchHeaders() {
@@ -72,7 +72,7 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param matchBasePaths The base path to be matched. See below.
+         * @param matchBasePaths Base path to be matched. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param matchBasePaths The base path to be matched. See below.
+         * @param matchBasePaths Base path to be matched. See below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param matchHeaders The headers to be matched. See below.
+         * @param matchHeaders Headers to be matched. See below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RoutingRuleConditionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param matchHeaders The headers to be matched. See below.
+         * @param matchHeaders Headers to be matched. See below.
          * 
          * @return builder
          * 

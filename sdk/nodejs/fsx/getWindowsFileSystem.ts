@@ -45,7 +45,7 @@ export interface GetWindowsFileSystemArgs {
      */
     region?: string;
     /**
-     * The tags to associate with the file system.
+     * Tags to associate with the file system.
      */
     tags?: {[key: string]: string};
 }
@@ -55,11 +55,11 @@ export interface GetWindowsFileSystemArgs {
  */
 export interface GetWindowsFileSystemResult {
     /**
-     * The ID for Microsoft Active Directory instance that the file system is join to.
+     * ID for Microsoft Active Directory instance that the file system is joined to.
      */
     readonly activeDirectoryId: string;
     /**
-     * An array DNS alias names associated with the Amazon FSx file system.
+     * Set of DNS alias names associated with the Amazon FSx file system.
      */
     readonly aliases: string[];
     /**
@@ -67,28 +67,31 @@ export interface GetWindowsFileSystemResult {
      */
     readonly arn: string;
     /**
-     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
+     * Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system.
      */
     readonly auditLogConfigurations: outputs.fsx.GetWindowsFileSystemAuditLogConfiguration[];
     /**
-     * The number of days to retain automatic backups.
+     * Number of days to retain automatic backups.
      */
     readonly automaticBackupRetentionDays: number;
+    /**
+     * Identifier of the source backup used to create the file system.
+     */
     readonly backupId: string;
     /**
-     * A boolean flag indicating whether tags on the file system should be copied to backups.
+     * Whether tags on the file system are copied to backups.
      */
     readonly copyTagsToBackups: boolean;
     /**
-     * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
+     * Preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      */
     readonly dailyAutomaticBackupStartTime: string;
     /**
-     * The file system deployment type.
+     * File system deployment type.
      */
     readonly deploymentType: string;
     /**
-     * The SSD IOPS configuration for the file system.
+     * SSD IOPS configuration for the file system.
      */
     readonly diskIopsConfigurations: outputs.fsx.GetWindowsFileSystemDiskIopsConfiguration[];
     /**
@@ -103,36 +106,45 @@ export interface GetWindowsFileSystemResult {
      * ARN for the KMS Key to encrypt the file system at rest.
      */
     readonly kmsKeyId: string;
+    /**
+     * Set of network interface identifiers for the file system.
+     */
     readonly networkInterfaceIds: string[];
     /**
      * AWS account identifier that created the file system.
      */
     readonly ownerId: string;
     /**
-     * The IP address of the primary, or preferred, file server.
+     * IP address of the primary, or preferred, file server.
      */
     readonly preferredFileServerIp: string;
     /**
-     * Specifies the subnet in which you want the preferred file server to be located.
+     * Subnet in which the preferred file server is located.
      */
     readonly preferredSubnetId: string;
     readonly region: string;
+    /**
+     * Set of security group identifiers associated with the file system.
+     */
     readonly securityGroupIds: string[];
+    /**
+     * Whether a final backup is skipped when the file system is deleted.
+     */
     readonly skipFinalBackup: boolean;
     /**
-     * The storage capacity of the file system in gibibytes (GiB).
+     * Storage capacity of the file system in gibibytes (GiB).
      */
     readonly storageCapacity: number;
     /**
-     * The type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
+     * Type of storage the file system is using. If set to `SSD`, the file system uses solid state drive storage. If set to `HDD`, the file system uses hard disk drive storage.
      */
     readonly storageType: string;
     /**
-     * Specifies the IDs of the subnets that the file system is accessible from.
+     * IDs of the subnets that the file system is accessible from.
      */
     readonly subnetIds: string[];
     /**
-     * The tags to associate with the file system.
+     * Tags to associate with the file system.
      */
     readonly tags: {[key: string]: string};
     /**
@@ -140,11 +152,11 @@ export interface GetWindowsFileSystemResult {
      */
     readonly throughputCapacity: number;
     /**
-     * The ID of the primary virtual private cloud (VPC) for the file system.
+     * ID of the primary virtual private cloud (VPC) for the file system.
      */
     readonly vpcId: string;
     /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+     * Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
     readonly weeklyMaintenanceStartTime: string;
 }
@@ -186,7 +198,7 @@ export interface GetWindowsFileSystemOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The tags to associate with the file system.
+     * Tags to associate with the file system.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

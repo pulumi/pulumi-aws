@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetBucketReplicationConfigurationRuleFilterAnd {
     /**
-     * @return The object key name prefix that identifies the subset of objects to which the rule applies.
+     * @return Object key name prefix that identifies the subset of objects to which the rule applies.
      * 
      */
     private String prefix;
     /**
-     * @return An unordered list of tags that identify a subset of objects to which the rule applies.
+     * @return Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
      * 
      */
     private List<GetBucketReplicationConfigurationRuleFilterAndTag> tags;
 
     private GetBucketReplicationConfigurationRuleFilterAnd() {}
     /**
-     * @return The object key name prefix that identifies the subset of objects to which the rule applies.
+     * @return Object key name prefix that identifies the subset of objects to which the rule applies.
      * 
      */
     public String prefix() {
         return this.prefix;
     }
     /**
-     * @return An unordered list of tags that identify a subset of objects to which the rule applies.
+     * @return Unordered list of tags that identify a subset of objects to which the rule applies. Each tag has a `key` and a `value`.
      * 
      */
     public List<GetBucketReplicationConfigurationRuleFilterAndTag> tags() {

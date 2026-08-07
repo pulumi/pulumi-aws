@@ -21,14 +21,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     public static final IngestionDestinationArgs Empty = new IngestionDestinationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -36,14 +36,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Contains information about the destination of ingested data.
+     * Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      * 
      */
     @Import(name="destinationConfiguration", required=true)
     private Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration;
 
     /**
-     * @return Contains information about the destination of ingested data.
+     * @return Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
      * 
      */
     public Output<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration() {
@@ -51,14 +51,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
     @Import(name="ingestionArn", required=true)
     private Output<String> ingestionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * @return Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
     public Output<String> ingestionArn() {
@@ -66,14 +66,18 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Contains information about how ingested data is processed.
+     * Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="processingConfiguration", required=true)
     private Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return Contains information about how ingested data is processed.
+     * @return Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<IngestionDestinationProcessingConfigurationArgs> processingConfiguration() {
@@ -148,7 +152,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -159,7 +163,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appBundleArn The Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -169,7 +173,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destinationConfiguration Contains information about the destination of ingested data.
+         * @param destinationConfiguration Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +184,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destinationConfiguration Contains information about the destination of ingested data.
+         * @param destinationConfiguration Configuration for the destination of ingested data. See `destinationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -190,7 +194,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingestionArn The Amazon Resource Name (ARN) of the ingestion to use for the request.
+         * @param ingestionArn Amazon Resource Name (ARN) of the ingestion to use for the request.
          * 
          * @return builder
          * 
@@ -201,7 +205,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingestionArn The Amazon Resource Name (ARN) of the ingestion to use for the request.
+         * @param ingestionArn Amazon Resource Name (ARN) of the ingestion to use for the request.
          * 
          * @return builder
          * 
@@ -211,7 +215,9 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param processingConfiguration Contains information about how ingested data is processed.
+         * @param processingConfiguration Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -222,7 +228,9 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param processingConfiguration Contains information about how ingested data is processed.
+         * @param processingConfiguration Configuration for how ingested data is processed. See `processingConfiguration` Block below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

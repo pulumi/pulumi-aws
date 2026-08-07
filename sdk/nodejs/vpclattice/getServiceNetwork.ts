@@ -41,6 +41,9 @@ export interface GetServiceNetworkArgs {
      * Identifier of the service network.
      */
     serviceNetworkIdentifier: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -82,6 +85,9 @@ export interface GetServiceNetworkResult {
     readonly numberOfAssociatedVpcs: number;
     readonly region: string;
     readonly serviceNetworkIdentifier: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -121,5 +127,8 @@ export interface GetServiceNetworkOutputArgs {
      * Identifier of the service network.
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

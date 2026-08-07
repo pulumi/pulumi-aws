@@ -32,16 +32,14 @@ public final class BucketV2ReplicationConfigurationRuleFilterArgs extends com.pu
     }
 
     /**
-     * A map of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
+     * Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
+     * @return Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -95,8 +93,7 @@ public final class BucketV2ReplicationConfigurationRuleFilterArgs extends com.pu
         }
 
         /**
-         * @param tags A map of tags that identifies subset of objects to which the rule applies.
-         * The rule applies only to objects having all the tags in its tagset.
+         * @param tags Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
          * 
          * @return builder
          * 
@@ -107,8 +104,7 @@ public final class BucketV2ReplicationConfigurationRuleFilterArgs extends com.pu
         }
 
         /**
-         * @param tags A map of tags that identifies subset of objects to which the rule applies.
-         * The rule applies only to objects having all the tags in its tagset.
+         * @param tags Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
          * 
          * @return builder
          * 

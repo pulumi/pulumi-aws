@@ -25,62 +25,17 @@ public final class PolicyStepScalingPolicyConfiguration {
      */
     private @Nullable Integer cooldown;
     /**
-     * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * @return Aggregation type for the policy&#39;s metrics. Valid values are `Minimum`, `Maximum`, and `Average`. Without a value, AWS treats the aggregation type as `Average`.
      * 
      */
     private @Nullable String metricAggregationType;
     /**
-     * @return Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+     * @return Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is `PercentChangeInCapacity`, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
     private @Nullable Integer minAdjustmentMagnitude;
     /**
-     * @return Set of adjustments that manage scaling. These have the following structure:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appautoscaling.Policy;
-     * import com.pulumi.aws.appautoscaling.PolicyArgs;
-     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
-     *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
-     *                 .stepAdjustments(                
-     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
-     *                         .metricIntervalLowerBound("1")
-     *                         .metricIntervalUpperBound("2")
-     *                         .scalingAdjustment(-1)
-     *                         .build(),
-     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
-     *                         .metricIntervalLowerBound("2")
-     *                         .metricIntervalUpperBound("3")
-     *                         .scalingAdjustment(1)
-     *                         .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
+     * @return Set of adjustments that manage scaling. See `step_scaling_policy_configuration.step_adjustment` Block for details.
      * 
      */
     private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
@@ -101,66 +56,21 @@ public final class PolicyStepScalingPolicyConfiguration {
         return Optional.ofNullable(this.cooldown);
     }
     /**
-     * @return Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
+     * @return Aggregation type for the policy&#39;s metrics. Valid values are `Minimum`, `Maximum`, and `Average`. Without a value, AWS treats the aggregation type as `Average`.
      * 
      */
     public Optional<String> metricAggregationType() {
         return Optional.ofNullable(this.metricAggregationType);
     }
     /**
-     * @return Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+     * @return Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is `PercentChangeInCapacity`, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
     public Optional<Integer> minAdjustmentMagnitude() {
         return Optional.ofNullable(this.minAdjustmentMagnitude);
     }
     /**
-     * @return Set of adjustments that manage scaling. These have the following structure:
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.appautoscaling.Policy;
-     * import com.pulumi.aws.appautoscaling.PolicyArgs;
-     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
-     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var ecsPolicy = new Policy("ecsPolicy", PolicyArgs.builder()
-     *             .stepScalingPolicyConfiguration(PolicyStepScalingPolicyConfigurationArgs.builder()
-     *                 .stepAdjustments(                
-     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
-     *                         .metricIntervalLowerBound("1")
-     *                         .metricIntervalUpperBound("2")
-     *                         .scalingAdjustment(-1)
-     *                         .build(),
-     *                     PolicyStepScalingPolicyConfigurationStepAdjustmentArgs.builder()
-     *                         .metricIntervalLowerBound("2")
-     *                         .metricIntervalUpperBound("3")
-     *                         .scalingAdjustment(1)
-     *                         .build())
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
+     * @return Set of adjustments that manage scaling. See `step_scaling_policy_configuration.step_adjustment` Block for details.
      * 
      */
     public List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments() {

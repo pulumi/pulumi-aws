@@ -69,11 +69,11 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the resource share invitation.
+     * ARN of the resource share invitation.
      */
     declare public /*out*/ readonly invitationArn: pulumi.Output<string>;
     /**
-     * The account ID of the receiver account which accepts the invitation.
+     * Account ID of the receiver account which accepts the invitation.
      */
     declare public /*out*/ readonly receiverAccountId: pulumi.Output<string>;
     /**
@@ -81,27 +81,27 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A list of the resource ARNs shared via the resource share.
+     * List of the resource ARNs shared via the resource share.
      */
     declare public /*out*/ readonly resources: pulumi.Output<string[]>;
     /**
-     * The account ID of the sender account which submits the invitation.
+     * Account ID of the sender account which submits the invitation.
      */
     declare public /*out*/ readonly senderAccountId: pulumi.Output<string>;
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      */
     declare public readonly shareArn: pulumi.Output<string>;
     /**
-     * The ID of the resource share as displayed in the console.
+     * ID of the resource share as displayed in the console.
      */
     declare public /*out*/ readonly shareId: pulumi.Output<string>;
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      */
     declare public /*out*/ readonly shareName: pulumi.Output<string>;
     /**
-     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -152,11 +152,11 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
  */
 export interface ResourceShareAccepterState {
     /**
-     * The ARN of the resource share invitation.
+     * ARN of the resource share invitation.
      */
     invitationArn?: pulumi.Input<string | undefined>;
     /**
-     * The account ID of the receiver account which accepts the invitation.
+     * Account ID of the receiver account which accepts the invitation.
      */
     receiverAccountId?: pulumi.Input<string | undefined>;
     /**
@@ -164,27 +164,27 @@ export interface ResourceShareAccepterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list of the resource ARNs shared via the resource share.
+     * List of the resource ARNs shared via the resource share.
      */
     resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The account ID of the sender account which submits the invitation.
+     * Account ID of the sender account which submits the invitation.
      */
     senderAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      */
     shareArn?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the resource share as displayed in the console.
+     * ID of the resource share as displayed in the console.
      */
     shareId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      */
     shareName?: pulumi.Input<string | undefined>;
     /**
-     * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
+     * Status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      */
     status?: pulumi.Input<string | undefined>;
 }
@@ -198,7 +198,7 @@ export interface ResourceShareAccepterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the resource share.
+     * ARN of the resource share.
      */
     shareArn: pulumi.Input<string>;
 }

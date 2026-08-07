@@ -378,14 +378,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.resourceOwner;
     }
     /**
-     * Route specification to apply.
+     * Route specification to apply. See `spec` Block for details.
      * 
      */
     @Export(name="spec", refs={RouteSpec.class}, tree="[0]")
     private Output<RouteSpec> spec;
 
     /**
-     * @return Route specification to apply.
+     * @return Route specification to apply. See `spec` Block for details.
      * 
      */
     public Output<RouteSpec> spec() {

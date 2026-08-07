@@ -62,7 +62,7 @@ import (
 type DefaultAutoScalingConfigurationVersion struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn pulumi.StringOutput `pulumi:"autoScalingConfigurationArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -101,14 +101,14 @@ func GetDefaultAutoScalingConfigurationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultAutoScalingConfigurationVersion resources.
 type defaultAutoScalingConfigurationVersionState struct {
-	// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn *string `pulumi:"autoScalingConfigurationArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type DefaultAutoScalingConfigurationVersionState struct {
-	// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -119,7 +119,7 @@ func (DefaultAutoScalingConfigurationVersionState) ElementType() reflect.Type {
 }
 
 type defaultAutoScalingConfigurationVersionArgs struct {
-	// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn string `pulumi:"autoScalingConfigurationArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -127,7 +127,7 @@ type defaultAutoScalingConfigurationVersionArgs struct {
 
 // The set of arguments for constructing a DefaultAutoScalingConfigurationVersion resource.
 type DefaultAutoScalingConfigurationVersionArgs struct {
-	// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+	// ARN of the App Runner auto scaling configuration that you want to set as the default.
 	AutoScalingConfigurationArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -220,7 +220,7 @@ func (o DefaultAutoScalingConfigurationVersionOutput) ToDefaultAutoScalingConfig
 	return o
 }
 
-// The ARN of the App Runner auto scaling configuration that you want to set as the default.
+// ARN of the App Runner auto scaling configuration that you want to set as the default.
 func (o DefaultAutoScalingConfigurationVersionOutput) AutoScalingConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultAutoScalingConfigurationVersion) pulumi.StringOutput {
 		return v.AutoScalingConfigurationArn

@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion")
 public class DefaultAutoScalingConfigurationVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * ARN of the App Runner auto scaling configuration that you want to set as the default.
      * 
      */
     @Export(name="autoScalingConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationArn;
 
     /**
-     * @return The ARN of the App Runner auto scaling configuration that you want to set as the default.
+     * @return ARN of the App Runner auto scaling configuration that you want to set as the default.
      * 
      */
     public Output<String> autoScalingConfigurationArn() {

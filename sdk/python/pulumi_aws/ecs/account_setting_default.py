@@ -83,6 +83,7 @@ class _AccountSettingDefaultState:
         Input properties used for looking up and filtering AccountSettingDefault resources.
 
         :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
+        :param pulumi.Input[_builtins.str] principal_arn: ARN that identifies the account setting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] value: State of the setting.
         """
@@ -110,6 +111,9 @@ class _AccountSettingDefaultState:
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN that identifies the account setting.
+        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -298,6 +302,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the account setting to set.
+        :param pulumi.Input[_builtins.str] principal_arn: ARN that identifies the account setting.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] value: State of the setting.
         """
@@ -322,6 +327,9 @@ class AccountSettingDefault(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        ARN that identifies the account setting.
+        """
         return pulumi.get(self, "principal_arn")
 
     @_builtins.property

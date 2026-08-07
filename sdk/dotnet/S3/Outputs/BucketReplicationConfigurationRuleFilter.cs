@@ -18,8 +18,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// A map of tags that identifies subset of objects to which the rule applies.
-        /// The rule applies only to objects having all the tags in its tagset.
+        /// Map of tags that identifies subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

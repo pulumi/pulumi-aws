@@ -21,7 +21,7 @@ public final class EvaluationJobEvaluationConfigHuman {
      */
     private @Nullable List<EvaluationJobEvaluationConfigHumanCustomMetric> customMetrics;
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
      * 
      */
     private List<EvaluationJobEvaluationConfigHumanDatasetMetricConfig> datasetMetricConfigs;
@@ -40,7 +40,7 @@ public final class EvaluationJobEvaluationConfigHuman {
         return this.customMetrics == null ? List.of() : this.customMetrics;
     }
     /**
-     * @return One or more configurations for the prompt datasets and metrics to use. See `datasetMetricConfig` Block above.
+     * @return One or more configurations for the prompt datasets and metrics to use. See `evaluation_config.human.dataset_metric_config` Block below.
      * 
      */
     public List<EvaluationJobEvaluationConfigHumanDatasetMetricConfig> datasetMetricConfigs() {

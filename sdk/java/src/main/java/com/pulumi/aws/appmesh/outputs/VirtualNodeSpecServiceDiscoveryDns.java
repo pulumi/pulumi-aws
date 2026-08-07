@@ -18,12 +18,12 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
      */
     private String hostname;
     /**
-     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * @return Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
      * 
      */
     private @Nullable String ipPreference;
     /**
-     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * @return DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
      * 
      */
     private @Nullable String responseType;
@@ -37,14 +37,14 @@ public final class VirtualNodeSpecServiceDiscoveryDns {
         return this.hostname;
     }
     /**
-     * @return The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+     * @return Preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
      * 
      */
     public Optional<String> ipPreference() {
         return Optional.ofNullable(this.ipPreference);
     }
     /**
-     * @return The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+     * @return DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
      * 
      */
     public Optional<String> responseType() {

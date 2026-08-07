@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Ecs
         public readonly int PendingTasksCount;
         public readonly string Region;
         /// <summary>
-        /// The number of registered container instances for the ECS Cluster
+        /// Number of registered container instances for the ECS Cluster
         /// </summary>
         public readonly int RegisteredContainerInstancesCount;
         /// <summary>
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly int RunningTasksCount;
         /// <summary>
-        /// The default Service Connect namespace
+        /// Default Service Connect namespace
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterServiceConnectDefaultResult> ServiceConnectDefaults;
         /// <summary>

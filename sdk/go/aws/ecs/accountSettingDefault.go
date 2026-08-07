@@ -85,7 +85,8 @@ type AccountSettingDefault struct {
 	pulumi.CustomResourceState
 
 	// Name of the account setting to set.
-	Name         pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// ARN that identifies the account setting.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -127,7 +128,8 @@ func GetAccountSettingDefault(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AccountSettingDefault resources.
 type accountSettingDefaultState struct {
 	// Name of the account setting to set.
-	Name         *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// ARN that identifies the account setting.
 	PrincipalArn *string `pulumi:"principalArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -137,7 +139,8 @@ type accountSettingDefaultState struct {
 
 type AccountSettingDefaultState struct {
 	// Name of the account setting to set.
-	Name         pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// ARN that identifies the account setting.
 	PrincipalArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -260,6 +263,7 @@ func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// ARN that identifies the account setting.
 func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }

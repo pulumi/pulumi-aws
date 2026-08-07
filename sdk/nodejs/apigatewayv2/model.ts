@@ -73,7 +73,7 @@ export class Model extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      */
     declare public readonly contentType: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface ModelState {
      */
     apiId?: pulumi.Input<string | undefined>;
     /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      */
     contentType?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ModelArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
+     * Content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      */
     contentType: pulumi.Input<string>;
     /**

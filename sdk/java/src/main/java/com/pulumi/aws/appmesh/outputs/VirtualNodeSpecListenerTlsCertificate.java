@@ -14,38 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListenerTlsCertificate {
     /**
-     * @return An AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsCertificateAcm acm;
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsCertificateFile file;
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTlsCertificateSds sds;
 
     private VirtualNodeSpecListenerTlsCertificate() {}
     /**
-     * @return An AWS Certificate Manager (ACM) certificate.
+     * @return AWS Certificate Manager (ACM) certificate. See `spec.listener.tls.certificate.acm` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsCertificateAcm> acm() {
         return Optional.ofNullable(this.acm);
     }
     /**
-     * @return Local file certificate.
+     * @return File object to send virtual node access logs to. See `spec.logging.access_log.file` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsCertificateFile> file() {
         return Optional.ofNullable(this.file);
     }
     /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate. See `spec.listener.tls.validation.trust.sds` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTlsCertificateSds> sds() {

@@ -14,27 +14,35 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplate
     {
         /// <summary>
-        /// The purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand or Spot instances. Valid values are `ON_DEMAND` and `SPOT`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
+        /// Purchasing option for the EC2 instances used in the capacity provider. Determines whether to use On-Demand, Spot, or Capacity Reservation instances. Valid values are `ON_DEMAND`, `SPOT`, and `RESERVED`. Defaults to `ON_DEMAND` when not specified. Changing this value will trigger replacement of the capacity provider. For more information, see [Amazon EC2 billing and purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the Amazon EC2 User Guide.
         /// </summary>
         public readonly string? CapacityOptionType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
+        /// Capacity Reservation configuration used to launch instances. Required when `CapacityOptionType` is `RESERVED`. Detailed below.
+        /// </summary>
+        public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations? CapacityReservations;
+        /// <summary>
+        /// ARN of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources. For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/instance_IAM_role.html) in the Amazon ECS Developer Guide.
         /// </summary>
         public readonly string Ec2InstanceProfileArn;
         /// <summary>
-        /// The instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
+        /// Instance requirements. You can specify the instance types and instance requirements such as vCPU count, memory, network performance, and accelerator specifications. Amazon ECS automatically selects the instances that match the specified criteria. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements? InstanceRequirements;
+        /// <summary>
+        /// Configuration block for the local storage settings applied to Amazon ECS Managed Instances. Detailed below.
+        /// </summary>
+        public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration? LocalStorageConfiguration;
         /// <summary>
         /// CloudWatch provides two categories of monitoring: basic monitoring and detailed monitoring. By default, your managed instance is configured for basic monitoring. You can optionally enable detailed monitoring to help you more quickly identify and act on operational issues. You can enable or turn off detailed monitoring at launch or when the managed instance is running or stopped. For more information, see [Detailed monitoring for Amazon ECS Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html) in the Amazon ECS Developer Guide. Valid values are `BASIC` and `DETAILED`.
         /// </summary>
         public readonly string? Monitoring;
         /// <summary>
-        /// The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
+        /// Network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateNetworkConfiguration NetworkConfiguration;
         /// <summary>
-        /// The storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
+        /// Storage configuration for Amazon ECS Managed Instances. This defines the root volume size and type for the instances. Detailed below.
         /// </summary>
         public readonly Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration? StorageConfiguration;
 
@@ -42,9 +50,13 @@ namespace Pulumi.Aws.Ecs.Outputs
         private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate(
             string? capacityOptionType,
 
+            Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateCapacityReservations? capacityReservations,
+
             string ec2InstanceProfileArn,
 
             Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirements? instanceRequirements,
+
+            Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateLocalStorageConfiguration? localStorageConfiguration,
 
             string? monitoring,
 
@@ -53,8 +65,10 @@ namespace Pulumi.Aws.Ecs.Outputs
             Outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateStorageConfiguration? storageConfiguration)
         {
             CapacityOptionType = capacityOptionType;
+            CapacityReservations = capacityReservations;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
             InstanceRequirements = instanceRequirements;
+            LocalStorageConfiguration = localStorageConfiguration;
             Monitoring = monitoring;
             NetworkConfiguration = networkConfiguration;
             StorageConfiguration = storageConfiguration;

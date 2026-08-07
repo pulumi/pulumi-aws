@@ -18,14 +18,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
     public static final PolicySecurityServicePolicyDataPolicyOptionArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionArgs();
 
     /**
-     * Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+     * Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     @Import(name="networkAclCommonPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> networkAclCommonPolicy;
 
     /**
-     * @return Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+     * @return Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs>> networkAclCommonPolicy() {
@@ -33,23 +33,31 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
     }
 
     /**
-     * Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+     * Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
      * 
      */
     @Import(name="networkFirewallPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs> networkFirewallPolicy;
 
     /**
-     * @return Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+     * @return Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
      * 
      */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs>> networkFirewallPolicy() {
         return Optional.ofNullable(this.networkFirewallPolicy);
     }
 
+    /**
+     * Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+     * 
+     */
     @Import(name="thirdPartyFirewallPolicy")
     private @Nullable Output<PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs> thirdPartyFirewallPolicy;
 
+    /**
+     * @return Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+     * 
+     */
     public Optional<Output<PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs>> thirdPartyFirewallPolicy() {
         return Optional.ofNullable(this.thirdPartyFirewallPolicy);
     }
@@ -81,7 +89,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+         * @param networkAclCommonPolicy Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
          * 
          * @return builder
          * 
@@ -92,7 +100,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkAclCommonPolicy Defines NACL rules across accounts in their AWS Organization. See the `networkAclCommonPolicy` block.
+         * @param networkAclCommonPolicy Network ACL rules applied across accounts in the AWS Organization. See the `networkAclCommonPolicy` block.
          * 
          * @return builder
          * 
@@ -102,7 +110,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+         * @param networkFirewallPolicy Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
          * 
          * @return builder
          * 
@@ -113,7 +121,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
         }
 
         /**
-         * @param networkFirewallPolicy Defines the deployment model to use for the firewall policy.  See the `networkFirewallPolicy` block.
+         * @param networkFirewallPolicy Network Firewall policy options that configure a centralized deployment model. See the `networkFirewallPolicy` block.
          * 
          * @return builder
          * 
@@ -122,11 +130,23 @@ public final class PolicySecurityServicePolicyDataPolicyOptionArgs extends com.p
             return networkFirewallPolicy(Output.of(networkFirewallPolicy));
         }
 
+        /**
+         * @param thirdPartyFirewallPolicy Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thirdPartyFirewallPolicy(@Nullable Output<PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs> thirdPartyFirewallPolicy) {
             $.thirdPartyFirewallPolicy = thirdPartyFirewallPolicy;
             return this;
         }
 
+        /**
+         * @param thirdPartyFirewallPolicy Third-party firewall policy options. See the `thirdPartyFirewallPolicy` block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thirdPartyFirewallPolicy(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs thirdPartyFirewallPolicy) {
             return thirdPartyFirewallPolicy(Output.of(thirdPartyFirewallPolicy));
         }

@@ -31,16 +31,14 @@ public final class GetExperimentTemplatesPlainArgs extends com.pulumi.resources.
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired experiment templates.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -84,8 +82,7 @@ public final class GetExperimentTemplatesPlainArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired experiment templates.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired experiment templates.
          * 
          * @return builder
          * 

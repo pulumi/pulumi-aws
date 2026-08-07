@@ -15,14 +15,14 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
     public static final SecretRotationExternalSecretRotationMetadataArgs Empty = new SecretRotationExternalSecretRotationMetadataArgs();
 
     /**
-     * The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+     * Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+     * @return Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
      * 
      */
     public Output<String> key() {
@@ -30,14 +30,14 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
     }
 
     /**
-     * The metadata value for the specified key.
+     * Metadata value for the specified key.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The metadata value for the specified key.
+     * @return Metadata value for the specified key.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
         }
 
         /**
-         * @param key The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+         * @param key Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
         }
 
         /**
-         * @param key The metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
+         * @param key Metadata key name. Partner-specific keys are required for each external secret type. See [partner documentation](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) for required keys.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
         }
 
         /**
-         * @param value The metadata value for the specified key.
+         * @param value Metadata value for the specified key.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class SecretRotationExternalSecretRotationMetadataArgs extends com.
         }
 
         /**
-         * @param value The metadata value for the specified key.
+         * @param value Metadata value for the specified key.
          * 
          * @return builder
          * 

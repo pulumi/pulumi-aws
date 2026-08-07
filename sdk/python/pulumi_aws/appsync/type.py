@@ -27,8 +27,8 @@ class TypeArgs:
         The set of arguments for constructing a Type resource.
 
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
-        :param pulumi.Input[_builtins.str] definition: The type definition.
-        :param pulumi.Input[_builtins.str] format: The type format: `SDL` or `JSON`.
+        :param pulumi.Input[_builtins.str] definition: Type definition.
+        :param pulumi.Input[_builtins.str] format: Type format: `SDL` or `JSON`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -53,7 +53,7 @@ class TypeArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input[_builtins.str]:
         """
-        The type definition.
+        Type definition.
         """
         return pulumi.get(self, "definition")
 
@@ -65,7 +65,7 @@ class TypeArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[_builtins.str]:
         """
-        The type format: `SDL` or `JSON`.
+        Type format: `SDL` or `JSON`.
         """
         return pulumi.get(self, "format")
 
@@ -100,11 +100,11 @@ class _TypeState:
         Input properties used for looking up and filtering Type resources.
 
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the type.
-        :param pulumi.Input[_builtins.str] definition: The type definition.
-        :param pulumi.Input[_builtins.str] description: The type description.
-        :param pulumi.Input[_builtins.str] format: The type format: `SDL` or `JSON`.
-        :param pulumi.Input[_builtins.str] name: The type name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the type.
+        :param pulumi.Input[_builtins.str] definition: Type definition.
+        :param pulumi.Input[_builtins.str] description: Type description.
+        :param pulumi.Input[_builtins.str] format: Type format: `SDL` or `JSON`.
+        :param pulumi.Input[_builtins.str] name: Type name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
@@ -138,7 +138,7 @@ class _TypeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the type.
+        ARN of the type.
         """
         return pulumi.get(self, "arn")
 
@@ -150,7 +150,7 @@ class _TypeState:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type definition.
+        Type definition.
         """
         return pulumi.get(self, "definition")
 
@@ -162,7 +162,7 @@ class _TypeState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type description.
+        Type description.
         """
         return pulumi.get(self, "description")
 
@@ -174,7 +174,7 @@ class _TypeState:
     @pulumi.getter
     def format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type format: `SDL` or `JSON`.
+        Type format: `SDL` or `JSON`.
         """
         return pulumi.get(self, "format")
 
@@ -186,7 +186,7 @@ class _TypeState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type name.
+        Type name.
         """
         return pulumi.get(self, "name")
 
@@ -254,8 +254,8 @@ class Type(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
-        :param pulumi.Input[_builtins.str] definition: The type definition.
-        :param pulumi.Input[_builtins.str] format: The type format: `SDL` or `JSON`.
+        :param pulumi.Input[_builtins.str] definition: Type definition.
+        :param pulumi.Input[_builtins.str] format: Type format: `SDL` or `JSON`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -363,11 +363,11 @@ class Type(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_id: GraphQL API ID.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the type.
-        :param pulumi.Input[_builtins.str] definition: The type definition.
-        :param pulumi.Input[_builtins.str] description: The type description.
-        :param pulumi.Input[_builtins.str] format: The type format: `SDL` or `JSON`.
-        :param pulumi.Input[_builtins.str] name: The type name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the type.
+        :param pulumi.Input[_builtins.str] definition: Type definition.
+        :param pulumi.Input[_builtins.str] description: Type description.
+        :param pulumi.Input[_builtins.str] format: Type format: `SDL` or `JSON`.
+        :param pulumi.Input[_builtins.str] name: Type name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -395,7 +395,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the type.
+        ARN of the type.
         """
         return pulumi.get(self, "arn")
 
@@ -403,7 +403,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output[_builtins.str]:
         """
-        The type definition.
+        Type definition.
         """
         return pulumi.get(self, "definition")
 
@@ -411,7 +411,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        The type description.
+        Type description.
         """
         return pulumi.get(self, "description")
 
@@ -419,7 +419,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[_builtins.str]:
         """
-        The type format: `SDL` or `JSON`.
+        Type format: `SDL` or `JSON`.
         """
         return pulumi.get(self, "format")
 
@@ -427,7 +427,7 @@ class Type(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The type name.
+        Type name.
         """
         return pulumi.get(self, "name")
 

@@ -208,7 +208,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>> Dns { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the Event API. See Event Config below.
+        /// Configuration for the Event API. See `EventConfig` Block below.
         /// </summary>
         [Output("eventConfig")]
         public Output<Outputs.ApiEventConfig> EventConfig { get; private set; } = null!;
@@ -251,6 +251,9 @@ namespace Pulumi.Aws.AppSync
         [Output("wafWebAclArn")]
         public Output<string> WafWebAclArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether X-Ray tracing is enabled for the Event API.
+        /// </summary>
         [Output("xrayEnabled")]
         public Output<bool> XrayEnabled { get; private set; } = null!;
 
@@ -301,7 +304,7 @@ namespace Pulumi.Aws.AppSync
     public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for the Event API. See Event Config below.
+        /// Configuration for the Event API. See `EventConfig` Block below.
         /// </summary>
         [Input("eventConfig", required: true)]
         public Input<Inputs.ApiEventConfigArgs> EventConfig { get; set; } = null!;
@@ -371,7 +374,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// Configuration for the Event API. See Event Config below.
+        /// Configuration for the Event API. See `EventConfig` Block below.
         /// </summary>
         [Input("eventConfig")]
         public Input<Inputs.ApiEventConfigGetArgs>? EventConfig { get; set; }
@@ -426,6 +429,9 @@ namespace Pulumi.Aws.AppSync
         [Input("wafWebAclArn")]
         public Input<string>? WafWebAclArn { get; set; }
 
+        /// <summary>
+        /// Whether X-Ray tracing is enabled for the Event API.
+        /// </summary>
         [Input("xrayEnabled")]
         public Input<bool>? XrayEnabled { get; set; }
 

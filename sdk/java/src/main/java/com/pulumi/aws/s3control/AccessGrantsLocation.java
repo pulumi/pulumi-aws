@@ -101,44 +101,42 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
         return this.accessGrantsLocationId;
     }
     /**
-     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
     /**
-     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * @return AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
      * 
      */
     public Output<String> accountId() {
         return this.accountId;
     }
     /**
-     * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
     /**
-     * @return The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
-     * requests to the location.
+     * @return ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
      * 
      */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
     /**
-     * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     @Export(name="locationScope", refs={String.class}, tree="[0]")
     private Output<String> locationScope;
 
     /**
-     * @return The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
+     * @return Default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
     public Output<String> locationScope() {
@@ -173,14 +171,14 @@ public class AccessGrantsLocation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

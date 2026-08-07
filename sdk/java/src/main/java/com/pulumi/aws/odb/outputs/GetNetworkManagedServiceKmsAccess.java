@@ -15,7 +15,7 @@ public final class GetNetworkManagedServiceKmsAccess {
     private List<String> ipv4Addresses;
     private String kmsPolicyDocument;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -31,7 +31,7 @@ public final class GetNetworkManagedServiceKmsAccess {
         return this.kmsPolicyDocument;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {

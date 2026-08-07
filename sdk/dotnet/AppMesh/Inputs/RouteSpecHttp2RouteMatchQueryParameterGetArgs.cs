@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttp2RouteMatchQueryParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The query parameter to match on.
+        /// Criteria for determining a TCP request match. See `spec.tcp_route.match` Block for details.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecHttp2RouteMatchQueryParameterMatchGetArgs>? Match { get; set; }
 
         /// <summary>
-        /// Name for the query parameter that will be matched on.
+        /// Name to use for the route. Must be between 1 and 255 characters in length.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

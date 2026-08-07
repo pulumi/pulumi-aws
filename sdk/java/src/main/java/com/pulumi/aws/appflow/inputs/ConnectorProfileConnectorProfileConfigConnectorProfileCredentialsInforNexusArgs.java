@@ -15,14 +15,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs();
 
     /**
-     * The Access Key portion of the credentials.
+     * Access Key portion of the credentials.
      * 
      */
     @Import(name="accessKeyId", required=true)
     private Output<String> accessKeyId;
 
     /**
-     * @return The Access Key portion of the credentials.
+     * @return Access Key portion of the credentials.
      * 
      */
     public Output<String> accessKeyId() {
@@ -45,14 +45,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The secret key used to sign requests.
+     * Secret key used to sign requests.
      * 
      */
     @Import(name="secretAccessKey", required=true)
     private Output<String> secretAccessKey;
 
     /**
-     * @return The secret key used to sign requests.
+     * @return Secret key used to sign requests.
      * 
      */
     public Output<String> secretAccessKey() {
@@ -102,7 +102,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessKeyId The Access Key portion of the credentials.
+         * @param accessKeyId Access Key portion of the credentials.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param accessKeyId The Access Key portion of the credentials.
+         * @param accessKeyId Access Key portion of the credentials.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param secretAccessKey The secret key used to sign requests.
+         * @param secretAccessKey Secret key used to sign requests.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param secretAccessKey The secret key used to sign requests.
+         * @param secretAccessKey Secret key used to sign requests.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     public static final ResourceShareState Empty = new ResourceShareState();
 
     /**
-     * Indicates whether principals outside your organization can be associated with a resource share.
+     * Whether principals outside your organization can be associated with a resource share.
      * 
      */
     @Import(name="allowExternalPrincipals")
     private @Nullable Output<Boolean> allowExternalPrincipals;
 
     /**
-     * @return Indicates whether principals outside your organization can be associated with a resource share.
+     * @return Whether principals outside your organization can be associated with a resource share.
      * 
      */
     public Optional<Output<Boolean>> allowExternalPrincipals() {
@@ -35,14 +35,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the resource share.
+     * Amazon Resource Name (ARN) of the resource share.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource share.
+     * @return Amazon Resource Name (ARN) of the resource share.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,14 +50,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the resource share.
+     * Name of the resource share.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the resource share.
+     * @return Name of the resource share.
      * 
      */
     public Optional<Output<String>> name() {
@@ -65,14 +65,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     @Import(name="permissionArns")
     private @Nullable Output<List<String>> permissionArns;
 
     /**
-     * @return Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * @return Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     public Optional<Output<List<String>>> permissionArns() {
@@ -95,14 +95,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      * 
      */
     @Import(name="resourceShareConfiguration")
     private @Nullable Output<ResourceShareResourceShareConfigurationArgs> resourceShareConfiguration;
 
     /**
-     * @return A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+     * @return Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
      * 
      */
     public Optional<Output<ResourceShareResourceShareConfigurationArgs>> resourceShareConfiguration() {
@@ -110,14 +110,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -125,14 +125,14 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -171,7 +171,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowExternalPrincipals Indicates whether principals outside your organization can be associated with a resource share.
+         * @param allowExternalPrincipals Whether principals outside your organization can be associated with a resource share.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowExternalPrincipals Indicates whether principals outside your organization can be associated with a resource share.
+         * @param allowExternalPrincipals Whether principals outside your organization can be associated with a resource share.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource share.
+         * @param arn Amazon Resource Name (ARN) of the resource share.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource share.
+         * @param arn Amazon Resource Name (ARN) of the resource share.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the resource share.
+         * @param name Name of the resource share.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the resource share.
+         * @param name Name of the resource share.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param permissionArns Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param permissionArns Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param permissionArns Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceShareConfiguration A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+         * @param resourceShareConfiguration Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceShareConfiguration A block that specifies the configuration of the resource share. See `resourceShareConfiguration` Block for details.
+         * @param resourceShareConfiguration Configuration block for the resource share. See `resourceShareConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource share. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class ResourceShareState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

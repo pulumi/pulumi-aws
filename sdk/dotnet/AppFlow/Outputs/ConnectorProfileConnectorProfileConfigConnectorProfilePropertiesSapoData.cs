@@ -14,29 +14,32 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData
     {
         /// <summary>
-        /// The location of the SAPOData resource.
+        /// Location of the SAPOData resource.
         /// </summary>
         public readonly string ApplicationHostUrl;
         /// <summary>
-        /// The application path to catalog service.
+        /// Application path to catalog service.
         /// </summary>
         public readonly string ApplicationServicePath;
         /// <summary>
-        /// The client number for the client creating the connection.
+        /// Client number for the client creating the connection.
         /// </summary>
         public readonly string ClientNumber;
         /// <summary>
-        /// The logon language of SAPOData instance.
+        /// Logon language of the SAPOData instance.
         /// </summary>
         public readonly string? LogonLanguage;
         /// <summary>
-        /// The SAPOData OAuth properties required for OAuth type authentication.
+        /// SAPOData OAuth properties required for OAuth type authentication. See `connector_profile_config.connector_profile_properties.sapo_data.oauth_properties` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties? OauthProperties;
         /// <summary>
-        /// The port number of the SAPOData instance.
+        /// Port number of the SAPOData instance.
         /// </summary>
         public readonly int PortNumber;
+        /// <summary>
+        /// Snowflake Private Link service name to be used for private data transfers.
+        /// </summary>
         public readonly string? PrivateLinkServiceName;
 
         [OutputConstructor]

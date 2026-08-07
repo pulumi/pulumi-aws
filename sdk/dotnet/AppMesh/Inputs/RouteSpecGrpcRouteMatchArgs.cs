@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs>? _metadatas;
 
         /// <summary>
-        /// Data to match from the gRPC request.
+        /// Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecGrpcRouteMatchMetadataArgs> Metadatas
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? MethodName { get; set; }
 
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

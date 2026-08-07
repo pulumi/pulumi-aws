@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ### Basic Usage
@@ -68,6 +70,8 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
         /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+        /// 
         /// ## Example Usage
         /// 
         /// ### Basic Usage
@@ -121,6 +125,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
+        /// 
+        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// 
         /// ## Example Usage
         /// 
@@ -191,8 +197,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
-        /// 
-        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -205,6 +209,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -233,8 +241,6 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// Identifier of the storage virtual machine (e.g. `svm-12345678`).
-        /// 
-        /// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -247,6 +253,10 @@ namespace Pulumi.Aws.Fsx
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -264,7 +274,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class GetOntapStorageVirtualMachineResult
     {
         /// <summary>
-        /// The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
+        /// Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult> ActiveDirectoryConfigurations;
         /// <summary>
@@ -272,11 +282,11 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The time that the SVM was created.
+        /// Time that the SVM was created.
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
-        /// The endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
+        /// Endpoints that are used to access data or to manage the SVM using the NetApp ONTAP CLI, REST API, or NetApp CloudManager. They are the Iscsi, Management, Nfs, and Smb endpoints. See SVM Endpoints below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineEndpointResult> Endpoints;
         /// <summary>
@@ -285,29 +295,32 @@ namespace Pulumi.Aws.Fsx
         public readonly string FileSystemId;
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineFilterResult> Filters;
         /// <summary>
-        /// The SVM's system generated unique ID.
+        /// SVM's system generated unique ID.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The SVM's lifecycle status.
+        /// SVM's lifecycle status.
         /// </summary>
         public readonly string LifecycleStatus;
         /// <summary>
-        /// Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
+        /// Reason why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineLifecycleTransitionReasonResult> LifecycleTransitionReasons;
         /// <summary>
-        /// The name of the SVM, if provisioned.
+        /// Name of the SVM, if provisioned.
         /// </summary>
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// The SVM's subtype.
+        /// SVM's subtype.
         /// </summary>
         public readonly string Subtype;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The SVM's UUID.
+        /// SVM's UUID.
         /// </summary>
         public readonly string Uuid;
 

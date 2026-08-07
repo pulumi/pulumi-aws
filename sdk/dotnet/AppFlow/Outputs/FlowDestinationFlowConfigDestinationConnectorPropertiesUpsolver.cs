@@ -15,6 +15,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
     {
         public readonly string BucketName;
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// Configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination. See the `destination_flow_config.destination_connector_properties.upsolver.s3_output_format_config` Block for details.
+        /// </summary>
         public readonly Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig S3OutputFormatConfig;
 
         [OutputConstructor]

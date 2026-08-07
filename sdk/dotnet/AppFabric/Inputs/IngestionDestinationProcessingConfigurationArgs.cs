@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppFabric.Inputs
     public sealed class IngestionDestinationProcessingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about an audit log processing configuration.
+        /// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
         /// </summary>
         [Input("auditLog", required: true)]
         public Input<Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs> AuditLog { get; set; } = null!;

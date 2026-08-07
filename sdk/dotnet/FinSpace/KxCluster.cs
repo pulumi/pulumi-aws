@@ -101,39 +101,37 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `AutoScalingConfiguration` Block.
         /// </summary>
         [Output("autoScalingConfiguration")]
         public Output<Outputs.KxClusterAutoScalingConfiguration?> AutoScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
+        /// Availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * SINGLE - Assigns one availability zone per cluster.
-        /// * MULTI - Assigns all the availability zones per cluster.
+        /// Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Output("azMode")]
         public Output<string> AzMode { get; private set; } = null!;
 
         /// <summary>
-        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `CacheStorageConfigurations` Block.
         /// </summary>
         [Output("cacheStorageConfigurations")]
         public Output<ImmutableArray<Outputs.KxClusterCacheStorageConfiguration>> CacheStorageConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `CapacityConfiguration` Block.
         /// </summary>
         [Output("capacityConfiguration")]
         public Output<Outputs.KxClusterCapacityConfiguration?> CapacityConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `Code` Block.
         /// </summary>
         [Output("code")]
         public Output<Outputs.KxClusterCode?> Code { get; private set; } = null!;
@@ -151,7 +149,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> CreatedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// KX database that will be available for querying. Defined below.
+        /// KX database that will be available for querying. See `Database` Block.
         /// </summary>
         [Output("databases")]
         public Output<ImmutableArray<Outputs.KxClusterDatabase>> Databases { get; private set; } = null!;
@@ -169,7 +167,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
-        /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+        /// IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
         [Output("executionRole")]
         public Output<string?> ExecutionRole { get; private set; } = null!;
@@ -205,20 +203,26 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> ReleaseLabel { get; private set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `SavedownStorageConfiguration` Block.
         /// </summary>
         [Output("savedownStorageConfiguration")]
         public Output<Outputs.KxClusterSavedownStorageConfiguration?> SavedownStorageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The structure that stores the configuration details of a scaling group.
+        /// Structure that stores the configuration details of a scaling group. See `ScalingGroupConfiguration` Block.
         /// </summary>
         [Output("scalingGroupConfiguration")]
         public Output<Outputs.KxClusterScalingGroupConfiguration?> ScalingGroupConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of the cluster.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Reason for the cluster status.
+        /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
@@ -235,24 +239,19 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `TickerplantLogConfiguration` Block.
         /// </summary>
         [Output("tickerplantLogConfigurations")]
         public Output<ImmutableArray<Outputs.KxClusterTickerplantLogConfiguration>> TickerplantLogConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// Type of KDB database. The following types are available:
-        /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        /// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `VpcConfiguration` Block.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -306,21 +305,19 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `AutoScalingConfiguration` Block.
         /// </summary>
         [Input("autoScalingConfiguration")]
         public Input<Inputs.KxClusterAutoScalingConfigurationArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
+        /// Availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * SINGLE - Assigns one availability zone per cluster.
-        /// * MULTI - Assigns all the availability zones per cluster.
+        /// Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Input("azMode", required: true)]
         public Input<string> AzMode { get; set; } = null!;
@@ -329,7 +326,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterCacheStorageConfigurationArgs>? _cacheStorageConfigurations;
 
         /// <summary>
-        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `CacheStorageConfigurations` Block.
         /// </summary>
         public InputList<Inputs.KxClusterCacheStorageConfigurationArgs> CacheStorageConfigurations
         {
@@ -338,13 +335,13 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `CapacityConfiguration` Block.
         /// </summary>
         [Input("capacityConfiguration")]
         public Input<Inputs.KxClusterCapacityConfigurationArgs>? CapacityConfiguration { get; set; }
 
         /// <summary>
-        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `Code` Block.
         /// </summary>
         [Input("code")]
         public Input<Inputs.KxClusterCodeArgs>? Code { get; set; }
@@ -365,7 +362,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterDatabaseArgs>? _databases;
 
         /// <summary>
-        /// KX database that will be available for querying. Defined below.
+        /// KX database that will be available for querying. See `Database` Block.
         /// </summary>
         public InputList<Inputs.KxClusterDatabaseArgs> Databases
         {
@@ -386,7 +383,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
-        /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+        /// IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
@@ -416,13 +413,13 @@ namespace Pulumi.Aws.FinSpace
         public Input<string> ReleaseLabel { get; set; } = null!;
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `SavedownStorageConfiguration` Block.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationArgs>? SavedownStorageConfiguration { get; set; }
 
         /// <summary>
-        /// The structure that stores the configuration details of a scaling group.
+        /// Structure that stores the configuration details of a scaling group. See `ScalingGroupConfiguration` Block.
         /// </summary>
         [Input("scalingGroupConfiguration")]
         public Input<Inputs.KxClusterScalingGroupConfigurationArgs>? ScalingGroupConfiguration { get; set; }
@@ -443,7 +440,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterTickerplantLogConfigurationArgs>? _tickerplantLogConfigurations;
 
         /// <summary>
-        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `TickerplantLogConfiguration` Block.
         /// </summary>
         public InputList<Inputs.KxClusterTickerplantLogConfigurationArgs> TickerplantLogConfigurations
         {
@@ -452,18 +449,13 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Type of KDB database. The following types are available:
-        /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        /// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `VpcConfiguration` Block.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -485,21 +477,19 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `AutoScalingConfiguration` Block.
         /// </summary>
         [Input("autoScalingConfiguration")]
         public Input<Inputs.KxClusterAutoScalingConfigurationGetArgs>? AutoScalingConfiguration { get; set; }
 
         /// <summary>
-        /// The availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
+        /// Availability zone identifiers for the requested regions. Required when `AzMode` is set to SINGLE.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
         /// <summary>
-        /// The number of availability zones you want to assign per cluster. This can be one of the following:
-        /// * SINGLE - Assigns one availability zone per cluster.
-        /// * MULTI - Assigns all the availability zones per cluster.
+        /// Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
         /// </summary>
         [Input("azMode")]
         public Input<string>? AzMode { get; set; }
@@ -508,7 +498,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterCacheStorageConfigurationGetArgs>? _cacheStorageConfigurations;
 
         /// <summary>
-        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See `CacheStorageConfigurations` Block.
         /// </summary>
         public InputList<Inputs.KxClusterCacheStorageConfigurationGetArgs> CacheStorageConfigurations
         {
@@ -517,13 +507,13 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See `CapacityConfiguration` Block.
         /// </summary>
         [Input("capacityConfiguration")]
         public Input<Inputs.KxClusterCapacityConfigurationGetArgs>? CapacityConfiguration { get; set; }
 
         /// <summary>
-        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See `Code` Block.
         /// </summary>
         [Input("code")]
         public Input<Inputs.KxClusterCodeGetArgs>? Code { get; set; }
@@ -550,7 +540,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterDatabaseGetArgs>? _databases;
 
         /// <summary>
-        /// KX database that will be available for querying. Defined below.
+        /// KX database that will be available for querying. See `Database` Block.
         /// </summary>
         public InputList<Inputs.KxClusterDatabaseGetArgs> Databases
         {
@@ -571,7 +561,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? EnvironmentId { get; set; }
 
         /// <summary>
-        /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
+        /// IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
@@ -607,20 +597,26 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? ReleaseLabel { get; set; }
 
         /// <summary>
-        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `Type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See `SavedownStorageConfiguration` Block.
         /// </summary>
         [Input("savedownStorageConfiguration")]
         public Input<Inputs.KxClusterSavedownStorageConfigurationGetArgs>? SavedownStorageConfiguration { get; set; }
 
         /// <summary>
-        /// The structure that stores the configuration details of a scaling group.
+        /// Structure that stores the configuration details of a scaling group. See `ScalingGroupConfiguration` Block.
         /// </summary>
         [Input("scalingGroupConfiguration")]
         public Input<Inputs.KxClusterScalingGroupConfigurationGetArgs>? ScalingGroupConfiguration { get; set; }
 
+        /// <summary>
+        /// Status of the cluster.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
+        /// <summary>
+        /// Reason for the cluster status.
+        /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
 
@@ -652,7 +648,7 @@ namespace Pulumi.Aws.FinSpace
         private InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs>? _tickerplantLogConfigurations;
 
         /// <summary>
-        /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
+        /// Configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant, the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path. See `TickerplantLogConfiguration` Block.
         /// </summary>
         public InputList<Inputs.KxClusterTickerplantLogConfigurationGetArgs> TickerplantLogConfigurations
         {
@@ -661,18 +657,13 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
-        /// Type of KDB database. The following types are available:
-        /// * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
-        /// * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
-        /// * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
-        /// * Tickerplant - A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
+        /// Type of KDB database. Valid values are `HDB` (Historical Database), `RDB` (Realtime Database, which requires the `SavedownStorageConfiguration` parameter), `GATEWAY`, `GP` (general purpose), and `Tickerplant`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See `VpcConfiguration` Block.
         /// 
         /// The following arguments are optional:
         /// </summary>

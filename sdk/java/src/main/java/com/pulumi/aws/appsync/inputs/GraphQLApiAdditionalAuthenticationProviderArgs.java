@@ -65,14 +65,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     }
 
     /**
-     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+     * Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+     * @return Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs>> userPoolConfig() {
@@ -170,7 +170,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
          * 
          * @return builder
          * 

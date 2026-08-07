@@ -53,10 +53,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
      * ARN of the IAM role that the memory service assumes to perform operations.
      * 
      * @deprecated
-     * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      * 
      */
-    @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
+    @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
     @Import(name="memoryExecutionRoleArn")
     private @Nullable Output<String> memoryExecutionRoleArn;
 
@@ -64,10 +64,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
      * @return ARN of the IAM role that the memory service assumes to perform operations.
      * 
      * @deprecated
-     * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+     * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
      * 
      */
-    @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
+    @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
     public Optional<Output<String>> memoryExecutionRoleArn() {
         return Optional.ofNullable(this.memoryExecutionRoleArn);
     }
@@ -294,10 +294,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+         * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
          * 
          */
-        @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
+        @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
         public Builder memoryExecutionRoleArn(@Nullable Output<String> memoryExecutionRoleArn) {
             $.memoryExecutionRoleArn = memoryExecutionRoleArn;
             return this;
@@ -309,10 +309,10 @@ public final class AgentcoreMemoryStrategyState extends com.pulumi.resources.Res
          * @return builder
          * 
          * @deprecated
-         * memory_execution_role_arn is deprecated. The attribute can be removed from configuration.
+         * memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead.
          * 
          */
-        @Deprecated /* memory_execution_role_arn is deprecated. The attribute can be removed from configuration. */
+        @Deprecated /* memory_execution_role_arn is deprecated. Use memoryExecutionRoleArn on the aws.bedrock.AgentcoreMemory resource instead. */
         public Builder memoryExecutionRoleArn(String memoryExecutionRoleArn) {
             return memoryExecutionRoleArn(Output.of(memoryExecutionRoleArn));
         }

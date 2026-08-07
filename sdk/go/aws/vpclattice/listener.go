@@ -202,7 +202,8 @@ type Listener struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Default action block for the default listener rule. Default action blocks are defined below.
 	DefaultAction ListenerDefaultActionOutput `pulumi:"defaultAction"`
-	LastUpdatedAt pulumi.StringOutput         `pulumi:"lastUpdatedAt"`
+	// Date and time that the listener was last updated, specified in ISO-8601 format.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
 	ListenerId pulumi.StringOutput `pulumi:"listenerId"`
 	// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -218,7 +219,7 @@ type Listener struct {
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
 	ServiceIdentifier pulumi.StringOutput `pulumi:"serviceIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -265,7 +266,8 @@ type listenerState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Default action block for the default listener rule. Default action blocks are defined below.
 	DefaultAction *ListenerDefaultAction `pulumi:"defaultAction"`
-	LastUpdatedAt *string                `pulumi:"lastUpdatedAt"`
+	// Date and time that the listener was last updated, specified in ISO-8601 format.
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
 	ListenerId *string `pulumi:"listenerId"`
 	// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -281,7 +283,7 @@ type listenerState struct {
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -293,6 +295,7 @@ type ListenerState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Default action block for the default listener rule. Default action blocks are defined below.
 	DefaultAction ListenerDefaultActionPtrInput
+	// Date and time that the listener was last updated, specified in ISO-8601 format.
 	LastUpdatedAt pulumi.StringPtrInput
 	// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
 	ListenerId pulumi.StringPtrInput
@@ -309,7 +312,7 @@ type ListenerState struct {
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
 	ServiceIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -334,7 +337,7 @@ type listenerArgs struct {
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -355,7 +358,7 @@ type ListenerArgs struct {
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
 	ServiceIdentifier pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -461,6 +464,7 @@ func (o ListenerOutput) DefaultAction() ListenerDefaultActionOutput {
 	return o.ApplyT(func(v *Listener) ListenerDefaultActionOutput { return v.DefaultAction }).(ListenerDefaultActionOutput)
 }
 
+// Date and time that the listener was last updated, specified in ISO-8601 format.
 func (o ListenerOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
@@ -501,7 +505,7 @@ func (o ListenerOutput) ServiceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceIdentifier }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ListenerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

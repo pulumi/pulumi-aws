@@ -113,7 +113,7 @@ class GetNetworkResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> _builtins.str:
         """
-        The availability zone where the ODB network is located.
+        Availability zone where the ODB network is located.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -121,7 +121,7 @@ class GetNetworkResult:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> _builtins.str:
         """
-        The AZ ID of the AZ where the ODB network is located.
+        AZ ID of the AZ where the ODB network is located.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -129,7 +129,7 @@ class GetNetworkResult:
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> _builtins.str:
         """
-        The CIDR range of the backup subnet for the ODB network.
+        CIDR range of the backup subnet for the ODB network.
         """
         return pulumi.get(self, "backup_subnet_cidr")
 
@@ -137,7 +137,7 @@ class GetNetworkResult:
     @pulumi.getter(name="clientSubnetCidr")
     def client_subnet_cidr(self) -> _builtins.str:
         """
-        The CIDR notation for the network resource.
+        CIDR notation for the network resource.
         """
         return pulumi.get(self, "client_subnet_cidr")
 
@@ -145,7 +145,7 @@ class GetNetworkResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The date and time when the ODB network was created.
+        Date and time when the ODB network was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -153,7 +153,7 @@ class GetNetworkResult:
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> _builtins.str:
         """
-        The name of the custom domain that the network is located.
+        Name of the custom domain that the network is located.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -161,7 +161,7 @@ class GetNetworkResult:
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> _builtins.str:
         """
-        The default DNS prefix for the network resource.
+        Default DNS prefix for the network resource.
         """
         return pulumi.get(self, "default_dns_prefix")
 
@@ -177,7 +177,7 @@ class GetNetworkResult:
     @pulumi.getter(name="ec2PlacementGroupIds")
     def ec2_placement_group_ids(self) -> Sequence[_builtins.str]:
         """
-        A list of EC2 placement group IDs associated with the ODB network.
+        List of EC2 placement group IDs associated with the ODB network.
         """
         return pulumi.get(self, "ec2_placement_group_ids")
 
@@ -193,20 +193,23 @@ class GetNetworkResult:
     @pulumi.getter(name="managedServices")
     def managed_services(self) -> Sequence['outputs.GetNetworkManagedServiceResult']:
         """
-        The managed services configuration for the ODB network.
+        Managed services configuration for the ODB network.
         """
         return pulumi.get(self, "managed_services")
 
     @_builtins.property
     @pulumi.getter(name="ociDnsForwardingConfigs")
     def oci_dns_forwarding_configs(self) -> Sequence['outputs.GetNetworkOciDnsForwardingConfigResult']:
+        """
+        DNS resolver endpoint in OCI for forwarding DNS queries for the ociPrivateZone domain.
+        """
         return pulumi.get(self, "oci_dns_forwarding_configs")
 
     @_builtins.property
     @pulumi.getter(name="ociNetworkAnchorId")
     def oci_network_anchor_id(self) -> _builtins.str:
         """
-        The unique identifier of the OCI network anchor for the ODB network.
+        Unique identifier of the OCI network anchor for the ODB network.
         """
         return pulumi.get(self, "oci_network_anchor_id")
 
@@ -214,7 +217,7 @@ class GetNetworkResult:
     @pulumi.getter(name="ociNetworkAnchorUrl")
     def oci_network_anchor_url(self) -> _builtins.str:
         """
-        The URL of the OCI network anchor for the ODB network.
+        URL of the OCI network anchor for the ODB network.
         """
         return pulumi.get(self, "oci_network_anchor_url")
 
@@ -222,7 +225,7 @@ class GetNetworkResult:
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
         """
-        The name of the OCI resource anchor for the ODB network.
+        Name of the OCI resource anchor for the ODB network.
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -230,7 +233,7 @@ class GetNetworkResult:
     @pulumi.getter(name="ociVcnId")
     def oci_vcn_id(self) -> _builtins.str:
         """
-        The unique identifier  Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
+        Unique identifier Oracle Cloud ID (OCID) of the OCI VCN for the ODB network.
         """
         return pulumi.get(self, "oci_vcn_id")
 
@@ -238,7 +241,7 @@ class GetNetworkResult:
     @pulumi.getter(name="ociVcnUrl")
     def oci_vcn_url(self) -> _builtins.str:
         """
-        The URL of the OCI VCN for the ODB network.
+        URL of the OCI VCN for the ODB network.
         """
         return pulumi.get(self, "oci_vcn_url")
 
@@ -246,7 +249,7 @@ class GetNetworkResult:
     @pulumi.getter(name="peeredCidrs")
     def peered_cidrs(self) -> Sequence[_builtins.str]:
         """
-        The list of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
+        List of CIDR ranges from the peered VPC that are allowed access to the ODB network. Please refer odb network peering documentation.
         """
         return pulumi.get(self, "peered_cidrs")
 
@@ -254,7 +257,7 @@ class GetNetworkResult:
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> _builtins.float:
         """
-        The amount of progress made on the current operation on the ODB network, expressed as a percentage.
+        Amount of progress made on the current operation on the ODB network, expressed as a percentage.
         """
         return pulumi.get(self, "percent_progress")
 
@@ -267,7 +270,7 @@ class GetNetworkResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the network resource.
+        Status of the network resource.
         """
         return pulumi.get(self, "status")
 
@@ -282,6 +285,9 @@ class GetNetworkResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketObjectLockConfiguration {
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * @return Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
@@ -22,7 +22,7 @@ public final class BucketObjectLockConfiguration {
     @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead. */
     private @Nullable String objectLockEnabled;
     /**
-     * @return Object Lock rule in place for this bucket (documented below).
+     * @return Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
@@ -33,7 +33,7 @@ public final class BucketObjectLockConfiguration {
 
     private BucketObjectLockConfiguration() {}
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
+     * @return Whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`. Use the top-level argument `objectLockEnabled` instead.
      * 
      * @deprecated
      * object_lock_enabled is deprecated. Use the top-level parameter objectLockEnabled instead.
@@ -44,7 +44,7 @@ public final class BucketObjectLockConfiguration {
         return Optional.ofNullable(this.objectLockEnabled);
     }
     /**
-     * @return Object Lock rule in place for this bucket (documented below).
+     * @return Object Lock rule in place for this bucket. See `object_lock_configuration.rule` Block below for details.
      * 
      * @deprecated
      * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.

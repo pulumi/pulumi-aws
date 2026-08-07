@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string> CertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the Domain Name.
+        /// Description of the Domain Name.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string> CertificateArn { get; set; } = null!;
 
         /// <summary>
-        /// A description of the Domain Name.
+        /// Description of the Domain Name.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? CertificateArn { get; set; }
 
         /// <summary>
-        /// A description of the Domain Name.
+        /// Description of the Domain Name.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

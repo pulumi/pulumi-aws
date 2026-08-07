@@ -14,65 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric {
-    /**
-     * @return Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return Short name for the metric used in target tracking scaling policy.
-     * 
-     */
     private String id;
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     private @Nullable String label;
-    /**
-     * @return Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     private @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat metricStat;
-    /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-     * 
-     */
     private @Nullable Boolean returnData;
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric() {}
-    /**
-     * @return Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return Short name for the metric used in target tracking scaling policy.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Human-readable label for this metric or expression.
-     * 
-     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
-    /**
-     * @return Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metricStat`, but not both.
-     * 
-     */
     public Optional<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat> metricStat() {
         return Optional.ofNullable(this.metricStat);
     }
-    /**
-     * @return Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
-     * 
-     */
     public Optional<Boolean> returnData() {
         return Optional.ofNullable(this.returnData);
     }

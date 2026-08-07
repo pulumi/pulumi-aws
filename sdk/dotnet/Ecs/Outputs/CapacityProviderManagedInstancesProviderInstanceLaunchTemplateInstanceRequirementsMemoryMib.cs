@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsMemoryMib
     {
+        /// <summary>
+        /// Maximum amount of memory, in MiB.
+        /// </summary>
         public readonly int? Max;
+        /// <summary>
+        /// Minimum amount of memory, in MiB.
+        /// </summary>
         public readonly int Min;
 
         [OutputConstructor]

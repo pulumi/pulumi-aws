@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFabric.Outputs
     public sealed class IngestionDestinationProcessingConfiguration
     {
         /// <summary>
-        /// Contains information about an audit log processing configuration.
+        /// Audit log processing configuration. See `processing_configuration.audit_log` Block below.
         /// </summary>
         public readonly Outputs.IngestionDestinationProcessingConfigurationAuditLog AuditLog;
 

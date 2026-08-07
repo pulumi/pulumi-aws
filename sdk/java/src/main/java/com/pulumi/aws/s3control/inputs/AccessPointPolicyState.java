@@ -17,14 +17,14 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
     public static final AccessPointPolicyState Empty = new AccessPointPolicyState();
 
     /**
-     * The ARN of the access point that you want to associate with the specified policy.
+     * ARN of the access point that you want to associate with the specified policy.
      * 
      */
     @Import(name="accessPointArn")
     private @Nullable Output<String> accessPointArn;
 
     /**
-     * @return The ARN of the access point that you want to associate with the specified policy.
+     * @return ARN of the access point that you want to associate with the specified policy.
      * 
      */
     public Optional<Output<String>> accessPointArn() {
@@ -32,14 +32,14 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Indicates whether this access point currently has a policy that allows public access.
+     * Whether this access point currently has a policy that allows public access.
      * 
      */
     @Import(name="hasPublicAccessPolicy")
     private @Nullable Output<Boolean> hasPublicAccessPolicy;
 
     /**
-     * @return Indicates whether this access point currently has a policy that allows public access.
+     * @return Whether this access point currently has a policy that allows public access.
      * 
      */
     public Optional<Output<Boolean>> hasPublicAccessPolicy() {
@@ -47,14 +47,14 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The policy that you want to apply to the specified access point.
+     * Policy that you want to apply to the specified access point.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The policy that you want to apply to the specified access point.
+     * @return Policy that you want to apply to the specified access point.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -104,7 +104,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
+         * @param accessPointArn ARN of the access point that you want to associate with the specified policy.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param accessPointArn The ARN of the access point that you want to associate with the specified policy.
+         * @param accessPointArn ARN of the access point that you want to associate with the specified policy.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hasPublicAccessPolicy Indicates whether this access point currently has a policy that allows public access.
+         * @param hasPublicAccessPolicy Whether this access point currently has a policy that allows public access.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param hasPublicAccessPolicy Indicates whether this access point currently has a policy that allows public access.
+         * @param hasPublicAccessPolicy Whether this access point currently has a policy that allows public access.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policy The policy that you want to apply to the specified access point.
+         * @param policy Policy that you want to apply to the specified access point.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class AccessPointPolicyState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policy The policy that you want to apply to the specified access point.
+         * @param policy Policy that you want to apply to the specified access point.
          * 
          * @return builder
          * 

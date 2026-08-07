@@ -137,11 +137,11 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The target group configuration.
+     * Target group configuration. See `config` Block below.
      */
     declare public readonly config: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
     /**
-     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -161,7 +161,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      *
      * The following arguments are optional:
      */
@@ -216,11 +216,11 @@ export interface TargetGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The target group configuration.
+     * Target group configuration. See `config` Block below.
      */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfig | undefined>;
     /**
-     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface TargetGroupState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      *
      * The following arguments are optional:
      */
@@ -252,11 +252,11 @@ export interface TargetGroupState {
  */
 export interface TargetGroupArgs {
     /**
-     * The target group configuration.
+     * Target group configuration. See `config` Block below.
      */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfig | undefined>;
     /**
-     * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
+     * Name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -268,7 +268,7 @@ export interface TargetGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
+     * Type of target group. Valid values are `IP`, `LAMBDA`, `INSTANCE`, or `ALB`.
      *
      * The following arguments are optional:
      */

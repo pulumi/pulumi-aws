@@ -32,18 +32,14 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      * 
      */
     @Import(name="lbPort")
     private @Nullable Output<Integer> lbPort;
 
     /**
-     * @return Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
+     * @return Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
      * 
      */
     public Optional<Output<Integer>> lbPort() {
@@ -51,16 +47,14 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * Name of load balancer to which the policy
-     * should be attached.
+     * Name of load balancer to which the policy should be attached.
      * 
      */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
     /**
-     * @return Name of load balancer to which the policy
-     * should be attached.
+     * @return Name of load balancer to which the policy should be attached.
      * 
      */
     public Optional<Output<String>> loadBalancer() {
@@ -147,9 +141,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param lbPort Load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
+         * @param lbPort Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
          * 
          * @return builder
          * 
@@ -160,9 +152,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param lbPort Load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
+         * @param lbPort Load balancer port to which the policy should be applied. This must be an active listener on the load balancer.
          * 
          * @return builder
          * 
@@ -172,8 +162,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param loadBalancer Name of load balancer to which the policy
-         * should be attached.
+         * @param loadBalancer Name of load balancer to which the policy should be attached.
          * 
          * @return builder
          * 
@@ -184,8 +173,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param loadBalancer Name of load balancer to which the policy
-         * should be attached.
+         * @param loadBalancer Name of load balancer to which the policy should be attached.
          * 
          * @return builder
          * 

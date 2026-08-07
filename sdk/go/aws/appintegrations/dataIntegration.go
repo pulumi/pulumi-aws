@@ -61,23 +61,23 @@ import (
 type DataIntegration struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Data Integration.
+	// Amazon Resource Name (ARN) of the Data Integration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the description of the Data Integration.
+	// Description of the Data Integration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey pulumi.StringOutput `pulumi:"kmsKey"`
-	// Specifies the name of the Data Integration.
+	// Name of the Data Integration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+	// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 	ScheduleConfig DataIntegrationScheduleConfigOutput `pulumi:"scheduleConfig"`
-	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+	// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 	SourceUri pulumi.StringOutput `pulumi:"sourceUri"`
 	// Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -120,44 +120,44 @@ func GetDataIntegration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataIntegration resources.
 type dataIntegrationState struct {
-	// The Amazon Resource Name (ARN) of the Data Integration.
+	// Amazon Resource Name (ARN) of the Data Integration.
 	Arn *string `pulumi:"arn"`
-	// Specifies the description of the Data Integration.
+	// Description of the Data Integration.
 	Description *string `pulumi:"description"`
-	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey *string `pulumi:"kmsKey"`
-	// Specifies the name of the Data Integration.
+	// Name of the Data Integration.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+	// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 	ScheduleConfig *DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
-	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+	// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 	SourceUri *string `pulumi:"sourceUri"`
 	// Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DataIntegrationState struct {
-	// The Amazon Resource Name (ARN) of the Data Integration.
+	// Amazon Resource Name (ARN) of the Data Integration.
 	Arn pulumi.StringPtrInput
-	// Specifies the description of the Data Integration.
+	// Description of the Data Integration.
 	Description pulumi.StringPtrInput
-	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey pulumi.StringPtrInput
-	// Specifies the name of the Data Integration.
+	// Name of the Data Integration.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+	// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 	ScheduleConfig DataIntegrationScheduleConfigPtrInput
-	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+	// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 	SourceUri pulumi.StringPtrInput
 	// Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -166,17 +166,17 @@ func (DataIntegrationState) ElementType() reflect.Type {
 }
 
 type dataIntegrationArgs struct {
-	// Specifies the description of the Data Integration.
+	// Description of the Data Integration.
 	Description *string `pulumi:"description"`
-	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey string `pulumi:"kmsKey"`
-	// Specifies the name of the Data Integration.
+	// Name of the Data Integration.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+	// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 	ScheduleConfig DataIntegrationScheduleConfig `pulumi:"scheduleConfig"`
-	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+	// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 	SourceUri string `pulumi:"sourceUri"`
 	// Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -184,17 +184,17 @@ type dataIntegrationArgs struct {
 
 // The set of arguments for constructing a DataIntegration resource.
 type DataIntegrationArgs struct {
-	// Specifies the description of the Data Integration.
+	// Description of the Data Integration.
 	Description pulumi.StringPtrInput
-	// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+	// KMS key Amazon Resource Name (ARN) for the Data Integration.
 	KmsKey pulumi.StringInput
-	// Specifies the name of the Data Integration.
+	// Name of the Data Integration.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+	// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 	ScheduleConfig DataIntegrationScheduleConfigInput
-	// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+	// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 	SourceUri pulumi.StringInput
 	// Tags to apply to the Data Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -287,22 +287,22 @@ func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Data Integration.
+// Amazon Resource Name (ARN) of the Data Integration.
 func (o DataIntegrationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the description of the Data Integration.
+// Description of the Data Integration.
 func (o DataIntegrationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
+// KMS key Amazon Resource Name (ARN) for the Data Integration.
 func (o DataIntegrationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.KmsKey }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Data Integration.
+// Name of the Data Integration.
 func (o DataIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -312,12 +312,12 @@ func (o DataIntegrationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
+// Configuration block that defines the name of the data and how often it should be pulled from the source. See `scheduleConfig` Block for details.
 func (o DataIntegrationOutput) ScheduleConfig() DataIntegrationScheduleConfigOutput {
 	return o.ApplyT(func(v *DataIntegration) DataIntegrationScheduleConfigOutput { return v.ScheduleConfig }).(DataIntegrationScheduleConfigOutput)
 }
 
-// Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
+// URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
 func (o DataIntegrationOutput) SourceUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringOutput { return v.SourceUri }).(pulumi.StringOutput)
 }
@@ -327,7 +327,7 @@ func (o DataIntegrationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o DataIntegrationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataIntegration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

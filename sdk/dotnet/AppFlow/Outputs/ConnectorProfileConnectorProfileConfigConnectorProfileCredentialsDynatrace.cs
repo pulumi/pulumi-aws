@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace
     {
         /// <summary>
-        /// The API tokens used by Dynatrace API to authenticate various API calls.
+        /// API token used by the Dynatrace API to authenticate various API calls.
         /// </summary>
         public readonly string ApiToken;
 

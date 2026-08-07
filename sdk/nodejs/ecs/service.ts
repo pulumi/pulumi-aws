@@ -390,7 +390,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -406,7 +406,7 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly volumeConfiguration: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration | undefined>;
     /**
-     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      */
     declare public readonly vpcLatticeConfigurations: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
     /**
@@ -641,7 +641,7 @@ export interface ServiceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -657,7 +657,7 @@ export interface ServiceState {
      */
     volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration | undefined>;
     /**
-     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      */
     vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfiguration>[] | undefined>;
     /**
@@ -806,7 +806,7 @@ export interface ServiceArgs {
      */
     volumeConfiguration?: pulumi.Input<inputs.ecs.ServiceVolumeConfiguration | undefined>;
     /**
-     * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
+     * VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      */
     vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfiguration>[] | undefined>;
     /**

@@ -118,56 +118,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecs/taskSet:TaskSet")
 public class TaskSet extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the task set.
+     * Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the task set.
+     * @return Amazon Resource Name (ARN) that identifies the task set.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * Capacity provider strategy to use for the service. Can be one or more. Defined below.
      * 
      */
     @Export(name="capacityProviderStrategies", refs={List.class,TaskSetCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TaskSetCapacityProviderStrategy>> capacityProviderStrategies;
 
     /**
-     * @return The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+     * @return Capacity provider strategy to use for the service. Can be one or more. Defined below.
      * 
      */
     public Output<Optional<List<TaskSetCapacityProviderStrategy>>> capacityProviderStrategies() {
         return Codegen.optional(this.capacityProviderStrategies);
     }
     /**
-     * The short name or ARN of the cluster that hosts the service to create the task set in.
+     * Short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
     @Export(name="cluster", refs={String.class}, tree="[0]")
     private Output<String> cluster;
 
     /**
-     * @return The short name or ARN of the cluster that hosts the service to create the task set in.
+     * @return Short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
     public Output<String> cluster() {
         return this.cluster;
     }
     /**
-     * The external ID associated with the task set.
+     * External ID associated with the task set.
      * 
      */
     @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output<String> externalId;
 
     /**
-     * @return The external ID associated with the task set.
+     * @return External ID associated with the task set.
      * 
      */
     public Output<String> externalId() {
@@ -188,14 +188,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.forceDelete);
     }
     /**
-     * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
     @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
     /**
-     * @return The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
+     * @return Launch type on which to run your service. Valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
     public Output<String> launchType() {
@@ -216,28 +216,28 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancers);
     }
     /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+     * Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
      * 
      */
     @Export(name="networkConfiguration", refs={TaskSetNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ TaskSetNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+     * @return Network configuration for the service. Required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and not supported for other network modes. Detailed below.
      * 
      */
     public Output<Optional<TaskSetNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
     /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
     /**
-     * @return The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+     * @return Platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
     public Output<String> platformVersion() {
@@ -258,105 +258,105 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+     * Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
     @Export(name="scale", refs={TaskSetScale.class}, tree="[0]")
     private Output<TaskSetScale> scale;
 
     /**
-     * @return A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+     * @return Floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
     public Output<TaskSetScale> scale() {
         return this.scale;
     }
     /**
-     * The short name or ARN of the ECS service.
+     * Short name or ARN of the ECS service.
      * 
      */
     @Export(name="service", refs={String.class}, tree="[0]")
     private Output<String> service;
 
     /**
-     * @return The short name or ARN of the ECS service.
+     * @return Short name or ARN of the ECS service.
      * 
      */
     public Output<String> service() {
         return this.service;
     }
     /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+     * Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     @Export(name="serviceRegistries", refs={TaskSetServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ TaskSetServiceRegistries> serviceRegistries;
 
     /**
-     * @return The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
+     * @return Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
      * 
      */
     public Output<Optional<TaskSetServiceRegistries>> serviceRegistries() {
         return Codegen.optional(this.serviceRegistries);
     }
     /**
-     * The stability status. This indicates whether the task set has reached a steady state.
+     * Stability status. This indicates whether the task set has reached a steady state.
      * 
      */
     @Export(name="stabilityStatus", refs={String.class}, tree="[0]")
     private Output<String> stabilityStatus;
 
     /**
-     * @return The stability status. This indicates whether the task set has reached a steady state.
+     * @return Stability status. This indicates whether the task set has reached a steady state.
      * 
      */
     public Output<String> stabilityStatus() {
         return this.stabilityStatus;
     }
     /**
-     * The status of the task set.
+     * Status of the task set.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the task set.
+     * @return Status of the task set.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+     * @return Map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
      * 
      * The following arguments are optional:
      * 
@@ -365,7 +365,7 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
     private Output<String> taskDefinition;
 
     /**
-     * @return The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
+     * @return Family and revision (`family:revision`) or full ARN of the task definition to run in your service.
      * 
      * The following arguments are optional:
      * 
@@ -374,14 +374,14 @@ public class TaskSet extends com.pulumi.resources.CustomResource {
         return this.taskDefinition;
     }
     /**
-     * The ID of the task set.
+     * ID of the task set.
      * 
      */
     @Export(name="taskSetId", refs={String.class}, tree="[0]")
     private Output<String> taskSetId;
 
     /**
-     * @return The ID of the task set.
+     * @return ID of the task set.
      * 
      */
     public Output<String> taskSetId() {

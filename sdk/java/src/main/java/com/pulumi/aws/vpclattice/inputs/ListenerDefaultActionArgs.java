@@ -17,15 +17,23 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
 
     public static final ListenerDefaultActionArgs Empty = new ListenerDefaultActionArgs();
 
+    /**
+     * Configuration block for returning a fixed response. See `fixedResponse` Block below.
+     * 
+     */
     @Import(name="fixedResponse")
     private @Nullable Output<ListenerDefaultActionFixedResponseArgs> fixedResponse;
 
+    /**
+     * @return Configuration block for returning a fixed response. See `fixedResponse` Block below.
+     * 
+     */
     public Optional<Output<ListenerDefaultActionFixedResponseArgs>> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
 
     /**
-     * Route requests to one or more target groups. See Forward blocks below.
+     * Route requests to one or more target groups. See `forward` Block below.
      * 
      * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
      * 
@@ -34,7 +42,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
     private @Nullable Output<List<ListenerDefaultActionForwardArgs>> forwards;
 
     /**
-     * @return Route requests to one or more target groups. See Forward blocks below.
+     * @return Route requests to one or more target groups. See `forward` Block below.
      * 
      * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
      * 
@@ -68,17 +76,29 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
             $ = new ListenerDefaultActionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param fixedResponse Configuration block for returning a fixed response. See `fixedResponse` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fixedResponse(@Nullable Output<ListenerDefaultActionFixedResponseArgs> fixedResponse) {
             $.fixedResponse = fixedResponse;
             return this;
         }
 
+        /**
+         * @param fixedResponse Configuration block for returning a fixed response. See `fixedResponse` Block below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder fixedResponse(ListenerDefaultActionFixedResponseArgs fixedResponse) {
             return fixedResponse(Output.of(fixedResponse));
         }
 
         /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
+         * @param forwards Route requests to one or more target groups. See `forward` Block below.
          * 
          * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
          * 
@@ -91,7 +111,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
+         * @param forwards Route requests to one or more target groups. See `forward` Block below.
          * 
          * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
          * 
@@ -103,7 +123,7 @@ public final class ListenerDefaultActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forwards Route requests to one or more target groups. See Forward blocks below.
+         * @param forwards Route requests to one or more target groups. See `forward` Block below.
          * 
          * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixedResponse` or `forward`.
          * 

@@ -17,16 +17,32 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
 
     public static final ListenerRuleActionForwardTargetGroupArgs Empty = new ListenerRuleActionForwardTargetGroupArgs();
 
+    /**
+     * ID or ARN of the target group.
+     * 
+     */
     @Import(name="targetGroupIdentifier", required=true)
     private Output<String> targetGroupIdentifier;
 
+    /**
+     * @return ID or ARN of the target group.
+     * 
+     */
     public Output<String> targetGroupIdentifier() {
         return this.targetGroupIdentifier;
     }
 
+    /**
+     * Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+     * 
+     */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
+    /**
+     * @return Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+     * 
+     */
     public Optional<Output<Integer>> weight() {
         return Optional.ofNullable(this.weight);
     }
@@ -56,20 +72,44 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
             $ = new ListenerRuleActionForwardTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param targetGroupIdentifier ID or ARN of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetGroupIdentifier(Output<String> targetGroupIdentifier) {
             $.targetGroupIdentifier = targetGroupIdentifier;
             return this;
         }
 
+        /**
+         * @param targetGroupIdentifier ID or ARN of the target group.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetGroupIdentifier(String targetGroupIdentifier) {
             return targetGroupIdentifier(Output.of(targetGroupIdentifier));
         }
 
+        /**
+         * @param weight Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weight(@Nullable Output<Integer> weight) {
             $.weight = weight;
             return this;
         }
 
+        /**
+         * @param weight Weight assigned to the target group, controlling the prioritization and selection of each target group so that requests are distributed based on their weights. Default is `100`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder weight(Integer weight) {
             return weight(Output.of(weight));
         }

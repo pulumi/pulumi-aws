@@ -18,6 +18,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExpressGatewayServicePrimaryContainer {
+    /**
+     * @return CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+     * 
+     */
     private @Nullable List<ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> awsLogsConfigurations;
     /**
      * @return Command to run in the container. Overrides the default command from the Docker image.
@@ -39,6 +43,10 @@ public final class ExpressGatewayServicePrimaryContainer {
     private @Nullable List<ExpressGatewayServicePrimaryContainerSecret> secrets;
 
     private ExpressGatewayServicePrimaryContainer() {}
+    /**
+     * @return CloudWatch Logs configuration for the container. See `awsLogsConfiguration` Block below.
+     * 
+     */
     public List<ExpressGatewayServicePrimaryContainerAwsLogsConfiguration> awsLogsConfigurations() {
         return this.awsLogsConfigurations == null ? List.of() : this.awsLogsConfigurations;
     }

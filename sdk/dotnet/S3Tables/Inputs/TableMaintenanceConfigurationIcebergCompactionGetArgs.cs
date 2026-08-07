@@ -13,15 +13,13 @@ namespace Pulumi.Aws.S3Tables.Inputs
     public sealed class TableMaintenanceConfigurationIcebergCompactionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings object for compaction.
-        /// See `iceberg_compaction.settings` below.
+        /// Settings object for compaction. See `iceberg_compaction.settings` below.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.TableMaintenanceConfigurationIcebergCompactionSettingsGetArgs> Settings { get; set; } = null!;
 
         /// <summary>
-        /// Whether the configuration is enabled.
-        /// Valid values are `Enabled` and `Disabled`.
+        /// Whether the configuration is enabled. Valid values are `Enabled` and `Disabled`.
         /// </summary>
         [Input("status", required: true)]
         public Input<string> Status { get; set; } = null!;

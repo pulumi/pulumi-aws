@@ -21,14 +21,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs();
 
     /**
-     * Listener&#39;s TLS certificate.
+     * Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs> certificate;
 
     /**
-     * @return Listener&#39;s TLS certificate.
+     * @return Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs>> certificate() {
@@ -66,14 +66,14 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
+     * Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     @Import(name="validation", required=true)
     private Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs> validation() {
@@ -108,7 +108,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
         }
 
         /**
-         * @param certificate Listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
         }
 
         /**
-         * @param certificate Listener&#39;s TLS certificate.
+         * @param certificate Listener&#39;s TLS certificate. See `spec.listener.tls.certificate` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs exten
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 

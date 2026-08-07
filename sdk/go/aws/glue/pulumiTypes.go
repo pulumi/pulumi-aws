@@ -3376,6 +3376,8 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFi
 }
 
 type CatalogTableOptimizerConfiguration struct {
+	// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+	CompactionConfiguration *CatalogTableOptimizerConfigurationCompactionConfiguration `pulumi:"compactionConfiguration"`
 	// Indicates whether the table optimizer is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
@@ -3398,6 +3400,8 @@ type CatalogTableOptimizerConfigurationInput interface {
 }
 
 type CatalogTableOptimizerConfigurationArgs struct {
+	// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+	CompactionConfiguration CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput `pulumi:"compactionConfiguration"`
 	// Indicates whether the table optimizer is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
@@ -3485,6 +3489,13 @@ func (o CatalogTableOptimizerConfigurationOutput) ToCatalogTableOptimizerConfigu
 	}).(CatalogTableOptimizerConfigurationPtrOutput)
 }
 
+// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationOutput) CompactionConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationCompactionConfiguration {
+		return v.CompactionConfiguration
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
+}
+
 // Indicates whether the table optimizer is enabled.
 func (o CatalogTableOptimizerConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CatalogTableOptimizerConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -3533,6 +3544,16 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) Elem() CatalogTableOptimize
 	}).(CatalogTableOptimizerConfigurationOutput)
 }
 
+// The configuration block for a compaction optimizer. See Compaction Configuration for additional details.
+func (o CatalogTableOptimizerConfigurationPtrOutput) CompactionConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *CatalogTableOptimizerConfigurationCompactionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CompactionConfiguration
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
+}
+
 // Indicates whether the table optimizer is enabled.
 func (o CatalogTableOptimizerConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOptimizerConfiguration) *bool {
@@ -3570,6 +3591,326 @@ func (o CatalogTableOptimizerConfigurationPtrOutput) RoleArn() pulumi.StringPtrO
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfiguration struct {
+	// The configuration for an Iceberg compaction optimizer.
+	IcebergConfiguration *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration `pulumi:"icebergConfiguration"`
+}
+
+// CatalogTableOptimizerConfigurationCompactionConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationCompactionConfigurationArgs and CatalogTableOptimizerConfigurationCompactionConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationCompactionConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationCompactionConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationCompactionConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationOutput
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationArgs struct {
+	// The configuration for an Iceberg compaction optimizer.
+	IcebergConfiguration CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput `pulumi:"icebergConfiguration"`
+}
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationOutput).ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationCompactionConfigurationArgs, CatalogTableOptimizerConfigurationCompactionConfigurationPtr and CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationCompactionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationCompactionConfigurationPtrType CatalogTableOptimizerConfigurationCompactionConfigurationArgs
+
+func CatalogTableOptimizerConfigurationCompactionConfigurationPtr(v *CatalogTableOptimizerConfigurationCompactionConfigurationArgs) CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationCompactionConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationCompactionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationCompactionConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationCompactionConfigurationPtrType) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationCompactionConfigurationPtrType) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationCompactionConfiguration) *CatalogTableOptimizerConfigurationCompactionConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput)
+}
+
+// The configuration for an Iceberg compaction optimizer.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfiguration) *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationCompactionConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationCompactionConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfiguration) CatalogTableOptimizerConfigurationCompactionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationCompactionConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationOutput)
+}
+
+// The configuration for an Iceberg compaction optimizer.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput) IcebergConfiguration() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfiguration) *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IcebergConfiguration
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration struct {
+	// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+	DeleteFileThreshold *int `pulumi:"deleteFileThreshold"`
+	// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+	MinInputFiles *int `pulumi:"minInputFiles"`
+	// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+	Strategy *string `pulumi:"strategy"`
+}
+
+// CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationInput is an input type that accepts CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs and CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationInput` via:
+//
+//	CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{...}
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutputWithContext(context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs struct {
+	// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+	DeleteFileThreshold pulumi.IntPtrInput `pulumi:"deleteFileThreshold"`
+	// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+	MinInputFiles pulumi.IntPtrInput `pulumi:"minInputFiles"`
+	// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
+}
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput)
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput).ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput is an input type that accepts CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs, CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtr and CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput` via:
+//
+//	        CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput
+	ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput
+}
+
+type catalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrType CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs
+
+func CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtr(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput {
+	return (*catalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrType)(v)
+}
+
+func (*catalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (i *catalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return i.ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrType) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o.ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
+		return &v
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput)
+}
+
+// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
+		return v.DeleteFileThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) MinInputFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
+		return v.MinInputFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *string {
+		return v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration)(nil)).Elem()
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) ToCatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutputWithContext(ctx context.Context) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput {
+	return o
+}
+
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) Elem() CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration
+		return ret
+	}).(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput)
+}
+
+// The minimum number of deletes that must be present in a data file to make it eligible for compaction. Defaults to `1`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) DeleteFileThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DeleteFileThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of data files that must be present in a partition before compaction will actually compact files. Defaults to `100`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) MinInputFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinInputFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// The strategy to use for compaction. Valid values are `binpack`, `sort` and `z-order` Defaults to `binpack`.
+func (o CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Strategy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18765,6 +19106,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationCompactionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationInput)(nil)).Elem(), CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs{})
@@ -19011,6 +19356,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationCompactionConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationCompactionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationOutput{})
+	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationOutput{})

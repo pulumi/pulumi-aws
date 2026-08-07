@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
     public sealed class FlowSourceFlowConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// API version that the destination connector uses.
+        /// API version that the source connector uses.
         /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
 
         /// <summary>
-        /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+        /// Name of the connector profile. Must be unique for each connector profile in the AWS account.
         /// </summary>
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.AppFlow.Inputs
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+        /// Configuration for a scheduled incremental data pull. When a valid configuration is provided, the specified fields are used when querying for the incremental data pull. See the `source_flow_config.incremental_pull_config` Block for details.
         /// </summary>
         [Input("incrementalPullConfig")]
         public Input<Inputs.FlowSourceFlowConfigIncrementalPullConfigGetArgs>? IncrementalPullConfig { get; set; }
 
         /// <summary>
-        /// Information that is required to query a particular source connector. See Source Connector Properties for details.
+        /// Information required to query a particular source connector. See the `source_flow_config.source_connector_properties` Block for details.
         /// </summary>
         [Input("sourceConnectorProperties", required: true)]
         public Input<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGetArgs> SourceConnectorProperties { get; set; } = null!;

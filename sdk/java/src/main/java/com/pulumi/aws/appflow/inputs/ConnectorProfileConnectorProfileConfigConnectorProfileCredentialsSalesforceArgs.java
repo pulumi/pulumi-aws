@@ -16,22 +16,30 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs();
 
+    /**
+     * Credentials used to access protected Zendesk resources.
+     * 
+     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
+    /**
+     * @return Credentials used to access protected Zendesk resources.
+     * 
+     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
     /**
-     * The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * Secret manager ARN, which contains the client ID and client secret of the connected app.
      * 
      */
     @Import(name="clientCredentialsArn")
     private @Nullable Output<String> clientCredentialsArn;
 
     /**
-     * @return The secret manager ARN, which contains the client ID and client secret of the connected app.
+     * @return Secret manager ARN, which contains the client ID and client secret of the connected app.
      * 
      */
     public Optional<Output<String>> clientCredentialsArn() {
@@ -39,37 +47,61 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * A JSON web token (JWT) that authorizes access to Salesforce records.
+     * JSON web token (JWT) that authorizes access to Salesforce records.
      * 
      */
     @Import(name="jwtToken")
     private @Nullable Output<String> jwtToken;
 
     /**
-     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * @return JSON web token (JWT) that authorizes access to Salesforce records.
      * 
      */
     public Optional<Output<String>> jwtToken() {
         return Optional.ofNullable(this.jwtToken);
     }
 
+    /**
+     * OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     @Import(name="oauth2GrantType")
     private @Nullable Output<String> oauth2GrantType;
 
+    /**
+     * @return OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
     public Optional<Output<String>> oauth2GrantType() {
         return Optional.ofNullable(this.oauth2GrantType);
     }
 
+    /**
+     * OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest;
 
+    /**
+     * @return OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+     * 
+     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
 
+    /**
+     * Refresh token used to refresh an expired access token.
+     * 
+     */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
+    /**
+     * @return Refresh token used to refresh an expired access token.
+     * 
+     */
     public Optional<Output<String>> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }
@@ -103,17 +135,29 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
+        /**
+         * @param accessToken Credentials used to access protected Zendesk resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
         /**
-         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * @param clientCredentialsArn Secret manager ARN, which contains the client ID and client secret of the connected app.
          * 
          * @return builder
          * 
@@ -124,7 +168,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param clientCredentialsArn The secret manager ARN, which contains the client ID and client secret of the connected app.
+         * @param clientCredentialsArn Secret manager ARN, which contains the client ID and client secret of the connected app.
          * 
          * @return builder
          * 
@@ -134,7 +178,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * @param jwtToken JSON web token (JWT) that authorizes access to Salesforce records.
          * 
          * @return builder
          * 
@@ -145,7 +189,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * @param jwtToken JSON web token (JWT) that authorizes access to Salesforce records.
          * 
          * @return builder
          * 
@@ -154,29 +198,65 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return jwtToken(Output.of(jwtToken));
         }
 
+        /**
+         * @param oauth2GrantType OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2GrantType(@Nullable Output<String> oauth2GrantType) {
             $.oauth2GrantType = oauth2GrantType;
             return this;
         }
 
+        /**
+         * @param oauth2GrantType OAuth 2.0 grant type used by the connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauth2GrantType(String oauth2GrantType) {
             return oauth2GrantType(Output.of(oauth2GrantType));
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
+        /**
+         * @param oauthRequest OAuth requirement needed to request security tokens from the connector endpoint. See `connector_profile_config.connector_profile_credentials.zendesk.oauth_request` Block for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }
 
+        /**
+         * @param refreshToken Refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(@Nullable Output<String> refreshToken) {
             $.refreshToken = refreshToken;
             return this;
         }
 
+        /**
+         * @param refreshToken Refresh token used to refresh an expired access token.
+         * 
+         * @return builder
+         * 
+         */
         public Builder refreshToken(String refreshToken) {
             return refreshToken(Output.of(refreshToken));
         }

@@ -32,7 +32,6 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
 
     /**
      * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     @Import(name="storageCapacityQuotaGib", required=true)
@@ -40,16 +39,23 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
 
     /**
      * @return The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
     public Output<Integer> storageCapacityQuotaGib() {
         return this.storageCapacityQuotaGib;
     }
 
+    /**
+     * A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -103,7 +109,6 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
 
         /**
          * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          * 
          * @return builder
          * 
@@ -115,7 +120,6 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
 
         /**
          * @param storageCapacityQuotaGib The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-         * * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
          * 
          * @return builder
          * 
@@ -124,11 +128,23 @@ public final class OpenZfsVolumeUserAndGroupQuotaArgs extends com.pulumi.resourc
             return storageCapacityQuotaGib(Output.of(storageCapacityQuotaGib));
         }
 
+        /**
+         * @param type A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

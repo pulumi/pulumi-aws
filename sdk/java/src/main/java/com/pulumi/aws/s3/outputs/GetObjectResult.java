@@ -32,7 +32,7 @@ public final class GetObjectResult {
     private String bodyBase64;
     private String bucket;
     /**
-     * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
     private Boolean bucketKeyEnabled;
@@ -42,28 +42,28 @@ public final class GetObjectResult {
      */
     private String cacheControl;
     /**
-     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     private String checksumCrc32;
     /**
-     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     private String checksumCrc32c;
     /**
-     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * @return Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     private String checksumCrc64nvme;
     private @Nullable String checksumMode;
     /**
-     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * @return Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     private String checksumSha1;
     /**
-     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * @return Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     private String checksumSha256;
@@ -125,7 +125,7 @@ public final class GetObjectResult {
      */
     private Map<String,String> metadata;
     /**
-     * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
+     * @return Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
     private String objectLockLegalHoldStatus;
@@ -135,7 +135,7 @@ public final class GetObjectResult {
      */
     private String objectLockMode;
     /**
-     * @return The date and time when this object&#39;s object lock will expire.
+     * @return Date and time when this object&#39;s object lock will expire.
      * 
      */
     private String objectLockRetainUntilDate;
@@ -198,7 +198,7 @@ public final class GetObjectResult {
         return this.bucket;
     }
     /**
-     * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+     * @return Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
     public Boolean bucketKeyEnabled() {
@@ -212,21 +212,21 @@ public final class GetObjectResult {
         return this.cacheControl;
     }
     /**
-     * @return The base64-encoded, 32-bit CRC32 checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
     public String checksumCrc32() {
         return this.checksumCrc32;
     }
     /**
-     * @return The base64-encoded, 32-bit CRC32C checksum of the object.
+     * @return Base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
     public String checksumCrc32c() {
         return this.checksumCrc32c;
     }
     /**
-     * @return The base64-encoded, 64-bit CRC64NVME checksum of the object.
+     * @return Base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
     public String checksumCrc64nvme() {
@@ -236,14 +236,14 @@ public final class GetObjectResult {
         return Optional.ofNullable(this.checksumMode);
     }
     /**
-     * @return The base64-encoded, 160-bit SHA-1 digest of the object.
+     * @return Base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
     public String checksumSha1() {
         return this.checksumSha1;
     }
     /**
-     * @return The base64-encoded, 256-bit SHA-256 digest of the object.
+     * @return Base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
     public String checksumSha256() {
@@ -333,7 +333,7 @@ public final class GetObjectResult {
         return this.metadata;
     }
     /**
-     * @return Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
+     * @return Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object&#39;s legal hold status.
      * 
      */
     public String objectLockLegalHoldStatus() {
@@ -347,7 +347,7 @@ public final class GetObjectResult {
         return this.objectLockMode;
     }
     /**
-     * @return The date and time when this object&#39;s object lock will expire.
+     * @return Date and time when this object&#39;s object lock will expire.
      * 
      */
     public String objectLockRetainUntilDate() {

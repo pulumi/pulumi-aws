@@ -37,13 +37,13 @@ class ConfigurationProfileArgs:
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "location_uri", location_uri)
@@ -104,7 +104,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -176,7 +176,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter
     def validators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
-        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         return pulumi.get(self, "validators")
 
@@ -206,9 +206,9 @@ class _ConfigurationProfileState:
 
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Configuration Profile.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: The configuration profile ID.
+        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -216,7 +216,7 @@ class _ConfigurationProfileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -273,7 +273,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The configuration profile ID.
+        Configuration profile ID.
         """
         return pulumi.get(self, "configuration_profile_id")
 
@@ -297,7 +297,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -393,7 +393,7 @@ class _ConfigurationProfileState:
     @pulumi.getter
     def validators(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationProfileValidatorArgs']]]]:
         """
-        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         return pulumi.get(self, "validators")
 
@@ -455,14 +455,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         ...
     @overload
@@ -585,9 +585,9 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Configuration Profile.
-        :param pulumi.Input[_builtins.str] configuration_profile_id: The configuration profile ID.
+        :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -595,7 +595,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationProfileValidatorArgs', 'ConfigurationProfileValidatorArgsDict']]]] validators: Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -636,7 +636,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The configuration profile ID.
+        Configuration profile ID.
         """
         return pulumi.get(self, "configuration_profile_id")
 
@@ -652,7 +652,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -716,7 +716,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter
     def validators(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationProfileValidator']]]:
         """
-        Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
+        Set of methods for validating the configuration. Maximum of 2. See `validator` Block below for more details.
         """
         return pulumi.get(self, "validators")
 

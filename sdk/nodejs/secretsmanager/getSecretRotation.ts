@@ -40,7 +40,7 @@ export interface GetSecretRotationArgs {
      */
     region?: string;
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: string;
 }
@@ -63,7 +63,7 @@ export interface GetSecretRotationResult {
     readonly id: string;
     readonly region: string;
     /**
-     * Specifies whether automatic rotation is enabled for this secret.
+     * Whether automatic rotation is enabled for this secret.
      */
     readonly rotationEnabled: boolean;
     /**
@@ -109,7 +109,7 @@ export interface GetSecretRotationOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+     * Secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
     secretId: pulumi.Input<string>;
 }

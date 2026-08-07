@@ -83,74 +83,70 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The availability zone identifiers for the requested regions.
+     * Availability zone identifiers for the requested regions.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
     /**
-     * @return The availability zone identifiers for the requested regions.
+     * @return Availability zone identifiers for the requested regions.
      * 
      */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
     /**
-     * The list of Managed kdb clusters that are currently active in the given scaling group.
+     * List of Managed kdb clusters that are currently active in the given scaling group.
      * 
      */
     @Export(name="clusters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> clusters;
 
     /**
-     * @return The list of Managed kdb clusters that are currently active in the given scaling group.
+     * @return List of Managed kdb clusters that are currently active in the given scaling group.
      * 
      */
     public Output<List<String>> clusters() {
         return this.clusters;
     }
     /**
-     * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
     @Export(name="createdTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createdTimestamp;
 
     /**
-     * @return The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * @return Timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
     public Output<String> createdTimestamp() {
         return this.createdTimestamp;
     }
     /**
-     * A unique identifier for the kdb environment, where you want to create the scaling group.
+     * Unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
     /**
-     * @return A unique identifier for the kdb environment, where you want to create the scaling group.
+     * @return Unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
     public Output<String> environmentId() {
         return this.environmentId;
     }
     /**
-     * The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     * 
-     * The following arguments are optional:
+     * Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      * 
      */
     @Export(name="hostType", refs={String.class}, tree="[0]")
     private Output<String> hostType;
 
     /**
-     * @return The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
-     * 
-     * The following arguments are optional:
+     * @return Memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
      * 
      */
     public Output<String> hostType() {
@@ -173,12 +169,16 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
     /**
      * Unique name for the scaling group that you want to create.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Unique name for the scaling group that you want to create.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -199,44 +199,28 @@ public class KxScalingGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The status of scaling group.
-     * * `CREATING` - The scaling group creation is in progress.
-     * * `CREATE_FAILED` - The scaling group creation has failed.
-     * * `ACTIVE` - The scaling group is active.
-     * * `UPDATING` - The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `DELETING` - The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the scaling group.
-     * * `DELETED` - The scaling group is successfully deleted.
+     * Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of scaling group.
-     * * `CREATING` - The scaling group creation is in progress.
-     * * `CREATE_FAILED` - The scaling group creation has failed.
-     * * `ACTIVE` - The scaling group is active.
-     * * `UPDATING` - The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` - The update action failed.
-     * * `DELETING` - The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` - The system failed to delete the scaling group.
-     * * `DELETED` - The scaling group is successfully deleted.
+     * @return Status of scaling group (`CREATING`, `CREATE_FAILED`, `ACTIVE`, `UPDATING`, `UPDATE_FAILED`, `DELETING`, `DELETE_FAILED`, `DELETED`).
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * The error message when a failed state occurs.
+     * Error message when a failed state occurs.
      * 
      */
     @Export(name="statusReason", refs={String.class}, tree="[0]")
     private Output<String> statusReason;
 
     /**
-     * @return The error message when a failed state occurs.
+     * @return Error message when a failed state occurs.
      * 
      */
     public Output<String> statusReason() {

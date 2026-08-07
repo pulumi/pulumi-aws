@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fms.Outputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode
     {
         /// <summary>
-        /// An integer value containing ICMP code.
+        /// ICMP code.
         /// </summary>
         public readonly int? Code;
         /// <summary>
-        /// An integer value containing ICMP type.
+        /// ICMP type.
         /// </summary>
         public readonly int? Type;
 

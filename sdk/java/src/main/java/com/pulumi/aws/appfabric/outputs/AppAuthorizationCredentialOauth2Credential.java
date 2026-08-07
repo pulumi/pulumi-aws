@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class AppAuthorizationCredentialOauth2Credential {
     /**
-     * @return The client ID of the client application.
+     * @return Client ID of the client application.
      * 
      */
     private String clientId;
     /**
-     * @return The client secret of the client application.
+     * @return Client secret of the client application.
      * 
      */
     private String clientSecret;
 
     private AppAuthorizationCredentialOauth2Credential() {}
     /**
-     * @return The client ID of the client application.
+     * @return Client ID of the client application.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The client secret of the client application.
+     * @return Client secret of the client application.
      * 
      */
     public String clientSecret() {

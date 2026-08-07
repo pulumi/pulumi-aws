@@ -196,12 +196,12 @@ type KxEnvironment struct {
 	// Unique identifier for the AWS environment infrastructure account.
 	InfrastructureAccountId pulumi.StringOutput `pulumi:"infrastructureAccountId"`
 	// KMS key ID to encrypt your data in the FinSpace environment.
-	//
-	// The following arguments are optional:
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX environment that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -261,12 +261,12 @@ type kxEnvironmentState struct {
 	// Unique identifier for the AWS environment infrastructure account.
 	InfrastructureAccountId *string `pulumi:"infrastructureAccountId"`
 	// KMS key ID to encrypt your data in the FinSpace environment.
-	//
-	// The following arguments are optional:
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Name of the KX environment that you want to create.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -294,12 +294,12 @@ type KxEnvironmentState struct {
 	// Unique identifier for the AWS environment infrastructure account.
 	InfrastructureAccountId pulumi.StringPtrInput
 	// KMS key ID to encrypt your data in the FinSpace environment.
-	//
-	// The following arguments are optional:
 	KmsKeyId pulumi.StringPtrInput
 	// Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Name of the KX environment that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -323,10 +323,10 @@ type kxEnvironmentArgs struct {
 	// Description for the KX environment.
 	Description *string `pulumi:"description"`
 	// KMS key ID to encrypt your data in the FinSpace environment.
-	//
-	// The following arguments are optional:
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the KX environment that you want to create.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -343,10 +343,10 @@ type KxEnvironmentArgs struct {
 	// Description for the KX environment.
 	Description pulumi.StringPtrInput
 	// KMS key ID to encrypt your data in the FinSpace environment.
-	//
-	// The following arguments are optional:
 	KmsKeyId pulumi.StringInput
 	// Name of the KX environment that you want to create.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -476,8 +476,6 @@ func (o KxEnvironmentOutput) InfrastructureAccountId() pulumi.StringOutput {
 }
 
 // KMS key ID to encrypt your data in the FinSpace environment.
-//
-// The following arguments are optional:
 func (o KxEnvironmentOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -488,6 +486,8 @@ func (o KxEnvironmentOutput) LastModifiedTimestamp() pulumi.StringOutput {
 }
 
 // Name of the KX environment that you want to create.
+//
+// The following arguments are optional:
 func (o KxEnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

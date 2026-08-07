@@ -33,14 +33,14 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
     }
 
     /**
-     * Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+     * Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs> encryption;
 
     /**
-     * @return Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+     * @return Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs>> encryption() {
@@ -94,7 +94,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param encryption Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+         * @param encryption Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param encryption Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
+         * @param encryption Encryption of the metrics exports in this S3 tables bucket. See `encryption` below for more details.
          * 
          * @return builder
          * 

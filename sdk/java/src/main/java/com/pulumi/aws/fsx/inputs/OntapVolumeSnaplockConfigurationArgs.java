@@ -20,14 +20,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     public static final OntapVolumeSnaplockConfigurationArgs Empty = new OntapVolumeSnaplockConfigurationArgs();
 
     /**
-     * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+     * Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
     @Import(name="auditLogVolume")
     private @Nullable Output<Boolean> auditLogVolume;
 
     /**
-     * @return Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+     * @return Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> auditLogVolume() {
@@ -35,14 +35,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+     * Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
      * 
      */
     @Import(name="autocommitPeriod")
     private @Nullable Output<OntapVolumeSnaplockConfigurationAutocommitPeriodArgs> autocommitPeriod;
 
     /**
-     * @return The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+     * @return Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationAutocommitPeriodArgs>> autocommitPeriod() {
@@ -50,14 +50,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+     * Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
      * 
      */
     @Import(name="privilegedDelete")
     private @Nullable Output<String> privilegedDelete;
 
     /**
-     * @return Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+     * @return Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
      * 
      */
     public Optional<Output<String>> privilegedDelete() {
@@ -65,14 +65,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+     * Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
      * 
      */
     @Import(name="retentionPeriod")
     private @Nullable Output<OntapVolumeSnaplockConfigurationRetentionPeriodArgs> retentionPeriod;
 
     /**
-     * @return The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+     * @return Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
      * 
      */
     public Optional<Output<OntapVolumeSnaplockConfigurationRetentionPeriodArgs>> retentionPeriod() {
@@ -80,14 +80,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+     * Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
      * 
      */
     @Import(name="snaplockType", required=true)
     private Output<String> snaplockType;
 
     /**
-     * @return Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+     * @return Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
      * 
      */
     public Output<String> snaplockType() {
@@ -95,14 +95,14 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
     }
 
     /**
-     * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+     * Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
     @Import(name="volumeAppendModeEnabled")
     private @Nullable Output<Boolean> volumeAppendModeEnabled;
 
     /**
-     * @return Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+     * @return Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> volumeAppendModeEnabled() {
@@ -139,7 +139,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param auditLogVolume Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * @param auditLogVolume Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param auditLogVolume Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * @param auditLogVolume Whether to enable the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+         * @param autocommitPeriod Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param autocommitPeriod The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
+         * @param autocommitPeriod Configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommitPeriod` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privilegedDelete Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+         * @param privilegedDelete Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privilegedDelete Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+         * @param privilegedDelete Whether privileged delete is enabled, disabled, or permanently disabled on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+         * @param retentionPeriod Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionPeriod The retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
+         * @param retentionPeriod Retention period of an FSx for ONTAP SnapLock volume. See `retentionPeriod` Block for details.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param snaplockType Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+         * @param snaplockType Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param snaplockType Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+         * @param snaplockType Retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param volumeAppendModeEnabled Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * @param volumeAppendModeEnabled Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class OntapVolumeSnaplockConfigurationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param volumeAppendModeEnabled Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+         * @param volumeAppendModeEnabled Whether to enable volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
          * 
          * @return builder
          * 

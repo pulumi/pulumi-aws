@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Fms.Inputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+        /// IPv4 network range to allow or deny, in CIDR notation.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+        /// Whether Firewall Manager creates an egress rule. If `False`, Firewall Manager creates an ingress rule.
         /// </summary>
         [Input("egress", required: true)]
         public Input<bool> Egress { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs>? _icmpTypeCodes;
 
         /// <summary>
-        /// A configuration block for ICMP protocol: The ICMP type and code. See the `IcmpTypeCode` block.
+        /// ICMP protocol configuration specifying the ICMP type and code. See the `IcmpTypeCode` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs> IcmpTypeCodes
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Fms.Inputs
         }
 
         /// <summary>
-        /// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+        /// IPv6 network range to allow or deny, in CIDR notation.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fms.Inputs
         private InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs>? _portRanges;
 
         /// <summary>
-        /// A configuration block for PortRange. See the `PortRange` block.
+        /// Port range configuration for the rule. See the `PortRange` block.
         /// </summary>
         public InputList<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs> PortRanges
         {
@@ -55,13 +55,13 @@ namespace Pulumi.Aws.Fms.Inputs
         }
 
         /// <summary>
-        /// The protocol number. A value of "-1" means all protocols.
+        /// Protocol number. A value of `-1` means all protocols.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `Allow`, `Deny`.
+        /// Whether to allow or deny the traffic that matches the rule. Valid values: `Allow`, `Deny`.
         /// </summary>
         [Input("ruleAction", required: true)]
         public Input<string> RuleAction { get; set; } = null!;

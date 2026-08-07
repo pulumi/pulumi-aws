@@ -33,14 +33,14 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     @Import(name="connectorProfileName")
     private @Nullable Output<String> connectorProfileName;
 
     /**
-     * @return Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+     * @return Name of the connector profile. Must be unique for each connector profile in the AWS account.
      * 
      */
     public Optional<Output<String>> connectorProfileName() {
@@ -63,14 +63,14 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+     * Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
      * 
      */
     @Import(name="destinationConnectorProperties", required=true)
     private Output<FlowDestinationFlowConfigDestinationConnectorPropertiesArgs> destinationConnectorProperties;
 
     /**
-     * @return This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+     * @return Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
      * 
      */
     public Output<FlowDestinationFlowConfigDestinationConnectorPropertiesArgs> destinationConnectorProperties() {
@@ -126,7 +126,7 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. Must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param connectorProfileName Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         * @param connectorProfileName Name of the connector profile. Must be unique for each connector profile in the AWS account.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinationConnectorProperties This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+         * @param destinationConnectorProperties Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class FlowDestinationFlowConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinationConnectorProperties This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+         * @param destinationConnectorProperties Information required to query a particular connector. See the `destination_flow_config.destination_connector_properties` Block for details.
          * 
          * @return builder
          * 

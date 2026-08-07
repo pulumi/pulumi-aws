@@ -133,6 +133,61 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### CloudWatch Destination
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationCloudwatchArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Scraper("example", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .eks(ScraperSourceEksArgs.builder()
+ *                     .clusterArn(exampleAwsEksCluster.arn())
+ *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
+ *                     .build())
+ *                 .build())
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .cloudwatch(ScraperDestinationCloudwatchArgs.builder()
+ *                     .datasetArn("arn:aws:cloudwatch:us-west-2:123456789012:dataset/default")
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration("""
+ * global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   - job_name: pod_exporter
+ *     kubernetes_sd_configs:
+ *       - role: pod
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### VPC Configuration
  * 
  * <pre>
@@ -387,53 +442,64 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import the Managed Scraper using its identifier.
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) ID of the scraper.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import scrapers using `id`.
  * For example:
  * 
  * ```sh
- * $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+ * $ pulumi import aws:amp/scraper:Scraper example s-b6f487db-4761-4930-9215-e9d588a7efe2
  * ```
  * 
  */
 @ResourceType(type="aws:amp/scraper:Scraper")
 public class Scraper extends com.pulumi.resources.CustomResource {
     /**
-     * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
     /**
-     * @return a name to associate with the managed scraper. This is for your use, and does not need to be unique.
+     * @return Name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
     public Output<Optional<String>> alias() {
         return Codegen.optional(this.alias);
     }
     /**
-     * The Amazon Resource Name (ARN) of the new scraper.
+     * ARN of the scraper.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the new scraper.
+     * @return ARN of the scraper.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Configuration block for the managed scraper to send metrics to. See `destination`.
+     * Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      * 
      */
     @Export(name="destination", refs={ScraperDestination.class}, tree="[0]")
     private Output<ScraperDestination> destination;
 
     /**
-     * @return Configuration block for the managed scraper to send metrics to. See `destination`.
+     * @return Configuration block for the managed scraper to send metrics to. See `destination` Block for details.
      * 
      */
     public Output<ScraperDestination> destination() {
@@ -454,49 +520,49 @@ public class Scraper extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
+     * @return ARN of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      * 
      */
     @Export(name="roleConfiguration", refs={ScraperRoleConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ScraperRoleConfiguration> roleConfiguration;
 
     /**
-     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
+     * @return Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` Block for details.
      * 
      */
     public Output<Optional<ScraperRoleConfiguration>> roleConfiguration() {
         return Codegen.optional(this.roleConfiguration);
     }
     /**
-     * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
     @Export(name="scrapeConfiguration", refs={String.class}, tree="[0]")
     private Output<String> scrapeConfiguration;
 
     /**
-     * @return The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
+     * @return Configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
     public Output<String> scrapeConfiguration() {
         return this.scrapeConfiguration;
     }
     /**
-     * Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -505,7 +571,7 @@ public class Scraper extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ ScraperSource> source;
 
     /**
-     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+     * @return Configuration block to specify where the managed scraper will collect metrics from. See `source` Block for details.
      * 
      * The following arguments are optional:
      * 
@@ -513,15 +579,31 @@ public class Scraper extends com.pulumi.resources.CustomResource {
     public Output<Optional<ScraperSource>> source() {
         return Codegen.optional(this.source);
     }
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

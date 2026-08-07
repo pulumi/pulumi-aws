@@ -15,14 +15,14 @@ public final class ScraperDestinationAmpArgs extends com.pulumi.resources.Resour
     public static final ScraperDestinationAmpArgs Empty = new ScraperDestinationAmpArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the prometheus workspace.
+     * ARN of the prometheus workspace.
      * 
      */
     @Import(name="workspaceArn", required=true)
     private Output<String> workspaceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the prometheus workspace.
+     * @return ARN of the prometheus workspace.
      * 
      */
     public Output<String> workspaceArn() {
@@ -54,7 +54,7 @@ public final class ScraperDestinationAmpArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workspaceArn The Amazon Resource Name (ARN) of the prometheus workspace.
+         * @param workspaceArn ARN of the prometheus workspace.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ScraperDestinationAmpArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workspaceArn The Amazon Resource Name (ARN) of the prometheus workspace.
+         * @param workspaceArn ARN of the prometheus workspace.
          * 
          * @return builder
          * 

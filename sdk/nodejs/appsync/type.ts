@@ -71,23 +71,23 @@ export class Type extends pulumi.CustomResource {
      */
     declare public readonly apiId: pulumi.Output<string>;
     /**
-     * The ARN of the type.
+     * ARN of the type.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The type definition.
+     * Type definition.
      */
     declare public readonly definition: pulumi.Output<string>;
     /**
-     * The type description.
+     * Type description.
      */
     declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
-     * The type format: `SDL` or `JSON`.
+     * Type format: `SDL` or `JSON`.
      */
     declare public readonly format: pulumi.Output<string>;
     /**
-     * The type name.
+     * Type name.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -148,23 +148,23 @@ export interface TypeState {
      */
     apiId?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the type.
+     * ARN of the type.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The type definition.
+     * Type definition.
      */
     definition?: pulumi.Input<string | undefined>;
     /**
-     * The type description.
+     * Type description.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The type format: `SDL` or `JSON`.
+     * Type format: `SDL` or `JSON`.
      */
     format?: pulumi.Input<string | undefined>;
     /**
-     * The type name.
+     * Type name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -182,11 +182,11 @@ export interface TypeArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * The type definition.
+     * Type definition.
      */
     definition: pulumi.Input<string>;
     /**
-     * The type format: `SDL` or `JSON`.
+     * Type format: `SDL` or `JSON`.
      */
     format: pulumi.Input<string>;
     /**

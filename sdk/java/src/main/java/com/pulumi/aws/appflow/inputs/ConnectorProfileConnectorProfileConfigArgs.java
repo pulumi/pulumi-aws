@@ -16,14 +16,14 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
     public static final ConnectorProfileConnectorProfileConfigArgs Empty = new ConnectorProfileConnectorProfileConfigArgs();
 
     /**
-     * The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+     * Connector-specific credentials required by each connector. See `connectorProfileCredentials` Block for details.
      * 
      */
     @Import(name="connectorProfileCredentials", required=true)
     private Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs> connectorProfileCredentials;
 
     /**
-     * @return The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required by each connector. See `connectorProfileCredentials` Block for details.
      * 
      */
     public Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs> connectorProfileCredentials() {
@@ -31,14 +31,14 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
     }
 
     /**
-     * The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+     * Connector-specific properties of the profile configuration. See `connectorProfileProperties` Block for details.
      * 
      */
     @Import(name="connectorProfileProperties", required=true)
     private Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs> connectorProfileProperties;
 
     /**
-     * @return The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+     * @return Connector-specific properties of the profile configuration. See `connectorProfileProperties` Block for details.
      * 
      */
     public Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs> connectorProfileProperties() {
@@ -71,7 +71,7 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
         }
 
         /**
-         * @param connectorProfileCredentials The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+         * @param connectorProfileCredentials Connector-specific credentials required by each connector. See `connectorProfileCredentials` Block for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
         }
 
         /**
-         * @param connectorProfileCredentials The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+         * @param connectorProfileCredentials Connector-specific credentials required by each connector. See `connectorProfileCredentials` Block for details.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
         }
 
         /**
-         * @param connectorProfileProperties The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+         * @param connectorProfileProperties Connector-specific properties of the profile configuration. See `connectorProfileProperties` Block for details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorProfileConnectorProfileConfigArgs extends com.pulumi
         }
 
         /**
-         * @param connectorProfileProperties The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+         * @param connectorProfileProperties Connector-specific properties of the profile configuration. See `connectorProfileProperties` Block for details.
          * 
          * @return builder
          * 

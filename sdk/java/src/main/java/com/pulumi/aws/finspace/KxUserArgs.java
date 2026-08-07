@@ -35,8 +35,6 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * IAM role ARN to be associated with the user.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="iamRole", required=true)
     private Output<String> iamRole;
@@ -44,22 +42,24 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return IAM role ARN to be associated with the user.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<String> iamRole() {
         return this.iamRole;
     }
 
     /**
-     * A unique identifier for the user.
+     * Unique identifier for the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A unique identifier for the user.
+     * @return Unique identifier for the user.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -148,8 +148,6 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param iamRole IAM role ARN to be associated with the user.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -161,8 +159,6 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param iamRole IAM role ARN to be associated with the user.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -171,7 +167,9 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique identifier for the user.
+         * @param name Unique identifier for the user.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -182,7 +180,9 @@ public final class KxUserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A unique identifier for the user.
+         * @param name Unique identifier for the user.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
     public static final KxClusterDatabaseArgs Empty = new KxClusterDatabaseArgs();
 
     /**
-     * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+     * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
      * 
      */
     @Import(name="cacheConfigurations")
     private @Nullable Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations;
 
     /**
-     * @return Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+     * @return Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
      * 
      */
     public Optional<Output<List<KxClusterDatabaseCacheConfigurationArgs>>> cacheConfigurations() {
@@ -34,14 +34,14 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A unique identifier of the changeset that is associated with the cluster.
+     * Unique identifier of the changeset that is associated with the cluster.
      * 
      */
     @Import(name="changesetId")
     private @Nullable Output<String> changesetId;
 
     /**
-     * @return A unique identifier of the changeset that is associated with the cluster.
+     * @return Unique identifier of the changeset that is associated with the cluster.
      * 
      */
     public Optional<Output<String>> changesetId() {
@@ -64,14 +64,14 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+     * Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     @Import(name="dataviewName")
     private @Nullable Output<String> dataviewName;
 
     /**
-     * @return The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+     * @return Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
      * 
      */
     public Optional<Output<String>> dataviewName() {
@@ -106,7 +106,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+         * @param cacheConfigurations Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See `cacheConfigurations` Block.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param changesetId A unique identifier of the changeset that is associated with the cluster.
+         * @param changesetId Unique identifier of the changeset that is associated with the cluster.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param changesetId A unique identifier of the changeset that is associated with the cluster.
+         * @param changesetId Unique identifier of the changeset that is associated with the cluster.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+         * @param dataviewName Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataviewName The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
+         * @param dataviewName Name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignoreChanges` for database to prevent any undesirable behaviors.
          * 
          * @return builder
          * 

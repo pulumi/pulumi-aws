@@ -14,9 +14,17 @@ public final class ExpressGatewayServicePrimaryContainerSecretArgs extends com.p
 
     public static final ExpressGatewayServicePrimaryContainerSecretArgs Empty = new ExpressGatewayServicePrimaryContainerSecretArgs();
 
+    /**
+     * Name of the secret.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return Name of the secret.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -61,11 +69,23 @@ public final class ExpressGatewayServicePrimaryContainerSecretArgs extends com.p
             $ = new ExpressGatewayServicePrimaryContainerSecretArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

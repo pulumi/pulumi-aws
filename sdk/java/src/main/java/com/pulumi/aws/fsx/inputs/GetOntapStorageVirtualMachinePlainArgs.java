@@ -35,16 +35,12 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
     /**
      * Identifier of the storage virtual machine (e.g. `svm-12345678`).
      * 
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-     * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
      * @return Identifier of the storage virtual machine (e.g. `svm-12345678`).
-     * 
-     * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      * 
      */
     public Optional<String> id() {
@@ -66,9 +62,17 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Map of tags assigned to the resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Map of tags assigned to the resource.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -124,8 +128,6 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
         /**
          * @param id Identifier of the storage virtual machine (e.g. `svm-12345678`).
          * 
-         * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-         * 
          * @return builder
          * 
          */
@@ -145,6 +147,12 @@ public final class GetOntapStorageVirtualMachinePlainArgs extends com.pulumi.res
             return this;
         }
 
+        /**
+         * @param tags Map of tags assigned to the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

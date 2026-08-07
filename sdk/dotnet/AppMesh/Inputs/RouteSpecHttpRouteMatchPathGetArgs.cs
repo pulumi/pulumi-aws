@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecHttpRouteMatchPathGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The exact path to match on.
+        /// Exact query parameter to match on.
         /// </summary>
         [Input("exact")]
         public Input<string>? Exact { get; set; }
 
         /// <summary>
-        /// The regex used to match the path.
+        /// Regex used to match the path.
         /// </summary>
         [Input("regex")]
         public Input<string>? Regex { get; set; }

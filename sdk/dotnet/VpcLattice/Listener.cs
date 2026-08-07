@@ -199,6 +199,9 @@ namespace Pulumi.Aws.VpcLattice
         [Output("defaultAction")]
         public Output<Outputs.ListenerDefaultAction> DefaultAction { get; private set; } = null!;
 
+        /// <summary>
+        /// Date and time that the listener was last updated, specified in ISO-8601 format.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
@@ -246,7 +249,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> ServiceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -347,7 +350,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -381,6 +384,9 @@ namespace Pulumi.Aws.VpcLattice
         [Input("defaultAction")]
         public Input<Inputs.ListenerDefaultActionGetArgs>? DefaultAction { get; set; }
 
+        /// <summary>
+        /// Date and time that the listener was last updated, specified in ISO-8601 format.
+        /// </summary>
         [Input("lastUpdatedAt")]
         public Input<string>? LastUpdatedAt { get; set; }
 
@@ -431,7 +437,7 @@ namespace Pulumi.Aws.VpcLattice
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

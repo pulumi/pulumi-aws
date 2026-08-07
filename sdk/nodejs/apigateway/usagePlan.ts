@@ -47,11 +47,11 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /**
-     * Associated API stages of the usage plan.
+     * Associated API stages of the usage plan. See `apiStages` Block below.
      */
     declare public readonly apiStages: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
-     * ARN
+     * ARN of the usage plan.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     declare public readonly productCode: pulumi.Output<string | undefined>;
     /**
-     * The quota settings of the usage plan.
+     * Quota settings of the usage plan. See `quotaSettings` Block below.
      */
     declare public readonly quotaSettings: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
@@ -83,7 +83,7 @@ export class UsagePlan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan. See `throttleSettings` Block below.
      */
     declare public readonly throttleSettings: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
 
@@ -133,11 +133,11 @@ export class UsagePlan extends pulumi.CustomResource {
  */
 export interface UsagePlanState {
     /**
-     * Associated API stages of the usage plan.
+     * Associated API stages of the usage plan. See `apiStages` Block below.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[] | undefined>;
     /**
-     * ARN
+     * ARN of the usage plan.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface UsagePlanState {
      */
     productCode?: pulumi.Input<string | undefined>;
     /**
-     * The quota settings of the usage plan.
+     * Quota settings of the usage plan. See `quotaSettings` Block below.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface UsagePlanState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan. See `throttleSettings` Block below.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings | undefined>;
 }
@@ -179,7 +179,7 @@ export interface UsagePlanState {
  */
 export interface UsagePlanArgs {
     /**
-     * Associated API stages of the usage plan.
+     * Associated API stages of the usage plan. See `apiStages` Block below.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[] | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface UsagePlanArgs {
      */
     productCode?: pulumi.Input<string | undefined>;
     /**
-     * The quota settings of the usage plan.
+     * Quota settings of the usage plan. See `quotaSettings` Block below.
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface UsagePlanArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The throttling limits of the usage plan.
+     * Throttling limits of the usage plan. See `throttleSettings` Block below.
      */
     throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings | undefined>;
 }

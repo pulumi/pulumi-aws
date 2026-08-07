@@ -22,14 +22,14 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
     public static final ApiEventConfigArgs Empty = new ApiEventConfigArgs();
 
     /**
-     * List of authentication providers. See Auth Providers below.
+     * List of authentication providers. See `event_config.auth_provider` Block below.
      * 
      */
     @Import(name="authProviders", required=true)
     private Output<List<ApiEventConfigAuthProviderArgs>> authProviders;
 
     /**
-     * @return List of authentication providers. See Auth Providers below.
+     * @return List of authentication providers. See `event_config.auth_provider` Block below.
      * 
      */
     public Output<List<ApiEventConfigAuthProviderArgs>> authProviders() {
@@ -37,14 +37,14 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of authentication modes for connections. See Auth Modes below.
+     * List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
      * 
      */
     @Import(name="connectionAuthModes", required=true)
     private Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes;
 
     /**
-     * @return List of authentication modes for connections. See Auth Modes below.
+     * @return List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
      * 
      */
     public Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes() {
@@ -52,14 +52,14 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of default authentication modes for publishing. See Auth Modes below.
+     * List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
      * 
      */
     @Import(name="defaultPublishAuthModes", required=true)
     private Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes;
 
     /**
-     * @return List of default authentication modes for publishing. See Auth Modes below.
+     * @return List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
      * 
      */
     public Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes() {
@@ -67,14 +67,14 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of default authentication modes for subscribing. See Auth Modes below.
+     * List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
      * 
      */
     @Import(name="defaultSubscribeAuthModes", required=true)
     private Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes;
 
     /**
-     * @return List of default authentication modes for subscribing. See Auth Modes below.
+     * @return List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
      * 
      */
     public Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes() {
@@ -82,14 +82,14 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Logging configuration. See Log Config below.
+     * Logging configuration. See `logConfig` Block below.
      * 
      */
     @Import(name="logConfig")
     private @Nullable Output<ApiEventConfigLogConfigArgs> logConfig;
 
     /**
-     * @return Logging configuration. See Log Config below.
+     * @return Logging configuration. See `logConfig` Block below.
      * 
      */
     public Optional<Output<ApiEventConfigLogConfigArgs>> logConfig() {
@@ -125,7 +125,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authProviders List of authentication providers. See Auth Providers below.
+         * @param authProviders List of authentication providers. See `event_config.auth_provider` Block below.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authProviders List of authentication providers. See Auth Providers below.
+         * @param authProviders List of authentication providers. See `event_config.auth_provider` Block below.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authProviders List of authentication providers. See Auth Providers below.
+         * @param authProviders List of authentication providers. See `event_config.auth_provider` Block below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionAuthModes List of authentication modes for connections. See Auth Modes below.
+         * @param connectionAuthModes List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionAuthModes List of authentication modes for connections. See Auth Modes below.
+         * @param connectionAuthModes List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionAuthModes List of authentication modes for connections. See Auth Modes below.
+         * @param connectionAuthModes List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultPublishAuthModes List of default authentication modes for publishing. See Auth Modes below.
+         * @param defaultPublishAuthModes List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultPublishAuthModes List of default authentication modes for publishing. See Auth Modes below.
+         * @param defaultPublishAuthModes List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultPublishAuthModes List of default authentication modes for publishing. See Auth Modes below.
+         * @param defaultPublishAuthModes List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See Auth Modes below.
+         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See Auth Modes below.
+         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See Auth Modes below.
+         * @param defaultSubscribeAuthModes List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logConfig Logging configuration. See Log Config below.
+         * @param logConfig Logging configuration. See `logConfig` Block below.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logConfig Logging configuration. See Log Config below.
+         * @param logConfig Logging configuration. See `logConfig` Block below.
          * 
          * @return builder
          * 

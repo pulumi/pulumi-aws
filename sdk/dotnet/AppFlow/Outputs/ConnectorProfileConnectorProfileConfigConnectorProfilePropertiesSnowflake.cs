@@ -14,15 +14,23 @@ namespace Pulumi.Aws.AppFlow.Outputs
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake
     {
         /// <summary>
-        /// The name of the account.
+        /// Name of the account.
         /// </summary>
         public readonly string? AccountName;
+        /// <summary>
+        /// Name of the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+        /// </summary>
         public readonly string? BucketPrefix;
+        /// <summary>
+        /// Snowflake Private Link service name to be used for private data transfers.
+        /// </summary>
         public readonly string? PrivateLinkServiceName;
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         /// </summary>
         public readonly string? Region;
         /// <summary>
@@ -30,7 +38,7 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string Stage;
         /// <summary>
-        /// The name of the Snowflake warehouse.
+        /// Name of the Snowflake warehouse.
         /// </summary>
         public readonly string Warehouse;
 

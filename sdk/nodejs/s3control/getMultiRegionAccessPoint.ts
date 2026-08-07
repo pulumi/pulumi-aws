@@ -35,11 +35,11 @@ export function getMultiRegionAccessPoint(args: GetMultiRegionAccessPointArgs, o
  */
 export interface GetMultiRegionAccessPointArgs {
     /**
-     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: string;
     /**
-     * The name of the Multi-Region Access Point.
+     * Name of the Multi-Region Access Point.
      */
     name: string;
     /**
@@ -54,7 +54,7 @@ export interface GetMultiRegionAccessPointArgs {
 export interface GetMultiRegionAccessPointResult {
     readonly accountId: string;
     /**
-     * The alias for the Multi-Region Access Point.
+     * Alias for the Multi-Region Access Point.
      */
     readonly alias: string;
     /**
@@ -66,7 +66,7 @@ export interface GetMultiRegionAccessPointResult {
      */
     readonly createdAt: string;
     /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+     * DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
     readonly domainName: string;
     /**
@@ -79,15 +79,15 @@ export interface GetMultiRegionAccessPointResult {
      */
     readonly publicAccessBlocks: outputs.s3control.GetMultiRegionAccessPointPublicAccessBlock[];
     /**
-     * The name of the region.
+     * Name of the region.
      */
     readonly region: string;
     /**
-     * A collection of the regions and buckets associated with the Multi-Region Access Point.
+     * Collection of the regions and buckets associated with the Multi-Region Access Point.
      */
     readonly regions: outputs.s3control.GetMultiRegionAccessPointRegion[];
     /**
-     * The current status of the Multi-Region Access Point.
+     * Current status of the Multi-Region Access Point.
      */
     readonly status: string;
 }
@@ -119,11 +119,11 @@ export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointO
  */
 export interface GetMultiRegionAccessPointOutputArgs {
     /**
-     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Multi-Region Access Point.
+     * Name of the Multi-Region Access Point.
      */
     name: pulumi.Input<string>;
     /**

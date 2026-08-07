@@ -93,60 +93,56 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+     * Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
      * 
      */
     @Export(name="autoUpdate", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoUpdate;
 
     /**
-     * @return The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
+     * @return Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
      * 
      */
     public Output<Boolean> autoUpdate() {
         return this.autoUpdate;
     }
     /**
-     * The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+     * Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZoneId;
 
     /**
-     * @return The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
+     * @return Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
     public Output<Optional<String>> availabilityZoneId() {
         return Codegen.optional(this.availabilityZoneId);
     }
     /**
-     * The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * `SINGLE` - Assigns one availability zone per cluster.
-     * * `MULTI` - Assigns all the availability zones per cluster.
+     * Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
      * 
      */
     @Export(name="azMode", refs={String.class}, tree="[0]")
     private Output<String> azMode;
 
     /**
-     * @return The number of availability zones you want to assign per cluster. This can be one of the following:
-     * * `SINGLE` - Assigns one availability zone per cluster.
-     * * `MULTI` - Assigns all the availability zones per cluster.
+     * @return Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
      * 
      */
     public Output<String> azMode() {
         return this.azMode;
     }
     /**
-     * A unique identifier of the changeset of the database that you want to use to ingest data.
+     * Unique identifier of the changeset of the database that you want to use to ingest data.
      * 
      */
     @Export(name="changesetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> changesetId;
 
     /**
-     * @return A unique identifier of the changeset of the database that you want to use to ingest data.
+     * @return Unique identifier of the changeset of the database that you want to use to ingest data.
      * 
      */
     public Output<Optional<String>> changesetId() {
@@ -167,28 +163,28 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
         return this.createdTimestamp;
     }
     /**
-     * The name of the database where you want to create a dataview.
+     * Name of the database where you want to create a dataview.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database where you want to create a dataview.
+     * @return Name of the database where you want to create a dataview.
      * 
      */
     public Output<String> databaseName() {
         return this.databaseName;
     }
     /**
-     * A description for the dataview.
+     * Description for the dataview.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the dataview.
+     * @return Description for the dataview.
      * 
      */
     public Output<Optional<String>> description() {
@@ -209,21 +205,21 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
         return this.environmentId;
     }
     /**
-     * The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
     @Export(name="lastModifiedTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedTimestamp;
 
     /**
-     * @return The last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
+     * @return Last time that the dataview was updated in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
     public Output<String> lastModifiedTimestamp() {
         return this.lastModifiedTimestamp;
     }
     /**
-     * A unique identifier for the dataview.
+     * Unique identifier for the dataview.
      * 
      * The following arguments are optional:
      * 
@@ -232,7 +228,7 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
     private Output<String> name;
 
     /**
-     * @return A unique identifier for the dataview.
+     * @return Unique identifier for the dataview.
      * 
      * The following arguments are optional:
      * 
@@ -241,20 +237,14 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
-     * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+     * Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `autoUpdate` must be `false` when `readWrite` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
      * 
      */
     @Export(name="readWrite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> readWrite;
 
     /**
-     * @return The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
-     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
-     * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
-     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+     * @return Whether to make the dataview writable to perform database maintenance. You cannot create partial writable dataviews; you must provide the entire database path and cannot perform updates, so `autoUpdate` must be `false` when `readWrite` is `true`. You must also use a unique volume, and once a dataview is writable you cannot change it to read-only.
      * 
      */
     public Output<Optional<Boolean>> readWrite() {
@@ -275,22 +265,30 @@ public class KxDataview extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
+     * Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segmentConfigurations` below.
      * 
      */
     @Export(name="segmentConfigurations", refs={List.class,KxDataviewSegmentConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<KxDataviewSegmentConfiguration>> segmentConfigurations;
 
     /**
-     * @return The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
+     * @return Configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See `segmentConfigurations` below.
      * 
      */
     public Output<Optional<List<KxDataviewSegmentConfiguration>>> segmentConfigurations() {
         return Codegen.optional(this.segmentConfigurations);
     }
+    /**
+     * Status of the dataview.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of the dataview.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

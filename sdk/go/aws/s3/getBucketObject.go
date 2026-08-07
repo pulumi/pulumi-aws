@@ -124,12 +124,13 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectArgs struct {
-	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` data source instead.
 	//
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key   string  `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
 	Range *string `pulumi:"range"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -141,12 +142,13 @@ type LookupBucketObjectArgs struct {
 
 // A collection of values returned by getBucketObject.
 type LookupBucketObjectResult struct {
+	// ARN of the object.
 	Arn string `pulumi:"arn"`
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body string `pulumi:"body"`
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket string `pulumi:"bucket"`
-	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain.
 	CacheControl string `pulumi:"cacheControl"`
@@ -173,11 +175,11 @@ type LookupBucketObjectResult struct {
 	LastModified string `pulumi:"lastModified"`
 	// Map of metadata stored with the object in S3. Keys are always returned in lowercase.
 	Metadata map[string]string `pulumi:"metadata"`
-	// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+	// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 	ObjectLockLegalHoldStatus string `pulumi:"objectLockLegalHoldStatus"`
 	// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
 	ObjectLockMode string `pulumi:"objectLockMode"`
-	// The date and time when this object's object lock will expire.
+	// Date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
 	Range                     *string `pulumi:"range"`
 	Region                    string  `pulumi:"region"`
@@ -206,12 +208,13 @@ func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutput
 
 // A collection of arguments for invoking getBucketObject.
 type LookupBucketObjectOutputArgs struct {
-	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified. Use the `s3.BucketObjectv2` data source instead.
 	//
 	// Deprecated: bucket is deprecated. Use the s3.BucketObjectv2 data source instead.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Full path to the object inside the bucket
-	Key   pulumi.StringInput    `pulumi:"key"`
+	Key pulumi.StringInput `pulumi:"key"`
+	// Range of bytes to read from the object, formatted as an [HTTP `Range` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Range).
 	Range pulumi.StringPtrInput `pulumi:"range"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -240,6 +243,7 @@ func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutputWithCont
 	return o
 }
 
+// ARN of the object.
 func (o LookupBucketObjectResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -254,7 +258,7 @@ func (o LookupBucketObjectResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 func (o LookupBucketObjectResultOutput) BucketKeyEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) bool { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
 }
@@ -323,7 +327,7 @@ func (o LookupBucketObjectResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
 
-// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+// Whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
 func (o LookupBucketObjectResultOutput) ObjectLockLegalHoldStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
 }
@@ -333,7 +337,7 @@ func (o LookupBucketObjectResultOutput) ObjectLockMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockMode }).(pulumi.StringOutput)
 }
 
-// The date and time when this object's object lock will expire.
+// Date and time when this object's object lock will expire.
 func (o LookupBucketObjectResultOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
 }

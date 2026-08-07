@@ -16,14 +16,14 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
     public static final GetTaskExecutionPlacementStrategy Empty = new GetTaskExecutionPlacementStrategy();
 
     /**
-     * The field to apply the placement strategy against.
+     * Field to apply the placement strategy against.
      * 
      */
     @Import(name="field")
     private @Nullable String field;
 
     /**
-     * @return The field to apply the placement strategy against.
+     * @return Field to apply the placement strategy against.
      * 
      */
     public Optional<String> field() {
@@ -31,18 +31,14 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
     }
 
     /**
-     * The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     @Import(name="type", required=true)
     private String type;
 
     /**
-     * @return The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-     * 
-     * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+     * @return Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
      * 
      */
     public String type() {
@@ -75,7 +71,7 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
         }
 
         /**
-         * @param field The field to apply the placement strategy against.
+         * @param field Field to apply the placement strategy against.
          * 
          * @return builder
          * 
@@ -86,9 +82,7 @@ public final class GetTaskExecutionPlacementStrategy extends com.pulumi.resource
         }
 
         /**
-         * @param type The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
-         * 
-         * For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
+         * @param type Type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
          * 
          * @return builder
          * 

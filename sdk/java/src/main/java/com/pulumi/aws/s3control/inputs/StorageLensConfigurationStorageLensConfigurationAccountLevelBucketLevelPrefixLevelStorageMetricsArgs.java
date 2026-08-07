@@ -32,14 +32,14 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
     }
 
     /**
-     * Selection criteria. See Selection Criteria below for more details.
+     * Selection criteria. See `selectionCriteria` below for more details.
      * 
      */
     @Import(name="selectionCriteria")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs> selectionCriteria;
 
     /**
-     * @return Selection criteria. See Selection Criteria below for more details.
+     * @return Selection criteria. See `selectionCriteria` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs>> selectionCriteria() {
@@ -93,7 +93,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param selectionCriteria Selection criteria. See Selection Criteria below for more details.
+         * @param selectionCriteria Selection criteria. See `selectionCriteria` below for more details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
         }
 
         /**
-         * @param selectionCriteria Selection criteria. See Selection Criteria below for more details.
+         * @param selectionCriteria Selection criteria. See `selectionCriteria` below for more details.
          * 
          * @return builder
          * 

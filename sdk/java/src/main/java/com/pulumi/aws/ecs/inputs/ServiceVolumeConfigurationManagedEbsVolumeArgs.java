@@ -126,14 +126,14 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
     }
 
     /**
-     * The tags to apply to the volume. See below.
+     * Tags to apply to the volume. See below.
      * 
      */
     @Import(name="tagSpecifications")
     private @Nullable Output<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>> tagSpecifications;
 
     /**
-     * @return The tags to apply to the volume. See below.
+     * @return Tags to apply to the volume. See below.
      * 
      */
     public Optional<Output<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs>>> tagSpecifications() {
@@ -367,7 +367,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the volume. See below.
+         * @param tagSpecifications Tags to apply to the volume. See below.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the volume. See below.
+         * @param tagSpecifications Tags to apply to the volume. See below.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeArgs extends com.pu
         }
 
         /**
-         * @param tagSpecifications The tags to apply to the volume. See below.
+         * @param tagSpecifications Tags to apply to the volume. See below.
          * 
          * @return builder
          * 

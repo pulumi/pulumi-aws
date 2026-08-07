@@ -33,14 +33,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs();
 
     /**
-     * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
      * 
      */
     @Import(name="amplitude")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs> amplitude;
 
     /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs>> amplitude() {
@@ -48,14 +48,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+     * Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
      * 
      */
     @Import(name="customConnector")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs> customConnector;
 
     /**
-     * @return The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+     * @return Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs>> customConnector() {
@@ -63,14 +63,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
      * 
      */
     @Import(name="datadog")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs> datadog;
 
     /**
-     * @return Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs>> datadog() {
@@ -78,14 +78,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
      * 
      */
     @Import(name="dynatrace")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs> dynatrace;
 
     /**
-     * @return The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs>> dynatrace() {
@@ -93,14 +93,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
      * 
      */
     @Import(name="googleAnalytics")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs> googleAnalytics;
 
     /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs>> googleAnalytics() {
@@ -108,14 +108,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
      * 
      */
     @Import(name="honeycode")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs> honeycode;
 
     /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs>> honeycode() {
@@ -123,14 +123,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
      * 
      */
     @Import(name="inforNexus")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs> inforNexus;
 
     /**
-     * @return The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs>> inforNexus() {
@@ -138,14 +138,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
      * 
      */
     @Import(name="marketo")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs> marketo;
 
     /**
-     * @return Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs>> marketo() {
@@ -153,14 +153,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
      * 
      */
     @Import(name="redshift")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs> redshift;
 
     /**
-     * @return Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs>> redshift() {
@@ -168,14 +168,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
      * 
      */
     @Import(name="salesforce")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs> salesforce;
 
     /**
-     * @return The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs>> salesforce() {
@@ -183,14 +183,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
      * 
      */
     @Import(name="sapoData")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs> sapoData;
 
     /**
-     * @return The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs>> sapoData() {
@@ -198,14 +198,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
      * 
      */
     @Import(name="serviceNow")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs> serviceNow;
 
     /**
-     * @return The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs>> serviceNow() {
@@ -213,14 +213,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
      * 
      */
     @Import(name="singular")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs> singular;
 
     /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs>> singular() {
@@ -228,14 +228,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
      * 
      */
     @Import(name="slack")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs> slack;
 
     /**
-     * @return Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs>> slack() {
@@ -243,14 +243,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
      * 
      */
     @Import(name="snowflake")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs> snowflake;
 
     /**
-     * @return The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs>> snowflake() {
@@ -258,14 +258,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
      * 
      */
     @Import(name="trendmicro")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs> trendmicro;
 
     /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs>> trendmicro() {
@@ -273,14 +273,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
      * 
      */
     @Import(name="veeva")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs> veeva;
 
     /**
-     * @return Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs>> veeva() {
@@ -288,14 +288,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
-     * Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
      * 
      */
     @Import(name="zendesk")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs> zendesk;
 
     /**
-     * @return Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs>> zendesk() {
@@ -344,7 +344,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param amplitude The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * @param amplitude Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param amplitude The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * @param amplitude Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customConnector The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+         * @param customConnector Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param customConnector The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+         * @param customConnector Connector-specific profile credentials required when using the custom connector. See `connector_profile_config.connector_profile_credentials.custom_connector` Block for details.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+         * @param datadog Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param datadog Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+         * @param datadog Connector-specific credentials required when using Datadog. See `connector_profile_config.connector_profile_credentials.datadog` Block for details.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param dynatrace The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+         * @param dynatrace Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param dynatrace The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+         * @param dynatrace Connector-specific credentials required when using Dynatrace. See `connector_profile_config.connector_profile_credentials.dynatrace` Block for details.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param googleAnalytics The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * @param googleAnalytics Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param googleAnalytics The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * @param googleAnalytics Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param honeycode The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * @param honeycode Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param honeycode The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * @param honeycode Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param inforNexus The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+         * @param inforNexus Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param inforNexus The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+         * @param inforNexus Connector-specific credentials required when using Infor Nexus. See `connector_profile_config.connector_profile_credentials.infor_nexus` Block for details.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+         * @param marketo Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param marketo Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+         * @param marketo Connector-specific credentials required when using Marketo. See `connector_profile_config.connector_profile_credentials.marketo` Block for details.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+         * @param redshift Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param redshift Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+         * @param redshift Connector-specific credentials required when using Amazon Redshift. See `connector_profile_config.connector_profile_credentials.redshift` Block for details.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param salesforce The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+         * @param salesforce Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param salesforce The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+         * @param salesforce Connector-specific credentials required when using Salesforce. See `connector_profile_config.connector_profile_credentials.salesforce` Block for details.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param sapoData The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+         * @param sapoData Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param sapoData The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+         * @param sapoData Connector-specific credentials required when using SAPOData. See `connector_profile_config.connector_profile_credentials.sapo_data` Block for details.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param serviceNow The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+         * @param serviceNow Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param serviceNow The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+         * @param serviceNow Connector-specific credentials required when using ServiceNow. See `connector_profile_config.connector_profile_credentials.service_now` Block for details.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+         * @param slack Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param slack Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+         * @param slack Connector-specific credentials required when using Slack. See `connector_profile_config.connector_profile_credentials.slack` Block for details.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param snowflake The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+         * @param snowflake Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param snowflake The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+         * @param snowflake Connector-specific credentials required when using Snowflake. See `connector_profile_config.connector_profile_credentials.snowflake` Block for details.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param trendmicro The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * @param trendmicro Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param trendmicro The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * @param trendmicro Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+         * @param veeva Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param veeva Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+         * @param veeva Connector-specific credentials required when using Veeva. See `connector_profile_config.connector_profile_credentials.veeva` Block for details.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+         * @param zendesk Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         }
 
         /**
-         * @param zendesk Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+         * @param zendesk Connector-specific credentials required when using Zendesk. See `connector_profile_config.connector_profile_credentials.zendesk` Block for details.
          * 
          * @return builder
          * 

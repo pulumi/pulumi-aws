@@ -93,7 +93,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      */
     declare public readonly configId: pulumi.Output<string>;
     /**
@@ -109,7 +109,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      */
     declare public readonly storageLensConfiguration: pulumi.Output<outputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
     /**
@@ -117,7 +117,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -167,7 +167,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
  */
 export interface StorageLensConfigurationState {
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface StorageLensConfigurationState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      */
     configId?: pulumi.Input<string | undefined>;
     /**
@@ -183,7 +183,7 @@ export interface StorageLensConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      */
     storageLensConfiguration?: pulumi.Input<inputs.s3control.StorageLensConfigurationStorageLensConfiguration | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface StorageLensConfigurationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -201,11 +201,11 @@ export interface StorageLensConfigurationState {
  */
 export interface StorageLensConfigurationArgs {
     /**
-     * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
+     * AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the S3 Storage Lens configuration.
+     * ID of the S3 Storage Lens configuration.
      */
     configId: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface StorageLensConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+     * S3 Storage Lens configuration. See `storageLensConfiguration` below for more details.
      */
     storageLensConfiguration: pulumi.Input<inputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
     /**

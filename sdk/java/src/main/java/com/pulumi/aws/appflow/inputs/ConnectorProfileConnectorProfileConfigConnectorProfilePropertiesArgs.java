@@ -33,14 +33,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs();
 
     /**
-     * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
      * 
      */
     @Import(name="amplitude")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs> amplitude;
 
     /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs>> amplitude() {
@@ -48,14 +48,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+     * Connector-specific profile properties required when using the custom connector. See `connector_profile_config.connector_profile_properties.custom_connector` Block for details.
      * 
      */
     @Import(name="customConnector")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs> customConnector;
 
     /**
-     * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+     * @return Connector-specific profile properties required when using the custom connector. See `connector_profile_config.connector_profile_properties.custom_connector` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs>> customConnector() {
@@ -63,14 +63,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Datadog. See `connector_profile_config.connector_profile_properties.datadog` Block for details.
      * 
      */
     @Import(name="datadog")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs> datadog;
 
     /**
-     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Datadog. See `connector_profile_config.connector_profile_properties.datadog` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs>> datadog() {
@@ -78,14 +78,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Dynatrace. See `connector_profile_config.connector_profile_properties.dynatrace` Block for details.
      * 
      */
     @Import(name="dynatrace")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs> dynatrace;
 
     /**
-     * @return The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Dynatrace. See `connector_profile_config.connector_profile_properties.dynatrace` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs>> dynatrace() {
@@ -93,14 +93,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
      * 
      */
     @Import(name="googleAnalytics")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs> googleAnalytics;
 
     /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs>> googleAnalytics() {
@@ -108,14 +108,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
      * 
      */
     @Import(name="honeycode")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs> honeycode;
 
     /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs>> honeycode() {
@@ -123,14 +123,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Infor Nexus. See `connector_profile_config.connector_profile_properties.infor_nexus` Block for details.
      * 
      */
     @Import(name="inforNexus")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs> inforNexus;
 
     /**
-     * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Infor Nexus. See `connector_profile_config.connector_profile_properties.infor_nexus` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs>> inforNexus() {
@@ -138,14 +138,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Marketo. See `connector_profile_config.connector_profile_properties.marketo` Block for details.
      * 
      */
     @Import(name="marketo")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs> marketo;
 
     /**
-     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Marketo. See `connector_profile_config.connector_profile_properties.marketo` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs>> marketo() {
@@ -153,14 +153,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * Connector-specific properties required when using Amazon Redshift. See `connector_profile_config.connector_profile_properties.redshift` Block for details.
      * 
      */
     @Import(name="redshift")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs> redshift;
 
     /**
-     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Amazon Redshift. See `connector_profile_config.connector_profile_properties.redshift` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs>> redshift() {
@@ -168,14 +168,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+     * Connector-specific properties required when using Salesforce. See `connector_profile_config.connector_profile_properties.salesforce` Block for details.
      * 
      */
     @Import(name="salesforce")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs> salesforce;
 
     /**
-     * @return The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Salesforce. See `connector_profile_config.connector_profile_properties.salesforce` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs>> salesforce() {
@@ -183,14 +183,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+     * Connector-specific properties required when using SAPOData. See `connector_profile_config.connector_profile_properties.sapo_data` Block for details.
      * 
      */
     @Import(name="sapoData")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs> sapoData;
 
     /**
-     * @return The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using SAPOData. See `connector_profile_config.connector_profile_properties.sapo_data` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs>> sapoData() {
@@ -198,14 +198,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using ServiceNow. See `connector_profile_config.connector_profile_properties.service_now` Block for details.
      * 
      */
     @Import(name="serviceNow")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs> serviceNow;
 
     /**
-     * @return The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using ServiceNow. See `connector_profile_config.connector_profile_properties.service_now` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs>> serviceNow() {
@@ -213,14 +213,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
      * 
      */
     @Import(name="singular")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs> singular;
 
     /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs>> singular() {
@@ -228,14 +228,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Slack. See `connector_profile_config.connector_profile_properties.slack` Block for details.
      * 
      */
     @Import(name="slack")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs> slack;
 
     /**
-     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Slack. See `connector_profile_config.connector_profile_properties.slack` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs>> slack() {
@@ -243,14 +243,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+     * Connector-specific properties required when using Snowflake. See `connector_profile_config.connector_profile_properties.snowflake` Block for details.
      * 
      */
     @Import(name="snowflake")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs> snowflake;
 
     /**
-     * @return The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Snowflake. See `connector_profile_config.connector_profile_properties.snowflake` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs>> snowflake() {
@@ -258,14 +258,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+     * Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
      * 
      */
     @Import(name="trendmicro")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs> trendmicro;
 
     /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+     * @return Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs>> trendmicro() {
@@ -273,14 +273,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Veeva. See `connector_profile_config.connector_profile_properties.veeva` Block for details.
      * 
      */
     @Import(name="veeva")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs> veeva;
 
     /**
-     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Veeva. See `connector_profile_config.connector_profile_properties.veeva` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs>> veeva() {
@@ -288,14 +288,14 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
     }
 
     /**
-     * Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * Connector-specific properties required when using Zendesk. See `connector_profile_config.connector_profile_properties.zendesk` Block for details.
      * 
      */
     @Import(name="zendesk")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs> zendesk;
 
     /**
-     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+     * @return Connector-specific properties required when using Zendesk. See `connector_profile_config.connector_profile_properties.zendesk` Block for details.
      * 
      */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs>> zendesk() {
@@ -344,7 +344,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param amplitude The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * @param amplitude Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param amplitude The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         * @param amplitude Connector-specific credentials required when using Amplitude. See `connector_profile_config.connector_profile_credentials.amplitude` Block for details.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param customConnector The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         * @param customConnector Connector-specific profile properties required when using the custom connector. See `connector_profile_config.connector_profile_properties.custom_connector` Block for details.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param customConnector The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         * @param customConnector Connector-specific profile properties required when using the custom connector. See `connector_profile_config.connector_profile_properties.custom_connector` Block for details.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific properties required when using Datadog. See `connector_profile_config.connector_profile_properties.datadog` Block for details.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param datadog Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         * @param datadog Connector-specific properties required when using Datadog. See `connector_profile_config.connector_profile_properties.datadog` Block for details.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param dynatrace The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         * @param dynatrace Connector-specific properties required when using Dynatrace. See `connector_profile_config.connector_profile_properties.dynatrace` Block for details.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param dynatrace The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         * @param dynatrace Connector-specific properties required when using Dynatrace. See `connector_profile_config.connector_profile_properties.dynatrace` Block for details.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param googleAnalytics The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * @param googleAnalytics Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param googleAnalytics The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         * @param googleAnalytics Connector-specific credentials required when using Google Analytics. See `connector_profile_config.connector_profile_credentials.google_analytics` Block for details.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param honeycode The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * @param honeycode Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param honeycode The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         * @param honeycode Connector-specific credentials required when using Amazon Honeycode. See `connector_profile_config.connector_profile_credentials.honeycode` Block for details.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param inforNexus The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         * @param inforNexus Connector-specific properties required when using Infor Nexus. See `connector_profile_config.connector_profile_properties.infor_nexus` Block for details.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param inforNexus The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         * @param inforNexus Connector-specific properties required when using Infor Nexus. See `connector_profile_config.connector_profile_properties.infor_nexus` Block for details.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific properties required when using Marketo. See `connector_profile_config.connector_profile_properties.marketo` Block for details.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param marketo Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         * @param marketo Connector-specific properties required when using Marketo. See `connector_profile_config.connector_profile_properties.marketo` Block for details.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific properties required when using Amazon Redshift. See `connector_profile_config.connector_profile_properties.redshift` Block for details.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param redshift Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         * @param redshift Connector-specific properties required when using Amazon Redshift. See `connector_profile_config.connector_profile_properties.redshift` Block for details.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param salesforce The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         * @param salesforce Connector-specific properties required when using Salesforce. See `connector_profile_config.connector_profile_properties.salesforce` Block for details.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param salesforce The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         * @param salesforce Connector-specific properties required when using Salesforce. See `connector_profile_config.connector_profile_properties.salesforce` Block for details.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param sapoData The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         * @param sapoData Connector-specific properties required when using SAPOData. See `connector_profile_config.connector_profile_properties.sapo_data` Block for details.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param sapoData The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         * @param sapoData Connector-specific properties required when using SAPOData. See `connector_profile_config.connector_profile_properties.sapo_data` Block for details.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param serviceNow The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         * @param serviceNow Connector-specific properties required when using ServiceNow. See `connector_profile_config.connector_profile_properties.service_now` Block for details.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param serviceNow The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         * @param serviceNow Connector-specific properties required when using ServiceNow. See `connector_profile_config.connector_profile_properties.service_now` Block for details.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param singular Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         * @param singular Connector-specific credentials required when using Singular. See `connector_profile_config.connector_profile_credentials.singular` Block for details.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific properties required when using Slack. See `connector_profile_config.connector_profile_properties.slack` Block for details.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param slack Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         * @param slack Connector-specific properties required when using Slack. See `connector_profile_config.connector_profile_properties.slack` Block for details.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param snowflake The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         * @param snowflake Connector-specific properties required when using Snowflake. See `connector_profile_config.connector_profile_properties.snowflake` Block for details.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param snowflake The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         * @param snowflake Connector-specific properties required when using Snowflake. See `connector_profile_config.connector_profile_properties.snowflake` Block for details.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param trendmicro The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * @param trendmicro Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param trendmicro The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         * @param trendmicro Connector-specific credentials required when using Trend Micro. See `connector_profile_config.connector_profile_credentials.trendmicro` Block for details.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific properties required when using Veeva. See `connector_profile_config.connector_profile_properties.veeva` Block for details.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param veeva Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         * @param veeva Connector-specific properties required when using Veeva. See `connector_profile_config.connector_profile_properties.veeva` Block for details.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific properties required when using Zendesk. See `connector_profile_config.connector_profile_properties.zendesk` Block for details.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
         }
 
         /**
-         * @param zendesk Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         * @param zendesk Connector-specific properties required when using Zendesk. See `connector_profile_config.connector_profile_properties.zendesk` Block for details.
          * 
          * @return builder
          * 

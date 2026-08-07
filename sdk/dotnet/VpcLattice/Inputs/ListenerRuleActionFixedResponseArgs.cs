@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VpcLattice.Inputs
     public sealed class ListenerRuleActionFixedResponseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTP response code.
+        /// HTTP response code.
         /// </summary>
         [Input("statusCode", required: true)]
         public Input<int> StatusCode { get; set; } = null!;

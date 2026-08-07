@@ -26,9 +26,7 @@ public final class ExperimentTemplateTarget {
      */
     private String name;
     /**
-     * @return The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * @return Resource type parameters.
      * 
      */
     private @Nullable Map<String,String> parameters;
@@ -50,6 +48,8 @@ public final class ExperimentTemplateTarget {
     /**
      * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
      * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * 
      */
     private String selectionMode;
 
@@ -69,9 +69,7 @@ public final class ExperimentTemplateTarget {
         return this.name;
     }
     /**
-     * @return The resource type parameters.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+     * @return Resource type parameters.
      * 
      */
     public Map<String,String> parameters() {
@@ -100,6 +98,8 @@ public final class ExperimentTemplateTarget {
     }
     /**
      * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
      * 
      */
     public String selectionMode() {

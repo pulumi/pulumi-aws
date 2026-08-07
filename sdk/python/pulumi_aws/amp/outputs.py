@@ -16,6 +16,12 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AnomalyDetectorConfiguration',
+    'AnomalyDetectorConfigurationRandomCutForest',
+    'AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove',
+    'AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow',
+    'AnomalyDetectorMissingDataAction',
+    'AnomalyDetectorTimeouts',
     'QueryLoggingConfigurationDestination',
     'QueryLoggingConfigurationDestinationCloudwatchLogs',
     'QueryLoggingConfigurationDestinationFilters',
@@ -23,6 +29,10 @@ __all__ = [
     'ResourcePolicyTimeouts',
     'ScraperDestination',
     'ScraperDestinationAmp',
+    'ScraperDestinationCloudwatch',
+    'ScraperLoggingConfigurationLoggingDestination',
+    'ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs',
+    'ScraperLoggingConfigurationTimeouts',
     'ScraperRoleConfiguration',
     'ScraperSource',
     'ScraperSourceEks',
@@ -33,6 +43,283 @@ __all__ = [
     'WorkspaceConfigurationTimeouts',
     'WorkspaceLoggingConfiguration',
 ]
+
+@pulumi.output_type
+class AnomalyDetectorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "randomCutForest":
+            suggest = "random_cut_forest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 random_cut_forest: 'outputs.AnomalyDetectorConfigurationRandomCutForest'):
+        """
+        :param 'AnomalyDetectorConfigurationRandomCutForestArgs' random_cut_forest: Configuration block for the Random Cut Forest anomaly detection algorithm. See `random_cut_forest` below.
+        """
+        pulumi.set(__self__, "random_cut_forest", random_cut_forest)
+
+    @_builtins.property
+    @pulumi.getter(name="randomCutForest")
+    def random_cut_forest(self) -> 'outputs.AnomalyDetectorConfigurationRandomCutForest':
+        """
+        Configuration block for the Random Cut Forest anomaly detection algorithm. See `random_cut_forest` below.
+        """
+        return pulumi.get(self, "random_cut_forest")
+
+
+@pulumi.output_type
+class AnomalyDetectorConfigurationRandomCutForest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreNearExpectedFromAbove":
+            suggest = "ignore_near_expected_from_above"
+        elif key == "ignoreNearExpectedFromBelow":
+            suggest = "ignore_near_expected_from_below"
+        elif key == "sampleSize":
+            suggest = "sample_size"
+        elif key == "shingleSize":
+            suggest = "shingle_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorConfigurationRandomCutForest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorConfigurationRandomCutForest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorConfigurationRandomCutForest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query: _builtins.str,
+                 ignore_near_expected_from_above: Optional['outputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove'] = None,
+                 ignore_near_expected_from_below: Optional['outputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow'] = None,
+                 sample_size: Optional[_builtins.int] = None,
+                 shingle_size: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str query: PromQL query used to select the time series for anomaly detection.
+        :param 'AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs' ignore_near_expected_from_above: Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignore_near_expected_from_above` below.
+        :param 'AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs' ignore_near_expected_from_below: Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignore_near_expected_from_below` below.
+        :param _builtins.int sample_size: Number of data points used to train the model. Must be at least `256`.
+        :param _builtins.int shingle_size: Number of consecutive data points that form a single input to the model. Must be at least `2`.
+        """
+        pulumi.set(__self__, "query", query)
+        if ignore_near_expected_from_above is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_above", ignore_near_expected_from_above)
+        if ignore_near_expected_from_below is not None:
+            pulumi.set(__self__, "ignore_near_expected_from_below", ignore_near_expected_from_below)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
+        if shingle_size is not None:
+            pulumi.set(__self__, "shingle_size", shingle_size)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> _builtins.str:
+        """
+        PromQL query used to select the time series for anomaly detection.
+        """
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromAbove")
+    def ignore_near_expected_from_above(self) -> Optional['outputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove']:
+        """
+        Configuration block for suppressing anomalies when the observed value is slightly above the expected value. See `ignore_near_expected_from_above` below.
+        """
+        return pulumi.get(self, "ignore_near_expected_from_above")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreNearExpectedFromBelow")
+    def ignore_near_expected_from_below(self) -> Optional['outputs.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow']:
+        """
+        Configuration block for suppressing anomalies when the observed value is slightly below the expected value. See `ignore_near_expected_from_below` below.
+        """
+        return pulumi.get(self, "ignore_near_expected_from_below")
+
+    @_builtins.property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[_builtins.int]:
+        """
+        Number of data points used to train the model. Must be at least `256`.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @_builtins.property
+    @pulumi.getter(name="shingleSize")
+    def shingle_size(self) -> Optional[_builtins.int]:
+        """
+        Number of consecutive data points that form a single input to the model. Must be at least `2`.
+        """
+        return pulumi.get(self, "shingle_size")
+
+
+@pulumi.output_type
+class AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAbove(dict):
+    def __init__(__self__, *,
+                 amount: Optional[_builtins.float] = None,
+                 ratio: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float amount: Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+        :param _builtins.float ratio: Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[_builtins.float]:
+        """
+        Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def ratio(self) -> Optional[_builtins.float]:
+        """
+        Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+        """
+        return pulumi.get(self, "ratio")
+
+
+@pulumi.output_type
+class AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelow(dict):
+    def __init__(__self__, *,
+                 amount: Optional[_builtins.float] = None,
+                 ratio: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float amount: Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+        :param _builtins.float ratio: Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[_builtins.float]:
+        """
+        Absolute amount by which the observed value may exceed the expected value before being reported as an anomaly. Conflicts with `ratio`.
+        """
+        return pulumi.get(self, "amount")
+
+    @_builtins.property
+    @pulumi.getter
+    def ratio(self) -> Optional[_builtins.float]:
+        """
+        Ratio by which the observed value may exceed the expected value before being reported as an anomaly. Must be at least `0`. Conflicts with `amount`.
+        """
+        return pulumi.get(self, "ratio")
+
+
+@pulumi.output_type
+class AnomalyDetectorMissingDataAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "markAsAnomaly":
+            suggest = "mark_as_anomaly"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnomalyDetectorMissingDataAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnomalyDetectorMissingDataAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnomalyDetectorMissingDataAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mark_as_anomaly: Optional[_builtins.bool] = None,
+                 skip: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool mark_as_anomaly: Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+        :param _builtins.bool skip: Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `mark_as_anomaly`.
+        """
+        if mark_as_anomaly is not None:
+            pulumi.set(__self__, "mark_as_anomaly", mark_as_anomaly)
+        if skip is not None:
+            pulumi.set(__self__, "skip", skip)
+
+    @_builtins.property
+    @pulumi.getter(name="markAsAnomaly")
+    def mark_as_anomaly(self) -> Optional[_builtins.bool]:
+        """
+        Whether to treat missing data points as anomalies. Must be set to `true`. Conflicts with `skip`.
+        """
+        return pulumi.get(self, "mark_as_anomaly")
+
+    @_builtins.property
+    @pulumi.getter
+    def skip(self) -> Optional[_builtins.bool]:
+        """
+        Whether to skip missing data points without reporting them as anomalies. Must be set to `true`. Conflicts with `mark_as_anomaly`.
+        """
+        return pulumi.get(self, "skip")
+
+
+@pulumi.output_type
+class AnomalyDetectorTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
 
 @pulumi.output_type
 class QueryLoggingConfigurationDestination(dict):
@@ -239,20 +526,36 @@ class ResourcePolicyTimeouts(dict):
 @pulumi.output_type
 class ScraperDestination(dict):
     def __init__(__self__, *,
-                 amp: Optional['outputs.ScraperDestinationAmp'] = None):
+                 amp: Optional['outputs.ScraperDestinationAmp'] = None,
+                 cloudwatch: Optional['outputs.ScraperDestinationCloudwatch'] = None):
         """
-        :param 'ScraperDestinationAmpArgs' amp: Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        :param 'ScraperDestinationAmpArgs' amp: Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
+        :param 'ScraperDestinationCloudwatchArgs' cloudwatch: Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+               
+               > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
         """
         if amp is not None:
             pulumi.set(__self__, "amp", amp)
+        if cloudwatch is not None:
+            pulumi.set(__self__, "cloudwatch", cloudwatch)
 
     @_builtins.property
     @pulumi.getter
     def amp(self) -> Optional['outputs.ScraperDestinationAmp']:
         """
-        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp` Block for details.
         """
         return pulumi.get(self, "amp")
+
+    @_builtins.property
+    @pulumi.getter
+    def cloudwatch(self) -> Optional['outputs.ScraperDestinationCloudwatch']:
+        """
+        Configuration block for a CloudWatch Metrics destination. See `cloudwatch` Block for details.
+
+        > **NOTE:** Either `amp` or `cloudwatch` must be specified, but not both.
+        """
+        return pulumi.get(self, "cloudwatch")
 
 
 @pulumi.output_type
@@ -277,7 +580,7 @@ class ScraperDestinationAmp(dict):
     def __init__(__self__, *,
                  workspace_arn: _builtins.str):
         """
-        :param _builtins.str workspace_arn: The Amazon Resource Name (ARN) of the prometheus workspace.
+        :param _builtins.str workspace_arn: ARN of the prometheus workspace.
         """
         pulumi.set(__self__, "workspace_arn", workspace_arn)
 
@@ -285,9 +588,157 @@ class ScraperDestinationAmp(dict):
     @pulumi.getter(name="workspaceArn")
     def workspace_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the prometheus workspace.
+        ARN of the prometheus workspace.
         """
         return pulumi.get(self, "workspace_arn")
+
+
+@pulumi.output_type
+class ScraperDestinationCloudwatch(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetArn":
+            suggest = "dataset_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperDestinationCloudwatch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperDestinationCloudwatch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperDestinationCloudwatch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataset_arn: _builtins.str):
+        """
+        :param _builtins.str dataset_arn: ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+        """
+        pulumi.set(__self__, "dataset_arn", dataset_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="datasetArn")
+    def dataset_arn(self) -> _builtins.str:
+        """
+        ARN of the CloudWatch dataset. Use `arn:aws:cloudwatch:{region}:{account}:dataset/default` for the default dataset.
+        """
+        return pulumi.get(self, "dataset_arn")
+
+
+@pulumi.output_type
+class ScraperLoggingConfigurationLoggingDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperLoggingConfigurationLoggingDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperLoggingConfigurationLoggingDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperLoggingConfigurationLoggingDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs: 'outputs.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs'):
+        """
+        :param 'ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs' cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs` Block below.
+        """
+        pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> 'outputs.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs':
+        """
+        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+
+@pulumi.output_type
+class ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperLoggingConfigurationLoggingDestinationCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: _builtins.str):
+        """
+        :param _builtins.str log_group_arn: ARN of the CloudWatch Logs log group. Must end with `:*`.
+        """
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> _builtins.str:
+        """
+        ARN of the CloudWatch Logs log group. Must end with `:*`.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class ScraperLoggingConfigurationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type
@@ -315,8 +766,8 @@ class ScraperRoleConfiguration(dict):
                  source_role_arn: Optional[_builtins.str] = None,
                  target_role_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str source_role_arn: The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        :param _builtins.str target_role_arn: The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        :param _builtins.str source_role_arn: ARN of the source role configuration. Must be an IAM role ARN.
+        :param _builtins.str target_role_arn: ARN of the target role configuration. Must be an IAM role ARN.
         """
         if source_role_arn is not None:
             pulumi.set(__self__, "source_role_arn", source_role_arn)
@@ -327,7 +778,7 @@ class ScraperRoleConfiguration(dict):
     @pulumi.getter(name="sourceRoleArn")
     def source_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+        ARN of the source role configuration. Must be an IAM role ARN.
         """
         return pulumi.get(self, "source_role_arn")
 
@@ -335,7 +786,7 @@ class ScraperRoleConfiguration(dict):
     @pulumi.getter(name="targetRoleArn")
     def target_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+        ARN of the target role configuration. Must be an IAM role ARN.
         """
         return pulumi.get(self, "target_role_arn")
 
@@ -346,8 +797,8 @@ class ScraperSource(dict):
                  eks: Optional['outputs.ScraperSourceEks'] = None,
                  vpc: Optional['outputs.ScraperSourceVpc'] = None):
         """
-        :param 'ScraperSourceEksArgs' eks: Configuration block for an EKS cluster source. See `eks`.
-        :param 'ScraperSourceVpcArgs' vpc: Configuration block for a VPC source. See `vpc`.
+        :param 'ScraperSourceEksArgs' eks: Configuration block for an EKS cluster source. See `eks` Block for details.
+        :param 'ScraperSourceVpcArgs' vpc: Configuration block for a VPC source. See `vpc` Block for details.
                
                > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
         """
@@ -360,7 +811,7 @@ class ScraperSource(dict):
     @pulumi.getter
     def eks(self) -> Optional['outputs.ScraperSourceEks']:
         """
-        Configuration block for an EKS cluster source. See `eks`.
+        Configuration block for an EKS cluster source. See `eks` Block for details.
         """
         return pulumi.get(self, "eks")
 
@@ -368,7 +819,7 @@ class ScraperSource(dict):
     @pulumi.getter
     def vpc(self) -> Optional['outputs.ScraperSourceVpc']:
         """
-        Configuration block for a VPC source. See `vpc`.
+        Configuration block for a VPC source. See `vpc` Block for details.
 
         > **NOTE:** Either `eks` or `vpc` must be specified, but not both.
         """
@@ -403,7 +854,7 @@ class ScraperSourceEks(dict):
                  subnet_ids: Sequence[_builtins.str],
                  security_group_ids: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) of the source EKS cluster.
+        :param _builtins.str cluster_arn: ARN of the source EKS cluster.
         :param Sequence[_builtins.str] subnet_ids: List of subnet IDs. Must be in at least two different availability zones.
         :param Sequence[_builtins.str] security_group_ids: List of the security group IDs for the Amazon EKS cluster VPC configuration.
         """
@@ -416,7 +867,7 @@ class ScraperSourceEks(dict):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the source EKS cluster.
+        ARN of the source EKS cluster.
         """
         return pulumi.get(self, "cluster_arn")
 

@@ -105,15 +105,15 @@ export class Inventory extends pulumi.CustomResource {
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
-     * Contains information about where to publish the inventory results (documented below).
+     * Where to publish the inventory results. See `destination` Block below.
      */
     declare public readonly destination: pulumi.Output<outputs.s3.InventoryDestination>;
     /**
-     * Specifies whether the inventory is enabled or disabled.
+     * Whether to enable the inventory.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+     * Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     declare public readonly filter: pulumi.Output<outputs.s3.InventoryFilter | undefined>;
     /**
@@ -133,7 +133,9 @@ export class Inventory extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies the schedule for generating inventory results (documented below).
+     * Schedule for generating inventory results. See `schedule` Block below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly schedule: pulumi.Output<outputs.s3.InventorySchedule>;
 
@@ -197,15 +199,15 @@ export interface InventoryState {
      */
     bucket?: pulumi.Input<string | undefined>;
     /**
-     * Contains information about where to publish the inventory results (documented below).
+     * Where to publish the inventory results. See `destination` Block below.
      */
     destination?: pulumi.Input<inputs.s3.InventoryDestination | undefined>;
     /**
-     * Specifies whether the inventory is enabled or disabled.
+     * Whether to enable the inventory.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+     * Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     filter?: pulumi.Input<inputs.s3.InventoryFilter | undefined>;
     /**
@@ -225,7 +227,9 @@ export interface InventoryState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the schedule for generating inventory results (documented below).
+     * Schedule for generating inventory results. See `schedule` Block below.
+     *
+     * The following arguments are optional:
      */
     schedule?: pulumi.Input<inputs.s3.InventorySchedule | undefined>;
 }
@@ -239,15 +243,15 @@ export interface InventoryArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * Contains information about where to publish the inventory results (documented below).
+     * Where to publish the inventory results. See `destination` Block below.
      */
     destination: pulumi.Input<inputs.s3.InventoryDestination>;
     /**
-     * Specifies whether the inventory is enabled or disabled.
+     * Whether to enable the inventory.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
+     * Inventory filter. The inventory only includes objects that meet the filter's criteria. See `filter` Block below.
      */
     filter?: pulumi.Input<inputs.s3.InventoryFilter | undefined>;
     /**
@@ -267,7 +271,9 @@ export interface InventoryArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the schedule for generating inventory results (documented below).
+     * Schedule for generating inventory results. See `schedule` Block below.
+     *
+     * The following arguments are optional:
      */
     schedule: pulumi.Input<inputs.s3.InventorySchedule>;
 }

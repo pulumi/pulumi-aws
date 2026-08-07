@@ -29,8 +29,6 @@ namespace Pulumi.Aws.S3Control.Inputs
 
         /// <summary>
         /// You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
-        /// 
-        /// * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
         /// </summary>
         public InputList<string> Prefixes
         {

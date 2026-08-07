@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAwsOrg {
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     private String arn;
 
     private StorageLensConfigurationStorageLensConfigurationAwsOrg() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+     * @return Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
     public String arn() {

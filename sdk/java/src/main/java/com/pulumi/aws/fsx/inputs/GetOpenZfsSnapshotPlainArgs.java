@@ -19,16 +19,14 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
     public static final GetOpenZfsSnapshotPlainArgs Empty = new GetOpenZfsSnapshotPlainArgs();
 
     /**
-     * One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
+     * Configuration block. Detailed below.
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetOpenZfsSnapshotFilter> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. The
-     * supported names are file-system-id or volume-id.
+     * @return Configuration block. Detailed below.
      * 
      */
     public Optional<List<GetOpenZfsSnapshotFilter>> filters() {
@@ -140,8 +138,7 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. The
-         * supported names are file-system-id or volume-id.
+         * @param filters Configuration block. Detailed below.
          * 
          * @return builder
          * 
@@ -152,8 +149,7 @@ public final class GetOpenZfsSnapshotPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. The
-         * supported names are file-system-id or volume-id.
+         * @param filters Configuration block. Detailed below.
          * 
          * @return builder
          * 

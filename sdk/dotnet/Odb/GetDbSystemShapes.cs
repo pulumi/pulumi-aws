@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbSystemShapesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+        /// Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
         /// </summary>
         [Input("availabilityZoneId")]
         public string? AvailabilityZoneId { get; set; }
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetDbSystemShapesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
+        /// Physical ID of the AZ, for example, use1-az4. This ID persists across accounts.
         /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Odb
     {
         public readonly string? AvailabilityZoneId;
         /// <summary>
-        /// The list of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
+        /// List of shapes and their properties. Information about a hardware system model (shape) that's available for an Exadata infrastructure. The shape determines resources, such as CPU cores, memory, and storage, to allocate to the Exadata infrastructure.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDbSystemShapesDbSystemShapeResult> DbSystemShapes;
         public readonly string Region;

@@ -127,23 +127,19 @@ export class Table extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableEncryptionConfiguration>;
     /**
-     * Format of the table.
-     * Must be `ICEBERG`.
+     * Format of the table. Must be `ICEBERG`.
      */
     declare public readonly format: pulumi.Output<string>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      */
     declare public readonly maintenanceConfiguration: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     declare public readonly metadata: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
     /**
@@ -159,16 +155,11 @@ export class Table extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly modifiedBy: pulumi.Output<string>;
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     declare public readonly namespace: pulumi.Output<string>;
     /**
@@ -190,12 +181,11 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Type of the table.
-     * One of `customer` or `aws`.
+     * Type of the table. One of `customer` or `aws`.
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
@@ -294,23 +284,19 @@ export interface TableState {
      */
     createdBy?: pulumi.Input<string | undefined>;
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration | undefined>;
     /**
-     * Format of the table.
-     * Must be `ICEBERG`.
+     * Format of the table. Must be `ICEBERG`.
      */
     format?: pulumi.Input<string | undefined>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**
@@ -326,16 +312,11 @@ export interface TableState {
      */
     modifiedBy?: pulumi.Input<string | undefined>;
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
@@ -357,12 +338,11 @@ export interface TableState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Type of the table.
-     * One of `customer` or `aws`.
+     * Type of the table. One of `customer` or `aws`.
      */
     type?: pulumi.Input<string | undefined>;
     /**
@@ -380,36 +360,27 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * A single table bucket encryption configuration object.
-     * See `encryptionConfiguration` below.
+     * Single table bucket encryption configuration object. See `encryptionConfiguration` below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableEncryptionConfiguration | undefined>;
     /**
-     * Format of the table.
-     * Must be `ICEBERG`.
+     * Format of the table. Must be `ICEBERG`.
      */
     format: pulumi.Input<string>;
     /**
-     * A single table bucket maintenance configuration object.
-     * See `maintenanceConfiguration` below.
+     * Single table bucket maintenance configuration object. See `maintenanceConfiguration` below.
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration | undefined>;
     /**
-     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
-     * See `metadata` below.
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format. See `metadata` below.
      */
     metadata?: pulumi.Input<inputs.s3tables.TableMetadata | undefined>;
     /**
-     * Name of the table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
-     * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
+     * Name of the table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number. A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Name of the namespace for this table.
-     * Must be between 1 and 255 characters in length.
-     * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+     * Name of the namespace for this table. Must be between 1 and 255 characters in length. Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
     /**

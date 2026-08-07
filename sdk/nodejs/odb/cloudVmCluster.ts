@@ -159,134 +159,131 @@ export class CloudVmCluster extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * Amazon Resource Name (ARN) for the cloud vm cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly cloudExadataInfrastructureArn: pulumi.Output<string>;
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly cloudExadataInfrastructureId: pulumi.Output<string>;
     /**
-     * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+     * Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      */
     declare public readonly clusterName: pulumi.Output<string>;
     /**
-     * The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+     * Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
      */
     declare public /*out*/ readonly computeModel: pulumi.Output<string>;
     /**
-     * The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+     * Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      */
     declare public readonly cpuCoreCount: pulumi.Output<number>;
     /**
-     * The timestamp when the VM cluster was created.
+     * Timestamp when the VM cluster was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The set of preferences for the various diagnostic collection options for the VM cluster.
+     * Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
      */
     declare public readonly dataCollectionOptions: pulumi.Output<outputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
-     * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     *
-     * The following arguments are optional:
+     * Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly dataStorageSizeInTbs: pulumi.Output<number>;
     /**
-     * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly dbNodeStorageSizeInGbs: pulumi.Output<number>;
     /**
-     * The list of database servers for the VM cluster. Changing this will create a new resource.
+     * List of database servers for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly dbServers: pulumi.Output<string[]>;
     /**
-     * The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
+     * Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
      */
     declare public /*out*/ readonly diskRedundancy: pulumi.Output<string>;
     /**
-     * A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * User-friendly name for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * The domain name associated with the VM cluster.
+     * Domain name associated with the VM cluster.
      */
     declare public /*out*/ readonly domain: pulumi.Output<string>;
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+     * Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      */
     declare public readonly giVersion: pulumi.Output<string>;
     /**
-     * A complete software version of Oracle Grid Infrastructure (GI).
+     * Complete software version of Oracle Grid Infrastructure (GI).
      */
     declare public /*out*/ readonly giVersionComputed: pulumi.Output<string>;
     /**
-     * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * Host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
      */
     declare public readonly hostnamePrefix: pulumi.Output<string>;
     /**
-     * The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+     * Host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
      */
     declare public /*out*/ readonly hostnamePrefixComputed: pulumi.Output<string>;
     /**
-     * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      */
     declare public /*out*/ readonly iormConfigCaches: pulumi.Output<outputs.odb.CloudVmClusterIormConfigCache[]>;
     /**
-     * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+     * Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly isLocalBackupEnabled: pulumi.Output<boolean>;
     /**
-     * Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+     * Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly isSparseDiskgroupEnabled: pulumi.Output<boolean>;
     /**
-     * The OCID of the most recent maintenance update history entry.
+     * OCID of the most recent maintenance update history entry.
      */
     declare public /*out*/ readonly lastUpdateHistoryEntryId: pulumi.Output<string>;
     /**
-     * The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+     * Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      */
     declare public readonly licenseModel: pulumi.Output<string>;
     /**
-     * The listener port number configured on the VM cluster.
+     * Listener port number configured on the VM cluster.
      */
     declare public /*out*/ readonly listenerPort: pulumi.Output<number>;
     /**
-     * The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     declare public readonly memorySizeInGbs: pulumi.Output<number>;
     /**
-     * The total number of nodes in the VM cluster.
+     * Total number of nodes in the VM cluster.
      */
     declare public /*out*/ readonly nodeCount: pulumi.Output<number>;
     /**
-     * The name of the OCI resource anchor associated with the VM cluster.
+     * Name of the OCI resource anchor associated with the VM cluster.
      */
     declare public /*out*/ readonly ociResourceAnchorName: pulumi.Output<string>;
     /**
-     * The HTTPS link to the VM cluster resource in OCI.
+     * HTTPS link to the VM cluster resource in OCI.
      */
     declare public /*out*/ readonly ociUrl: pulumi.Output<string>;
     /**
-     * The OCID (Oracle Cloud Identifier) of the VM cluster.
+     * OCID (Oracle Cloud Identifier) of the VM cluster.
      */
     declare public /*out*/ readonly ocid: pulumi.Output<string>;
     /**
-     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly odbNetworkArn: pulumi.Output<string>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     declare public readonly odbNetworkId: pulumi.Output<string>;
     /**
-     * The percentage of progress made on the current operation for the VM cluster.
+     * Percentage of progress made on the current operation for the VM cluster.
      */
     declare public /*out*/ readonly percentProgress: pulumi.Output<number>;
     /**
@@ -294,31 +291,33 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+     * Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
      */
     declare public /*out*/ readonly scanDnsName: pulumi.Output<string>;
     /**
-     * The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+     * OCID of the DNS record for the SCAN IPs linked to the VM cluster.
      */
     declare public /*out*/ readonly scanDnsRecordId: pulumi.Output<string>;
     /**
-     * The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+     * List of OCIDs for SCAN IP addresses associated with the VM cluster.
      */
     declare public /*out*/ readonly scanIpIds: pulumi.Output<string[]>;
     /**
-     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      */
     declare public readonly scanListenerPortTcp: pulumi.Output<number>;
     /**
-     * The hardware model name of the Exadata infrastructure running the VM cluster.
+     * Hardware model name of the Exadata infrastructure running the VM cluster.
      */
     declare public /*out*/ readonly shape: pulumi.Output<string>;
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
     declare public readonly sshPublicKeys: pulumi.Output<string[]>;
     /**
-     * The current lifecycle status of the VM cluster.
+     * Current lifecycle status of the VM cluster.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -326,28 +325,28 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
-     * The local node storage allocated to the VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the VM cluster, in gigabytes (GB).
      */
     declare public /*out*/ readonly storageSizeInGbs: pulumi.Output<number>;
     /**
-     * The operating system version of the image chosen for the VM cluster.
+     * Operating system version of the image chosen for the VM cluster.
      */
     declare public /*out*/ readonly systemVersion: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The combined set of user-defined and provider-defined tags.
+     * Combined set of user-defined and provider-defined tags.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.odb.CloudVmClusterTimeouts | undefined>;
     /**
-     * The configured time zone of the VM cluster. Changing this will create a new resource.
+     * Configured time zone of the VM cluster. Changing this will create a new resource.
      */
     declare public readonly timezone: pulumi.Output<string>;
     /**
-     * The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+     * Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
      */
     declare public /*out*/ readonly vipIds: pulumi.Output<string[]>;
 
@@ -497,134 +496,131 @@ export class CloudVmCluster extends pulumi.CustomResource {
  */
 export interface CloudVmClusterState {
     /**
-     * The Amazon Resource Name (ARN) for the cloud vm cluster.
+     * Amazon Resource Name (ARN) for the cloud vm cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+     * Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
-     * The compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
+     * Compute model used when the instance is created or cloned — either ECPU or OCPU. ECPU is a virtualized compute unit; OCPU is a physical processor core with hyper-threading.
      */
     computeModel?: pulumi.Input<string | undefined>;
     /**
-     * The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+     * Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      */
     cpuCoreCount?: pulumi.Input<number | undefined>;
     /**
-     * The timestamp when the VM cluster was created.
+     * Timestamp when the VM cluster was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * The set of preferences for the various diagnostic collection options for the VM cluster.
+     * Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
      */
     dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions | undefined>;
     /**
-     * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     *
-     * The following arguments are optional:
+     * Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
-     * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
-     * The list of database servers for the VM cluster. Changing this will create a new resource.
+     * List of database servers for the VM cluster. Changing this will create a new resource.
      */
     dbServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
-     * * `AttrDomain` - The domain name associated with the VM cluster.
+     * Type of redundancy for the VM cluster: NORMAL (2-way) or HIGH (3-way).
      */
     diskRedundancy?: pulumi.Input<string | undefined>;
     /**
-     * A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * User-friendly name for the VM cluster. Changing this will create a new resource.
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The domain name associated with the VM cluster.
+     * Domain name associated with the VM cluster.
      */
     domain?: pulumi.Input<string | undefined>;
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+     * Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      */
     giVersion?: pulumi.Input<string | undefined>;
     /**
-     * A complete software version of Oracle Grid Infrastructure (GI).
+     * Complete software version of Oracle Grid Infrastructure (GI).
      */
     giVersionComputed?: pulumi.Input<string | undefined>;
     /**
-     * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * Host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
      */
     hostnamePrefix?: pulumi.Input<string | undefined>;
     /**
-     * The host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. This member is required. Changing this will create a new resource.
+     * Host name for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet.
      */
     hostnamePrefixComputed?: pulumi.Input<string | undefined>;
     /**
-     * The Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
+     * Exadata IORM (I/O Resource Manager) configuration cache details for the VM cluster.
      */
     iormConfigCaches?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIormConfigCache>[] | undefined>;
     /**
-     * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+     * Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */
     isLocalBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+     * Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      */
     isSparseDiskgroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The OCID of the most recent maintenance update history entry.
+     * OCID of the most recent maintenance update history entry.
      */
     lastUpdateHistoryEntryId?: pulumi.Input<string | undefined>;
     /**
-     * The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+     * Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      */
     licenseModel?: pulumi.Input<string | undefined>;
     /**
-     * The listener port number configured on the VM cluster.
+     * Listener port number configured on the VM cluster.
      */
     listenerPort?: pulumi.Input<number | undefined>;
     /**
-     * The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
-     * The total number of nodes in the VM cluster.
+     * Total number of nodes in the VM cluster.
      */
     nodeCount?: pulumi.Input<number | undefined>;
     /**
-     * The name of the OCI resource anchor associated with the VM cluster.
+     * Name of the OCI resource anchor associated with the VM cluster.
      */
     ociResourceAnchorName?: pulumi.Input<string | undefined>;
     /**
-     * The HTTPS link to the VM cluster resource in OCI.
+     * HTTPS link to the VM cluster resource in OCI.
      */
     ociUrl?: pulumi.Input<string | undefined>;
     /**
-     * The OCID (Oracle Cloud Identifier) of the VM cluster.
+     * OCID (Oracle Cloud Identifier) of the VM cluster.
      */
     ocid?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     odbNetworkId?: pulumi.Input<string | undefined>;
     /**
-     * The percentage of progress made on the current operation for the VM cluster.
+     * Percentage of progress made on the current operation for the VM cluster.
      */
     percentProgress?: pulumi.Input<number | undefined>;
     /**
@@ -632,31 +628,33 @@ export interface CloudVmClusterState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
+     * Fully qualified domain name (FQDN) for the SCAN IP addresses associated with the VM cluster.
      */
     scanDnsName?: pulumi.Input<string | undefined>;
     /**
-     * The OCID of the DNS record for the SCAN IPs linked to the VM cluster.
+     * OCID of the DNS record for the SCAN IPs linked to the VM cluster.
      */
     scanDnsRecordId?: pulumi.Input<string | undefined>;
     /**
-     * The list of OCIDs for SCAN IP addresses associated with the VM cluster.
+     * List of OCIDs for SCAN IP addresses associated with the VM cluster.
      */
     scanIpIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      */
     scanListenerPortTcp?: pulumi.Input<number | undefined>;
     /**
-     * The hardware model name of the Exadata infrastructure running the VM cluster.
+     * Hardware model name of the Exadata infrastructure running the VM cluster.
      */
     shape?: pulumi.Input<string | undefined>;
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
     sshPublicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The current lifecycle status of the VM cluster.
+     * Current lifecycle status of the VM cluster.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -664,28 +662,28 @@ export interface CloudVmClusterState {
      */
     statusReason?: pulumi.Input<string | undefined>;
     /**
-     * The local node storage allocated to the VM cluster, in gigabytes (GB).
+     * Local node storage allocated to the VM cluster, in gigabytes (GB).
      */
     storageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
-     * The operating system version of the image chosen for the VM cluster.
+     * Operating system version of the image chosen for the VM cluster.
      */
     systemVersion?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The combined set of user-defined and provider-defined tags.
+     * Combined set of user-defined and provider-defined tags.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.odb.CloudVmClusterTimeouts | undefined>;
     /**
-     * The configured time zone of the VM cluster. Changing this will create a new resource.
+     * Configured time zone of the VM cluster. Changing this will create a new resource.
      */
     timezone?: pulumi.Input<string | undefined>;
     /**
-     * The virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
+     * Virtual IP (VIP) addresses assigned to the VM cluster. CRS assigns one VIP per node for failover support.
      */
     vipIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -695,73 +693,71 @@ export interface CloudVmClusterState {
  */
 export interface CloudVmClusterArgs {
     /**
-     * The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     cloudExadataInfrastructureArn?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
+     * Name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
      */
     clusterName?: pulumi.Input<string | undefined>;
     /**
-     * The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+     * Number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
      */
     cpuCoreCount: pulumi.Input<number>;
     /**
-     * The set of preferences for the various diagnostic collection options for the VM cluster.
+     * Set of preferences for the various diagnostic collection options for the VM cluster. See `dataCollectionOptions` Block below. Changing this will create a new resource.
      */
     dataCollectionOptions: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptions>;
     /**
-     * The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
-     *
-     * The following arguments are optional:
+     * Size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     dataStorageSizeInTbs: pulumi.Input<number>;
     /**
-     * The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
-     * The list of database servers for the VM cluster. Changing this will create a new resource.
+     * List of database servers for the VM cluster. Changing this will create a new resource.
      */
     dbServers: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A user-friendly name for the VM cluster. Changing this will create a new resource.
+     * User-friendly name for the VM cluster. Changing this will create a new resource.
      */
     displayName: pulumi.Input<string>;
     /**
-     * A valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
+     * Valid Oracle Grid Infrastructure (GI) software version. To get valid values, use the ListGiVersions operation for the Exadata infrastructure shape. Example: `19.0.0.0`. Changing this creates a new resource. Prefer to provide `odb:input_gi_version` tag. If `odb:input_gi_version` tag is provided, its value must exactly match `giVersion`, otherwise Terraform returns an error. See the `With GI Version Tag` example above.
      */
     giVersion: pulumi.Input<string>;
     /**
-     * The host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - The maximum length of the combined hostname and domain is 63 characters. - The hostname must be unique within the subnet. Changing this will create a new resource.
+     * Host name prefix for the VM cluster. Constraints: - Can't be "localhost" or "hostname". - Can't contain "-version". - Maximum length of the combined hostname and domain is 63 characters. - Hostname must be unique within the subnet. Changing this will create a new resource.
      */
     hostnamePrefix: pulumi.Input<string>;
     /**
-     * Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
+     * Whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
      */
     isLocalBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
+     * Whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
      */
     isSparseDiskgroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
+     * Oracle license model to apply to the VM cluster. Default: LICENSE_INCLUDED. Changing this will create a new resource.
      */
     licenseModel?: pulumi.Input<string | undefined>;
     /**
-     * The amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
+     * Amount of memory, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
      */
     memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
-     * The ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * ARN of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
+     * Unique identifier of the ODB network for the VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
      */
     odbNetworkId?: pulumi.Input<string | undefined>;
     /**
@@ -769,20 +765,22 @@ export interface CloudVmClusterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
+     * Port number for TCP connections to the single client access name (SCAN) listener. Valid values: 1024–8999, except 2484, 6100, 6200, 7060, 7070, 7085, and 7879. Default: 1521. Changing this will create a new resource.
      */
     scanListenerPortTcp?: pulumi.Input<number | undefined>;
     /**
-     * The public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     * Public key portion of one or more key pairs used for SSH access to the VM cluster. Changing this will create a new resource.
+     *
+     * The following arguments are optional:
      */
     sshPublicKeys: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.odb.CloudVmClusterTimeouts | undefined>;
     /**
-     * The configured time zone of the VM cluster. Changing this will create a new resource.
+     * Configured time zone of the VM cluster. Changing this will create a new resource.
      */
     timezone?: pulumi.Input<string | undefined>;
 }

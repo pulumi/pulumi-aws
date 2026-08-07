@@ -13,19 +13,19 @@ namespace Pulumi.Aws.S3Control.Inputs
     public sealed class StorageLensConfigurationStorageLensConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        /// Account-level configurations of the S3 Storage Lens configuration. See `AccountLevel` below for more details.
         /// </summary>
         [Input("accountLevel", required: true)]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> AccountLevel { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+        /// Amazon Web Services organization for the S3 Storage Lens configuration. See `AwsOrg` below for more details.
         /// </summary>
         [Input("awsOrg")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationAwsOrgArgs>? AwsOrg { get; set; }
 
         /// <summary>
-        /// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+        /// Properties of S3 Storage Lens metrics export including the destination, schema and format. See `DataExport` below for more details.
         /// </summary>
         [Input("dataExport")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportArgs>? DataExport { get; set; }
@@ -37,19 +37,19 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// What is excluded in this configuration. Conflicts with `Include`. See Exclude below for more details.
+        /// What is excluded in this configuration. Conflicts with `Include`. See `Exclude` below for more details.
         /// </summary>
         [Input("exclude")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs>? Exclude { get; set; }
 
         /// <summary>
-        /// Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
+        /// Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See `ExpandedPrefixesDataExport` below for more details.
         /// </summary>
         [Input("expandedPrefixesDataExport")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs>? ExpandedPrefixesDataExport { get; set; }
 
         /// <summary>
-        /// What is included in this configuration. Conflicts with `Exclude`. See Include below for more details.
+        /// What is included in this configuration. Conflicts with `Exclude`. See `Include` below for more details.
         /// </summary>
         [Input("include")]
         public Input<Inputs.StorageLensConfigurationStorageLensConfigurationIncludeArgs>? Include { get; set; }

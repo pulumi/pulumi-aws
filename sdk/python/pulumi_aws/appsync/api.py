@@ -29,7 +29,7 @@ class ApiArgs:
         """
         The set of arguments for constructing a Api resource.
 
-        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See Event Config below.
+        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -51,7 +51,7 @@ class ApiArgs:
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> pulumi.Input['ApiEventConfigArgs']:
         """
-        Configuration for the Event API. See Event Config below.
+        Configuration for the Event API. See `event_config` Block below.
         """
         return pulumi.get(self, "event_config")
 
@@ -130,7 +130,7 @@ class _ApiState:
         :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
         :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See Event Config below.
+        :param pulumi.Input['ApiEventConfigArgs'] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -139,6 +139,7 @@ class _ApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] waf_web_acl_arn: ARN of the associated WAF web ACL.
+        :param pulumi.Input[_builtins.bool] xray_enabled: Whether X-Ray tracing is enabled for the Event API.
         """
         if api_arn is not None:
             pulumi.set(__self__, "api_arn", api_arn)
@@ -203,7 +204,7 @@ class _ApiState:
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> pulumi.Input[Optional['ApiEventConfigArgs']]:
         """
-        Configuration for the Event API. See Event Config below.
+        Configuration for the Event API. See `event_config` Block below.
         """
         return pulumi.get(self, "event_config")
 
@@ -288,6 +289,9 @@ class _ApiState:
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether X-Ray tracing is enabled for the Event API.
+        """
         return pulumi.get(self, "xray_enabled")
 
     @xray_enabled.setter
@@ -405,7 +409,7 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See Event Config below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -588,7 +592,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_arn: ARN of the Event API.
         :param pulumi.Input[_builtins.str] api_id: ID of the Event API.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dns: DNS configuration for the Event API.
-        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See Event Config below.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Configuration for the Event API. See `event_config` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the Event API.
                
                The following arguments are optional:
@@ -597,6 +601,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] waf_web_acl_arn: ARN of the associated WAF web ACL.
+        :param pulumi.Input[_builtins.bool] xray_enabled: Whether X-Ray tracing is enabled for the Event API.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -643,7 +648,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> pulumi.Output['outputs.ApiEventConfig']:
         """
-        Configuration for the Event API. See Event Config below.
+        Configuration for the Event API. See `event_config` Block below.
         """
         return pulumi.get(self, "event_config")
 
@@ -700,5 +705,8 @@ class Api(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="xrayEnabled")
     def xray_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether X-Ray tracing is enabled for the Event API.
+        """
         return pulumi.get(self, "xray_enabled")
 

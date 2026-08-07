@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class RouteSpecGrpcRouteMatch
     {
         /// <summary>
-        /// Data to match from the gRPC request.
+        /// Data to match from the gRPC request. See `spec.grpc_route.match.metadata` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.RouteSpecGrpcRouteMatchMetadata> Metadatas;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string? MethodName;
         /// <summary>
-        /// The port number to match from the request.
+        /// Port number to match from the request.
         /// </summary>
         public readonly int? Port;
         /// <summary>

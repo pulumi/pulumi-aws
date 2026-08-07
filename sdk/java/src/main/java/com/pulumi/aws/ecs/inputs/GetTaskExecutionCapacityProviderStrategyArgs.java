@@ -18,14 +18,14 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
     public static final GetTaskExecutionCapacityProviderStrategyArgs Empty = new GetTaskExecutionCapacityProviderStrategyArgs();
 
     /**
-     * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     @Import(name="base")
     private @Nullable Output<Integer> base;
 
     /**
-     * @return The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+     * @return Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> base() {
@@ -48,14 +48,14 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
     }
 
     /**
-     * The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
     /**
-     * @return The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+     * @return Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> weight() {
@@ -89,7 +89,7 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
         }
 
         /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         * @param base Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
         }
 
         /**
-         * @param base The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+         * @param base Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
         }
 
         /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         * @param weight Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetTaskExecutionCapacityProviderStrategyArgs extends com.pulu
         }
 
         /**
-         * @param weight The relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
+         * @param weight Relative percentage of the total number of launched tasks that should use the specified capacity provider. The `weight` value is taken into consideration after the `base` count of tasks has been satisfied. Defaults to `0`.
          * 
          * @return builder
          * 

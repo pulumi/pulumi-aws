@@ -17,14 +17,14 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
     public static final StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs Empty = new StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs();
 
     /**
-     * The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+     * Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     @Import(name="s3BucketDestination")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs> s3BucketDestination;
 
     /**
-     * @return The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+     * @return Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs>> s3BucketDestination() {
@@ -32,14 +32,14 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
     }
 
     /**
-     * S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+     * S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     @Import(name="storageLensTableDestination")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs> storageLensTableDestination;
 
     /**
-     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+     * @return S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
      * 
      */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs>> storageLensTableDestination() {
@@ -72,7 +72,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+         * @param s3BucketDestination Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param s3BucketDestination The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
+         * @param s3BucketDestination Bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `s3BucketDestination` below for more details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
         }
 
         /**
-         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
+         * @param storageLensTableDestination S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See `storageLensTableDestination` below for more details.
          * 
          * @return builder
          * 

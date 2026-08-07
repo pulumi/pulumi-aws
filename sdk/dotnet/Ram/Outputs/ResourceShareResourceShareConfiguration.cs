@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ram.Outputs
     public sealed class ResourceShareResourceShareConfiguration
     {
         /// <summary>
-        /// Specifies whether consumer account retains access to resource share after leaving AWS organization.
+        /// Whether consumer account retains access to resource share after leaving AWS organization.
         /// </summary>
         public readonly bool? RetainSharingOnAccountLeaveOrganization;
 

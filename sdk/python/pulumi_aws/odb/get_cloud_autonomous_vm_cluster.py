@@ -192,7 +192,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the Exadata infrastructure.
+        Amazon Resource Name (ARN) for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -200,7 +200,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="autonomousDataStoragePercentage")
     def autonomous_data_storage_percentage(self) -> _builtins.float:
         """
-        The percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
+        Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
         """
         return pulumi.get(self, "autonomous_data_storage_percentage")
 
@@ -208,7 +208,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="autonomousDataStorageSizeInTbs")
     def autonomous_data_storage_size_in_tbs(self) -> _builtins.float:
         """
-        The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
+        Data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB.
         """
         return pulumi.get(self, "autonomous_data_storage_size_in_tbs")
 
@@ -216,7 +216,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="availableAutonomousDataStorageSizeInTbs")
     def available_autonomous_data_storage_size_in_tbs(self) -> _builtins.float:
         """
-        The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
+        Available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
         """
         return pulumi.get(self, "available_autonomous_data_storage_size_in_tbs")
 
@@ -224,7 +224,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="availableContainerDatabases")
     def available_container_databases(self) -> _builtins.int:
         """
-        The number of Autonomous CDBs that you can create with the currently available storage.
+        Number of Autonomous CDBs that you can create with the currently available storage.
         """
         return pulumi.get(self, "available_container_databases")
 
@@ -232,7 +232,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="availableCpus")
     def available_cpus(self) -> _builtins.float:
         """
-        The number of CPU cores available for allocation to Autonomous Databases.
+        Number of CPU cores available for allocation to Autonomous Databases.
         """
         return pulumi.get(self, "available_cpus")
 
@@ -256,7 +256,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="computeModel")
     def compute_model(self) -> _builtins.str:
         """
-        The compute model of the Autonomous VM cluster: ECPU or OCPU.
+        Compute model of the Autonomous VM cluster: ECPU or OCPU.
         """
         return pulumi.get(self, "compute_model")
 
@@ -264,7 +264,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="cpuCoreCount")
     def cpu_core_count(self) -> _builtins.int:
         """
-        The total number of CPU cores in the Autonomous VM cluster.
+        Total number of CPU cores in the Autonomous VM cluster.
         """
         return pulumi.get(self, "cpu_core_count")
 
@@ -272,7 +272,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="cpuCoreCountPerNode")
     def cpu_core_count_per_node(self) -> _builtins.int:
         """
-        The number of CPU cores enabled per node in the Autonomous VM cluster.
+        Number of CPU cores enabled per node in the Autonomous VM cluster.
         """
         return pulumi.get(self, "cpu_core_count_per_node")
 
@@ -280,7 +280,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="cpuPercentage")
     def cpu_percentage(self) -> _builtins.float:
         """
-        he percentage of total CPU cores currently in use in the Autonomous VM cluster.
+        Percentage of total CPU cores currently in use in the Autonomous VM cluster.
         """
         return pulumi.get(self, "cpu_percentage")
 
@@ -288,7 +288,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> _builtins.str:
         """
-        The date and time when the Autonomous VM cluster was created.
+        Date and time when the Autonomous VM cluster was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -296,7 +296,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="dataStorageSizeInGbs")
     def data_storage_size_in_gbs(self) -> _builtins.float:
         """
-        The total data storage allocated to the Autonomous VM cluster, in GB.
+        Total data storage allocated to the Autonomous VM cluster, in GB.
         """
         return pulumi.get(self, "data_storage_size_in_gbs")
 
@@ -304,7 +304,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="dataStorageSizeInTbs")
     def data_storage_size_in_tbs(self) -> _builtins.float:
         """
-        The total data storage allocated to the Autonomous VM cluster, in TB.
+        Total data storage allocated to the Autonomous VM cluster, in TB.
         """
         return pulumi.get(self, "data_storage_size_in_tbs")
 
@@ -312,7 +312,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="dbServers")
     def db_servers(self) -> Sequence[_builtins.str]:
         """
-        The list of database servers associated with the Autonomous VM cluster.
+        List of database servers associated with the Autonomous VM cluster.
         """
         return pulumi.get(self, "db_servers")
 
@@ -320,7 +320,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def description(self) -> _builtins.str:
         """
-        The user-provided description of the Autonomous VM cluster.
+        User-provided description of the Autonomous VM cluster.
         """
         return pulumi.get(self, "description")
 
@@ -328,7 +328,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> _builtins.str:
         """
-        The display name of the Autonomous VM cluster.
+        Display name of the Autonomous VM cluster.
         """
         return pulumi.get(self, "display_name")
 
@@ -336,7 +336,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def domain(self) -> _builtins.str:
         """
-        The domain name of the Autonomous VM cluster.
+        Domain name of the Autonomous VM cluster.
         """
         return pulumi.get(self, "domain")
 
@@ -344,7 +344,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="exadataStorageInTbsLowestScaledValue")
     def exadata_storage_in_tbs_lowest_scaled_value(self) -> _builtins.float:
         """
-        The minimum value to which you can scale down the Exadata storage, in TB.
+        Minimum value to which you can scale down the Exadata storage, in TB.
         """
         return pulumi.get(self, "exadata_storage_in_tbs_lowest_scaled_value")
 
@@ -352,7 +352,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def hostname(self) -> _builtins.str:
         """
-        The hostname of the Autonomous VM cluster.
+        Hostname of the Autonomous VM cluster.
         """
         return pulumi.get(self, "hostname")
 
@@ -365,7 +365,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="isMtlsEnabledVmCluster")
     def is_mtls_enabled_vm_cluster(self) -> _builtins.bool:
         """
-        Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
+        Whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
         """
         return pulumi.get(self, "is_mtls_enabled_vm_cluster")
 
@@ -373,7 +373,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> _builtins.str:
         """
-        The Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
+        Oracle license model that applies to the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE.
         """
         return pulumi.get(self, "license_model")
 
@@ -381,7 +381,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Sequence['outputs.GetCloudAutonomousVmClusterMaintenanceWindowResult']:
         """
-        The maintenance window for the Autonomous VM cluster.
+        Maintenance window for the Autonomous VM cluster.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -389,7 +389,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="maxAcdsLowestScaledValue")
     def max_acds_lowest_scaled_value(self) -> _builtins.int:
         """
-        The minimum value to which you can scale down the maximum number of Autonomous CDBs.
+        Minimum value to which you can scale down the maximum number of Autonomous CDBs.
         """
         return pulumi.get(self, "max_acds_lowest_scaled_value")
 
@@ -397,7 +397,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="memoryPerOracleComputeUnitInGbs")
     def memory_per_oracle_compute_unit_in_gbs(self) -> _builtins.int:
         """
-        The amount of memory allocated per Oracle Compute Unit, in GB.
+        Amount of memory allocated per Oracle Compute Unit, in GB.
         """
         return pulumi.get(self, "memory_per_oracle_compute_unit_in_gbs")
 
@@ -405,7 +405,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="memorySizeInGbs")
     def memory_size_in_gbs(self) -> _builtins.int:
         """
-        The total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
+        Total amount of memory allocated to the Autonomous VM cluster, in gigabytes (GB).
         """
         return pulumi.get(self, "memory_size_in_gbs")
 
@@ -413,7 +413,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> _builtins.int:
         """
-        The number of database server nodes in the Autonomous VM cluster.
+        Number of database server nodes in the Autonomous VM cluster.
         """
         return pulumi.get(self, "node_count")
 
@@ -421,7 +421,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="nonProvisionableAutonomousContainerDatabases")
     def non_provisionable_autonomous_container_databases(self) -> _builtins.int:
         """
-        The number of Autonomous CDBs that can't be provisioned because of resource  constraints.
+        Number of Autonomous CDBs that can't be provisioned because of resource constraints.
         """
         return pulumi.get(self, "non_provisionable_autonomous_container_databases")
 
@@ -429,7 +429,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="ociResourceAnchorName")
     def oci_resource_anchor_name(self) -> _builtins.str:
         """
-        The name of the OCI resource anchor associated with this Autonomous VM cluster.
+        Name of the OCI resource anchor associated with this Autonomous VM cluster.
         """
         return pulumi.get(self, "oci_resource_anchor_name")
 
@@ -437,7 +437,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="ociUrl")
     def oci_url(self) -> _builtins.str:
         """
-        The URL for accessing the OCI console page for this Autonomous VM cluster.
+        URL for accessing the OCI console page for this Autonomous VM cluster.
         """
         return pulumi.get(self, "oci_url")
 
@@ -445,7 +445,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def ocid(self) -> _builtins.str:
         """
-        The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+        Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
         """
         return pulumi.get(self, "ocid")
 
@@ -453,7 +453,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="odbNetworkArn")
     def odb_network_arn(self) -> _builtins.str:
         """
-        The arn of the ODB network associated with this Autonomous VM cluster.
+        ARN of the ODB network associated with this Autonomous VM cluster.
         """
         return pulumi.get(self, "odb_network_arn")
 
@@ -461,7 +461,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> _builtins.str:
         """
-        The unique identifier of the ODB network associated with this Autonomous VM cluster.
+        Unique identifier of the ODB network associated with this Autonomous VM cluster.
         """
         return pulumi.get(self, "odb_network_id")
 
@@ -469,7 +469,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="odbNodeStorageSizeInGbs")
     def odb_node_storage_size_in_gbs(self) -> _builtins.int:
         """
-        The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
+        Local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
         """
         return pulumi.get(self, "odb_node_storage_size_in_gbs")
 
@@ -477,7 +477,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="percentProgress")
     def percent_progress(self) -> _builtins.float:
         """
-        The progress of the current operation on the Autonomous VM cluster, as a percentage.
+        Progress of the current operation on the Autonomous VM cluster, as a percentage.
         """
         return pulumi.get(self, "percent_progress")
 
@@ -485,7 +485,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="provisionableAutonomousContainerDatabases")
     def provisionable_autonomous_container_databases(self) -> _builtins.int:
         """
-        The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
+        Number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
         """
         return pulumi.get(self, "provisionable_autonomous_container_databases")
 
@@ -493,7 +493,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="provisionedAutonomousContainerDatabases")
     def provisioned_autonomous_container_databases(self) -> _builtins.int:
         """
-        The number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
+        Number of Autonomous CDBs currently provisioned in the Autonomous VM cluster.
         """
         return pulumi.get(self, "provisioned_autonomous_container_databases")
 
@@ -501,7 +501,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="provisionedCpus")
     def provisioned_cpus(self) -> _builtins.float:
         """
-        The number of CPU cores currently provisioned in the Autonomous VM cluster.
+        Number of CPU cores currently provisioned in the Autonomous VM cluster.
         """
         return pulumi.get(self, "provisioned_cpus")
 
@@ -509,7 +509,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="reclaimableCpus")
     def reclaimable_cpus(self) -> _builtins.float:
         """
-        The number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
+        Number of CPU cores that can be reclaimed from terminated or scaled-down Autonomous Databases.
         """
         return pulumi.get(self, "reclaimable_cpus")
 
@@ -522,7 +522,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="reservedCpus")
     def reserved_cpus(self) -> _builtins.float:
         """
-        The number of CPU cores reserved for system operations and redundancy.
+        Number of CPU cores reserved for system operations and redundancy.
         """
         return pulumi.get(self, "reserved_cpus")
 
@@ -530,7 +530,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="scanListenerPortNonTls")
     def scan_listener_port_non_tls(self) -> _builtins.int:
         """
-        The SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
+        SCAN listener port for non-TLS (TCP) protocol. The default is 1521.
         """
         return pulumi.get(self, "scan_listener_port_non_tls")
 
@@ -538,7 +538,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="scanListenerPortTls")
     def scan_listener_port_tls(self) -> _builtins.int:
         """
-        The SCAN listener port for TLS (TCP) protocol. The default is 2484.
+        SCAN listener port for TLS (TCP) protocol. The default is 2484.
         """
         return pulumi.get(self, "scan_listener_port_tls")
 
@@ -546,7 +546,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def shape(self) -> _builtins.str:
         """
-        The shape of the Exadata infrastructure for the Autonomous VM cluster.
+        Shape of the Exadata infrastructure for the Autonomous VM cluster.
         """
         return pulumi.get(self, "shape")
 
@@ -554,7 +554,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The status of the Autonomous VM cluster.
+        Status of the Autonomous VM cluster.
         """
         return pulumi.get(self, "status")
 
@@ -570,7 +570,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -578,7 +578,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="timeDatabaseSslCertificateExpires")
     def time_database_ssl_certificate_expires(self) -> _builtins.str:
         """
-        The expiration date and time of the database SSL certificate.
+        Expiration date and time of the database SSL certificate.
         """
         return pulumi.get(self, "time_database_ssl_certificate_expires")
 
@@ -586,7 +586,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="timeOrdsCertificateExpires")
     def time_ords_certificate_expires(self) -> _builtins.str:
         """
-        The expiration date and time of the Oracle REST Data Services (ORDS)certificate.
+        Expiration date and time of the Oracle REST Data Services (ORDS) certificate.
         """
         return pulumi.get(self, "time_ords_certificate_expires")
 
@@ -594,7 +594,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> _builtins.str:
         """
-        The time zone of the Autonomous VM cluster.
+        Time zone of the Autonomous VM cluster.
         """
         return pulumi.get(self, "time_zone")
 
@@ -602,7 +602,7 @@ class GetCloudAutonomousVmClusterResult:
     @pulumi.getter(name="totalContainerDatabases")
     def total_container_databases(self) -> _builtins.int:
         """
-        The total number of Autonomous Container Databases that can be created with the allocated local storage.
+        Total number of Autonomous Container Databases that can be created with the allocated local storage.
         """
         return pulumi.get(self, "total_container_databases")
 
@@ -688,7 +688,7 @@ def get_cloud_autonomous_vm_cluster(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: The unique identifier of the cloud autonomous vm cluster.
+    :param _builtins.str id: Unique identifier of the cloud autonomous vm cluster.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -771,7 +771,7 @@ def get_cloud_autonomous_vm_cluster_output(id: pulumi.Input[Optional[_builtins.s
     ```
 
 
-    :param _builtins.str id: The unique identifier of the cloud autonomous vm cluster.
+    :param _builtins.str id: Unique identifier of the cloud autonomous vm cluster.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

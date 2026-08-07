@@ -24,7 +24,9 @@ public final class UsagePlanQuotaSettings {
      */
     private @Nullable Integer offset;
     /**
-     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * @return Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String period;
@@ -45,7 +47,9 @@ public final class UsagePlanQuotaSettings {
         return Optional.ofNullable(this.offset);
     }
     /**
-     * @return Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
+     * @return Time period in which the limit applies. Valid values are `DAY`, `WEEK`, or `MONTH`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String period() {

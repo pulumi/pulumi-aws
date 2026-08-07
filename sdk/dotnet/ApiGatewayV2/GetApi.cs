@@ -159,7 +159,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public readonly string ApiEndpoint;
         public readonly string ApiId;
         /// <summary>
-        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
+        /// [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
         /// </summary>
         public readonly string ApiKeySelectionExpression;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The IP address types that can invoke an API.
+        /// IP address types that can invoke an API.
         /// </summary>
         public readonly string IpAddressType;
         /// <summary>
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public readonly string ProtocolType;
         public readonly string Region;
         /// <summary>
-        /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
+        /// [Route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// </summary>
         public readonly string RouteSelectionExpression;
         /// <summary>

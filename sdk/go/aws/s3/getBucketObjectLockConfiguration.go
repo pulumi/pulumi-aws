@@ -66,7 +66,7 @@ type LookupBucketObjectLockConfigurationArgs struct {
 type LookupBucketObjectLockConfigurationResult struct {
 	Bucket              string  `pulumi:"bucket"`
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
-	// Indicates whether this bucket has an Object Lock configuration enabled.
+	// Whether this bucket has an Object Lock configuration enabled.
 	ObjectLockEnabled string `pulumi:"objectLockEnabled"`
 	Region            string `pulumi:"region"`
 	// Object lock rule for the specified object. See Rule below.
@@ -121,7 +121,7 @@ func (o LookupBucketObjectLockConfigurationResultOutput) ExpectedBucketOwner() p
 	return o.ApplyT(func(v LookupBucketObjectLockConfigurationResult) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether this bucket has an Object Lock configuration enabled.
+// Whether this bucket has an Object Lock configuration enabled.
 func (o LookupBucketObjectLockConfigurationResultOutput) ObjectLockEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectLockConfigurationResult) string { return v.ObjectLockEnabled }).(pulumi.StringOutput)
 }

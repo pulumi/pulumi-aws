@@ -15,14 +15,14 @@ public final class InventoryScheduleArgs extends com.pulumi.resources.ResourceAr
     public static final InventoryScheduleArgs Empty = new InventoryScheduleArgs();
 
     /**
-     * Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+     * How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
      * 
      */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
     /**
-     * @return Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+     * @return How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
      * 
      */
     public Output<String> frequency() {
@@ -54,7 +54,7 @@ public final class InventoryScheduleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param frequency Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+         * @param frequency How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class InventoryScheduleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param frequency Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
+         * @param frequency How frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
          * 
          * @return builder
          * 

@@ -14,15 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApiEventConfig struct {
-	// List of authentication providers. See Auth Providers below.
+	// List of authentication providers. See `event_config.auth_provider` Block below.
 	AuthProviders []ApiEventConfigAuthProvider `pulumi:"authProviders"`
-	// List of authentication modes for connections. See Auth Modes below.
+	// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
 	ConnectionAuthModes []ApiEventConfigConnectionAuthMode `pulumi:"connectionAuthModes"`
-	// List of default authentication modes for publishing. See Auth Modes below.
+	// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
 	DefaultPublishAuthModes []ApiEventConfigDefaultPublishAuthMode `pulumi:"defaultPublishAuthModes"`
-	// List of default authentication modes for subscribing. See Auth Modes below.
+	// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
 	DefaultSubscribeAuthModes []ApiEventConfigDefaultSubscribeAuthMode `pulumi:"defaultSubscribeAuthModes"`
-	// Logging configuration. See Log Config below.
+	// Logging configuration. See `logConfig` Block below.
 	LogConfig *ApiEventConfigLogConfig `pulumi:"logConfig"`
 }
 
@@ -38,15 +38,15 @@ type ApiEventConfigInput interface {
 }
 
 type ApiEventConfigArgs struct {
-	// List of authentication providers. See Auth Providers below.
+	// List of authentication providers. See `event_config.auth_provider` Block below.
 	AuthProviders ApiEventConfigAuthProviderArrayInput `pulumi:"authProviders"`
-	// List of authentication modes for connections. See Auth Modes below.
+	// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
 	ConnectionAuthModes ApiEventConfigConnectionAuthModeArrayInput `pulumi:"connectionAuthModes"`
-	// List of default authentication modes for publishing. See Auth Modes below.
+	// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
 	DefaultPublishAuthModes ApiEventConfigDefaultPublishAuthModeArrayInput `pulumi:"defaultPublishAuthModes"`
-	// List of default authentication modes for subscribing. See Auth Modes below.
+	// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
 	DefaultSubscribeAuthModes ApiEventConfigDefaultSubscribeAuthModeArrayInput `pulumi:"defaultSubscribeAuthModes"`
-	// Logging configuration. See Log Config below.
+	// Logging configuration. See `logConfig` Block below.
 	LogConfig ApiEventConfigLogConfigPtrInput `pulumi:"logConfig"`
 }
 
@@ -127,27 +127,27 @@ func (o ApiEventConfigOutput) ToApiEventConfigPtrOutputWithContext(ctx context.C
 	}).(ApiEventConfigPtrOutput)
 }
 
-// List of authentication providers. See Auth Providers below.
+// List of authentication providers. See `event_config.auth_provider` Block below.
 func (o ApiEventConfigOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigAuthProvider { return v.AuthProviders }).(ApiEventConfigAuthProviderArrayOutput)
 }
 
-// List of authentication modes for connections. See Auth Modes below.
+// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
 func (o ApiEventConfigOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigConnectionAuthMode { return v.ConnectionAuthModes }).(ApiEventConfigConnectionAuthModeArrayOutput)
 }
 
-// List of default authentication modes for publishing. See Auth Modes below.
+// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
 func (o ApiEventConfigOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode { return v.DefaultPublishAuthModes }).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
 }
 
-// List of default authentication modes for subscribing. See Auth Modes below.
+// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
 func (o ApiEventConfigOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode { return v.DefaultSubscribeAuthModes }).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
 }
 
-// Logging configuration. See Log Config below.
+// Logging configuration. See `logConfig` Block below.
 func (o ApiEventConfigOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfig) *ApiEventConfigLogConfig { return v.LogConfig }).(ApiEventConfigLogConfigPtrOutput)
 }
@@ -176,7 +176,7 @@ func (o ApiEventConfigPtrOutput) Elem() ApiEventConfigOutput {
 	}).(ApiEventConfigOutput)
 }
 
-// List of authentication providers. See Auth Providers below.
+// List of authentication providers. See `event_config.auth_provider` Block below.
 func (o ApiEventConfigPtrOutput) AuthProviders() ApiEventConfigAuthProviderArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigAuthProvider {
 		if v == nil {
@@ -186,7 +186,7 @@ func (o ApiEventConfigPtrOutput) AuthProviders() ApiEventConfigAuthProviderArray
 	}).(ApiEventConfigAuthProviderArrayOutput)
 }
 
-// List of authentication modes for connections. See Auth Modes below.
+// List of authentication modes for connections. See `event_config.connection_auth_mode` Block below.
 func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiEventConfigConnectionAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigConnectionAuthMode {
 		if v == nil {
@@ -196,7 +196,7 @@ func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiEventConfigConnectionA
 	}).(ApiEventConfigConnectionAuthModeArrayOutput)
 }
 
-// List of default authentication modes for publishing. See Auth Modes below.
+// List of default authentication modes for publishing. See `event_config.default_publish_auth_mode` Block below.
 func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiEventConfigDefaultPublishAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultPublishAuthMode {
 		if v == nil {
@@ -206,7 +206,7 @@ func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiEventConfigDefault
 	}).(ApiEventConfigDefaultPublishAuthModeArrayOutput)
 }
 
-// List of default authentication modes for subscribing. See Auth Modes below.
+// List of default authentication modes for subscribing. See `event_config.default_subscribe_auth_mode` Block below.
 func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiEventConfigDefaultSubscribeAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiEventConfigDefaultSubscribeAuthMode {
 		if v == nil {
@@ -216,7 +216,7 @@ func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiEventConfigDefau
 	}).(ApiEventConfigDefaultSubscribeAuthModeArrayOutput)
 }
 
-// Logging configuration. See Log Config below.
+// Logging configuration. See `logConfig` Block below.
 func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfig) *ApiEventConfigLogConfig {
 		if v == nil {
@@ -229,11 +229,11 @@ func (o ApiEventConfigPtrOutput) LogConfig() ApiEventConfigLogConfigPtrOutput {
 type ApiEventConfigAuthProvider struct {
 	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType string `pulumi:"authType"`
-	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See `cognitoConfig` Block below.
 	CognitoConfig *ApiEventConfigAuthProviderCognitoConfig `pulumi:"cognitoConfig"`
-	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See `lambdaAuthorizerConfig` Block below.
 	LambdaAuthorizerConfig *ApiEventConfigAuthProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See `openidConnectConfig` Block below.
 	OpenidConnectConfig *ApiEventConfigAuthProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
 }
 
@@ -251,11 +251,11 @@ type ApiEventConfigAuthProviderInput interface {
 type ApiEventConfigAuthProviderArgs struct {
 	// Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
 	AuthType pulumi.StringInput `pulumi:"authType"`
-	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+	// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See `cognitoConfig` Block below.
 	CognitoConfig ApiEventConfigAuthProviderCognitoConfigPtrInput `pulumi:"cognitoConfig"`
-	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+	// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See `lambdaAuthorizerConfig` Block below.
 	LambdaAuthorizerConfig ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
-	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+	// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See `openidConnectConfig` Block below.
 	OpenidConnectConfig ApiEventConfigAuthProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
 }
 
@@ -315,19 +315,19 @@ func (o ApiEventConfigAuthProviderOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) string { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+// Configuration for Cognito user pool authentication. Required when `authType` is `AMAZON_COGNITO_USER_POOLS`. See `cognitoConfig` Block below.
 func (o ApiEventConfigAuthProviderOutput) CognitoConfig() ApiEventConfigAuthProviderCognitoConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderCognitoConfig { return v.CognitoConfig }).(ApiEventConfigAuthProviderCognitoConfigPtrOutput)
 }
 
-// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+// Configuration for Lambda authorization. Required when `authType` is `AWS_LAMBDA`. See `lambdaAuthorizerConfig` Block below.
 func (o ApiEventConfigAuthProviderOutput) LambdaAuthorizerConfig() ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderLambdaAuthorizerConfig {
 		return v.LambdaAuthorizerConfig
 	}).(ApiEventConfigAuthProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See OpenID Connect Config below.
+// Configuration for OpenID Connect. Required when `authType` is `OPENID_CONNECT`. See `openidConnectConfig` Block below.
 func (o ApiEventConfigAuthProviderOutput) OpenidConnectConfig() ApiEventConfigAuthProviderOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfigAuthProvider) *ApiEventConfigAuthProviderOpenidConnectConfig {
 		return v.OpenidConnectConfig
@@ -1348,9 +1348,9 @@ func (o ApiEventConfigLogConfigPtrOutput) LogLevel() pulumi.StringPtrOutput {
 }
 
 type ChannelNamespaceHandlerConfigs struct {
-	// Handler configuration. See Handler Config below.
+	// Handler configuration for published events. See `onPublish` below.
 	OnPublish *ChannelNamespaceHandlerConfigsOnPublish `pulumi:"onPublish"`
-	// Handler configuration. See Handler Config below.
+	// Handler configuration for subscribe requests. See `onSubscribe` below.
 	OnSubscribe *ChannelNamespaceHandlerConfigsOnSubscribe `pulumi:"onSubscribe"`
 }
 
@@ -1366,9 +1366,9 @@ type ChannelNamespaceHandlerConfigsInput interface {
 }
 
 type ChannelNamespaceHandlerConfigsArgs struct {
-	// Handler configuration. See Handler Config below.
+	// Handler configuration for published events. See `onPublish` below.
 	OnPublish ChannelNamespaceHandlerConfigsOnPublishPtrInput `pulumi:"onPublish"`
-	// Handler configuration. See Handler Config below.
+	// Handler configuration for subscribe requests. See `onSubscribe` below.
 	OnSubscribe ChannelNamespaceHandlerConfigsOnSubscribePtrInput `pulumi:"onSubscribe"`
 }
 
@@ -1449,12 +1449,12 @@ func (o ChannelNamespaceHandlerConfigsOutput) ToChannelNamespaceHandlerConfigsPt
 	}).(ChannelNamespaceHandlerConfigsPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
+// Handler configuration for published events. See `onPublish` below.
 func (o ChannelNamespaceHandlerConfigsOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish { return v.OnPublish }).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
+// Handler configuration for subscribe requests. See `onSubscribe` below.
 func (o ChannelNamespaceHandlerConfigsOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
 		return v.OnSubscribe
@@ -1485,7 +1485,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) Elem() ChannelNamespaceHandlerC
 	}).(ChannelNamespaceHandlerConfigsOutput)
 }
 
-// Handler configuration. See Handler Config below.
+// Handler configuration for published events. See `onPublish` below.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHandlerConfigsOnPublishPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnPublish {
 		if v == nil {
@@ -1495,7 +1495,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnPublish() ChannelNamespaceHan
 	}).(ChannelNamespaceHandlerConfigsOnPublishPtrOutput)
 }
 
-// Handler configuration. See Handler Config below.
+// Handler configuration for subscribe requests. See `onSubscribe` below.
 func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceHandlerConfigsOnSubscribePtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigs) *ChannelNamespaceHandlerConfigsOnSubscribe {
 		if v == nil {
@@ -1508,7 +1508,7 @@ func (o ChannelNamespaceHandlerConfigsPtrOutput) OnSubscribe() ChannelNamespaceH
 type ChannelNamespaceHandlerConfigsOnPublish struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior string `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	// Integration data source configuration for the handler. See `integration` below.
 	Integration ChannelNamespaceHandlerConfigsOnPublishIntegration `pulumi:"integration"`
 }
 
@@ -1526,7 +1526,7 @@ type ChannelNamespaceHandlerConfigsOnPublishInput interface {
 type ChannelNamespaceHandlerConfigsOnPublishArgs struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	// Integration data source configuration for the handler. See `integration` below.
 	Integration ChannelNamespaceHandlerConfigsOnPublishIntegrationInput `pulumi:"integration"`
 }
 
@@ -1612,7 +1612,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Behavior() pulumi.StringO
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
+// Integration data source configuration for the handler. See `integration` below.
 func (o ChannelNamespaceHandlerConfigsOnPublishOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublish) ChannelNamespaceHandlerConfigsOnPublishIntegration {
 		return v.Integration
@@ -1653,7 +1653,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Behavior() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
+// Integration data source configuration for the handler. See `integration` below.
 func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublish) *ChannelNamespaceHandlerConfigsOnPublishIntegration {
 		if v == nil {
@@ -1666,7 +1666,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishPtrOutput) Integration() ChannelN
 type ChannelNamespaceHandlerConfigsOnPublishIntegration struct {
 	// Unique name of the data source that has been configured on the API.
 	DataSourceName string `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
+	// Configuration for a Lambda data source. See `lambdaConfig` below.
 	LambdaConfig *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig `pulumi:"lambdaConfig"`
 }
 
@@ -1684,7 +1684,7 @@ type ChannelNamespaceHandlerConfigsOnPublishIntegrationInput interface {
 type ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs struct {
 	// Unique name of the data source that has been configured on the API.
 	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
+	// Configuration for a Lambda data source. See `lambdaConfig` below.
 	LambdaConfig ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
 }
 
@@ -1770,7 +1770,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) DataSourceName
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
+// Configuration for a Lambda data source. See `lambdaConfig` below.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
 		return v.LambdaConfig
@@ -1811,7 +1811,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) DataSourceN
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
+// Configuration for a Lambda data source. See `lambdaConfig` below.
 func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnPublishIntegration) *ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig {
 		if v == nil {
@@ -1961,7 +1961,7 @@ func (o ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigPtrOutput)
 type ChannelNamespaceHandlerConfigsOnSubscribe struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior string `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	// Integration data source configuration for the handler. See `integration` below.
 	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegration `pulumi:"integration"`
 }
 
@@ -1979,7 +1979,7 @@ type ChannelNamespaceHandlerConfigsOnSubscribeInput interface {
 type ChannelNamespaceHandlerConfigsOnSubscribeArgs struct {
 	// Behavior for the handler. Valid values: `CODE`, `DIRECT`.
 	Behavior pulumi.StringInput `pulumi:"behavior"`
-	// Integration data source configuration for the handler. See Integration below.
+	// Integration data source configuration for the handler. See `integration` below.
 	Integration ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput `pulumi:"integration"`
 }
 
@@ -2065,7 +2065,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Behavior() pulumi.Strin
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) string { return v.Behavior }).(pulumi.StringOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
+// Integration data source configuration for the handler. See `integration` below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribe) ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
 		return v.Integration
@@ -2106,7 +2106,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Behavior() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Integration data source configuration for the handler. See Integration below.
+// Integration data source configuration for the handler. See `integration` below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribe) *ChannelNamespaceHandlerConfigsOnSubscribeIntegration {
 		if v == nil {
@@ -2119,7 +2119,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribePtrOutput) Integration() Channe
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegration struct {
 	// Unique name of the data source that has been configured on the API.
 	DataSourceName string `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
+	// Configuration for a Lambda data source. See `lambdaConfig` below.
 	LambdaConfig *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig `pulumi:"lambdaConfig"`
 }
 
@@ -2137,7 +2137,7 @@ type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationInput interface {
 type ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs struct {
 	// Unique name of the data source that has been configured on the API.
 	DataSourceName pulumi.StringInput `pulumi:"dataSourceName"`
-	// Configuration for a Lambda data source. See Lambda Config below.
+	// Configuration for a Lambda data source. See `lambdaConfig` below.
 	LambdaConfig ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrInput `pulumi:"lambdaConfig"`
 }
 
@@ -2223,7 +2223,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) DataSourceNa
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) string { return v.DataSourceName }).(pulumi.StringOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
+// Configuration for a Lambda data source. See `lambdaConfig` below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
 		return v.LambdaConfig
@@ -2264,7 +2264,7 @@ func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) DataSourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configuration for a Lambda data source. See Lambda Config below.
+// Configuration for a Lambda data source. See `lambdaConfig` below.
 func (o ChannelNamespaceHandlerConfigsOnSubscribeIntegrationPtrOutput) LambdaConfig() ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespaceHandlerConfigsOnSubscribeIntegration) *ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfig {
 		if v == nil {
@@ -2606,7 +2606,7 @@ func (o ChannelNamespaceSubscribeAuthModeArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type DataSourceDynamodbConfig struct {
-	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
+	// DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
@@ -2630,7 +2630,7 @@ type DataSourceDynamodbConfigInput interface {
 }
 
 type DataSourceDynamodbConfigArgs struct {
-	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
+	// DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -2719,7 +2719,7 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithC
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
+// DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
@@ -2768,7 +2768,7 @@ func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput
 	}).(DataSourceDynamodbConfigOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
+// DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig {
 		if v == nil {
@@ -2819,11 +2819,11 @@ func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfig struct {
-	// The number of minutes that an Item is stored in the data source.
+	// Number of minutes that an Item is stored in the data source.
 	BaseTableTtl *int `pulumi:"baseTableTtl"`
-	// The table name.
+	// Table name.
 	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
-	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	// Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 	DeltaSyncTableTtl *int `pulumi:"deltaSyncTableTtl"`
 }
 
@@ -2839,11 +2839,11 @@ type DataSourceDynamodbConfigDeltaSyncConfigInput interface {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfigArgs struct {
-	// The number of minutes that an Item is stored in the data source.
+	// Number of minutes that an Item is stored in the data source.
 	BaseTableTtl pulumi.IntPtrInput `pulumi:"baseTableTtl"`
-	// The table name.
+	// Table name.
 	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
-	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	// Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 	DeltaSyncTableTtl pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
 }
 
@@ -2924,17 +2924,17 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) ToDataSourceDynamodbConfi
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
-// The number of minutes that an Item is stored in the data source.
+// Number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.BaseTableTtl }).(pulumi.IntPtrOutput)
 }
 
-// The table name.
+// Table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
 }
 
-// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+// Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.DeltaSyncTableTtl }).(pulumi.IntPtrOutput)
 }
@@ -2963,7 +2963,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) Elem() DataSourceDynam
 	}).(DataSourceDynamodbConfigDeltaSyncConfigOutput)
 }
 
-// The number of minutes that an Item is stored in the data source.
+// Number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -2973,7 +2973,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The table name.
+// Table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *string {
 		if v == nil {
@@ -2983,7 +2983,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+// Number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -4421,9 +4421,9 @@ func (o DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput) Schema() 
 }
 
 type FunctionRuntime struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 	Name string `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -4439,9 +4439,9 @@ type FunctionRuntimeInput interface {
 }
 
 type FunctionRuntimeArgs struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -4522,12 +4522,12 @@ func (o FunctionRuntimeOutput) ToFunctionRuntimePtrOutputWithContext(ctx context
 	}).(FunctionRuntimePtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o FunctionRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -4556,7 +4556,7 @@ func (o FunctionRuntimePtrOutput) Elem() FunctionRuntimeOutput {
 	}).(FunctionRuntimeOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o FunctionRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntime) *string {
 		if v == nil {
@@ -4566,7 +4566,7 @@ func (o FunctionRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o FunctionRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionRuntime) *string {
 		if v == nil {
@@ -4897,7 +4897,7 @@ type GraphQLApiAdditionalAuthenticationProvider struct {
 	LambdaAuthorizerConfig *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+	// Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
 	UserPoolConfig *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig `pulumi:"userPoolConfig"`
 }
 
@@ -4919,7 +4919,7 @@ type GraphQLApiAdditionalAuthenticationProviderArgs struct {
 	LambdaAuthorizerConfig GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+	// Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
 	UserPoolConfig GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput `pulumi:"userPoolConfig"`
 }
 
@@ -4993,7 +4993,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenidConnectConfig() 
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
-// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
+// Amazon Cognito User Pool configuration. See `additional_authentication_provider.user_pool_config` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) UserPoolConfig() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return v.UserPoolConfig
@@ -6484,9 +6484,9 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type ResolverCachingConfig struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+	// Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+	// TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 	Ttl *int `pulumi:"ttl"`
 }
 
@@ -6502,9 +6502,9 @@ type ResolverCachingConfigInput interface {
 }
 
 type ResolverCachingConfigArgs struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+	// Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+	// TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
 }
 
@@ -6585,12 +6585,12 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext
 	}).(ResolverCachingConfigPtrOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+// Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+// TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) *int { return v.Ttl }).(pulumi.IntPtrOutput)
 }
@@ -6619,7 +6619,7 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+// Caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -6629,7 +6629,7 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+// TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *int {
 		if v == nil {
@@ -6640,7 +6640,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.IntPtrOutput {
 }
 
 type ResolverPipelineConfig struct {
-	// A list of Function objects.
+	// List of Function objects.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -6656,7 +6656,7 @@ type ResolverPipelineConfigInput interface {
 }
 
 type ResolverPipelineConfigArgs struct {
-	// A list of Function objects.
+	// List of Function objects.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -6737,7 +6737,7 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithConte
 	}).(ResolverPipelineConfigPtrOutput)
 }
 
-// A list of Function objects.
+// List of Function objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -6766,7 +6766,7 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// A list of Function objects.
+// List of Function objects.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -6777,9 +6777,9 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 }
 
 type ResolverRuntime struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 	Name string `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -6795,9 +6795,9 @@ type ResolverRuntimeInput interface {
 }
 
 type ResolverRuntimeArgs struct {
-	// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+	// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+	// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -6878,12 +6878,12 @@ func (o ResolverRuntimeOutput) ToResolverRuntimePtrOutputWithContext(ctx context
 	}).(ResolverRuntimePtrOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o ResolverRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o ResolverRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -6912,7 +6912,7 @@ func (o ResolverRuntimePtrOutput) Elem() ResolverRuntimeOutput {
 	}).(ResolverRuntimeOutput)
 }
 
-// The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+// Name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
 func (o ResolverRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuntime) *string {
 		if v == nil {
@@ -6922,7 +6922,7 @@ func (o ResolverRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+// Version of the runtime to use. Currently, the only allowed version is `1.0.0`.
 func (o ResolverRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverRuntime) *string {
 		if v == nil {

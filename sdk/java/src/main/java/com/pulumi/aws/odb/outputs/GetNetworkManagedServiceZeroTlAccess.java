@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetNetworkManagedServiceZeroTlAccess {
     private String cidr;
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     private String status;
@@ -22,7 +22,7 @@ public final class GetNetworkManagedServiceZeroTlAccess {
         return this.cidr;
     }
     /**
-     * @return The status of the network resource.
+     * @return Status of the network resource.
      * 
      */
     public String status() {

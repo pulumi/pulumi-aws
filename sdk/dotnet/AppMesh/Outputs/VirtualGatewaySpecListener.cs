@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerPortMapping PortMapping;
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `Tls` Block for details.
+        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTls? Tls;
 

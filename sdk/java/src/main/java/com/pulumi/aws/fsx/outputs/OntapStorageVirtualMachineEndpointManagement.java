@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OntapStorageVirtualMachineEndpointManagement {
     /**
-     * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+     * @return Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
     private @Nullable String dnsName;
@@ -25,7 +25,7 @@ public final class OntapStorageVirtualMachineEndpointManagement {
 
     private OntapStorageVirtualMachineEndpointManagement() {}
     /**
-     * @return The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+     * @return Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
     public Optional<String> dnsName() {

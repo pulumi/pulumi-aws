@@ -15,14 +15,14 @@ public final class ListenerRuleActionFixedResponseArgs extends com.pulumi.resour
     public static final ListenerRuleActionFixedResponseArgs Empty = new ListenerRuleActionFixedResponseArgs();
 
     /**
-     * The HTTP response code.
+     * HTTP response code.
      * 
      */
     @Import(name="statusCode", required=true)
     private Output<Integer> statusCode;
 
     /**
-     * @return The HTTP response code.
+     * @return HTTP response code.
      * 
      */
     public Output<Integer> statusCode() {
@@ -54,7 +54,7 @@ public final class ListenerRuleActionFixedResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param statusCode The HTTP response code.
+         * @param statusCode HTTP response code.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ListenerRuleActionFixedResponseArgs extends com.pulumi.resour
         }
 
         /**
-         * @param statusCode The HTTP response code.
+         * @param statusCode HTTP response code.
          * 
          * @return builder
          * 

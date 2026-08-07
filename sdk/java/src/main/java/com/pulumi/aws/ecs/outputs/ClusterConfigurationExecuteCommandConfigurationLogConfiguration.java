@@ -18,7 +18,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
      */
     private @Nullable Boolean cloudWatchEncryptionEnabled;
     /**
-     * @return The name of the CloudWatch log group to send logs to.
+     * @return Name of the CloudWatch log group to send logs to.
      * 
      */
     private @Nullable String cloudWatchLogGroupName;
@@ -47,7 +47,7 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
         return Optional.ofNullable(this.cloudWatchEncryptionEnabled);
     }
     /**
-     * @return The name of the CloudWatch log group to send logs to.
+     * @return Name of the CloudWatch log group to send logs to.
      * 
      */
     public Optional<String> cloudWatchLogGroupName() {

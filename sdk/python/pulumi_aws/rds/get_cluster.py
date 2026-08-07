@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, region=None, replication_source_identifier=None, storage_encrypted=None, tags=None, upgrade_rollout_order=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, deletion_protection=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, region=None, replication_source_identifier=None, storage_encrypted=None, tags=None, upgrade_rollout_order=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -67,6 +67,9 @@ class GetClusterResult:
         if db_system_id and not isinstance(db_system_id, str):
             raise TypeError("Expected argument 'db_system_id' to be a str")
         pulumi.set(__self__, "db_system_id", db_system_id)
+        if deletion_protection and not isinstance(deletion_protection, bool):
+            raise TypeError("Expected argument 'deletion_protection' to be a bool")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enabled_cloudwatch_logs_exports and not isinstance(enabled_cloudwatch_logs_exports, list):
             raise TypeError("Expected argument 'enabled_cloudwatch_logs_exports' to be a list")
         pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
@@ -210,6 +213,11 @@ class GetClusterResult:
     @pulumi.getter(name="dbSystemId")
     def db_system_id(self) -> _builtins.str:
         return pulumi.get(self, "db_system_id")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> _builtins.bool:
+        return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
@@ -367,6 +375,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
             db_subnet_group_name=self.db_subnet_group_name,
             db_system_id=self.db_system_id,
+            deletion_protection=self.deletion_protection,
             enabled_cloudwatch_logs_exports=self.enabled_cloudwatch_logs_exports,
             endpoint=self.endpoint,
             engine=self.engine,
@@ -437,6 +446,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
         db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
         db_subnet_group_name=pulumi.get(__ret__, 'db_subnet_group_name'),
         db_system_id=pulumi.get(__ret__, 'db_system_id'),
+        deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         enabled_cloudwatch_logs_exports=pulumi.get(__ret__, 'enabled_cloudwatch_logs_exports'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         engine=pulumi.get(__ret__, 'engine'),
@@ -504,6 +514,7 @@ def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]]
         db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),
         db_subnet_group_name=pulumi.get(__response__, 'db_subnet_group_name'),
         db_system_id=pulumi.get(__response__, 'db_system_id'),
+        deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         enabled_cloudwatch_logs_exports=pulumi.get(__response__, 'enabled_cloudwatch_logs_exports'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         engine=pulumi.get(__response__, 'engine'),

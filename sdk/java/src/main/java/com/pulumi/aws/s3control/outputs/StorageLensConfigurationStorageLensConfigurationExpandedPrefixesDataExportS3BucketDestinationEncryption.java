@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryption {
     /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
+     * @return SSE-KMS encryption. See `sseKms` below for more details.
      * 
      */
     private @Nullable StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKms sseKms;
@@ -26,7 +26,7 @@ public final class StorageLensConfigurationStorageLensConfigurationExpandedPrefi
 
     private StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryption() {}
     /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
+     * @return SSE-KMS encryption. See `sseKms` below for more details.
      * 
      */
     public Optional<StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKms> sseKms() {

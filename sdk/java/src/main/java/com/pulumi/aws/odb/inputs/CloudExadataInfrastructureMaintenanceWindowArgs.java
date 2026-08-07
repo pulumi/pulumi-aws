@@ -22,14 +22,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     public static final CloudExadataInfrastructureMaintenanceWindowArgs Empty = new CloudExadataInfrastructureMaintenanceWindowArgs();
 
     /**
-     * The custom action timeout in minutes for the maintenance window.
+     * Custom action timeout in minutes for the maintenance window.
      * 
      */
     @Import(name="customActionTimeoutInMins", required=true)
     private Output<Integer> customActionTimeoutInMins;
 
     /**
-     * @return The custom action timeout in minutes for the maintenance window.
+     * @return Custom action timeout in minutes for the maintenance window.
      * 
      */
     public Output<Integer> customActionTimeoutInMins() {
@@ -37,14 +37,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The days of the week when maintenance can be performed.
+     * Days of the week when maintenance can be performed.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks;
 
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return Days of the week when maintenance can be performed.
      * 
      */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs>>> daysOfWeeks() {
@@ -52,14 +52,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The hours of the day when maintenance can be performed.
+     * Hours of the day when maintenance can be performed.
      * 
      */
     @Import(name="hoursOfDays")
     private @Nullable Output<List<Integer>> hoursOfDays;
 
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return Hours of the day when maintenance can be performed.
      * 
      */
     public Optional<Output<List<Integer>>> hoursOfDays() {
@@ -67,14 +67,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * ndicates whether custom action timeout is enabled for the maintenance window.
+     * Whether custom action timeout is enabled for the maintenance window.
      * 
      */
     @Import(name="isCustomActionTimeoutEnabled", required=true)
     private Output<Boolean> isCustomActionTimeoutEnabled;
 
     /**
-     * @return ndicates whether custom action timeout is enabled for the maintenance window.
+     * @return Whether custom action timeout is enabled for the maintenance window.
      * 
      */
     public Output<Boolean> isCustomActionTimeoutEnabled() {
@@ -82,14 +82,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The lead time in weeks before the maintenance window.
+     * Lead time in weeks before the maintenance window.
      * 
      */
     @Import(name="leadTimeInWeeks")
     private @Nullable Output<Integer> leadTimeInWeeks;
 
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return Lead time in weeks before the maintenance window.
      * 
      */
     public Optional<Output<Integer>> leadTimeInWeeks() {
@@ -97,14 +97,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The months when maintenance can be performed.
+     * Months when maintenance can be performed.
      * 
      */
     @Import(name="months")
     private @Nullable Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>> months;
 
     /**
-     * @return The months when maintenance can be performed.
+     * @return Months when maintenance can be performed.
      * 
      */
     public Optional<Output<List<CloudExadataInfrastructureMaintenanceWindowMonthArgs>>> months() {
@@ -112,14 +112,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The patching mode for the maintenance window.
+     * Patching mode for the maintenance window.
      * 
      */
     @Import(name="patchingMode", required=true)
     private Output<String> patchingMode;
 
     /**
-     * @return The patching mode for the maintenance window.
+     * @return Patching mode for the maintenance window.
      * 
      */
     public Output<String> patchingMode() {
@@ -127,14 +127,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The preference for the maintenance window scheduling.
+     * Preference for the maintenance window scheduling.
      * 
      */
     @Import(name="preference", required=true)
     private Output<String> preference;
 
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return Preference for the maintenance window scheduling.
      * 
      */
     public Output<String> preference() {
@@ -142,14 +142,14 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
     }
 
     /**
-     * The weeks of the month when maintenance can be performed.
+     * Weeks of the month when maintenance can be performed.
      * 
      */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<Integer>> weeksOfMonths;
 
     /**
-     * @return The weeks of the month when maintenance can be performed.
+     * @return Weeks of the month when maintenance can be performed.
      * 
      */
     public Optional<Output<List<Integer>>> weeksOfMonths() {
@@ -189,7 +189,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param customActionTimeoutInMins The custom action timeout in minutes for the maintenance window.
+         * @param customActionTimeoutInMins Custom action timeout in minutes for the maintenance window.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param customActionTimeoutInMins The custom action timeout in minutes for the maintenance window.
+         * @param customActionTimeoutInMins Custom action timeout in minutes for the maintenance window.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks Days of the week when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays Hours of the day when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays Hours of the day when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays Hours of the day when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param isCustomActionTimeoutEnabled ndicates whether custom action timeout is enabled for the maintenance window.
+         * @param isCustomActionTimeoutEnabled Whether custom action timeout is enabled for the maintenance window.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param isCustomActionTimeoutEnabled ndicates whether custom action timeout is enabled for the maintenance window.
+         * @param isCustomActionTimeoutEnabled Whether custom action timeout is enabled for the maintenance window.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
+         * @param leadTimeInWeeks Lead time in weeks before the maintenance window.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
+         * @param leadTimeInWeeks Lead time in weeks before the maintenance window.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months Months when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months Months when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -335,7 +335,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months Months when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param patchingMode The patching mode for the maintenance window.
+         * @param patchingMode Patching mode for the maintenance window.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param patchingMode The patching mode for the maintenance window.
+         * @param patchingMode Patching mode for the maintenance window.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param preference The preference for the maintenance window scheduling.
+         * @param preference Preference for the maintenance window scheduling.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param preference The preference for the maintenance window scheduling.
+         * @param preference Preference for the maintenance window scheduling.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
+         * @param weeksOfMonths Weeks of the month when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
+         * @param weeksOfMonths Weeks of the month when maintenance can be performed.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class CloudExadataInfrastructureMaintenanceWindowArgs extends com.p
         }
 
         /**
-         * @param weeksOfMonths The weeks of the month when maintenance can be performed.
+         * @param weeksOfMonths Weeks of the month when maintenance can be performed.
          * 
          * @return builder
          * 

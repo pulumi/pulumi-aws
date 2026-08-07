@@ -76,31 +76,31 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
         public Output<int?> AutomaticBackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+        /// Whether tags for the file system should be copied to backups. Default value is false.
         /// </summary>
         [Output("copyTagsToBackups")]
         public Output<bool?> CopyTagsToBackups { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default value is false.
         /// </summary>
         [Output("copyTagsToVolumes")]
         public Output<bool?> CopyTagsToVolumes { get; private set; } = null!;
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Output("dailyAutomaticBackupStartTime")]
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
+        /// SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OpenZfsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> EndpointIpAddressRange { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// </summary>
         [Output("finalBackupTags")]
         public Output<ImmutableDictionary<string, string>?> FinalBackupTags { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
+        /// Configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Output("rootVolumeConfiguration")]
         public Output<Outputs.OpenZfsFileSystemRootVolumeConfiguration> RootVolumeConfiguration { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -214,31 +214,31 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
+        /// Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
+        /// Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Output("storageType")]
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from.
+        /// List of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Output("weeklyMaintenanceStartTime")]
         public Output<string> WeeklyMaintenanceStartTime { get; private set; } = null!;
@@ -310,31 +310,31 @@ namespace Pulumi.Aws.Fsx
     public sealed class OpenZfsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+        /// Whether tags for the file system should be copied to backups. Default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default value is false.
         /// </summary>
         [Input("copyTagsToVolumes")]
         public Input<bool>? CopyTagsToVolumes { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
+        /// SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
@@ -373,7 +373,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _finalBackupTags;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// </summary>
         public InputMap<string> FinalBackupTags
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
+        /// Configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -442,13 +442,13 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
+        /// Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
+        /// Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from.
+        /// List of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -486,7 +486,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int> ThroughputCapacity { get; set; } = null!;
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }
@@ -506,31 +506,31 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The ID of the source backup to create the filesystem from.
+        /// ID of the source backup to create the filesystem from.
         /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
+        /// Whether tags for the file system should be copied to backups. Default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
         public Input<bool>? CopyTagsToBackups { get; set; }
 
         /// <summary>
-        /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        /// Whether tags for the file system should be copied to snapshots. Default value is false.
         /// </summary>
         [Input("copyTagsToVolumes")]
         public Input<bool>? CopyTagsToVolumes { get; set; }
 
         /// <summary>
-        /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
+        /// Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `AutomaticBackupRetentionDays` to be set.
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
@@ -554,7 +554,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
+        /// SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `DiskIopsConfiguration` Block for details.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -581,7 +581,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _finalBackupTags;
 
         /// <summary>
-        /// A map of tags to apply to the file system's final backup.
+        /// Map of tags to apply to the file system's final backup.
         /// </summary>
         public InputMap<string> FinalBackupTags
         {
@@ -632,7 +632,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
+        /// Configuration for the root volume of the file system. All other volumes are children or the root volume. See `RootVolumeConfiguration` Block for details.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationGetArgs>? RootVolumeConfiguration { get; set; }
@@ -659,7 +659,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        /// List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -674,13 +674,13 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
+        /// Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `StorageType` is set to `SSD`. Must not be set when `StorageType` is set to `INTELLIGENT_TIERING`.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
-        /// The filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
+        /// Filesystem storage type. Valid values are `SSD` and `INTELLIGENT_TIERING`. `INTELLIGENT_TIERING` requires `DeploymentType` to be `MULTI_AZ_1`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -689,7 +689,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from.
+        /// List of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -701,7 +701,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the file system. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -713,7 +713,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -736,7 +736,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
+        /// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }
